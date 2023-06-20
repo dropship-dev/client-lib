@@ -31,3 +31,4 @@ jobs:
           # It defaults to `main`
           target-branch: "build"
           target-directory: .
+          create-target-branch-if-needed: true
