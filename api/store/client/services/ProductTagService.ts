@@ -1,0 +1,38 @@
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { Tag } from '../models/Tag';
+
+import type { CancelablePromise } from '../core/CancelablePromise';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
+export class ProductTagService {
+
+  constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns Tag Ok
+   * @throws ApiError
+   */
+  public getProductTag({
+    id,
+  }: {
+    id: string,
+  }): CancelablePromise<Tag> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/product-tag/{id}',
+      path: {
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+}
