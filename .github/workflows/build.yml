@@ -16,19 +16,7 @@ jobs:
         with:
           node-version: 18.x
           cache: "yarn"
+          registry-url: "https://npm.pkg.github.com"
       - run: yarn
       - run: yarn build
-      - name: Copy api folder to Client Lib
-        uses: cpina/github-action-push-to-another-repository@v1.7.2
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # GitHub Action output files
-          source-directory: dist
-          destination-github-username: dropship-dev
-          destination-repository-name: client-lib
-          user-email: action@github.com
-          # It defaults to `main`
-          target-branch: "build"
-          target-directory: .
-          create-target-branch-if-needed: true
+      - run: npm publish
