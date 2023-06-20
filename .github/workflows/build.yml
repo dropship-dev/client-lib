@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 18.x
@@ -20,6 +19,13 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - run: yarn
       - run: yarn build
-      - run: npm publish
+      - run: |
+          cp package.json dist/
+          cp yarn.lock dist/
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@v2.6.0
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: self
+          BRANCH: build
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
