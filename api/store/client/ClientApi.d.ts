@@ -1,0 +1,32 @@
+import type { BaseHttpRequest } from './core/BaseHttpRequest';
+import type { OpenAPIConfig } from './core/OpenAPI';
+import { CollectionService } from './services/CollectionService';
+import { CurrencyService } from './services/CurrencyService';
+import { OrderService } from './services/OrderService';
+import { ProductService } from './services/ProductService';
+import { ProductTagService } from './services/ProductTagService';
+import { ReviewService } from './services/ReviewService';
+import { SettingService } from './services/SettingService';
+import { StoreService } from './services/StoreService';
+import { ThemeService } from './services/ThemeService';
+import { TransactionService } from './services/TransactionService';
+import { UploadService } from './services/UploadService';
+import { VariantService } from './services/VariantService';
+type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
+export declare class ClientApi {
+    readonly collection: CollectionService;
+    readonly currency: CurrencyService;
+    readonly order: OrderService;
+    readonly product: ProductService;
+    readonly productTag: ProductTagService;
+    readonly review: ReviewService;
+    readonly setting: SettingService;
+    readonly store: StoreService;
+    readonly theme: ThemeService;
+    readonly transaction: TransactionService;
+    readonly upload: UploadService;
+    readonly variant: VariantService;
+    readonly request: BaseHttpRequest;
+    constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
+}
+export {};

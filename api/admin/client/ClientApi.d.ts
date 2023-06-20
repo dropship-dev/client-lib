@@ -1,0 +1,38 @@
+import type { BaseHttpRequest } from './core/BaseHttpRequest';
+import type { OpenAPIConfig } from './core/OpenAPI';
+import { AuthService } from './services/AuthService';
+import { CurrencyService } from './services/CurrencyService';
+import { DefaultService } from './services/DefaultService';
+import { OrderService } from './services/OrderService';
+import { PaymentService } from './services/PaymentService';
+import { PlatformProductService } from './services/PlatformProductService';
+import { PlatformVariantService } from './services/PlatformVariantService';
+import { ProductService } from './services/ProductService';
+import { ProductTagService } from './services/ProductTagService';
+import { SettingService } from './services/SettingService';
+import { StoreService } from './services/StoreService';
+import { ThemeTemplateService } from './services/ThemeTemplateService';
+import { TransactionService } from './services/TransactionService';
+import { UploadService } from './services/UploadService';
+import { UserService } from './services/UserService';
+type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
+export declare class ClientApi {
+    readonly auth: AuthService;
+    readonly currency: CurrencyService;
+    readonly default: DefaultService;
+    readonly order: OrderService;
+    readonly payment: PaymentService;
+    readonly platformProduct: PlatformProductService;
+    readonly platformVariant: PlatformVariantService;
+    readonly product: ProductService;
+    readonly productTag: ProductTagService;
+    readonly setting: SettingService;
+    readonly store: StoreService;
+    readonly themeTemplate: ThemeTemplateService;
+    readonly transaction: TransactionService;
+    readonly upload: UploadService;
+    readonly user: UserService;
+    readonly request: BaseHttpRequest;
+    constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
+}
+export {};
