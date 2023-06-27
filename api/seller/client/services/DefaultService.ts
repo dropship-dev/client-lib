@@ -2,8 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
-import type { RequestSourcing } from '../models/RequestSourcing';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,7 +14,7 @@ export class DefaultService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createRequestSourcing({
@@ -23,7 +23,7 @@ export class DefaultService {
   }: {
     storeId: number,
     requestBody: CreateRequestSourcingDto,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/request-sourcing',
@@ -58,7 +58,7 @@ export class DefaultService {
     orderBy: string;
     nextPageIndex: (string | number | Photos);
     total: number;
-    data: Array<RequestSourcing>;
+    data: Array<GetResult_any_any_any_>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -81,7 +81,7 @@ export class DefaultService {
   }
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getRequestSourcing({
@@ -90,7 +90,7 @@ export class DefaultService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/request-sourcing/{id}',
@@ -109,7 +109,7 @@ export class DefaultService {
   }
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateRequestSourcing({
@@ -120,7 +120,7 @@ export class DefaultService {
     storeId: number,
     id: number,
     requestBody: UpdateRequestSourcingDto,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/request-sourcing/{id}',
@@ -141,7 +141,7 @@ export class DefaultService {
   }
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteRequestSourcing({
@@ -150,7 +150,7 @@ export class DefaultService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/request-sourcing/{id}',

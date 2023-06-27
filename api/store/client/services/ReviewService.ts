@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateReviewDto } from '../models/CreateReviewDto';
-import type { Review } from '../models/Review';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,14 +12,14 @@ export class ReviewService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createReview({
     requestBody,
   }: {
     requestBody: CreateReviewDto,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/review',
@@ -36,14 +36,14 @@ export class ReviewService {
   }
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getReview({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/review/{id}',

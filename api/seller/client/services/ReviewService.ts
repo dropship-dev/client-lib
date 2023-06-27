@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateReviewDto } from '../models/CreateReviewDto';
-import type { Review } from '../models/Review';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateReviewDto } from '../models/UpdateReviewDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -13,14 +13,14 @@ export class ReviewService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createReview({
     requestBody,
   }: {
     requestBody: CreateReviewDto,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/review',
@@ -37,14 +37,14 @@ export class ReviewService {
   }
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getReview({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/review/{id}',
@@ -62,7 +62,7 @@ export class ReviewService {
   }
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateReview({
@@ -71,7 +71,7 @@ export class ReviewService {
   }: {
     id: number,
     requestBody: UpdateReviewDto,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/review/{id}',
@@ -91,14 +91,14 @@ export class ReviewService {
   }
 
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteReview({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/review/{id}',

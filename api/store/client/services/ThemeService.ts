@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Theme } from '../models/Theme';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,14 +11,14 @@ export class ThemeService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Theme Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getActiveTheme({
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<Theme> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/active',
@@ -35,7 +35,7 @@ export class ThemeService {
   }
 
   /**
-   * @returns Theme Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTheme({
@@ -44,7 +44,7 @@ export class ThemeService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<Theme> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/{id}',

@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Currency } from '../models/Currency';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,14 +11,14 @@ export class CurrencyService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Currency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getCurrency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Currency> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/currency/{id}',

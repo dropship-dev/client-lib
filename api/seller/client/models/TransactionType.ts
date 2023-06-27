@@ -2,7 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum TransactionType {
-  ORDER = 'ORDER',
-  PAYOUT = 'PAYOUT',
-}
+export type TransactionType = {
+};
+

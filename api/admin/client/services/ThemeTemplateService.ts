@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateThemeTemplateDto } from '../models/CreateThemeTemplateDto';
-import type { ThemeTemplate } from '../models/ThemeTemplate';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateThemeTemplateDto } from '../models/UpdateThemeTemplateDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -13,14 +13,14 @@ export class ThemeTemplateService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createThemeTemplate({
     requestBody,
   }: {
     requestBody: CreateThemeTemplateDto,
-  }): CancelablePromise<ThemeTemplate> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/theme-template',
@@ -37,10 +37,10 @@ export class ThemeTemplateService {
   }
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public getAllThemeTemplate(): CancelablePromise<Array<ThemeTemplate>> {
+  public getAllThemeTemplate(): CancelablePromise<Array<GetResult_any_any_any_>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/theme-template',
@@ -55,14 +55,14 @@ export class ThemeTemplateService {
   }
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getThemeTemplate({
     id,
   }: {
     id: number,
-  }): CancelablePromise<ThemeTemplate> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/theme-template/{id}',
@@ -80,7 +80,7 @@ export class ThemeTemplateService {
   }
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateThemeTemplate({
@@ -89,7 +89,7 @@ export class ThemeTemplateService {
   }: {
     id: number,
     requestBody: UpdateThemeTemplateDto,
-  }): CancelablePromise<ThemeTemplate> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/theme-template/{id}',
@@ -109,14 +109,14 @@ export class ThemeTemplateService {
   }
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteThemeTemplate({
     id,
   }: {
     id: number,
-  }): CancelablePromise<ThemeTemplate> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/theme-template/{id}',

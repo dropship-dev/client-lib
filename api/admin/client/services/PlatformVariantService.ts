@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateVariantDto } from '../models/CreateVariantDto';
-import type { PlatformVariant } from '../models/PlatformVariant';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 
@@ -14,7 +14,7 @@ export class PlatformVariantService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createPlatformVariant({
@@ -23,7 +23,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     requestBody: CreateVariantDto,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/variant',
@@ -43,7 +43,7 @@ export class PlatformVariantService {
   }
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getPlatformVariant({
@@ -52,7 +52,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     id: number,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -71,7 +71,7 @@ export class PlatformVariantService {
   }
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformVariant({
@@ -82,7 +82,7 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
     requestBody: UpdateVariantDto,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -103,7 +103,7 @@ export class PlatformVariantService {
   }
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deletePlatformVariant({
@@ -112,7 +112,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     id: number,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -131,7 +131,7 @@ export class PlatformVariantService {
   }
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformVariantStatus({
@@ -142,7 +142,7 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
     requestBody: UpdateVariantStatusDto,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant/{id}/status',

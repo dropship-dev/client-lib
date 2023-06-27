@@ -8,5 +8,6 @@ export type UpdateProductDto = {
   details?: string;
   photos?: Array<string>;
   shippingFee?: number;
+  shippingFeeAdditional?: number;
 };
 

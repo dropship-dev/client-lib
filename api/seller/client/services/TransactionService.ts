@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Transaction } from '../models/Transaction';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { TransactionType } from '../models/TransactionType';
 
@@ -22,9 +22,9 @@ export class TransactionService {
     storeId: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (number | string | TransactionStatus | TransactionType);
+    nextPageIndex: (number | string | TransactionType | TransactionStatus);
     total: number;
-    data: Array<Transaction>;
+    data: Array<GetResult_any_any_any_>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -43,7 +43,7 @@ export class TransactionService {
   }
 
   /**
-   * @returns Transaction Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTransaction({
@@ -52,7 +52,7 @@ export class TransactionService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<Transaction> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction/{id}',

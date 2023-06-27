@@ -2,8 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
-import type { RequestSourcing } from '../models/RequestSourcing';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,7 +13,7 @@ export class DefaultService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public approveRequestSourcing({
@@ -24,7 +24,7 @@ export class DefaultService {
     storeId: number,
     id: number,
     requestBody: ApproveRequestSourcingDto,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/request-sourcing/{id}/approve',
@@ -45,7 +45,7 @@ export class DefaultService {
   }
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public rejectRequestSourcing({
@@ -56,7 +56,7 @@ export class DefaultService {
     storeId: number,
     id: number,
     requestBody: RejectRequestSourcingDto,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/request-sourcing/{id}/reject',

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { Payment } from '../models/Payment';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,14 +12,14 @@ export class PaymentService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Payment Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createPayment({
     requestBody,
   }: {
     requestBody: CreatePaymentDto,
-  }): CancelablePromise<Payment> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
@@ -36,10 +36,10 @@ export class PaymentService {
   }
 
   /**
-   * @returns Payment Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public getAllPayment(): CancelablePromise<Array<Payment>> {
+  public getAllPayment(): CancelablePromise<Array<GetResult_any_any_any_>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
@@ -54,14 +54,14 @@ export class PaymentService {
   }
 
   /**
-   * @returns Payment Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getPayment({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Payment> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/{id}',

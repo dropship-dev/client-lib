@@ -1,8 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 
@@ -25,9 +24,9 @@ export class VariantService {
     storeId: number,
     productId: number,
     id: number,
-  }): CancelablePromise<(ProductVariant & {
-    PlatformVariant: PlatformVariant;
-  })> {
+  }): CancelablePromise<({
+    PlatformVariant: GetResult_any_any_any_;
+  } & GetResult_any_any_any_)> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/variant/{id}',
@@ -47,7 +46,7 @@ export class VariantService {
   }
 
   /**
-   * @returns ProductVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateVariant({
@@ -60,7 +59,7 @@ export class VariantService {
     productId: number,
     id: number,
     requestBody: UpdateVariantDto,
-  }): CancelablePromise<ProductVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/variant/{id}',
@@ -82,7 +81,7 @@ export class VariantService {
   }
 
   /**
-   * @returns ProductVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteVariant({
@@ -93,7 +92,7 @@ export class VariantService {
     storeId: number,
     productId: number,
     id: number,
-  }): CancelablePromise<ProductVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/variant/{id}',
@@ -128,11 +127,11 @@ export class VariantService {
     nextPageIndex?: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number | boolean | PlatformVariant);
+    nextPageIndex: (string | number | boolean | GetResult_any_any_any_);
     total: number;
-    data: Array<(ProductVariant & {
-      PlatformVariant: PlatformVariant;
-    })>;
+    data: Array<({
+      PlatformVariant: GetResult_any_any_any_;
+    } & GetResult_any_any_any_)>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -156,7 +155,7 @@ export class VariantService {
   }
 
   /**
-   * @returns ProductVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateVariantStatus({
@@ -169,7 +168,7 @@ export class VariantService {
     productId: number,
     id: number,
     requestBody: UpdateVariantStatusDto,
-  }): CancelablePromise<ProductVariant> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/variant/{id}/status',

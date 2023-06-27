@@ -1,22 +1,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ActiveTheme } from '../models/ActiveTheme';
-import type { Collection } from '../models/Collection';
-import type { Currency } from '../models/Currency';
-import type { Order } from '../models/Order';
-import type { Payment } from '../models/Payment';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
-import type { Product } from '../models/Product';
-import type { RequestSourcing } from '../models/RequestSourcing';
-import type { Store } from '../models/Store';
-import type { StoreCountOutputType } from '../models/StoreCountOutputType';
 import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
-import type { StoreUser } from '../models/StoreUser';
-import type { Theme } from '../models/Theme';
-import type { Transaction } from '../models/Transaction';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 
@@ -37,7 +26,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-06-20T08:38:32.462Z',
+    periodTo = '2023-06-27T03:20:10.511Z',
     nextPageIndex,
     name,
     userId,
@@ -107,19 +96,30 @@ export class StoreService {
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<(Store & {
-    _count?: StoreCountOutputType;
-    Currency?: Currency;
-    Order?: Array<Order>;
-    Transaction?: Array<Transaction>;
-    RequestSourcing?: Array<RequestSourcing>;
-    Product?: Array<Product>;
-    Payment?: Payment;
-    Collection?: Array<Collection>;
-    Theme?: Array<Theme>;
-    ActiveTheme?: ActiveTheme;
-    StoreUser: Array<StoreUser>;
-  })> {
+  }): CancelablePromise<({
+    _count?: {
+      Order: number;
+      RequestSourcing: number;
+      Product: number;
+      ActiveTheme: number;
+      Transaction: number;
+      Collection: number;
+      Payment: number;
+      Theme: number;
+      StoreUser: number;
+      Currency: number;
+    };
+    Order?: Array<GetResult_any_any_any_>;
+    RequestSourcing?: Array<GetResult_any_any_any_>;
+    Product?: Array<GetResult_any_any_any_>;
+    ActiveTheme?: GetResult_any_any_any_;
+    Transaction?: Array<GetResult_any_any_any_>;
+    Collection?: Array<GetResult_any_any_any_>;
+    Payment?: GetResult_any_any_any_;
+    Theme?: Array<GetResult_any_any_any_>;
+    Currency?: GetResult_any_any_any_;
+    StoreUser: Array<GetResult_any_any_any_>;
+  } & GetResult_any_any_any_)> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}',
@@ -137,7 +137,7 @@ export class StoreService {
   }
 
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateStoreStatus({
@@ -146,7 +146,7 @@ export class StoreService {
   }: {
     storeId: number,
     requestBody: UpdateStoreStatusDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status',
@@ -166,7 +166,7 @@ export class StoreService {
   }
 
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateStorePaymentMethod({
@@ -175,7 +175,7 @@ export class StoreService {
   }: {
     storeId: number,
     requestBody: UpdateStorePaymentMethodDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<GetResult_any_any_any_> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/payment-method',

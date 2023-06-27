@@ -1,8 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -23,9 +22,9 @@ export class VariantService {
     storeId: number,
     productId: number,
     id: number,
-  }): CancelablePromise<(ProductVariant & {
-    PlatformVariant: PlatformVariant;
-  })> {
+  }): CancelablePromise<({
+    PlatformVariant: GetResult_any_any_any_;
+  } & GetResult_any_any_any_)> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/variant/{id}',
@@ -60,11 +59,11 @@ export class VariantService {
     nextPageIndex?: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number | boolean | PlatformVariant);
+    nextPageIndex: (string | number | boolean | GetResult_any_any_any_);
     total: number;
-    data: Array<(ProductVariant & {
-      PlatformVariant: PlatformVariant;
-    })>;
+    data: Array<({
+      PlatformVariant: GetResult_any_any_any_;
+    } & GetResult_any_any_any_)>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
