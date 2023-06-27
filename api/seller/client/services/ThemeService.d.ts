@@ -1,6 +1,6 @@
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
-import type { Theme } from '../models/Theme';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -8,13 +8,13 @@ export declare class ThemeService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createTheme({ storeId, requestBody, }: {
         storeId: number;
         requestBody: CreateThemeDto;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -25,15 +25,15 @@ export declare class ThemeService {
         orderBy: string;
         nextPageIndex: (string | number);
         total: number;
-        data: Array<Theme>;
+        data: Array<GetResult_any_any_any_>;
     }>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getActiveTheme({ storeId, }: {
         storeId: number;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -43,28 +43,28 @@ export declare class ThemeService {
         requestBody: ChangeActiveTheme;
     }): CancelablePromise<string>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
         storeId: number;
         id: number;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateTheme({ storeId, id, requestBody, }: {
         storeId: number;
         id: number;
         requestBody: UpdateThemeDto;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteTheme({ storeId, id, }: {
         storeId: number;
         id: number;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<GetResult_any_any_any_>;
 }

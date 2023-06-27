@@ -7,7 +7,7 @@ class ThemeTemplateService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createThemeTemplate({ requestBody, }) {
@@ -26,7 +26,7 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllThemeTemplate() {
@@ -43,7 +43,7 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getThemeTemplate({ id, }) {
@@ -63,7 +63,7 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateThemeTemplate({ id, requestBody, }) {
@@ -85,7 +85,7 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteThemeTemplate({ id, }) {

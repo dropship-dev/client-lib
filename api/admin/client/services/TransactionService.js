@@ -7,7 +7,7 @@ class TransactionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTransaction({ storeId, id, }) {

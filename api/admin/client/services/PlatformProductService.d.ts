@@ -1,10 +1,7 @@
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
-import type { PlatformProduct } from '../models/PlatformProduct';
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { Store } from '../models/Store';
-import type { Tag } from '../models/Tag';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -14,12 +11,12 @@ export declare class PlatformProductService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPlatformProduct({ requestBody, }: {
         requestBody: CreatePlatformProductDto;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -31,12 +28,12 @@ export declare class PlatformProductService {
         tags?: Array<string>;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | boolean | Photos | VariantOptions | Array<Tag> | Array<PlatformVariant>);
+        nextPageIndex: (string | number | boolean | Photos | VariantOptions);
         total: number;
-        data: Array<(PlatformProduct & {
-            PlatformVariant: Array<PlatformVariant>;
-            Tag: Array<Tag>;
-        })>;
+        data: Array<({
+            Tag: Array<GetResult_any_any_any_>;
+            PlatformVariant: Array<GetResult_any_any_any_>;
+        } & GetResult_any_any_any_)>;
     }>;
     /**
      * @returns any Ok
@@ -44,54 +41,54 @@ export declare class PlatformProductService {
      */
     getPlatformProduct({ platformProductId, }: {
         platformProductId: number;
-    }): CancelablePromise<(PlatformProduct & {
-        PlatformVariant: Array<PlatformVariant>;
-        Tag: Array<Tag>;
-    })>;
+    }): CancelablePromise<({
+        Tag: Array<GetResult_any_any_any_>;
+        PlatformVariant: Array<GetResult_any_any_any_>;
+    } & GetResult_any_any_any_)>;
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformProduct({ platformProductId, requestBody, }: {
         platformProductId: number;
         requestBody: UpdatePlatformProductDto;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformProduct({ platformProductId, }: {
         platformProductId: number;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformProductStatus({ platformProductId, requestBody, }: {
         platformProductId: number;
         requestBody: UpdatePlatformProductStatusDto;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addPlatformProductTag({ platformProductId, requestBody, }: {
         platformProductId: number;
         requestBody: AddPlatformProductTagDto;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformProductTag({ platformProductId, tagId, }: {
         platformProductId: number;
         tagId: string;
-    }): CancelablePromise<PlatformProduct>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPlatformProductStore({ platformProductId, }: {
         platformProductId: number;
-    }): CancelablePromise<Array<Store>>;
+    }): CancelablePromise<Array<GetResult_any_any_any_>>;
 }

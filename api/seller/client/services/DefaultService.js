@@ -7,7 +7,7 @@ class DefaultService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createRequestSourcing({ storeId, requestBody, }) {
@@ -53,7 +53,7 @@ class DefaultService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRequestSourcing({ storeId, id, }) {
@@ -74,7 +74,7 @@ class DefaultService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateRequestSourcing({ storeId, id, requestBody, }) {
@@ -97,7 +97,7 @@ class DefaultService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteRequestSourcing({ storeId, id, }) {

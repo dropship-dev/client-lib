@@ -7,7 +7,7 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, }) {
@@ -26,7 +26,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllPayment() {
@@ -43,7 +43,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPayment({ id, }) {

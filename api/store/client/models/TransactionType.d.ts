@@ -1,4 +1,1 @@
-export declare enum TransactionType {
-    ORDER = "ORDER",
-    PAYOUT = "PAYOUT"
-}
+export type TransactionType = {};

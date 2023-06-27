@@ -1,5 +1,4 @@
-import type { Currency } from '../models/Currency';
-import type { Payment } from '../models/Payment';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -12,6 +11,10 @@ export declare class StoreService {
     getStoreActiveTheme({ storeId, }: {
         storeId: number;
     }): CancelablePromise<{
+        updatedAt: string;
+        createdAt: string;
+        Payment: GetResult_any_any_any_;
+        Currency: GetResult_any_any_any_;
         shippingPolicy: string;
         termsOfService: string;
         privacyPolicy: string;
@@ -19,24 +22,20 @@ export declare class StoreService {
         timezone: number;
         customDomain: string;
         domain: string;
+        email: string;
         address: string;
         phone: string;
-        updatedAt: string;
-        createdAt: string;
         name: string;
-        email: string;
         id: number;
-        Currency: Currency;
-        Payment: Payment;
         ActiveTheme: {
-            updatedAt: string;
-            createdAt: string;
             themeTemplateId: number;
-            storeId: number;
             coverImage: string;
             logo: string;
             icon: string;
+            storeId: number;
             name: string;
+            updatedAt: string;
+            createdAt: string;
             id: number;
             colors: any;
             typos: any;

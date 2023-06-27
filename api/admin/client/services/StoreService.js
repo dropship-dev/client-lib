@@ -10,7 +10,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-06-20T08:38:32.462Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-06-27T03:20:10.511Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -57,7 +57,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStoreStatus({ storeId, requestBody, }) {
@@ -79,7 +79,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStorePaymentMethod({ storeId, requestBody, }) {

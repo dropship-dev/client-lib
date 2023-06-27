@@ -1,7 +1,6 @@
 import type { CreateProductDto } from '../models/CreateProductDto';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
-import type { Product } from '../models/Product';
-import type { Tag } from '../models/Tag';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -27,15 +26,15 @@ export declare class ProductService {
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: (string | number | boolean | Photos | {
+            Tag: Array<GetResult_any_any_any_>;
             variantOption: VariantOptions;
-            Tag: Array<Tag>;
         });
         total: number;
-        data: Array<(Product & {
+        data: Array<({
             PlatformProduct: {
+                Tag: Array<GetResult_any_any_any_>;
                 variantOption: VariantOptions;
-                Tag: Array<Tag>;
             };
-        })>;
+        } & GetResult_any_any_any_)>;
     }>;
 }

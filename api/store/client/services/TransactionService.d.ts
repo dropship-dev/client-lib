@@ -1,36 +1,36 @@
 import type { ConfirmPaypalOrderDto } from '../models/ConfirmPaypalOrderDto';
 import type { CreatePaypalOrderDto } from '../models/CreatePaypalOrderDto';
 import type { CreateTransactionDto } from '../models/CreateTransactionDto';
-import type { Transaction } from '../models/Transaction';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class TransactionService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createTransaction({ storeId, requestBody, }: {
         storeId: number;
         requestBody: CreateTransactionDto;
-    }): CancelablePromise<Transaction>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPaypalOrder({ storeId, id, requestBody, }: {
         storeId: number;
         id: number;
         requestBody: CreatePaypalOrderDto;
-    }): CancelablePromise<Transaction>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     confirmPaypalOrder({ storeId, id, requestBody, }: {
         storeId: number;
         id: number;
         requestBody: ConfirmPaypalOrderDto;
-    }): CancelablePromise<Transaction>;
+    }): CancelablePromise<GetResult_any_any_any_>;
 }

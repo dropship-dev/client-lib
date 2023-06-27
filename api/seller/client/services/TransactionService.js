@@ -27,7 +27,7 @@ class TransactionService {
         });
     }
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTransaction({ storeId, id, }) {

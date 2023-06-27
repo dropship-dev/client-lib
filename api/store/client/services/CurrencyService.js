@@ -7,7 +7,7 @@ class CurrencyService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCurrency({ id, }) {

@@ -1,13 +1,11 @@
-import type { PlatformVariant } from './PlatformVariant';
+import type { PlatformVariantDto } from './PlatformVariantDto';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type CreatePlatformProductDto = {
     name: string;
     description?: string;
     details?: string;
     photos: Array<string>;
-    shippingFee: number;
-    shippingFeeAdditional?: number;
     tags: Array<string>;
     variantOption: PrismaJson_VariantOptions;
-    PlatformVariant: Array<PlatformVariant>;
+    PlatformVariant: Array<PlatformVariantDto>;
 };

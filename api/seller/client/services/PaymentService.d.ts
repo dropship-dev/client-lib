@@ -1,27 +1,27 @@
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { Payment } from '../models/Payment';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, }: {
         requestBody: CreatePaymentDto;
-    }): CancelablePromise<Payment>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment(): CancelablePromise<Array<Payment>>;
+    getAllPayment(): CancelablePromise<Array<GetResult_any_any_any_>>;
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPayment({ id, }: {
         id: number;
-    }): CancelablePromise<Payment>;
+    }): CancelablePromise<GetResult_any_any_any_>;
 }

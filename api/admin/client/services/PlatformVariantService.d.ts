@@ -1,5 +1,5 @@
 import type { CreateVariantDto } from '../models/CreateVariantDto';
-import type { PlatformVariant } from '../models/PlatformVariant';
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -8,45 +8,45 @@ export declare class PlatformVariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPlatformVariant({ platformProductId, requestBody, }: {
         platformProductId: number;
         requestBody: CreateVariantDto;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPlatformVariant({ platformProductId, id, }: {
         platformProductId: number;
         id: number;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariant({ platformProductId, id, requestBody, }: {
         platformProductId: number;
         id: number;
         requestBody: UpdateVariantDto;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformVariant({ platformProductId, id, }: {
         platformProductId: number;
         id: number;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariantStatus({ platformProductId, id, requestBody, }: {
         platformProductId: number;
         id: number;
         requestBody: UpdateVariantStatusDto;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<GetResult_any_any_any_>;
 }

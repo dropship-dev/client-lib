@@ -31,7 +31,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProduct({ storeId, productId, requestBody, }) {
@@ -75,7 +75,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }) {

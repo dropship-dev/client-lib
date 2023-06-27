@@ -1,6 +1,5 @@
+import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
-import type { Product } from '../models/Product';
-import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -20,26 +19,26 @@ export declare class ProductService {
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: (string | number | boolean | Photos | {
+            Tag: Array<GetResult_any_any_any_>;
             variantOption: VariantOptions;
-            Tag: Array<Tag>;
         });
         total: number;
-        data: Array<(Product & {
+        data: Array<({
             PlatformProduct: {
+                Tag: Array<GetResult_any_any_any_>;
                 variantOption: VariantOptions;
-                Tag: Array<Tag>;
             };
-        })>;
+        } & GetResult_any_any_any_)>;
     }>;
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProduct({ storeId, productId, requestBody, }: {
         storeId: number;
         productId: number;
         requestBody: UpdateProductDto;
-    }): CancelablePromise<Product>;
+    }): CancelablePromise<GetResult_any_any_any_>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -49,12 +48,12 @@ export declare class ProductService {
         productId: number;
     }): CancelablePromise<string>;
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }: {
         storeId: number;
         productId: number;
         requestBody: UpdateProductStatusDto;
-    }): CancelablePromise<Product>;
+    }): CancelablePromise<GetResult_any_any_any_>;
 }
