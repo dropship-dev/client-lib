@@ -7,7 +7,7 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Payment Ok
      * @throws ApiError
      */
     createPayment({ requestBody, }) {

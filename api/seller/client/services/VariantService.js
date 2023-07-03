@@ -29,7 +29,7 @@ class VariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     updateVariant({ storeId, productId, id, requestBody, }) {
@@ -53,7 +53,7 @@ class VariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     deleteVariant({ storeId, productId, id, }) {
@@ -100,7 +100,7 @@ class VariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     updateVariantStatus({ storeId, productId, id, requestBody, }) {

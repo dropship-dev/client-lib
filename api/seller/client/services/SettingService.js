@@ -7,7 +7,7 @@ class SettingService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Setting Ok
      * @throws ApiError
      */
     getSetting() {

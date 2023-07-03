@@ -1,4 +1,5 @@
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { PlatformVariant } from '../models/PlatformVariant';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,11 +15,11 @@ export declare class VariantService {
         storeId: number;
         productId: number;
         id: number;
-    }): CancelablePromise<({
-        PlatformVariant: GetResult_any_any_any_;
-    } & GetResult_any_any_any_)>;
+    }): CancelablePromise<(ProductVariant & {
+        PlatformVariant: PlatformVariant;
+    })>;
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     updateVariant({ storeId, productId, id, requestBody, }: {
@@ -26,16 +27,16 @@ export declare class VariantService {
         productId: number;
         id: number;
         requestBody: UpdateVariantDto;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ProductVariant>;
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     deleteVariant({ storeId, productId, id, }: {
         storeId: number;
         productId: number;
         id: number;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ProductVariant>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -47,14 +48,14 @@ export declare class VariantService {
         nextPageIndex?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | boolean | GetResult_any_any_any_);
+        nextPageIndex: (string | number | boolean | PlatformVariant);
         total: number;
-        data: Array<({
-            PlatformVariant: GetResult_any_any_any_;
-        } & GetResult_any_any_any_)>;
+        data: Array<(ProductVariant & {
+            PlatformVariant: PlatformVariant;
+        })>;
     }>;
     /**
-     * @returns any Ok
+     * @returns ProductVariant Ok
      * @throws ApiError
      */
     updateVariantStatus({ storeId, productId, id, requestBody, }: {
@@ -62,5 +63,5 @@ export declare class VariantService {
         productId: number;
         id: number;
         requestBody: UpdateVariantStatusDto;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ProductVariant>;
 }

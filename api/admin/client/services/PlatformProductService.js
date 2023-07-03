@@ -7,7 +7,7 @@ class PlatformProductService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     createPlatformProduct({ requestBody, }) {
@@ -69,7 +69,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     updatePlatformProduct({ platformProductId, requestBody, }) {
@@ -91,7 +91,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     deletePlatformProduct({ platformProductId, }) {
@@ -111,7 +111,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     updatePlatformProductStatus({ platformProductId, requestBody, }) {
@@ -133,7 +133,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     addPlatformProductTag({ platformProductId, requestBody, }) {
@@ -155,7 +155,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProduct Ok
      * @throws ApiError
      */
     deletePlatformProductTag({ platformProductId, tagId, }) {
@@ -176,7 +176,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Store Ok
      * @throws ApiError
      */
     getPlatformProductStore({ platformProductId, }) {

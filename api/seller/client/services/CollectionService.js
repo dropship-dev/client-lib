@@ -7,7 +7,7 @@ class CollectionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Collection Ok
      * @throws ApiError
      */
     createCollection({ requestBody, }) {
@@ -26,7 +26,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Collection Ok
      * @throws ApiError
      */
     getCollection({ id, }) {
@@ -46,7 +46,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Collection Ok
      * @throws ApiError
      */
     updateCollection({ id, requestBody, }) {
@@ -68,7 +68,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Collection Ok
      * @throws ApiError
      */
     deleteCollection({ id, }) {

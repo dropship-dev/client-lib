@@ -7,7 +7,7 @@ class AuthService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns User Ok
      * @throws ApiError
      */
     login({ requestBody, }) {

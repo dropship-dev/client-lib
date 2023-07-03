@@ -7,7 +7,7 @@ class TransactionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Transaction Ok
      * @throws ApiError
      */
     createTransaction({ storeId, requestBody, }) {
@@ -29,7 +29,7 @@ class TransactionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Transaction Ok
      * @throws ApiError
      */
     createPaypalOrder({ storeId, id, requestBody, }) {
@@ -52,7 +52,7 @@ class TransactionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Transaction Ok
      * @throws ApiError
      */
     confirmPaypalOrder({ storeId, id, requestBody, }) {

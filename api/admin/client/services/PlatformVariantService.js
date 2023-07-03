@@ -7,7 +7,7 @@ class PlatformVariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns PlatformVariant Ok
      * @throws ApiError
      */
     createPlatformVariant({ platformProductId, requestBody, }) {
@@ -29,7 +29,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformVariant Ok
      * @throws ApiError
      */
     getPlatformVariant({ platformProductId, id, }) {
@@ -50,7 +50,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformVariant Ok
      * @throws ApiError
      */
     updatePlatformVariant({ platformProductId, id, requestBody, }) {
@@ -73,7 +73,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformVariant Ok
      * @throws ApiError
      */
     deletePlatformVariant({ platformProductId, id, }) {
@@ -94,7 +94,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformVariant Ok
      * @throws ApiError
      */
     updatePlatformVariantStatus({ platformProductId, id, requestBody, }) {

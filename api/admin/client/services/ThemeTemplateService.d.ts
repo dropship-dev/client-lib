@@ -1,5 +1,5 @@
 import type { CreateThemeTemplateDto } from '../models/CreateThemeTemplateDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { UpdateThemeTemplateDto } from '../models/UpdateThemeTemplateDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -7,37 +7,37 @@ export declare class ThemeTemplateService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ThemeTemplate Ok
      * @throws ApiError
      */
     createThemeTemplate({ requestBody, }: {
         requestBody: CreateThemeTemplateDto;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ThemeTemplate>;
     /**
-     * @returns any Ok
+     * @returns ThemeTemplate Ok
      * @throws ApiError
      */
-    getAllThemeTemplate(): CancelablePromise<Array<GetResult_any_any_any_>>;
+    getAllThemeTemplate(): CancelablePromise<Array<ThemeTemplate>>;
     /**
-     * @returns any Ok
+     * @returns ThemeTemplate Ok
      * @throws ApiError
      */
     getThemeTemplate({ id, }: {
         id: number;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ThemeTemplate>;
     /**
-     * @returns any Ok
+     * @returns ThemeTemplate Ok
      * @throws ApiError
      */
     updateThemeTemplate({ id, requestBody, }: {
         id: number;
         requestBody: UpdateThemeTemplateDto;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ThemeTemplate>;
     /**
-     * @returns any Ok
+     * @returns ThemeTemplate Ok
      * @throws ApiError
      */
     deleteThemeTemplate({ id, }: {
         id: number;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<ThemeTemplate>;
 }

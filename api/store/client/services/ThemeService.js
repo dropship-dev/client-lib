@@ -7,7 +7,7 @@ class ThemeService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Theme Ok
      * @throws ApiError
      */
     getActiveTheme({ storeId, }) {
@@ -26,7 +26,7 @@ class ThemeService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Theme Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }) {

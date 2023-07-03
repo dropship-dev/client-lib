@@ -1,14 +1,14 @@
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Currency } from '../models/Currency';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class CurrencyService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns Currency Ok
      * @throws ApiError
      */
     getCurrency({ id, }: {
         id: number;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<Currency>;
 }

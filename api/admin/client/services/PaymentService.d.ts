@@ -1,5 +1,5 @@
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { UserRole } from '../models/UserRole';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -8,31 +8,31 @@ export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns Payment Ok
      * @throws ApiError
      */
     createPayment({ requestBody, }: {
         requestBody: CreatePaymentDto;
-    }): CancelablePromise<GetResult_any_any_any_>;
+    }): CancelablePromise<Payment>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
     getAllPayment(): CancelablePromise<Array<{
-        createdAt: string;
-        updatedAt: string;
-        type: PaymentType;
         publishableKey: string;
-        email: string;
+        type: PaymentType;
         creator: {
-            createdAt: string;
-            updatedAt: string;
             role: UserRole;
-            id: string;
-            email: string;
-            name: string;
             avatar: string;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            name: string;
+            id: string;
         };
+        email: string;
+        updatedAt: string;
+        createdAt: string;
         id: number;
     }>>;
     /**
@@ -42,20 +42,20 @@ export declare class PaymentService {
     getPayment({ id, }: {
         id: number;
     }): CancelablePromise<{
-        createdAt: string;
-        updatedAt: string;
-        type: PaymentType;
         publishableKey: string;
-        email: string;
+        type: PaymentType;
         creator: {
-            createdAt: string;
-            updatedAt: string;
             role: UserRole;
-            id: string;
-            email: string;
-            name: string;
             avatar: string;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            name: string;
+            id: string;
         };
+        email: string;
+        updatedAt: string;
+        createdAt: string;
         id: number;
     }>;
 }

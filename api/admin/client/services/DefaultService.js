@@ -7,7 +7,7 @@ class DefaultService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns RequestSourcing Ok
      * @throws ApiError
      */
     approveRequestSourcing({ storeId, id, requestBody, }) {
@@ -30,7 +30,7 @@ class DefaultService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns RequestSourcing Ok
      * @throws ApiError
      */
     rejectRequestSourcing({ storeId, id, requestBody, }) {

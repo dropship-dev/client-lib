@@ -7,7 +7,7 @@ class ProductTagService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Tag Ok
      * @throws ApiError
      */
     getProductTag({ id, }) {

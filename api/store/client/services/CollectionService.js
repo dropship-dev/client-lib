@@ -7,7 +7,7 @@ class CollectionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Collection Ok
      * @throws ApiError
      */
     getCollection({ id, }) {

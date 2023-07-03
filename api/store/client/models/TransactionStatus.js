@@ -7,7 +7,7 @@ exports.TransactionStatus = void 0;
 var TransactionStatus;
 (function (TransactionStatus) {
     TransactionStatus["PENDING"] = "PENDING";
-    TransactionStatus["FAILED"] = "FAILED";
     TransactionStatus["PAID"] = "PAID";
+    TransactionStatus["FAILED"] = "FAILED";
     TransactionStatus["REFUNDED"] = "REFUNDED";
 })(TransactionStatus || (exports.TransactionStatus = TransactionStatus = {}));

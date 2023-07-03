@@ -7,7 +7,7 @@ class StaffService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns StoreUser Ok
      * @throws ApiError
      */
     createStaff({ storeId, requestBody, }) {
@@ -49,7 +49,7 @@ class StaffService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns StoreUser Ok
      * @throws ApiError
      */
     updateStaff({ storeId, userId, requestBody, }) {
@@ -72,7 +72,7 @@ class StaffService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns StoreUser Ok
      * @throws ApiError
      */
     deleteStaff({ storeId, userId, }) {

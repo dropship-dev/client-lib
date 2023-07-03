@@ -1,5 +1,7 @@
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Order } from '../models/Order';
+import type { OrderItem } from '../models/OrderItem';
+import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -24,12 +26,12 @@ export declare class OrderService {
         endTotal?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | GetResult_any_any_any_);
+        nextPageIndex: (string | number | Transaction | Array<OrderItem>);
         total: number;
-        data: Array<({
-            OrderItem: Array<GetResult_any_any_any_>;
-            Transaction: GetResult_any_any_any_;
-        } & GetResult_any_any_any_)>;
+        data: Array<(Order & {
+            OrderItem: Array<OrderItem>;
+            Transaction: Transaction;
+        })>;
     }>;
     /**
      * @returns any Ok
@@ -37,10 +39,10 @@ export declare class OrderService {
      */
     getOrder({ id, }: {
         id: string;
-    }): CancelablePromise<({
-        OrderItem: Array<GetResult_any_any_any_>;
-        Transaction: GetResult_any_any_any_;
-    } & GetResult_any_any_any_)>;
+    }): CancelablePromise<(Order & {
+        OrderItem: Array<OrderItem>;
+        Transaction: Transaction;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -59,11 +61,11 @@ export declare class OrderService {
         endTotal?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | GetResult_any_any_any_);
+        nextPageIndex: (string | number | Transaction | Array<OrderItem>);
         total: number;
-        data: Array<({
-            OrderItem: Array<GetResult_any_any_any_>;
-            Transaction: GetResult_any_any_any_;
-        } & GetResult_any_any_any_)>;
+        data: Array<(Order & {
+            OrderItem: Array<OrderItem>;
+            Transaction: Transaction;
+        })>;
     }>;
 }

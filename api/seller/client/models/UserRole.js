@@ -4,9 +4,6 @@
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserRole = void 0;
-/**
- * Enums
- */
 var UserRole;
 (function (UserRole) {
     UserRole["ADMIN"] = "ADMIN";
