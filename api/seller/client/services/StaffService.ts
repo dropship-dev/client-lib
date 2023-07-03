@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateStaffDto } from '../models/CreateStaffDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { StoreUser } from '../models/StoreUser';
 import type { UpdateStaffDto } from '../models/UpdateStaffDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -13,7 +13,7 @@ export class StaffService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns StoreUser Ok
    * @throws ApiError
    */
   public createStaff({
@@ -22,7 +22,7 @@ export class StaffService {
   }: {
     storeId: number,
     requestBody: CreateStaffDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<StoreUser> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/staff',
@@ -49,16 +49,16 @@ export class StaffService {
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<Array<({
+  }): CancelablePromise<Array<(StoreUser & {
     User: {
+      avatar: string;
+      email: string;
       updatedAt: string;
       createdAt: string;
       name: string;
-      avatar: string;
-      email: string;
       id: string;
     };
-  } & GetResult_any_any_any_)>> {
+  })>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/staff',
@@ -76,7 +76,7 @@ export class StaffService {
   }
 
   /**
-   * @returns any Ok
+   * @returns StoreUser Ok
    * @throws ApiError
    */
   public updateStaff({
@@ -87,7 +87,7 @@ export class StaffService {
     storeId: number,
     userId: string,
     requestBody: UpdateStaffDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<StoreUser> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/staff/{userId}',
@@ -108,7 +108,7 @@ export class StaffService {
   }
 
   /**
-   * @returns any Ok
+   * @returns StoreUser Ok
    * @throws ApiError
    */
   public deleteStaff({
@@ -117,7 +117,7 @@ export class StaffService {
   }: {
     storeId: number,
     userId: string,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<StoreUser> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/staff/{userId}',

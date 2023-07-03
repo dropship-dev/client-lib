@@ -3,8 +3,11 @@
 /* eslint-disable */
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
+import type { PlatformProduct } from '../models/PlatformProduct';
+import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Store } from '../models/Store';
+import type { Tag } from '../models/Tag';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -17,14 +20,14 @@ export class PlatformProductService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public createPlatformProduct({
     requestBody,
   }: {
     requestBody: CreatePlatformProductDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product',
@@ -56,12 +59,12 @@ export class PlatformProductService {
     tags?: Array<string>,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number | boolean | Photos | VariantOptions);
+    nextPageIndex: (string | number | boolean | Photos | VariantOptions | Array<Tag> | Array<PlatformVariant>);
     total: number;
-    data: Array<({
-      Tag: Array<GetResult_any_any_any_>;
-      PlatformVariant: Array<GetResult_any_any_any_>;
-    } & GetResult_any_any_any_)>;
+    data: Array<(PlatformProduct & {
+      PlatformVariant: Array<PlatformVariant>;
+      Tag: Array<Tag>;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -90,10 +93,10 @@ export class PlatformProductService {
     platformProductId,
   }: {
     platformProductId: number,
-  }): CancelablePromise<({
-    Tag: Array<GetResult_any_any_any_>;
-    PlatformVariant: Array<GetResult_any_any_any_>;
-  } & GetResult_any_any_any_)> {
+  }): CancelablePromise<(PlatformProduct & {
+    PlatformVariant: Array<PlatformVariant>;
+    Tag: Array<Tag>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}',
@@ -111,7 +114,7 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public updatePlatformProduct({
@@ -120,7 +123,7 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}',
@@ -140,14 +143,14 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public deletePlatformProduct({
     platformProductId,
   }: {
     platformProductId: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}',
@@ -165,7 +168,7 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public updatePlatformProductStatus({
@@ -174,7 +177,7 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/status',
@@ -194,7 +197,7 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public addPlatformProductTag({
@@ -203,7 +206,7 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/tag',
@@ -223,7 +226,7 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProduct Ok
    * @throws ApiError
    */
   public deletePlatformProductTag({
@@ -232,7 +235,7 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
     tagId: string,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}/tag/{tagId}',
@@ -251,14 +254,14 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public getPlatformProductStore({
     platformProductId,
   }: {
     platformProductId: number,
-  }): CancelablePromise<Array<GetResult_any_any_any_>> {
+  }): CancelablePromise<Array<Store>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/store',

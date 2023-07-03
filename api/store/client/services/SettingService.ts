@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Setting } from '../models/Setting';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,10 +11,10 @@ export class SettingService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Setting Ok
    * @throws ApiError
    */
-  public getSetting(): CancelablePromise<GetResult_any_any_any_> {
+  public getSetting(): CancelablePromise<Setting> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/setting',

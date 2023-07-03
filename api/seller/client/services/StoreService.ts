@@ -1,13 +1,24 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ActiveTheme } from '../models/ActiveTheme';
+import type { Collection } from '../models/Collection';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Currency } from '../models/Currency';
+import type { Order } from '../models/Order';
+import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
+import type { Product } from '../models/Product';
+import type { RequestSourcing } from '../models/RequestSourcing';
+import type { Store } from '../models/Store';
+import type { StoreCountOutputType } from '../models/StoreCountOutputType';
 import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
+import type { StoreUser } from '../models/StoreUser';
+import type { Theme } from '../models/Theme';
+import type { Transaction } from '../models/Transaction';
 import type { UpdateStoreCustomDomainDto } from '../models/UpdateStoreCustomDomainDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
@@ -20,14 +31,14 @@ export class StoreService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public createStore({
     requestBody,
   }: {
     requestBody: CreateStoreDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store',
@@ -53,7 +64,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-03T03:51:28.983Z',
+    periodTo = '2023-07-03T06:44:58.500Z',
     nextPageIndex,
     name,
     userId,
@@ -123,30 +134,19 @@ export class StoreService {
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<({
-    _count?: {
-      Order: number;
-      RequestSourcing: number;
-      Product: number;
-      ActiveTheme: number;
-      Transaction: number;
-      Collection: number;
-      Payment: number;
-      Theme: number;
-      StoreUser: number;
-      Currency: number;
-    };
-    Order?: Array<GetResult_any_any_any_>;
-    RequestSourcing?: Array<GetResult_any_any_any_>;
-    Product?: Array<GetResult_any_any_any_>;
-    ActiveTheme?: GetResult_any_any_any_;
-    Transaction?: Array<GetResult_any_any_any_>;
-    Collection?: Array<GetResult_any_any_any_>;
-    Payment?: Array<GetResult_any_any_any_>;
-    Theme?: Array<GetResult_any_any_any_>;
-    Currency?: GetResult_any_any_any_;
-    StoreUser: Array<GetResult_any_any_any_>;
-  } & GetResult_any_any_any_)> {
+  }): CancelablePromise<(Store & {
+    _count?: StoreCountOutputType;
+    Currency?: Currency;
+    Order?: Array<Order>;
+    Transaction?: Array<Transaction>;
+    RequestSourcing?: Array<RequestSourcing>;
+    Product?: Array<Product>;
+    Payment?: Array<Payment>;
+    Collection?: Array<Collection>;
+    Theme?: Array<Theme>;
+    ActiveTheme?: ActiveTheme;
+    StoreUser: Array<StoreUser>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}',
@@ -164,7 +164,7 @@ export class StoreService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public updateStore({
@@ -173,7 +173,7 @@ export class StoreService {
   }: {
     storeId: number,
     requestBody: UpdateStoreDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}',
@@ -193,14 +193,14 @@ export class StoreService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public deleteStore({
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}',
@@ -218,7 +218,7 @@ export class StoreService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public updateStoreStatus({
@@ -227,7 +227,7 @@ export class StoreService {
   }: {
     storeId: number,
     requestBody: UpdateStoreStatusDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status',
@@ -247,7 +247,7 @@ export class StoreService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public updateStoreCustomDomain({
@@ -256,7 +256,7 @@ export class StoreService {
   }: {
     storeId: number,
     requestBody: UpdateStoreCustomDomainDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/custom-domain',
@@ -284,11 +284,11 @@ export class StoreService {
   }: {
     storeId: number,
   }): CancelablePromise<Array<{
-    updatedAt: string;
-    createdAt: string;
-    email: string;
     publishableKey: string;
     type: PaymentType;
+    email: string;
+    updatedAt: string;
+    createdAt: string;
     id: number;
   }>> {
     return this.httpRequest.request({

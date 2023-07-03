@@ -3,7 +3,7 @@
 /* eslint-disable */
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Theme } from '../models/Theme';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,7 +14,7 @@ export class ThemeService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public createTheme({
@@ -23,7 +23,7 @@ export class ThemeService {
   }: {
     storeId: number,
     requestBody: CreateThemeDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/theme',
@@ -54,7 +54,7 @@ export class ThemeService {
     orderBy: string;
     nextPageIndex: (string | number);
     total: number;
-    data: Array<GetResult_any_any_any_>;
+    data: Array<Theme>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -73,14 +73,14 @@ export class ThemeService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public getActiveTheme({
     storeId,
   }: {
     storeId: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/active',
@@ -126,7 +126,7 @@ export class ThemeService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public getTheme({
@@ -135,7 +135,7 @@ export class ThemeService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/{id}',
@@ -153,7 +153,7 @@ export class ThemeService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public updateTheme({
@@ -164,7 +164,7 @@ export class ThemeService {
     storeId: number,
     id: number,
     requestBody: UpdateThemeDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/theme/{id}',
@@ -185,7 +185,7 @@ export class ThemeService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public deleteTheme({
@@ -194,7 +194,7 @@ export class ThemeService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/theme/{id}',

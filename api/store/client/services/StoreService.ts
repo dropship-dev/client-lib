@@ -1,7 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Currency } from '../models/Currency';
+import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -20,10 +21,6 @@ export class StoreService {
   }: {
     storeId: number,
   }): CancelablePromise<{
-    updatedAt: string;
-    createdAt: string;
-    Payment: Array<GetResult_any_any_any_>;
-    Currency: GetResult_any_any_any_;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
@@ -34,17 +31,21 @@ export class StoreService {
     email: string;
     address: string;
     phone: string;
+    updatedAt: string;
+    createdAt: string;
     name: string;
     id: number;
+    Currency: Currency;
+    Payment: Array<Payment>;
     ActiveTheme: {
+      updatedAt: string;
+      createdAt: string;
       themeTemplateId: number;
+      storeId: number;
       coverImage: string;
       logo: string;
       icon: string;
-      storeId: number;
       name: string;
-      updatedAt: string;
-      createdAt: string;
       id: number;
       colors: any;
       typos: any;
@@ -75,11 +76,11 @@ export class StoreService {
   }: {
     storeId: number,
   }): CancelablePromise<Array<{
-    updatedAt: string;
-    createdAt: string;
-    email: string;
     publishableKey: string;
     type: PaymentType;
+    email: string;
+    updatedAt: string;
+    createdAt: string;
     id: number;
   }>> {
     return this.httpRequest.request({

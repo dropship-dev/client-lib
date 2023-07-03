@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { UserRole } from '../models/UserRole';
 
@@ -14,14 +14,14 @@ export class PaymentService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Payment Ok
    * @throws ApiError
    */
   public createPayment({
     requestBody,
   }: {
     requestBody: CreatePaymentDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
@@ -42,20 +42,20 @@ export class PaymentService {
    * @throws ApiError
    */
   public getAllPayment(): CancelablePromise<Array<{
-    createdAt: string;
-    updatedAt: string;
-    type: PaymentType;
     publishableKey: string;
-    email: string;
+    type: PaymentType;
     creator: {
-      createdAt: string;
-      updatedAt: string;
       role: UserRole;
-      id: string;
-      email: string;
-      name: string;
       avatar: string;
+      email: string;
+      updatedAt: string;
+      createdAt: string;
+      name: string;
+      id: string;
     };
+    email: string;
+    updatedAt: string;
+    createdAt: string;
     id: number;
   }>> {
     return this.httpRequest.request({
@@ -80,20 +80,20 @@ export class PaymentService {
   }: {
     id: number,
   }): CancelablePromise<{
-    createdAt: string;
-    updatedAt: string;
-    type: PaymentType;
     publishableKey: string;
-    email: string;
+    type: PaymentType;
     creator: {
-      createdAt: string;
-      updatedAt: string;
       role: UserRole;
-      id: string;
-      email: string;
-      name: string;
       avatar: string;
+      email: string;
+      updatedAt: string;
+      createdAt: string;
+      name: string;
+      id: string;
     };
+    email: string;
+    updatedAt: string;
+    createdAt: string;
     id: number;
   }> {
     return this.httpRequest.request({

@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Transaction } from '../models/Transaction';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,7 +11,7 @@ export class TransactionService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Transaction Ok
    * @throws ApiError
    */
   public getTransaction({
@@ -20,7 +20,7 @@ export class TransactionService {
   }: {
     storeId: number,
     id: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Transaction> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction/{id}',

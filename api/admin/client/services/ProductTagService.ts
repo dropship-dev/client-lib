@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateProductTagDto } from '../models/CreateProductTagDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Tag } from '../models/Tag';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,14 +12,14 @@ export class ProductTagService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Tag Ok
    * @throws ApiError
    */
   public createProductTag({
     requestBody,
   }: {
     requestBody: CreateProductTagDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Tag> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/product-tag',
@@ -36,14 +36,14 @@ export class ProductTagService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Tag Ok
    * @throws ApiError
    */
   public getProductTag({
     id,
   }: {
     id: string,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Tag> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/product-tag/{id}',

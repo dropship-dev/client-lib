@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Collection } from '../models/Collection';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,14 +11,14 @@ export class CollectionService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Collection Ok
    * @throws ApiError
    */
   public getCollection({
     id,
   }: {
     id: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Collection> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/collection/{id}',

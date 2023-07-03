@@ -4,7 +4,7 @@
 import type { ConfirmPaypalOrderDto } from '../models/ConfirmPaypalOrderDto';
 import type { CreatePaypalOrderDto } from '../models/CreatePaypalOrderDto';
 import type { CreateTransactionDto } from '../models/CreateTransactionDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Transaction } from '../models/Transaction';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -14,7 +14,7 @@ export class TransactionService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Transaction Ok
    * @throws ApiError
    */
   public createTransaction({
@@ -23,7 +23,7 @@ export class TransactionService {
   }: {
     storeId: number,
     requestBody: CreateTransactionDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Transaction> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/transaction',
@@ -43,7 +43,7 @@ export class TransactionService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Transaction Ok
    * @throws ApiError
    */
   public createPaypalOrder({
@@ -54,7 +54,7 @@ export class TransactionService {
     storeId: number,
     id: number,
     requestBody: CreatePaypalOrderDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Transaction> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/transaction/{id}/order/paypal',
@@ -75,7 +75,7 @@ export class TransactionService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Transaction Ok
    * @throws ApiError
    */
   public confirmPaypalOrder({
@@ -86,7 +86,7 @@ export class TransactionService {
     storeId: number,
     id: number,
     requestBody: ConfirmPaypalOrderDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Transaction> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/transaction/{id}/order/paypal/confirm',

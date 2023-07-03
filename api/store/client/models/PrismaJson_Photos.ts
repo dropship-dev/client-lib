@@ -2,6 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type GetResult_any_any_any_ = {
-};
-
+export type PrismaJson_Photos = Array<string>;

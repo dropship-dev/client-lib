@@ -2,7 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { Order } from '../models/Order';
+import type { OrderItem } from '../models/OrderItem';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -91,12 +92,12 @@ export class OrderService {
     storeId: number,
     orderId: string,
     email: string,
-  }): CancelablePromise<({
-    OrderItem: Array<GetResult_any_any_any_>;
+  }): CancelablePromise<(Order & {
+    OrderItem: Array<OrderItem>;
     Transaction: {
       status: TransactionStatus;
     };
-  } & GetResult_any_any_any_)> {
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/order/{orderId}/tracking',

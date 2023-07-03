@@ -1,8 +1,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
 import type { Photos } from '../models/Photos';
+import type { Product } from '../models/Product';
+import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -29,16 +30,16 @@ export class ProductService {
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: (string | number | boolean | Photos | {
-      Tag: Array<GetResult_any_any_any_>;
       variantOption: VariantOptions;
+      Tag: Array<Tag>;
     });
     total: number;
-    data: Array<({
+    data: Array<(Product & {
       PlatformProduct: {
-        Tag: Array<GetResult_any_any_any_>;
         variantOption: VariantOptions;
+        Tag: Array<Tag>;
       };
-    } & GetResult_any_any_any_)>;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -61,7 +62,7 @@ export class ProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Product Ok
    * @throws ApiError
    */
   public updateProduct({
@@ -72,7 +73,7 @@ export class ProductService {
     storeId: number,
     productId: number,
     requestBody: UpdateProductDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}',
@@ -121,7 +122,7 @@ export class ProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Product Ok
    * @throws ApiError
    */
   public updateProductStatus({
@@ -132,7 +133,7 @@ export class ProductService {
     storeId: number,
     productId: number,
     requestBody: UpdateProductStatusDto,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/status',
