@@ -10,7 +10,6 @@ import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DefaultService } from './services/DefaultService';
 import { OrderService } from './services/OrderService';
-import { PaymentService } from './services/PaymentService';
 import { ProductService } from './services/ProductService';
 import { ProductTagService } from './services/ProductTagService';
 import { ReviewService } from './services/ReviewService';
@@ -32,7 +31,6 @@ export class ClientApi {
   public readonly currency: CurrencyService;
   public readonly default: DefaultService;
   public readonly order: OrderService;
-  public readonly payment: PaymentService;
   public readonly product: ProductService;
   public readonly productTag: ProductTagService;
   public readonly review: ReviewService;
@@ -65,7 +63,6 @@ export class ClientApi {
     this.currency = new CurrencyService(this.request);
     this.default = new DefaultService(this.request);
     this.order = new OrderService(this.request);
-    this.payment = new PaymentService(this.request);
     this.product = new ProductService(this.request);
     this.productTag = new ProductTagService(this.request);
     this.review = new ReviewService(this.request);

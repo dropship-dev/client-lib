@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
@@ -26,7 +27,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-06-27T10:29:25.783Z',
+    periodTo = '2023-07-03T03:51:28.983Z',
     nextPageIndex,
     name,
     userId,
@@ -115,7 +116,7 @@ export class StoreService {
     ActiveTheme?: GetResult_any_any_any_;
     Transaction?: Array<GetResult_any_any_any_>;
     Collection?: Array<GetResult_any_any_any_>;
-    Payment?: GetResult_any_any_any_;
+    Payment?: Array<GetResult_any_any_any_>;
     Theme?: Array<GetResult_any_any_any_>;
     Currency?: GetResult_any_any_any_;
     StoreUser: Array<GetResult_any_any_any_>;
@@ -184,6 +185,38 @@ export class StoreService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStorePaymentMethod({
+    storeId,
+  }: {
+    storeId: number,
+  }): CancelablePromise<Array<{
+    updatedAt: string;
+    createdAt: string;
+    email: string;
+    publishableKey: string;
+    type: PaymentType;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/payment-method',
+      path: {
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

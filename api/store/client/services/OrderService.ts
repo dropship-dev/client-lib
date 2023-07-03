@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
-import type { Order } from '../models/Order';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,7 +13,7 @@ export class OrderService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Order Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createStoreOrder({
@@ -23,7 +22,10 @@ export class OrderService {
   }: {
     storeId: number,
     requestBody: CreateOrderDto,
-  }): CancelablePromise<Order> {
+  }): CancelablePromise<{
+    clientSecret: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order',
@@ -43,20 +45,20 @@ export class OrderService {
   }
 
   /**
-   * @returns Order Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public confirmStoreOrder({
     storeId,
     paypalOrderId,
     stripeOrderId,
-    requestBody,
   }: {
     storeId: number,
-    paypalOrderId: string,
-    stripeOrderId: string,
-    requestBody: CreateOrderDto,
-  }): CancelablePromise<Order> {
+    paypalOrderId?: string,
+    stripeOrderId?: string,
+  }): CancelablePromise<{
+    status: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/capture',
@@ -67,8 +69,6 @@ export class OrderService {
         'paypalOrderId': paypalOrderId,
         'stripeOrderId': stripeOrderId,
       },
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

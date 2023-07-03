@@ -3,6 +3,8 @@
 /* eslint-disable */
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { PaymentType } from '../models/PaymentType';
+import type { UserRole } from '../models/UserRole';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -39,7 +41,23 @@ export class PaymentService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllPayment(): CancelablePromise<Array<GetResult_any_any_any_>> {
+  public getAllPayment(): CancelablePromise<Array<{
+    createdAt: string;
+    updatedAt: string;
+    type: PaymentType;
+    publishableKey: string;
+    email: string;
+    creator: {
+      createdAt: string;
+      updatedAt: string;
+      role: UserRole;
+      id: string;
+      email: string;
+      name: string;
+      avatar: string;
+    };
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
@@ -61,7 +79,23 @@ export class PaymentService {
     id,
   }: {
     id: number,
-  }): CancelablePromise<GetResult_any_any_any_> {
+  }): CancelablePromise<{
+    createdAt: string;
+    updatedAt: string;
+    type: PaymentType;
+    publishableKey: string;
+    email: string;
+    creator: {
+      createdAt: string;
+      updatedAt: string;
+      role: UserRole;
+      id: string;
+      email: string;
+      name: string;
+      avatar: string;
+    };
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/{id}',
