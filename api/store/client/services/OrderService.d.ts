@@ -1,6 +1,5 @@
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
-import type { Order } from '../models/Order';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -8,23 +7,27 @@ export declare class OrderService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Order Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createStoreOrder({ storeId, requestBody, }: {
         storeId: number;
         requestBody: CreateOrderDto;
-    }): CancelablePromise<Order>;
+    }): CancelablePromise<{
+        clientSecret: string;
+        id: string;
+    }>;
     /**
-     * @returns Order Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, requestBody, }: {
+    confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, }: {
         storeId: number;
-        paypalOrderId: string;
-        stripeOrderId: string;
-        requestBody: CreateOrderDto;
-    }): CancelablePromise<Order>;
+        paypalOrderId?: string;
+        stripeOrderId?: string;
+    }): CancelablePromise<{
+        status: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

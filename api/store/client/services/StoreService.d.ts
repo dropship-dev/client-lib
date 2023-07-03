@@ -1,4 +1,5 @@
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { PaymentType } from '../models/PaymentType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -13,7 +14,7 @@ export declare class StoreService {
     }): CancelablePromise<{
         updatedAt: string;
         createdAt: string;
-        Payment: GetResult_any_any_any_;
+        Payment: Array<GetResult_any_any_any_>;
         Currency: GetResult_any_any_any_;
         shippingPolicy: string;
         termsOfService: string;
@@ -41,4 +42,18 @@ export declare class StoreService {
             typos: any;
         };
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePaymentMethod({ storeId, }: {
+        storeId: number;
+    }): CancelablePromise<Array<{
+        updatedAt: string;
+        createdAt: string;
+        email: string;
+        publishableKey: string;
+        type: PaymentType;
+        id: number;
+    }>>;
 }

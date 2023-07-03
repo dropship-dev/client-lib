@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductTagService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.PurchaseUnit = exports.Prisma_SortOrder = exports.PaymentType = exports.Payer = exports.Order = exports.FulfillmentStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductTagService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -15,18 +15,14 @@ Object.defineProperty(exports, "CancelablePromise", { enumerable: true, get: fun
 Object.defineProperty(exports, "CancelError", { enumerable: true, get: function () { return CancelablePromise_1.CancelError; } });
 var OpenAPI_1 = require("./core/OpenAPI");
 Object.defineProperty(exports, "OpenAPI", { enumerable: true, get: function () { return OpenAPI_1.OpenAPI; } });
+var CreateOrderDto_1 = require("./models/CreateOrderDto");
+Object.defineProperty(exports, "CreateOrderDto", { enumerable: true, get: function () { return CreateOrderDto_1.CreateOrderDto; } });
 var FulfillmentStatus_1 = require("./models/FulfillmentStatus");
 Object.defineProperty(exports, "FulfillmentStatus", { enumerable: true, get: function () { return FulfillmentStatus_1.FulfillmentStatus; } });
-var Order_1 = require("./models/Order");
-Object.defineProperty(exports, "Order", { enumerable: true, get: function () { return Order_1.Order; } });
-var Payer_1 = require("./models/Payer");
-Object.defineProperty(exports, "Payer", { enumerable: true, get: function () { return Payer_1.Payer; } });
 var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Prisma_SortOrder_1 = require("./models/Prisma_SortOrder");
 Object.defineProperty(exports, "Prisma_SortOrder", { enumerable: true, get: function () { return Prisma_SortOrder_1.Prisma_SortOrder; } });
-var PurchaseUnit_1 = require("./models/PurchaseUnit");
-Object.defineProperty(exports, "PurchaseUnit", { enumerable: true, get: function () { return PurchaseUnit_1.PurchaseUnit; } });
 var StoreOrderBy_1 = require("./models/StoreOrderBy");
 Object.defineProperty(exports, "StoreOrderBy", { enumerable: true, get: function () { return StoreOrderBy_1.StoreOrderBy; } });
 var StoreRole_1 = require("./models/StoreRole");

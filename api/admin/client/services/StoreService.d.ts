@@ -1,4 +1,5 @@
 import type { GetResult_any_any_any_ } from '../models/GetResult_any_any_any_';
+import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
@@ -69,7 +70,7 @@ export declare class StoreService {
         ActiveTheme?: GetResult_any_any_any_;
         Transaction?: Array<GetResult_any_any_any_>;
         Collection?: Array<GetResult_any_any_any_>;
-        Payment?: GetResult_any_any_any_;
+        Payment?: Array<GetResult_any_any_any_>;
         Theme?: Array<GetResult_any_any_any_>;
         Currency?: GetResult_any_any_any_;
         StoreUser: Array<GetResult_any_any_any_>;
@@ -90,4 +91,18 @@ export declare class StoreService {
         storeId: number;
         requestBody: UpdateStorePaymentMethodDto;
     }): CancelablePromise<GetResult_any_any_any_>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePaymentMethod({ storeId, }: {
+        storeId: number;
+    }): CancelablePromise<Array<{
+        updatedAt: string;
+        createdAt: string;
+        email: string;
+        publishableKey: string;
+        type: PaymentType;
+        id: number;
+    }>>;
 }

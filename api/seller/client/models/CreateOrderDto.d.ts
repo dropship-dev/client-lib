@@ -9,8 +9,16 @@ export type CreateOrderDto = {
     zipCode: string;
     country: string;
     note?: string;
+    payment: {
+        method: CreateOrderDto.method;
+    };
     orderItems: Array<{
         quantity: number;
         productVariantId: number;
     }>;
 };
+export declare namespace CreateOrderDto {
+    enum method {
+        PAYPAL = "paypal"
+    }
+}

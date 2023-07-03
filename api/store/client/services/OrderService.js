@@ -7,7 +7,7 @@ class OrderService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Order Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createStoreOrder({ storeId, requestBody, }) {
@@ -29,10 +29,10 @@ class OrderService {
         });
     }
     /**
-     * @returns Order Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, requestBody, }) {
+    confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order/capture',
@@ -43,8 +43,6 @@ class OrderService {
                 'paypalOrderId': paypalOrderId,
                 'stripeOrderId': stripeOrderId,
             },
-            body: requestBody,
-            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

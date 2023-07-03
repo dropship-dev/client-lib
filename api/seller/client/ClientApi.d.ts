@@ -5,7 +5,6 @@ import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DefaultService } from './services/DefaultService';
 import { OrderService } from './services/OrderService';
-import { PaymentService } from './services/PaymentService';
 import { ProductService } from './services/ProductService';
 import { ProductTagService } from './services/ProductTagService';
 import { ReviewService } from './services/ReviewService';
@@ -24,7 +23,6 @@ export declare class ClientApi {
     readonly currency: CurrencyService;
     readonly default: DefaultService;
     readonly order: OrderService;
-    readonly payment: PaymentService;
     readonly product: ProductService;
     readonly productTag: ProductTagService;
     readonly review: ReviewService;
