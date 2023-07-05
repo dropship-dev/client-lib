@@ -2,8 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Transaction } from '../models/Transaction';
-import type { TransactionStatus } from '../models/TransactionStatus';
-import type { TransactionType } from '../models/TransactionType';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -18,11 +16,16 @@ export class TransactionService {
    */
   public getAllTransaction({
     storeId,
+    pageSize = 20,
+    nextPageIndex,
   }: {
     storeId: number,
+    pageSize?: number,
+    nextPageIndex?: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (number | string | TransactionStatus | TransactionType);
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<Transaction>;
   }> {
@@ -31,6 +34,10 @@ export class TransactionService {
       url: '/store/{storeId}/transaction',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,

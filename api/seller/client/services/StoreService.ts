@@ -64,7 +64,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-04T10:21:29.833Z',
+    periodTo = '2023-07-05T03:40:05.631Z',
     nextPageIndex,
     name,
     userId,
@@ -97,6 +97,7 @@ export class StoreService {
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: (string | number);
+    prePageIndex: (string | number);
     total: number;
     data: Array<StoreRevenue>;
   }> {

@@ -47,7 +47,6 @@ export type { Order } from './models/Order';
 export type { OrderItem } from './models/OrderItem';
 export type { Payment } from './models/Payment';
 export { PaymentType } from './models/PaymentType';
-export type { Photos } from './models/Photos';
 export type { Pick_Theme_Exclude_keyofTheme_id_or_createdAt_or_updatedAt_or_storeId_or_colors_or_typos__ } from './models/Pick_Theme_Exclude_keyofTheme_id_or_createdAt_or_updatedAt_or_storeId_or_colors_or_typos__';
 export type { PlatformProduct } from './models/PlatformProduct';
 export type { PlatformVariant } from './models/PlatformVariant';

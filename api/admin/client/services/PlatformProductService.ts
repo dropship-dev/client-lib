@@ -3,14 +3,12 @@
 /* eslint-disable */
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
-import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Store } from '../models/Store';
 import type { Tag } from '../models/Tag';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
-import type { VariantOptions } from '../models/VariantOptions';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -59,7 +57,8 @@ export class PlatformProductService {
     tags?: Array<string>,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number | boolean | Photos | VariantOptions | Array<Tag> | Array<PlatformVariant>);
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<(PlatformProduct & {
       PlatformVariant: Array<PlatformVariant>;

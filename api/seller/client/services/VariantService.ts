@@ -128,7 +128,8 @@ export class VariantService {
     nextPageIndex?: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number | boolean | PlatformVariant);
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<(ProductVariant & {
       PlatformVariant: PlatformVariant;
