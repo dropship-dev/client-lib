@@ -23,7 +23,8 @@ export declare class ThemeService {
         storeId: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number);
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
         data: Array<Theme>;
     }>;

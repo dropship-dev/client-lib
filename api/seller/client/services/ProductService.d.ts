@@ -1,4 +1,3 @@
-import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
@@ -19,10 +18,8 @@ export declare class ProductService {
         nextPageIndex?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | boolean | Photos | {
-            variantOption: VariantOptions;
-            Tag: Array<Tag>;
-        });
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
         data: Array<(Product & {
             PlatformProduct: {

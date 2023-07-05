@@ -1,5 +1,4 @@
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
-import type { Photos } from '../models/Photos';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -25,7 +24,8 @@ export declare class DefaultService {
         nextPageIndex?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | Photos);
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
         data: Array<RequestSourcing>;
     }>;

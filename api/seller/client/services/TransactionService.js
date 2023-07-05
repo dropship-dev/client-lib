@@ -10,12 +10,16 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTransaction({ storeId, }) {
+    getAllTransaction({ storeId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

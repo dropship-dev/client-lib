@@ -26,7 +26,8 @@ export declare class OrderService {
         endTotal?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: (string | number | Transaction | Array<OrderItem>);
+        nextPageIndex: string;
+        prePageIndex: string;
         total: number;
         data: Array<(Order & {
             OrderItem: Array<OrderItem>;

@@ -62,6 +62,7 @@ export declare class StoreService {
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: (string | number);
+        prePageIndex: (string | number);
         total: number;
         data: Array<StoreRevenue>;
     }>;
