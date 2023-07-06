@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrder({ pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    getAllOrders({ pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
@@ -27,6 +27,25 @@ class OrderService {
                 'startTotal': startTotal,
                 'endTotal': endTotal,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateFulfillmentStatus({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/order/fulfillmentStatus',
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

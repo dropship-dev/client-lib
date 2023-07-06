@@ -3,7 +3,7 @@ import type { RequestSourcing } from '../models/RequestSourcing';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-export declare class DefaultService {
+export declare class RequestSourcingService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**

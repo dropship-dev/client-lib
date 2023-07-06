@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DefaultService = void 0;
-class DefaultService {
+exports.RequestSourcingService = void 0;
+class RequestSourcingService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
@@ -53,4 +53,4 @@ class DefaultService {
         });
     }
 }
-exports.DefaultService = DefaultService;
+exports.RequestSourcingService = RequestSourcingService;

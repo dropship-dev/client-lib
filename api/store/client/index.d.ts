@@ -76,6 +76,7 @@ export { TransactionType } from './models/TransactionType';
 export type { Typo } from './models/Typo';
 export type { Typos } from './models/Typos';
 export type { UpdateCollectionDto } from './models/UpdateCollectionDto';
+export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
 export type { UpdatePlatformProductDto } from './models/UpdatePlatformProductDto';
 export type { UpdatePlatformProductStatusDto } from './models/UpdatePlatformProductStatusDto';
 export type { UpdateProductDto } from './models/UpdateProductDto';

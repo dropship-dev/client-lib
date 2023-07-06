@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.DefaultService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -45,12 +45,12 @@ var CollectionService_1 = require("./services/CollectionService");
 Object.defineProperty(exports, "CollectionService", { enumerable: true, get: function () { return CollectionService_1.CollectionService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
 Object.defineProperty(exports, "CurrencyService", { enumerable: true, get: function () { return CurrencyService_1.CurrencyService; } });
-var DefaultService_1 = require("./services/DefaultService");
-Object.defineProperty(exports, "DefaultService", { enumerable: true, get: function () { return DefaultService_1.DefaultService; } });
 var OrderService_1 = require("./services/OrderService");
 Object.defineProperty(exports, "OrderService", { enumerable: true, get: function () { return OrderService_1.OrderService; } });
 var ProductService_1 = require("./services/ProductService");
 Object.defineProperty(exports, "ProductService", { enumerable: true, get: function () { return ProductService_1.ProductService; } });
+var RequestSourcingService_1 = require("./services/RequestSourcingService");
+Object.defineProperty(exports, "RequestSourcingService", { enumerable: true, get: function () { return RequestSourcingService_1.RequestSourcingService; } });
 var ReviewService_1 = require("./services/ReviewService");
 Object.defineProperty(exports, "ReviewService", { enumerable: true, get: function () { return ReviewService_1.ReviewService; } });
 var SettingService_1 = require("./services/SettingService");

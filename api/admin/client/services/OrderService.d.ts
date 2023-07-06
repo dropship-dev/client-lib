@@ -3,6 +3,7 @@ import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class OrderService {
@@ -12,7 +13,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrder({ pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    getAllOrders({ pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
         pageSize?: number;
         nextPageIndex?: string;
         storeId?: number;
@@ -34,6 +35,13 @@ export declare class OrderService {
             Transaction: Transaction;
         })>;
     }>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateFulfillmentStatus({ requestBody, }: {
+        requestBody: UpdateFulFillmentStatusDto;
+    }): CancelablePromise<void>;
     /**
      * @returns any Ok
      * @throws ApiError
