@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductTagService = void 0;
-class ProductTagService {
+exports.StoreTagService = void 0;
+class StoreTagService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
@@ -10,10 +10,13 @@ class ProductTagService {
      * @returns Tag Ok
      * @throws ApiError
      */
-    createProductTag({ requestBody, }) {
+    createStoreTag({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/product-tag',
+            url: '/store/{storeId}/tag',
+            path: {
+                'storeId': storeId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -29,12 +32,36 @@ class ProductTagService {
      * @returns Tag Ok
      * @throws ApiError
      */
-    getProductTag({ id, }) {
+    getStoreTags({ storeId, search, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/product-tag/{id}',
+            url: '/store/{storeId}/tag',
             path: {
-                'id': id,
+                'storeId': storeId,
+            },
+            query: {
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns Tag Ok
+     * @throws ApiError
+     */
+    deleteStoreTag({ storeId, name, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/tag/{name}',
+            path: {
+                'storeId': storeId,
+                'name': name,
             },
             errors: {
                 400: `Bad request`,
@@ -46,4 +73,4 @@ class ProductTagService {
         });
     }
 }
-exports.ProductTagService = ProductTagService;
+exports.StoreTagService = StoreTagService;

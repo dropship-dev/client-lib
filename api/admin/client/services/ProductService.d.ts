@@ -1,6 +1,6 @@
+import type { AdminTag } from '../models/AdminTag';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Product } from '../models/Product';
-import type { Tag } from '../models/Tag';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -31,7 +31,7 @@ export declare class ProductService {
         data: Array<(Product & {
             PlatformProduct: {
                 variantOption: VariantOptions;
-                Tag: Array<Tag>;
+                Tag: Array<AdminTag>;
             };
         })>;
     }>;

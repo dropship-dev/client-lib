@@ -1,10 +1,9 @@
 /**
- * Model Tag
+ * Model AdminTag
  */
-export type Tag = {
+export type AdminTag = {
     updatedAt: string;
     createdAt: string;
-    storeId: number;
     name: string;
-    id: number;
+    id: string;
 };

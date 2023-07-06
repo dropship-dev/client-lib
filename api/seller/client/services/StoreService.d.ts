@@ -14,6 +14,7 @@ import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreUser } from '../models/StoreUser';
+import type { Tag } from '../models/Tag';
 import type { Theme } from '../models/Theme';
 import type { Transaction } from '../models/Transaction';
 import type { UpdateStoreCustomDomainDto } from '../models/UpdateStoreCustomDomainDto';
@@ -79,6 +80,7 @@ export declare class StoreService {
         Transaction?: Array<Transaction>;
         RequestSourcing?: Array<RequestSourcing>;
         Product?: Array<Product>;
+        Tag?: Array<Tag>;
         Payment?: Array<Payment>;
         Collection?: Array<Collection>;
         Theme?: Array<Theme>;

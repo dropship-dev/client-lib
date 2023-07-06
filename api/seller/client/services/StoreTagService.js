@@ -1,50 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StoreService = void 0;
-class StoreService {
+exports.StoreTagService = void 0;
+class StoreTagService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Store Ok
+     * @returns void
      * @throws ApiError
      */
-    createStore({ requestBody, }) {
+    connectProductTag({ storeId, productId, name, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store',
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-06T07:49:37.404Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store',
-            query: {
-                'pageSize': pageSize,
-                'status': status,
-                'orderBy': orderBy,
-                'order': order,
-                'periodFrom': periodFrom,
-                'periodTo': periodTo,
-                'nextPageIndex': nextPageIndex,
+            url: '/store/{storeId}/product/{productId}/tag/{name}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
                 'name': name,
-                'userId': userId,
-                'revenueFrom': revenueFrom,
-                'revenueTo': revenueTo,
             },
             errors: {
                 400: `Bad request`,
@@ -56,57 +29,17 @@ class StoreService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Product Ok
      * @throws ApiError
      */
-    getStore({ storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}',
-            path: {
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    updateStore({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/store/{storeId}',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    deleteStore({ storeId, }) {
+    deleteProductTag({ storeId, productId, name, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}',
+            url: '/store/{storeId}/product/{productId}/tag/{name}',
             path: {
                 'storeId': storeId,
+                'productId': productId,
+                'name': name,
             },
             errors: {
                 400: `Bad request`,
@@ -118,59 +51,85 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns Tag Ok
      * @throws ApiError
      */
-    updateStoreStatus({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/status',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    updateStoreCustomDomain({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/custom-domain',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStorePaymentMethod({ storeId, }) {
+    getProductTags({ storeId, productId, search, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/payment-method',
+            url: '/store/{storeId}/product/{productId}/tag',
             path: {
                 'storeId': storeId,
+                'productId': productId,
+            },
+            query: {
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns Tag Ok
+     * @throws ApiError
+     */
+    createStoreTag({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/tag',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns Tag Ok
+     * @throws ApiError
+     */
+    getStoreTags({ storeId, search, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/tag',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns Tag Ok
+     * @throws ApiError
+     */
+    deleteStoreTag({ storeId, name, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/tag/{name}',
+            path: {
+                'storeId': storeId,
+                'name': name,
             },
             errors: {
                 400: `Bad request`,
@@ -182,4 +141,4 @@ class StoreService {
         });
     }
 }
-exports.StoreService = StoreService;
+exports.StoreTagService = StoreTagService;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductTagService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -47,14 +47,14 @@ var OrderService_1 = require("./services/OrderService");
 Object.defineProperty(exports, "OrderService", { enumerable: true, get: function () { return OrderService_1.OrderService; } });
 var ProductService_1 = require("./services/ProductService");
 Object.defineProperty(exports, "ProductService", { enumerable: true, get: function () { return ProductService_1.ProductService; } });
-var ProductTagService_1 = require("./services/ProductTagService");
-Object.defineProperty(exports, "ProductTagService", { enumerable: true, get: function () { return ProductTagService_1.ProductTagService; } });
 var ReviewService_1 = require("./services/ReviewService");
 Object.defineProperty(exports, "ReviewService", { enumerable: true, get: function () { return ReviewService_1.ReviewService; } });
 var SettingService_1 = require("./services/SettingService");
 Object.defineProperty(exports, "SettingService", { enumerable: true, get: function () { return SettingService_1.SettingService; } });
 var StoreService_1 = require("./services/StoreService");
 Object.defineProperty(exports, "StoreService", { enumerable: true, get: function () { return StoreService_1.StoreService; } });
+var StoreTagService_1 = require("./services/StoreTagService");
+Object.defineProperty(exports, "StoreTagService", { enumerable: true, get: function () { return StoreTagService_1.StoreTagService; } });
 var ThemeService_1 = require("./services/ThemeService");
 Object.defineProperty(exports, "ThemeService", { enumerable: true, get: function () { return ThemeService_1.ThemeService; } });
 var TransactionService_1 = require("./services/TransactionService");
