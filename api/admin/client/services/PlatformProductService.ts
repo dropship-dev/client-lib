@@ -2,11 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
+import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Store } from '../models/Store';
-import type { Tag } from '../models/Tag';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 
@@ -61,8 +61,8 @@ export class PlatformProductService {
     prePageIndex: number;
     total: number;
     data: Array<(PlatformProduct & {
+      Tag: Array<AdminTag>;
       PlatformVariant: Array<PlatformVariant>;
-      Tag: Array<Tag>;
     })>;
   }> {
     return this.httpRequest.request({
@@ -93,8 +93,8 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
   }): CancelablePromise<(PlatformProduct & {
+    Tag: Array<AdminTag>;
     PlatformVariant: Array<PlatformVariant>;
-    Tag: Array<Tag>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

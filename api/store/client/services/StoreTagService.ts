@@ -1,13 +1,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CreateProductTagDto } from '../models/CreateProductTagDto';
 import type { Tag } from '../models/Tag';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ProductTagService {
+export class StoreTagService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
@@ -15,16 +14,25 @@ export class ProductTagService {
    * @returns Tag Ok
    * @throws ApiError
    */
-  public createProductTag({
-    requestBody,
+  public getProductTags({
+    storeId,
+    productId,
+    search,
   }: {
-    requestBody: CreateProductTagDto,
-  }): CancelablePromise<Tag> {
+    storeId: number,
+    productId: number,
+    search?: string,
+  }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({
-      method: 'POST',
-      url: '/product-tag',
-      body: requestBody,
-      mediaType: 'application/json',
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/tag',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      query: {
+        'search': search,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -39,16 +47,21 @@ export class ProductTagService {
    * @returns Tag Ok
    * @throws ApiError
    */
-  public getProductTag({
-    id,
+  public getStoreTags({
+    storeId,
+    search,
   }: {
-    id: string,
-  }): CancelablePromise<Tag> {
+    storeId: number,
+    search?: string,
+  }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/product-tag/{id}',
+      url: '/store/{storeId}/tag',
       path: {
-        'id': id,
+        'storeId': storeId,
+      },
+      query: {
+        'search': search,
       },
       errors: {
         400: `Bad request`,

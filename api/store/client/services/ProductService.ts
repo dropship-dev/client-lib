@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AdminTag } from '../models/AdminTag';
 import type { Product } from '../models/Product';
-import type { Tag } from '../models/Tag';
 import type { VariantOptions } from '../models/VariantOptions';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -32,7 +32,7 @@ export class ProductService {
     data: Array<(Product & {
       PlatformProduct: {
         variantOption: VariantOptions;
-        Tag: Array<Tag>;
+        Tag: Array<AdminTag>;
       };
     })>;
   }> {
@@ -69,7 +69,7 @@ export class ProductService {
   }): CancelablePromise<(Product & {
     PlatformProduct: {
       variantOption: VariantOptions;
-      Tag: Array<Tag>;
+      Tag: Array<AdminTag>;
     };
   })> {
     return this.httpRequest.request({

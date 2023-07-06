@@ -1,28 +1,28 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CreateProductTagDto } from '../models/CreateProductTagDto';
-import type { Tag } from '../models/Tag';
+import type { AdminTag } from '../models/AdminTag';
+import type { CreateTagDto } from '../models/CreateTagDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ProductTagService {
+export class TagService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Tag Ok
+   * @returns AdminTag Ok
    * @throws ApiError
    */
-  public createProductTag({
+  public createTag({
     requestBody,
   }: {
-    requestBody: CreateProductTagDto,
-  }): CancelablePromise<Tag> {
+    requestBody: CreateTagDto,
+  }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/product-tag',
+      url: '/tag',
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -36,17 +36,42 @@ export class ProductTagService {
   }
 
   /**
-   * @returns Tag Ok
+   * @returns AdminTag Ok
    * @throws ApiError
    */
-  public getProductTag({
+  public getTags({
+    search,
+  }: {
+    search?: string,
+  }): CancelablePromise<Array<AdminTag>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/tag',
+      query: {
+        'search': search,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns AdminTag Ok
+   * @throws ApiError
+   */
+  public getTag({
     id,
   }: {
     id: string,
-  }): CancelablePromise<Tag> {
+  }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/product-tag/{id}',
+      url: '/tag/{id}',
       path: {
         'id': id,
       },

@@ -8,8 +8,8 @@
 export type Tag = {
   updatedAt: string;
   createdAt: string;
-  color: string;
+  storeId: number;
   name: string;
-  id: string;
+  id: number;
 };
 

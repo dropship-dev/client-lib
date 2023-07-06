@@ -2,8 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type CreateProductTagDto = {
+export type CreateStoreTagDto = {
   name: string;
-  color?: string;
 };
 

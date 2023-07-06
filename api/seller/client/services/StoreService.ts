@@ -17,6 +17,7 @@ import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreUser } from '../models/StoreUser';
+import type { Tag } from '../models/Tag';
 import type { Theme } from '../models/Theme';
 import type { Transaction } from '../models/Transaction';
 import type { UpdateStoreCustomDomainDto } from '../models/UpdateStoreCustomDomainDto';
@@ -64,7 +65,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-05T03:40:05.631Z',
+    periodTo = '2023-07-06T07:49:37.404Z',
     nextPageIndex,
     name,
     userId,
@@ -142,6 +143,7 @@ export class StoreService {
     Transaction?: Array<Transaction>;
     RequestSourcing?: Array<RequestSourcing>;
     Product?: Array<Product>;
+    Tag?: Array<Tag>;
     Payment?: Array<Payment>;
     Collection?: Array<Collection>;
     Theme?: Array<Theme>;

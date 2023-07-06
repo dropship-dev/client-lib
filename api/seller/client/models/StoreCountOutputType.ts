@@ -6,6 +6,7 @@
  * Count Type StoreCountOutputType
  */
 export type StoreCountOutputType = {
+  Tag: number;
   Order: number;
   RequestSourcing: number;
   Product: number;

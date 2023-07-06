@@ -1,32 +1,30 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { AdminTag } from '../models/AdminTag';
-import type { CreateProductDto } from '../models/CreateProductDto';
-import type { Product } from '../models/Product';
-import type { VariantOptions } from '../models/VariantOptions';
+import type { CreateStoreTagDto } from '../models/CreateStoreTagDto';
+import type { Tag } from '../models/Tag';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ProductService {
+export class StoreTagService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns string Ok
+   * @returns Tag Ok
    * @throws ApiError
    */
-  public createProduct({
+  public createStoreTag({
     storeId,
     requestBody,
   }: {
     storeId: number,
-    requestBody: CreateProductDto,
-  }): CancelablePromise<string> {
+    requestBody: CreateStoreTagDto,
+  }): CancelablePromise<Tag> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product',
+      url: '/store/{storeId}/tag',
       path: {
         'storeId': storeId,
       },
@@ -43,38 +41,52 @@ export class ProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Tag Ok
    * @throws ApiError
    */
-  public getAllProduct({
+  public getStoreTags({
     storeId,
-    pageSize = 20,
-    nextPageIndex,
+    search,
   }: {
     storeId: number,
-    pageSize?: number,
-    nextPageIndex?: number,
-  }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
-    total: number;
-    data: Array<(Product & {
-      PlatformProduct: {
-        variantOption: VariantOptions;
-        Tag: Array<AdminTag>;
-      };
-    })>;
-  }> {
+    search?: string,
+  }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/product',
+      url: '/store/{storeId}/tag',
       path: {
         'storeId': storeId,
       },
       query: {
-        'pageSize': pageSize,
-        'nextPageIndex': nextPageIndex,
+        'search': search,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns Tag Ok
+   * @throws ApiError
+   */
+  public deleteStoreTag({
+    storeId,
+    name,
+  }: {
+    storeId: number,
+    name: string,
+  }): CancelablePromise<Tag> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/tag/{name}',
+      path: {
+        'storeId': storeId,
+        'name': name,
       },
       errors: {
         400: `Bad request`,
