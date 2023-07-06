@@ -6,6 +6,7 @@ import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -18,7 +19,7 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllOrder({
+  public getAllOrders({
     pageSize = 20,
     nextPageIndex,
     storeId,
@@ -68,6 +69,30 @@ export class OrderService {
         'startTotal': startTotal,
         'endTotal': endTotal,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateFulfillmentStatus({
+    requestBody,
+  }: {
+    requestBody: UpdateFulFillmentStatusDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/order/fulfillmentStatus',
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

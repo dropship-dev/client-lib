@@ -7,12 +7,12 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
-import { DefaultService } from './services/DefaultService';
 import { OrderService } from './services/OrderService';
 import { PaymentService } from './services/PaymentService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
+import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
@@ -28,12 +28,12 @@ export class ClientApi {
 
   public readonly auth: AuthService;
   public readonly currency: CurrencyService;
-  public readonly default: DefaultService;
   public readonly order: OrderService;
   public readonly payment: PaymentService;
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
+  public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
@@ -60,12 +60,12 @@ export class ClientApi {
 
     this.auth = new AuthService(this.request);
     this.currency = new CurrencyService(this.request);
-    this.default = new DefaultService(this.request);
     this.order = new OrderService(this.request);
     this.payment = new PaymentService(this.request);
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
+    this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);

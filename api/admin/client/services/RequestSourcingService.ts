@@ -8,7 +8,7 @@ import type { RequestSourcing } from '../models/RequestSourcing';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class DefaultService {
+export class RequestSourcingService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
