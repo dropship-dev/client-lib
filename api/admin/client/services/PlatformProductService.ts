@@ -50,11 +50,17 @@ export class PlatformProductService {
     nextPageIndex,
     name,
     tags,
+    isActive,
+    startPrice,
+    endPrice,
   }: {
     pageSize?: number,
     nextPageIndex?: number,
     name?: string,
     tags?: Array<string>,
+    isActive?: boolean,
+    startPrice?: number,
+    endPrice?: number,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -73,6 +79,9 @@ export class PlatformProductService {
         'nextPageIndex': nextPageIndex,
         'name': name,
         'tags': tags,
+        'isActive': isActive,
+        'startPrice': startPrice,
+        'endPrice': endPrice,
       },
       errors: {
         400: `Bad request`,
