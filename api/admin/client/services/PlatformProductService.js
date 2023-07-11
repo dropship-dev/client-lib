@@ -29,7 +29,7 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ pageSize = 20, nextPageIndex, name, tags, }) {
+    getAllPlatformProduct({ pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product',
@@ -38,6 +38,9 @@ class PlatformProductService {
                 'nextPageIndex': nextPageIndex,
                 'name': name,
                 'tags': tags,
+                'isActive': isActive,
+                'startPrice': startPrice,
+                'endPrice': endPrice,
             },
             errors: {
                 400: `Bad request`,

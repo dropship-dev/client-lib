@@ -22,11 +22,14 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ pageSize, nextPageIndex, name, tags, }: {
+    getAllPlatformProduct({ pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
         pageSize?: number;
         nextPageIndex?: number;
         name?: string;
         tags?: Array<string>;
+        isActive?: boolean;
+        startPrice?: number;
+        endPrice?: number;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
