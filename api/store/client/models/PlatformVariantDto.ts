@@ -7,6 +7,7 @@ import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionV
 export type PlatformVariantDto = {
   name: string;
   price: number;
+  supplierPrice: number;
   photo: string;
   variantOption: PrismaJson_VariantOptionValues;
 };

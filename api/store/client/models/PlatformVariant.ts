@@ -18,6 +18,7 @@ export type PlatformVariant = {
    */
   variantOption: PrismaJson_VariantOptionValues;
   photo: string;
+  supplierPrice: number;
   price: number;
   name: string;
   id: number;
