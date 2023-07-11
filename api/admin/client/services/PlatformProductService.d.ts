@@ -1,11 +1,14 @@
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
+import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Store } from '../models/Store';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
+import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
+import type { VariantOptions } from '../models/VariantOptions';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PlatformProductService {
@@ -35,11 +38,32 @@ export declare class PlatformProductService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<(PlatformProduct & {
+        data: Array<{
+            Product: Array<{
+                id: number;
+            }>;
             Tag: Array<AdminTag>;
             PlatformVariant: Array<PlatformVariant>;
-        })>;
+            updatedAt: string;
+            createdAt: string;
+            isEnable: boolean;
+            isActive: boolean;
+            variantOption: VariantOptions;
+            photos: Photos;
+            details: string;
+            description: string;
+            name: string;
+            id: number;
+            noStores: number;
+        }>;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updatePlatformProductStatuses({ requestBody, }: {
+        requestBody: UpdatePlatformProductStatusesDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
