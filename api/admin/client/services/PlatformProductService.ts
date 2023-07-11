@@ -4,11 +4,14 @@
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
+import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Store } from '../models/Store';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
+import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
+import type { VariantOptions } from '../models/VariantOptions';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -66,10 +69,24 @@ export class PlatformProductService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<(PlatformProduct & {
+    data: Array<{
+      Product: Array<{
+        id: number;
+      }>;
       Tag: Array<AdminTag>;
       PlatformVariant: Array<PlatformVariant>;
-    })>;
+      updatedAt: string;
+      createdAt: string;
+      isEnable: boolean;
+      isActive: boolean;
+      variantOption: VariantOptions;
+      photos: Photos;
+      details: string;
+      description: string;
+      name: string;
+      id: number;
+      noStores: number;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -83,6 +100,30 @@ export class PlatformProductService {
         'startPrice': startPrice,
         'endPrice': endPrice,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updatePlatformProductStatuses({
+    requestBody,
+  }: {
+    requestBody: UpdatePlatformProductStatusesDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/platform-product/status',
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
