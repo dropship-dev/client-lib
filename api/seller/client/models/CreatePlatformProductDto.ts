@@ -11,6 +11,8 @@ export type CreatePlatformProductDto = {
   details?: string;
   photos: Array<string>;
   tags: Array<string>;
+  SKU: string;
+  supplierContact: string;
   variantOption: PrismaJson_VariantOptions;
   PlatformVariant: Array<PlatformVariantDto>;
 };
