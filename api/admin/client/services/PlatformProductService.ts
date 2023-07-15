@@ -79,11 +79,13 @@ export class PlatformProductService {
       createdAt: string;
       isEnable: boolean;
       isActive: boolean;
+      supplierContact: string;
       variantOption: VariantOptions;
       photos: Photos;
       details: string;
       description: string;
       name: string;
+      SKU: string;
       id: number;
       noStores: number;
     }>;
