@@ -8,6 +8,7 @@ export type PlatformProduct = {
     createdAt: string;
     isEnable: boolean;
     isActive: boolean;
+    supplierContact: string;
     /**
      * [VariantOptions]
      */
@@ -19,5 +20,6 @@ export type PlatformProduct = {
     details: string;
     description: string;
     name: string;
+    SKU: string;
     id: number;
 };
