@@ -63,6 +63,13 @@ export declare class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
+    deletePlatformProducts({ ids, }: {
+        ids: Array<number>;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
     updatePlatformProductStatuses({ requestBody, }: {
         requestBody: UpdatePlatformProductStatusesDto;
     }): CancelablePromise<string>;

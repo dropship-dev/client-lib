@@ -19,10 +19,11 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize, nextPageIndex, }: {
+    getAllProduct({ storeId, pageSize, nextPageIndex, isActive, }: {
         storeId: number;
         pageSize?: number;
         nextPageIndex?: number;
+        isActive?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -35,4 +36,27 @@ export declare class ProductService {
             };
         })>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countProduct({ storeId, isActive, }: {
+        storeId: number;
+        isActive?: boolean;
+    }): CancelablePromise<{
+        count: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getProduct({ storeId, productId, }: {
+        storeId: number;
+        productId: number;
+    }): CancelablePromise<(Product & {
+        PlatformProduct: {
+            variantOption: VariantOptions;
+            Tag: Array<AdminTag>;
+        };
+    })>;
 }

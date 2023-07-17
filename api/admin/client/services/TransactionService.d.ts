@@ -5,6 +5,21 @@ export declare class TransactionService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllTransaction({ storeId, pageSize, nextPageIndex, }: {
+        storeId: number;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<Transaction>;
+    }>;
+    /**
      * @returns Transaction Ok
      * @throws ApiError
      */
