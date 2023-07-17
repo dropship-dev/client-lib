@@ -14,7 +14,7 @@ export class TransactionService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllTransaction({
+  public getAllStoreTransaction({
     storeId,
     pageSize = 20,
     nextPageIndex,
@@ -53,7 +53,7 @@ export class TransactionService {
    * @returns Transaction Ok
    * @throws ApiError
    */
-  public getTransaction({
+  public getStoreTransaction({
     storeId,
     id,
   }: {

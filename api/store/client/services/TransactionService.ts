@@ -17,7 +17,7 @@ export class TransactionService {
    * @returns Transaction Ok
    * @throws ApiError
    */
-  public createTransaction({
+  public createStoreTransaction({
     storeId,
     requestBody,
   }: {
