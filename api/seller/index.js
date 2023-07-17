@@ -25,6 +25,9 @@ if (process.env.NEXT_PUBLIC_API_URL) {
     client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
 axios_1.default.interceptors.request.use(async function (config) {
+    if (config.baseURL !== process.env.NEXT_PUBLIC_API_URL) {
+        return config;
+    }
     try {
         const token = await (0, firebase_1.getToken)();
         // Do something before request is sent
