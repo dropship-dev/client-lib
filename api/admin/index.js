@@ -24,8 +24,10 @@ const axios_1 = __importDefault(require("axios"));
 if (process.env.NEXT_PUBLIC_API_URL) {
     client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
+const instance = axios_1.default.create();
 axios_1.default.interceptors.request.use(async function (config) {
-    if (config.baseURL !== process.env.NEXT_PUBLIC_API_URL) {
+    if (config.baseURL != process.env.NEXT_PUBLIC_API_URL) {
+        console.log("not api url");
         return config;
     }
     try {
@@ -63,10 +65,9 @@ class ClientApi extends client_1.ClientApi {
             }
             throw e;
         }
-        await axios_1.default.put(result.signedUrl, file, {
+        await instance.put(result.signedUrl, file, {
             headers: {
                 "Content-Type": file.type,
-                "Content-Length": file.size,
             },
         });
         return result.url;
