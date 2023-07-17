@@ -10,10 +10,6 @@ const instance = axios.create()
 
 axios.interceptors.request.use(
   async function (config) {
-    if (config.baseURL != process.env.NEXT_PUBLIC_API_URL) {
-      console.log("not api url");
-      return config;
-    }
     try {
       const token = await getToken();
       // Do something before request is sent
