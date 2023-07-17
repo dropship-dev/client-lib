@@ -6,9 +6,12 @@ if (process.env.NEXT_PUBLIC_API_URL) {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
 
+const instance = axios.create()
+
 axios.interceptors.request.use(
   async function (config) {
-    if (config.baseURL !== process.env.NEXT_PUBLIC_API_URL) {
+    if (config.baseURL != process.env.NEXT_PUBLIC_API_URL) {
+      console.log("not api url");
       return config;
     }
     try {
@@ -50,10 +53,9 @@ class ClientApi extends _ClientApi {
       throw e;
     }
 
-    await axios.put(result.signedUrl, file, {
+    await instance.put(result.signedUrl, file, {
       headers: {
         "Content-Type": file.type,
-        "Content-Length": file.size,
       },
     });
 
