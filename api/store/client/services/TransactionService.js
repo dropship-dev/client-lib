@@ -10,7 +10,7 @@ class TransactionService {
      * @returns Transaction Ok
      * @throws ApiError
      */
-    createTransaction({ storeId, requestBody, }) {
+    createStoreTransaction({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/transaction',

@@ -11,7 +11,7 @@ export declare class TransactionService {
      * @returns Transaction Ok
      * @throws ApiError
      */
-    createTransaction({ storeId, requestBody, }: {
+    createStoreTransaction({ storeId, requestBody, }: {
         storeId: number;
         requestBody: CreateTransactionDto;
     }): CancelablePromise<Transaction>;

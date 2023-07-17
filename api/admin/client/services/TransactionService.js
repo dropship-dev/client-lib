@@ -10,7 +10,7 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTransaction({ storeId, pageSize = 20, nextPageIndex, }) {
+    getAllStoreTransaction({ storeId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
@@ -34,7 +34,7 @@ class TransactionService {
      * @returns Transaction Ok
      * @throws ApiError
      */
-    getTransaction({ storeId, id, }) {
+    getStoreTransaction({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction/{id}',
