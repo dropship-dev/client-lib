@@ -51,3 +51,7 @@ export async function signInWithGoogle() {
 
   return user;
 }
+
+export async function signOut() {
+  await auth.signOut();
+}
