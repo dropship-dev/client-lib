@@ -90,6 +90,13 @@ export declare class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
+    approveStore({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<Store>;
+    /**
+     * @returns Store Ok
+     * @throws ApiError
+     */
     updateStorePaymentMethod({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStorePaymentMethodDto;
