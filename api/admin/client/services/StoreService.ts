@@ -39,7 +39,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-20T10:43:55.758Z',
+    periodTo = '2023-07-20T11:13:07.825Z',
     nextPageIndex,
     name,
     userId,
@@ -159,6 +159,31 @@ export class StoreService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns Store Ok
+   * @throws ApiError
+   */
+  public approveStore({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<Store> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/status/approve',
+      path: {
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
