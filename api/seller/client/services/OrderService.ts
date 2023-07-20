@@ -31,7 +31,7 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
-    storeId: number,
+    storeId: string,
     pageSize?: number,
     nextPageIndex?: string,
     paymentStatus?: TransactionStatus,
@@ -88,7 +88,7 @@ export class OrderService {
     storeId,
     orderId,
   }: {
-    storeId: number,
+    storeId: string,
     orderId: string,
   }): CancelablePromise<(Order & {
     OrderItem: Array<OrderItem>;

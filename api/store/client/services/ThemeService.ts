@@ -17,7 +17,7 @@ export class ThemeService {
   public getActiveTheme({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
@@ -42,7 +42,7 @@ export class ThemeService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({

@@ -21,7 +21,7 @@ export class TransactionService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateTransactionDto,
   }): CancelablePromise<Transaction> {
     return this.httpRequest.request({
@@ -51,7 +51,7 @@ export class TransactionService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: CreatePaypalOrderDto,
   }): CancelablePromise<Transaction> {
@@ -83,7 +83,7 @@ export class TransactionService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: ConfirmPaypalOrderDto,
   }): CancelablePromise<Transaction> {

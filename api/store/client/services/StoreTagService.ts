@@ -19,7 +19,7 @@ export class StoreTagService {
     productId,
     search,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     search?: string,
   }): CancelablePromise<Array<Tag>> {
@@ -51,7 +51,7 @@ export class StoreTagService {
     storeId,
     search,
   }: {
-    storeId: number,
+    storeId: string,
     search?: string,
   }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({

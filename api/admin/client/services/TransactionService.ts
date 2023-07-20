@@ -19,7 +19,7 @@ export class TransactionService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    storeId: number,
+    storeId: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -57,7 +57,7 @@ export class TransactionService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<Transaction> {
     return this.httpRequest.request({

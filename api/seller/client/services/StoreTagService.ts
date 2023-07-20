@@ -21,7 +21,7 @@ export class StoreTagService {
     productId,
     name,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     name: string,
   }): CancelablePromise<void> {
@@ -52,7 +52,7 @@ export class StoreTagService {
     productId,
     name,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     name: string,
   }): CancelablePromise<Product> {
@@ -83,7 +83,7 @@ export class StoreTagService {
     productId,
     search,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     search?: string,
   }): CancelablePromise<Array<Tag>> {
@@ -115,7 +115,7 @@ export class StoreTagService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateStoreTagDto,
   }): CancelablePromise<Tag> {
     return this.httpRequest.request({
@@ -144,7 +144,7 @@ export class StoreTagService {
     storeId,
     search,
   }: {
-    storeId: number,
+    storeId: string,
     search?: string,
   }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({
@@ -174,7 +174,7 @@ export class StoreTagService {
     storeId,
     name,
   }: {
-    storeId: number,
+    storeId: string,
     name: string,
   }): CancelablePromise<Tag> {
     return this.httpRequest.request({

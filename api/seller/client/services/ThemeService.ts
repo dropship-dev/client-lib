@@ -21,7 +21,7 @@ export class ThemeService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateThemeDto,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({
@@ -49,7 +49,7 @@ export class ThemeService {
   public getAllTheme({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -80,7 +80,7 @@ export class ThemeService {
   public getActiveTheme({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
@@ -105,7 +105,7 @@ export class ThemeService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: ChangeActiveTheme,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
@@ -134,7 +134,7 @@ export class ThemeService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({
@@ -162,7 +162,7 @@ export class ThemeService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: UpdateThemeDto,
   }): CancelablePromise<Theme> {
@@ -193,7 +193,7 @@ export class ThemeService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<Theme> {
     return this.httpRequest.request({

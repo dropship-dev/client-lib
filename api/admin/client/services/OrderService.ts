@@ -34,7 +34,7 @@ export class OrderService {
   }: {
     pageSize?: number,
     nextPageIndex?: string,
-    storeId?: number,
+    storeId?: string,
     paymentStatus?: TransactionStatus,
     fulfillmentStatus?: FulfillmentStatus,
     email?: string,
@@ -148,7 +148,7 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
-    storeId: number,
+    storeId: string,
     pageSize?: number,
     nextPageIndex?: string,
     paymentStatus?: TransactionStatus,

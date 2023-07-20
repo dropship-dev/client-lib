@@ -21,7 +21,7 @@ export class OrderService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
     clientSecret: string;
@@ -54,7 +54,7 @@ export class OrderService {
     paypalOrderId,
     stripeOrderId,
   }: {
-    storeId: number,
+    storeId: string,
     paypalOrderId?: string,
     stripeOrderId?: string,
   }): CancelablePromise<{
@@ -89,7 +89,7 @@ export class OrderService {
     orderId,
     email,
   }: {
-    storeId: number,
+    storeId: string,
     orderId: string,
     email: string,
   }): CancelablePromise<(Order & {

@@ -22,7 +22,7 @@ export class ProductService {
     nextPageIndex,
     isActive,
   }: {
-    storeId: number,
+    storeId: string,
     pageSize?: number,
     nextPageIndex?: number,
     isActive?: boolean,
@@ -67,7 +67,7 @@ export class ProductService {
     storeId,
     isActive,
   }: {
-    storeId: number,
+    storeId: string,
     isActive?: boolean,
   }): CancelablePromise<{
     count: number;
@@ -99,7 +99,7 @@ export class ProductService {
     storeId,
     productId,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
   }): CancelablePromise<(Product & {
     PlatformProduct: {

@@ -27,6 +27,6 @@ export type Store = {
   address: string;
   phone: string;
   name: string;
-  id: number;
+  id: string;
 };
 

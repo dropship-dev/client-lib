@@ -65,7 +65,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-20T09:43:27.147Z',
+    periodTo = '2023-07-20T10:13:58.752Z',
     nextPageIndex,
     name,
     userId,
@@ -135,7 +135,7 @@ export class StoreService {
   public getStore({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<(Store & {
     _count?: StoreCountOutputType;
     Currency?: Currency;
@@ -174,7 +174,7 @@ export class StoreService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: UpdateStoreDto,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
@@ -202,7 +202,7 @@ export class StoreService {
   public deleteStore({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -228,7 +228,7 @@ export class StoreService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: UpdateStoreStatusDto,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
@@ -257,7 +257,7 @@ export class StoreService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: UpdateStoreCustomDomainDto,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
@@ -285,7 +285,7 @@ export class StoreService {
   public getStorePaymentMethod({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;

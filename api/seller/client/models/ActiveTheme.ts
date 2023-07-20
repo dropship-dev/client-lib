@@ -9,7 +9,7 @@ export type ActiveTheme = {
   updatedAt: string;
   createdAt: string;
   themeId: number;
-  storeId: number;
+  storeId: string;
   id: number;
 };
 

@@ -8,7 +8,7 @@
 export type Tag = {
   updatedAt: string;
   createdAt: string;
-  storeId: number;
+  storeId: string;
   name: string;
   id: number;
 };

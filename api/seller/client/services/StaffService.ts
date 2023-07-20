@@ -20,7 +20,7 @@ export class StaffService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateStaffDto,
   }): CancelablePromise<StoreUser> {
     return this.httpRequest.request({
@@ -48,7 +48,7 @@ export class StaffService {
   public getAllStaff({
     storeId,
   }: {
-    storeId: number,
+    storeId: string,
   }): CancelablePromise<Array<(StoreUser & {
     User: {
       avatar: string;
@@ -84,7 +84,7 @@ export class StaffService {
     userId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     userId: string,
     requestBody: UpdateStaffDto,
   }): CancelablePromise<StoreUser> {
@@ -115,7 +115,7 @@ export class StaffService {
     storeId,
     userId,
   }: {
-    storeId: number,
+    storeId: string,
     userId: string,
   }): CancelablePromise<StoreUser> {
     return this.httpRequest.request({

@@ -12,7 +12,7 @@ export type StoreUser = {
   createdAt: string;
   role: StoreRole;
   userId: string;
-  storeId: number;
+  storeId: string;
   id: number;
 };
 

@@ -21,7 +21,7 @@ export class RequestSourcingService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: ApproveRequestSourcingDto,
   }): CancelablePromise<RequestSourcing> {
@@ -53,7 +53,7 @@ export class RequestSourcingService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: RejectRequestSourcingDto,
   }): CancelablePromise<RequestSourcing> {

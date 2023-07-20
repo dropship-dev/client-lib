@@ -20,7 +20,7 @@ export class VariantService {
     productId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     id: number,
   }): CancelablePromise<(ProductVariant & {
@@ -54,7 +54,7 @@ export class VariantService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    storeId: number,
+    storeId: string,
     productId: number,
     pageSize?: number,
     nextPageIndex?: number,

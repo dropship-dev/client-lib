@@ -20,7 +20,7 @@ export class RequestSourcingService {
     storeId,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     requestBody: CreateRequestSourcingDto,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
@@ -50,7 +50,7 @@ export class RequestSourcingService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    storeId: number,
+    storeId: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -88,7 +88,7 @@ export class RequestSourcingService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
@@ -117,7 +117,7 @@ export class RequestSourcingService {
     id,
     requestBody,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
     requestBody: UpdateRequestSourcingDto,
   }): CancelablePromise<RequestSourcing> {
@@ -148,7 +148,7 @@ export class RequestSourcingService {
     storeId,
     id,
   }: {
-    storeId: number,
+    storeId: string,
     id: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({

@@ -11,6 +11,6 @@ export type CreateCollectionDto = {
     field: string;
   };
   description?: string;
-  storeId: number;
+  storeId: string;
 };
 
