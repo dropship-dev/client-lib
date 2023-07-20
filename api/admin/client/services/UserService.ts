@@ -15,7 +15,67 @@ export class UserService {
    * @returns User Ok
    * @throws ApiError
    */
-  public getUser({
+  public getUser(): CancelablePromise<User> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/user',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns User Ok
+   * @throws ApiError
+   */
+  public updateUser({
+    requestBody,
+  }: {
+    requestBody: UpdateUserDto,
+  }): CancelablePromise<User> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/user',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns User Ok
+   * @throws ApiError
+   */
+  public deleteUser(): CancelablePromise<User> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/user',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns User Ok
+   * @throws ApiError
+   */
+  public getUserById({
     id,
   }: {
     id: string,
@@ -40,7 +100,7 @@ export class UserService {
    * @returns User Ok
    * @throws ApiError
    */
-  public updateUser({
+  public updateUserById({
     id,
     requestBody,
   }: {
@@ -69,7 +129,7 @@ export class UserService {
    * @returns User Ok
    * @throws ApiError
    */
-  public deleteUser({
+  public deleteUserById({
     id,
   }: {
     id: string,

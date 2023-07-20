@@ -15,17 +15,10 @@ export class UserService {
    * @returns User Ok
    * @throws ApiError
    */
-  public getUser({
-    id,
-  }: {
-    id: string,
-  }): CancelablePromise<User> {
+  public getUser(): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/user/{id}',
-      path: {
-        'id': id,
-      },
+      url: '/user',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -41,18 +34,13 @@ export class UserService {
    * @throws ApiError
    */
   public updateUser({
-    id,
     requestBody,
   }: {
-    id: string,
     requestBody: UpdateUserDto,
   }): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'PATCH',
-      url: '/user/{id}',
-      path: {
-        'id': id,
-      },
+      url: '/user',
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -69,17 +57,10 @@ export class UserService {
    * @returns User Ok
    * @throws ApiError
    */
-  public deleteUser({
-    id,
-  }: {
-    id: string,
-  }): CancelablePromise<User> {
+  public deleteUser(): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/user/{id}',
-      path: {
-        'id': id,
-      },
+      url: '/user',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
