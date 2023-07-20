@@ -5,7 +5,7 @@ export type Theme = {
     updatedAt: string;
     createdAt: string;
     themeTemplateId: number;
-    storeId: number;
+    storeId: string;
     colors: string;
     typos: string;
     coverImage: string;

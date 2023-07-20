@@ -11,7 +11,7 @@ export declare class StaffService {
      * @throws ApiError
      */
     createStaff({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateStaffDto;
     }): CancelablePromise<StoreUser>;
     /**
@@ -19,7 +19,7 @@ export declare class StaffService {
      * @throws ApiError
      */
     getAllStaff({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Array<(StoreUser & {
         User: {
             avatar: string;
@@ -35,7 +35,7 @@ export declare class StaffService {
      * @throws ApiError
      */
     updateStaff({ storeId, userId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         userId: string;
         requestBody: UpdateStaffDto;
     }): CancelablePromise<StoreUser>;
@@ -44,7 +44,7 @@ export declare class StaffService {
      * @throws ApiError
      */
     deleteStaff({ storeId, userId, }: {
-        storeId: number;
+        storeId: string;
         userId: string;
     }): CancelablePromise<StoreUser>;
 }

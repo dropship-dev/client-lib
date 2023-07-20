@@ -72,7 +72,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     getStore({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<(Store & {
         _count?: StoreCountOutputType;
         Currency?: Currency;
@@ -92,7 +92,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     updateStore({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: UpdateStoreDto;
     }): CancelablePromise<Store>;
     /**
@@ -100,14 +100,14 @@ export declare class StoreService {
      * @throws ApiError
      */
     deleteStore({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Store>;
     /**
      * @returns Store Ok
      * @throws ApiError
      */
     updateStoreStatus({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: UpdateStoreStatusDto;
     }): CancelablePromise<Store>;
     /**
@@ -115,7 +115,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     updateStoreCustomDomain({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: UpdateStoreCustomDomainDto;
     }): CancelablePromise<Store>;
     /**
@@ -123,7 +123,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     getStorePaymentMethod({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;

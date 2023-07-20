@@ -13,7 +13,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     getAllProduct({ storeId, pageSize, nextPageIndex, isActive, }: {
-        storeId: number;
+        storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
         isActive?: boolean;
@@ -34,7 +34,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     countProduct({ storeId, isActive, }: {
-        storeId: number;
+        storeId: string;
         isActive?: boolean;
     }): CancelablePromise<{
         count: number;
@@ -44,7 +44,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     getProduct({ storeId, productId, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
     }): CancelablePromise<(Product & {
         PlatformProduct: {
@@ -57,7 +57,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     updateProduct({ storeId, productId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         requestBody: UpdateProductDto;
     }): CancelablePromise<Product>;
@@ -66,7 +66,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     deleteProduct({ storeId, productId, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
     }): CancelablePromise<string>;
     /**
@@ -74,7 +74,7 @@ export declare class ProductService {
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         requestBody: UpdateProductStatusDto;
     }): CancelablePromise<Product>;

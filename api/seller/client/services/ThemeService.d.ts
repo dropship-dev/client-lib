@@ -12,7 +12,7 @@ export declare class ThemeService {
      * @throws ApiError
      */
     createTheme({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateThemeDto;
     }): CancelablePromise<Theme>;
     /**
@@ -20,7 +20,7 @@ export declare class ThemeService {
      * @throws ApiError
      */
     getAllTheme({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -33,14 +33,14 @@ export declare class ThemeService {
      * @throws ApiError
      */
     getActiveTheme({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Theme>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
     changeActiveTheme({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: ChangeActiveTheme;
     }): CancelablePromise<string>;
     /**
@@ -48,7 +48,7 @@ export declare class ThemeService {
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
-        storeId: number;
+        storeId: string;
         id: number;
     }): CancelablePromise<Theme>;
     /**
@@ -56,7 +56,7 @@ export declare class ThemeService {
      * @throws ApiError
      */
     updateTheme({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: UpdateThemeDto;
     }): CancelablePromise<Theme>;
@@ -65,7 +65,7 @@ export declare class ThemeService {
      * @throws ApiError
      */
     deleteTheme({ storeId, id, }: {
-        storeId: number;
+        storeId: string;
         id: number;
     }): CancelablePromise<Theme>;
 }

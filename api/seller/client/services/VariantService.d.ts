@@ -12,7 +12,7 @@ export declare class VariantService {
      * @throws ApiError
      */
     getVariant({ storeId, productId, id, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         id: number;
     }): CancelablePromise<(ProductVariant & {
@@ -23,7 +23,7 @@ export declare class VariantService {
      * @throws ApiError
      */
     updateVariant({ storeId, productId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         id: number;
         requestBody: UpdateVariantDto;
@@ -33,7 +33,7 @@ export declare class VariantService {
      * @throws ApiError
      */
     deleteVariant({ storeId, productId, id, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         id: number;
     }): CancelablePromise<ProductVariant>;
@@ -42,7 +42,7 @@ export declare class VariantService {
      * @throws ApiError
      */
     getAllVariant({ storeId, productId, pageSize, nextPageIndex, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         pageSize?: number;
         nextPageIndex?: number;
@@ -60,7 +60,7 @@ export declare class VariantService {
      * @throws ApiError
      */
     updateVariantStatus({ storeId, productId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         productId: number;
         id: number;
         requestBody: UpdateVariantStatusDto;

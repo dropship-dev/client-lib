@@ -9,6 +9,6 @@ export type Collection = {
     condition: Prisma_JsonValue;
     photo: string;
     name: string;
-    storeId: number;
+    storeId: string;
     id: number;
 };

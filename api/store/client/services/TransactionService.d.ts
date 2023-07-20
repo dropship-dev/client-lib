@@ -12,7 +12,7 @@ export declare class TransactionService {
      * @throws ApiError
      */
     createStoreTransaction({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateTransactionDto;
     }): CancelablePromise<Transaction>;
     /**
@@ -20,7 +20,7 @@ export declare class TransactionService {
      * @throws ApiError
      */
     createPaypalOrder({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: CreatePaypalOrderDto;
     }): CancelablePromise<Transaction>;
@@ -29,7 +29,7 @@ export declare class TransactionService {
      * @throws ApiError
      */
     confirmPaypalOrder({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: ConfirmPaypalOrderDto;
     }): CancelablePromise<Transaction>;

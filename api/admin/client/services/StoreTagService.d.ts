@@ -10,7 +10,7 @@ export declare class StoreTagService {
      * @throws ApiError
      */
     createStoreTag({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateStoreTagDto;
     }): CancelablePromise<Tag>;
     /**
@@ -18,7 +18,7 @@ export declare class StoreTagService {
      * @throws ApiError
      */
     getStoreTags({ storeId, search, }: {
-        storeId: number;
+        storeId: string;
         search?: string;
     }): CancelablePromise<Array<Tag>>;
     /**
@@ -26,7 +26,7 @@ export declare class StoreTagService {
      * @throws ApiError
      */
     deleteStoreTag({ storeId, name, }: {
-        storeId: number;
+        storeId: string;
         name: string;
     }): CancelablePromise<Tag>;
 }

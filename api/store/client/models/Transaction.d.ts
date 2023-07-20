@@ -6,7 +6,7 @@ import type { TransactionType } from './TransactionType';
 export type Transaction = {
     updatedAt: string;
     createdAt: string;
-    storeId: number;
+    storeId: string;
     status: TransactionStatus;
     type: TransactionType;
     lastBalance: number | null;

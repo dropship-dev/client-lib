@@ -11,7 +11,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     getStoreActiveTheme({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<{
         shippingPolicy: string;
         termsOfService: string;
@@ -26,14 +26,14 @@ export declare class StoreService {
         updatedAt: string;
         createdAt: string;
         name: string;
-        id: number;
+        id: string;
         Currency: Currency;
         Payment: Array<Payment>;
         ActiveTheme: {
             updatedAt: string;
             createdAt: string;
             themeTemplateId: number;
-            storeId: number;
+            storeId: string;
             coverImage: string;
             logo: string;
             icon: string;
@@ -48,7 +48,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     getStorePaymentMethod({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;

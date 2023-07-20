@@ -5,7 +5,7 @@ import type { PrismaJson_Photos } from './PrismaJson_Photos';
 export type Product = {
     updatedAt: string;
     createdAt: string;
-    storeId: number;
+    storeId: string;
     platformProductId: number;
     isEnable: boolean;
     isActive: boolean;

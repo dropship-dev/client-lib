@@ -6,7 +6,7 @@ import type { RequestSourcingStatus } from './RequestSourcingStatus';
 export type RequestSourcing = {
     updatedAt: string;
     createdAt: string;
-    storeId: number;
+    storeId: string;
     productId: number | null;
     status: RequestSourcingStatus;
     rejectReason: string | null;

@@ -16,7 +16,7 @@ export declare class OrderService {
     getAllOrders({ pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
         pageSize?: number;
         nextPageIndex?: string;
-        storeId?: number;
+        storeId?: string;
         paymentStatus?: TransactionStatus;
         fulfillmentStatus?: FulfillmentStatus;
         email?: string;
@@ -57,7 +57,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
-        storeId: number;
+        storeId: string;
         pageSize?: number;
         nextPageIndex?: string;
         paymentStatus?: TransactionStatus;

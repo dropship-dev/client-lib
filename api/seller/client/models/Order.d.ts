@@ -8,7 +8,7 @@ export type Order = {
     paymentId: number;
     currencyId: number;
     transactionId: number;
-    storeId: number;
+    storeId: string;
     fulfillmentStatus: FulfillmentStatus;
     stripeOrderId: string | null;
     paypalOrderId: string | null;

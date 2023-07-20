@@ -13,7 +13,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
-        storeId: number;
+        storeId: string;
         pageSize?: number;
         nextPageIndex?: string;
         paymentStatus?: TransactionStatus;
@@ -39,7 +39,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     getStoreOrder({ storeId, orderId, }: {
-        storeId: number;
+        storeId: string;
         orderId: string;
     }): CancelablePromise<(Order & {
         OrderItem: Array<OrderItem>;

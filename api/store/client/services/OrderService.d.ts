@@ -12,7 +12,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     createStoreOrder({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
         clientSecret: string;
@@ -23,7 +23,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, }: {
-        storeId: number;
+        storeId: string;
         paypalOrderId?: string;
         stripeOrderId?: string;
     }): CancelablePromise<{
@@ -34,7 +34,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     getStoreOrderByTracking({ storeId, orderId, email, }: {
-        storeId: number;
+        storeId: string;
         orderId: string;
         email: string;
     }): CancelablePromise<(Order & {

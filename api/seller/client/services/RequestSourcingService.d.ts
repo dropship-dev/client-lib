@@ -11,7 +11,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     createRequestSourcing({ storeId, requestBody, }: {
-        storeId: number;
+        storeId: string;
         requestBody: CreateRequestSourcingDto;
     }): CancelablePromise<RequestSourcing>;
     /**
@@ -19,7 +19,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     getAllRequestSourcing({ storeId, pageSize, nextPageIndex, }: {
-        storeId: number;
+        storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{
@@ -34,7 +34,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     getRequestSourcing({ storeId, id, }: {
-        storeId: number;
+        storeId: string;
         id: number;
     }): CancelablePromise<RequestSourcing>;
     /**
@@ -42,7 +42,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     updateRequestSourcing({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: UpdateRequestSourcingDto;
     }): CancelablePromise<RequestSourcing>;
@@ -51,7 +51,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     deleteRequestSourcing({ storeId, id, }: {
-        storeId: number;
+        storeId: string;
         id: number;
     }): CancelablePromise<RequestSourcing>;
 }

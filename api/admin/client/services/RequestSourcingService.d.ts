@@ -11,7 +11,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     approveRequestSourcing({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: ApproveRequestSourcingDto;
     }): CancelablePromise<RequestSourcing>;
@@ -20,7 +20,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     rejectRequestSourcing({ storeId, id, requestBody, }: {
-        storeId: number;
+        storeId: string;
         id: number;
         requestBody: RejectRequestSourcingDto;
     }): CancelablePromise<RequestSourcing>;

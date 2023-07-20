@@ -9,14 +9,14 @@ export declare class ThemeService {
      * @throws ApiError
      */
     getActiveTheme({ storeId, }: {
-        storeId: number;
+        storeId: string;
     }): CancelablePromise<Theme>;
     /**
      * @returns Theme Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
-        storeId: number;
+        storeId: string;
         id: number;
     }): CancelablePromise<Theme>;
 }
