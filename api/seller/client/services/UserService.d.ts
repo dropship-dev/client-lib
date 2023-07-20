@@ -9,22 +9,17 @@ export declare class UserService {
      * @returns User Ok
      * @throws ApiError
      */
-    getUser({ id, }: {
-        id: string;
-    }): CancelablePromise<User>;
+    getUser(): CancelablePromise<User>;
     /**
      * @returns User Ok
      * @throws ApiError
      */
-    updateUser({ id, requestBody, }: {
-        id: string;
+    updateUser({ requestBody, }: {
         requestBody: UpdateUserDto;
     }): CancelablePromise<User>;
     /**
      * @returns User Ok
      * @throws ApiError
      */
-    deleteUser({ id, }: {
-        id: string;
-    }): CancelablePromise<User>;
+    deleteUser(): CancelablePromise<User>;
 }

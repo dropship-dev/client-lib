@@ -10,13 +10,10 @@ class UserService {
      * @returns User Ok
      * @throws ApiError
      */
-    getUser({ id, }) {
+    getUser() {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/user/{id}',
-            path: {
-                'id': id,
-            },
+            url: '/user',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -30,13 +27,10 @@ class UserService {
      * @returns User Ok
      * @throws ApiError
      */
-    updateUser({ id, requestBody, }) {
+    updateUser({ requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/user/{id}',
-            path: {
-                'id': id,
-            },
+            url: '/user',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -52,13 +46,10 @@ class UserService {
      * @returns User Ok
      * @throws ApiError
      */
-    deleteUser({ id, }) {
+    deleteUser() {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/user/{id}',
-            path: {
-                'id': id,
-            },
+            url: '/user',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
