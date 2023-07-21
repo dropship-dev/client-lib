@@ -1,4 +1,5 @@
+import type { NameDto } from './NameDto';
 export type CreateUploadDto = {
-    fileName?: string;
+    fileName?: NameDto;
     contentLength: number;
 };

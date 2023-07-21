@@ -1,3 +1,4 @@
+import type { NameDto } from './NameDto';
 export type CreateTagDto = {
-    name: string;
+    name: NameDto;
 };

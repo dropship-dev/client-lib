@@ -1,6 +1,8 @@
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
 export type CreateCollectionDto = {
-    name: string;
-    photo: string;
+    name: NameDto;
+    photo: PhotoDto;
     condition: {
         value: string;
         operator: string;

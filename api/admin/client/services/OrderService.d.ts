@@ -1,6 +1,7 @@
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
@@ -74,7 +75,11 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<(Order & {
-            OrderItem: Array<OrderItem>;
+            OrderItem: Array<(OrderItem & {
+                ProductVariant: (ProductVariant & {
+                    PlatformVariant: any;
+                });
+            })>;
             Transaction: Transaction;
         })>;
     }>;

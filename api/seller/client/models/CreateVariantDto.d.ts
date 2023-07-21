@@ -1,8 +1,11 @@
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
 export type CreateVariantDto = {
-    name: string;
+    name: NameDto;
     price: number;
     supplierPrice: number;
-    photo: string;
+    photo: PhotoDto;
+    SKU: string;
     variantOption: Array<{
         option: string;
         name: string;
