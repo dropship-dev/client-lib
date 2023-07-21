@@ -37,7 +37,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
     exportAllOrders({ paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {

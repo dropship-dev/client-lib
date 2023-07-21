@@ -37,6 +37,7 @@ export type { Currency } from './models/Currency';
 export { CustomDomainStatus } from './models/CustomDomainStatus';
 export type { Domain } from './models/Domain';
 export type { EmailDto } from './models/EmailDto';
+export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { JsonArray } from './models/JsonArray';
 export type { JsonObject } from './models/JsonObject';
