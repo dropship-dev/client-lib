@@ -2,13 +2,16 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 
 export type PlatformVariantDto = {
-  name: string;
+  name: NameDto;
   price: number;
   supplierPrice: number;
-  photo: string;
+  photo: PhotoDto;
+  SKU: string;
   variantOption: PrismaJson_VariantOptionValues;
 };
 

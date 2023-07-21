@@ -2,12 +2,16 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { EmailDto } from './EmailDto';
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
+
 export type CreateReviewDto = {
-  name?: string;
-  email?: string;
+  name?: NameDto;
+  email?: EmailDto;
   rating: number;
   comment: string;
-  photos?: Array<string>;
+  photos?: Array<PhotoDto>;
   productId: number;
 };
 

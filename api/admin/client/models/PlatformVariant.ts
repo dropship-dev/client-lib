@@ -17,6 +17,7 @@ export type PlatformVariant = {
    * [VariantOptionValues]
    */
   variantOption: PrismaJson_VariantOptionValues;
+  SKU: string;
   photo: string;
   supplierPrice: number;
   price: number;

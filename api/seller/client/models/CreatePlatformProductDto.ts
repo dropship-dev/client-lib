@@ -2,14 +2,16 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
 import type { PlatformVariantDto } from './PlatformVariantDto';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 
 export type CreatePlatformProductDto = {
-  name: string;
+  name: NameDto;
   description?: string;
   details?: string;
-  photos: Array<string>;
+  photos: Array<PhotoDto>;
   tags: Array<string>;
   SKU: string;
   supplierContact: string;

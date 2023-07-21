@@ -2,8 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { NameDto } from './NameDto';
+import type { PhotoDto } from './PhotoDto';
+
 export type CreateThemeTemplateDto = {
-  name: string;
-  image: string;
+  name: NameDto;
+  image: PhotoDto;
 };
 
