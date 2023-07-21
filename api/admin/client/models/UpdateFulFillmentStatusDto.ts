@@ -9,7 +9,7 @@ export type UpdateFulFillmentStatusDto = {
     orderItems: Array<{
       tracking?: string;
       fulfillmentStatus: FulfillmentStatus;
-      id: number;
+      id: string;
     }>;
     id: string;
   }>;

@@ -18,6 +18,6 @@ export type OrderItem = {
   quantity: number;
   priceUSD: number;
   price: number;
-  id: number;
+  id: string;
 };
 
