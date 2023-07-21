@@ -1,7 +1,10 @@
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
@@ -36,6 +39,30 @@ export declare class OrderService {
             Transaction: Transaction;
         })>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    exportAllOrders({ paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+        paymentStatus?: TransactionStatus;
+        fulfillmentStatus?: FulfillmentStatus;
+        email?: string;
+        productName?: string;
+        startDate?: string;
+        endDate?: string;
+        startTotal?: number;
+        endTotal?: number;
+    }): CancelablePromise<Array<(Order & {
+        OrderItem: Array<(OrderItem & {
+            ProductVariant: (ProductVariant & {
+                Product: (Product & {
+                    Store: Store;
+                });
+                PlatformVariant: PlatformVariant;
+            });
+        })>;
+        Transaction: Transaction;
+    })>>;
     /**
      * @returns void
      * @throws ApiError
