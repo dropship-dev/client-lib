@@ -12,6 +12,7 @@ export type Payment = {
   createdAt: string;
   secretKey: string;
   publishableKey: string;
+  name: string;
   email: string;
   type: PaymentType;
   userId: string;
