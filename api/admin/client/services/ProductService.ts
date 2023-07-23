@@ -4,6 +4,7 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { VariantOptions } from '../models/VariantOptions';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -50,18 +51,27 @@ export class ProductService {
     storeId,
     pageSize = 20,
     nextPageIndex,
+    name,
+    tags,
     isActive,
+    startPrice,
+    endPrice,
   }: {
     storeId: string,
     pageSize?: number,
     nextPageIndex?: number,
+    name?: string,
+    tags?: Array<string>,
     isActive?: boolean,
+    startPrice?: number,
+    endPrice?: number,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
     data: Array<(Product & {
+      ProductVariant: Array<ProductVariant>;
       PlatformProduct: {
         variantOption: VariantOptions;
         Tag: Array<AdminTag>;
@@ -77,7 +87,11 @@ export class ProductService {
       query: {
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+        'name': name,
+        'tags': tags,
         'isActive': isActive,
+        'startPrice': startPrice,
+        'endPrice': endPrice,
       },
       errors: {
         400: `Bad request`,

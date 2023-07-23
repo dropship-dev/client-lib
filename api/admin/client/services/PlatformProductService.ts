@@ -330,14 +330,16 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getPlatformProductStore({
     platformProductId,
   }: {
     platformProductId: number,
-  }): CancelablePromise<Array<Store>> {
+  }): CancelablePromise<Array<(Store & {
+    statusOnStore: boolean;
+  })>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/store',

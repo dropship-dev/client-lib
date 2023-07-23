@@ -3,8 +3,10 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
+import type { UpdateProductStatusesDto } from '../models/UpdateProductStatusesDto';
 import type { VariantOptions } from '../models/VariantOptions';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -22,18 +24,27 @@ export class ProductService {
     storeId,
     pageSize = 20,
     nextPageIndex,
+    name,
+    tags,
     isActive,
+    startPrice,
+    endPrice,
   }: {
     storeId: string,
     pageSize?: number,
     nextPageIndex?: number,
+    name?: string,
+    tags?: Array<string>,
     isActive?: boolean,
+    startPrice?: number,
+    endPrice?: number,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
     data: Array<(Product & {
+      ProductVariant: Array<ProductVariant>;
       PlatformProduct: {
         variantOption: VariantOptions;
         Tag: Array<AdminTag>;
@@ -49,7 +60,41 @@ export class ProductService {
       query: {
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+        'name': name,
+        'tags': tags,
         'isActive': isActive,
+        'startPrice': startPrice,
+        'endPrice': endPrice,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteProducts({
+    storeId,
+    productIds,
+  }: {
+    storeId: string,
+    productIds: Array<number>,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/product',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'productIds': productIds,
       },
       errors: {
         400: `Bad request`,
@@ -176,6 +221,35 @@ export class ProductService {
         'storeId': storeId,
         'productId': productId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateProductStatuses({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateProductStatusesDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/product/status',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
