@@ -129,6 +129,8 @@ export declare class PlatformProductService {
     getPlatformProductStore({ platformProductId, }: {
         platformProductId: number;
     }): CancelablePromise<Array<(Store & {
+        minPriceOnStore: number;
+        maxPriceOnStore: number;
         statusOnStore: boolean;
     })>>;
 }
