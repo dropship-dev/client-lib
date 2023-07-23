@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -41,7 +42,9 @@ export class ProductService {
     prePageIndex: number;
     total: number;
     data: Array<(Product & {
-      ProductVariant: Array<ProductVariant>;
+      ProductVariant: Array<(ProductVariant & {
+        PlatformVariant: PlatformVariant;
+      })>;
       PlatformProduct: {
         variantOption: VariantOptions;
         Tag: Array<AdminTag>;
