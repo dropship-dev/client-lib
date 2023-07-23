@@ -12,5 +12,6 @@ export type UpdateProductDto = {
   photos?: Array<PhotoDto>;
   shippingFee?: number;
   shippingFeeAdditional?: number;
+  SKU?: string;
 };
 
