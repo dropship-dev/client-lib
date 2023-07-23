@@ -338,6 +338,8 @@ export class PlatformProductService {
   }: {
     platformProductId: number,
   }): CancelablePromise<Array<(Store & {
+    minPriceOnStore: number;
+    maxPriceOnStore: number;
     statusOnStore: boolean;
   })>> {
     return this.httpRequest.request({
