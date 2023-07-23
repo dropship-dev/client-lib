@@ -123,10 +123,12 @@ export declare class PlatformProductService {
         tagId: string;
     }): CancelablePromise<PlatformProduct>;
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPlatformProductStore({ platformProductId, }: {
         platformProductId: number;
-    }): CancelablePromise<Array<Store>>;
+    }): CancelablePromise<Array<(Store & {
+        statusOnStore: boolean;
+    })>>;
 }

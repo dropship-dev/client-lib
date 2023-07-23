@@ -89,6 +89,7 @@ export type { UpdatePlatformProductStatusDto } from './models/UpdatePlatformProd
 export type { UpdatePlatformProductStatusesDto } from './models/UpdatePlatformProductStatusesDto';
 export type { UpdateProductDto } from './models/UpdateProductDto';
 export type { UpdateProductStatusDto } from './models/UpdateProductStatusDto';
+export type { UpdateProductStatusesDto } from './models/UpdateProductStatusesDto';
 export type { UpdateRequestSourcingDto } from './models/UpdateRequestSourcingDto';
 export type { UpdateReviewDto } from './models/UpdateReviewDto';
 export type { UpdateSettingDto } from './models/UpdateSettingDto';

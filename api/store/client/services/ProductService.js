@@ -10,7 +10,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, isActive, }) {
+    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product',
@@ -20,7 +20,11 @@ class ProductService {
             query: {
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
+                'name': name,
+                'tags': tags,
                 'isActive': isActive,
+                'startPrice': startPrice,
+                'endPrice': endPrice,
             },
             errors: {
                 400: `Bad request`,
