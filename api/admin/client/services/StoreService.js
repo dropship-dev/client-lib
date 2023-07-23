@@ -10,7 +10,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-23T08:20:23.816Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-23T10:08:14.812Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -27,6 +27,25 @@ class StoreService {
                 'revenueFrom': revenueFrom,
                 'revenueTo': revenueTo,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    addProductToStores({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/product',
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

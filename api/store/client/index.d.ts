@@ -5,6 +5,7 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 export type { ActiveTheme } from './models/ActiveTheme';
+export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';
 export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto';
 export type { AdminTag } from './models/AdminTag';
 export type { ApproveRequestSourcingDto } from './models/ApproveRequestSourcingDto';

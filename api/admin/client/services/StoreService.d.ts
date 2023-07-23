@@ -1,4 +1,5 @@
 import type { ActiveTheme } from '../models/ActiveTheme';
+import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { Collection } from '../models/Collection';
 import type { Currency } from '../models/Currency';
 import type { Order } from '../models/Order';
@@ -58,6 +59,13 @@ export declare class StoreService {
         total: number;
         data: Array<StoreRevenue>;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    addProductToStores({ requestBody, }: {
+        requestBody: AddPlatformProductStoresDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
