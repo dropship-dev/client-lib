@@ -11,6 +11,7 @@ export type Product = {
     isActive: boolean;
     shippingFeeAdditional: number;
     shippingFee: number;
+    SKU: string;
     /**
      * [Photos]
      */
