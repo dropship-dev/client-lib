@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ActiveTheme } from '../models/ActiveTheme';
+import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { Collection } from '../models/Collection';
 import type { Currency } from '../models/Currency';
 import type { Order } from '../models/Order';
@@ -39,7 +40,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-23T08:20:23.816Z',
+    periodTo = '2023-07-23T10:08:14.812Z',
     nextPageIndex,
     name,
     userId,
@@ -92,6 +93,30 @@ export class StoreService {
         'revenueFrom': revenueFrom,
         'revenueTo': revenueTo,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public addProductToStores({
+    requestBody,
+  }: {
+    requestBody: AddPlatformProductStoresDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/product',
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
