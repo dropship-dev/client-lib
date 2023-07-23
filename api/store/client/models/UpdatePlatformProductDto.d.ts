@@ -6,6 +6,6 @@ export type UpdatePlatformProductDto = {
     description?: string;
     details?: string;
     photos?: Array<PhotoDto>;
-    shippingFee?: number;
+    supplierContact?: string;
     variantOption?: PrismaJson_VariantOptions;
 };
