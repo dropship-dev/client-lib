@@ -82,6 +82,51 @@ class ProductService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateProductStatuses({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/product/status',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getProductByPermalink({ storeId, permalink, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/permalink',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'permalink': permalink,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -137,28 +182,6 @@ class ProductService {
                 'storeId': storeId,
                 'productId': productId,
             },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    updateProductStatuses({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/product/status',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

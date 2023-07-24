@@ -58,6 +58,30 @@ export declare class ProductService {
         count: number;
     }>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateProductStatuses({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateProductStatusesDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getProductByPermalink({ storeId, permalink, }: {
+        storeId: string;
+        permalink: string;
+    }): CancelablePromise<(Product & {
+        ProductVariant: Array<(ProductVariant & {
+            PlatformVariant: PlatformVariant;
+        })>;
+        PlatformProduct: {
+            variantOption: VariantOptions;
+            Tag: Array<AdminTag>;
+        };
+    })>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -86,14 +110,6 @@ export declare class ProductService {
     deleteProduct({ storeId, productId, }: {
         storeId: string;
         productId: number;
-    }): CancelablePromise<string>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    updateProductStatuses({ storeId, requestBody, }: {
-        storeId: string;
-        requestBody: UpdateProductStatusesDto;
     }): CancelablePromise<string>;
     /**
      * @returns Product Ok

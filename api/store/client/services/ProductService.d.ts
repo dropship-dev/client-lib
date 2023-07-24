@@ -50,6 +50,22 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getProductByPermalink({ storeId, permalink, }: {
+        storeId: string;
+        permalink: string;
+    }): CancelablePromise<(Product & {
+        ProductVariant: Array<(ProductVariant & {
+            PlatformVariant: PlatformVariant;
+        })>;
+        PlatformProduct: {
+            variantOption: VariantOptions;
+            Tag: Array<AdminTag>;
+        };
+    })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getProduct({ storeId, productId, }: {
         storeId: string;
         productId: number;
