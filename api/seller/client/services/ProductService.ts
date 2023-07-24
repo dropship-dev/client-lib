@@ -142,6 +142,73 @@ export class ProductService {
   }
 
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateProductStatuses({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateProductStatusesDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/product/status',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getProductByPermalink({
+    storeId,
+    permalink,
+  }: {
+    storeId: string,
+    permalink: string,
+  }): CancelablePromise<(Product & {
+    ProductVariant: Array<(ProductVariant & {
+      PlatformVariant: PlatformVariant;
+    })>;
+    PlatformProduct: {
+      variantOption: VariantOptions;
+      Tag: Array<AdminTag>;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/permalink',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'permalink': permalink,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
    * @returns any Ok
    * @throws ApiError
    */
@@ -224,35 +291,6 @@ export class ProductService {
         'storeId': storeId,
         'productId': productId,
       },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public updateProductStatuses({
-    storeId,
-    requestBody,
-  }: {
-    storeId: string,
-    requestBody: UpdateProductStatusesDto,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/product/status',
-      path: {
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

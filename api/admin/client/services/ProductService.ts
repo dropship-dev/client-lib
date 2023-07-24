@@ -142,6 +142,44 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getProductByPermalink({
+    storeId,
+    permalink,
+  }: {
+    storeId: string,
+    permalink: string,
+  }): CancelablePromise<(Product & {
+    ProductVariant: Array<(ProductVariant & {
+      PlatformVariant: PlatformVariant;
+    })>;
+    PlatformProduct: {
+      variantOption: VariantOptions;
+      Tag: Array<AdminTag>;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/permalink',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'permalink': permalink,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getProduct({
     storeId,
     productId,

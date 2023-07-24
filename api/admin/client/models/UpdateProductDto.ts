@@ -13,5 +13,6 @@ export type UpdateProductDto = {
   shippingFee?: number;
   shippingFeeAdditional?: number;
   SKU?: string;
+  permalink?: string;
 };
 

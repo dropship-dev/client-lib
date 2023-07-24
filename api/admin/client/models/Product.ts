@@ -23,6 +23,7 @@ export type Product = {
   photos: PrismaJson_Photos;
   details: string;
   description: string;
+  permalink: string;
   name: string;
   id: number;
 };
