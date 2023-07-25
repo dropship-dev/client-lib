@@ -23,7 +23,7 @@ class SettingService {
         });
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Setting Ok
      * @throws ApiError
      */
     updateSetting({ requestBody, }) {

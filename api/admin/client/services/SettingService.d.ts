@@ -1,4 +1,3 @@
-import type { BatchPayload } from '../models/BatchPayload';
 import type { Setting } from '../models/Setting';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -12,10 +11,10 @@ export declare class SettingService {
      */
     getSetting(): CancelablePromise<Setting>;
     /**
-     * @returns BatchPayload Ok
+     * @returns Setting Ok
      * @throws ApiError
      */
     updateSetting({ requestBody, }: {
         requestBody: UpdateSettingDto;
-    }): CancelablePromise<BatchPayload>;
+    }): CancelablePromise<Setting>;
 }

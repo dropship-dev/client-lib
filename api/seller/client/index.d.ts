@@ -11,7 +11,6 @@ export type { AdminTag } from './models/AdminTag';
 export type { ApproveRequestSourcingDto } from './models/ApproveRequestSourcingDto';
 export type { AuthData } from './models/AuthData';
 export type { AuthStoreData } from './models/AuthStoreData';
-export type { BatchPayload } from './models/BatchPayload';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { Collection } from './models/Collection';
 export type { Color } from './models/Color';

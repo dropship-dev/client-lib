@@ -1,1 +1,6 @@
-export type UpdateSettingDto = {};
+export type UpdateSettingDto = {
+    privacyPolicy?: string;
+    refundPolicy?: string;
+    termsOfService?: string;
+    shippingPolicy?: string;
+};
