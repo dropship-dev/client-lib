@@ -89,6 +89,7 @@ export declare class ProductService {
         storeId: string;
         productId: number;
     }): CancelablePromise<(Product & {
+        ProductVariant: Array<ProductVariant>;
         PlatformProduct: {
             variantOption: VariantOptions;
             Tag: Array<AdminTag>;
