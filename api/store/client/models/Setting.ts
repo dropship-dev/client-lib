@@ -8,8 +8,10 @@
 export type Setting = {
   updatedAt: string;
   createdAt: string;
-  shippingFeeAdditional: number;
-  shippingFee: number;
+  shippingPolicy: string;
+  termsOfService: string;
+  refundPolicy: string;
+  privacyPolicy: string;
   id: number;
 };
 

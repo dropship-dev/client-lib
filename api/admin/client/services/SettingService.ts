@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BatchPayload } from '../models/BatchPayload';
 import type { Setting } from '../models/Setting';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
 
@@ -30,14 +29,14 @@ export class SettingService {
   }
 
   /**
-   * @returns BatchPayload Ok
+   * @returns Setting Ok
    * @throws ApiError
    */
   public updateSetting({
     requestBody,
   }: {
     requestBody: UpdateSettingDto,
-  }): CancelablePromise<BatchPayload> {
+  }): CancelablePromise<Setting> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/setting/{id}',
