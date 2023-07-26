@@ -18,6 +18,7 @@ export type Store = {
     customDomainStatus: CustomDomainStatus;
     customDomain: string | null;
     domain: string;
+    pageName: string;
     email: string;
     address: string;
     phone: string;
