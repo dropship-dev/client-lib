@@ -1,3 +1,1 @@
-export type AuthStoreData = {
-    id: string;
-};
+export type AuthStoreData = {};
