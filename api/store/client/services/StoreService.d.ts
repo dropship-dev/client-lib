@@ -1,6 +1,7 @@
 import type { Currency } from '../models/Currency';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { Timezone } from '../models/Timezone';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -17,11 +18,11 @@ export declare class StoreService {
         termsOfService: string;
         privacyPolicy: string;
         refundPolicy: string;
-        timezone: number;
+        timezone: Timezone;
         customDomain: string;
         domain: string;
-        email: string;
         address: string;
+        email: string;
         phone: string;
         updatedAt: string;
         createdAt: string;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -33,6 +33,8 @@ var StoreRole_1 = require("./models/StoreRole");
 Object.defineProperty(exports, "StoreRole", { enumerable: true, get: function () { return StoreRole_1.StoreRole; } });
 var StoreStatus_1 = require("./models/StoreStatus");
 Object.defineProperty(exports, "StoreStatus", { enumerable: true, get: function () { return StoreStatus_1.StoreStatus; } });
+var TimezoneDto_1 = require("./models/TimezoneDto");
+Object.defineProperty(exports, "TimezoneDto", { enumerable: true, get: function () { return TimezoneDto_1.TimezoneDto; } });
 var TransactionStatus_1 = require("./models/TransactionStatus");
 Object.defineProperty(exports, "TransactionStatus", { enumerable: true, get: function () { return TransactionStatus_1.TransactionStatus; } });
 var TransactionType_1 = require("./models/TransactionType");
