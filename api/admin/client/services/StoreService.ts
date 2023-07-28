@@ -5,9 +5,11 @@ import type { ActiveTheme } from '../models/ActiveTheme';
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { Collection } from '../models/Collection';
 import type { Currency } from '../models/Currency';
+import type { CustomDomain } from '../models/CustomDomain';
 import type { Order } from '../models/Order';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { PrimaryDomain } from '../models/PrimaryDomain';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Product } from '../models/Product';
 import type { RequestSourcing } from '../models/RequestSourcing';
@@ -40,7 +42,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-28T04:55:51.525Z',
+    periodTo = '2023-07-28T09:37:01.401Z',
     nextPageIndex,
     name,
     userId,
@@ -148,6 +150,8 @@ export class StoreService {
     Theme?: Array<Theme>;
     ActiveTheme?: ActiveTheme;
     StoreUser: Array<StoreUser>;
+    PrimaryDomain?: PrimaryDomain;
+    CustomDomain?: Array<CustomDomain>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

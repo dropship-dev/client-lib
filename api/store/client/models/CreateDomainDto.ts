@@ -2,4 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type Domain = string;
+export type CreateDomainDto = {
+  domain: string;
+};
+

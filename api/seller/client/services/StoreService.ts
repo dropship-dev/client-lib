@@ -5,9 +5,11 @@ import type { ActiveTheme } from '../models/ActiveTheme';
 import type { Collection } from '../models/Collection';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { Currency } from '../models/Currency';
+import type { CustomDomain } from '../models/CustomDomain';
 import type { Order } from '../models/Order';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { PrimaryDomain } from '../models/PrimaryDomain';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Product } from '../models/Product';
 import type { RequestSourcing } from '../models/RequestSourcing';
@@ -20,7 +22,6 @@ import type { StoreUser } from '../models/StoreUser';
 import type { Tag } from '../models/Tag';
 import type { Theme } from '../models/Theme';
 import type { Transaction } from '../models/Transaction';
-import type { UpdateStoreCustomDomainDto } from '../models/UpdateStoreCustomDomainDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 
@@ -65,7 +66,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-07-28T04:55:51.525Z',
+    periodTo = '2023-07-28T09:37:01.401Z',
     nextPageIndex,
     name,
     userId,
@@ -149,6 +150,8 @@ export class StoreService {
     Theme?: Array<Theme>;
     ActiveTheme?: ActiveTheme;
     StoreUser: Array<StoreUser>;
+    PrimaryDomain?: PrimaryDomain;
+    CustomDomain?: Array<CustomDomain>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -234,35 +237,6 @@ export class StoreService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status',
-      path: {
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns Store Ok
-   * @throws ApiError
-   */
-  public updateStoreCustomDomain({
-    storeId,
-    requestBody,
-  }: {
-    storeId: string,
-    requestBody: UpdateStoreCustomDomainDto,
-  }): CancelablePromise<Store> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/custom-domain',
       path: {
         'storeId': storeId,
       },

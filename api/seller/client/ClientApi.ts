@@ -8,6 +8,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AuthService } from './services/AuthService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
+import { DomainService } from './services/DomainService';
 import { OrderService } from './services/OrderService';
 import { ProductService } from './services/ProductService';
 import { RequestSourcingService } from './services/RequestSourcingService';
@@ -29,6 +30,7 @@ export class ClientApi {
   public readonly auth: AuthService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
+  public readonly domain: DomainService;
   public readonly order: OrderService;
   public readonly product: ProductService;
   public readonly requestSourcing: RequestSourcingService;
@@ -61,6 +63,7 @@ export class ClientApi {
     this.auth = new AuthService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);
+    this.domain = new DomainService(this.request);
     this.order = new OrderService(this.request);
     this.product = new ProductService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);

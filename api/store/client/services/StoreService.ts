@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Currency } from '../models/Currency';
+import type { CustomDomain } from '../models/CustomDomain';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { Timezone } from '../models/Timezone';
@@ -27,8 +28,7 @@ export class StoreService {
     privacyPolicy: string;
     refundPolicy: string;
     timezone: Timezone;
-    customDomain: string;
-    domain: string;
+    subDomain: string;
     address: string;
     email: string;
     phone: string;
@@ -38,6 +38,7 @@ export class StoreService {
     id: string;
     Currency: Currency;
     Payment: Array<Payment>;
+    CustomDomain: Array<CustomDomain>;
     ActiveTheme: {
       updatedAt: string;
       createdAt: string;

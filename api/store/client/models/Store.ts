@@ -2,7 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { CustomDomainStatus } from './CustomDomainStatus';
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 import type { StoreStatus } from './StoreStatus';
 
@@ -25,9 +24,7 @@ export type Store = {
    * [Timezone]
    */
   timezone: PrismaJson_Timezone;
-  customDomainStatus: CustomDomainStatus;
-  customDomain: string | null;
-  domain: string;
+  subDomain: string;
   pageName: string;
   status: StoreStatus;
   country: string | null;
