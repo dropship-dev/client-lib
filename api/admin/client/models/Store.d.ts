@@ -13,12 +13,15 @@ export type Store = {
     termsOfService: string | null;
     privacyPolicy: string | null;
     refundPolicy: string | null;
-    status: StoreStatus;
+    shippingFeeAdditional: number;
+    shippingFee: number;
     timezone: number;
     customDomainStatus: CustomDomainStatus;
     customDomain: string | null;
     domain: string;
     pageName: string;
+    status: StoreStatus;
+    avatar: string | null;
     email: string;
     address: string;
     phone: string;

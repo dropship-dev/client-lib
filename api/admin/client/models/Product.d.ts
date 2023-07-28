@@ -9,8 +9,6 @@ export type Product = {
     platformProductId: number;
     isEnable: boolean;
     isActive: boolean;
-    shippingFeeAdditional: number;
-    shippingFee: number;
     SKU: string;
     /**
      * [Photos]
