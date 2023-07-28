@@ -3,6 +3,5 @@
 /* eslint-disable */
 
 export type AuthStoreData = {
-  id: string;
 };
 
