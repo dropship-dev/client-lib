@@ -5,11 +5,6 @@ if (process.env.NEXT_PUBLIC_API_URL) {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
 
-if (!process.env.NEXT_PUBLIC_STORE_API_KEY) {
-  throw new Error("NEXT_PUBLIC_STORE_API_KEY is not set");
-}
-OpenAPI.TOKEN = process.env.NEXT_PUBLIC_STORE_API_KEY
-
 class ClientApi extends _ClientApi {
   public async uploadFile(file: File): Promise<string> {
     let result = {
