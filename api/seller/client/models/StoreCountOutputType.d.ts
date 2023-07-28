@@ -11,4 +11,5 @@ export type StoreCountOutputType = {
     Payment: number;
     Theme: number;
     StoreUser: number;
+    CustomDomain: number;
 };

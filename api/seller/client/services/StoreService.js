@@ -29,7 +29,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-28T04:55:51.525Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-28T09:37:01.401Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -125,28 +125,6 @@ class StoreService {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    updateStoreCustomDomain({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/custom-domain',
             path: {
                 'storeId': storeId,
             },

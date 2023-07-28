@@ -2,9 +2,11 @@ import type { ActiveTheme } from '../models/ActiveTheme';
 import type { Collection } from '../models/Collection';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { Currency } from '../models/Currency';
+import type { CustomDomain } from '../models/CustomDomain';
 import type { Order } from '../models/Order';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { PrimaryDomain } from '../models/PrimaryDomain';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Product } from '../models/Product';
 import type { RequestSourcing } from '../models/RequestSourcing';
@@ -17,7 +19,6 @@ import type { StoreUser } from '../models/StoreUser';
 import type { Tag } from '../models/Tag';
 import type { Theme } from '../models/Theme';
 import type { Transaction } from '../models/Transaction';
-import type { UpdateStoreCustomDomainDto } from '../models/UpdateStoreCustomDomainDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -86,6 +87,8 @@ export declare class StoreService {
         Theme?: Array<Theme>;
         ActiveTheme?: ActiveTheme;
         StoreUser: Array<StoreUser>;
+        PrimaryDomain?: PrimaryDomain;
+        CustomDomain?: Array<CustomDomain>;
     })>;
     /**
      * @returns Store Ok
@@ -109,14 +112,6 @@ export declare class StoreService {
     updateStoreStatus({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
-    }): CancelablePromise<Store>;
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    updateStoreCustomDomain({ storeId, requestBody, }: {
-        storeId: string;
-        requestBody: UpdateStoreCustomDomainDto;
     }): CancelablePromise<Store>;
     /**
      * @returns any Ok

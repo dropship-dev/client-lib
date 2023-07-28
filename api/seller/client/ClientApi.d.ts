@@ -3,6 +3,7 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AuthService } from './services/AuthService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
+import { DomainService } from './services/DomainService';
 import { OrderService } from './services/OrderService';
 import { ProductService } from './services/ProductService';
 import { RequestSourcingService } from './services/RequestSourcingService';
@@ -21,6 +22,7 @@ export declare class ClientApi {
     readonly auth: AuthService;
     readonly collection: CollectionService;
     readonly currency: CurrencyService;
+    readonly domain: DomainService;
     readonly order: OrderService;
     readonly product: ProductService;
     readonly requestSourcing: RequestSourcingService;

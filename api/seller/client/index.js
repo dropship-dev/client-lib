@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.CreateOrderDto = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -47,6 +47,8 @@ var CollectionService_1 = require("./services/CollectionService");
 Object.defineProperty(exports, "CollectionService", { enumerable: true, get: function () { return CollectionService_1.CollectionService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
 Object.defineProperty(exports, "CurrencyService", { enumerable: true, get: function () { return CurrencyService_1.CurrencyService; } });
+var DomainService_1 = require("./services/DomainService");
+Object.defineProperty(exports, "DomainService", { enumerable: true, get: function () { return DomainService_1.DomainService; } });
 var OrderService_1 = require("./services/OrderService");
 Object.defineProperty(exports, "OrderService", { enumerable: true, get: function () { return OrderService_1.OrderService; } });
 var ProductService_1 = require("./services/ProductService");

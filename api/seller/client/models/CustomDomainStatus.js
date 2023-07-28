@@ -11,5 +11,5 @@ var CustomDomainStatus;
 (function (CustomDomainStatus) {
     CustomDomainStatus["PENDING"] = "PENDING";
     CustomDomainStatus["FAILED"] = "FAILED";
-    CustomDomainStatus["VERIFIED"] = "VERIFIED";
+    CustomDomainStatus["SUCCESS"] = "SUCCESS";
 })(CustomDomainStatus || (exports.CustomDomainStatus = CustomDomainStatus = {}));

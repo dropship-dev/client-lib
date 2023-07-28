@@ -5,6 +5,7 @@ const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AuthService_1 = require("./services/AuthService");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
+const DomainService_1 = require("./services/DomainService");
 const OrderService_1 = require("./services/OrderService");
 const ProductService_1 = require("./services/ProductService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
@@ -22,6 +23,7 @@ class ClientApi {
     auth;
     collection;
     currency;
+    domain;
     order;
     product;
     requestSourcing;
@@ -51,6 +53,7 @@ class ClientApi {
         this.auth = new AuthService_1.AuthService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
+        this.domain = new DomainService_1.DomainService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
