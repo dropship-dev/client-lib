@@ -3,6 +3,7 @@
 /* eslint-disable */
 
 import type { CustomDomainStatus } from './CustomDomainStatus';
+import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 import type { StoreStatus } from './StoreStatus';
 
 /**
@@ -20,16 +21,23 @@ export type Store = {
   refundPolicy: string | null;
   shippingFeeAdditional: number;
   shippingFee: number;
-  timezone: number;
+  /**
+   * [Timezone]
+   */
+  timezone: PrismaJson_Timezone;
   customDomainStatus: CustomDomainStatus;
   customDomain: string | null;
   domain: string;
   pageName: string;
   status: StoreStatus;
+  country: string | null;
+  zipCode: string | null;
+  city: string | null;
+  apartmentAddress: string | null;
+  address: string | null;
   avatar: string | null;
   email: string;
-  address: string;
-  phone: string;
+  phone: string | null;
   name: string;
   id: string;
 };
