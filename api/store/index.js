@@ -23,10 +23,6 @@ const axios_1 = __importDefault(require("axios"));
 if (process.env.NEXT_PUBLIC_API_URL) {
     client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
-if (!process.env.NEXT_PUBLIC_STORE_API_KEY) {
-    throw new Error("NEXT_PUBLIC_STORE_API_KEY is not set");
-}
-client_1.OpenAPI.TOKEN = process.env.NEXT_PUBLIC_STORE_API_KEY;
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
