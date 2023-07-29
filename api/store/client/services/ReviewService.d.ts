@@ -9,14 +9,26 @@ export declare class ReviewService {
      * @returns Review Ok
      * @throws ApiError
      */
-    createReview({ requestBody, }: {
+    createReview({ storeId, productId, requestBody, }: {
+        storeId: string;
+        productId: number;
         requestBody: CreateReviewDto;
     }): CancelablePromise<Review>;
     /**
      * @returns Review Ok
      * @throws ApiError
      */
-    getReview({ id, }: {
+    getAllReview({ storeId, productId, }: {
+        storeId: string;
+        productId: number;
+    }): CancelablePromise<Array<Review>>;
+    /**
+     * @returns Review Ok
+     * @throws ApiError
+     */
+    getReview({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
         id: number;
     }): CancelablePromise<Review>;
 }
