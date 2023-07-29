@@ -6,6 +6,7 @@
  * Count Type StoreCountOutputType
  */
 export type StoreCountOutputType = {
+  FbPixel: number;
   Tag: number;
   Order: number;
   RequestSourcing: number;
