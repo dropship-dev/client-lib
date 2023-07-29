@@ -1,19 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StoreService = void 0;
-class StoreService {
+exports.FbPixelService = void 0;
+class FbPixelService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Store Ok
+     * @returns FbPixel Ok
      * @throws ApiError
      */
-    createStore({ requestBody, }) {
+    createFbPixel({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store',
+            url: '/store/{storeId}/fb-pixel',
+            path: {
+                'storeId': storeId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -29,40 +32,10 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-29T05:16:21.507Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllFbPixel({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store',
-            query: {
-                'pageSize': pageSize,
-                'status': status,
-                'orderBy': orderBy,
-                'order': order,
-                'periodFrom': periodFrom,
-                'periodTo': periodTo,
-                'nextPageIndex': nextPageIndex,
-                'name': name,
-                'userId': userId,
-                'revenueFrom': revenueFrom,
-                'revenueTo': revenueTo,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStore({ storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}',
+            url: '/store/{storeId}/fb-pixel',
             path: {
                 'storeId': storeId,
             },
@@ -76,15 +49,37 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns FbPixel Ok
      * @throws ApiError
      */
-    updateStore({ storeId, requestBody, }) {
+    getFbPixel({ storeId, pixelId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/fb-pixel/{pixelId}',
+            path: {
+                'storeId': storeId,
+                'pixelId': pixelId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns FbPixel Ok
+     * @throws ApiError
+     */
+    updateFbPixel({ storeId, pixelId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}',
+            url: '/store/{storeId}/fb-pixel/{pixelId}',
             path: {
                 'storeId': storeId,
+                'pixelId': pixelId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -98,57 +93,16 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns FbPixel Ok
      * @throws ApiError
      */
-    deleteStore({ storeId, }) {
+    deleteFbPixel({ storeId, pixelId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}',
+            url: '/store/{storeId}/fb-pixel/{pixelId}',
             path: {
                 'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Store Ok
-     * @throws ApiError
-     */
-    updateStoreStatus({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/status',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStorePaymentMethod({ storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/payment-method',
-            path: {
-                'storeId': storeId,
+                'pixelId': pixelId,
             },
             errors: {
                 400: `Bad request`,
@@ -160,4 +114,4 @@ class StoreService {
         });
     }
 }
-exports.StoreService = StoreService;
+exports.FbPixelService = FbPixelService;

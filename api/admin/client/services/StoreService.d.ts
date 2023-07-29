@@ -3,6 +3,7 @@ import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductSt
 import type { Collection } from '../models/Collection';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
+import type { FbPixel } from '../models/FbPixel';
 import type { Order } from '../models/Order';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
@@ -81,6 +82,7 @@ export declare class StoreService {
         Transaction?: Array<Transaction>;
         RequestSourcing?: Array<RequestSourcing>;
         Product?: Array<Product>;
+        FbPixel?: Array<FbPixel>;
         Tag?: Array<Tag>;
         Payment?: Array<Payment>;
         Collection?: Array<Collection>;
