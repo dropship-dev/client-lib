@@ -5,6 +5,7 @@ import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -29,6 +30,10 @@ export class StoreService {
     refundPolicy: string;
     timezone: Timezone;
     subDomain: string;
+    country: string;
+    zipCode: string;
+    city: string;
+    apartmentAddress: string;
     address: string;
     email: string;
     phone: string;
@@ -40,6 +45,7 @@ export class StoreService {
     Payment: Array<Payment>;
     CustomDomain: Array<CustomDomain>;
     ActiveTheme: {
+      template: ThemeTemplate;
       updatedAt: string;
       createdAt: string;
       themeTemplateId: number;

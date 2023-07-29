@@ -17,13 +17,21 @@ export class ReviewService {
    * @throws ApiError
    */
   public createReview({
+    storeId,
+    productId,
     requestBody,
   }: {
+    storeId: string,
+    productId: number,
     requestBody: CreateReviewDto,
   }): CancelablePromise<Review> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/review',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -40,15 +48,49 @@ export class ReviewService {
    * @returns Review Ok
    * @throws ApiError
    */
+  public getAllReview({
+    storeId,
+    productId,
+  }: {
+    storeId: string,
+    productId: number,
+  }): CancelablePromise<Array<Review>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/review',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns Review Ok
+   * @throws ApiError
+   */
   public getReview({
+    storeId,
+    productId,
     id,
   }: {
+    storeId: string,
+    productId: number,
     id: number,
   }): CancelablePromise<Review> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/review/{id}',
       path: {
+        'storeId': storeId,
+        'productId': productId,
         'id': id,
       },
       errors: {
@@ -66,9 +108,13 @@ export class ReviewService {
    * @throws ApiError
    */
   public updateReview({
+    storeId,
+    productId,
     id,
     requestBody,
   }: {
+    storeId: string,
+    productId: number,
     id: number,
     requestBody: UpdateReviewDto,
   }): CancelablePromise<Review> {
@@ -76,6 +122,8 @@ export class ReviewService {
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/review/{id}',
       path: {
+        'storeId': storeId,
+        'productId': productId,
         'id': id,
       },
       body: requestBody,
@@ -95,14 +143,20 @@ export class ReviewService {
    * @throws ApiError
    */
   public deleteReview({
+    storeId,
+    productId,
     id,
   }: {
+    storeId: string,
+    productId: number,
     id: number,
   }): CancelablePromise<Review> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/review/{id}',
       path: {
+        'storeId': storeId,
+        'productId': productId,
         'id': id,
       },
       errors: {

@@ -12,6 +12,5 @@ export type CreateReviewDto = {
   rating: number;
   comment: string;
   photos?: Array<PhotoDto>;
-  productId: number;
 };
 
