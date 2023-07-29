@@ -9,4 +9,5 @@ export type UpdateProductDto = {
     shippingFeeAdditional?: number;
     SKU?: string;
     permalink?: string;
+    tags?: Array<string>;
 };
