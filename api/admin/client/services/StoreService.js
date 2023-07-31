@@ -10,7 +10,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-31T08:52:57.227Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo = '2023-07-31T09:28:14.487Z', nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
