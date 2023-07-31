@@ -32,7 +32,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    confirmStoreOrder({ storeId, paypalOrderId, stripeOrderId, }) {
+    captureStoreOrder({ storeId, orderId, paymentType, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order/capture',
@@ -40,8 +40,8 @@ class OrderService {
                 'storeId': storeId,
             },
             query: {
-                'paypalOrderId': paypalOrderId,
-                'stripeOrderId': stripeOrderId,
+                'orderId': orderId,
+                'paymentType': paymentType,
             },
             errors: {
                 400: `Bad request`,

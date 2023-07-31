@@ -8,6 +8,6 @@ var CreateOrderDto;
 (function (CreateOrderDto) {
     let method;
     (function (method) {
-        method["PAYPAL"] = "paypal";
+        method["PAYPAL"] = "PAYPAL";
     })(method = CreateOrderDto.method || (CreateOrderDto.method = {}));
 })(CreateOrderDto || (exports.CreateOrderDto = CreateOrderDto = {}));

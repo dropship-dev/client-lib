@@ -22,6 +22,6 @@ export type CreateOrderDto = {
 };
 export declare namespace CreateOrderDto {
     enum method {
-        PAYPAL = "paypal"
+        PAYPAL = "PAYPAL"
     }
 }
