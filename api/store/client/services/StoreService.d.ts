@@ -1,6 +1,5 @@
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
@@ -34,7 +33,14 @@ export declare class StoreService {
         name: string;
         id: string;
         Currency: Currency;
-        Payment: Array<Payment>;
+        Payment: Array<{
+            publishableKey: string;
+            type: PaymentType;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        }>;
         CustomDomain: Array<CustomDomain>;
         ActiveTheme: {
             template: ThemeTemplate;
