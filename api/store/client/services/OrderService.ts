@@ -4,6 +4,7 @@
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { PaymentType } from '../models/PaymentType';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -49,14 +50,14 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
-  public confirmStoreOrder({
+  public captureStoreOrder({
     storeId,
-    paypalOrderId,
-    stripeOrderId,
+    orderId,
+    paymentType,
   }: {
     storeId: string,
-    paypalOrderId?: string,
-    stripeOrderId?: string,
+    orderId: string,
+    paymentType: PaymentType,
   }): CancelablePromise<{
     status: string;
   }> {
@@ -67,8 +68,8 @@ export class OrderService {
         'storeId': storeId,
       },
       query: {
-        'paypalOrderId': paypalOrderId,
-        'stripeOrderId': stripeOrderId,
+        'orderId': orderId,
+        'paymentType': paymentType,
       },
       errors: {
         400: `Bad request`,
