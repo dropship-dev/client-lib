@@ -24,7 +24,7 @@ export type { ConfirmPaypalOrderDto } from './models/ConfirmPaypalOrderDto';
 export type { CreateCollectionDto } from './models/CreateCollectionDto';
 export type { CreateDomainDto } from './models/CreateDomainDto';
 export type { CreateFbPixelDto } from './models/CreateFbPixelDto';
-export { CreateOrderDto } from './models/CreateOrderDto';
+export type { CreateOrderDto } from './models/CreateOrderDto';
 export type { CreatePaymentDto } from './models/CreatePaymentDto';
 export type { CreatePaypalOrderDto } from './models/CreatePaypalOrderDto';
 export type { CreatePlatformProductDto } from './models/CreatePlatformProductDto';
