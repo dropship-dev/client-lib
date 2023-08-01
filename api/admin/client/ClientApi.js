@@ -18,6 +18,7 @@ const ThemeTemplateService_1 = require("./services/ThemeTemplateService");
 const TransactionService_1 = require("./services/TransactionService");
 const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
+const VariantService_1 = require("./services/VariantService");
 class ClientApi {
     auth;
     currency;
@@ -35,6 +36,7 @@ class ClientApi {
     transaction;
     upload;
     user;
+    variant;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -64,6 +66,7 @@ class ClientApi {
         this.transaction = new TransactionService_1.TransactionService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
         this.user = new UserService_1.UserService(this.request);
+        this.variant = new VariantService_1.VariantService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

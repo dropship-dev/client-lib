@@ -16,6 +16,7 @@ import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
+import { VariantService } from './services/VariantService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly auth: AuthService;
@@ -34,6 +35,7 @@ export declare class ClientApi {
     readonly transaction: TransactionService;
     readonly upload: UploadService;
     readonly user: UserService;
+    readonly variant: VariantService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }

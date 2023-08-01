@@ -130,3 +130,4 @@ export { ThemeTemplateService } from './services/ThemeTemplateService';
 export { TransactionService } from './services/TransactionService';
 export { UploadService } from './services/UploadService';
 export { UserService } from './services/UserService';
+export { VariantService } from './services/VariantService';
