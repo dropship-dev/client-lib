@@ -21,6 +21,7 @@ import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
+import { VariantService } from './services/VariantService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -42,6 +43,7 @@ export class ClientApi {
   public readonly transaction: TransactionService;
   public readonly upload: UploadService;
   public readonly user: UserService;
+  public readonly variant: VariantService;
 
   public readonly request: BaseHttpRequest;
 
@@ -74,6 +76,7 @@ export class ClientApi {
     this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
+    this.variant = new VariantService(this.request);
   }
 }
 
