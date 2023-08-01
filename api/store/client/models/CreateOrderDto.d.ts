@@ -1,5 +1,6 @@
 import type { EmailDto } from './EmailDto';
 import type { NameDto } from './NameDto';
+import type { PaymentType } from './PaymentType';
 import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 export type CreateOrderDto = {
     name?: NameDto;
@@ -12,16 +13,9 @@ export type CreateOrderDto = {
     zipCode?: string;
     country?: string;
     note?: string;
-    payment: {
-        method: CreateOrderDto.method;
-    };
+    payment: PaymentType;
     orderItems: Array<{
         quantity: number;
         productVariantId: number;
     }>;
 };
-export declare namespace CreateOrderDto {
-    enum method {
-        PAYPAL = "PAYPAL"
-    }
-}
