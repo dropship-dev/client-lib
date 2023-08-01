@@ -2,6 +2,8 @@ import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
@@ -34,7 +36,12 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<(Order & {
-            OrderItem: Array<OrderItem>;
+            OrderItem: Array<(OrderItem & {
+                ProductVariant: (ProductVariant & {
+                    Product: Product;
+                    PlatformVariant: PlatformVariant;
+                });
+            })>;
             Transaction: Transaction;
             Store: Store;
         })>;
@@ -67,7 +74,12 @@ export declare class OrderService {
     getOrder({ id, }: {
         id: string;
     }): CancelablePromise<(Order & {
-        OrderItem: Array<OrderItem>;
+        OrderItem: Array<(OrderItem & {
+            ProductVariant: (ProductVariant & {
+                Product: Product;
+                PlatformVariant: PlatformVariant;
+            });
+        })>;
         Transaction: Transaction;
         Store: Store;
     })>;
