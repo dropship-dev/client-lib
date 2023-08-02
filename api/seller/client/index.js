@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.PerformanceService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -51,6 +51,8 @@ var FbPixelService_1 = require("./services/FbPixelService");
 Object.defineProperty(exports, "FbPixelService", { enumerable: true, get: function () { return FbPixelService_1.FbPixelService; } });
 var OrderService_1 = require("./services/OrderService");
 Object.defineProperty(exports, "OrderService", { enumerable: true, get: function () { return OrderService_1.OrderService; } });
+var PerformanceService_1 = require("./services/PerformanceService");
+Object.defineProperty(exports, "PerformanceService", { enumerable: true, get: function () { return PerformanceService_1.PerformanceService; } });
 var ProductService_1 = require("./services/ProductService");
 Object.defineProperty(exports, "ProductService", { enumerable: true, get: function () { return ProductService_1.ProductService; } });
 var RequestSourcingService_1 = require("./services/RequestSourcingService");

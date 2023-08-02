@@ -23,17 +23,6 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    authorizeStoreOrder({ storeId, orderId, paymentType, }: {
-        storeId: string;
-        orderId: string;
-        paymentType: PaymentType;
-    }): CancelablePromise<{
-        status: string;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     captureStoreOrder({ storeId, orderId, paymentType, }: {
         storeId: string;
         orderId: string;

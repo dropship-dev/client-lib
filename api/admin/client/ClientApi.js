@@ -6,6 +6,7 @@ const AuthService_1 = require("./services/AuthService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
 const PaymentService_1 = require("./services/PaymentService");
+const PerformanceService_1 = require("./services/PerformanceService");
 const PlatformProductService_1 = require("./services/PlatformProductService");
 const PlatformVariantService_1 = require("./services/PlatformVariantService");
 const ProductService_1 = require("./services/ProductService");
@@ -24,6 +25,7 @@ class ClientApi {
     currency;
     order;
     payment;
+    performance;
     platformProduct;
     platformVariant;
     product;
@@ -54,6 +56,7 @@ class ClientApi {
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.payment = new PaymentService_1.PaymentService(this.request);
+        this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.platformProduct = new PlatformProductService_1.PlatformProductService(this.request);
         this.platformVariant = new PlatformVariantService_1.PlatformVariantService(this.request);
         this.product = new ProductService_1.ProductService(this.request);

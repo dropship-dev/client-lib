@@ -6,6 +6,7 @@ import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { OrderService } from './services/OrderService';
+import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
@@ -26,6 +27,7 @@ export declare class ClientApi {
     readonly domain: DomainService;
     readonly fbPixel: FbPixelService;
     readonly order: OrderService;
+    readonly performance: PerformanceService;
     readonly product: ProductService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;

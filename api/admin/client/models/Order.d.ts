@@ -11,6 +11,7 @@ export type Order = {
     storeId: string;
     fulfillmentStatus: FulfillmentStatus;
     gatewayOrderId: string;
+    lastBalance: number | null;
     noItems: number;
     totalUSD: number;
     total: number;
