@@ -9,7 +9,6 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
-export type { ActiveTheme } from './models/ActiveTheme';
 export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';
 export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto';
 export type { AdminTag } from './models/AdminTag';
@@ -63,7 +62,6 @@ export type { Pick_Theme_Exclude_keyofTheme_id_or_createdAt_or_updatedAt_or_stor
 export type { PlatformProduct } from './models/PlatformProduct';
 export type { PlatformVariant } from './models/PlatformVariant';
 export type { PlatformVariantDto } from './models/PlatformVariantDto';
-export type { PrimaryDomain } from './models/PrimaryDomain';
 export type { Prisma_JsonValue } from './models/Prisma_JsonValue';
 export { Prisma_SortOrder } from './models/Prisma_SortOrder';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
@@ -78,7 +76,6 @@ export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Review } from './models/Review';
 export type { Setting } from './models/Setting';
 export type { Store } from './models/Store';
-export type { StoreCountOutputType } from './models/StoreCountOutputType';
 export { StoreOrderBy } from './models/StoreOrderBy';
 export type { StoreRevenue } from './models/StoreRevenue';
 export { StoreRole } from './models/StoreRole';

@@ -1,28 +1,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ActiveTheme } from '../models/ActiveTheme';
-import type { Collection } from '../models/Collection';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
-import type { Currency } from '../models/Currency';
-import type { CustomDomain } from '../models/CustomDomain';
-import type { FbPixel } from '../models/FbPixel';
-import type { Order } from '../models/Order';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
-import type { PrimaryDomain } from '../models/PrimaryDomain';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
-import type { Product } from '../models/Product';
-import type { RequestSourcing } from '../models/RequestSourcing';
 import type { Store } from '../models/Store';
-import type { StoreCountOutputType } from '../models/StoreCountOutputType';
 import type { StoreOrderBy } from '../models/StoreOrderBy';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
-import type { StoreUser } from '../models/StoreUser';
-import type { Tag } from '../models/Tag';
 import type { Theme } from '../models/Theme';
-import type { Transaction } from '../models/Transaction';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 
@@ -67,7 +53,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-08-02T07:01:56.836Z',
+    periodTo = '2023-08-02T07:30:42.138Z',
     nextPageIndex,
     name,
     userId,
@@ -139,21 +125,9 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<(Store & {
-    _count?: StoreCountOutputType;
-    Currency?: Currency;
-    Order?: Array<Order>;
-    Transaction?: Array<Transaction>;
-    RequestSourcing?: Array<RequestSourcing>;
-    Product?: Array<Product>;
-    FbPixel?: Array<FbPixel>;
-    Tag?: Array<Tag>;
-    Payment?: Array<Payment>;
-    Collection?: Array<Collection>;
-    Theme?: Array<Theme>;
-    ActiveTheme?: ActiveTheme;
-    StoreUser: Array<StoreUser>;
-    PrimaryDomain?: PrimaryDomain;
-    CustomDomain?: Array<CustomDomain>;
+    ActiveTheme: {
+      Theme: Theme;
+    };
   })> {
     return this.httpRequest.request({
       method: 'GET',

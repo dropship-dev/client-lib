@@ -10,6 +10,7 @@ import type { CustomDomainStatus } from './CustomDomainStatus';
 export type CustomDomain = {
   updatedAt: string;
   createdAt: string;
+  isPrimary: boolean | null;
   storeId: string;
   status: CustomDomainStatus;
   domain: string;

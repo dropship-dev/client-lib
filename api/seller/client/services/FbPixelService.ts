@@ -14,7 +14,7 @@ export class FbPixelService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns FbPixel Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createFbPixel({
@@ -23,7 +23,9 @@ export class FbPixelService {
   }: {
     storeId: string,
     requestBody: CreateFbPixelDto,
-  }): CancelablePromise<FbPixel> {
+  }): CancelablePromise<(FbPixel & {
+    Product: Array<Product>;
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/fb-pixel',
@@ -70,7 +72,7 @@ export class FbPixelService {
   }
 
   /**
-   * @returns FbPixel Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getFbPixel({
@@ -79,7 +81,9 @@ export class FbPixelService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<FbPixel> {
+  }): CancelablePromise<(FbPixel & {
+    Product: Array<Product>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/fb-pixel/{pixelId}',
