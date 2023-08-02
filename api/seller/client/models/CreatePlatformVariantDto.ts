@@ -5,7 +5,7 @@
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 
-export type CreateVariantDto = {
+export type CreatePlatformVariantDto = {
   name: NameDto;
   price: number;
   supplierPrice: number;

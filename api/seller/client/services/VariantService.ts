@@ -4,6 +4,7 @@
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
+import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -145,6 +146,71 @@ export class VariantService {
       query: {
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateVariants({
+    storeId,
+    productId,
+    requestBody,
+  }: {
+    storeId: string,
+    productId: number,
+    requestBody: UpdateVariantsDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/product/{productId}/variant',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteVariants({
+    storeId,
+    productId,
+    ids,
+  }: {
+    storeId: string,
+    productId: number,
+    ids: Array<number>,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/product/{productId}/variant',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      query: {
+        'ids': ids,
       },
       errors: {
         400: `Bad request`,

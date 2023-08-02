@@ -1,10 +1,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CreateVariantDto } from '../models/CreateVariantDto';
+import type { CreatePlatformVariantDto } from '../models/CreatePlatformVariantDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { UpdateVariantDto } from '../models/UpdateVariantDto';
-import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
+import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
+import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
+import type { UpdatePlatformVariantStatusDto } from '../models/UpdatePlatformVariantStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -22,7 +23,7 @@ export class PlatformVariantService {
     requestBody,
   }: {
     platformProductId: number,
-    requestBody: CreateVariantDto,
+    requestBody: CreatePlatformVariantDto,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'POST',
@@ -32,6 +33,65 @@ export class PlatformVariantService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updatePlatformVariants({
+    platformProductId,
+    requestBody,
+  }: {
+    platformProductId: number,
+    requestBody: UpdatePlatformVariantsDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/platform-product/{platformProductId}/variant',
+      path: {
+        'platformProductId': platformProductId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deletePlatformVariants({
+    platformProductId,
+    ids,
+  }: {
+    platformProductId: number,
+    ids: Array<number>,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/platform-product/{platformProductId}/variant',
+      path: {
+        'platformProductId': platformProductId,
+      },
+      query: {
+        'ids': ids,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -81,7 +141,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     id: number,
-    requestBody: UpdateVariantDto,
+    requestBody: UpdatePlatformVariantDto,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -141,7 +201,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     id: number,
-    requestBody: UpdateVariantStatusDto,
+    requestBody: UpdatePlatformVariantStatusDto,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',
