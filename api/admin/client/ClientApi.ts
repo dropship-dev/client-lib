@@ -9,6 +9,7 @@ import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
 import { PaymentService } from './services/PaymentService';
+import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
@@ -31,6 +32,7 @@ export class ClientApi {
   public readonly currency: CurrencyService;
   public readonly order: OrderService;
   public readonly payment: PaymentService;
+  public readonly performance: PerformanceService;
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
@@ -64,6 +66,7 @@ export class ClientApi {
     this.currency = new CurrencyService(this.request);
     this.order = new OrderService(this.request);
     this.payment = new PaymentService(this.request);
+    this.performance = new PerformanceService(this.request);
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);

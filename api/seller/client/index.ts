@@ -127,6 +127,7 @@ export { CurrencyService } from './services/CurrencyService';
 export { DomainService } from './services/DomainService';
 export { FbPixelService } from './services/FbPixelService';
 export { OrderService } from './services/OrderService';
+export { PerformanceService } from './services/PerformanceService';
 export { ProductService } from './services/ProductService';
 export { RequestSourcingService } from './services/RequestSourcingService';
 export { ReviewService } from './services/ReviewService';

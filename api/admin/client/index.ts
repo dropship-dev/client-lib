@@ -125,6 +125,7 @@ export { AuthService } from './services/AuthService';
 export { CurrencyService } from './services/CurrencyService';
 export { OrderService } from './services/OrderService';
 export { PaymentService } from './services/PaymentService';
+export { PerformanceService } from './services/PerformanceService';
 export { PlatformProductService } from './services/PlatformProductService';
 export { PlatformVariantService } from './services/PlatformVariantService';
 export { ProductService } from './services/ProductService';

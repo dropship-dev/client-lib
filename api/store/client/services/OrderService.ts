@@ -50,41 +50,6 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
-  public authorizeStoreOrder({
-    storeId,
-    orderId,
-    paymentType,
-  }: {
-    storeId: string,
-    orderId: string,
-    paymentType: PaymentType,
-  }): CancelablePromise<{
-    status: string;
-  }> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/order/authorize',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'orderId': orderId,
-        'paymentType': paymentType,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public captureStoreOrder({
     storeId,
     orderId,
