@@ -29,6 +29,14 @@ export declare class DomainService {
         domain: string;
     }): CancelablePromise<CustomDomain>;
     /**
+     * @returns CustomDomain Ok
+     * @throws ApiError
+     */
+    verifyDomain({ storeId, domain, }: {
+        storeId: string;
+        domain: string;
+    }): CancelablePromise<CustomDomain>;
+    /**
      * @returns void
      * @throws ApiError
      */

@@ -1,6 +1,7 @@
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
+import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -55,6 +56,24 @@ export declare class VariantService {
             PlatformVariant: PlatformVariant;
         })>;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateVariants({ storeId, productId, requestBody, }: {
+        storeId: string;
+        productId: number;
+        requestBody: UpdateVariantsDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteVariants({ storeId, productId, ids, }: {
+        storeId: string;
+        productId: number;
+        ids: Array<number>;
+    }): CancelablePromise<string>;
     /**
      * @returns ProductVariant Ok
      * @throws ApiError

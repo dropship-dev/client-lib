@@ -1,7 +1,8 @@
-import type { CreateVariantDto } from '../models/CreateVariantDto';
+import type { CreatePlatformVariantDto } from '../models/CreatePlatformVariantDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { UpdateVariantDto } from '../models/UpdateVariantDto';
-import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
+import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
+import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
+import type { UpdatePlatformVariantStatusDto } from '../models/UpdatePlatformVariantStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PlatformVariantService {
@@ -13,8 +14,24 @@ export declare class PlatformVariantService {
      */
     createPlatformVariant({ platformProductId, requestBody, }: {
         platformProductId: number;
-        requestBody: CreateVariantDto;
+        requestBody: CreatePlatformVariantDto;
     }): CancelablePromise<PlatformVariant>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updatePlatformVariants({ platformProductId, requestBody, }: {
+        platformProductId: number;
+        requestBody: UpdatePlatformVariantsDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePlatformVariants({ platformProductId, ids, }: {
+        platformProductId: number;
+        ids: Array<number>;
+    }): CancelablePromise<string>;
     /**
      * @returns PlatformVariant Ok
      * @throws ApiError
@@ -30,7 +47,7 @@ export declare class PlatformVariantService {
     updatePlatformVariant({ platformProductId, id, requestBody, }: {
         platformProductId: number;
         id: number;
-        requestBody: UpdateVariantDto;
+        requestBody: UpdatePlatformVariantDto;
     }): CancelablePromise<PlatformVariant>;
     /**
      * @returns PlatformVariant Ok
@@ -47,6 +64,6 @@ export declare class PlatformVariantService {
     updatePlatformVariantStatus({ platformProductId, id, requestBody, }: {
         platformProductId: number;
         id: number;
-        requestBody: UpdateVariantStatusDto;
+        requestBody: UpdatePlatformVariantStatusDto;
     }): CancelablePromise<PlatformVariant>;
 }

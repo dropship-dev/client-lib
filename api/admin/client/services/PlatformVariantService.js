@@ -29,6 +29,51 @@ class PlatformVariantService {
         });
     }
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    updatePlatformVariants({ platformProductId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/platform-product/{platformProductId}/variant',
+            path: {
+                'platformProductId': platformProductId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePlatformVariants({ platformProductId, ids, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/platform-product/{platformProductId}/variant',
+            path: {
+                'platformProductId': platformProductId,
+            },
+            query: {
+                'ids': ids,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns PlatformVariant Ok
      * @throws ApiError
      */

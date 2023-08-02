@@ -70,6 +70,27 @@ class DomainService {
         });
     }
     /**
+     * @returns CustomDomain Ok
+     * @throws ApiError
+     */
+    verifyDomain({ storeId, domain, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/domain/{domain}',
+            path: {
+                'storeId': storeId,
+                'domain': domain,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns void
      * @throws ApiError
      */
