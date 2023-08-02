@@ -8,13 +8,15 @@ export declare class FbPixelService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createFbPixel({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateFbPixelDto;
-    }): CancelablePromise<FbPixel>;
+    }): CancelablePromise<(FbPixel & {
+        Product: Array<Product>;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -25,13 +27,15 @@ export declare class FbPixelService {
         Product: Array<Product>;
     })>>;
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getFbPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<FbPixel>;
+    }): CancelablePromise<(FbPixel & {
+        Product: Array<Product>;
+    })>;
     /**
      * @returns FbPixel Ok
      * @throws ApiError

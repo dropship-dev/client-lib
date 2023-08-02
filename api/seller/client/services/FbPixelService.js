@@ -7,7 +7,7 @@ class FbPixelService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createFbPixel({ storeId, requestBody, }) {
@@ -49,7 +49,7 @@ class FbPixelService {
         });
     }
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getFbPixel({ storeId, pixelId, }) {
