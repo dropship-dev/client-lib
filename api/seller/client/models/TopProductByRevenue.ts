@@ -2,8 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type StoreRevenue = {
-  date: string;
+export type TopProductByRevenue = {
   revenue: number;
+  name: string;
+  storeId: string;
 };
 

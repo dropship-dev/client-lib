@@ -86,6 +86,8 @@ export type { Theme } from './models/Theme';
 export type { ThemeTemplate } from './models/ThemeTemplate';
 export type { Timezone } from './models/Timezone';
 export { TimezoneDto } from './models/TimezoneDto';
+export type { TopProductByOrder } from './models/TopProductByOrder';
+export type { TopProductByRevenue } from './models/TopProductByRevenue';
 export type { Transaction } from './models/Transaction';
 export { TransactionStatus } from './models/TransactionStatus';
 export { TransactionType } from './models/TransactionType';

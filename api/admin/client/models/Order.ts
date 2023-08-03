@@ -18,6 +18,7 @@ export type Order = {
   gatewayOrderId: string;
   lastBalance: number | null;
   noItems: number;
+  profit: number;
   totalUSD: number;
   total: number;
   shippingFee: number;
