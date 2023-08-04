@@ -1,7 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CreatePlatformVariantDto } from '../models/CreatePlatformVariantDto';
+import type { BatchPayload } from '../models/BatchPayload';
+import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
 import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
@@ -15,16 +16,16 @@ export class PlatformVariantService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns PlatformVariant Ok
+   * @returns BatchPayload Ok
    * @throws ApiError
    */
-  public createPlatformVariant({
+  public createPlatformVariants({
     platformProductId,
     requestBody,
   }: {
     platformProductId: number,
-    requestBody: CreatePlatformVariantDto,
-  }): CancelablePromise<PlatformVariant> {
+    requestBody: CreatePlatformVariantsDto,
+  }): CancelablePromise<BatchPayload> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/variant',
