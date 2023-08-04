@@ -17,13 +17,13 @@ export declare class PlatformVariantService {
         requestBody: CreatePlatformVariantDto;
     }): CancelablePromise<PlatformVariant>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updatePlatformVariants({ platformProductId, requestBody, }: {
         platformProductId: number;
         requestBody: UpdatePlatformVariantsDto;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError

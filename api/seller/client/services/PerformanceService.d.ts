@@ -1,6 +1,7 @@
+import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
-import type { TopProductByRevenue } from '../models/TopProductByRevenue';
+import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PerformanceService {
@@ -40,14 +41,14 @@ export declare class PerformanceService {
         limit?: number;
     }): CancelablePromise<Array<TopProductByOrder>>;
     /**
-     * @returns TopProductByRevenue Ok
+     * @returns TopStoreByRevenue Ok
      * @throws ApiError
      */
     getTopStoresByRevenue({ startDate, endDate, limit, }: {
         startDate?: string;
         endDate?: string;
         limit?: number;
-    }): CancelablePromise<Array<TopProductByRevenue>>;
+    }): CancelablePromise<Array<TopStoreByRevenue>>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -62,12 +63,20 @@ export declare class PerformanceService {
         totalRevenue: number;
     }>;
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
-    getProductPerformance({ startDate, endDate, storeId, }: {
+    getProductPerformance({ startDate, endDate, storeId, pageSize, nextPageIndex, }: {
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<void>;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<ProductPerformance>;
+    }>;
 }

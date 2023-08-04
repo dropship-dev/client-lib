@@ -1,4 +1,4 @@
-export type TopProductByRevenue = {
+export type TopStoreByRevenue = {
     revenue: number;
     name: string;
     storeId: string;

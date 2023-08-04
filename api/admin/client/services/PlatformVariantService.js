@@ -29,7 +29,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updatePlatformVariants({ platformProductId, requestBody, }) {
