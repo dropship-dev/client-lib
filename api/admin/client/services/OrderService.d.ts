@@ -61,12 +61,12 @@ export declare class OrderService {
         endTotal?: number;
     }): CancelablePromise<Array<ExportOrderResponseDto>>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateFulfillmentStatus({ requestBody, }: {
         requestBody: UpdateFulFillmentStatusDto;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -107,7 +107,10 @@ export declare class OrderService {
         data: Array<(Order & {
             OrderItem: Array<(OrderItem & {
                 ProductVariant: (ProductVariant & {
-                    PlatformVariant: any;
+                    PlatformVariant: {
+                        name: string;
+                        id: number;
+                    };
                 });
             })>;
             Transaction: Transaction;

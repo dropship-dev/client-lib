@@ -33,7 +33,10 @@ export declare class OrderService {
         data: Array<(Order & {
             OrderItem: Array<(OrderItem & {
                 ProductVariant: (ProductVariant & {
-                    PlatformVariant: any;
+                    PlatformVariant: {
+                        name: string;
+                        id: number;
+                    };
                 });
             })>;
             Transaction: Transaction;

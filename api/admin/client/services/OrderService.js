@@ -64,7 +64,7 @@ class OrderService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateFulfillmentStatus({ requestBody, }) {
