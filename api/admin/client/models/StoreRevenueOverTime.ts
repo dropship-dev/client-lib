@@ -2,6 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ConfirmPaypalOrderDto = {
+export type StoreRevenueOverTime = {
+  date: string;
+  revenue: number;
 };
 

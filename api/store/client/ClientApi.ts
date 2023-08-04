@@ -14,7 +14,6 @@ import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
-import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { VariantService } from './services/VariantService';
 
@@ -31,7 +30,6 @@ export class ClientApi {
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly theme: ThemeService;
-  public readonly transaction: TransactionService;
   public readonly upload: UploadService;
   public readonly variant: VariantService;
 
@@ -59,7 +57,6 @@ export class ClientApi {
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.theme = new ThemeService(this.request);
-    this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);
     this.variant = new VariantService(this.request);
   }
