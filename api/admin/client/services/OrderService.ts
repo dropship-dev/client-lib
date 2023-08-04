@@ -137,14 +137,14 @@ export class OrderService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public updateFulfillmentStatus({
     requestBody,
   }: {
     requestBody: UpdateFulFillmentStatusDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/order/fulfillmentStatus',
@@ -230,7 +230,10 @@ export class OrderService {
     data: Array<(Order & {
       OrderItem: Array<(OrderItem & {
         ProductVariant: (ProductVariant & {
-          PlatformVariant: any;
+          PlatformVariant: {
+            name: string;
+            id: number;
+          };
         });
       })>;
       Transaction: Transaction;
