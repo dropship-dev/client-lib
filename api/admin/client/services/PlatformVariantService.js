@@ -7,10 +7,10 @@ class PlatformVariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PlatformVariant Ok
+     * @returns BatchPayload Ok
      * @throws ApiError
      */
-    createPlatformVariant({ platformProductId, requestBody, }) {
+    createPlatformVariants({ platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/platform-product/{platformProductId}/variant',

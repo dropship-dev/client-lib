@@ -1,4 +1,5 @@
-import type { CreatePlatformVariantDto } from '../models/CreatePlatformVariantDto';
+import type { BatchPayload } from '../models/BatchPayload';
+import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
 import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
@@ -9,13 +10,13 @@ export declare class PlatformVariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PlatformVariant Ok
+     * @returns BatchPayload Ok
      * @throws ApiError
      */
-    createPlatformVariant({ platformProductId, requestBody, }: {
+    createPlatformVariants({ platformProductId, requestBody, }: {
         platformProductId: number;
-        requestBody: CreatePlatformVariantDto;
-    }): CancelablePromise<PlatformVariant>;
+        requestBody: CreatePlatformVariantsDto;
+    }): CancelablePromise<BatchPayload>;
     /**
      * @returns string Ok
      * @throws ApiError
