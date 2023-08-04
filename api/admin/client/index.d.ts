@@ -48,6 +48,7 @@ export type { NameDto } from './models/NameDto';
 export type { Omit_Theme_id_or_createdAt_or_updatedAt_or_storeId_or_colors_or_typos_ } from './models/Omit_Theme_id_or_createdAt_or_updatedAt_or_storeId_or_colors_or_typos_';
 export type { Order } from './models/Order';
 export type { OrderItem } from './models/OrderItem';
+export type { OrderItemDto } from './models/OrderItemDto';
 export type { Payment } from './models/Payment';
 export { PaymentType } from './models/PaymentType';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';

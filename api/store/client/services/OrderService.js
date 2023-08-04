@@ -32,15 +32,37 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    captureStoreOrder({ storeId, orderId, paymentType, }) {
+    previewStoreOrder({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/order/capture',
+            url: '/store/{storeId}/order/preview',
             path: {
                 'storeId': storeId,
             },
-            query: {
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    captureStoreOrder({ storeId, orderId, paymentType, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/{orderId}/capture',
+            path: {
+                'storeId': storeId,
                 'orderId': orderId,
+            },
+            query: {
                 'paymentType': paymentType,
             },
             errors: {

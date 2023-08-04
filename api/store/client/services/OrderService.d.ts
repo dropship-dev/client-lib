@@ -23,6 +23,18 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
+    previewStoreOrder({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateOrderDto;
+    }): CancelablePromise<{
+        total: number;
+        subTotal: number;
+        shippingFee: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     captureStoreOrder({ storeId, orderId, paymentType, }: {
         storeId: string;
         orderId: string;
