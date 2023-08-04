@@ -1,9 +1,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StoreRevenue } from '../models/StoreRevenue';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
-import type { TopProductByRevenue } from '../models/TopProductByRevenue';
+import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -18,7 +19,7 @@ export class PerformanceService {
    */
   public getRevenueOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.246Z',
+    endDate = '2023-08-04T03:24:20.881Z',
     storeId,
   }: {
     startDate?: string,
@@ -49,7 +50,7 @@ export class PerformanceService {
    */
   public getCrOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.248Z',
+    endDate = '2023-08-04T03:24:20.882Z',
     storeId,
   }: {
     startDate?: string,
@@ -85,7 +86,7 @@ export class PerformanceService {
    */
   public getTopProductsByOrders({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.282Z',
+    endDate = '2023-08-04T03:24:20.911Z',
     storeId,
     limit = 10,
   }: {
@@ -114,18 +115,18 @@ export class PerformanceService {
   }
 
   /**
-   * @returns TopProductByRevenue Ok
+   * @returns TopStoreByRevenue Ok
    * @throws ApiError
    */
   public getTopStoresByRevenue({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.284Z',
+    endDate = '2023-08-04T03:24:20.913Z',
     limit = 10,
   }: {
     startDate?: string,
     endDate?: string,
     limit?: number,
-  }): CancelablePromise<Array<TopProductByRevenue>> {
+  }): CancelablePromise<Array<TopStoreByRevenue>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-store-by-revenue',
@@ -150,7 +151,7 @@ export class PerformanceService {
    */
   public getPerformanceSummary({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.293Z',
+    endDate = '2023-08-04T03:24:20.919Z',
     storeId,
   }: {
     startDate?: string,
@@ -180,18 +181,28 @@ export class PerformanceService {
   }
 
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
   public getProductPerformance({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-03T10:44:13.294Z',
+    endDate = '2023-08-04T03:24:20.924Z',
     storeId,
+    pageSize = 20,
+    nextPageIndex,
   }: {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<void> {
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<ProductPerformance>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/product',
@@ -199,6 +210,8 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,

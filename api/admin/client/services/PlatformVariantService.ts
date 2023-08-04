@@ -44,7 +44,7 @@ export class PlatformVariantService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public updatePlatformVariants({
@@ -53,7 +53,7 @@ export class PlatformVariantService {
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformVariantsDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant',
