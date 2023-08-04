@@ -12,6 +12,7 @@ export type ProductVariant = {
   productId: number;
   isEnable: boolean;
   isActive: boolean;
+  SKU: string;
   compareAtPrice: number;
   photo: string;
   price: number;
