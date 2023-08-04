@@ -4,6 +4,7 @@
 
 import type { EmailDto } from './EmailDto';
 import type { NameDto } from './NameDto';
+import type { OrderItemDto } from './OrderItemDto';
 import type { PaymentType } from './PaymentType';
 import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 
@@ -19,9 +20,6 @@ export type CreateOrderDto = {
   country?: string;
   note?: string;
   payment: PaymentType;
-  orderItems: Array<{
-    quantity: number;
-    productVariantId: number;
-  }>;
+  orderItems: Array<OrderItemDto>;
 };
 

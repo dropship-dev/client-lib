@@ -50,6 +50,39 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
+  public previewStoreOrder({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: CreateOrderDto,
+  }): CancelablePromise<{
+    total: number;
+    subTotal: number;
+    shippingFee: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/preview',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public captureStoreOrder({
     storeId,
     orderId,
@@ -63,12 +96,12 @@ export class OrderService {
   }> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/order/capture',
+      url: '/store/{storeId}/order/{orderId}/capture',
       path: {
         'storeId': storeId,
+        'orderId': orderId,
       },
       query: {
-        'orderId': orderId,
         'paymentType': paymentType,
       },
       errors: {
