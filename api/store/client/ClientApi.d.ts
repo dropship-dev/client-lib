@@ -9,7 +9,6 @@ import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
-import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { VariantService } from './services/VariantService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
@@ -23,7 +22,6 @@ export declare class ClientApi {
     readonly store: StoreService;
     readonly storeTag: StoreTagService;
     readonly theme: ThemeService;
-    readonly transaction: TransactionService;
     readonly upload: UploadService;
     readonly variant: VariantService;
     readonly request: BaseHttpRequest;

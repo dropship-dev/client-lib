@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -57,8 +57,6 @@ var StoreTagService_1 = require("./services/StoreTagService");
 Object.defineProperty(exports, "StoreTagService", { enumerable: true, get: function () { return StoreTagService_1.StoreTagService; } });
 var ThemeService_1 = require("./services/ThemeService");
 Object.defineProperty(exports, "ThemeService", { enumerable: true, get: function () { return ThemeService_1.ThemeService; } });
-var TransactionService_1 = require("./services/TransactionService");
-Object.defineProperty(exports, "TransactionService", { enumerable: true, get: function () { return TransactionService_1.TransactionService; } });
 var UploadService_1 = require("./services/UploadService");
 Object.defineProperty(exports, "UploadService", { enumerable: true, get: function () { return UploadService_1.UploadService; } });
 var VariantService_1 = require("./services/VariantService");
