@@ -2,7 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Theme } from '../models/Theme';
-import type { ThemeTemplate } from '../models/ThemeTemplate';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,16 +11,14 @@ export class ThemeService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public getActiveTheme({
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<(Theme & {
-    template: ThemeTemplate;
-  })> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/active',

@@ -4,7 +4,6 @@
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
 import type { Theme } from '../models/Theme';
-import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -75,16 +74,14 @@ export class ThemeService {
   }
 
   /**
-   * @returns any Ok
+   * @returns Theme Ok
    * @throws ApiError
    */
   public getActiveTheme({
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<(Theme & {
-    template: ThemeTemplate;
-  })> {
+  }): CancelablePromise<Theme> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/active',

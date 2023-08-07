@@ -4,6 +4,7 @@
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
 import type { PaymentType } from '../models/PaymentType';
+import type { Theme } from '../models/Theme';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
 
@@ -23,6 +24,8 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    updatedAt: string;
+    createdAt: string;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
@@ -36,34 +39,21 @@ export class StoreService {
     address: string;
     email: string;
     phone: string;
-    updatedAt: string;
-    createdAt: string;
     name: string;
     id: string;
     Currency: Currency;
     Payment: Array<{
       publishableKey: string;
       type: PaymentType;
-      email: string;
       updatedAt: string;
       createdAt: string;
+      email: string;
       id: number;
     }>;
+    Theme: Array<(Theme & {
+      ThemeTemplate: ThemeTemplate;
+    })>;
     CustomDomain: Array<CustomDomain>;
-    ActiveTheme: {
-      template: ThemeTemplate;
-      updatedAt: string;
-      createdAt: string;
-      themeTemplateId: number;
-      storeId: string;
-      coverImage: string;
-      logo: string;
-      icon: string;
-      name: string;
-      id: number;
-      colors: any;
-      typos: any;
-    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -92,9 +82,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
-    email: string;
     updatedAt: string;
     createdAt: string;
+    email: string;
     id: number;
   }>> {
     return this.httpRequest.request({

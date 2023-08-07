@@ -29,7 +29,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-08-07T02:29:55.918Z',
+    periodTo = '2023-08-07T04:40:16.502Z',
     nextPageIndex,
     name,
     userId,
@@ -125,9 +125,7 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<(Store & {
-    ActiveTheme: {
-      Theme: Theme;
-    };
+    Theme: Array<Theme>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -239,9 +237,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
-    email: string;
     updatedAt: string;
     createdAt: string;
+    email: string;
     id: number;
   }>> {
     return this.httpRequest.request({
