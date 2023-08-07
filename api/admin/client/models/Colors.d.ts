@@ -1,6 +1,11 @@
-import type { Color } from './Color';
 export type Colors = {
-    branding: Color;
-    common: Color;
-    button: Color;
+    primary: string;
+    secondary: string;
+    siteBackground: string;
+    lightBackground: string;
+    darkBackground: string;
+    textColor: string;
+    textDarkBackground: string;
+    extra1: string;
+    extra2: string;
 };

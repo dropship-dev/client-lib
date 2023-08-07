@@ -1,3 +1,5 @@
+import type { LogoSize } from './LogoSize';
+import type { PrismaJson_Colors } from './PrismaJson_Colors';
 /**
  * Model Theme
  */
@@ -6,11 +8,15 @@ export type Theme = {
     createdAt: string;
     themeTemplateId: number;
     storeId: string;
-    colors: string;
-    typos: string;
-    coverImage: string;
+    isActivated: boolean | null;
+    /**
+     * [Colors]
+     */
+    colors: PrismaJson_Colors;
+    font: string;
+    heroBanner: string;
+    logoSize: LogoSize;
     logo: string;
-    icon: string;
     name: string;
     id: number;
 };

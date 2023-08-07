@@ -22,10 +22,10 @@ export declare class StaffService {
         storeId: string;
     }): CancelablePromise<Array<(StoreUser & {
         User: {
-            avatar: string;
-            email: string;
             updatedAt: string;
             createdAt: string;
+            avatar: string;
+            email: string;
             name: string;
             id: string;
         };

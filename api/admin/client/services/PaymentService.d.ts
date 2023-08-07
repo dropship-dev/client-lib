@@ -23,16 +23,16 @@ export declare class PaymentService {
         type: PaymentType;
         creator: {
             role: UserRole;
-            avatar: string;
-            email: string;
             updatedAt: string;
             createdAt: string;
+            avatar: string;
+            email: string;
             name: string;
             id: string;
         };
-        email: string;
         updatedAt: string;
         createdAt: string;
+        email: string;
         id: number;
     }>>;
     /**
@@ -46,16 +46,16 @@ export declare class PaymentService {
         type: PaymentType;
         creator: {
             role: UserRole;
-            avatar: string;
-            email: string;
             updatedAt: string;
             createdAt: string;
+            avatar: string;
+            email: string;
             name: string;
             id: string;
         };
-        email: string;
         updatedAt: string;
         createdAt: string;
+        email: string;
         id: number;
     }>;
 }
