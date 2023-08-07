@@ -5,6 +5,7 @@ import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -127,7 +128,15 @@ export class OrderService {
     orderId: string,
     email: string,
   }): CancelablePromise<(Order & {
-    OrderItem: Array<OrderItem>;
+    OrderItem: Array<(OrderItem & {
+      ProductVariant: (ProductVariant & {
+        PlatformVariant: {
+          price: number;
+          name: string;
+          id: number;
+        };
+      });
+    })>;
     Transaction: {
       status: TransactionStatus;
     };

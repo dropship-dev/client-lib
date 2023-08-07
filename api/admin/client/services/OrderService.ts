@@ -231,6 +231,7 @@ export class OrderService {
       OrderItem: Array<(OrderItem & {
         ProductVariant: (ProductVariant & {
           PlatformVariant: {
+            price: number;
             name: string;
             id: number;
           };
