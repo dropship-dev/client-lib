@@ -25,10 +25,14 @@ export declare class PerformanceService {
         endDate?: string;
         storeId?: string;
     }): CancelablePromise<{
-        purchase: number;
-        checkout: number;
-        addToCart: number;
-        viewProduct: number;
+        CR: {
+            growth: number;
+            value: number;
+        };
+        purchased: number;
+        checkedOut: number;
+        addedToCart: number;
+        viewedProduct: number;
     }>;
     /**
      * @returns TopProductByOrder Ok
@@ -58,9 +62,22 @@ export declare class PerformanceService {
         endDate?: string;
         storeId?: string;
     }): CancelablePromise<{
-        totalOrders: number;
-        totalProfit: number;
-        totalRevenue: number;
+        AOV: {
+            growth: number;
+            value: number;
+        };
+        orders: {
+            growth: number;
+            value: number;
+        };
+        profit: {
+            growth: number;
+            value: number;
+        };
+        revenue: {
+            growth: number;
+            value: number;
+        };
     }>;
     /**
      * @returns any Ok
