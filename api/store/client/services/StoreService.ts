@@ -50,10 +50,10 @@ export class StoreService {
       email: string;
       id: number;
     }>;
-    Theme: Array<(Theme & {
-      ThemeTemplate: ThemeTemplate;
-    })>;
     CustomDomain: Array<CustomDomain>;
+    Theme: (Theme & {
+      ThemeTemplate: ThemeTemplate;
+    });
   }> {
     return this.httpRequest.request({
       method: 'GET',
