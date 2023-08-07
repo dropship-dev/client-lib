@@ -42,10 +42,10 @@ export declare class StoreService {
             email: string;
             id: number;
         }>;
-        Theme: Array<(Theme & {
-            ThemeTemplate: ThemeTemplate;
-        })>;
         CustomDomain: Array<CustomDomain>;
+        Theme: (Theme & {
+            ThemeTemplate: ThemeTemplate;
+        });
     }>;
     /**
      * @returns any Ok

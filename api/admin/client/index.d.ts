@@ -13,7 +13,6 @@ export type { AuthStoreData } from './models/AuthStoreData';
 export type { BatchPayload } from './models/BatchPayload';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { Collection } from './models/Collection';
-export type { Colors } from './models/Colors';
 export type { CreateCollectionDto } from './models/CreateCollectionDto';
 export type { CreateDomainDto } from './models/CreateDomainDto';
 export type { CreateFbPixelDto } from './models/CreateFbPixelDto';
