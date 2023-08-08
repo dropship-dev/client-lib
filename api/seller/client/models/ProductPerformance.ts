@@ -2,18 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ProductPerformance = ({
-  CR: number;
-  totalOrder: number;
-  checkout: number;
-  addToCart: number;
-  viewProduct: number;
-  AOV: number;
-  revenue: number;
-  name: string;
-} & ({
-  platformProductId: number;
-} | {
-  productId: number;
-}));
+import type { Omit_ProductPerformanceResult_photos_ } from './Omit_ProductPerformanceResult_photos_';
+
+export type ProductPerformance = (Omit_ProductPerformanceResult_photos_ & {
+  photo: string;
+});
 
