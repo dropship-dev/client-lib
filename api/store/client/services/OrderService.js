@@ -54,7 +54,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    captureStoreOrder({ storeId, orderId, paymentType, }) {
+    captureStoreOrder({ storeId, orderId, paymentType, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order/{orderId}/capture',
@@ -65,6 +65,8 @@ class OrderService {
             query: {
                 'paymentType': paymentType,
             },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
