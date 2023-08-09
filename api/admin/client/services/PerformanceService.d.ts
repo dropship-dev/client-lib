@@ -1,3 +1,4 @@
+import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
@@ -8,14 +9,17 @@ export declare class PerformanceService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns StoreRevenueOverTime Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRevenueOverTime({ startDate, endDate, storeId, }: {
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<Array<StoreRevenueOverTime>>;
+    }): CancelablePromise<{
+        revenues: Array<StoreRevenueOverTime>;
+        period: Period;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

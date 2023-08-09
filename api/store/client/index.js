@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -23,6 +23,8 @@ var LogoSize_1 = require("./models/LogoSize");
 Object.defineProperty(exports, "LogoSize", { enumerable: true, get: function () { return LogoSize_1.LogoSize; } });
 var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
+var Period_1 = require("./models/Period");
+Object.defineProperty(exports, "Period", { enumerable: true, get: function () { return Period_1.Period; } });
 var Prisma_SortOrder_1 = require("./models/Prisma_SortOrder");
 Object.defineProperty(exports, "Prisma_SortOrder", { enumerable: true, get: function () { return Prisma_SortOrder_1.Prisma_SortOrder; } });
 var RequestSourcingStatus_1 = require("./models/RequestSourcingStatus");

@@ -50,6 +50,7 @@ export type { OrderItem } from './models/OrderItem';
 export type { OrderItemDto } from './models/OrderItemDto';
 export type { Payment } from './models/Payment';
 export { PaymentType } from './models/PaymentType';
+export { Period } from './models/Period';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
 export type { PhotoDto } from './models/PhotoDto';
 export type { Photos } from './models/Photos';
