@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
@@ -14,18 +15,21 @@ export class PerformanceService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns StoreRevenueOverTime Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getRevenueOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.872Z',
+    endDate = '2023-08-09T03:23:22.301Z',
     storeId,
   }: {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<StoreRevenueOverTime>> {
+  }): CancelablePromise<{
+    revenues: Array<StoreRevenueOverTime>;
+    period: Period;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/revenue-over-time',
@@ -50,7 +54,7 @@ export class PerformanceService {
    */
   public getCrOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.886Z',
+    endDate = '2023-08-09T03:23:22.311Z',
     storeId,
   }: {
     startDate?: string,
@@ -90,7 +94,7 @@ export class PerformanceService {
    */
   public getTopProductsByOrders({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.907Z',
+    endDate = '2023-08-09T03:23:22.333Z',
     storeId,
     limit = 10,
   }: {
@@ -124,7 +128,7 @@ export class PerformanceService {
    */
   public getTopStoresByRevenue({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.909Z',
+    endDate = '2023-08-09T03:23:22.334Z',
     limit = 10,
   }: {
     startDate?: string,
@@ -155,7 +159,7 @@ export class PerformanceService {
    */
   public getPerformanceSummary({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.933Z',
+    endDate = '2023-08-09T03:23:22.348Z',
     storeId,
   }: {
     startDate?: string,
@@ -203,7 +207,7 @@ export class PerformanceService {
    */
   public getProductPerformance({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-08T10:02:26.940Z',
+    endDate = '2023-08-09T03:23:22.354Z',
     storeId,
     pageSize = 20,
     nextPageIndex,
