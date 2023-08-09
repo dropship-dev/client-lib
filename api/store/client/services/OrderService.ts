@@ -88,10 +88,12 @@ export class OrderService {
     storeId,
     orderId,
     paymentType,
+    requestBody,
   }: {
     storeId: string,
     orderId: string,
     paymentType: PaymentType,
+    requestBody: CreateOrderDto,
   }): CancelablePromise<{
     status: string;
   }> {
@@ -105,6 +107,8 @@ export class OrderService {
       query: {
         'paymentType': paymentType,
       },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
