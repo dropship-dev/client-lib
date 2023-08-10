@@ -20,7 +20,7 @@ export class PerformanceService {
    */
   public getRevenueOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.378Z',
+    endDate = '2023-08-10T03:24:17.665Z',
     storeId,
   }: {
     startDate?: string,
@@ -54,7 +54,7 @@ export class PerformanceService {
    */
   public getCrOverTime({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.402Z',
+    endDate = '2023-08-10T03:24:17.690Z',
     storeId,
   }: {
     startDate?: string,
@@ -94,7 +94,7 @@ export class PerformanceService {
    */
   public getTopProductsByOrders({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.423Z',
+    endDate = '2023-08-10T03:24:17.712Z',
     storeId,
     limit = 10,
   }: {
@@ -128,7 +128,7 @@ export class PerformanceService {
    */
   public getTopStoresByRevenue({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.424Z',
+    endDate = '2023-08-10T03:24:17.713Z',
     limit = 10,
   }: {
     startDate?: string,
@@ -159,7 +159,7 @@ export class PerformanceService {
    */
   public getPerformanceSummary({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.441Z',
+    endDate = '2023-08-10T03:24:17.724Z',
     storeId,
   }: {
     startDate?: string,
@@ -207,7 +207,7 @@ export class PerformanceService {
    */
   public getProductPerformance({
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2023-08-09T16:52:32.446Z',
+    endDate = '2023-08-10T03:24:17.730Z',
     storeId,
     pageSize = 20,
     nextPageIndex,
