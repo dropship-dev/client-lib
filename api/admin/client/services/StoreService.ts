@@ -29,7 +29,7 @@ export class StoreService {
     orderBy,
     order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo = '2023-08-10T03:33:07.804Z',
+    periodTo = '2023-08-10T03:49:25.351Z',
     nextPageIndex,
     name,
     userId,
