@@ -10,7 +10,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRevenueOverTime({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:12.970Z', storeId, }) {
+    getRevenueOverTime({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/revenue-over-time',
@@ -32,7 +32,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCrOverTime({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:12.993Z', storeId, }) {
+    getCrOverTime({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/cr-over-time',
@@ -54,7 +54,7 @@ class PerformanceService {
      * @returns TopProductByOrder Ok
      * @throws ApiError
      */
-    getTopProductsByOrders({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:13.009Z', storeId, limit = 10, }) {
+    getTopProductsByOrders({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-products-by-orders',
@@ -77,7 +77,7 @@ class PerformanceService {
      * @returns TopStoreByRevenue Ok
      * @throws ApiError
      */
-    getTopStoresByRevenue({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:13.012Z', limit = 10, }) {
+    getTopStoresByRevenue({ startDate = '2023-01-01T00:00:00.000Z', endDate, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-store-by-revenue',
@@ -99,7 +99,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPerformanceSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:13.029Z', storeId, }) {
+    getPerformanceSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/summary',
@@ -121,7 +121,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductPerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate = '2023-08-10T04:19:13.034Z', storeId, pageSize = 20, nextPageIndex, }) {
+    getProductPerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/product',
