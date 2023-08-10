@@ -9,7 +9,7 @@ import {
 
 const firebaseConfig = {
   apiKey: "AIzaSyBpElHb3KAKM9dxpy5DII0Elsxfg3OHiK8",
-  authDomain: "dropship-7dd08.firebaseapp.com",
+  authDomain: "auth.bettamax.com",
   projectId: "dropship-7dd08",
   storageBucket: "dropship-7dd08.appspot.com",
   messagingSenderId: "972158312621",
