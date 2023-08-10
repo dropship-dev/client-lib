@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Omit_ProductPerformanceResult_photos_ } from './Omit_ProductPerformanceResult_photos_';
+import type { ProductPerformanceResult } from './ProductPerformanceResult';
 
-export type ProductPerformance = (Omit_ProductPerformanceResult_photos_ & {
+export type ProductPerformance = (ProductPerformanceResult & {
   photo: string;
 });
 
