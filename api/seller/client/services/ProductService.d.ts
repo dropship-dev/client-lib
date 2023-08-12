@@ -76,6 +76,9 @@ export declare class ProductService {
         ProductVariant: Array<(ProductVariant & {
             PlatformVariant: PlatformVariant;
         })>;
+        FbPixel: Array<{
+            pixelId: string;
+        }>;
         PlatformProduct: {
             variantOption: VariantOptions;
             Tag: Array<AdminTag>;
