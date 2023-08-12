@@ -1,4 +1,5 @@
-export type ProductPerformanceResult = ({
+export type ProductPerformanceResult = {
+    productId: number;
     CR: number;
     totalOrder: number;
     checkout: number;
@@ -8,8 +9,4 @@ export type ProductPerformanceResult = ({
     revenue: number;
     name: string;
     photos: Array<string>;
-} & ({
-    platformProductId: number;
-} | {
-    productId: number;
-}));
+};
