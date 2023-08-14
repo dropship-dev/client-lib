@@ -67,7 +67,7 @@ export declare class OrderService {
      */
     exportAllOrders({ paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
         paymentStatus?: TransactionStatus;
-        fulfillmentStatus?: FulfillmentStatus;
+        fulfillmentStatus?: Array<FulfillmentStatus>;
         email?: string;
         productName?: string;
         startDate?: string;
