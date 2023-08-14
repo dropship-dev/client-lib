@@ -9,6 +9,7 @@ import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
 import type { UpdateProductStatusesDto } from '../models/UpdateProductStatusesDto';
 import type { VariantOptions } from '../models/VariantOptions';
+import type { VariantOptionValues } from '../models/VariantOptionValues';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -46,7 +47,18 @@ export class ProductService {
     total: number;
     data: Array<(Product & {
       ProductVariant: Array<(ProductVariant & {
-        PlatformVariant: PlatformVariant;
+        PlatformVariant: {
+          photo: string;
+          price: number;
+          platformProductId: number;
+          isEnable: boolean;
+          isActive: boolean;
+          variantOption: VariantOptionValues;
+          updatedAt: string;
+          createdAt: string;
+          name: string;
+          id: number;
+        };
       })>;
       PlatformProduct: {
         variantOption: VariantOptions;
@@ -222,7 +234,11 @@ export class ProductService {
     storeId: string,
     productId: number,
   }): CancelablePromise<(Product & {
-    ProductVariant: Array<ProductVariant>;
+    ProductVariant: Array<(ProductVariant & {
+      PlatformVariant: {
+        price: number;
+      };
+    })>;
     PlatformProduct: {
       variantOption: VariantOptions;
       Tag: Array<AdminTag>;
