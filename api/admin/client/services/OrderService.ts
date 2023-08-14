@@ -120,7 +120,7 @@ export class OrderService {
     endTotal,
   }: {
     paymentStatus?: TransactionStatus,
-    fulfillmentStatus?: FulfillmentStatus,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
     email?: string,
     productName?: string,
     startDate?: string,
