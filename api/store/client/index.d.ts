@@ -117,6 +117,7 @@ export type { URLDto } from './models/URLDto';
 export type { User } from './models/User';
 export { UserRole } from './models/UserRole';
 export type { VariantOptions } from './models/VariantOptions';
+export type { VariantOptionValues } from './models/VariantOptionValues';
 export { CollectionService } from './services/CollectionService';
 export { CurrencyService } from './services/CurrencyService';
 export { OrderService } from './services/OrderService';
