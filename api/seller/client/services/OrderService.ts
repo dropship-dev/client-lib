@@ -32,12 +32,27 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
+    /**
+     * filter by store ID
+     */
     storeId: string,
     pageSize?: number,
     nextPageIndex?: string,
+    /**
+     * filter by payment status
+     */
     paymentStatus?: TransactionStatus,
+    /**
+     * filter by fulfillment status
+     */
     fulfillmentStatus?: FulfillmentStatus,
+    /**
+     * filter by customer email (email contain)
+     */
     email?: string,
+    /**
+     * filter by product name (product name contain)
+     */
     productName?: string,
     startDate?: string,
     endDate?: string,
