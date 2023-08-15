@@ -1,7 +1,7 @@
 export type ProductPerformanceResult = {
     productId: number;
     CR: number;
-    totalOrder: number;
+    noOrders: number;
     checkout: number;
     addToCart: number;
     viewProduct: number;

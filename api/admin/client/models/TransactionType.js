@@ -8,4 +8,5 @@ var TransactionType;
 (function (TransactionType) {
     TransactionType["ORDER"] = "ORDER";
     TransactionType["PAYOUT"] = "PAYOUT";
+    TransactionType["SUBSCRIPTION"] = "SUBSCRIPTION";
 })(TransactionType || (exports.TransactionType = TransactionType = {}));

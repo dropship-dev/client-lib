@@ -1,4 +1,5 @@
 export declare enum TransactionType {
     ORDER = "ORDER",
-    PAYOUT = "PAYOUT"
+    PAYOUT = "PAYOUT",
+    SUBSCRIPTION = "SUBSCRIPTION"
 }

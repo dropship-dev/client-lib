@@ -10,7 +10,7 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, pageSize = 20, nextPageIndex, }) {
+    getAllStoreTransaction({ storeId, transactionType, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
@@ -18,6 +18,7 @@ class TransactionService {
                 'storeId': storeId,
             },
             query: {
+                'transactionType': transactionType,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },
