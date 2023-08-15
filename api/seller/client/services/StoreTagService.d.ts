@@ -45,9 +45,10 @@ export declare class StoreTagService {
      * @returns Tag Ok
      * @throws ApiError
      */
-    getStoreTags({ storeId, search, }: {
+    getStoreTags({ storeId, search, limit, }: {
         storeId: string;
         search?: string;
+        limit?: number;
     }): CancelablePromise<Array<Tag>>;
     /**
      * @returns Tag Ok

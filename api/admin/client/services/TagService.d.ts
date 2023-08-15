@@ -16,8 +16,9 @@ export declare class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTags({ search, }: {
+    getTags({ search, limit, }: {
         search?: string;
+        limit?: number;
     }): CancelablePromise<Array<AdminTag>>;
     /**
      * @returns AdminTag Ok

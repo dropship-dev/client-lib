@@ -32,7 +32,7 @@ class StoreTagService {
      * @returns Tag Ok
      * @throws ApiError
      */
-    getStoreTags({ storeId, search, }) {
+    getStoreTags({ storeId, search, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/tag',
@@ -41,6 +41,7 @@ class StoreTagService {
             },
             query: {
                 'search': search,
+                'limit': limit,
             },
             errors: {
                 400: `Bad request`,

@@ -29,12 +29,13 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTags({ search, }) {
+    getTags({ search, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/tag',
             query: {
                 'search': search,
+                'limit': limit,
             },
             errors: {
                 400: `Bad request`,
