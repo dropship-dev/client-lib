@@ -50,9 +50,11 @@ export class StoreTagService {
   public getStoreTags({
     storeId,
     search,
+    limit = 10,
   }: {
     storeId: string,
     search?: string,
+    limit?: number,
   }): CancelablePromise<Array<Tag>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -62,6 +64,7 @@ export class StoreTagService {
       },
       query: {
         'search': search,
+        'limit': limit,
       },
       errors: {
         400: `Bad request`,

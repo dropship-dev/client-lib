@@ -41,14 +41,17 @@ export class TagService {
    */
   public getTags({
     search,
+    limit = 10,
   }: {
     search?: string,
+    limit?: number,
   }): CancelablePromise<Array<AdminTag>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/tag',
       query: {
         'search': search,
+        'limit': limit,
       },
       errors: {
         400: `Bad request`,
