@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Transaction } from '../models/Transaction';
+import type { TransactionType } from '../models/TransactionType';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -16,10 +17,12 @@ export class TransactionService {
    */
   public getAllStoreTransaction({
     storeId,
+    transactionType,
     pageSize = 20,
     nextPageIndex,
   }: {
     storeId: string,
+    transactionType?: Array<TransactionType>,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -36,6 +39,7 @@ export class TransactionService {
         'storeId': storeId,
       },
       query: {
+        'transactionType': transactionType,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },

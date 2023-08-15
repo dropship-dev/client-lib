@@ -5,4 +5,5 @@
 export enum TransactionType {
   ORDER = 'ORDER',
   PAYOUT = 'PAYOUT',
+  SUBSCRIPTION = 'SUBSCRIPTION',
 }
