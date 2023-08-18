@@ -44,6 +44,7 @@ export declare class ProductService {
                     id: number;
                 };
             })>;
+            Tag: Array<Tag>;
             PlatformProduct: {
                 variantOption: VariantOptions;
                 Tag: Array<AdminTag>;
