@@ -51,7 +51,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns TopProductByOrder Ok
+     * @returns ProductPerformanceResult Ok
      * @throws ApiError
      */
     getTopProductsByOrders({ startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, limit = 10, }) {

@@ -1,7 +1,7 @@
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
-import type { TopProductByOrder } from '../models/TopProductByOrder';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -39,7 +39,7 @@ export declare class PerformanceService {
         viewedProduct: number;
     }>;
     /**
-     * @returns TopProductByOrder Ok
+     * @returns ProductPerformanceResult Ok
      * @throws ApiError
      */
     getTopProductsByOrders({ startDate, endDate, storeId, limit, }: {
@@ -47,7 +47,7 @@ export declare class PerformanceService {
         endDate?: string;
         storeId?: string;
         limit?: number;
-    }): CancelablePromise<Array<TopProductByOrder>>;
+    }): CancelablePromise<Array<ProductPerformanceResult>>;
     /**
      * @returns TopStoreByRevenue Ok
      * @throws ApiError
