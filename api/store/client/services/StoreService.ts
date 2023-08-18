@@ -4,6 +4,7 @@
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
 import type { PaymentType } from '../models/PaymentType';
+import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
@@ -42,6 +43,13 @@ export class StoreService {
     name: string;
     id: string;
     Currency: Currency;
+    Product: Array<{
+      permalink: string;
+      photos: Photos;
+      SKU: string;
+      name: string;
+      id: number;
+    }>;
     Payment: Array<{
       publishableKey: string;
       type: PaymentType;

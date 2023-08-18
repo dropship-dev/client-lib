@@ -6,6 +6,8 @@ import type { CreateProductDto } from '../models/CreateProductDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { Review } from '../models/Review';
+import type { Tag } from '../models/Tag';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 
@@ -164,12 +166,13 @@ export class ProductService {
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: PlatformVariant;
     })>;
+    Review: Array<Review>;
     FbPixel: Array<{
       pixelId: string;
     }>;
+    Tag: Array<Tag>;
     PlatformProduct: {
       variantOption: VariantOptions;
-      Tag: Array<AdminTag>;
     };
   })> {
     return this.httpRequest.request({

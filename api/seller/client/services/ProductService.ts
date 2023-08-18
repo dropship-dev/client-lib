@@ -5,6 +5,8 @@ import type { AdminTag } from '../models/AdminTag';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { Review } from '../models/Review';
+import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
 import type { UpdateProductStatusesDto } from '../models/UpdateProductStatusesDto';
@@ -196,12 +198,13 @@ export class ProductService {
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: PlatformVariant;
     })>;
+    Review: Array<Review>;
     FbPixel: Array<{
       pixelId: string;
     }>;
+    Tag: Array<Tag>;
     PlatformProduct: {
       variantOption: VariantOptions;
-      Tag: Array<AdminTag>;
     };
   })> {
     return this.httpRequest.request({
