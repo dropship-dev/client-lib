@@ -144,6 +144,7 @@ export class ProductService {
     Tag: Array<Tag>;
     PlatformProduct: {
       variantOption: VariantOptions;
+      id: number;
     };
   })> {
     return this.httpRequest.request({
