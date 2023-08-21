@@ -10,6 +10,7 @@ export type OrderItem = {
     productVariantId: number;
     tracking: string | null;
     status: FulfillmentStatus;
+    platformPrice: number;
     quantity: number;
     priceUSD: number;
     price: number;
