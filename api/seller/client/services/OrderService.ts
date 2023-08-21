@@ -1,3 +1,4 @@
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -118,6 +119,7 @@ export class OrderService {
   }): CancelablePromise<(Order & {
     OrderItem: Array<(OrderItem & {
       ProductVariant: {
+        photo: string;
         name: string;
         Product: {
           name: string;

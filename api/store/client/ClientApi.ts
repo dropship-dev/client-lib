@@ -1,9 +1,10 @@
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
-import { AxiosHttpRequest } from './core/AxiosHttpRequest';
+import { FetchHttpRequest } from './core/FetchHttpRequest';
 
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
@@ -35,7 +36,7 @@ export class ClientApi {
 
   public readonly request: BaseHttpRequest;
 
-  constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
+  constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
       VERSION: config?.VERSION ?? '1.0.0',

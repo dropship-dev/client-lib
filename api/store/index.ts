@@ -1,5 +1,4 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
-import axios from "axios";
 
 if (process.env.NEXT_PUBLIC_API_URL) {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
@@ -28,12 +27,16 @@ class ClientApi extends _ClientApi {
       throw e;
     }
 
-    await axios.put(result.signedUrl, file, {
+    const body = new Blob([file], { type: file.type });
+    await this.request.request({
+      method: "PUT",
+      url: result.signedUrl,
+      body: body,
       headers: {
         "Content-Type": file.type,
         "Content-Length": file.size,
-      },
-    });
+      }
+    })
 
     return result.url;
   }
