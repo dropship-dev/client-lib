@@ -4,6 +4,7 @@
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { PaymentType } from '../models/PaymentType';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
@@ -115,8 +116,18 @@ export class OrderService {
     storeId: string,
     orderId: string,
   }): CancelablePromise<(Order & {
-    OrderItem: Array<OrderItem>;
+    OrderItem: Array<(OrderItem & {
+      ProductVariant: {
+        name: string;
+        Product: {
+          name: string;
+        };
+      };
+    })>;
     Transaction: Transaction;
+    Payment: {
+      type: PaymentType;
+    };
   })> {
     return this.httpRequest.request({
       method: 'GET',
