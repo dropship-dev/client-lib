@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
-const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
@@ -26,7 +26,7 @@ class ClientApi {
     upload;
     variant;
     request;
-    constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
+    constructor(config, HttpRequest = FetchHttpRequest_1.FetchHttpRequest) {
         this.request = new HttpRequest({
             BASE: config?.BASE ?? '',
             VERSION: config?.VERSION ?? '1.0.0',

@@ -69,6 +69,7 @@ export declare class OrderService {
     }): CancelablePromise<(Order & {
         OrderItem: Array<(OrderItem & {
             ProductVariant: {
+                photo: string;
                 name: string;
                 Product: {
                     name: string;

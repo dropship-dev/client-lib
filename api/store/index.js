@@ -13,13 +13,9 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
-const axios_1 = __importDefault(require("axios"));
 if (process.env.NEXT_PUBLIC_API_URL) {
     client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
@@ -45,11 +41,15 @@ class ClientApi extends client_1.ClientApi {
             }
             throw e;
         }
-        await axios_1.default.put(result.signedUrl, file, {
+        const body = new Blob([file], { type: file.type });
+        await this.request.request({
+            method: "PUT",
+            url: result.signedUrl,
+            body: body,
             headers: {
                 "Content-Type": file.type,
                 "Content-Length": file.size,
-            },
+            }
         });
         return result.url;
     }
