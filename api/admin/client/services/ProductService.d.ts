@@ -109,4 +109,12 @@ export declare class ProductService {
             Tag: Array<AdminTag>;
         };
     })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteProduct({ storeId, productId, }: {
+        storeId: string;
+        productId: number;
+    }): CancelablePromise<string>;
 }

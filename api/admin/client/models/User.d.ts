@@ -7,6 +7,7 @@ export type User = {
     createdAt: string;
     maxStaffStores: number;
     maxOwnedStores: number;
+    shortId: string;
     role: UserRole;
     avatar: string | null;
     name: string;
