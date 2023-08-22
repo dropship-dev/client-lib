@@ -7,8 +7,8 @@ import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
 import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
+import type { PlatformProductStore } from '../models/PlatformProductStore';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { Store } from '../models/Store';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
@@ -331,18 +331,14 @@ export class PlatformProductService {
   }
 
   /**
-   * @returns any Ok
+   * @returns PlatformProductStore Ok
    * @throws ApiError
    */
   public getPlatformProductStore({
     platformProductId,
   }: {
     platformProductId: number,
-  }): CancelablePromise<Array<(Store & {
-    minPriceOnStore: number;
-    maxPriceOnStore: number;
-    statusOnStore: boolean;
-  })>> {
+  }): CancelablePromise<Array<PlatformProductStore>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/store',

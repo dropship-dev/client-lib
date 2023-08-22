@@ -59,6 +59,7 @@ export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
 export type { PhotoDto } from './models/PhotoDto';
 export type { Photos } from './models/Photos';
 export type { PlatformProduct } from './models/PlatformProduct';
+export type { PlatformProductStore } from './models/PlatformProductStore';
 export type { PlatformVariant } from './models/PlatformVariant';
 export type { PlatformVariantDto } from './models/PlatformVariantDto';
 export type { Prisma_JsonValue } from './models/Prisma_JsonValue';
