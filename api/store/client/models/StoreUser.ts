@@ -11,6 +11,7 @@ import type { StoreRole } from './StoreRole';
 export type StoreUser = {
   updatedAt: string;
   createdAt: string;
+  isOwner: boolean | null;
   role: StoreRole;
   userId: string;
   storeId: string;

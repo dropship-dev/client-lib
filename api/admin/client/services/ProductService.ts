@@ -235,4 +235,32 @@ export class ProductService {
     });
   }
 
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteProduct({
+    storeId,
+    productId,
+  }: {
+    storeId: string,
+    productId: number,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/product/{productId}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
 }
