@@ -218,7 +218,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PlatformProductStore Ok
      * @throws ApiError
      */
     getPlatformProductStore({ platformProductId, }) {
