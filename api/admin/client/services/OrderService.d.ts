@@ -18,13 +18,17 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    getAllOrders({ pageSize, nextPageIndex, storeId, fulfillmentAgencyId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
         pageSize?: number;
         nextPageIndex?: string;
         /**
          * filter by store ID
          */
         storeId?: string;
+        /**
+         * filter by fulfillment agency ID. If you are a fulfillment agency, you must provide this parameter
+         */
+        fulfillmentAgencyId?: number;
         /**
          * filter by payment status
          */
