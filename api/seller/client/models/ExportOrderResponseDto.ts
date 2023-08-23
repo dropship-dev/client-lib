@@ -17,6 +17,10 @@ export type ExportOrderResponseDto = {
   ItemStatus: FulfillmentStatus;
   LastUpdatedAt: string;
   PaidAt: string;
+  LastUpdatedDateAt: string;
+  PaidDateAt: string;
+  LastUpdatedTimeAt: string;
+  PaidTimeAt: string;
   FulfilledAt?: string;
   TrackingNumber?: string;
   Carrier?: string;
