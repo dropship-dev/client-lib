@@ -9,6 +9,7 @@
 export type Setting = {
   updatedAt: string;
   createdAt: string;
+  fulfillmentAgencyId: number;
   shippingPolicy: string;
   termsOfService: string;
   refundPolicy: string;

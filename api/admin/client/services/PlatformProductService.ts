@@ -78,6 +78,7 @@ export class PlatformProductService {
       PlatformVariant: Array<PlatformVariant>;
       updatedAt: string;
       createdAt: string;
+      fulfillmentAgencyId: number;
       isEnable: boolean;
       isActive: boolean;
       supplierContact: string;

@@ -238,9 +238,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
+    email: string;
     updatedAt: string;
     createdAt: string;
-    email: string;
     id: number;
   }>> {
     return this.httpRequest.request({

@@ -26,8 +26,6 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    updatedAt: string;
-    createdAt: string;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
@@ -41,6 +39,8 @@ export class StoreService {
     address: string;
     email: string;
     phone: string;
+    updatedAt: string;
+    createdAt: string;
     name: string;
     id: string;
     Currency: Currency;
@@ -54,9 +54,9 @@ export class StoreService {
     Payment: Array<{
       publishableKey: string;
       type: PaymentType;
+      email: string;
       updatedAt: string;
       createdAt: string;
-      email: string;
       id: number;
     }>;
     CustomDomain: Array<CustomDomain>;
@@ -91,9 +91,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
+    email: string;
     updatedAt: string;
     createdAt: string;
-    email: string;
     id: number;
   }>> {
     return this.httpRequest.request({
