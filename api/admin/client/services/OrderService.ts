@@ -29,6 +29,7 @@ export class OrderService {
     pageSize = 20,
     nextPageIndex,
     storeId,
+    fulfillmentAgencyId,
     paymentStatus,
     fulfillmentStatus,
     email,
@@ -44,6 +45,10 @@ export class OrderService {
      * filter by store ID
      */
     storeId?: string,
+    /**
+     * filter by fulfillment agency ID. If you are a fulfillment agency, you must provide this parameter
+     */
+    fulfillmentAgencyId?: number,
     /**
      * filter by payment status
      */
@@ -87,6 +92,7 @@ export class OrderService {
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
         'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
         'email': email,
