@@ -96,9 +96,9 @@ export declare class StoreService {
     }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;
+        email: string;
         updatedAt: string;
         createdAt: string;
-        email: string;
         id: number;
     }>>;
 }

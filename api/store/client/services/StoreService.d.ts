@@ -17,8 +17,6 @@ export declare class StoreService {
     getStoreActiveTheme({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
-        updatedAt: string;
-        createdAt: string;
         shippingPolicy: string;
         termsOfService: string;
         privacyPolicy: string;
@@ -32,6 +30,8 @@ export declare class StoreService {
         address: string;
         email: string;
         phone: string;
+        updatedAt: string;
+        createdAt: string;
         name: string;
         id: string;
         Currency: Currency;
@@ -45,9 +45,9 @@ export declare class StoreService {
         Payment: Array<{
             publishableKey: string;
             type: PaymentType;
+            email: string;
             updatedAt: string;
             createdAt: string;
-            email: string;
             id: number;
         }>;
         CustomDomain: Array<CustomDomain>;
@@ -64,9 +64,9 @@ export declare class StoreService {
     }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;
+        email: string;
         updatedAt: string;
         createdAt: string;
-        email: string;
         id: number;
     }>>;
 }
