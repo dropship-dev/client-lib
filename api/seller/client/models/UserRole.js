@@ -8,5 +8,6 @@ exports.UserRole = void 0;
 var UserRole;
 (function (UserRole) {
     UserRole["ADMIN"] = "ADMIN";
+    UserRole["FULFILL_ADMIN"] = "FULFILL_ADMIN";
     UserRole["SELLER"] = "SELLER";
 })(UserRole || (exports.UserRole = UserRole = {}));
