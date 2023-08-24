@@ -11,14 +11,17 @@ export declare class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ requestBody, }: {
+    createPayment({ requestBody, fulfillmentAgencyId, }: {
         requestBody: CreatePaymentDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<Payment>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment(): CancelablePromise<Array<{
+    getAllPayment({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId?: number;
+    }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;
         creator: {
@@ -39,8 +42,9 @@ export declare class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ id, }: {
+    getPayment({ id, fulfillmentAgencyId, }: {
         id: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<{
         publishableKey: string;
         type: PaymentType;
@@ -56,6 +60,7 @@ export declare class PaymentService {
         email: string;
         updatedAt: string;
         createdAt: string;
+        name: string;
         id: number;
     }>;
 }

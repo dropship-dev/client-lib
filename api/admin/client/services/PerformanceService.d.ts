@@ -12,7 +12,8 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRevenueOverTime({ startDate, endDate, storeId, }: {
+    getRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -24,7 +25,8 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCrOverTime({ startDate, endDate, storeId, }: {
+    getCrOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -42,7 +44,8 @@ export declare class PerformanceService {
      * @returns ProductPerformanceResult Ok
      * @throws ApiError
      */
-    getTopProductsByOrders({ startDate, endDate, storeId, limit, }: {
+    getTopProductsByOrders({ fulfillmentAgencyId, startDate, endDate, storeId, limit, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -52,7 +55,8 @@ export declare class PerformanceService {
      * @returns TopStoreByRevenue Ok
      * @throws ApiError
      */
-    getTopStoresByRevenue({ startDate, endDate, limit, }: {
+    getTopStoresByRevenue({ fulfillmentAgencyId, startDate, endDate, limit, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         limit?: number;
@@ -61,7 +65,8 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPerformanceSummary({ startDate, endDate, storeId, }: {
+    getPerformanceSummary({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -87,7 +92,8 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductPerformance({ startDate, endDate, storeId, productName, orderBy, order, pageSize, nextPageIndex, }: {
+    getProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, productName, orderBy, order, pageSize, nextPageIndex, }: {
+        fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;

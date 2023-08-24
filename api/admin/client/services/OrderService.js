@@ -10,15 +10,15 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ pageSize = 20, nextPageIndex, storeId, fulfillmentAgencyId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    getAllOrders({ pageSize = 20, fulfillmentAgencyId = 1, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
             query: {
                 'pageSize': pageSize,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'nextPageIndex': nextPageIndex,
                 'storeId': storeId,
-                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
                 'email': email,
@@ -41,7 +41,7 @@ class OrderService {
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
-    exportAllOrders({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    exportAllOrders({ fulfillmentAgencyId = 1, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order/export',

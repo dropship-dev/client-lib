@@ -10,10 +10,13 @@ class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ requestBody, }) {
+    createPayment({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/payment',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -29,10 +32,13 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment() {
+    getAllPayment({ fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -46,12 +52,15 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ id, }) {
+    getPayment({ id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment/{id}',
             path: {
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
