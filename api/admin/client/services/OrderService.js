@@ -41,11 +41,13 @@ class OrderService {
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
-    exportAllOrders({ paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    exportAllOrders({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order/export',
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
                 'email': email,
@@ -68,10 +70,13 @@ class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ requestBody, }) {
+    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/order/fulfillmentStatus',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -87,12 +92,15 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getOrder({ id, }) {
+    getOrder({ id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order/{id}',
             path: {
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,

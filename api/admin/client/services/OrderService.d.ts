@@ -69,7 +69,9 @@ export declare class OrderService {
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
-    exportAllOrders({ paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    exportAllOrders({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
         paymentStatus?: TransactionStatus;
         fulfillmentStatus?: Array<FulfillmentStatus>;
         email?: string;
@@ -83,15 +85,17 @@ export declare class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ requestBody, }: {
+    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId, }: {
         requestBody: UpdateFulFillmentStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getOrder({ id, }: {
+    getOrder({ id, fulfillmentAgencyId, }: {
         id: string;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<(Order & {
         OrderItem: Array<(OrderItem & {
             ProductVariant: (ProductVariant & {
