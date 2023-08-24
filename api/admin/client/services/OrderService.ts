@@ -117,6 +117,8 @@ export class OrderService {
    * @throws ApiError
    */
   public exportAllOrders({
+    fulfillmentAgencyId,
+    storeId,
     paymentStatus,
     fulfillmentStatus,
     email,
@@ -126,6 +128,8 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
     paymentStatus?: TransactionStatus,
     fulfillmentStatus?: Array<FulfillmentStatus>,
     email?: string,
@@ -139,6 +143,8 @@ export class OrderService {
       method: 'GET',
       url: '/order/export',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
         'email': email,
@@ -164,12 +170,17 @@ export class OrderService {
    */
   public updateFulfillmentStatus({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: UpdateFulFillmentStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/order/fulfillmentStatus',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -188,8 +199,10 @@ export class OrderService {
    */
   public getOrder({
     id,
+    fulfillmentAgencyId = 1,
   }: {
     id: string,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<(Order & {
     OrderItem: Array<(OrderItem & {
       ProductVariant: (ProductVariant & {
@@ -205,6 +218,9 @@ export class OrderService {
       url: '/order/{id}',
       path: {
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,

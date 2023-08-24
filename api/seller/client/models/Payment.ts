@@ -11,7 +11,7 @@ import type { PaymentType } from './PaymentType';
 export type Payment = {
   updatedAt: string;
   createdAt: string;
-  fulfillmentAgencyId: number;
+  fulfillmentAgencyId: number | null;
   secretKey: string;
   publishableKey: string;
   name: string;
