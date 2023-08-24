@@ -9,7 +9,10 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification as _sendEmailVerification,
   sendPasswordResetEmail,
+  fetchSignInMethodsForEmail,
 } from "firebase/auth";
+
+export * from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBpElHb3KAKM9dxpy5DII0Elsxfg3OHiK8",
@@ -59,25 +62,21 @@ export async function signInWithGoogle() {
 }
 
 export async function signInWithEmailPassword(email: string, password: string) {
-  try {
-    await setPersistence(auth, browserLocalPersistence);
-    const result = await signInWithEmailAndPassword(auth, email, password);
+  await setPersistence(auth, browserLocalPersistence);
+  const result = await signInWithEmailAndPassword(auth, email, password);
 
-    return result.user;
-  } catch (err: any) {
-    throw new Error(`Invalid email or password, ${err.message}`);
-  }
+  return result.user;
 }
 
 export async function signUpWithEmailPassword(email: string, password: string) {
-  try {
-    await setPersistence(auth, browserLocalPersistence);
-    const result = await createUserWithEmailAndPassword(auth, email, password);
-    await _sendEmailVerification(result.user);
-    return result.user;
-  } catch (err: any) {
-    throw new Error(`Invalid email or password, ${err.message}`);
-  }
+  await setPersistence(auth, browserLocalPersistence);
+  const signInMethod = await fetchSignInMethodsForEmail(auth, email);
+  console.log(signInMethod);
+
+  const result = await createUserWithEmailAndPassword(auth, email, password);
+
+  await _sendEmailVerification(result.user);
+  return result.user;
 }
 
 export async function sendEmailVerification() {
