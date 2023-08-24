@@ -7,6 +7,8 @@ import {
   browserLocalPersistence,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendEmailVerification as _sendEmailVerification,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -71,10 +73,22 @@ export async function signUpWithEmailPassword(email: string, password: string) {
   try {
     await setPersistence(auth, browserLocalPersistence);
     const result = await createUserWithEmailAndPassword(auth, email, password);
+    await _sendEmailVerification(result.user);
     return result.user;
   } catch (err: any) {
     throw new Error(`Invalid email or password, ${err.message}`);
   }
+}
+
+export async function sendEmailVerification() {
+  if (!auth.currentUser) {
+    throw new Error("No current user");
+  }
+  await _sendEmailVerification(auth.currentUser);
+}
+
+export async function sendEmailPasswordReset(email: string) {
+  await sendPasswordResetEmail(auth, email);
 }
 
 export async function signOut() {
