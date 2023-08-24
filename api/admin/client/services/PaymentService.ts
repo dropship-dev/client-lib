@@ -20,12 +20,17 @@ export class PaymentService {
    */
   public createPayment({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: CreatePaymentDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -42,7 +47,11 @@ export class PaymentService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllPayment(): CancelablePromise<Array<{
+  public getAllPayment({
+    fulfillmentAgencyId = 1,
+  }: {
+    fulfillmentAgencyId?: number,
+  }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
     creator: {
@@ -62,6 +71,9 @@ export class PaymentService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -78,8 +90,10 @@ export class PaymentService {
    */
   public getPayment({
     id,
+    fulfillmentAgencyId = 1,
   }: {
     id: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<{
     publishableKey: string;
     type: PaymentType;
@@ -95,6 +109,7 @@ export class PaymentService {
     email: string;
     updatedAt: string;
     createdAt: string;
+    name: string;
     id: number;
   }> {
     return this.httpRequest.request({
@@ -102,6 +117,9 @@ export class PaymentService {
       url: '/payment/{id}',
       path: {
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,

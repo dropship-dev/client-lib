@@ -27,9 +27,9 @@ export class OrderService {
    */
   public getAllOrders({
     pageSize = 20,
+    fulfillmentAgencyId = 1,
     nextPageIndex,
     storeId,
-    fulfillmentAgencyId,
     paymentStatus,
     fulfillmentStatus,
     email,
@@ -40,15 +40,15 @@ export class OrderService {
     endTotal,
   }: {
     pageSize?: number,
+    /**
+     * filter by fulfillment agency ID.
+     */
+    fulfillmentAgencyId?: number,
     nextPageIndex?: string,
     /**
      * filter by store ID
      */
     storeId?: string,
-    /**
-     * filter by fulfillment agency ID. If you are a fulfillment agency, you must provide this parameter
-     */
-    fulfillmentAgencyId?: number,
     /**
      * filter by payment status
      */
@@ -90,9 +90,9 @@ export class OrderService {
       url: '/order',
       query: {
         'pageSize': pageSize,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'nextPageIndex': nextPageIndex,
         'storeId': storeId,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
         'email': email,
@@ -117,7 +117,7 @@ export class OrderService {
    * @throws ApiError
    */
   public exportAllOrders({
-    fulfillmentAgencyId,
+    fulfillmentAgencyId = 1,
     storeId,
     paymentStatus,
     fulfillmentStatus,

@@ -20,10 +20,12 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getRevenueOverTime({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -35,6 +37,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/revenue-over-time',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
@@ -54,10 +57,12 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getCrOverTime({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -75,6 +80,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/cr-over-time',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
@@ -94,11 +100,13 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getTopProductsByOrders({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
     limit = 10,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -108,6 +116,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/top-products-by-orders',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
@@ -128,10 +137,12 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getTopStoresByRevenue({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     limit = 10,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     limit?: number,
@@ -140,6 +151,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/top-store-by-revenue',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'limit': limit,
@@ -159,10 +171,12 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getPerformanceSummary({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -188,6 +202,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/summary',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
@@ -207,6 +222,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getProductPerformance({
+    fulfillmentAgencyId = 1,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -216,6 +232,7 @@ export class PerformanceService {
     pageSize = 20,
     nextPageIndex,
   }: {
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -235,6 +252,7 @@ export class PerformanceService {
       method: 'GET',
       url: '/performance/product',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
