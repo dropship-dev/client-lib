@@ -16,6 +16,8 @@ export type User = {
   shortId: string;
   role: UserRole;
   avatar: string | null;
+  phone: string | null;
+  country: string | null;
   name: string;
   email: string;
   id: string;
