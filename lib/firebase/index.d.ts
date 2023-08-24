@@ -1,3 +1,4 @@
+export * from "firebase/auth";
 export declare const auth: import("@firebase/auth").Auth;
 export declare function getToken(): Promise<string>;
 export declare function isLoggedIn(): boolean;
