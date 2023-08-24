@@ -1,1 +1,5 @@
-export type UpdateUserDto = {};
+export type UpdateUserDto = {
+    name?: string;
+    country?: string;
+    phone?: string;
+};
