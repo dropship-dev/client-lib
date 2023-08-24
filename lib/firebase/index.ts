@@ -5,6 +5,8 @@ import {
   GoogleAuthProvider,
   setPersistence,
   browserLocalPersistence,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -47,12 +49,32 @@ export async function signInWithGoogle() {
   if (!credential) {
     throw new Error("No credential");
   }
-  const token = credential.accessToken;
   // The signed-in user info.
   const user = result.user;
   // IdP data available using getAdditionalUserInfo(result)
 
   return user;
+}
+
+export async function signInWithEmailPassword(email: string, password: string) {
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+    const result = await signInWithEmailAndPassword(auth, email, password);
+
+    return result.user;
+  } catch (err: any) {
+    throw new Error(`Invalid email or password, ${err.message}`);
+  }
+}
+
+export async function signUpWithEmailPassword(email: string, password: string) {
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    return result.user;
+  } catch (err: any) {
+    throw new Error(`Invalid email or password, ${err.message}`);
+  }
 }
 
 export async function signOut() {
