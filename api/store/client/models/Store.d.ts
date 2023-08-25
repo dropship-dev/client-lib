@@ -20,6 +20,7 @@ export type Store = {
      * [Timezone]
      */
     timezone: PrismaJson_Timezone;
+    primaryDomain: string;
     subDomain: string;
     pageName: string;
     status: StoreStatus;
