@@ -1,3 +1,3 @@
 export type AddPlatformProductTagDto = {
-    tagId: string;
+    name: string;
 };

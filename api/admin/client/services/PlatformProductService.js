@@ -10,10 +10,13 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    createPlatformProduct({ requestBody, }) {
+    createPlatformProduct({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/platform-product',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -29,11 +32,12 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
+    getAllPlatformProduct({ fulfillmentAgencyId = 1, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product',
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
                 'name': name,
@@ -55,11 +59,12 @@ class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformProducts({ ids, }) {
+    deletePlatformProducts({ ids, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product',
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'ids': ids,
             },
             errors: {
@@ -75,10 +80,13 @@ class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformProductStatuses({ requestBody, }) {
+    updatePlatformProductStatuses({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/status',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -94,13 +102,16 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPlatformProduct({ platformProductId, }) {
+    getPlatformProduct({ platformProductId, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}',
             path: {
                 'platformProductId': platformProductId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -114,12 +125,15 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProduct({ platformProductId, requestBody, }) {
+    updatePlatformProduct({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}',
             path: {
                 'platformProductId': platformProductId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -136,12 +150,15 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProduct({ platformProductId, }) {
+    deletePlatformProduct({ platformProductId, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}',
             path: {
                 'platformProductId': platformProductId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
@@ -156,13 +173,16 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProductStatus({ platformProductId, requestBody, }) {
+    updatePlatformProductStatus({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/status',
             path: {
                 'platformProductId': platformProductId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -178,13 +198,16 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    addPlatformProductTag({ platformProductId, requestBody, }) {
+    addPlatformProductTag({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/tag',
             path: {
                 'platformProductId': platformProductId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -200,13 +223,16 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProductTag({ platformProductId, tagId, }) {
+    deletePlatformProductTag({ platformProductId, tagId, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/tag/{tagId}',
             path: {
                 'platformProductId': platformProductId,
                 'tagId': tagId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
@@ -221,12 +247,15 @@ class PlatformProductService {
      * @returns PlatformProductStore Ok
      * @throws ApiError
      */
-    getPlatformProductStore({ platformProductId, }) {
+    getPlatformProductStore({ platformProductId, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}/store',
             path: {
                 'platformProductId': platformProductId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
