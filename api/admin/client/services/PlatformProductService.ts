@@ -27,12 +27,17 @@ export class PlatformProductService {
    */
   public createPlatformProduct({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: CreatePlatformProductDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -50,6 +55,7 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public getAllPlatformProduct({
+    fulfillmentAgencyId = 1,
     pageSize = 20,
     nextPageIndex,
     name,
@@ -58,6 +64,7 @@ export class PlatformProductService {
     startPrice,
     endPrice,
   }: {
+    fulfillmentAgencyId?: number,
     pageSize?: number,
     nextPageIndex?: number,
     name?: string,
@@ -96,6 +103,7 @@ export class PlatformProductService {
       method: 'GET',
       url: '/platform-product',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
         'name': name,
@@ -120,13 +128,16 @@ export class PlatformProductService {
    */
   public deletePlatformProducts({
     ids,
+    fulfillmentAgencyId = 1,
   }: {
     ids: Array<number>,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'ids': ids,
       },
       errors: {
@@ -145,12 +156,17 @@ export class PlatformProductService {
    */
   public updatePlatformProductStatuses({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: UpdatePlatformProductStatusesDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/status',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -169,8 +185,10 @@ export class PlatformProductService {
    */
   public getPlatformProduct({
     platformProductId,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<(PlatformProduct & {
     Tag: Array<AdminTag>;
     PlatformVariant: Array<PlatformVariant>;
@@ -180,6 +198,9 @@ export class PlatformProductService {
       url: '/platform-product/{platformProductId}',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -198,15 +219,20 @@ export class PlatformProductService {
   public updatePlatformProduct({
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -226,14 +252,19 @@ export class PlatformProductService {
    */
   public deletePlatformProduct({
     platformProductId,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -252,15 +283,20 @@ export class PlatformProductService {
   public updatePlatformProductStatus({
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/status',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -281,15 +317,20 @@ export class PlatformProductService {
   public addPlatformProductTag({
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/tag',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -310,9 +351,11 @@ export class PlatformProductService {
   public deletePlatformProductTag({
     platformProductId,
     tagId,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     tagId: string,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -320,6 +363,9 @@ export class PlatformProductService {
       path: {
         'platformProductId': platformProductId,
         'tagId': tagId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -337,14 +383,19 @@ export class PlatformProductService {
    */
   public getPlatformProductStore({
     platformProductId,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Array<PlatformProductStore>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/store',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
