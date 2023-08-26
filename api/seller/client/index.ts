@@ -10,6 +10,7 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
+export type { AddPaymentToStores } from './models/AddPaymentToStores';
 export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';
 export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto';
 export type { AdminTag } from './models/AdminTag';
@@ -97,6 +98,7 @@ export { TransactionType } from './models/TransactionType';
 export type { UpdateCollectionDto } from './models/UpdateCollectionDto';
 export type { UpdateFbPixelDto } from './models/UpdateFbPixelDto';
 export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
+export type { UpdatePaymentDto } from './models/UpdatePaymentDto';
 export type { UpdatePlatformProductDto } from './models/UpdatePlatformProductDto';
 export type { UpdatePlatformProductStatusDto } from './models/UpdatePlatformProductStatusDto';
 export type { UpdatePlatformProductStatusesDto } from './models/UpdatePlatformProductStatusesDto';

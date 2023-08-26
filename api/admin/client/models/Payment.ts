@@ -15,7 +15,7 @@ export type Payment = {
   secretKey: string;
   publishableKey: string;
   name: string;
-  email: string;
+  email: string | null;
   type: PaymentType;
   userId: string;
   id: number;
