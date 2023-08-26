@@ -38,6 +38,7 @@ export declare class PaymentService {
         email: string;
         updatedAt: string;
         createdAt: string;
+        name: string;
         id: number;
     }>>;
     /**
