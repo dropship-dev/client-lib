@@ -71,5 +71,78 @@ class PaymentService {
             },
         });
     }
+    /**
+     * @returns Payment Ok
+     * @throws ApiError
+     */
+    updatePayment({ id, requestBody, fulfillmentAgencyId = 1, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/payment/{id}',
+            path: {
+                'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getPaymentStores({ id, fulfillmentAgencyId = 1, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/payment/{id}/store',
+            path: {
+                'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns Payment Ok
+     * @throws ApiError
+     */
+    addPaymentToStores({ id, requestBody, fulfillmentAgencyId = 1, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/payment/{id}/store',
+            path: {
+                'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.PaymentService = PaymentService;
