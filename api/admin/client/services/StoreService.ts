@@ -126,6 +126,14 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<(Store & {
+    Payment: Array<{
+      publishableKey: string;
+      type: PaymentType;
+      email: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
     Theme: Array<Theme>;
   })> {
     return this.httpRequest.request({

@@ -207,7 +207,7 @@ export class PaymentService {
   }
 
   /**
-   * @returns Payment Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public addPaymentToStores({
@@ -218,7 +218,7 @@ export class PaymentService {
     id: number,
     requestBody: AddPaymentToStores,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<Payment> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment/{id}/store',
