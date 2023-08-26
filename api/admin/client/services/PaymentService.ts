@@ -177,7 +177,15 @@ export class PaymentService {
   }: {
     id: number,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<any> {
+  }): CancelablePromise<{
+    Store: Array<{
+      primaryDomain: string;
+      avatar: string;
+      email: string;
+      name: string;
+      id: string;
+    }>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/{id}/store',
