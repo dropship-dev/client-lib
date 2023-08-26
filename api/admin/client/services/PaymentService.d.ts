@@ -92,12 +92,12 @@ export declare class PaymentService {
         }>;
     }>;
     /**
-     * @returns Payment Ok
+     * @returns string Ok
      * @throws ApiError
      */
     addPaymentToStores({ id, requestBody, fulfillmentAgencyId, }: {
         id: number;
         requestBody: AddPaymentToStores;
         fulfillmentAgencyId?: number;
-    }): CancelablePromise<Payment>;
+    }): CancelablePromise<string>;
 }

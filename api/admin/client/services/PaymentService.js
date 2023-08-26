@@ -120,7 +120,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns Payment Ok
+     * @returns string Ok
      * @throws ApiError
      */
     addPaymentToStores({ id, requestBody, fulfillmentAgencyId = 1, }) {

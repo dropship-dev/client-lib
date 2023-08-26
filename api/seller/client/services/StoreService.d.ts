@@ -62,6 +62,14 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
+        Payment: Array<{
+            publishableKey: string;
+            type: PaymentType;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        }>;
         Theme: Array<Theme>;
     })>;
     /**
