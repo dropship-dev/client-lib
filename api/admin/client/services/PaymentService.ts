@@ -68,6 +68,7 @@ export class PaymentService {
     email: string;
     updatedAt: string;
     createdAt: string;
+    name: string;
     id: number;
   }>> {
     return this.httpRequest.request({
