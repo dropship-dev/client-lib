@@ -81,7 +81,15 @@ export declare class PaymentService {
     getPaymentStores({ id, fulfillmentAgencyId, }: {
         id: number;
         fulfillmentAgencyId?: number;
-    }): CancelablePromise<any>;
+    }): CancelablePromise<{
+        Store: Array<{
+            primaryDomain: string;
+            avatar: string;
+            email: string;
+            name: string;
+            id: string;
+        }>;
+    }>;
     /**
      * @returns Payment Ok
      * @throws ApiError
