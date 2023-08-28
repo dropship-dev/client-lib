@@ -9,14 +9,16 @@ export declare class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    createTag({ requestBody, }: {
+    createTag({ requestBody, fulfillmentAgencyId, }: {
         requestBody: CreateTagDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<AdminTag>;
     /**
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTags({ search, limit, }: {
+    getTags({ fulfillmentAgencyId, search, limit, }: {
+        fulfillmentAgencyId?: number;
         search?: string;
         limit?: number;
     }): CancelablePromise<Array<AdminTag>>;
@@ -24,7 +26,8 @@ export declare class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTag({ id, }: {
+    getTag({ id, fulfillmentAgencyId, }: {
         id: string;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<AdminTag>;
 }

@@ -10,13 +10,16 @@ class PlatformVariantService {
      * @returns BatchPayload Ok
      * @throws ApiError
      */
-    createPlatformVariants({ platformProductId, requestBody, }) {
+    createPlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/platform-product/{platformProductId}/variant',
             path: {
                 'platformProductId': platformProductId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -32,13 +35,16 @@ class PlatformVariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformVariants({ platformProductId, requestBody, }) {
+    updatePlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant',
             path: {
                 'platformProductId': platformProductId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -54,7 +60,7 @@ class PlatformVariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformVariants({ platformProductId, ids, }) {
+    deletePlatformVariants({ platformProductId, ids, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/variant',
@@ -62,6 +68,7 @@ class PlatformVariantService {
                 'platformProductId': platformProductId,
             },
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'ids': ids,
             },
             errors: {
@@ -77,13 +84,16 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    getPlatformVariant({ platformProductId, id, }) {
+    getPlatformVariant({ platformProductId, id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}/variant/{id}',
             path: {
                 'platformProductId': platformProductId,
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
@@ -98,13 +108,16 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariant({ platformProductId, id, requestBody, }) {
+    updatePlatformVariant({ platformProductId, id, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant/{id}',
             path: {
                 'platformProductId': platformProductId,
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -121,13 +134,16 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    deletePlatformVariant({ platformProductId, id, }) {
+    deletePlatformVariant({ platformProductId, id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/variant/{id}',
             path: {
                 'platformProductId': platformProductId,
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
@@ -142,13 +158,16 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariantStatus({ platformProductId, id, requestBody, }) {
+    updatePlatformVariantStatus({ platformProductId, id, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant/{id}/status',
             path: {
                 'platformProductId': platformProductId,
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',

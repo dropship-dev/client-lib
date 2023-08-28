@@ -10,10 +10,14 @@ class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    getSetting() {
+    getSetting({ fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/setting',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
+            },
             errors: {
                 400: `Bad request`,
                 403: `Forbidden`,
@@ -26,10 +30,13 @@ class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    updateSetting({ requestBody, }) {
+    updateSetting({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/setting/{id}',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {

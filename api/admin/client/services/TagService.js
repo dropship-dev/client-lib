@@ -10,10 +10,13 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    createTag({ requestBody, }) {
+    createTag({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/tag',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -29,11 +32,12 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTags({ search, limit = 10, }) {
+    getTags({ fulfillmentAgencyId = 1, search, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/tag',
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'search': search,
                 'limit': limit,
             },
@@ -50,12 +54,15 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTag({ id, }) {
+    getTag({ id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/tag/{id}',
             path: {
                 'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,

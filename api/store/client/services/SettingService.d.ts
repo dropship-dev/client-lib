@@ -8,5 +8,8 @@ export declare class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    getSetting(): CancelablePromise<Setting>;
+    getSetting({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<Setting>;
 }

@@ -10,10 +10,14 @@ class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    getSetting() {
+    getSetting({ fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/setting',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
+            },
             errors: {
                 400: `Bad request`,
                 403: `Forbidden`,
