@@ -16,10 +16,20 @@ export class SettingService {
    * @returns Setting Ok
    * @throws ApiError
    */
-  public getSetting(): CancelablePromise<Setting> {
+  public getSetting({
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<Setting> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/setting',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         403: `Forbidden`,
@@ -35,12 +45,17 @@ export class SettingService {
    */
   public updateSetting({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: UpdateSettingDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Setting> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/setting/{id}',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {

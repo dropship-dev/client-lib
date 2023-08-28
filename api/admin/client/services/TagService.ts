@@ -18,12 +18,17 @@ export class TagService {
    */
   public createTag({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: CreateTagDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/tag',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -41,9 +46,11 @@ export class TagService {
    * @throws ApiError
    */
   public getTags({
+    fulfillmentAgencyId = 1,
     search,
     limit = 10,
   }: {
+    fulfillmentAgencyId?: number,
     search?: string,
     limit?: number,
   }): CancelablePromise<Array<AdminTag>> {
@@ -51,6 +58,7 @@ export class TagService {
       method: 'GET',
       url: '/tag',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'search': search,
         'limit': limit,
       },
@@ -70,14 +78,19 @@ export class TagService {
    */
   public getTag({
     id,
+    fulfillmentAgencyId = 1,
   }: {
     id: string,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/tag/{id}',
       path: {
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,

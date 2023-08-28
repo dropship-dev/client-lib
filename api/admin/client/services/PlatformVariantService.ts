@@ -23,15 +23,20 @@ export class PlatformVariantService {
   public createPlatformVariants({
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     requestBody: CreatePlatformVariantsDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<BatchPayload> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/variant',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -52,15 +57,20 @@ export class PlatformVariantService {
   public updatePlatformVariants({
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     requestBody: UpdatePlatformVariantsDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant',
       path: {
         'platformProductId': platformProductId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -81,9 +91,11 @@ export class PlatformVariantService {
   public deletePlatformVariants({
     platformProductId,
     ids,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     ids: Array<number>,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -92,6 +104,7 @@ export class PlatformVariantService {
         'platformProductId': platformProductId,
       },
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'ids': ids,
       },
       errors: {
@@ -111,9 +124,11 @@ export class PlatformVariantService {
   public getPlatformVariant({
     platformProductId,
     id,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     id: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'GET',
@@ -121,6 +136,9 @@ export class PlatformVariantService {
       path: {
         'platformProductId': platformProductId,
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -140,10 +158,12 @@ export class PlatformVariantService {
     platformProductId,
     id,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -151,6 +171,9 @@ export class PlatformVariantService {
       path: {
         'platformProductId': platformProductId,
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -171,9 +194,11 @@ export class PlatformVariantService {
   public deletePlatformVariant({
     platformProductId,
     id,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     id: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -181,6 +206,9 @@ export class PlatformVariantService {
       path: {
         'platformProductId': platformProductId,
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -200,10 +228,12 @@ export class PlatformVariantService {
     platformProductId,
     id,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -211,6 +241,9 @@ export class PlatformVariantService {
       path: {
         'platformProductId': platformProductId,
         'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
