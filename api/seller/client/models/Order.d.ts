@@ -1,4 +1,5 @@
 import type { FulfillmentStatus } from './FulfillmentStatus';
+import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 /**
  * Model Order
  */
@@ -21,6 +22,10 @@ export type Order = {
     total: number;
     shippingFee: number;
     note: string | null;
+    /**
+     * [BillingInfo]
+     */
+    billingInfo: PrismaJson_BillingInfo | null;
     country: string;
     zipCode: string;
     province: string;

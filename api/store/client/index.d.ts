@@ -59,6 +59,7 @@ export type { PlatformVariant } from './models/PlatformVariant';
 export type { PlatformVariantDto } from './models/PlatformVariantDto';
 export type { Prisma_JsonValue } from './models/Prisma_JsonValue';
 export { Prisma_SortOrder } from './models/Prisma_SortOrder';
+export type { PrismaJson_BillingInfo } from './models/PrismaJson_BillingInfo';
 export type { PrismaJson_Colors } from './models/PrismaJson_Colors';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_Timezone } from './models/PrismaJson_Timezone';

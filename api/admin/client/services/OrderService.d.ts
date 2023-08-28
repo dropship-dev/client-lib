@@ -153,6 +153,7 @@ export declare class OrderService {
                 });
             })>;
             Transaction: Transaction;
+            Store: Store;
         })>;
     }>;
 }
