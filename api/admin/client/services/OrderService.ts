@@ -283,6 +283,9 @@ export class OrderService {
     data: Array<(Order & {
       OrderItem: Array<(OrderItem & {
         ProductVariant: (ProductVariant & {
+          Product: {
+            name: string;
+          };
           PlatformVariant: {
             price: number;
             name: string;
