@@ -130,3 +130,4 @@ export type { VariantOptionValues } from './models/VariantOptionValues';
 
 export { PerformanceService } from './services/PerformanceService';
 export { ThemeTemplateService } from './services/ThemeTemplateService';
+export { UploadService } from './services/UploadService';

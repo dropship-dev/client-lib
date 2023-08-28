@@ -7,6 +7,7 @@ import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
@@ -76,6 +77,7 @@ export class OrderService {
         });
       })>;
       Transaction: Transaction;
+      Store: Store;
     })>;
   }> {
     return this.httpRequest.request({

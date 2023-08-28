@@ -8,6 +8,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { PerformanceService } from './services/PerformanceService';
 import { ThemeTemplateService } from './services/ThemeTemplateService';
+import { UploadService } from './services/UploadService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -15,6 +16,7 @@ export class ClientApi {
 
   public readonly performance: PerformanceService;
   public readonly themeTemplate: ThemeTemplateService;
+  public readonly upload: UploadService;
 
   public readonly request: BaseHttpRequest;
 
@@ -33,6 +35,7 @@ export class ClientApi {
 
     this.performance = new PerformanceService(this.request);
     this.themeTemplate = new ThemeTemplateService(this.request);
+    this.upload = new UploadService(this.request);
   }
 }
 

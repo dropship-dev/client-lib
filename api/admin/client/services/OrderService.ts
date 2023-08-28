@@ -291,6 +291,7 @@ export class OrderService {
         });
       })>;
       Transaction: Transaction;
+      Store: Store;
     })>;
   }> {
     return this.httpRequest.request({
