@@ -14,6 +14,7 @@ import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -37,6 +38,7 @@ export class ClientApi {
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
+  public readonly productCombo: ProductComboService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
@@ -71,6 +73,7 @@ export class ClientApi {
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
+    this.productCombo = new ProductComboService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);

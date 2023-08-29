@@ -14,6 +14,7 @@ import { FbPixelService } from './services/FbPixelService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
@@ -38,6 +39,7 @@ export class ClientApi {
   public readonly order: OrderService;
   public readonly performance: PerformanceService;
   public readonly product: ProductService;
+  public readonly productCombo: ProductComboService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly review: ReviewService;
   public readonly setting: SettingService;
@@ -73,6 +75,7 @@ export class ClientApi {
     this.order = new OrderService(this.request);
     this.performance = new PerformanceService(this.request);
     this.product = new ProductService(this.request);
+    this.productCombo = new ProductComboService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.review = new ReviewService(this.request);
     this.setting = new SettingService(this.request);
