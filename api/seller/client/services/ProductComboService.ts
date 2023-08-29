@@ -2,8 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { CreateComboDto } from '../models/CreateComboDto';
+import type { ProductCombo } from '../models/ProductCombo';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
 import type { UpdateComboStatusDto } from '../models/UpdateComboStatusDto';
@@ -16,94 +16,27 @@ export class ProductComboService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns ProductCombo Ok
    * @throws ApiError
    */
-  public getCombo({
+  public createCombo({
     storeId,
     productId,
-    id,
-  }: {
-    storeId: string,
-    productId: number,
-    id: number,
-  }): CancelablePromise<(ProductVariant & {
-    PlatformVariant: PlatformVariant;
-  })> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/{productId}/combo/{id}',
-      path: {
-        'storeId': storeId,
-        'productId': productId,
-        'id': id,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns ProductVariant Ok
-   * @throws ApiError
-   */
-  public updateCombo({
-    storeId,
-    productId,
-    id,
     requestBody,
   }: {
     storeId: string,
     productId: number,
-    id: number,
-    requestBody: UpdateComboDto,
-  }): CancelablePromise<ProductVariant> {
+    requestBody: CreateComboDto,
+  }): CancelablePromise<ProductCombo> {
     return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/store/{storeId}/product/{productId}/combo/{id}',
+      method: 'POST',
+      url: '/store/{storeId}/product/{productId}/combo',
       path: {
         'storeId': storeId,
         'productId': productId,
-        'id': id,
       },
       body: requestBody,
       mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns ProductVariant Ok
-   * @throws ApiError
-   */
-  public deleteCombo({
-    storeId,
-    productId,
-    id,
-  }: {
-    storeId: string,
-    productId: number,
-    id: number,
-  }): CancelablePromise<ProductVariant> {
-    return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/store/{storeId}/product/{productId}/combo/{id}',
-      path: {
-        'storeId': storeId,
-        'productId': productId,
-        'id': id,
-      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -133,9 +66,7 @@ export class ProductComboService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<(ProductVariant & {
-      PlatformVariant: PlatformVariant;
-    })>;
+    data: Array<ProductCombo>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -224,7 +155,104 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductVariant Ok
+   * @returns ProductCombo Ok
+   * @throws ApiError
+   */
+  public getCombo({
+    storeId,
+    productId,
+    id,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+  }): CancelablePromise<ProductCombo> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/combo/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns ProductCombo Ok
+   * @throws ApiError
+   */
+  public updateCombo({
+    storeId,
+    productId,
+    id,
+    requestBody,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+    requestBody: UpdateComboDto,
+  }): CancelablePromise<ProductCombo> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/product/{productId}/combo/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns ProductCombo Ok
+   * @throws ApiError
+   */
+  public deleteCombo({
+    storeId,
+    productId,
+    id,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+  }): CancelablePromise<ProductCombo> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/product/{productId}/combo/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns ProductCombo Ok
    * @throws ApiError
    */
   public updateComboStatus({
@@ -237,7 +265,7 @@ export class ProductComboService {
     productId: number,
     id: number,
     requestBody: UpdateComboStatusDto,
-  }): CancelablePromise<ProductVariant> {
+  }): CancelablePromise<ProductCombo> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo/{id}/status',
