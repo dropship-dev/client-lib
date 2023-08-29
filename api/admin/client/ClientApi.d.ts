@@ -8,6 +8,7 @@ import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -28,6 +29,7 @@ export declare class ClientApi {
     readonly platformProduct: PlatformProductService;
     readonly platformVariant: PlatformVariantService;
     readonly product: ProductService;
+    readonly productCombo: ProductComboService;
     readonly requestSourcing: RequestSourcingService;
     readonly setting: SettingService;
     readonly store: StoreService;

@@ -8,6 +8,7 @@ import { FbPixelService } from './services/FbPixelService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
@@ -29,6 +30,7 @@ export declare class ClientApi {
     readonly order: OrderService;
     readonly performance: PerformanceService;
     readonly product: ProductService;
+    readonly productCombo: ProductComboService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;
     readonly setting: SettingService;

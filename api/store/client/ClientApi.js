@@ -6,6 +6,7 @@ const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
 const ProductService_1 = require("./services/ProductService");
+const ProductComboService_1 = require("./services/ProductComboService");
 const ReviewService_1 = require("./services/ReviewService");
 const SettingService_1 = require("./services/SettingService");
 const StoreService_1 = require("./services/StoreService");
@@ -18,6 +19,7 @@ class ClientApi {
     currency;
     order;
     product;
+    productCombo;
     review;
     setting;
     store;
@@ -42,6 +44,7 @@ class ClientApi {
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
+        this.productCombo = new ProductComboService_1.ProductComboService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
         this.store = new StoreService_1.StoreService(this.request);
