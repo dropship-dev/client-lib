@@ -14,15 +14,17 @@ import {
 
 export * from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBpElHb3KAKM9dxpy5DII0Elsxfg3OHiK8",
-  authDomain: "auth.bettamax.com",
-  projectId: "dropship-7dd08",
-  storageBucket: "dropship-7dd08.appspot.com",
-  messagingSenderId: "972158312621",
-  appId: "1:972158312621:web:32b22d8d4815327db32624",
-  measurementId: "G-H2MM3F0CS3",
-};
+const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
+  ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
+  : {
+      apiKey: "AIzaSyBpElHb3KAKM9dxpy5DII0Elsxfg3OHiK8",
+      authDomain: "auth.bettamax.com",
+      projectId: "dropship-7dd08",
+      storageBucket: "dropship-7dd08.appspot.com",
+      messagingSenderId: "972158312621",
+      appId: "1:972158312621:web:32b22d8d4815327db32624",
+      measurementId: "G-H2MM3F0CS3",
+    };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
