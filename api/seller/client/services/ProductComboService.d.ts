@@ -1,5 +1,5 @@
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { CreateComboDto } from '../models/CreateComboDto';
+import type { ProductCombo } from '../models/ProductCombo';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
 import type { UpdateComboStatusDto } from '../models/UpdateComboStatusDto';
@@ -9,35 +9,14 @@ export declare class ProductComboService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ProductCombo Ok
      * @throws ApiError
      */
-    getCombo({ storeId, productId, id, }: {
+    createCombo({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
-        id: number;
-    }): CancelablePromise<(ProductVariant & {
-        PlatformVariant: PlatformVariant;
-    })>;
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    updateCombo({ storeId, productId, id, requestBody, }: {
-        storeId: string;
-        productId: number;
-        id: number;
-        requestBody: UpdateComboDto;
-    }): CancelablePromise<ProductVariant>;
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    deleteCombo({ storeId, productId, id, }: {
-        storeId: string;
-        productId: number;
-        id: number;
-    }): CancelablePromise<ProductVariant>;
+        requestBody: CreateComboDto;
+    }): CancelablePromise<ProductCombo>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -52,9 +31,7 @@ export declare class ProductComboService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<(ProductVariant & {
-            PlatformVariant: PlatformVariant;
-        })>;
+        data: Array<ProductCombo>;
     }>;
     /**
      * @returns string Ok
@@ -75,7 +52,35 @@ export declare class ProductComboService {
         ids: Array<number>;
     }): CancelablePromise<string>;
     /**
-     * @returns ProductVariant Ok
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    getCombo({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+    }): CancelablePromise<ProductCombo>;
+    /**
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    updateCombo({ storeId, productId, id, requestBody, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+        requestBody: UpdateComboDto;
+    }): CancelablePromise<ProductCombo>;
+    /**
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    deleteCombo({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+    }): CancelablePromise<ProductCombo>;
+    /**
+     * @returns ProductCombo Ok
      * @throws ApiError
      */
     updateComboStatus({ storeId, productId, id, requestBody, }: {
@@ -83,5 +88,5 @@ export declare class ProductComboService {
         productId: number;
         id: number;
         requestBody: UpdateComboStatusDto;
-    }): CancelablePromise<ProductVariant>;
+    }): CancelablePromise<ProductCombo>;
 }

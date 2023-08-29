@@ -7,64 +7,19 @@ class ProductComboService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns ProductCombo Ok
      * @throws ApiError
      */
-    getCombo({ storeId, productId, id, }) {
+    createCombo({ storeId, productId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}/combo/{id}',
+            method: 'POST',
+            url: '/store/{storeId}/product/{productId}/combo',
             path: {
                 'storeId': storeId,
                 'productId': productId,
-                'id': id,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    updateCombo({ storeId, productId, id, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/store/{storeId}/product/{productId}/combo/{id}',
-            path: {
-                'storeId': storeId,
-                'productId': productId,
-                'id': id,
             },
             body: requestBody,
             mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    deleteCombo({ storeId, productId, id, }) {
-        return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/store/{storeId}/product/{productId}/combo/{id}',
-            path: {
-                'storeId': storeId,
-                'productId': productId,
-                'id': id,
-            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -147,7 +102,75 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductVariant Ok
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    getCombo({ storeId, productId, id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/{productId}/combo/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    updateCombo({ storeId, productId, id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/product/{productId}/combo/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ProductCombo Ok
+     * @throws ApiError
+     */
+    deleteCombo({ storeId, productId, id, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/product/{productId}/combo/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ProductCombo Ok
      * @throws ApiError
      */
     updateComboStatus({ storeId, productId, id, requestBody, }) {
