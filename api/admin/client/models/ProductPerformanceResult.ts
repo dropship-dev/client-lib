@@ -4,7 +4,8 @@
 /* eslint-disable */
 
 export type ProductPerformanceResult = {
-  productId: number;
+  platformProductId?: number;
+  productId?: number;
   CR: number;
   noOrders: number;
   checkout: number;
