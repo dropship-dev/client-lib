@@ -68,6 +68,7 @@ export declare class StoreService {
             email: string;
             updatedAt: string;
             createdAt: string;
+            name: string;
             id: number;
         }>;
         Theme: Array<Theme>;
