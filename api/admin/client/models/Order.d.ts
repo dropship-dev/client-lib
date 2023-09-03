@@ -22,6 +22,7 @@ export type Order = {
     total: number;
     shippingFee: number;
     note: string | null;
+    domain: string | null;
     /**
      * [BillingInfo]
      */
