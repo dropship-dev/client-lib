@@ -14,6 +14,7 @@ export type CustomDomain = {
   isPrimary: boolean | null;
   storeId: string;
   status: CustomDomainStatus;
+  target: string | null;
   domain: string;
   id: number;
 };
