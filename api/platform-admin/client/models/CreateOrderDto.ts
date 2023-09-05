@@ -11,6 +11,7 @@ export type CreateOrderDto = {
   shippingInfo?: PrismaJson_BillingInfo;
   note?: string;
   domain?: string;
+  clientId?: string;
   payment: PaymentType;
   orderItems: Array<OrderItemDto>;
 };
