@@ -6,6 +6,7 @@
 import type { StoreStatus } from './StoreStatus';
 
 export type TopStoreByRevenue = {
+  noOrders: number;
   status: StoreStatus;
   revenue: number;
   phone: string;
