@@ -7,6 +7,5 @@ export type CreateComboDto = {
     compareAtPrice: number;
     SKU: string;
     photo: PhotoDto;
-    productId: number;
     items: PrismaJson_ProductComboItems;
 };
