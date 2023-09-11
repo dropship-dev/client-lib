@@ -1,3 +1,5 @@
+import type { CampaignDto } from './CampaignDto';
+import type { DiscountDto } from './DiscountDto';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 export type UpdateProductDto = {
@@ -10,4 +12,6 @@ export type UpdateProductDto = {
     SKU?: string;
     permalink?: string;
     tags?: Array<string>;
+    campaign?: CampaignDto;
+    discount?: Array<DiscountDto>;
 };
