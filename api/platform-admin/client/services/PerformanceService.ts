@@ -5,6 +5,7 @@
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
+import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 
@@ -261,6 +262,40 @@ export class PerformanceService {
         'order': order,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns StoreProductPerformanceResp Ok
+   * @throws ApiError
+   */
+  public getStoreProductPerformance({
+    fulfillmentAgencyId = 1,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+  }): CancelablePromise<Array<StoreProductPerformanceResp>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/store-product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
