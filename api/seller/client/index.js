@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductComboService = exports.ProductService = exports.PerformanceService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductComboService = exports.ProductService = exports.PerformanceService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.CampaignService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -46,6 +46,8 @@ var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
 var AuthService_1 = require("./services/AuthService");
 Object.defineProperty(exports, "AuthService", { enumerable: true, get: function () { return AuthService_1.AuthService; } });
+var CampaignService_1 = require("./services/CampaignService");
+Object.defineProperty(exports, "CampaignService", { enumerable: true, get: function () { return CampaignService_1.CampaignService; } });
 var CollectionService_1 = require("./services/CollectionService");
 Object.defineProperty(exports, "CollectionService", { enumerable: true, get: function () { return CollectionService_1.CollectionService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
