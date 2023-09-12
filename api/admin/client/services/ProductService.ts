@@ -3,9 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
-import type { Campaign } from '../models/Campaign';
 import type { CreateProductDto } from '../models/CreateProductDto';
-import type { Discount } from '../models/Discount';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -210,9 +208,6 @@ export class ProductService {
     storeId: string,
     productId: number,
   }): CancelablePromise<(Product & {
-    Campaign: (Campaign & {
-      listDiscount: Array<Discount>;
-    });
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: {
         price: number;

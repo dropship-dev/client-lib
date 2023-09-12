@@ -7,7 +7,6 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AuthService } from './services/AuthService';
-import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
@@ -33,7 +32,6 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class ClientApi {
 
   public readonly auth: AuthService;
-  public readonly campaign: CampaignService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
   public readonly domain: DomainService;
@@ -70,7 +68,6 @@ export class ClientApi {
     });
 
     this.auth = new AuthService(this.request);
-    this.campaign = new CampaignService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);
     this.domain = new DomainService(this.request);
