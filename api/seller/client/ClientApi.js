@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AuthService_1 = require("./services/AuthService");
-const CampaignService_1 = require("./services/CampaignService");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const DomainService_1 = require("./services/DomainService");
@@ -25,7 +24,6 @@ const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 class ClientApi {
     auth;
-    campaign;
     collection;
     currency;
     domain;
@@ -59,7 +57,6 @@ class ClientApi {
             ENCODE_PATH: config?.ENCODE_PATH,
         });
         this.auth = new AuthService_1.AuthService(this.request);
-        this.campaign = new CampaignService_1.CampaignService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.domain = new DomainService_1.DomainService(this.request);
