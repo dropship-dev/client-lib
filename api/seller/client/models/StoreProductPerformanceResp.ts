@@ -8,6 +8,7 @@ export type StoreProductPerformanceResp = {
   name: string;
   primaryDomain: string;
   products: Array<{
+    link: string;
     revenue: number;
     photo: string;
     name: string;
