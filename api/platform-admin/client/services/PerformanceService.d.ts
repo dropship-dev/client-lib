@@ -1,6 +1,7 @@
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
+import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -109,4 +110,14 @@ export declare class PerformanceService {
         total: number;
         data: Array<ProductPerformance>;
     }>;
+    /**
+     * @returns StoreProductPerformanceResp Ok
+     * @throws ApiError
+     */
+    getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+        storeId?: string;
+    }): CancelablePromise<Array<StoreProductPerformanceResp>>;
 }
