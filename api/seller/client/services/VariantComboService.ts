@@ -2,21 +2,22 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateComboDto } from '../models/CreateComboDto';
-import type { ProductCombo } from '../models/ProductCombo';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
 import type { UpdateComboStatusDto } from '../models/UpdateComboStatusDto';
+import type { VariantCombo } from '../models/VariantCombo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ProductComboService {
+export class VariantComboService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns ProductCombo Ok
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public createCombo({
@@ -27,7 +28,7 @@ export class ProductComboService {
     storeId: string,
     productId: number,
     requestBody: CreateComboDto,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo',
@@ -66,7 +67,7 @@ export class ProductComboService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<ProductCombo>;
+    data: Array<VariantCombo>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -155,7 +156,39 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductCombo Ok
+   * @returns BatchPayload Ok
+   * @throws ApiError
+   */
+  public createCombos({
+    storeId,
+    productId,
+    requestBody,
+  }: {
+    storeId: string,
+    productId: number,
+    requestBody: Array<CreateComboDto>,
+  }): CancelablePromise<BatchPayload> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/product/{productId}/combo/createCombos',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public getCombo({
@@ -166,7 +199,7 @@ export class ProductComboService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -186,7 +219,7 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductCombo Ok
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public updateCombo({
@@ -199,7 +232,7 @@ export class ProductComboService {
     productId: number,
     id: number,
     requestBody: UpdateComboDto,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -221,7 +254,7 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductCombo Ok
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public deleteCombo({
@@ -232,7 +265,7 @@ export class ProductComboService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -252,7 +285,7 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductCombo Ok
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public updateComboStatus({
@@ -265,7 +298,7 @@ export class ProductComboService {
     productId: number,
     id: number,
     requestBody: UpdateComboStatusDto,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo/{id}/status',

@@ -14,7 +14,6 @@ import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
-import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -25,6 +24,7 @@ import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
+import { VariantComboService } from './services/VariantComboService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -38,7 +38,6 @@ export class ClientApi {
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
-  public readonly productCombo: ProductComboService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
@@ -49,6 +48,7 @@ export class ClientApi {
   public readonly upload: UploadService;
   public readonly user: UserService;
   public readonly variant: VariantService;
+  public readonly variantCombo: VariantComboService;
 
   public readonly request: BaseHttpRequest;
 
@@ -73,7 +73,6 @@ export class ClientApi {
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
-    this.productCombo = new ProductComboService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);
@@ -84,6 +83,7 @@ export class ClientApi {
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
     this.variant = new VariantService(this.request);
+    this.variantCombo = new VariantComboService(this.request);
   }
 }
 

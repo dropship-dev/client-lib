@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PrismaJson_ProductComboItems } from './PrismaJson_ProductComboItems';
+import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
 
 export type UpdateComboDto = {
   name?: string;
@@ -11,6 +11,6 @@ export type UpdateComboDto = {
   compareAtPrice?: number;
   SKU?: string;
   photo?: string;
-  items?: PrismaJson_ProductComboItems;
+  items?: PrismaJson_VariantComboItems;
 };
 

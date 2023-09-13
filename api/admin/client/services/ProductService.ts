@@ -11,6 +11,7 @@ import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
+import type { VariantCombo } from '../models/VariantCombo';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 
@@ -167,6 +168,10 @@ export class ProductService {
     storeId: string,
     permalink: string,
   }): CancelablePromise<(Product & {
+    Campaign: (Campaign & {
+      listDiscount: Array<Discount>;
+    });
+    VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: PlatformVariant;
     })>;
@@ -213,6 +218,7 @@ export class ProductService {
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
     });
+    VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: {
         price: number;
