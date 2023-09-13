@@ -4,6 +4,7 @@ import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -11,13 +12,13 @@ import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
 import { UploadService } from './services/UploadService';
 import { VariantService } from './services/VariantService';
-import { VariantComboService } from './services/VariantComboService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly collection: CollectionService;
     readonly currency: CurrencyService;
     readonly order: OrderService;
     readonly product: ProductService;
+    readonly productCombo: ProductComboService;
     readonly review: ReviewService;
     readonly setting: SettingService;
     readonly store: StoreService;
@@ -25,7 +26,6 @@ export declare class ClientApi {
     readonly theme: ThemeService;
     readonly upload: UploadService;
     readonly variant: VariantService;
-    readonly variantCombo: VariantComboService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }
