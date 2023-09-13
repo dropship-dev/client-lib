@@ -11,7 +11,6 @@ const FbPixelService_1 = require("./services/FbPixelService");
 const OrderService_1 = require("./services/OrderService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const ProductService_1 = require("./services/ProductService");
-const ProductComboService_1 = require("./services/ProductComboService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
 const SettingService_1 = require("./services/SettingService");
@@ -23,6 +22,7 @@ const TransactionService_1 = require("./services/TransactionService");
 const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
+const VariantComboService_1 = require("./services/VariantComboService");
 class ClientApi {
     auth;
     campaign;
@@ -33,7 +33,6 @@ class ClientApi {
     order;
     performance;
     product;
-    productCombo;
     requestSourcing;
     review;
     setting;
@@ -45,6 +44,7 @@ class ClientApi {
     upload;
     user;
     variant;
+    variantCombo;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -67,7 +67,6 @@ class ClientApi {
         this.order = new OrderService_1.OrderService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
-        this.productCombo = new ProductComboService_1.ProductComboService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
@@ -79,6 +78,7 @@ class ClientApi {
         this.upload = new UploadService_1.UploadService(this.request);
         this.user = new UserService_1.UserService(this.request);
         this.variant = new VariantService_1.VariantService(this.request);
+        this.variantCombo = new VariantComboService_1.VariantComboService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

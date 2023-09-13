@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductComboService = exports.ProductService = exports.PerformanceService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.CampaignService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.ProductService = exports.PerformanceService = exports.OrderService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.CampaignService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -62,8 +62,6 @@ var PerformanceService_1 = require("./services/PerformanceService");
 Object.defineProperty(exports, "PerformanceService", { enumerable: true, get: function () { return PerformanceService_1.PerformanceService; } });
 var ProductService_1 = require("./services/ProductService");
 Object.defineProperty(exports, "ProductService", { enumerable: true, get: function () { return ProductService_1.ProductService; } });
-var ProductComboService_1 = require("./services/ProductComboService");
-Object.defineProperty(exports, "ProductComboService", { enumerable: true, get: function () { return ProductComboService_1.ProductComboService; } });
 var RequestSourcingService_1 = require("./services/RequestSourcingService");
 Object.defineProperty(exports, "RequestSourcingService", { enumerable: true, get: function () { return RequestSourcingService_1.RequestSourcingService; } });
 var ReviewService_1 = require("./services/ReviewService");
@@ -86,3 +84,5 @@ var UserService_1 = require("./services/UserService");
 Object.defineProperty(exports, "UserService", { enumerable: true, get: function () { return UserService_1.UserService; } });
 var VariantService_1 = require("./services/VariantService");
 Object.defineProperty(exports, "VariantService", { enumerable: true, get: function () { return VariantService_1.VariantService; } });
+var VariantComboService_1 = require("./services/VariantComboService");
+Object.defineProperty(exports, "VariantComboService", { enumerable: true, get: function () { return VariantComboService_1.VariantComboService; } });

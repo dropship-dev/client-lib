@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductComboService = void 0;
-class ProductComboService {
+exports.VariantComboService = void 0;
+class VariantComboService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     createCombo({ storeId, productId, requestBody, }) {
@@ -102,7 +102,30 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns BatchPayload Ok
+     * @throws ApiError
+     */
+    createCombos({ storeId, productId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/product/{productId}/combo/createCombos',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }) {
@@ -124,7 +147,7 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     updateCombo({ storeId, productId, id, requestBody, }) {
@@ -148,7 +171,7 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     deleteCombo({ storeId, productId, id, }) {
@@ -170,7 +193,7 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     updateComboStatus({ storeId, productId, id, requestBody, }) {
@@ -194,4 +217,4 @@ class ProductComboService {
         });
     }
 }
-exports.ProductComboService = ProductComboService;
+exports.VariantComboService = VariantComboService;

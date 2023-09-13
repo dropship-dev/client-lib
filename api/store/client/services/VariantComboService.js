@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductComboService = void 0;
-class ProductComboService {
+exports.VariantComboService = void 0;
+class VariantComboService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
@@ -32,7 +32,7 @@ class ProductComboService {
         });
     }
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }) {
@@ -54,4 +54,4 @@ class ProductComboService {
         });
     }
 }
-exports.ProductComboService = ProductComboService;
+exports.VariantComboService = VariantComboService;

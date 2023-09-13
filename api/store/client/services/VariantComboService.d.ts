@@ -1,7 +1,7 @@
-import type { ProductCombo } from '../models/ProductCombo';
+import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-export declare class ProductComboService {
+export declare class VariantComboService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
@@ -18,15 +18,15 @@ export declare class ProductComboService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<ProductCombo>;
+        data: Array<VariantCombo>;
     }>;
     /**
-     * @returns ProductCombo Ok
+     * @returns VariantCombo Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }: {
         storeId: string;
         productId: number;
         id: number;
-    }): CancelablePromise<ProductCombo>;
+    }): CancelablePromise<VariantCombo>;
 }

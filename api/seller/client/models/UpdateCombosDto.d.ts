@@ -1,6 +1,6 @@
-import type { PrismaJson_ProductComboItems } from './PrismaJson_ProductComboItems';
+import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
 export type UpdateCombosDto = Array<{
-    items?: PrismaJson_ProductComboItems;
+    items?: PrismaJson_VariantComboItems;
     photo?: string;
     SKU?: string;
     compareAtPrice?: number;
