@@ -7,7 +7,6 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AuthService } from './services/AuthService';
-import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
@@ -15,6 +14,7 @@ import { FbPixelService } from './services/FbPixelService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
+import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
@@ -26,14 +26,12 @@ import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
-import { VariantComboService } from './services/VariantComboService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
   public readonly auth: AuthService;
-  public readonly campaign: CampaignService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
   public readonly domain: DomainService;
@@ -41,6 +39,7 @@ export class ClientApi {
   public readonly order: OrderService;
   public readonly performance: PerformanceService;
   public readonly product: ProductService;
+  public readonly productCombo: ProductComboService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly review: ReviewService;
   public readonly setting: SettingService;
@@ -52,7 +51,6 @@ export class ClientApi {
   public readonly upload: UploadService;
   public readonly user: UserService;
   public readonly variant: VariantService;
-  public readonly variantCombo: VariantComboService;
 
   public readonly request: BaseHttpRequest;
 
@@ -70,7 +68,6 @@ export class ClientApi {
     });
 
     this.auth = new AuthService(this.request);
-    this.campaign = new CampaignService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);
     this.domain = new DomainService(this.request);
@@ -78,6 +75,7 @@ export class ClientApi {
     this.order = new OrderService(this.request);
     this.performance = new PerformanceService(this.request);
     this.product = new ProductService(this.request);
+    this.productCombo = new ProductComboService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.review = new ReviewService(this.request);
     this.setting = new SettingService(this.request);
@@ -89,7 +87,6 @@ export class ClientApi {
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
     this.variant = new VariantService(this.request);
-    this.variantCombo = new VariantComboService(this.request);
   }
 }
 

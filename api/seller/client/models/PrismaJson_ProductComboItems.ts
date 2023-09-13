@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ComboItemDto = {
+export type PrismaJson_ProductComboItems = Array<{
   quantity: number;
-  comboVariantId: number;
-};
-
+  variant: number;
+}>;
