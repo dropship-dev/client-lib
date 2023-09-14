@@ -28,9 +28,10 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
-        total: number;
-        subTotal: number;
-        shippingFee: number;
+        total: any;
+        discountInfo: any;
+        subTotal: any;
+        shippingFee: any;
     }>;
     /**
      * @returns any Ok
