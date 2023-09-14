@@ -3,11 +3,11 @@ import type { PaymentType } from './PaymentType';
 export type ExportOrderResponseDto = {
     OrderId: string;
     ItemCode: string;
-    SKU: string;
-    VariantName: string;
+    SKU?: string;
+    VariantName?: string;
     Domain: string;
     Quantity: number;
-    SupplierCost: number;
+    SupplierCost?: number;
     ItemStatus: FulfillmentStatus;
     LastUpdatedAt: string;
     PaidAt: string;
