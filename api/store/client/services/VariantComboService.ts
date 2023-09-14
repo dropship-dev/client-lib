@@ -2,12 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ProductCombo } from '../models/ProductCombo';
+import type { VariantCombo } from '../models/VariantCombo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ProductComboService {
+export class VariantComboService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
@@ -30,7 +30,7 @@ export class ProductComboService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<ProductCombo>;
+    data: Array<VariantCombo>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -54,7 +54,7 @@ export class ProductComboService {
   }
 
   /**
-   * @returns ProductCombo Ok
+   * @returns VariantCombo Ok
    * @throws ApiError
    */
   public getCombo({
@@ -65,7 +65,7 @@ export class ProductComboService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<ProductCombo> {
+  }): CancelablePromise<VariantCombo> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
