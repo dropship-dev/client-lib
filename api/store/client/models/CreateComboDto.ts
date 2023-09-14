@@ -5,7 +5,7 @@
 
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
-import type { PrismaJson_ProductComboItems } from './PrismaJson_ProductComboItems';
+import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
 
 export type CreateComboDto = {
   name: NameDto;
@@ -13,6 +13,6 @@ export type CreateComboDto = {
   compareAtPrice: number;
   SKU: string;
   photo: PhotoDto;
-  items: PrismaJson_ProductComboItems;
+  items: PrismaJson_VariantComboItems;
 };
 

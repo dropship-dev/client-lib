@@ -3,21 +3,21 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PrismaJson_ProductComboItems } from './PrismaJson_ProductComboItems';
+import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
 
 /**
- * Model ProductCombo
+ * Model VariantCombo
  */
-export type ProductCombo = {
+export type VariantCombo = {
   updatedAt: string;
   createdAt: string;
   productId: number;
   isEnable: boolean;
   isActive: boolean;
   /**
-   * [ProductComboItems]
+   * [VariantComboItems]
    */
-  items: PrismaJson_ProductComboItems;
+  items: PrismaJson_VariantComboItems;
   SKU: string;
   compareAtPrice: number;
   photo: string;
