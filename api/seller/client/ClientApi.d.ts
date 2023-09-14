@@ -1,6 +1,7 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AuthService } from './services/AuthService';
+import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
@@ -8,7 +9,6 @@ import { FbPixelService } from './services/FbPixelService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
-import { ProductComboService } from './services/ProductComboService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
@@ -20,9 +20,11 @@ import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
+import { VariantComboService } from './services/VariantComboService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly auth: AuthService;
+    readonly campaign: CampaignService;
     readonly collection: CollectionService;
     readonly currency: CurrencyService;
     readonly domain: DomainService;
@@ -30,7 +32,6 @@ export declare class ClientApi {
     readonly order: OrderService;
     readonly performance: PerformanceService;
     readonly product: ProductService;
-    readonly productCombo: ProductComboService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;
     readonly setting: SettingService;
@@ -42,6 +43,7 @@ export declare class ClientApi {
     readonly upload: UploadService;
     readonly user: UserService;
     readonly variant: VariantService;
+    readonly variantCombo: VariantComboService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }
