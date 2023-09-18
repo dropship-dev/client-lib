@@ -6,7 +6,7 @@
 export type CampaignDto = {
   label: string;
   startDate: string;
-  duaration?: string;
+  endDate?: string;
   status: boolean;
 };
 
