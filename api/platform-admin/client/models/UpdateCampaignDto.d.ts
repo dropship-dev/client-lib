@@ -3,7 +3,7 @@ export type UpdateCampaignDto = {
     id?: string;
     label?: string;
     startDate?: string;
-    duaration?: string | null;
+    endDate?: string | null;
     status?: boolean;
     discountDto?: Array<UpdateDiscountDto>;
 };

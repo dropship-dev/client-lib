@@ -7,7 +7,7 @@ export type Campaign = {
     userUpdated: string | null;
     userCreated: string | null;
     status: boolean;
-    duaration: string | null;
+    endDate: string | null;
     startDate: string;
     label: string;
     id: string;
