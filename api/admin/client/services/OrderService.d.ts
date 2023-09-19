@@ -9,6 +9,7 @@ import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
+import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class OrderService {
@@ -144,6 +145,7 @@ export declare class OrderService {
         total: number;
         data: Array<(Order & {
             OrderItem: Array<(OrderItem & {
+                VariantCombo: VariantCombo;
                 ProductVariant: (ProductVariant & {
                     Product: {
                         name: string;
