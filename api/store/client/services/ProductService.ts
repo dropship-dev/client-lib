@@ -49,6 +49,7 @@ export class ProductService {
     prePageIndex: number;
     total: number;
     data: Array<(Product & {
+      Campaign: Campaign;
       ProductVariant: Array<(ProductVariant & {
         PlatformVariant: {
           photo: string;

@@ -59,6 +59,7 @@ export class OrderService {
     storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    freeShipInfo: any;
     total: any;
     discountInfo: any;
     subTotal: any;
