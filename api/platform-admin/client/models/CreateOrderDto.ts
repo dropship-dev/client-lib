@@ -14,7 +14,7 @@ export type CreateOrderDto = {
   domain?: string;
   clientId?: string;
   payment: PaymentType;
-  orderItems: Array<OrderItemDto>;
+  orderItems?: Array<OrderItemDto>;
   comboItems?: Array<ComboItemDto>;
 };
 
