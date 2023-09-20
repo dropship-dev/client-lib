@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Campaign } from '../models/Campaign';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
@@ -69,10 +70,15 @@ export class OrderService {
     total: number;
     data: Array<(Order & {
       OrderItem: Array<(OrderItem & {
-        VariantCombo: VariantCombo;
+        VariantCombo: (VariantCombo & {
+          Product: {
+            Campaign: Campaign;
+          };
+        });
         ProductVariant: (ProductVariant & {
           Product: {
             name: string;
+            Campaign: Campaign;
           };
           PlatformVariant: {
             price: number;
