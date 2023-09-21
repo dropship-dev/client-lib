@@ -78,6 +78,9 @@ export class OrderService {
     total: number;
     data: Array<(Order & {
       OrderItem: Array<(OrderItem & {
+        VariantCombo: (VariantCombo & {
+          Product: Product;
+        });
         ProductVariant: (ProductVariant & {
           Product: Product;
           PlatformVariant: PlatformVariant;
