@@ -21,6 +21,7 @@ export type Order = {
     platformFee: number;
     profit: number;
     totalUSD: number;
+    subTotal: number;
     total: number;
     shippingFee: number;
     note: string | null;
