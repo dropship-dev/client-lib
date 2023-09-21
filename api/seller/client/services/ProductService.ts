@@ -53,6 +53,7 @@ export class ProductService {
     total: number;
     data: Array<(Product & {
       Campaign: Campaign;
+      VariantCombo: Array<VariantCombo>;
       ProductVariant: Array<(ProductVariant & {
         PlatformVariant: {
           photo: string;

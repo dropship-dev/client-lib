@@ -19,7 +19,9 @@ export type Order = {
   fulfillmentStatus: FulfillmentStatus;
   gatewayTransactionId: string | null;
   gatewayOrderId: string;
-  lastBalance: number | null;
+  lastBalance: number;
+  discount: number;
+  discountShippingFee: number;
   noItems: number;
   tax: number;
   platformFee: number;
