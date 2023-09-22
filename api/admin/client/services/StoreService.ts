@@ -37,7 +37,7 @@ export class StoreService {
     userId,
     revenueFrom,
     revenueTo,
-    paymentGatewayId,
+    paymentGatewayIds,
   }: {
     fulfillmentAgencyId?: number,
     /**
@@ -63,7 +63,7 @@ export class StoreService {
     userId?: string,
     revenueFrom?: number,
     revenueTo?: number,
-    paymentGatewayId?: number,
+    paymentGatewayIds?: Array<number>,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: (string | number);
@@ -87,7 +87,7 @@ export class StoreService {
         'userId': userId,
         'revenueFrom': revenueFrom,
         'revenueTo': revenueTo,
-        'paymentGatewayId': paymentGatewayId,
+        'paymentGatewayIds': paymentGatewayIds,
       },
       errors: {
         400: `Bad request`,
