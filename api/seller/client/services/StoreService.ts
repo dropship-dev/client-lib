@@ -49,6 +49,7 @@ export class StoreService {
    * @throws ApiError
    */
   public getAllStores({
+    fulfillmentAgencyId = 1,
     pageSize = 20,
     status,
     orderBy,
@@ -60,7 +61,9 @@ export class StoreService {
     userId,
     revenueFrom,
     revenueTo,
+    paymentGatewayId,
   }: {
+    fulfillmentAgencyId?: number,
     /**
      * number of stores to return
      */
@@ -84,6 +87,7 @@ export class StoreService {
     userId?: string,
     revenueFrom?: number,
     revenueTo?: number,
+    paymentGatewayId?: number,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: (string | number);
@@ -95,6 +99,7 @@ export class StoreService {
       method: 'GET',
       url: '/store',
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'pageSize': pageSize,
         'status': status,
         'orderBy': orderBy,
@@ -106,6 +111,7 @@ export class StoreService {
         'userId': userId,
         'revenueFrom': revenueFrom,
         'revenueTo': revenueTo,
+        'paymentGatewayId': paymentGatewayId,
       },
       errors: {
         400: `Bad request`,
