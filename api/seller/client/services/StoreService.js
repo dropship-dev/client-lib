@@ -29,11 +29,12 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, }) {
+    getAllStores({ fulfillmentAgencyId = 1, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
             query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'pageSize': pageSize,
                 'status': status,
                 'orderBy': orderBy,
@@ -45,6 +46,7 @@ class StoreService {
                 'userId': userId,
                 'revenueFrom': revenueFrom,
                 'revenueTo': revenueTo,
+                'paymentGatewayId': paymentGatewayId,
             },
             errors: {
                 400: `Bad request`,
