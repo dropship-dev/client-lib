@@ -147,7 +147,7 @@ class VariantService {
         });
     }
     /**
-     * @returns ProductVariant Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateVariantStatus({ storeId, productId, id, requestBody, }) {

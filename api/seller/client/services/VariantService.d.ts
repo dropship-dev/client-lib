@@ -75,7 +75,7 @@ export declare class VariantService {
         ids: Array<number>;
     }): CancelablePromise<string>;
     /**
-     * @returns ProductVariant Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateVariantStatus({ storeId, productId, id, requestBody, }: {
@@ -83,5 +83,5 @@ export declare class VariantService {
         productId: number;
         id: number;
         requestBody: UpdateVariantStatusDto;
-    }): CancelablePromise<ProductVariant>;
+    }): CancelablePromise<string>;
 }
