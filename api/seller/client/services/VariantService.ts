@@ -224,7 +224,7 @@ export class VariantService {
   }
 
   /**
-   * @returns ProductVariant Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public updateVariantStatus({
@@ -237,7 +237,7 @@ export class VariantService {
     productId: number,
     id: number,
     requestBody: UpdateVariantStatusDto,
-  }): CancelablePromise<ProductVariant> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/variant/{id}/status',
