@@ -15,6 +15,7 @@ export type OrderItem = {
   currencyId: number;
   orderId: string;
   productVariantId: number | null;
+  productId: number;
   tracking: string | null;
   status: FulfillmentStatus;
   platformPrice: number;
