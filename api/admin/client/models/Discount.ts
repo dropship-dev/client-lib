@@ -10,9 +10,9 @@ import type { PrismaJson_ProductRequirementItems } from './PrismaJson_ProductReq
  * Model Discount
  */
 export type Discount = {
-  campaignId: string | null;
   updatedAt: string;
   createdAt: string;
+  campaignId: string | null;
   userUpdated: string | null;
   userCreated: string | null;
   /**
