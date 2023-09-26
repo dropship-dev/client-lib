@@ -3,11 +3,11 @@ import type { FulfillmentStatus } from './FulfillmentStatus';
  * Model OrderItem
  */
 export type OrderItem = {
-    variantComboId: number | null;
     updatedAt: string;
     createdAt: string;
     currencyId: number;
     orderId: string;
+    variantComboId: number | null;
     productVariantId: number | null;
     productId: number;
     tracking: string | null;
