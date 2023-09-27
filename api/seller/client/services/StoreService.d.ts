@@ -94,9 +94,10 @@ export declare class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ storeId, requestBody, }: {
+    updateStoreStatus({ storeId, requestBody, fulfillmentAgencyId, }: {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<Store>;
     /**
      * @returns any Ok

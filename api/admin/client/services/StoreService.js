@@ -42,10 +42,13 @@ class StoreService {
      * @returns string Ok
      * @throws ApiError
      */
-    addProductToStores({ requestBody, }) {
+    addProductToStores({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/product',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -81,12 +84,15 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ storeId, requestBody, }) {
+    updateStoreStatus({ storeId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -103,13 +109,18 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    approveStore({ storeId, }) {
+    approveStore({ storeId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status/approve',
             path: {
                 'storeId': storeId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

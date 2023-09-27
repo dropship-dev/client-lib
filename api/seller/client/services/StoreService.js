@@ -123,12 +123,15 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ storeId, requestBody, }) {
+    updateStoreStatus({ storeId, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
