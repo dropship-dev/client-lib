@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
+import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Store } from '../models/Store';
@@ -105,12 +106,17 @@ export class StoreService {
    */
   public addProductToStores({
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     requestBody: AddPlatformProductStoresDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -166,15 +172,20 @@ export class StoreService {
   public updateStoreStatus({
     storeId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     storeId: string,
     requestBody: UpdateStoreStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -194,8 +205,12 @@ export class StoreService {
    */
   public approveStore({
     storeId,
+    requestBody,
+    fulfillmentAgencyId = 1,
   }: {
     storeId: string,
+    requestBody: ApproveStoreDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
@@ -203,6 +218,11 @@ export class StoreService {
       path: {
         'storeId': storeId,
       },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
