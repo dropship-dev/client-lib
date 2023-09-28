@@ -86,7 +86,7 @@ export class OrderService {
           PlatformVariant: PlatformVariant;
         });
       })>;
-      Transaction: Transaction;
+      Transaction: Array<Transaction>;
       Store: Store;
     })>;
   }> {
@@ -215,7 +215,7 @@ export class OrderService {
         PlatformVariant: PlatformVariant;
       });
     })>;
-    Transaction: Transaction;
+    Transaction: Array<Transaction>;
     Store: Store;
   })> {
     return this.httpRequest.request({
@@ -304,7 +304,7 @@ export class OrderService {
           };
         });
       })>;
-      Transaction: Transaction;
+      Transaction: Array<Transaction>;
       Store: Store;
     })>;
   }> {

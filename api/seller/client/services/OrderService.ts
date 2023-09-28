@@ -87,7 +87,7 @@ export class OrderService {
           };
         });
       })>;
-      Transaction: Transaction;
+      Transaction: Array<Transaction>;
       Store: Store;
     })>;
   }> {
@@ -140,7 +140,7 @@ export class OrderService {
         };
       };
     })>;
-    Transaction: Transaction;
+    Transaction: Array<Transaction>;
     Payment: {
       type: PaymentType;
     };
