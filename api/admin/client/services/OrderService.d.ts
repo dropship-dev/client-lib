@@ -66,7 +66,7 @@ export declare class OrderService {
                     PlatformVariant: PlatformVariant;
                 });
             })>;
-            Transaction: Transaction;
+            Transaction: Array<Transaction>;
             Store: Store;
         })>;
     }>;
@@ -108,7 +108,7 @@ export declare class OrderService {
                 PlatformVariant: PlatformVariant;
             });
         })>;
-        Transaction: Transaction;
+        Transaction: Array<Transaction>;
         Store: Store;
     })>;
     /**
@@ -166,7 +166,7 @@ export declare class OrderService {
                     };
                 });
             })>;
-            Transaction: Transaction;
+            Transaction: Array<Transaction>;
             Store: Store;
         })>;
     }>;
