@@ -1,3 +1,4 @@
+import type { ChangeUserPasswordDto } from '../models/ChangeUserPasswordDto';
 import type { UpdateUserDto } from '../models/UpdateUserDto';
 import type { User } from '../models/User';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -22,6 +23,13 @@ export declare class UserService {
      * @throws ApiError
      */
     deleteUser(): CancelablePromise<User>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    changeUserPassword({ requestBody, }: {
+        requestBody: ChangeUserPasswordDto;
+    }): CancelablePromise<string>;
     /**
      * @returns User Ok
      * @throws ApiError

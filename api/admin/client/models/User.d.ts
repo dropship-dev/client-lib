@@ -5,6 +5,7 @@ import type { UserRole } from './UserRole';
 export type User = {
     updatedAt: string;
     createdAt: string;
+    firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
     shortId: string;

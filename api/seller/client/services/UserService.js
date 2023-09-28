@@ -59,5 +59,24 @@ class UserService {
             },
         });
     }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    changeUserPassword({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/user/password',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.UserService = UserService;
