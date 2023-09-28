@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderService = exports.CurrencyService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -52,6 +52,8 @@ var AuthService_1 = require("./services/AuthService");
 Object.defineProperty(exports, "AuthService", { enumerable: true, get: function () { return AuthService_1.AuthService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
 Object.defineProperty(exports, "CurrencyService", { enumerable: true, get: function () { return CurrencyService_1.CurrencyService; } });
+var FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+Object.defineProperty(exports, "FulfillmentAgencyService", { enumerable: true, get: function () { return FulfillmentAgencyService_1.FulfillmentAgencyService; } });
 var OrderService_1 = require("./services/OrderService");
 Object.defineProperty(exports, "OrderService", { enumerable: true, get: function () { return OrderService_1.OrderService; } });
 var PaymentService_1 = require("./services/PaymentService");
