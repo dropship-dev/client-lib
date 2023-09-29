@@ -4,7 +4,7 @@
 export type AdminTag = {
     updatedAt: string;
     createdAt: string;
-    fulfillmentAgencyId: number | null;
+    fulfillmentAgencyId: number;
     name: string;
     id: number;
 };

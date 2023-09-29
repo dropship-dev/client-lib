@@ -29,7 +29,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId = 1, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }) {
+    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -123,7 +123,7 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ storeId, requestBody, fulfillmentAgencyId = 1, }) {
+    updateStoreStatus({ fulfillmentAgencyId, storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status',
