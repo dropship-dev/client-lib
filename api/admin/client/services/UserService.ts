@@ -3,6 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ChangeUserPasswordDto } from '../models/ChangeUserPasswordDto';
+import type { FulfillmentAgency } from '../models/FulfillmentAgency';
+import type { FulfillmentUser } from '../models/FulfillmentUser';
 import type { UpdateUserDto } from '../models/UpdateUserDto';
 import type { User } from '../models/User';
 
@@ -14,10 +16,14 @@ export class UserService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns User Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public getUser(): CancelablePromise<User> {
+  public getUser(): CancelablePromise<(User & {
+    FulfillmentUser: Array<(FulfillmentUser & {
+      FulfillmentAgency: FulfillmentAgency;
+    })>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/user',
@@ -32,14 +38,18 @@ export class UserService {
   }
 
   /**
-   * @returns User Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateUser({
     requestBody,
   }: {
     requestBody: UpdateUserDto,
-  }): CancelablePromise<User> {
+  }): CancelablePromise<(User & {
+    FulfillmentUser: Array<(FulfillmentUser & {
+      FulfillmentAgency: FulfillmentAgency;
+    })>;
+  })> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/user',
@@ -74,14 +84,18 @@ export class UserService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public changeUserPassword({
     requestBody,
   }: {
     requestBody: ChangeUserPasswordDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<(User & {
+    FulfillmentUser: Array<(FulfillmentUser & {
+      FulfillmentAgency: FulfillmentAgency;
+    })>;
+  })> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/user/password',
@@ -98,14 +112,18 @@ export class UserService {
   }
 
   /**
-   * @returns User Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getUserById({
     id,
   }: {
     id: string,
-  }): CancelablePromise<User> {
+  }): CancelablePromise<(User & {
+    FulfillmentUser: Array<(FulfillmentUser & {
+      FulfillmentAgency: FulfillmentAgency;
+    })>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/user/{id}',
@@ -123,7 +141,7 @@ export class UserService {
   }
 
   /**
-   * @returns User Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateUserById({
@@ -132,7 +150,11 @@ export class UserService {
   }: {
     id: string,
     requestBody: UpdateUserDto,
-  }): CancelablePromise<User> {
+  }): CancelablePromise<(User & {
+    FulfillmentUser: Array<(FulfillmentUser & {
+      FulfillmentAgency: FulfillmentAgency;
+    })>;
+  })> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/user/{id}',
