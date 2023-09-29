@@ -84,18 +84,14 @@ export class UserService {
   }
 
   /**
-   * @returns any Ok
+   * @returns User Ok
    * @throws ApiError
    */
   public changeUserPassword({
     requestBody,
   }: {
     requestBody: ChangeUserPasswordDto,
-  }): CancelablePromise<(User & {
-    FulfillmentUser: Array<(FulfillmentUser & {
-      FulfillmentAgency: FulfillmentAgency;
-    })>;
-  })> {
+  }): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/user/password',
