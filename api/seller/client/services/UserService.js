@@ -60,7 +60,7 @@ class UserService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns User Ok
      * @throws ApiError
      */
     changeUserPassword({ requestBody, }) {

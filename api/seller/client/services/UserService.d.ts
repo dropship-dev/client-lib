@@ -34,14 +34,10 @@ export declare class UserService {
      */
     deleteUser(): CancelablePromise<User>;
     /**
-     * @returns any Ok
+     * @returns User Ok
      * @throws ApiError
      */
     changeUserPassword({ requestBody, }: {
         requestBody: ChangeUserPasswordDto;
-    }): CancelablePromise<(User & {
-        FulfillmentUser: Array<(FulfillmentUser & {
-            FulfillmentAgency: FulfillmentAgency;
-        })>;
-    })>;
+    }): CancelablePromise<User>;
 }
