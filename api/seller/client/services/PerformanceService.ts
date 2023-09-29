@@ -7,7 +7,6 @@ import type { ProductPerformance } from '../models/ProductPerformance';
 import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
-import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -26,7 +25,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -63,7 +62,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -107,7 +106,7 @@ export class PerformanceService {
     storeId,
     limit = 10,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -134,40 +133,6 @@ export class PerformanceService {
   }
 
   /**
-   * @returns TopStoreByRevenue Ok
-   * @throws ApiError
-   */
-  public getTopStoresByRevenue({
-    fulfillmentAgencyId,
-    startDate = '2023-01-01T00:00:00.000Z',
-    endDate,
-    limit = 10,
-  }: {
-    fulfillmentAgencyId: number,
-    startDate?: string,
-    endDate?: string,
-    limit?: number,
-  }): CancelablePromise<Array<TopStoreByRevenue>> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/performance/top-store-by-revenue',
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'startDate': startDate,
-        'endDate': endDate,
-        'limit': limit,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
    * @returns any Ok
    * @throws ApiError
    */
@@ -177,7 +142,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -233,7 +198,7 @@ export class PerformanceService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -283,7 +248,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,

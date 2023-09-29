@@ -40,7 +40,7 @@ export class StoreService {
     revenueTo,
     paymentGatewayIds,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     /**
      * number of stores to return
      */
@@ -170,11 +170,9 @@ export class StoreService {
    * @throws ApiError
    */
   public updateStoreStatus({
-    fulfillmentAgencyId,
     storeId,
     requestBody,
   }: {
-    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: UpdateStoreStatusDto,
   }): CancelablePromise<Store> {
@@ -183,9 +181,6 @@ export class StoreService {
       url: '/store/{storeId}/status',
       path: {
         'storeId': storeId,
-      },
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -204,11 +199,9 @@ export class StoreService {
    * @throws ApiError
    */
   public approveStore({
-    fulfillmentAgencyId,
     storeId,
     requestBody,
   }: {
-    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: ApproveStoreDto,
   }): CancelablePromise<Store> {
@@ -217,9 +210,6 @@ export class StoreService {
       url: '/store/{storeId}/status/approve',
       path: {
         'storeId': storeId,
-      },
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',

@@ -20,7 +20,7 @@ export class SettingService {
     fulfillmentAgencyId,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<Setting> {
     return this.httpRequest.request({

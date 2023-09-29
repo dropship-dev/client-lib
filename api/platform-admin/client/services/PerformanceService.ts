@@ -26,7 +26,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -63,7 +63,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -107,7 +107,7 @@ export class PerformanceService {
     storeId,
     limit = 10,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -177,7 +177,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -233,7 +233,7 @@ export class PerformanceService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
@@ -283,7 +283,7 @@ export class PerformanceService {
     endDate,
     storeId,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
