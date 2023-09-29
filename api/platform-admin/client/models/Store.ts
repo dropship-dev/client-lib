@@ -13,7 +13,7 @@ export type Store = {
   updatedAt: string;
   createdAt: string;
   currencyId: number;
-  fulfillmentAgencyId: number | null;
+  fulfillmentAgencyId: number;
   maxUsers: number;
   balance: number;
   shippingPolicy: string | null;

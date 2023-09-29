@@ -49,7 +49,7 @@ export class StoreService {
    * @throws ApiError
    */
   public getAllStores({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     pageSize = 20,
     status,
     orderBy,
@@ -63,7 +63,7 @@ export class StoreService {
     revenueTo,
     paymentGatewayIds,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
     /**
      * number of stores to return
      */
@@ -218,13 +218,13 @@ export class StoreService {
    * @throws ApiError
    */
   public updateStoreStatus({
+    fulfillmentAgencyId,
     storeId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: UpdateStoreStatusDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
