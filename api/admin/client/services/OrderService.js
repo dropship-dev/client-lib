@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ pageSize = 20, fulfillmentAgencyId = 1, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
@@ -41,7 +41,7 @@ class OrderService {
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
-    exportAllOrders({ fulfillmentAgencyId = 1, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    exportAllOrders({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order/export',
@@ -70,7 +70,7 @@ class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId = 1, }) {
+    updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/order/fulfillmentStatus',
@@ -92,7 +92,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getOrder({ id, fulfillmentAgencyId = 1, }) {
+    getOrder({ fulfillmentAgencyId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order/{id}',

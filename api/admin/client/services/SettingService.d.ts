@@ -10,15 +10,15 @@ export declare class SettingService {
      * @throws ApiError
      */
     getSetting({ fulfillmentAgencyId, storeId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         storeId?: string;
     }): CancelablePromise<Setting>;
     /**
      * @returns Setting Ok
      * @throws ApiError
      */
-    updateSetting({ requestBody, fulfillmentAgencyId, }: {
+    updateSetting({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
         requestBody: UpdateSettingDto;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<Setting>;
 }

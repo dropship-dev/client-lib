@@ -10,7 +10,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    createPlatformProduct({ requestBody, fulfillmentAgencyId = 1, }) {
+    createPlatformProduct({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/platform-product',
@@ -32,7 +32,7 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId = 1, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product',
@@ -59,7 +59,7 @@ class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformProducts({ ids, fulfillmentAgencyId = 1, }) {
+    deletePlatformProducts({ fulfillmentAgencyId, ids, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product',
@@ -80,7 +80,7 @@ class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformProductStatuses({ requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformProductStatuses({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/status',
@@ -102,7 +102,7 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPlatformProduct({ platformProductId, fulfillmentAgencyId = 1, }) {
+    getPlatformProduct({ fulfillmentAgencyId, platformProductId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}',
@@ -125,7 +125,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProduct({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformProduct({ fulfillmentAgencyId, platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}',
@@ -150,7 +150,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProduct({ platformProductId, fulfillmentAgencyId = 1, }) {
+    deletePlatformProduct({ fulfillmentAgencyId, platformProductId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}',
@@ -173,7 +173,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProductStatus({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformProductStatus({ fulfillmentAgencyId, platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/status',
@@ -198,7 +198,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    addPlatformProductTag({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
+    addPlatformProductTag({ fulfillmentAgencyId, platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/tag',
@@ -223,7 +223,7 @@ class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProductTag({ platformProductId, tagId, fulfillmentAgencyId = 1, }) {
+    deletePlatformProductTag({ fulfillmentAgencyId, platformProductId, tagId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/tag/{tagId}',
@@ -247,7 +247,7 @@ class PlatformProductService {
      * @returns PlatformProductStore Ok
      * @throws ApiError
      */
-    getPlatformProductStore({ platformProductId, fulfillmentAgencyId = 1, }) {
+    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}/store',

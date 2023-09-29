@@ -14,7 +14,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -27,7 +27,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getCrOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -46,7 +46,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getTopProductsByOrders({ fulfillmentAgencyId, startDate, endDate, storeId, limit, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -57,7 +57,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getTopStoresByRevenue({ fulfillmentAgencyId, startDate, endDate, limit, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         limit?: number;
@@ -67,7 +67,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getPerformanceSummary({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -94,7 +94,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, productName, orderBy, order, pageSize, nextPageIndex, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
@@ -115,7 +115,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;

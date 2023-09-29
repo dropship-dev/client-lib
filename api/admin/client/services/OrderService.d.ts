@@ -20,12 +20,12 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ pageSize, fulfillmentAgencyId, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
-        pageSize?: number;
+    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
         /**
          * filter by fulfillment agency ID.
          */
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
+        pageSize?: number;
         nextPageIndex?: string;
         /**
          * filter by store ID
@@ -75,7 +75,7 @@ export declare class OrderService {
      * @throws ApiError
      */
     exportAllOrders({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         storeId?: string;
         paymentStatus?: TransactionStatus;
         fulfillmentStatus?: Array<FulfillmentStatus>;
@@ -90,17 +90,17 @@ export declare class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId, }: {
+    updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
         requestBody: UpdateFulFillmentStatusDto;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getOrder({ id, fulfillmentAgencyId, }: {
+    getOrder({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
         id: string;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<(Order & {
         OrderItem: Array<(OrderItem & {
             ProductVariant: (ProductVariant & {
