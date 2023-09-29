@@ -7,7 +7,7 @@ class UserService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getUser() {
@@ -24,7 +24,7 @@ class UserService {
         });
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateUser({ requestBody, }) {
@@ -60,7 +60,7 @@ class UserService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     changeUserPassword({ requestBody, }) {
@@ -79,7 +79,7 @@ class UserService {
         });
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getUserById({ id, }) {
@@ -99,7 +99,7 @@ class UserService {
         });
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateUserById({ id, requestBody, }) {
