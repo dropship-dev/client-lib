@@ -19,7 +19,7 @@ export declare class StoreService {
      * @throws ApiError
      */
     getAllStores({ fulfillmentAgencyId, pageSize, status, orderBy, order, periodFrom, periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }: {
-        fulfillmentAgencyId: number;
+        fulfillmentAgencyId?: number;
         /**
          * number of stores to return
          */
@@ -81,8 +81,7 @@ export declare class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ fulfillmentAgencyId, storeId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updateStoreStatus({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
     }): CancelablePromise<Store>;
@@ -90,8 +89,7 @@ export declare class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    approveStore({ fulfillmentAgencyId, storeId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    approveStore({ storeId, requestBody, }: {
         storeId: string;
         requestBody: ApproveStoreDto;
     }): CancelablePromise<Store>;

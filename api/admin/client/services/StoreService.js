@@ -84,15 +84,12 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStoreStatus({ fulfillmentAgencyId, storeId, requestBody, }) {
+    updateStoreStatus({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status',
             path: {
                 'storeId': storeId,
-            },
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -109,15 +106,12 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    approveStore({ fulfillmentAgencyId, storeId, requestBody, }) {
+    approveStore({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status/approve',
             path: {
                 'storeId': storeId,
-            },
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
