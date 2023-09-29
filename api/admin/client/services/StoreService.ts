@@ -26,12 +26,12 @@ export class StoreService {
    * @throws ApiError
    */
   public getAllStores({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     pageSize = 20,
     status,
     orderBy,
     order,
-    periodFrom = '2023-01-01T00:00:00.000Z',
+    periodFrom = '2022-12-31T17:00:00.000Z',
     periodTo,
     nextPageIndex,
     name,
@@ -40,7 +40,7 @@ export class StoreService {
     revenueTo,
     paymentGatewayIds,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
     /**
      * number of stores to return
      */
@@ -105,11 +105,11 @@ export class StoreService {
    * @throws ApiError
    */
   public addProductToStores({
+    fulfillmentAgencyId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
@@ -170,13 +170,13 @@ export class StoreService {
    * @throws ApiError
    */
   public updateStoreStatus({
+    fulfillmentAgencyId,
     storeId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: UpdateStoreStatusDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
@@ -204,13 +204,13 @@ export class StoreService {
    * @throws ApiError
    */
   public approveStore({
+    fulfillmentAgencyId,
     storeId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: ApproveStoreDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',

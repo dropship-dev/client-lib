@@ -26,11 +26,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public createPlatformProduct({
+    fulfillmentAgencyId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: CreatePlatformProductDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'POST',
@@ -55,7 +55,7 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public getAllPlatformProduct({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     pageSize = 20,
     nextPageIndex,
     name,
@@ -64,7 +64,7 @@ export class PlatformProductService {
     startPrice,
     endPrice,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
     pageSize?: number,
     nextPageIndex?: number,
     name?: string,
@@ -127,11 +127,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public deletePlatformProducts({
+    fulfillmentAgencyId,
     ids,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     ids: Array<number>,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -155,11 +155,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public updatePlatformProductStatuses({
+    fulfillmentAgencyId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: UpdatePlatformProductStatusesDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -184,11 +184,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public getPlatformProduct({
+    fulfillmentAgencyId,
     platformProductId,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<(PlatformProduct & {
     Tag: Array<AdminTag>;
     PlatformVariant: Array<PlatformVariant>;
@@ -217,13 +217,13 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public updatePlatformProduct({
+    fulfillmentAgencyId,
     platformProductId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -251,11 +251,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public deletePlatformProduct({
+    fulfillmentAgencyId,
     platformProductId,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -281,13 +281,13 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public updatePlatformProductStatus({
+    fulfillmentAgencyId,
     platformProductId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -315,13 +315,13 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public addPlatformProductTag({
+    fulfillmentAgencyId,
     platformProductId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -349,13 +349,13 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public deletePlatformProductTag({
+    fulfillmentAgencyId,
     platformProductId,
     tagId,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
     tagId: string,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformProduct> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -382,11 +382,11 @@ export class PlatformProductService {
    * @throws ApiError
    */
   public getPlatformProductStore({
+    fulfillmentAgencyId,
     platformProductId,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     platformProductId: number,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Array<PlatformProductStore>> {
     return this.httpRequest.request({
       method: 'GET',
