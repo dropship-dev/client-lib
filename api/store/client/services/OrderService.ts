@@ -150,9 +150,9 @@ export class OrderService {
         };
       });
     })>;
-    Transaction: {
+    Transaction: Array<{
       status: TransactionStatus;
-    };
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

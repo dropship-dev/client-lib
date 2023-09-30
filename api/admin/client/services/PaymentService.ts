@@ -21,11 +21,11 @@ export class PaymentService {
    * @throws ApiError
    */
   public createPayment({
+    fulfillmentAgencyId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: CreatePaymentDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'POST',
@@ -50,9 +50,9 @@ export class PaymentService {
    * @throws ApiError
    */
   public getAllPayment({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
     publishableKey: string;
     type: PaymentType;
@@ -92,11 +92,11 @@ export class PaymentService {
    * @throws ApiError
    */
   public getPayment({
+    fulfillmentAgencyId,
     id,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     id: number,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<{
     publishableKey: string;
     type: PaymentType;
@@ -139,13 +139,13 @@ export class PaymentService {
    * @throws ApiError
    */
   public updatePayment({
+    fulfillmentAgencyId,
     id,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     id: number,
     requestBody: UpdatePaymentDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -173,11 +173,11 @@ export class PaymentService {
    * @throws ApiError
    */
   public getPaymentStores({
+    fulfillmentAgencyId,
     id,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     id: number,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<{
     Store: Array<{
       primaryDomain: string;
@@ -211,13 +211,13 @@ export class PaymentService {
    * @throws ApiError
    */
   public addPaymentToStores({
+    fulfillmentAgencyId,
     id,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     id: number,
     requestBody: AddPaymentToStores,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',

@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
+import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Store } from '../models/Store';
@@ -25,7 +26,7 @@ export class StoreService {
    * @throws ApiError
    */
   public getAllStores({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     pageSize = 20,
     status,
     orderBy,
@@ -104,13 +105,18 @@ export class StoreService {
    * @throws ApiError
    */
   public addProductToStores({
+    fulfillmentAgencyId,
     requestBody,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -193,9 +199,13 @@ export class StoreService {
    * @throws ApiError
    */
   public approveStore({
+    fulfillmentAgencyId,
     storeId,
+    requestBody,
   }: {
+    fulfillmentAgencyId: number,
     storeId: string,
+    requestBody: ApproveStoreDto,
   }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'POST',
@@ -203,6 +213,11 @@ export class StoreService {
       path: {
         'storeId': storeId,
       },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -218,9 +233,11 @@ export class StoreService {
    * @throws ApiError
    */
   public updateStorePaymentMethod({
+    fulfillmentAgencyId,
     storeId,
     requestBody,
   }: {
+    fulfillmentAgencyId: number,
     storeId: string,
     requestBody: UpdateStorePaymentMethodDto,
   }): CancelablePromise<Store> {
@@ -229,6 +246,9 @@ export class StoreService {
       url: '/store/{storeId}/payment-method',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',

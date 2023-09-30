@@ -12,6 +12,7 @@ import type { PrismaJson_ProductRequirementItems } from './PrismaJson_ProductReq
 export type Discount = {
   updatedAt: string;
   createdAt: string;
+  position: number | null;
   campaignId: string | null;
   userUpdated: string | null;
   userCreated: string | null;

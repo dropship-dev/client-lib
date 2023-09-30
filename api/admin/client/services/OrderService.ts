@@ -28,8 +28,8 @@ export class OrderService {
    * @throws ApiError
    */
   public getAllOrders({
+    fulfillmentAgencyId,
     pageSize = 20,
-    fulfillmentAgencyId = 1,
     nextPageIndex,
     storeId,
     paymentStatus,
@@ -41,11 +41,11 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
-    pageSize?: number,
     /**
      * filter by fulfillment agency ID.
      */
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
+    pageSize?: number,
     nextPageIndex?: string,
     /**
      * filter by store ID
@@ -86,7 +86,7 @@ export class OrderService {
           PlatformVariant: PlatformVariant;
         });
       })>;
-      Transaction: Transaction;
+      Transaction: Array<Transaction>;
       Store: Store;
     })>;
   }> {
@@ -122,7 +122,7 @@ export class OrderService {
    * @throws ApiError
    */
   public exportAllOrders({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     storeId,
     paymentStatus,
     fulfillmentStatus,
@@ -133,7 +133,7 @@ export class OrderService {
     startTotal,
     endTotal,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
     storeId?: string,
     paymentStatus?: TransactionStatus,
     fulfillmentStatus?: Array<FulfillmentStatus>,
@@ -174,11 +174,11 @@ export class OrderService {
    * @throws ApiError
    */
   public updateFulfillmentStatus({
+    fulfillmentAgencyId,
     requestBody,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: UpdateFulFillmentStatusDto,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -203,11 +203,11 @@ export class OrderService {
    * @throws ApiError
    */
   public getOrder({
+    fulfillmentAgencyId,
     id,
-    fulfillmentAgencyId = 1,
   }: {
+    fulfillmentAgencyId: number,
     id: string,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<(Order & {
     OrderItem: Array<(OrderItem & {
       ProductVariant: (ProductVariant & {
@@ -215,7 +215,7 @@ export class OrderService {
         PlatformVariant: PlatformVariant;
       });
     })>;
-    Transaction: Transaction;
+    Transaction: Array<Transaction>;
     Store: Store;
   })> {
     return this.httpRequest.request({
@@ -304,7 +304,7 @@ export class OrderService {
           };
         });
       })>;
-      Transaction: Transaction;
+      Transaction: Array<Transaction>;
       Store: Store;
     })>;
   }> {

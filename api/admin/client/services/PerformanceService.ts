@@ -21,7 +21,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getRevenueOverTime({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -58,7 +58,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getCrOverTime({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -101,7 +101,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getTopProductsByOrders({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -138,12 +138,12 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getTopStoresByRevenue({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     limit = 10,
   }: {
-    fulfillmentAgencyId?: number,
+    fulfillmentAgencyId: number,
     startDate?: string,
     endDate?: string,
     limit?: number,
@@ -172,7 +172,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getPerformanceSummary({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -223,7 +223,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getProductPerformance({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
@@ -278,7 +278,7 @@ export class PerformanceService {
    * @throws ApiError
    */
   public getStoreProductPerformance({
-    fulfillmentAgencyId = 1,
+    fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
