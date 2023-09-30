@@ -44,11 +44,11 @@ export class SettingService {
    * @throws ApiError
    */
   public updateSetting({
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     requestBody: UpdateSettingDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<Setting> {
     return this.httpRequest.request({
       method: 'PATCH',

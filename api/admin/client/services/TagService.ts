@@ -17,11 +17,11 @@ export class TagService {
    * @throws ApiError
    */
   public createTag({
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     requestBody: CreateTagDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'POST',
@@ -46,11 +46,11 @@ export class TagService {
    * @throws ApiError
    */
   public getTags({
-    fulfillmentAgencyId,
+    fulfillmentAgencyId = 1,
     search,
     limit = 10,
   }: {
-    fulfillmentAgencyId: number,
+    fulfillmentAgencyId?: number,
     search?: string,
     limit?: number,
   }): CancelablePromise<Array<AdminTag>> {
@@ -77,11 +77,11 @@ export class TagService {
    * @throws ApiError
    */
   public getTag({
-    fulfillmentAgencyId,
     id,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     id: string,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'GET',

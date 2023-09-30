@@ -21,13 +21,13 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public createPlatformVariants({
-    fulfillmentAgencyId,
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: CreatePlatformVariantsDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<BatchPayload> {
     return this.httpRequest.request({
       method: 'POST',
@@ -55,13 +55,13 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public updatePlatformVariants({
-    fulfillmentAgencyId,
     platformProductId,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: UpdatePlatformVariantsDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -89,13 +89,13 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public deletePlatformVariants({
-    fulfillmentAgencyId,
     platformProductId,
     ids,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     ids: Array<number>,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -122,13 +122,13 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public getPlatformVariant({
-    fulfillmentAgencyId,
     platformProductId,
     id,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'GET',
@@ -155,15 +155,15 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public updatePlatformVariant({
-    fulfillmentAgencyId,
     platformProductId,
     id,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -192,13 +192,13 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public deletePlatformVariant({
-    fulfillmentAgencyId,
     platformProductId,
     id,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -225,15 +225,15 @@ export class PlatformVariantService {
    * @throws ApiError
    */
   public updatePlatformVariantStatus({
-    fulfillmentAgencyId,
     platformProductId,
     id,
     requestBody,
+    fulfillmentAgencyId = 1,
   }: {
-    fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<PlatformVariant> {
     return this.httpRequest.request({
       method: 'PATCH',

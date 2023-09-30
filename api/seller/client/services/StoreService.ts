@@ -49,7 +49,7 @@ export class StoreService {
    * @throws ApiError
    */
   public getAllStores({
-    fulfillmentAgencyId,
+    fulfillmentAgencyId = 1,
     pageSize = 20,
     status,
     orderBy,

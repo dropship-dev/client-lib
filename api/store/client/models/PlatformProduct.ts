@@ -12,7 +12,7 @@ import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type PlatformProduct = {
   updatedAt: string;
   createdAt: string;
-  fulfillmentAgencyId: number;
+  fulfillmentAgencyId: number | null;
   isEnable: boolean;
   isActive: boolean;
   supplierContact: string;

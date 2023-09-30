@@ -8,7 +8,6 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
-import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { OrderService } from './services/OrderService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
@@ -33,7 +32,6 @@ export class ClientApi {
 
   public readonly auth: AuthService;
   public readonly currency: CurrencyService;
-  public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly order: OrderService;
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
@@ -69,7 +67,6 @@ export class ClientApi {
 
     this.auth = new AuthService(this.request);
     this.currency = new CurrencyService(this.request);
-    this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.order = new OrderService(this.request);
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);

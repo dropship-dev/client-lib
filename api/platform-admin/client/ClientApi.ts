@@ -6,7 +6,6 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
-import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { PerformanceService } from './services/PerformanceService';
 import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { UploadService } from './services/UploadService';
@@ -15,7 +14,6 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
-  public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly performance: PerformanceService;
   public readonly themeTemplate: ThemeTemplateService;
   public readonly upload: UploadService;
@@ -35,7 +33,6 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
 
-    this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.performance = new PerformanceService(this.request);
     this.themeTemplate = new ThemeTemplateService(this.request);
     this.upload = new UploadService(this.request);

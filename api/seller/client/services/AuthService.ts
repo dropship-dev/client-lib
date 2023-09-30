@@ -2,8 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentUser } from '../models/FulfillmentUser';
 import type { LoginDto } from '../models/LoginDto';
 import type { User } from '../models/User';
 
@@ -15,18 +13,14 @@ export class AuthService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns User Ok
    * @throws ApiError
    */
   public login({
     requestBody,
   }: {
     requestBody: LoginDto,
-  }): CancelablePromise<(User & {
-    FulfillmentUser: Array<(FulfillmentUser & {
-      FulfillmentAgency: FulfillmentAgency;
-    })>;
-  })> {
+  }): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/auth/login',
