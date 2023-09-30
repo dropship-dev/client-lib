@@ -8,6 +8,7 @@ const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const DomainService_1 = require("./services/DomainService");
 const FbPixelService_1 = require("./services/FbPixelService");
+const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const ProductService_1 = require("./services/ProductService");
@@ -30,6 +31,7 @@ class ClientApi {
     currency;
     domain;
     fbPixel;
+    notification;
     order;
     performance;
     product;
@@ -64,6 +66,7 @@ class ClientApi {
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.domain = new DomainService_1.DomainService(this.request);
         this.fbPixel = new FbPixelService_1.FbPixelService(this.request);
+        this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.product = new ProductService_1.ProductService(this.request);

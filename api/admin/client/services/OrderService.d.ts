@@ -6,6 +6,7 @@ import type { OrderItem } from '../models/OrderItem';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
@@ -111,6 +112,15 @@ export declare class OrderService {
         Transaction: Array<Transaction>;
         Store: Store;
     })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    refundOrder({ orderId, requestBody, fulfillmentAgencyId, }: {
+        orderId: string;
+        requestBody: RefundOrderDto;
+        fulfillmentAgencyId?: number;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

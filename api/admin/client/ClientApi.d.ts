@@ -3,6 +3,7 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
@@ -25,6 +26,7 @@ export declare class ClientApi {
     readonly auth: AuthService;
     readonly currency: CurrencyService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
+    readonly notification: NotificationService;
     readonly order: OrderService;
     readonly payment: PaymentService;
     readonly performance: PerformanceService;
