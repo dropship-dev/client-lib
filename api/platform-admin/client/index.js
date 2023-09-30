@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.LogoSize = exports.FulfillmentStatus = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.FulfillmentAgencyService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -18,10 +18,16 @@ var OpenAPI_1 = require("./core/OpenAPI");
 Object.defineProperty(exports, "OpenAPI", { enumerable: true, get: function () { return OpenAPI_1.OpenAPI; } });
 var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
+var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
+Object.defineProperty(exports, "FulfillmentAgencyRole", { enumerable: true, get: function () { return FulfillmentAgencyRole_1.FulfillmentAgencyRole; } });
 var FulfillmentStatus_1 = require("./models/FulfillmentStatus");
 Object.defineProperty(exports, "FulfillmentStatus", { enumerable: true, get: function () { return FulfillmentStatus_1.FulfillmentStatus; } });
 var LogoSize_1 = require("./models/LogoSize");
 Object.defineProperty(exports, "LogoSize", { enumerable: true, get: function () { return LogoSize_1.LogoSize; } });
+var OrderDisputeStatus_1 = require("./models/OrderDisputeStatus");
+Object.defineProperty(exports, "OrderDisputeStatus", { enumerable: true, get: function () { return OrderDisputeStatus_1.OrderDisputeStatus; } });
+var OrderStatus_1 = require("./models/OrderStatus");
+Object.defineProperty(exports, "OrderStatus", { enumerable: true, get: function () { return OrderStatus_1.OrderStatus; } });
 var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Period_1 = require("./models/Period");
@@ -44,6 +50,8 @@ var TransactionType_1 = require("./models/TransactionType");
 Object.defineProperty(exports, "TransactionType", { enumerable: true, get: function () { return TransactionType_1.TransactionType; } });
 var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
+var FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+Object.defineProperty(exports, "FulfillmentAgencyService", { enumerable: true, get: function () { return FulfillmentAgencyService_1.FulfillmentAgencyService; } });
 var PerformanceService_1 = require("./services/PerformanceService");
 Object.defineProperty(exports, "PerformanceService", { enumerable: true, get: function () { return PerformanceService_1.PerformanceService; } });
 var ThemeTemplateService_1 = require("./services/ThemeTemplateService");

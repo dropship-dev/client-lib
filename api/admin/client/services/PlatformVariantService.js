@@ -10,7 +10,7 @@ class PlatformVariantService {
      * @returns BatchPayload Ok
      * @throws ApiError
      */
-    createPlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
+    createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/platform-product/{platformProductId}/variant',
@@ -35,7 +35,7 @@ class PlatformVariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant',
@@ -60,7 +60,7 @@ class PlatformVariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformVariants({ platformProductId, ids, fulfillmentAgencyId = 1, }) {
+    deletePlatformVariants({ fulfillmentAgencyId, platformProductId, ids, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/variant',
@@ -84,7 +84,7 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    getPlatformVariant({ platformProductId, id, fulfillmentAgencyId = 1, }) {
+    getPlatformVariant({ fulfillmentAgencyId, platformProductId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}/variant/{id}',
@@ -108,7 +108,7 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariant({ platformProductId, id, requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformVariant({ fulfillmentAgencyId, platformProductId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant/{id}',
@@ -134,7 +134,7 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    deletePlatformVariant({ platformProductId, id, fulfillmentAgencyId = 1, }) {
+    deletePlatformVariant({ fulfillmentAgencyId, platformProductId, id, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/platform-product/{platformProductId}/variant/{id}',
@@ -158,7 +158,7 @@ class PlatformVariantService {
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariantStatus({ platformProductId, id, requestBody, fulfillmentAgencyId = 1, }) {
+    updatePlatformVariantStatus({ fulfillmentAgencyId, platformProductId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/platform-product/{platformProductId}/variant/{id}/status',

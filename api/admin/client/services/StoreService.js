@@ -10,7 +10,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId = 1, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }) {
+    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -42,10 +42,13 @@ class StoreService {
      * @returns string Ok
      * @throws ApiError
      */
-    addProductToStores({ requestBody, }) {
+    addProductToStores({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/product',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -103,13 +106,18 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    approveStore({ storeId, }) {
+    approveStore({ fulfillmentAgencyId, storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/status/approve',
             path: {
                 'storeId': storeId,
             },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -123,12 +131,15 @@ class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    updateStorePaymentMethod({ storeId, requestBody, }) {
+    updateStorePaymentMethod({ fulfillmentAgencyId, storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/payment-method',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',

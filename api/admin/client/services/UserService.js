@@ -7,7 +7,7 @@ class UserService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getUser() {
@@ -24,7 +24,7 @@ class UserService {
         });
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateUser({ requestBody, }) {
@@ -63,6 +63,25 @@ class UserService {
      * @returns User Ok
      * @throws ApiError
      */
+    changeUserPassword({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/user/password',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getUserById({ id, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -80,7 +99,7 @@ class UserService {
         });
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateUserById({ id, requestBody, }) {

@@ -10,7 +10,7 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    createTag({ requestBody, fulfillmentAgencyId = 1, }) {
+    createTag({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/tag',
@@ -32,7 +32,7 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTags({ fulfillmentAgencyId = 1, search, limit = 10, }) {
+    getTags({ fulfillmentAgencyId, search, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/tag',
@@ -54,7 +54,7 @@ class TagService {
      * @returns AdminTag Ok
      * @throws ApiError
      */
-    getTag({ id, fulfillmentAgencyId = 1, }) {
+    getTag({ fulfillmentAgencyId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/tag/{id}',

@@ -5,4 +5,5 @@ export type UpdateDiscountDto = {
     label: string;
     typeDiscount: PrismaJson_ProductDiscountItems;
     requirementDiscount: PrismaJson_ProductRequirementItems;
+    position?: number;
 };

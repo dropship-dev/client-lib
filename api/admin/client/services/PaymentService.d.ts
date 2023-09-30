@@ -13,16 +13,16 @@ export declare class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ requestBody, fulfillmentAgencyId, }: {
+    createPayment({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
         requestBody: CreatePaymentDto;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<Payment>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
     getAllPayment({ fulfillmentAgencyId, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
         publishableKey: string;
         type: PaymentType;
@@ -45,9 +45,9 @@ export declare class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ id, fulfillmentAgencyId, }: {
+    getPayment({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
         id: number;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<{
         publishableKey: string;
         type: PaymentType;
@@ -70,18 +70,18 @@ export declare class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    updatePayment({ id, requestBody, fulfillmentAgencyId, }: {
+    updatePayment({ fulfillmentAgencyId, id, requestBody, }: {
+        fulfillmentAgencyId: number;
         id: number;
         requestBody: UpdatePaymentDto;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<Payment>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getPaymentStores({ id, fulfillmentAgencyId, }: {
+    getPaymentStores({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
         id: number;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<{
         Store: Array<{
             primaryDomain: string;
@@ -95,9 +95,9 @@ export declare class PaymentService {
      * @returns string Ok
      * @throws ApiError
      */
-    addPaymentToStores({ id, requestBody, fulfillmentAgencyId, }: {
+    addPaymentToStores({ fulfillmentAgencyId, id, requestBody, }: {
+        fulfillmentAgencyId: number;
         id: number;
         requestBody: AddPaymentToStores;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
 }

@@ -57,7 +57,7 @@ export declare class PerformanceService {
      * @throws ApiError
      */
     getTopStoresByRevenue({ fulfillmentAgencyId, startDate, endDate, limit, }: {
-        fulfillmentAgencyId?: number;
+        fulfillmentAgencyId: number;
         startDate?: string;
         endDate?: string;
         limit?: number;
