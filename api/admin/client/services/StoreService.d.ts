@@ -1,5 +1,4 @@
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
-import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Store } from '../models/Store';
@@ -55,8 +54,7 @@ export declare class StoreService {
      * @returns string Ok
      * @throws ApiError
      */
-    addProductToStores({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    addProductToStores({ requestBody, }: {
         requestBody: AddPlatformProductStoresDto;
     }): CancelablePromise<string>;
     /**
@@ -89,9 +87,8 @@ export declare class StoreService {
      * @returns Store Ok
      * @throws ApiError
      */
-    approveStore({ storeId, requestBody, }: {
+    approveStore({ storeId, }: {
         storeId: string;
-        requestBody: ApproveStoreDto;
     }): CancelablePromise<Store>;
     /**
      * @returns Store Ok

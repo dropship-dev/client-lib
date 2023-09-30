@@ -30,7 +30,7 @@ class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    updateSetting({ fulfillmentAgencyId, requestBody, }) {
+    updateSetting({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/setting/{id}',

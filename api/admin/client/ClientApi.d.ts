@@ -2,7 +2,6 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
-import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { OrderService } from './services/OrderService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
@@ -24,7 +23,6 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly auth: AuthService;
     readonly currency: CurrencyService;
-    readonly fulfillmentAgency: FulfillmentAgencyService;
     readonly order: OrderService;
     readonly payment: PaymentService;
     readonly performance: PerformanceService;

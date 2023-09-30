@@ -13,65 +13,65 @@ export declare class PlatformVariantService {
      * @returns BatchPayload Ok
      * @throws ApiError
      */
-    createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    createPlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         requestBody: CreatePlatformVariantsDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<BatchPayload>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformVariants({ platformProductId, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         requestBody: UpdatePlatformVariantsDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformVariants({ fulfillmentAgencyId, platformProductId, ids, }: {
-        fulfillmentAgencyId: number;
+    deletePlatformVariants({ platformProductId, ids, fulfillmentAgencyId, }: {
         platformProductId: number;
         ids: Array<number>;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    getPlatformVariant({ fulfillmentAgencyId, platformProductId, id, }: {
-        fulfillmentAgencyId: number;
+    getPlatformVariant({ platformProductId, id, fulfillmentAgencyId, }: {
         platformProductId: number;
         id: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformVariant>;
     /**
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariant({ fulfillmentAgencyId, platformProductId, id, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformVariant({ platformProductId, id, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         id: number;
         requestBody: UpdatePlatformVariantDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformVariant>;
     /**
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    deletePlatformVariant({ fulfillmentAgencyId, platformProductId, id, }: {
-        fulfillmentAgencyId: number;
+    deletePlatformVariant({ platformProductId, id, fulfillmentAgencyId, }: {
         platformProductId: number;
         id: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformVariant>;
     /**
      * @returns PlatformVariant Ok
      * @throws ApiError
      */
-    updatePlatformVariantStatus({ fulfillmentAgencyId, platformProductId, id, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformVariantStatus({ platformProductId, id, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         id: number;
         requestBody: UpdatePlatformVariantStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformVariant>;
 }

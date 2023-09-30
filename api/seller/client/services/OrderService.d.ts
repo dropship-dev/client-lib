@@ -68,7 +68,7 @@ export declare class OrderService {
                     };
                 });
             })>;
-            Transaction: Array<Transaction>;
+            Transaction: Transaction;
             Store: Store;
         })>;
     }>;
@@ -90,7 +90,7 @@ export declare class OrderService {
                 };
             };
         })>;
-        Transaction: Array<Transaction>;
+        Transaction: Transaction;
         Payment: {
             type: PaymentType;
         };

@@ -17,8 +17,8 @@ export declare class SettingService {
      * @returns Setting Ok
      * @throws ApiError
      */
-    updateSetting({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updateSetting({ requestBody, fulfillmentAgencyId, }: {
         requestBody: UpdateSettingDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<Setting>;
 }

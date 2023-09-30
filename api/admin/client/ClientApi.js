@@ -4,7 +4,6 @@ exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AuthService_1 = require("./services/AuthService");
 const CurrencyService_1 = require("./services/CurrencyService");
-const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const OrderService_1 = require("./services/OrderService");
 const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
@@ -25,7 +24,6 @@ const VariantComboService_1 = require("./services/VariantComboService");
 class ClientApi {
     auth;
     currency;
-    fulfillmentAgency;
     order;
     payment;
     performance;
@@ -58,7 +56,6 @@ class ClientApi {
         });
         this.auth = new AuthService_1.AuthService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
-        this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.payment = new PaymentService_1.PaymentService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);

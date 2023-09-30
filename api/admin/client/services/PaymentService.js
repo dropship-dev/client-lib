@@ -10,7 +10,7 @@ class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ fulfillmentAgencyId, requestBody, }) {
+    createPayment({ requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/payment',
@@ -32,7 +32,7 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment({ fulfillmentAgencyId, }) {
+    getAllPayment({ fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment',
@@ -52,7 +52,7 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ fulfillmentAgencyId, id, }) {
+    getPayment({ id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment/{id}',
@@ -75,7 +75,7 @@ class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    updatePayment({ fulfillmentAgencyId, id, requestBody, }) {
+    updatePayment({ id, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/payment/{id}',
@@ -100,7 +100,7 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPaymentStores({ fulfillmentAgencyId, id, }) {
+    getPaymentStores({ id, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment/{id}/store',
@@ -123,7 +123,7 @@ class PaymentService {
      * @returns string Ok
      * @throws ApiError
      */
-    addPaymentToStores({ fulfillmentAgencyId, id, requestBody, }) {
+    addPaymentToStores({ id, requestBody, fulfillmentAgencyId = 1, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/payment/{id}/store',

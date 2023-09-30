@@ -70,8 +70,8 @@ export declare class OrderService {
                 };
             });
         })>;
-        Transaction: Array<{
+        Transaction: {
             status: TransactionStatus;
-        }>;
+        };
     })>;
 }

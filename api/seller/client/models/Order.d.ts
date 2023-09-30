@@ -1,6 +1,4 @@
 import type { FulfillmentStatus } from './FulfillmentStatus';
-import type { OrderDisputeStatus } from './OrderDisputeStatus';
-import type { OrderStatus } from './OrderStatus';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 /**
  * Model Order
@@ -8,11 +6,9 @@ import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 export type Order = {
     updatedAt: string;
     createdAt: string;
-    disputeStatus: OrderDisputeStatus | null;
-    status: OrderStatus;
     paymentId: number;
     currencyId: number;
-    transactionId: number | null;
+    transactionId: number;
     storeId: string;
     fulfillmentStatus: FulfillmentStatus;
     gatewayTransactionId: string | null;

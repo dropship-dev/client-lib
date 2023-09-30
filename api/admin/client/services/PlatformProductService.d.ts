@@ -18,16 +18,16 @@ export declare class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    createPlatformProduct({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    createPlatformProduct({ requestBody, fulfillmentAgencyId, }: {
         requestBody: CreatePlatformProductDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
     getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
-        fulfillmentAgencyId: number;
+        fulfillmentAgencyId?: number;
         pageSize?: number;
         nextPageIndex?: number;
         name?: string;
@@ -66,25 +66,25 @@ export declare class PlatformProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePlatformProducts({ fulfillmentAgencyId, ids, }: {
-        fulfillmentAgencyId: number;
+    deletePlatformProducts({ ids, fulfillmentAgencyId, }: {
         ids: Array<number>;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
-    updatePlatformProductStatuses({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformProductStatuses({ requestBody, fulfillmentAgencyId, }: {
         requestBody: UpdatePlatformProductStatusesDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getPlatformProduct({ fulfillmentAgencyId, platformProductId, }: {
-        fulfillmentAgencyId: number;
+    getPlatformProduct({ platformProductId, fulfillmentAgencyId, }: {
         platformProductId: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<(PlatformProduct & {
         Tag: Array<AdminTag>;
         PlatformVariant: Array<PlatformVariant>;
@@ -93,52 +93,52 @@ export declare class PlatformProductService {
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProduct({ fulfillmentAgencyId, platformProductId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformProduct({ platformProductId, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         requestBody: UpdatePlatformProductDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProduct({ fulfillmentAgencyId, platformProductId, }: {
-        fulfillmentAgencyId: number;
+    deletePlatformProduct({ platformProductId, fulfillmentAgencyId, }: {
         platformProductId: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    updatePlatformProductStatus({ fulfillmentAgencyId, platformProductId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePlatformProductStatus({ platformProductId, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         requestBody: UpdatePlatformProductStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    addPlatformProductTag({ fulfillmentAgencyId, platformProductId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    addPlatformProductTag({ platformProductId, requestBody, fulfillmentAgencyId, }: {
         platformProductId: number;
         requestBody: AddPlatformProductTagDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns PlatformProduct Ok
      * @throws ApiError
      */
-    deletePlatformProductTag({ fulfillmentAgencyId, platformProductId, tagId, }: {
-        fulfillmentAgencyId: number;
+    deletePlatformProductTag({ platformProductId, tagId, fulfillmentAgencyId, }: {
         platformProductId: number;
         tagId: string;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<PlatformProduct>;
     /**
      * @returns PlatformProductStore Ok
      * @throws ApiError
      */
-    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, }: {
-        fulfillmentAgencyId: number;
+    getPlatformProductStore({ platformProductId, fulfillmentAgencyId, }: {
         platformProductId: number;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<Array<PlatformProductStore>>;
 }
