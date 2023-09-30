@@ -12,6 +12,7 @@ import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
+import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
@@ -38,6 +39,7 @@ export class ClientApi {
   public readonly currency: CurrencyService;
   public readonly domain: DomainService;
   public readonly fbPixel: FbPixelService;
+  public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly performance: PerformanceService;
   public readonly product: ProductService;
@@ -75,6 +77,7 @@ export class ClientApi {
     this.currency = new CurrencyService(this.request);
     this.domain = new DomainService(this.request);
     this.fbPixel = new FbPixelService(this.request);
+    this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.performance = new PerformanceService(this.request);
     this.product = new ProductService(this.request);
