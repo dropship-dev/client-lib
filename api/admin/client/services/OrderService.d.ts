@@ -21,7 +21,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
         /**
          * filter by fulfillment agency ID.
          */
@@ -40,6 +40,7 @@ export declare class OrderService {
          * filter by fulfillment status
          */
         fulfillmentStatus?: FulfillmentStatus;
+        search?: string;
         /**
          * filter by store email (email contain)
          */
@@ -52,6 +53,7 @@ export declare class OrderService {
         endDate?: string;
         startTotal?: number;
         endTotal?: number;
+        gateway?: Array<number>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
