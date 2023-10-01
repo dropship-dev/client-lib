@@ -35,12 +35,14 @@ export class OrderService {
     storeId,
     paymentStatus,
     fulfillmentStatus,
+    search,
     email,
     productName,
     startDate,
     endDate,
     startTotal,
     endTotal,
+    gateway,
   }: {
     /**
      * filter by fulfillment agency ID.
@@ -60,6 +62,7 @@ export class OrderService {
      * filter by fulfillment status
      */
     fulfillmentStatus?: FulfillmentStatus,
+    search?: string,
     /**
      * filter by store email (email contain)
      */
@@ -72,6 +75,7 @@ export class OrderService {
     endDate?: string,
     startTotal?: number,
     endTotal?: number,
+    gateway?: Array<number>,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
@@ -101,12 +105,14 @@ export class OrderService {
         'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
+        'search': search,
         'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,
         'startTotal': startTotal,
         'endTotal': endTotal,
+        'gateway': gateway,
       },
       errors: {
         400: `Bad request`,
