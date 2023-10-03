@@ -39,6 +39,7 @@ export type ExportOrderResponseDto = {
   BuyerCountryCode: string;
   BuyerProvinceCode?: string;
   SellerEmail: string;
+  StoreName: string;
   PaymentGatewayId: string;
   PaymentGatewayName: string;
   GatewayType: PaymentType;
