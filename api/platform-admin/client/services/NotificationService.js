@@ -50,7 +50,7 @@ class NotificationService {
         });
     }
     /**
-     * @returns Notification Ok
+     * @returns NotificationData Ok
      * @throws ApiError
      */
     getNotification({ id, }) {
@@ -99,6 +99,26 @@ class NotificationService {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/notification/{id}',
+            path: {
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateReadNotification({ id, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/notification/{id}/read',
             path: {
                 'id': id,
             },

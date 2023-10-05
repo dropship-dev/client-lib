@@ -59,6 +59,7 @@ export type { LoginDto } from './models/LoginDto';
 export { LogoSize } from './models/LogoSize';
 export type { NameDto } from './models/NameDto';
 export type { Notification } from './models/Notification';
+export type { NotificationData } from './models/NotificationData';
 export { NotificationType } from './models/NotificationType';
 export type { Order } from './models/Order';
 export { OrderDisputeStatus } from './models/OrderDisputeStatus';

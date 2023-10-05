@@ -1,5 +1,6 @@
 import type { CreateNotificationDto } from '../models/CreateNotificationDto';
 import type { Notification } from '../models/Notification';
+import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
 import type { UpdateNotificationDto } from '../models/UpdateNotificationDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -29,15 +30,15 @@ export declare class NotificationService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<Notification>;
+        data: Array<NotificationData>;
     }>;
     /**
-     * @returns Notification Ok
+     * @returns NotificationData Ok
      * @throws ApiError
      */
     getNotification({ id, }: {
         id: number;
-    }): CancelablePromise<Notification>;
+    }): CancelablePromise<NotificationData>;
     /**
      * @returns Notification Ok
      * @throws ApiError
@@ -53,4 +54,11 @@ export declare class NotificationService {
     deleteNotification({ id, }: {
         id: number;
     }): CancelablePromise<Notification>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateReadNotification({ id, }: {
+        id: number;
+    }): CancelablePromise<string>;
 }
