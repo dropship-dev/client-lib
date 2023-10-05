@@ -21,6 +21,17 @@ export declare class FulfillmentAgencyService {
         userId?: string;
     }): CancelablePromise<Array<FulfillmentAgency>>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAgencyByEmail({ email, }: {
+        email: string;
+    }): CancelablePromise<{
+        avatar: string;
+        email: string;
+        name: string;
+    }>;
+    /**
      * @returns FulfillmentAgency Ok
      * @throws ApiError
      */
