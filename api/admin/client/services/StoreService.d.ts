@@ -69,6 +69,7 @@ export declare class StoreService {
         Payment: Array<{
             publishableKey: string;
             type: PaymentType;
+            fulfillmentAgencyId: number;
             email: string;
             updatedAt: string;
             createdAt: string;

@@ -11,4 +11,5 @@ var TransactionStatus;
     TransactionStatus["PAID"] = "PAID";
     TransactionStatus["FAILED"] = "FAILED";
     TransactionStatus["REFUNDED"] = "REFUNDED";
+    TransactionStatus["UNPAID"] = "UNPAID";
 })(TransactionStatus || (exports.TransactionStatus = TransactionStatus = {}));
