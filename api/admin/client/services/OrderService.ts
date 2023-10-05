@@ -7,6 +7,7 @@ import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
+import type { OrderRefund } from '../models/OrderRefund';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -82,6 +83,7 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<(Order & {
+      OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
           Product: Product;
