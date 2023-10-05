@@ -163,6 +163,7 @@ export { CollectionService } from './services/CollectionService';
 export { CurrencyService } from './services/CurrencyService';
 export { DomainService } from './services/DomainService';
 export { FbPixelService } from './services/FbPixelService';
+export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { NotificationService } from './services/NotificationService';
 export { OrderService } from './services/OrderService';
 export { PerformanceService } from './services/PerformanceService';
