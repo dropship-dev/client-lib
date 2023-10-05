@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { CreateNotificationDto } from '../models/CreateNotificationDto';
 import type { Notification } from '../models/Notification';
+import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
 import type { UpdateNotificationDto } from '../models/UpdateNotificationDto';
 
@@ -59,7 +60,7 @@ export class NotificationService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<Notification>;
+    data: Array<NotificationData>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -82,14 +83,14 @@ export class NotificationService {
   }
 
   /**
-   * @returns Notification Ok
+   * @returns NotificationData Ok
    * @throws ApiError
    */
   public getNotification({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Notification> {
+  }): CancelablePromise<NotificationData> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/notification/{id}',
@@ -147,6 +148,31 @@ export class NotificationService {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/notification/{id}',
+      path: {
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateReadNotification({
+    id,
+  }: {
+    id: number,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/notification/{id}/read',
       path: {
         'id': id,
       },
