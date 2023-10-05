@@ -63,34 +63,6 @@ export class FulfillmentAgencyService {
   }
 
   /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getAgencyByEmail({
-    email,
-  }: {
-    email: string,
-  }): CancelablePromise<{
-    avatar: string;
-    email: string;
-    name: string;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/fulfillment-agency/get-agency-by-email',
-      query: {
-        'email': email,
-      },
-      errors: {
-        400: `Bad request`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
    * @returns FulfillmentAgency Ok
    * @throws ApiError
    */
