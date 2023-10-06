@@ -15,6 +15,7 @@ var NotificationType;
     NotificationType["PAYOUT_REQUESTING"] = "PAYOUT_REQUESTING";
     NotificationType["PAYOUT_APPROVED"] = "PAYOUT_APPROVED";
     NotificationType["PAYOUT_REJECTED"] = "PAYOUT_REJECTED";
+    NotificationType["ORDER_CREATED"] = "ORDER_CREATED";
     NotificationType["ORDER_DISPUTED"] = "ORDER_DISPUTED";
     NotificationType["ORDER_REFUNDED"] = "ORDER_REFUNDED";
     NotificationType["DISPUTE_RESOLVED"] = "DISPUTE_RESOLVED";
