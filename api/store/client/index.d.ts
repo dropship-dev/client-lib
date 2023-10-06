@@ -102,6 +102,7 @@ export type { Review } from './models/Review';
 export type { Setting } from './models/Setting';
 export type { Store } from './models/Store';
 export { StoreOrderBy } from './models/StoreOrderBy';
+export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
 export type { StoreRevenue } from './models/StoreRevenue';
 export type { StoreRevenueOverTime } from './models/StoreRevenueOverTime';

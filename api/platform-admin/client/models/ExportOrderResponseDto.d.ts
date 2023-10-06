@@ -4,6 +4,7 @@ export type ExportOrderResponseDto = {
     OrderId: string;
     ItemCode: string;
     SKU?: string;
+    ProductSKU?: string;
     VariantName?: string;
     Domain: string;
     Quantity: number;

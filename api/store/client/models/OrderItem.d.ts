@@ -11,6 +11,7 @@ export type OrderItem = {
     variantComboId: number | null;
     productVariantId: number | null;
     productId: number;
+    carrier: string | null;
     tracking: string | null;
     status: FulfillmentStatus;
     platformPrice: number;
