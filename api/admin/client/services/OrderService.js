@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
+    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
@@ -22,7 +22,7 @@ class OrderService {
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
                 'search': search,
-                'email': email,
+                'disputeStatus': disputeStatus,
                 'productName': productName,
                 'startDate': startDate,
                 'endDate': endDate,

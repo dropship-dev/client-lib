@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderService = exports.NotificationService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.AuthService = exports.UserRole = exports.typeItemRefund = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderService = exports.NotificationService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.AuthService = exports.UserRole = exports.TypeOrderRefund = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.NotificationType = exports.LogoSize = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -20,16 +20,10 @@ var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
 Object.defineProperty(exports, "FulfillmentAgencyRole", { enumerable: true, get: function () { return FulfillmentAgencyRole_1.FulfillmentAgencyRole; } });
-var FulfillmentStatus_1 = require("./models/FulfillmentStatus");
-Object.defineProperty(exports, "FulfillmentStatus", { enumerable: true, get: function () { return FulfillmentStatus_1.FulfillmentStatus; } });
 var LogoSize_1 = require("./models/LogoSize");
 Object.defineProperty(exports, "LogoSize", { enumerable: true, get: function () { return LogoSize_1.LogoSize; } });
 var NotificationType_1 = require("./models/NotificationType");
 Object.defineProperty(exports, "NotificationType", { enumerable: true, get: function () { return NotificationType_1.NotificationType; } });
-var OrderDisputeStatus_1 = require("./models/OrderDisputeStatus");
-Object.defineProperty(exports, "OrderDisputeStatus", { enumerable: true, get: function () { return OrderDisputeStatus_1.OrderDisputeStatus; } });
-var OrderStatus_1 = require("./models/OrderStatus");
-Object.defineProperty(exports, "OrderStatus", { enumerable: true, get: function () { return OrderStatus_1.OrderStatus; } });
 var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Period_1 = require("./models/Period");
@@ -52,8 +46,8 @@ var TransactionStatus_1 = require("./models/TransactionStatus");
 Object.defineProperty(exports, "TransactionStatus", { enumerable: true, get: function () { return TransactionStatus_1.TransactionStatus; } });
 var TransactionType_1 = require("./models/TransactionType");
 Object.defineProperty(exports, "TransactionType", { enumerable: true, get: function () { return TransactionType_1.TransactionType; } });
-var typeItemRefund_1 = require("./models/typeItemRefund");
-Object.defineProperty(exports, "typeItemRefund", { enumerable: true, get: function () { return typeItemRefund_1.typeItemRefund; } });
+var TypeOrderRefund_1 = require("./models/TypeOrderRefund");
+Object.defineProperty(exports, "TypeOrderRefund", { enumerable: true, get: function () { return TypeOrderRefund_1.TypeOrderRefund; } });
 var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
 var AuthService_1 = require("./services/AuthService");
