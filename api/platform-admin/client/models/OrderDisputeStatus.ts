@@ -3,8 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum OrderDisputeStatus {
-  WIN = 'WIN',
-  LOSE = 'LOSE',
-  IN_PROGRESS = 'IN_PROGRESS',
-}
+export type OrderDisputeStatus = {
+};
+

@@ -2,12 +2,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BillingInfo } from '../models/BillingInfo';
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
+import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
-import type { OrderRefund } from '../models/OrderRefund';
+import type { OrderStatus } from '../models/OrderStatus';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -37,7 +39,7 @@ export class OrderService {
     paymentStatus,
     fulfillmentStatus,
     search,
-    email,
+    disputeStatus,
     productName,
     startDate,
     endDate,
@@ -64,10 +66,7 @@ export class OrderService {
      */
     fulfillmentStatus?: FulfillmentStatus,
     search?: string,
-    /**
-     * filter by store email (email contain)
-     */
-    email?: string,
+    disputeStatus?: OrderDisputeStatus,
     /**
      * filter by product name (product name contain)
      */
@@ -82,8 +81,7 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
-      OrderRefund: Array<OrderRefund>;
+    data: Array<{
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
           Product: Product;
@@ -95,7 +93,47 @@ export class OrderService {
       })>;
       Transaction: Array<Transaction>;
       Store: Store;
-    })>;
+      updatedAt: string;
+      createdAt: string;
+      disputeStatus: OrderDisputeStatus;
+      status: OrderStatus;
+      paymentId: number;
+      currencyId: number;
+      transactionId: number;
+      storeId: string;
+      fulfillmentStatus: FulfillmentStatus;
+      gatewayTransactionId: string;
+      gatewayOrderId: string;
+      lastBalance: number;
+      discount: number;
+      discountShippingFee: number;
+      noItems: number;
+      tax: number;
+      platformFee: number;
+      profit: number;
+      totalUSD: number;
+      subTotal: number;
+      total: number;
+      shippingFee: number;
+      note: string;
+      domain: string;
+      billingInfo: BillingInfo;
+      country: string;
+      zipCode: string;
+      province: string;
+      city: string;
+      address2: string;
+      address1: string;
+      phone: string;
+      email: string;
+      name: string;
+      id: string;
+      OrderRefund: Array<Array<{
+        finalPrice: number;
+        quantity: number;
+        item: (ProductVariant | VariantCombo);
+      }>>;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -108,7 +146,7 @@ export class OrderService {
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
         'search': search,
-        'email': email,
+        'disputeStatus': disputeStatus,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,

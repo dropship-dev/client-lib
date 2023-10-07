@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrismaJson_RefundOrderItems = Array<{
-  quantity: number;
-  id: number;
-  type: string;
-}>;
+export enum TypeOrderRefund {
+  '_0' = 0,
+  '_1' = 1,
+}
