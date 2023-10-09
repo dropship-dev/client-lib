@@ -16,9 +16,9 @@ export type Transaction = {
   storeId: string;
   status: TransactionStatus;
   type: TransactionType;
-  disputeFee: number | null;
-  lastBalance: number | null;
-  fee: number | null;
+  disputeFee: number;
+  lastBalance: number;
+  fee: number;
   amount: number;
   id: number;
 };
