@@ -71,12 +71,6 @@ export declare class OrderService {
             })>;
             Transaction: Array<Transaction>;
             Store: Store;
-        } & {
-            explainOrderRefund?: Array<Array<{
-                finalPrice: number;
-                quantity: number;
-                item: (ProductVariant | VariantCombo);
-            }>>;
         })>;
     }>;
     /**
