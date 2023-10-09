@@ -93,12 +93,6 @@ export class OrderService {
       })>;
       Transaction: Array<Transaction>;
       Store: Store;
-    } & {
-      explainOrderRefund?: Array<Array<{
-        finalPrice: number;
-        quantity: number;
-        item: (ProductVariant | VariantCombo);
-      }>>;
     })>;
   }> {
     return this.httpRequest.request({
