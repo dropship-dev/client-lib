@@ -1,1 +1,7 @@
-export type FulfillmentStatus = {};
+export declare enum FulfillmentStatus {
+    UNFULFILLED = "UNFULFILLED",
+    PARTIALLY_FULFILLED = "PARTIALLY_FULFILLED",
+    FULFILLED = "FULFILLED",
+    PARTIALLY_PROCESSING = "PARTIALLY_PROCESSING",
+    PROCESSING = "PROCESSING"
+}
