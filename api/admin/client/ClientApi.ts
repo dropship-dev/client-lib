@@ -11,6 +11,7 @@ import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
+import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
@@ -37,6 +38,7 @@ export class ClientApi {
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
+  public readonly orderRefunds: OrderRefundsService;
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
   public readonly platformProduct: PlatformProductService;
@@ -74,6 +76,7 @@ export class ClientApi {
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
+    this.orderRefunds = new OrderRefundsService(this.request);
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);
     this.platformProduct = new PlatformProductService(this.request);
