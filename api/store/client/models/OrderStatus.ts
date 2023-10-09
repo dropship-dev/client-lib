@@ -3,6 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type OrderStatus = {
-};
-
+export enum OrderStatus {
+  REFUNDED = 'REFUNDED',
+  CREATED = 'CREATED',
+  COMPLETED = 'COMPLETED',
+  DISPUTED = 'DISPUTED',
+}
