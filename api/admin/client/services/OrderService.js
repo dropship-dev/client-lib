@@ -142,7 +142,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }) {
+    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/order',
@@ -154,6 +154,8 @@ class OrderService {
                 'nextPageIndex': nextPageIndex,
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
+                'disputeStatus': disputeStatus,
+                'search': search,
                 'email': email,
                 'productName': productName,
                 'startDate': startDate,

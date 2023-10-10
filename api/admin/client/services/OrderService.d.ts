@@ -127,7 +127,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, }: {
         /**
          * filter by store ID
          */
@@ -142,6 +142,8 @@ export declare class OrderService {
          * filter by fulfillment status
          */
         fulfillmentStatus?: FulfillmentStatus;
+        disputeStatus?: OrderDisputeStatus;
+        search?: string;
         /**
          * filter by customer email (email contain)
          */
