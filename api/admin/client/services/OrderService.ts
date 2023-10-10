@@ -288,6 +288,8 @@ export class OrderService {
     nextPageIndex,
     paymentStatus,
     fulfillmentStatus,
+    disputeStatus,
+    search,
     email,
     productName,
     startDate,
@@ -309,6 +311,8 @@ export class OrderService {
      * filter by fulfillment status
      */
     fulfillmentStatus?: FulfillmentStatus,
+    disputeStatus?: OrderDisputeStatus,
+    search?: string,
     /**
      * filter by customer email (email contain)
      */
@@ -360,6 +364,8 @@ export class OrderService {
         'nextPageIndex': nextPageIndex,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
+        'disputeStatus': disputeStatus,
+        'search': search,
         'email': email,
         'productName': productName,
         'startDate': startDate,

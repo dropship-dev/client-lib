@@ -5,6 +5,7 @@
 import type { Campaign } from '../models/Campaign';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
+import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -30,6 +31,8 @@ export class OrderService {
     nextPageIndex,
     paymentStatus,
     fulfillmentStatus,
+    disputeStatus,
+    search,
     email,
     productName,
     startDate,
@@ -51,6 +54,8 @@ export class OrderService {
      * filter by fulfillment status
      */
     fulfillmentStatus?: FulfillmentStatus,
+    disputeStatus?: OrderDisputeStatus,
+    search?: string,
     /**
      * filter by customer email (email contain)
      */
@@ -102,6 +107,8 @@ export class OrderService {
         'nextPageIndex': nextPageIndex,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
+        'disputeStatus': disputeStatus,
+        'search': search,
         'email': email,
         'productName': productName,
         'startDate': startDate,
