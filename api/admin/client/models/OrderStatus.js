@@ -8,6 +8,7 @@ exports.OrderStatus = void 0;
 var OrderStatus;
 (function (OrderStatus) {
     OrderStatus["REFUNDED"] = "REFUNDED";
+    OrderStatus["UNPAID"] = "UNPAID";
     OrderStatus["CREATED"] = "CREATED";
     OrderStatus["COMPLETED"] = "COMPLETED";
     OrderStatus["DISPUTED"] = "DISPUTED";
