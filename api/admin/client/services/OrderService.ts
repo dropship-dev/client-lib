@@ -59,13 +59,13 @@ export class OrderService {
     /**
      * filter by payment status
      */
-    paymentStatus?: TransactionStatus,
+    paymentStatus?: Array<TransactionStatus>,
     /**
      * filter by fulfillment status
      */
-    fulfillmentStatus?: FulfillmentStatus,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
     search?: string,
-    disputeStatus?: OrderDisputeStatus,
+    disputeStatus?: Array<OrderDisputeStatus>,
     /**
      * filter by product name (product name contain)
      */
@@ -216,6 +216,7 @@ export class OrderService {
     fulfillmentAgencyId: number,
     id: string,
   }): CancelablePromise<(Order & {
+    OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       ProductVariant: (ProductVariant & {
         Product: Product;
@@ -245,7 +246,7 @@ export class OrderService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public refundOrder({
@@ -256,7 +257,15 @@ export class OrderService {
     orderId: string,
     requestBody: RefundOrderDto,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<(Order & {
+    OrderRefund: Array<OrderRefund>;
+    OrderItem: Array<(OrderItem & {
+      VariantCombo: VariantCombo;
+      ProductVariant: ProductVariant;
+    })>;
+    Transaction: Array<Transaction>;
+    Store: Store;
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/order/{orderId}/refund-order',
@@ -306,12 +315,12 @@ export class OrderService {
     /**
      * filter by payment status
      */
-    paymentStatus?: TransactionStatus,
+    paymentStatus?: Array<TransactionStatus>,
     /**
      * filter by fulfillment status
      */
-    fulfillmentStatus?: FulfillmentStatus,
-    disputeStatus?: OrderDisputeStatus,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
+    disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
      * filter by customer email (email contain)

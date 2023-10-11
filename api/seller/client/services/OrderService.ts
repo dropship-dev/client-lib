@@ -49,12 +49,12 @@ export class OrderService {
     /**
      * filter by payment status
      */
-    paymentStatus?: TransactionStatus,
+    paymentStatus?: Array<TransactionStatus>,
     /**
      * filter by fulfillment status
      */
-    fulfillmentStatus?: FulfillmentStatus,
-    disputeStatus?: OrderDisputeStatus,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
+    disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
      * filter by customer email (email contain)
