@@ -37,13 +37,13 @@ export declare class OrderService {
         /**
          * filter by payment status
          */
-        paymentStatus?: TransactionStatus;
+        paymentStatus?: Array<TransactionStatus>;
         /**
          * filter by fulfillment status
          */
-        fulfillmentStatus?: FulfillmentStatus;
+        fulfillmentStatus?: Array<FulfillmentStatus>;
         search?: string;
-        disputeStatus?: OrderDisputeStatus;
+        disputeStatus?: Array<OrderDisputeStatus>;
         /**
          * filter by product name (product name contain)
          */
@@ -105,6 +105,7 @@ export declare class OrderService {
         fulfillmentAgencyId: number;
         id: string;
     }): CancelablePromise<(Order & {
+        OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             ProductVariant: (ProductVariant & {
                 Product: Product;
@@ -115,14 +116,22 @@ export declare class OrderService {
         Store: Store;
     })>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     refundOrder({ orderId, requestBody, fulfillmentAgencyId, }: {
         orderId: string;
         requestBody: RefundOrderDto;
         fulfillmentAgencyId?: number;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<(Order & {
+        OrderRefund: Array<OrderRefund>;
+        OrderItem: Array<(OrderItem & {
+            VariantCombo: VariantCombo;
+            ProductVariant: ProductVariant;
+        })>;
+        Transaction: Array<Transaction>;
+        Store: Store;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -137,12 +146,12 @@ export declare class OrderService {
         /**
          * filter by payment status
          */
-        paymentStatus?: TransactionStatus;
+        paymentStatus?: Array<TransactionStatus>;
         /**
          * filter by fulfillment status
          */
-        fulfillmentStatus?: FulfillmentStatus;
-        disputeStatus?: OrderDisputeStatus;
+        fulfillmentStatus?: Array<FulfillmentStatus>;
+        disputeStatus?: Array<OrderDisputeStatus>;
         search?: string;
         /**
          * filter by customer email (email contain)

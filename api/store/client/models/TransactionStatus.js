@@ -7,9 +7,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionStatus = void 0;
 var TransactionStatus;
 (function (TransactionStatus) {
+    TransactionStatus["REFUNDED"] = "REFUNDED";
+    TransactionStatus["UNPAID"] = "UNPAID";
     TransactionStatus["PENDING"] = "PENDING";
     TransactionStatus["PAID"] = "PAID";
     TransactionStatus["FAILED"] = "FAILED";
-    TransactionStatus["REFUNDED"] = "REFUNDED";
-    TransactionStatus["UNPAID"] = "UNPAID";
 })(TransactionStatus || (exports.TransactionStatus = TransactionStatus = {}));

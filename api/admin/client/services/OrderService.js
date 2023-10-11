@@ -114,7 +114,7 @@ class OrderService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     refundOrder({ orderId, requestBody, fulfillmentAgencyId = 1, }) {

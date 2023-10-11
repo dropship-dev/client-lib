@@ -7,7 +7,7 @@ class OrderRefundsService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateHistoryOrderRefund({ fulfillmentAgencyId, id, requestBody, }) {

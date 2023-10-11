@@ -1,7 +1,7 @@
 export declare enum OrderStatus {
-    REFUNDED = "REFUNDED",
-    UNPAID = "UNPAID",
     CREATED = "CREATED",
     COMPLETED = "COMPLETED",
-    DISPUTED = "DISPUTED"
+    DISPUTED = "DISPUTED",
+    REFUNDED = "REFUNDED",
+    UNPAID = "UNPAID"
 }
