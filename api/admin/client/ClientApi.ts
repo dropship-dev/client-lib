@@ -6,6 +6,7 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
+import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
@@ -33,6 +34,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
+  public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
@@ -71,6 +73,7 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
 
+    this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);

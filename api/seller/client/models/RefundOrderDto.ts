@@ -10,7 +10,7 @@ export type RefundOrderDto = {
     quantity: number;
     idOrderItem: string;
   }>;
-  notes: string;
+  note: string;
   amount: number;
   typeRefund: RefundType;
 };

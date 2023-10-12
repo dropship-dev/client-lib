@@ -55,21 +55,21 @@ export class PaymentService {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
     publishableKey: string;
-    type: PaymentType;
     creator: {
       role: UserRole;
       avatar: string;
-      email: string;
+      name: string;
       updatedAt: string;
       createdAt: string;
-      name: string;
       id: string;
+      email: string;
     };
-    email: string;
+    name: string;
     updatedAt: string;
     createdAt: string;
-    name: string;
+    type: PaymentType;
     id: number;
+    email: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -99,21 +99,21 @@ export class PaymentService {
     id: number,
   }): CancelablePromise<{
     publishableKey: string;
-    type: PaymentType;
     creator: {
       role: UserRole;
       avatar: string;
-      email: string;
+      name: string;
       updatedAt: string;
       createdAt: string;
-      name: string;
       id: string;
+      email: string;
     };
-    email: string;
+    name: string;
     updatedAt: string;
     createdAt: string;
-    name: string;
+    type: PaymentType;
     id: number;
+    email: string;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -182,9 +182,9 @@ export class PaymentService {
     Store: Array<{
       primaryDomain: string;
       avatar: string;
-      email: string;
       name: string;
       id: string;
+      email: string;
     }>;
   }> {
     return this.httpRequest.request({

@@ -4,9 +4,9 @@
 /* eslint-disable */
 
 export enum OrderStatus {
-  CREATED = 'CREATED',
-  COMPLETED = 'COMPLETED',
-  DISPUTED = 'DISPUTED',
   REFUNDED = 'REFUNDED',
   UNPAID = 'UNPAID',
+  COMPLETED = 'COMPLETED',
+  CREATED = 'CREATED',
+  DISPUTED = 'DISPUTED',
 }

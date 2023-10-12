@@ -62,9 +62,9 @@ export class ProductService {
           isEnable: boolean;
           isActive: boolean;
           variantOption: VariantOptionValues;
+          name: string;
           updatedAt: string;
           createdAt: string;
-          name: string;
           id: number;
         };
       })>;

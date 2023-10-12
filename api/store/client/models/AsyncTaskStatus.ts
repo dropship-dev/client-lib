@@ -3,10 +3,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum TransactionStatus {
+/**
+ * Enums
+ */
+export enum AsyncTaskStatus {
   PENDING = 'PENDING',
-  PAID = 'PAID',
   FAILED = 'FAILED',
-  REFUNDED = 'REFUNDED',
-  UNPAID = 'UNPAID',
+  PROCESSING = 'PROCESSING',
+  COMPLETED = 'COMPLETED',
 }

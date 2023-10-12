@@ -3,8 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum CustomDomainStatus {
-  PENDING = 'PENDING',
-  FAILED = 'FAILED',
-  SUCCESS = 'SUCCESS',
+export enum AsyncTaskType {
+  EXPORT_ORDER = 'EXPORT_ORDER',
 }

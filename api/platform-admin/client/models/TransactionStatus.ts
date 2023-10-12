@@ -4,9 +4,9 @@
 /* eslint-disable */
 
 export enum TransactionStatus {
-  REFUNDED = 'REFUNDED',
-  UNPAID = 'UNPAID',
   PENDING = 'PENDING',
   PAID = 'PAID',
   FAILED = 'FAILED',
+  REFUNDED = 'REFUNDED',
+  UNPAID = 'UNPAID',
 }

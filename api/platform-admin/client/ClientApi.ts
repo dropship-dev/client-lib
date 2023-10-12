@@ -6,6 +6,7 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
+import { AsyncTaskService } from './services/AsyncTaskService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
@@ -16,6 +17,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
+  public readonly asyncTask: AsyncTaskService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly notification: NotificationService;
   public readonly performance: PerformanceService;
@@ -37,6 +39,7 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
 
+    this.asyncTask = new AsyncTaskService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.notification = new NotificationService(this.request);
     this.performance = new PerformanceService(this.request);

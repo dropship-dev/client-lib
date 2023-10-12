@@ -6,6 +6,7 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
+import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
@@ -34,6 +35,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
+  public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly campaign: CampaignService;
   public readonly collection: CollectionService;
@@ -73,6 +75,7 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
 
+    this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.campaign = new CampaignService(this.request);
     this.collection = new CollectionService(this.request);
