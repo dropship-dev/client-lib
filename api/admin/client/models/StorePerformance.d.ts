@@ -1,4 +1,13 @@
 export type StorePerformance = {
+    products: Array<{
+        CR: number;
+        checkedOut: number;
+        addedToCart: number;
+        viewed: number;
+        photo: string;
+        name: string;
+        id: string;
+    }>;
     CR: number;
     AOV: number;
     checkedOut: number;
