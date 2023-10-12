@@ -51,6 +51,7 @@ export declare class StoreService {
         updatedAt: string;
         createdAt: string;
         id: string;
+        fulfillmentAgencyId: number;
         Theme: (Theme & {
             ThemeTemplate: ThemeTemplate;
         });
