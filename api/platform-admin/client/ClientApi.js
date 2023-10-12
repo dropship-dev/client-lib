@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const NotificationService_1 = require("./services/NotificationService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const ThemeTemplateService_1 = require("./services/ThemeTemplateService");
 const UploadService_1 = require("./services/UploadService");
 class ClientApi {
+    asyncTask;
     fulfillmentAgency;
     notification;
     performance;
@@ -26,6 +28,7 @@ class ClientApi {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
+        this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);

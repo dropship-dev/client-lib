@@ -28,12 +28,8 @@ export declare class StoreService {
         city: string;
         apartmentAddress: string;
         address: string;
-        email: string;
         phone: string;
-        updatedAt: string;
-        createdAt: string;
         name: string;
-        id: string;
         Currency: Currency;
         Product: Array<{
             permalink: string;
@@ -44,13 +40,17 @@ export declare class StoreService {
         }>;
         Payment: Array<{
             publishableKey: string;
-            type: PaymentType;
-            email: string;
             updatedAt: string;
             createdAt: string;
+            type: PaymentType;
             id: number;
+            email: string;
         }>;
         CustomDomain: Array<CustomDomain>;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+        email: string;
         Theme: (Theme & {
             ThemeTemplate: ThemeTemplate;
         });
@@ -63,10 +63,10 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
-        type: PaymentType;
-        email: string;
         updatedAt: string;
         createdAt: string;
+        type: PaymentType;
         id: number;
+        email: string;
     }>>;
 }

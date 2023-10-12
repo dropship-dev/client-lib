@@ -68,13 +68,13 @@ export declare class StoreService {
     }): CancelablePromise<(Store & {
         Payment: Array<{
             publishableKey: string;
-            type: PaymentType;
-            fulfillmentAgencyId: number;
-            email: string;
+            name: string;
             updatedAt: string;
             createdAt: string;
-            name: string;
+            type: PaymentType;
             id: number;
+            email: string;
+            fulfillmentAgencyId: number;
         }>;
         Theme: Array<Theme>;
     })>;
@@ -112,10 +112,10 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
-        type: PaymentType;
-        email: string;
         updatedAt: string;
         createdAt: string;
+        type: PaymentType;
         id: number;
+        email: string;
     }>>;
 }

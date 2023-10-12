@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
@@ -25,6 +26,7 @@ const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 const VariantComboService_1 = require("./services/VariantComboService");
 class ClientApi {
+    asyncTask;
     auth;
     currency;
     fulfillmentAgency;
@@ -60,6 +62,7 @@ class ClientApi {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
+        this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);

@@ -23,11 +23,11 @@ export declare class StaffService {
     }): CancelablePromise<Array<(StoreUser & {
         User: {
             avatar: string;
-            email: string;
+            name: string;
             updatedAt: string;
             createdAt: string;
-            name: string;
             id: string;
+            email: string;
         };
     })>>;
     /**

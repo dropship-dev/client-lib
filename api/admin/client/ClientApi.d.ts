@@ -1,5 +1,6 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
+import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
@@ -24,6 +25,7 @@ import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
+    readonly asyncTask: AsyncTaskService;
     readonly auth: AuthService;
     readonly currency: CurrencyService;
     readonly fulfillmentAgency: FulfillmentAgencyService;

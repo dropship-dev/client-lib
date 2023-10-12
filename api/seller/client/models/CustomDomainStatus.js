@@ -5,9 +5,6 @@
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomDomainStatus = void 0;
-/**
- * Enums
- */
 var CustomDomainStatus;
 (function (CustomDomainStatus) {
     CustomDomainStatus["PENDING"] = "PENDING";

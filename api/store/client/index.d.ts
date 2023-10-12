@@ -10,6 +10,9 @@ export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto
 export type { AdminTag } from './models/AdminTag';
 export type { ApproveRequestSourcingDto } from './models/ApproveRequestSourcingDto';
 export type { ApproveStoreDto } from './models/ApproveStoreDto';
+export type { AsyncTask } from './models/AsyncTask';
+export { AsyncTaskStatus } from './models/AsyncTaskStatus';
+export { AsyncTaskType } from './models/AsyncTaskType';
 export type { AuthData } from './models/AuthData';
 export type { AuthStoreData } from './models/AuthStoreData';
 export type { BatchPayload } from './models/BatchPayload';

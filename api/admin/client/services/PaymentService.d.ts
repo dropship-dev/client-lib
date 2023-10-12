@@ -25,21 +25,21 @@ export declare class PaymentService {
         fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
         publishableKey: string;
-        type: PaymentType;
         creator: {
             role: UserRole;
             avatar: string;
-            email: string;
+            name: string;
             updatedAt: string;
             createdAt: string;
-            name: string;
             id: string;
+            email: string;
         };
-        email: string;
+        name: string;
         updatedAt: string;
         createdAt: string;
-        name: string;
+        type: PaymentType;
         id: number;
+        email: string;
     }>>;
     /**
      * @returns any Ok
@@ -50,21 +50,21 @@ export declare class PaymentService {
         id: number;
     }): CancelablePromise<{
         publishableKey: string;
-        type: PaymentType;
         creator: {
             role: UserRole;
             avatar: string;
-            email: string;
+            name: string;
             updatedAt: string;
             createdAt: string;
-            name: string;
             id: string;
+            email: string;
         };
-        email: string;
+        name: string;
         updatedAt: string;
         createdAt: string;
-        name: string;
+        type: PaymentType;
         id: number;
+        email: string;
     }>;
     /**
      * @returns Payment Ok
@@ -86,9 +86,9 @@ export declare class PaymentService {
         Store: Array<{
             primaryDomain: string;
             avatar: string;
-            email: string;
             name: string;
             id: string;
+            email: string;
         }>;
     }>;
     /**

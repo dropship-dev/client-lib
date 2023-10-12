@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const CampaignService_1 = require("./services/CampaignService");
 const CollectionService_1 = require("./services/CollectionService");
@@ -26,6 +27,7 @@ const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 const VariantComboService_1 = require("./services/VariantComboService");
 class ClientApi {
+    asyncTask;
     auth;
     campaign;
     collection;
@@ -62,6 +64,7 @@ class ClientApi {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
+        this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
         this.campaign = new CampaignService_1.CampaignService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);

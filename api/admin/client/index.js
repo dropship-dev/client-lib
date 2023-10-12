@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderRefundsService = exports.OrderService = exports.NotificationService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.AuthService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PerformanceService = exports.PaymentService = exports.OrderRefundsService = exports.OrderService = exports.NotificationService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -16,6 +16,10 @@ Object.defineProperty(exports, "CancelablePromise", { enumerable: true, get: fun
 Object.defineProperty(exports, "CancelError", { enumerable: true, get: function () { return CancelablePromise_1.CancelError; } });
 var OpenAPI_1 = require("./core/OpenAPI");
 Object.defineProperty(exports, "OpenAPI", { enumerable: true, get: function () { return OpenAPI_1.OpenAPI; } });
+var AsyncTaskStatus_1 = require("./models/AsyncTaskStatus");
+Object.defineProperty(exports, "AsyncTaskStatus", { enumerable: true, get: function () { return AsyncTaskStatus_1.AsyncTaskStatus; } });
+var AsyncTaskType_1 = require("./models/AsyncTaskType");
+Object.defineProperty(exports, "AsyncTaskType", { enumerable: true, get: function () { return AsyncTaskType_1.AsyncTaskType; } });
 var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
@@ -54,6 +58,8 @@ var TransactionType_1 = require("./models/TransactionType");
 Object.defineProperty(exports, "TransactionType", { enumerable: true, get: function () { return TransactionType_1.TransactionType; } });
 var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
+var AsyncTaskService_1 = require("./services/AsyncTaskService");
+Object.defineProperty(exports, "AsyncTaskService", { enumerable: true, get: function () { return AsyncTaskService_1.AsyncTaskService; } });
 var AuthService_1 = require("./services/AuthService");
 Object.defineProperty(exports, "AuthService", { enumerable: true, get: function () { return AuthService_1.AuthService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
