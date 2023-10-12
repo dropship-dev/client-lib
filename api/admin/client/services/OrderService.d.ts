@@ -107,6 +107,9 @@ export declare class OrderService {
     }): CancelablePromise<(Order & {
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
+            VariantCombo: (VariantCombo & {
+                Product: Product;
+            });
             ProductVariant: (ProductVariant & {
                 Product: Product;
                 PlatformVariant: PlatformVariant;
@@ -126,8 +129,13 @@ export declare class OrderService {
     }): CancelablePromise<(Order & {
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
-            VariantCombo: VariantCombo;
-            ProductVariant: ProductVariant;
+            VariantCombo: (VariantCombo & {
+                Product: Product;
+            });
+            ProductVariant: (ProductVariant & {
+                Product: Product;
+                PlatformVariant: PlatformVariant;
+            });
         })>;
         Transaction: Array<Transaction>;
         Store: Store;
