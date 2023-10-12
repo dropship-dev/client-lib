@@ -1,5 +1,6 @@
 import type { AsyncTask } from '../models/AsyncTask';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -10,17 +11,19 @@ export declare class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    createExportOrderTask({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, }: {
         fulfillmentAgencyId: number;
         storeId?: string;
-        paymentStatus?: TransactionStatus;
+        paymentStatus?: Array<TransactionStatus>;
         fulfillmentStatus?: Array<FulfillmentStatus>;
-        email?: string;
+        search?: string;
         productName?: string;
         startDate?: string;
         endDate?: string;
         startTotal?: number;
         endTotal?: number;
+        gateway?: Array<number>;
+        disputeStatus?: Array<OrderDisputeStatus>;
     }): CancelablePromise<AsyncTask>;
     /**
      * @returns AsyncTask Ok

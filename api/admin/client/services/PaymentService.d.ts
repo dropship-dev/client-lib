@@ -28,18 +28,18 @@ export declare class PaymentService {
         creator: {
             role: UserRole;
             avatar: string;
+            email: string;
             name: string;
             updatedAt: string;
             createdAt: string;
             id: string;
-            email: string;
         };
+        email: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         type: PaymentType;
         id: number;
-        email: string;
     }>>;
     /**
      * @returns any Ok
@@ -53,18 +53,18 @@ export declare class PaymentService {
         creator: {
             role: UserRole;
             avatar: string;
+            email: string;
             name: string;
             updatedAt: string;
             createdAt: string;
             id: string;
-            email: string;
         };
+        email: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         type: PaymentType;
         id: number;
-        email: string;
     }>;
     /**
      * @returns Payment Ok
@@ -86,9 +86,9 @@ export declare class PaymentService {
         Store: Array<{
             primaryDomain: string;
             avatar: string;
+            email: string;
             name: string;
             id: string;
-            email: string;
         }>;
     }>;
     /**
