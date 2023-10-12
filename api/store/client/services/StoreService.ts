@@ -37,6 +37,7 @@ export class StoreService {
     city: string;
     apartmentAddress: string;
     address: string;
+    email: string;
     phone: string;
     name: string;
     Currency: Currency;
@@ -49,17 +50,16 @@ export class StoreService {
     }>;
     Payment: Array<{
       publishableKey: string;
+      email: string;
       updatedAt: string;
       createdAt: string;
       type: PaymentType;
       id: number;
-      email: string;
     }>;
     CustomDomain: Array<CustomDomain>;
     updatedAt: string;
     createdAt: string;
     id: string;
-    email: string;
     Theme: (Theme & {
       ThemeTemplate: ThemeTemplate;
     });
@@ -90,11 +90,11 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    email: string;
     updatedAt: string;
     createdAt: string;
     type: PaymentType;
     id: number;
-    email: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',

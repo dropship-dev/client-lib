@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { AsyncTask } from '../models/AsyncTask';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -22,23 +23,27 @@ export class AsyncTaskService {
     storeId,
     paymentStatus,
     fulfillmentStatus,
-    email,
+    search,
     productName,
     startDate,
     endDate,
     startTotal,
     endTotal,
+    gateway,
+    disputeStatus,
   }: {
     fulfillmentAgencyId: number,
     storeId?: string,
-    paymentStatus?: TransactionStatus,
+    paymentStatus?: Array<TransactionStatus>,
     fulfillmentStatus?: Array<FulfillmentStatus>,
-    email?: string,
+    search?: string,
     productName?: string,
     startDate?: string,
     endDate?: string,
     startTotal?: number,
     endTotal?: number,
+    gateway?: Array<number>,
+    disputeStatus?: Array<OrderDisputeStatus>,
   }): CancelablePromise<AsyncTask> {
     return this.httpRequest.request({
       method: 'POST',
@@ -48,12 +53,14 @@ export class AsyncTaskService {
         'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
-        'email': email,
+        'search': search,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,
         'startTotal': startTotal,
         'endTotal': endTotal,
+        'gateway': gateway,
+        'disputeStatus': disputeStatus,
       },
       errors: {
         400: `Bad request`,

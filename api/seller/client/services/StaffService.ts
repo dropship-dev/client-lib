@@ -53,11 +53,11 @@ export class StaffService {
   }): CancelablePromise<Array<(StoreUser & {
     User: {
       avatar: string;
+      email: string;
       name: string;
       updatedAt: string;
       createdAt: string;
       id: string;
-      email: string;
     };
   })>> {
     return this.httpRequest.request({

@@ -58,18 +58,18 @@ export class PaymentService {
     creator: {
       role: UserRole;
       avatar: string;
+      email: string;
       name: string;
       updatedAt: string;
       createdAt: string;
       id: string;
-      email: string;
     };
+    email: string;
     name: string;
     updatedAt: string;
     createdAt: string;
     type: PaymentType;
     id: number;
-    email: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -102,18 +102,18 @@ export class PaymentService {
     creator: {
       role: UserRole;
       avatar: string;
+      email: string;
       name: string;
       updatedAt: string;
       createdAt: string;
       id: string;
-      email: string;
     };
+    email: string;
     name: string;
     updatedAt: string;
     createdAt: string;
     type: PaymentType;
     id: number;
-    email: string;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -182,9 +182,9 @@ export class PaymentService {
     Store: Array<{
       primaryDomain: string;
       avatar: string;
+      email: string;
       name: string;
       id: string;
-      email: string;
     }>;
   }> {
     return this.httpRequest.request({

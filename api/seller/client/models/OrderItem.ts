@@ -9,9 +9,9 @@ import type { FulfillmentStatus } from './FulfillmentStatus';
  * Model OrderItem
  */
 export type OrderItem = {
-  orderRefundId: string | null;
   updatedAt: string;
   createdAt: string;
+  orderRefundId: string | null;
   currencyId: number;
   orderId: string;
   variantComboId: number | null;
