@@ -7,6 +7,7 @@ import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
+import type { OrderRefund } from '../models/OrderRefund';
 import type { PaymentType } from '../models/PaymentType';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
@@ -74,6 +75,7 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<(Order & {
+      OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
           Product: {
@@ -137,6 +139,7 @@ export class OrderService {
     storeId: string,
     orderId: string,
   }): CancelablePromise<(Order & {
+    OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: VariantCombo;
       ProductVariant: {

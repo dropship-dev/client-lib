@@ -348,6 +348,7 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<(Order & {
+      OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
           Product: {
