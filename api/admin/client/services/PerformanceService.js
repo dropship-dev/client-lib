@@ -151,7 +151,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns StorePerformance Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStorePerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, pageSize = 20, nextPageIndex, }) {
