@@ -11,8 +11,9 @@ export declare class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, }: {
+    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, }: {
         fulfillmentAgencyId: number;
+        exportedFilename: string;
         storeId?: string;
         paymentStatus?: Array<TransactionStatus>;
         fulfillmentStatus?: Array<FulfillmentStatus>;
