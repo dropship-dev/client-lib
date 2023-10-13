@@ -20,6 +20,7 @@ export class AsyncTaskService {
    */
   public createExportOrderTask({
     fulfillmentAgencyId,
+    exportedFilename,
     storeId,
     paymentStatus,
     fulfillmentStatus,
@@ -33,6 +34,7 @@ export class AsyncTaskService {
     disputeStatus,
   }: {
     fulfillmentAgencyId: number,
+    exportedFilename: string,
     storeId?: string,
     paymentStatus?: Array<TransactionStatus>,
     fulfillmentStatus?: Array<FulfillmentStatus>,
@@ -50,6 +52,7 @@ export class AsyncTaskService {
       url: '/async-task/export-order',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'exportedFilename': exportedFilename,
         'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
