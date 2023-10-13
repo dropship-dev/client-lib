@@ -275,7 +275,7 @@ export class PerformanceService {
   }
 
   /**
-   * @returns StorePerformance Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getStorePerformance({
@@ -290,7 +290,13 @@ export class PerformanceService {
     endDate?: string,
     pageSize?: number,
     nextPageIndex?: number,
-  }): CancelablePromise<Array<StorePerformance>> {
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<StorePerformance>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/store',
