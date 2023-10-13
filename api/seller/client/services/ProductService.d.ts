@@ -158,5 +158,5 @@ export declare class ProductService {
         storeId: string;
         productId: number;
         requestBody: UpdateProductStatusDto;
-    }): CancelablePromise<Product>;
+    }): CancelablePromise<Array<Product>>;
 }
