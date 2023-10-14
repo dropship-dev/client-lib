@@ -290,13 +290,16 @@ export class PerformanceService {
     endDate?: string,
     pageSize?: number,
     nextPageIndex?: number,
-  }): CancelablePromise<{
+  }): CancelablePromise<({
     orderBy: string;
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
     data: Array<StorePerformance>;
-  }> {
+  } | {
+    results: Array<any>;
+    nextPageIndex: number;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/store',
