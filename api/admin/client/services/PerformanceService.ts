@@ -282,12 +282,14 @@ export class PerformanceService {
     fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
+    search,
     pageSize = 20,
     nextPageIndex,
   }: {
     fulfillmentAgencyId: number,
     startDate?: string,
     endDate?: string,
+    search?: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<({
@@ -307,6 +309,7 @@ export class PerformanceService {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
+        'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },
