@@ -6,6 +6,7 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
+import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -58,8 +59,10 @@ export class FulfillmentAgencyService {
     data: Array<{
       updatedAt: string;
       createdAt: string;
+      executionTime: string;
       status: FulfillmentAgencyStatus;
       phone: string;
+      email: string;
       name: string;
       id: number;
       noProduct: number;
@@ -153,6 +156,35 @@ export class FulfillmentAgencyService {
       path: {
         'id': id,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns FulfillmentAgency Ok
+   * @throws ApiError
+   */
+  public updateFulfillmentAgencyStatus({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: UpdateFulfillmentAgencyStatusDto,
+  }): CancelablePromise<FulfillmentAgency> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/fulfillment-agency/{id}/status',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

@@ -5,17 +5,7 @@
 
 import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 
-/**
- * Model FulfillmentAgency
- */
-export type FulfillmentAgency = {
-  updatedAt: string;
-  createdAt: string;
-  executionTime: string;
+export type UpdateFulfillmentAgencyStatusDto = {
   status: FulfillmentAgencyStatus;
-  phone: string | null;
-  email: string;
-  name: string;
-  id: number;
 };
 
