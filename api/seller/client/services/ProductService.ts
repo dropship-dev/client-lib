@@ -163,7 +163,7 @@ export class ProductService {
   }
 
   /**
-   * @returns string Ok
+   * @returns Product Ok
    * @throws ApiError
    */
   public updateProductStatuses({
@@ -172,7 +172,7 @@ export class ProductService {
   }: {
     storeId: string,
     requestBody: UpdateProductStatusesDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<Array<Product>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/status',
