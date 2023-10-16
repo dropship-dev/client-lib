@@ -28,8 +28,8 @@ export declare class StoreService {
         city: string;
         apartmentAddress: string;
         address: string;
-        email: string;
         phone: string;
+        email: string;
         name: string;
         Currency: Currency;
         Product: Array<{

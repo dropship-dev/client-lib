@@ -1,1 +1,4 @@
-export type UpdateFulfillmentAgencyDto = {};
+export type UpdateFulfillmentAgencyDto = {
+    name?: string;
+    phone?: string;
+};

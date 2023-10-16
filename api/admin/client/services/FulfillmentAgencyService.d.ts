@@ -22,8 +22,10 @@ export declare class FulfillmentAgencyService {
         data: Array<{
             updatedAt: string;
             createdAt: string;
+            executionTime: string;
             status: FulfillmentAgencyStatus;
             phone: string;
+            email: string;
             name: string;
             id: number;
             noProduct: number;

@@ -5,8 +5,10 @@ import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 export type FulfillmentAgency = {
     updatedAt: string;
     createdAt: string;
+    executionTime: string;
     status: FulfillmentAgencyStatus;
     phone: string | null;
+    email: string;
     name: string;
     id: number;
 };

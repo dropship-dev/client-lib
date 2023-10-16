@@ -2,6 +2,7 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
+import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class FulfillmentAgencyService {
@@ -30,8 +31,10 @@ export declare class FulfillmentAgencyService {
         data: Array<{
             updatedAt: string;
             createdAt: string;
+            executionTime: string;
             status: FulfillmentAgencyStatus;
             phone: string;
+            email: string;
             name: string;
             id: number;
             noProduct: number;
@@ -59,5 +62,13 @@ export declare class FulfillmentAgencyService {
      */
     deleteFulfillmentAgency({ id, }: {
         id: number;
+    }): CancelablePromise<FulfillmentAgency>;
+    /**
+     * @returns FulfillmentAgency Ok
+     * @throws ApiError
+     */
+    updateFulfillmentAgencyStatus({ id, requestBody, }: {
+        id: number;
+        requestBody: UpdateFulfillmentAgencyStatusDto;
     }): CancelablePromise<FulfillmentAgency>;
 }

@@ -132,6 +132,7 @@ export type { UpdateComboStatusDto } from './models/UpdateComboStatusDto';
 export type { UpdateDiscountDto } from './models/UpdateDiscountDto';
 export type { UpdateFbPixelDto } from './models/UpdateFbPixelDto';
 export type { UpdateFulfillmentAgencyDto } from './models/UpdateFulfillmentAgencyDto';
+export type { UpdateFulfillmentAgencyStatusDto } from './models/UpdateFulfillmentAgencyStatusDto';
 export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderRefundDto } from './models/UpdateOrderRefundDto';
