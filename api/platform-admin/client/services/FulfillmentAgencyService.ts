@@ -59,6 +59,7 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       status: FulfillmentAgencyStatus;
+      phone: string;
       name: string;
       id: number;
       noProduct: number;
