@@ -3,9 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum StoreStatus {
+export enum FulfillmentAgencyStatus {
   ONLINE = 'ONLINE',
   SUSPENDED = 'SUSPENDED',
-  REQUESTING = 'REQUESTING',
-  CLOSED = 'CLOSED',
 }

@@ -4,8 +4,8 @@
 /* eslint-disable */
 
 export enum StoreStatus {
-  REQUESTING = 'REQUESTING',
   ONLINE = 'ONLINE',
   SUSPENDED = 'SUSPENDED',
+  REQUESTING = 'REQUESTING',
   CLOSED = 'CLOSED',
 }

@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
+import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -38,19 +39,39 @@ export class FulfillmentAgencyService {
   }
 
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllFulfillmentAgency({
     userId,
+    pageSize = 20,
+    nextPageIndex,
   }: {
     userId?: string,
-  }): CancelablePromise<Array<FulfillmentAgency>> {
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<{
+      updatedAt: string;
+      createdAt: string;
+      status: FulfillmentAgencyStatus;
+      name: string;
+      id: number;
+      noProduct: number;
+      noStore: number;
+    }>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency',
       query: {
         'userId': userId,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,
