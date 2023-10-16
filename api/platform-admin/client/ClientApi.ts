@@ -7,22 +7,26 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AsyncTaskService } from './services/AsyncTaskService';
+import { AuthService } from './services/AuthService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
 import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { UploadService } from './services/UploadService';
+import { UserService } from './services/UserService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
   public readonly asyncTask: AsyncTaskService;
+  public readonly auth: AuthService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly notification: NotificationService;
   public readonly performance: PerformanceService;
   public readonly themeTemplate: ThemeTemplateService;
   public readonly upload: UploadService;
+  public readonly user: UserService;
 
   public readonly request: BaseHttpRequest;
 
@@ -40,11 +44,13 @@ export class ClientApi {
     });
 
     this.asyncTask = new AsyncTaskService(this.request);
+    this.auth = new AuthService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.notification = new NotificationService(this.request);
     this.performance = new PerformanceService(this.request);
     this.themeTemplate = new ThemeTemplateService(this.request);
     this.upload = new UploadService(this.request);
+    this.user = new UserService(this.request);
   }
 }
 
