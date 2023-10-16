@@ -10,6 +10,4 @@ var FulfillmentStatus;
     FulfillmentStatus["UNFULFILLED"] = "UNFULFILLED";
     FulfillmentStatus["PARTIALLY_FULFILLED"] = "PARTIALLY_FULFILLED";
     FulfillmentStatus["FULFILLED"] = "FULFILLED";
-    FulfillmentStatus["PARTIALLY_PROCESSING"] = "PARTIALLY_PROCESSING";
-    FulfillmentStatus["PROCESSING"] = "PROCESSING";
 })(FulfillmentStatus || (exports.FulfillmentStatus = FulfillmentStatus = {}));
