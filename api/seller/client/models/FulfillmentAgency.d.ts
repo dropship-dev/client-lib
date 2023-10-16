@@ -6,6 +6,7 @@ export type FulfillmentAgency = {
     updatedAt: string;
     createdAt: string;
     status: FulfillmentAgencyStatus;
+    phone: string | null;
     name: string;
     id: number;
 };
