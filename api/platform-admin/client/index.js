@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -60,6 +60,8 @@ var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
 var AsyncTaskService_1 = require("./services/AsyncTaskService");
 Object.defineProperty(exports, "AsyncTaskService", { enumerable: true, get: function () { return AsyncTaskService_1.AsyncTaskService; } });
+var AuthService_1 = require("./services/AuthService");
+Object.defineProperty(exports, "AuthService", { enumerable: true, get: function () { return AuthService_1.AuthService; } });
 var FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 Object.defineProperty(exports, "FulfillmentAgencyService", { enumerable: true, get: function () { return FulfillmentAgencyService_1.FulfillmentAgencyService; } });
 var NotificationService_1 = require("./services/NotificationService");
@@ -70,3 +72,5 @@ var ThemeTemplateService_1 = require("./services/ThemeTemplateService");
 Object.defineProperty(exports, "ThemeTemplateService", { enumerable: true, get: function () { return ThemeTemplateService_1.ThemeTemplateService; } });
 var UploadService_1 = require("./services/UploadService");
 Object.defineProperty(exports, "UploadService", { enumerable: true, get: function () { return UploadService_1.UploadService; } });
+var UserService_1 = require("./services/UserService");
+Object.defineProperty(exports, "UserService", { enumerable: true, get: function () { return UserService_1.UserService; } });
