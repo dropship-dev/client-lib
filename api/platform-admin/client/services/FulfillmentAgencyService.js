@@ -26,15 +26,17 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getAllFulfillmentAgency({ userId, }) {
+    getAllFulfillmentAgency({ userId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/fulfillment-agency',
             query: {
                 'userId': userId,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

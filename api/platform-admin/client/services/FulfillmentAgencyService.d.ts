@@ -1,5 +1,6 @@
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
+import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -14,12 +15,28 @@ export declare class FulfillmentAgencyService {
         requestBody: CreateFulfillmentAgencyDto;
     }): CancelablePromise<FulfillmentAgency>;
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getAllFulfillmentAgency({ userId, }: {
+    getAllFulfillmentAgency({ userId, pageSize, nextPageIndex, }: {
         userId?: string;
-    }): CancelablePromise<Array<FulfillmentAgency>>;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            updatedAt: string;
+            createdAt: string;
+            status: FulfillmentAgencyStatus;
+            name: string;
+            id: number;
+            noProduct: number;
+            noStore: number;
+        }>;
+    }>;
     /**
      * @returns FulfillmentAgency Ok
      * @throws ApiError
