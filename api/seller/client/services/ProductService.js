@@ -82,7 +82,7 @@ class ProductService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns Product Ok
      * @throws ApiError
      */
     updateProductStatuses({ storeId, requestBody, }) {

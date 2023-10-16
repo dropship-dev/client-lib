@@ -78,13 +78,13 @@ export declare class ProductService {
         count: number;
     }>;
     /**
-     * @returns string Ok
+     * @returns Product Ok
      * @throws ApiError
      */
     updateProductStatuses({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateProductStatusesDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<Array<Product>>;
     /**
      * @returns any Ok
      * @throws ApiError
