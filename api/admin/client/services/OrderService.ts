@@ -17,6 +17,7 @@ import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
+import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { VariantCombo } from '../models/VariantCombo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -177,7 +178,7 @@ export class OrderService {
   }
 
   /**
-   * @returns string Ok
+   * @returns UpdateFulFillmentStatusResp Ok
    * @throws ApiError
    */
   public updateFulfillmentStatus({
@@ -186,7 +187,7 @@ export class OrderService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: UpdateFulFillmentStatusDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<UpdateFulFillmentStatusResp> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/order/fulfillmentStatus',
