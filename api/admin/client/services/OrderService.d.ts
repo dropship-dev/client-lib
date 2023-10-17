@@ -13,6 +13,7 @@ import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
+import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -90,13 +91,13 @@ export declare class OrderService {
         endTotal?: number;
     }): CancelablePromise<Array<ExportOrderResponseDto>>;
     /**
-     * @returns string Ok
+     * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
      */
     updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: UpdateFulFillmentStatusDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<UpdateFulFillmentStatusResp>;
     /**
      * @returns any Ok
      * @throws ApiError

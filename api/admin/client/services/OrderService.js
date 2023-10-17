@@ -69,7 +69,7 @@ class OrderService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
      */
     updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }) {

@@ -134,6 +134,8 @@ export type { UpdateFbPixelDto } from './models/UpdateFbPixelDto';
 export type { UpdateFulfillmentAgencyDto } from './models/UpdateFulfillmentAgencyDto';
 export type { UpdateFulfillmentAgencyStatusDto } from './models/UpdateFulfillmentAgencyStatusDto';
 export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
+export type { UpdateFulFillmentStatusError } from './models/UpdateFulFillmentStatusError';
+export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStatusResp';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderRefundDto } from './models/UpdateOrderRefundDto';
 export type { UpdateOrderRefundHistoryDto } from './models/UpdateOrderRefundHistoryDto';
