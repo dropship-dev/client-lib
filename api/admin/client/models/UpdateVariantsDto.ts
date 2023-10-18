@@ -3,11 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type UpdateVariantsDto = Array<{
-  photo?: string;
-  SKU?: string;
-  compareAtPrice?: number;
-  price?: number;
-  name?: string;
+import type { UpdateVariantDto } from './UpdateVariantDto';
+
+export type UpdateVariantsDto = Array<(UpdateVariantDto & {
   id: number;
-}>;
+})>;
