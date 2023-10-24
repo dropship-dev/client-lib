@@ -39,14 +39,6 @@ export declare class StoreService {
             name: string;
             id: number;
         }>;
-        Payment: Array<{
-            publishableKey: string;
-            email: string;
-            updatedAt: string;
-            createdAt: string;
-            type: PaymentType;
-            id: number;
-        }>;
         CustomDomain: Array<CustomDomain>;
         updatedAt: string;
         createdAt: string;
@@ -55,6 +47,15 @@ export declare class StoreService {
         Theme: (Theme & {
             ThemeTemplate: ThemeTemplate;
         });
+        Payment: Array<{
+            publishableKey: string;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            type: PaymentType;
+            id: number;
+            clientToken: string;
+        }>;
     }>;
     /**
      * @returns any Ok
