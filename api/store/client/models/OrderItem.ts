@@ -20,6 +20,7 @@ export type OrderItem = {
   carrier: string | null;
   tracking: string | null;
   status: FulfillmentStatus;
+  latestQuantity: number;
   platformPrice: number;
   quantity: number;
   priceUSD: number;

@@ -21,6 +21,9 @@ export type Order = {
   transactionId: number | null;
   storeId: string;
   fulfillmentStatus: FulfillmentStatus;
+  latestNoItems: number;
+  latestSubTotal: number;
+  latestTotal: number;
   gatewayTransactionId: string | null;
   gatewayOrderId: string;
   lastBalance: number;
@@ -30,8 +33,8 @@ export type Order = {
   tax: number;
   platformFee: number;
   profit: number;
-  totalUSD: number;
   subTotal: number;
+  totalUSD: number;
   total: number;
   shippingFee: number;
   note: string | null;
