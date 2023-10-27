@@ -8,7 +8,7 @@ export type FulfillmentAgency = {
     executionTime: string;
     status: FulfillmentAgencyStatus;
     phone: string | null;
-    email: string | null;
+    email: string;
     name: string;
     id: number;
 };
