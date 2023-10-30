@@ -29,6 +29,7 @@ import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
+import { WebhookService } from './services/WebhookService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -57,6 +58,7 @@ export class ClientApi {
   public readonly user: UserService;
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
+  public readonly webhook: WebhookService;
 
   public readonly request: BaseHttpRequest;
 
@@ -96,6 +98,7 @@ export class ClientApi {
     this.user = new UserService(this.request);
     this.variant = new VariantService(this.request);
     this.variantCombo = new VariantComboService(this.request);
+    this.webhook = new WebhookService(this.request);
   }
 }
 

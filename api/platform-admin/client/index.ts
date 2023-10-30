@@ -183,3 +183,4 @@ export { PerformanceService } from './services/PerformanceService';
 export { ThemeTemplateService } from './services/ThemeTemplateService';
 export { UploadService } from './services/UploadService';
 export { UserService } from './services/UserService';
+export { WebhookService } from './services/WebhookService';

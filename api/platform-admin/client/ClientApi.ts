@@ -14,6 +14,7 @@ import { PerformanceService } from './services/PerformanceService';
 import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
+import { WebhookService } from './services/WebhookService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -27,6 +28,7 @@ export class ClientApi {
   public readonly themeTemplate: ThemeTemplateService;
   public readonly upload: UploadService;
   public readonly user: UserService;
+  public readonly webhook: WebhookService;
 
   public readonly request: BaseHttpRequest;
 
@@ -51,6 +53,7 @@ export class ClientApi {
     this.themeTemplate = new ThemeTemplateService(this.request);
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
+    this.webhook = new WebhookService(this.request);
   }
 }
 
