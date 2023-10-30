@@ -191,3 +191,4 @@ export { UploadService } from './services/UploadService';
 export { UserService } from './services/UserService';
 export { VariantService } from './services/VariantService';
 export { VariantComboService } from './services/VariantComboService';
+export { WebhookService } from './services/WebhookService';

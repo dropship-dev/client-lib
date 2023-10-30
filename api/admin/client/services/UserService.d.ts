@@ -63,4 +63,13 @@ export declare class UserService {
             FulfillmentAgency: FulfillmentAgency;
         })>;
     })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    handleEventPaypalService({ agencyId, paymentId, requestBody, }: {
+        agencyId: number;
+        paymentId: number;
+        requestBody: any;
+    }): CancelablePromise<string>;
 }

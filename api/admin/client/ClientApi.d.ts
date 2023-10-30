@@ -23,6 +23,7 @@ import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
+import { WebhookService } from './services/WebhookService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
@@ -48,6 +49,7 @@ export declare class ClientApi {
     readonly user: UserService;
     readonly variant: VariantService;
     readonly variantCombo: VariantComboService;
+    readonly webhook: WebhookService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }
