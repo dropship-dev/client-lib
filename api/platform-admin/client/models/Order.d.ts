@@ -12,7 +12,6 @@ export type Order = {
     status: OrderStatus;
     paymentId: number;
     currencyId: number;
-    transactionId: number | null;
     storeId: string;
     fulfillmentStatus: FulfillmentStatus;
     latestNoItems: number;
