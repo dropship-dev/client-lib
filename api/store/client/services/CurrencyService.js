@@ -26,5 +26,23 @@ class CurrencyService {
             },
         });
     }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    createEvents({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/events',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.CurrencyService = CurrencyService;
