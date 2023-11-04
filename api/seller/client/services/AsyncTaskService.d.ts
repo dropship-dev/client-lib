@@ -11,7 +11,7 @@ export declare class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, }: {
+    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat, }: {
         fulfillmentAgencyId: number;
         exportedFilename: string;
         storeId?: string;
@@ -25,6 +25,7 @@ export declare class AsyncTaskService {
         endTotal?: number;
         gateway?: Array<number>;
         disputeStatus?: Array<OrderDisputeStatus>;
+        latestStat?: boolean;
     }): CancelablePromise<AsyncTask>;
     /**
      * @returns AsyncTask Ok

@@ -10,7 +10,7 @@ class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, }) {
+    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/async-task/export-order',
@@ -28,6 +28,7 @@ class AsyncTaskService {
                 'endTotal': endTotal,
                 'gateway': gateway,
                 'disputeStatus': disputeStatus,
+                'latestStat': latestStat,
             },
             errors: {
                 400: `Bad request`,
