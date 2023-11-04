@@ -17,6 +17,7 @@ export type { AdminTag } from './models/AdminTag';
 export type { ApproveRequestSourcingDto } from './models/ApproveRequestSourcingDto';
 export type { ApproveStoreDto } from './models/ApproveStoreDto';
 export type { AsyncTask } from './models/AsyncTask';
+export type { AsyncTaskError } from './models/AsyncTaskError';
 export { AsyncTaskStatus } from './models/AsyncTaskStatus';
 export { AsyncTaskType } from './models/AsyncTaskType';
 export type { AuthData } from './models/AuthData';

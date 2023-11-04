@@ -32,6 +32,7 @@ export class AsyncTaskService {
     endTotal,
     gateway,
     disputeStatus,
+    latestStat = false,
   }: {
     fulfillmentAgencyId: number,
     exportedFilename: string,
@@ -46,6 +47,7 @@ export class AsyncTaskService {
     endTotal?: number,
     gateway?: Array<number>,
     disputeStatus?: Array<OrderDisputeStatus>,
+    latestStat?: boolean,
   }): CancelablePromise<AsyncTask> {
     return this.httpRequest.request({
       method: 'POST',
@@ -64,6 +66,7 @@ export class AsyncTaskService {
         'endTotal': endTotal,
         'gateway': gateway,
         'disputeStatus': disputeStatus,
+        'latestStat': latestStat,
       },
       errors: {
         400: `Bad request`,
