@@ -5,6 +5,7 @@ import type { PrismaJson_RefundOrderItems } from './PrismaJson_RefundOrderItems'
 export type OrderRefund = {
     updatedAt: string;
     createdAt: string;
+    isRollback: boolean;
     orderId: string | null;
     type: string;
     /**

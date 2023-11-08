@@ -6,6 +6,7 @@ import type { TransactionType } from './TransactionType';
 export type Transaction = {
     updatedAt: string;
     createdAt: string;
+    isRollback: boolean;
     orderId: string | null;
     storeId: string;
     status: TransactionStatus;
