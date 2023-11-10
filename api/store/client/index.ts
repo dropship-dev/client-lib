@@ -51,7 +51,6 @@ export type { CreateTagDto } from './models/CreateTagDto';
 export type { CreateThemeDto } from './models/CreateThemeDto';
 export type { CreateThemeTemplateDto } from './models/CreateThemeTemplateDto';
 export type { CreateUploadDto } from './models/CreateUploadDto';
-export type { CreatEventDto } from './models/CreatEventDto';
 export type { Currency } from './models/Currency';
 export type { CustomDomain } from './models/CustomDomain';
 export { CustomDomainStatus } from './models/CustomDomainStatus';
