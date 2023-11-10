@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WebhookService = exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -76,5 +76,3 @@ var UploadService_1 = require("./services/UploadService");
 Object.defineProperty(exports, "UploadService", { enumerable: true, get: function () { return UploadService_1.UploadService; } });
 var UserService_1 = require("./services/UserService");
 Object.defineProperty(exports, "UserService", { enumerable: true, get: function () { return UserService_1.UserService; } });
-var WebhookService_1 = require("./services/WebhookService");
-Object.defineProperty(exports, "WebhookService", { enumerable: true, get: function () { return WebhookService_1.WebhookService; } });

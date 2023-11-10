@@ -8,7 +8,6 @@ import { PerformanceService } from './services/PerformanceService';
 import { ThemeTemplateService } from './services/ThemeTemplateService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
-import { WebhookService } from './services/WebhookService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
@@ -19,7 +18,6 @@ export declare class ClientApi {
     readonly themeTemplate: ThemeTemplateService;
     readonly upload: UploadService;
     readonly user: UserService;
-    readonly webhook: WebhookService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }

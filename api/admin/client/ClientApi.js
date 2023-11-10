@@ -25,7 +25,6 @@ const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 const VariantComboService_1 = require("./services/VariantComboService");
-const WebhookService_1 = require("./services/WebhookService");
 class ClientApi {
     asyncTask;
     auth;
@@ -50,7 +49,6 @@ class ClientApi {
     user;
     variant;
     variantCombo;
-    webhook;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -87,7 +85,6 @@ class ClientApi {
         this.user = new UserService_1.UserService(this.request);
         this.variant = new VariantService_1.VariantService(this.request);
         this.variantCombo = new VariantComboService_1.VariantComboService(this.request);
-        this.webhook = new WebhookService_1.WebhookService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

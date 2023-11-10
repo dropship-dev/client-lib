@@ -10,7 +10,6 @@ const PerformanceService_1 = require("./services/PerformanceService");
 const ThemeTemplateService_1 = require("./services/ThemeTemplateService");
 const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
-const WebhookService_1 = require("./services/WebhookService");
 class ClientApi {
     asyncTask;
     auth;
@@ -20,7 +19,6 @@ class ClientApi {
     themeTemplate;
     upload;
     user;
-    webhook;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -42,7 +40,6 @@ class ClientApi {
         this.themeTemplate = new ThemeTemplateService_1.ThemeTemplateService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
         this.user = new UserService_1.UserService(this.request);
-        this.webhook = new WebhookService_1.WebhookService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

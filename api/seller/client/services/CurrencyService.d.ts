@@ -1,4 +1,3 @@
-import type { CreatEventDto } from '../models/CreatEventDto';
 import type { Currency } from '../models/Currency';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,11 +11,4 @@ export declare class CurrencyService {
     getCurrency({ id, }: {
         id: number;
     }): CancelablePromise<Currency>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    createEvents({ requestBody, }: {
-        requestBody: CreatEventDto;
-    }): CancelablePromise<string>;
 }
