@@ -71,4 +71,14 @@ export declare class StoreService {
         type: PaymentType;
         id: number;
     }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePaymentMethodClientToken({ storeId, clientId, }: {
+        storeId: string;
+        clientId: string;
+    }): CancelablePromise<{
+        clientToken: string;
+    }>;
 }

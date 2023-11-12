@@ -46,5 +46,28 @@ class StoreService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePaymentMethodClientToken({ storeId, clientId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/payment-method/client-token',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'clientId': clientId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.StoreService = StoreService;
