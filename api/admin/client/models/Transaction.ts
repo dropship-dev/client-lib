@@ -13,6 +13,7 @@ export type Transaction = {
   updatedAt: string;
   createdAt: string;
   isRollback: boolean;
+  refundIdGateway: string | null;
   orderId: string | null;
   storeId: string;
   status: TransactionStatus;
