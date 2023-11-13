@@ -3,9 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentUser } from '../models/FulfillmentUser';
 import type { LoginDto } from '../models/LoginDto';
-import type { User } from '../models/User';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -22,11 +20,11 @@ export class AuthService {
     requestBody,
   }: {
     requestBody: LoginDto,
-  }): CancelablePromise<(User & {
-    FulfillmentUser: Array<(FulfillmentUser & {
+  }): CancelablePromise<{
+    FulfillmentUser: Array<{
       FulfillmentAgency: FulfillmentAgency;
-    })>;
-  })> {
+    }>;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/auth/login',

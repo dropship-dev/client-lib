@@ -123,7 +123,7 @@ export class StoreService {
     clientId,
   }: {
     storeId: string,
-    clientId: string,
+    clientId?: string,
   }): CancelablePromise<{
     clientToken: string;
   }> {
