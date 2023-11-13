@@ -17,6 +17,7 @@ export type PlatformVariant = {
     supplierPriceSet4: number | null;
     supplierPriceSet3: number | null;
     supplierPriceSet2: number | null;
+    supplierPrice: number;
     priceSet10: number | null;
     priceSet9: number | null;
     priceSet8: number | null;
@@ -26,7 +27,6 @@ export type PlatformVariant = {
     priceSet4: number | null;
     priceSet3: number | null;
     priceSet2: number | null;
-    supplierPrice: number;
     price: number;
     /**
      * [VariantOptionValues]

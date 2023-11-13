@@ -77,7 +77,7 @@ export declare class StoreService {
      */
     getStorePaymentMethodClientToken({ storeId, clientId, }: {
         storeId: string;
-        clientId: string;
+        clientId?: string;
     }): CancelablePromise<{
         clientToken: string;
     }>;
