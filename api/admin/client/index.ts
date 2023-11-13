@@ -29,6 +29,7 @@ export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
 export type { Collection } from './models/Collection';
 export type { ComboItemDto } from './models/ComboItemDto';
+export { COST_CALCULATION_METHOD } from './models/COST_CALCULATION_METHOD';
 export type { CreateCollectionDto } from './models/CreateCollectionDto';
 export type { CreateComboDto } from './models/CreateComboDto';
 export type { CreateDiscountDto } from './models/CreateDiscountDto';

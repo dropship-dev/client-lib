@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { COST_CALCULATION_METHOD } from '../models/COST_CALCULATION_METHOD';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -33,6 +34,7 @@ export class FulfillmentAgencyService {
     data: Array<{
       updatedAt: string;
       createdAt: string;
+      costCalculationMethod: COST_CALCULATION_METHOD;
       executionTime: string;
       status: FulfillmentAgencyStatus;
       phone: string;
