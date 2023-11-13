@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { PrismaJson_PlatformCostInfo } from './PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 
 /**
@@ -14,6 +15,10 @@ export type PlatformVariant = {
   platformProductId: number;
   isEnable: boolean;
   isActive: boolean;
+  /**
+   * [PlatformCostInfo]
+   */
+  cost: PrismaJson_PlatformCostInfo;
   supplierPrice: number;
   price: number;
   /**

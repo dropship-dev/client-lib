@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { PrismaJson_AvailableSet } from './PrismaJson_AvailableSet';
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
 
 /**
@@ -16,6 +17,10 @@ export type Product = {
   platformProductId: number;
   isEnable: boolean;
   isActive: boolean;
+  /**
+   * [AvailableSet]
+   */
+  availableSet: PrismaJson_AvailableSet | null;
   SKU: string;
   /**
    * [Photos]

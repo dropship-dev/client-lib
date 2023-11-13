@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
+import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -48,10 +49,12 @@ export class RequestSourcingService {
    */
   public getAllRequestSourcing({
     storeId,
+    statusRequest,
     pageSize = 20,
     nextPageIndex,
   }: {
     storeId: string,
+    statusRequest?: Array<RequestSourcingStatus>,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -68,6 +71,7 @@ export class RequestSourcingService {
         'storeId': storeId,
       },
       query: {
+        'statusRequest': statusRequest,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },

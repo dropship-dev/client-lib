@@ -83,8 +83,8 @@ export class ProductService {
       VariantCombo: Array<VariantCombo>;
       ProductVariant: Array<(ProductVariant & {
         PlatformVariant: {
-          photo: string;
           price: number;
+          photo: string;
           platformProductId: number;
           isEnable: boolean;
           isActive: boolean;

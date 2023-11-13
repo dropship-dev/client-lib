@@ -8,7 +8,7 @@ import type { PhotoDto } from './PhotoDto';
 import type { URLDto } from './URLDto';
 
 export type CreateRequestSourcingDto = {
-  name: NameDto;
+  name?: NameDto;
   description?: string;
   photos: Array<PhotoDto>;
   link: URLDto;
