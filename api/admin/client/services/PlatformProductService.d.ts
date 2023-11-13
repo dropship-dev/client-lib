@@ -1,5 +1,6 @@
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { AdminTag } from '../models/AdminTag';
+import type { AvailableSet } from '../models/AvailableSet';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
 import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
@@ -52,6 +53,7 @@ export declare class PlatformProductService {
             isEnable: boolean;
             isActive: boolean;
             supplierContact: string;
+            availableSet: AvailableSet;
             variantOption: VariantOptions;
             photos: Photos;
             details: string;

@@ -6,16 +6,20 @@ import type { RequestSourcingStatus } from './RequestSourcingStatus';
 export type RequestSourcing = {
     updatedAt: string;
     createdAt: string;
+    isDeleted: boolean;
     storeId: string;
     productId: number | null;
     status: RequestSourcingStatus;
-    rejectReason: string | null;
+    acceptByAdmin: boolean;
+    acceptBySeller: boolean;
+    rejectReasonByAdmin: string | null;
+    rejectReasonBySeller: string | null;
     link: string;
     /**
      * [Photos]
      */
     photos: PrismaJson_Photos;
     description: string | null;
-    name: string;
+    name: string | null;
     id: number;
 };

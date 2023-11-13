@@ -1,3 +1,4 @@
+import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
 /**
  * Model ProductVariant
  */
@@ -8,10 +9,15 @@ export type ProductVariant = {
     productId: number;
     isEnable: boolean;
     isActive: boolean;
-    SKU: string;
+    /**
+     * [CostInfo]
+     */
+    cost: PrismaJson_CostInfo;
+    minSellingPrice: number | null;
     compareAtPrice: number;
-    photo: string;
     price: number;
+    SKU: string;
+    photo: string;
     name: string;
     id: number;
 };

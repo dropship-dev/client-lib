@@ -1,5 +1,6 @@
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
+import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -18,8 +19,9 @@ export declare class RequestSourcingService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestSourcing({ storeId, pageSize, nextPageIndex, }: {
+    getAllRequestSourcing({ storeId, statusRequest, pageSize, nextPageIndex, }: {
         storeId: string;
+        statusRequest?: Array<RequestSourcingStatus>;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{

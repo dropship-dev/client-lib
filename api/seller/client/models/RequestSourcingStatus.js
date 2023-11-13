@@ -7,7 +7,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RequestSourcingStatus = void 0;
 var RequestSourcingStatus;
 (function (RequestSourcingStatus) {
-    RequestSourcingStatus["PENDING"] = "PENDING";
-    RequestSourcingStatus["FAILED"] = "FAILED";
-    RequestSourcingStatus["SUCCESS"] = "SUCCESS";
+    RequestSourcingStatus["REQUESTING"] = "REQUESTING";
+    RequestSourcingStatus["ADMIN_ACCEPTED"] = "ADMIN_ACCEPTED";
+    RequestSourcingStatus["ADMIN_REJECTED"] = "ADMIN_REJECTED";
+    RequestSourcingStatus["SELLER_REJECTED"] = "SELLER_REJECTED";
+    RequestSourcingStatus["SELLER_ACCEPTED"] = "SELLER_ACCEPTED";
 })(RequestSourcingStatus || (exports.RequestSourcingStatus = RequestSourcingStatus = {}));
