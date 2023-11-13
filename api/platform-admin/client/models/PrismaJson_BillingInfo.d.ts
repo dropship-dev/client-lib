@@ -4,11 +4,11 @@ import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 export type PrismaJson_BillingInfo = {
     country: string;
     zipCode: string;
-    province: string;
-    city: string;
+    province?: string;
+    city?: string;
     address2?: string;
-    address1: string;
-    phone: PhoneWithCountryCode;
-    name: NameDto;
-    email: EmailDto;
+    address1?: string;
+    phone?: PhoneWithCountryCode;
+    name?: NameDto;
+    email?: EmailDto;
 };
