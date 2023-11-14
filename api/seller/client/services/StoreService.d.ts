@@ -62,6 +62,7 @@ export declare class StoreService {
             createdAt: string;
             status: StoreStatus;
             id: string;
+            fulfillmentAgencyId: number;
         }>;
     }>;
     /**
