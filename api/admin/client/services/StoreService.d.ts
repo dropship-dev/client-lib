@@ -2,6 +2,7 @@ import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductSt
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
+import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
 import type { Timezone } from '../models/Timezone';
@@ -55,10 +56,14 @@ export declare class StoreService {
                 type: PaymentType;
                 id: number;
             }>;
+            StoreUser: Array<{
+                role: StoreRole;
+            }>;
             createdAt: string;
             status: StoreStatus;
             id: string;
             fulfillmentAgencyId: number;
+            userRole: StoreRole;
         }>;
     }>;
     /**
