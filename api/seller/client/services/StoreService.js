@@ -29,7 +29,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, orderBy, order, periodFrom = '2023-01-01T00:00:00.000Z', periodTo, nextPageIndex, name, userId, revenueFrom, revenueTo, paymentGatewayIds, }) {
+    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, periodFrom = '2023-01-01T00:00:00.000Z', nextPageIndex, name, userId, paymentGatewayIds, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -37,15 +37,10 @@ class StoreService {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'pageSize': pageSize,
                 'status': status,
-                'orderBy': orderBy,
-                'order': order,
                 'periodFrom': periodFrom,
-                'periodTo': periodTo,
                 'nextPageIndex': nextPageIndex,
                 'name': name,
                 'userId': userId,
-                'revenueFrom': revenueFrom,
-                'revenueTo': revenueTo,
                 'paymentGatewayIds': paymentGatewayIds,
             },
             errors: {

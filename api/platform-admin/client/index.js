@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.StoreOrderBy = exports.RequestSourcingStatus = exports.RefundType = exports.Prisma_SortOrder = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.COST_CALCULATION_METHOD = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.COST_CALCULATION_METHOD = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -42,14 +42,10 @@ var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Period_1 = require("./models/Period");
 Object.defineProperty(exports, "Period", { enumerable: true, get: function () { return Period_1.Period; } });
-var Prisma_SortOrder_1 = require("./models/Prisma_SortOrder");
-Object.defineProperty(exports, "Prisma_SortOrder", { enumerable: true, get: function () { return Prisma_SortOrder_1.Prisma_SortOrder; } });
 var RefundType_1 = require("./models/RefundType");
 Object.defineProperty(exports, "RefundType", { enumerable: true, get: function () { return RefundType_1.RefundType; } });
 var RequestSourcingStatus_1 = require("./models/RequestSourcingStatus");
 Object.defineProperty(exports, "RequestSourcingStatus", { enumerable: true, get: function () { return RequestSourcingStatus_1.RequestSourcingStatus; } });
-var StoreOrderBy_1 = require("./models/StoreOrderBy");
-Object.defineProperty(exports, "StoreOrderBy", { enumerable: true, get: function () { return StoreOrderBy_1.StoreOrderBy; } });
 var StoreRole_1 = require("./models/StoreRole");
 Object.defineProperty(exports, "StoreRole", { enumerable: true, get: function () { return StoreRole_1.StoreRole; } });
 var StoreStatus_1 = require("./models/StoreStatus");
