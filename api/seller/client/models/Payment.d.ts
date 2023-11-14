@@ -6,6 +6,9 @@ export type Payment = {
     updatedAt: string;
     createdAt: string;
     fulfillmentAgencyId: number;
+    baseUrl: string | null;
+    expiredAt: string | null;
+    token: string | null;
     secretKey: string;
     publishableKey: string;
     name: string;
