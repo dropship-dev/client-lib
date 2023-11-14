@@ -3,6 +3,7 @@ import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
+import type { Timezone } from '../models/Timezone';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -48,6 +49,7 @@ export declare class StoreService {
         prePageIndex: string;
         total: number;
         data: Array<{
+            timezone: Timezone;
             primaryDomain: string;
             subDomain: string;
             avatar: string;
