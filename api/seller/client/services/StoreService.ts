@@ -4,10 +4,7 @@
 /* eslint-disable */
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { PaymentType } from '../models/PaymentType';
-import type { Prisma_SortOrder } from '../models/Prisma_SortOrder';
 import type { Store } from '../models/Store';
-import type { StoreOrderBy } from '../models/StoreOrderBy';
-import type { StoreRevenue } from '../models/StoreRevenue';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
@@ -52,15 +49,10 @@ export class StoreService {
     fulfillmentAgencyId,
     pageSize = 20,
     status,
-    orderBy,
-    order,
     periodFrom = '2023-01-01T00:00:00.000Z',
-    periodTo,
     nextPageIndex,
     name,
     userId,
-    revenueFrom,
-    revenueTo,
     paymentGatewayIds,
   }: {
     fulfillmentAgencyId?: number,
@@ -69,14 +61,11 @@ export class StoreService {
      */
     pageSize?: number,
     status?: Array<StoreStatus>,
-    orderBy?: StoreOrderBy,
-    order?: Prisma_SortOrder,
     periodFrom?: string,
-    periodTo?: string,
     /**
      * last store id of previous page. Set to 0 to get first page
      */
-    nextPageIndex?: any,
+    nextPageIndex?: string,
     /**
      * filter by store name
      */
@@ -85,15 +74,28 @@ export class StoreService {
      * filter by user id. This param is only available for admin
      */
     userId?: string,
-    revenueFrom?: number,
-    revenueTo?: number,
     paymentGatewayIds?: Array<number>,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: (string | number);
-    prePageIndex: (string | number);
+    nextPageIndex: string;
+    prePageIndex: string;
     total: number;
-    data: Array<StoreRevenue>;
+    data: Array<{
+      primaryDomain: string;
+      subDomain: string;
+      avatar: string;
+      phone: string;
+      email: string;
+      name: string;
+      Payment: Array<{
+        name: string;
+        type: PaymentType;
+        id: number;
+      }>;
+      createdAt: string;
+      status: StoreStatus;
+      id: string;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -102,15 +104,10 @@ export class StoreService {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'pageSize': pageSize,
         'status': status,
-        'orderBy': orderBy,
-        'order': order,
         'periodFrom': periodFrom,
-        'periodTo': periodTo,
         'nextPageIndex': nextPageIndex,
         'name': name,
         'userId': userId,
-        'revenueFrom': revenueFrom,
-        'revenueTo': revenueTo,
         'paymentGatewayIds': paymentGatewayIds,
       },
       errors: {
