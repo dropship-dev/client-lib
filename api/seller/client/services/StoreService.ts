@@ -95,6 +95,7 @@ export class StoreService {
       createdAt: string;
       status: StoreStatus;
       id: string;
+      fulfillmentAgencyId: number;
     }>;
   }> {
     return this.httpRequest.request({
