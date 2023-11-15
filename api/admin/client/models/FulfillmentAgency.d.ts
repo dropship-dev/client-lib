@@ -1,4 +1,4 @@
-import type { COST_CALCULATION_METHOD } from './COST_CALCULATION_METHOD';
+import type { CostCalculationMethod } from './CostCalculationMethod';
 import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 /**
  * Model FulfillmentAgency
@@ -6,7 +6,7 @@ import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 export type FulfillmentAgency = {
     updatedAt: string;
     createdAt: string;
-    costCalculationMethod: COST_CALCULATION_METHOD | null;
+    costCalculationMethod: CostCalculationMethod;
     executionTime: string;
     status: FulfillmentAgencyStatus;
     phone: string | null;

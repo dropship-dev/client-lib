@@ -1,4 +1,4 @@
-export declare enum COST_CALCULATION_METHOD {
+export declare enum CostCalculationMethod {
     FIXED = "FIXED",
     PERCENTAGE = "PERCENTAGE"
 }

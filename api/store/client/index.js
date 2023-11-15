@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.COST_CALCULATION_METHOD = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -20,8 +20,8 @@ var AsyncTaskStatus_1 = require("./models/AsyncTaskStatus");
 Object.defineProperty(exports, "AsyncTaskStatus", { enumerable: true, get: function () { return AsyncTaskStatus_1.AsyncTaskStatus; } });
 var AsyncTaskType_1 = require("./models/AsyncTaskType");
 Object.defineProperty(exports, "AsyncTaskType", { enumerable: true, get: function () { return AsyncTaskType_1.AsyncTaskType; } });
-var COST_CALCULATION_METHOD_1 = require("./models/COST_CALCULATION_METHOD");
-Object.defineProperty(exports, "COST_CALCULATION_METHOD", { enumerable: true, get: function () { return COST_CALCULATION_METHOD_1.COST_CALCULATION_METHOD; } });
+var CostCalculationMethod_1 = require("./models/CostCalculationMethod");
+Object.defineProperty(exports, "CostCalculationMethod", { enumerable: true, get: function () { return CostCalculationMethod_1.CostCalculationMethod; } });
 var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");

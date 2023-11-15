@@ -48,6 +48,7 @@ export declare class StoreService {
             ThemeTemplate: ThemeTemplate;
         });
         Payment: Array<{
+            UIVersion: number;
             publishableKey: string;
             email: string;
             updatedAt: string;
