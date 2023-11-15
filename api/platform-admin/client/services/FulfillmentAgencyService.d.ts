@@ -20,8 +20,9 @@ export declare class FulfillmentAgencyService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllFulfillmentAgency({ userId, pageSize, nextPageIndex, }: {
+    getAllFulfillmentAgency({ userId, search, pageSize, nextPageIndex, }: {
         userId?: string;
+        search?: string;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{

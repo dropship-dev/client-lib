@@ -10,12 +10,13 @@ class FulfillmentAgencyService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllFulfillmentAgency({ userId, pageSize = 20, nextPageIndex, }) {
+    getAllFulfillmentAgency({ userId, search, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/fulfillment-agency',
             query: {
                 'userId': userId,
+                'search': search,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },
