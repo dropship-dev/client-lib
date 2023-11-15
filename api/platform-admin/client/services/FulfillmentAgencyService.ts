@@ -46,10 +46,12 @@ export class FulfillmentAgencyService {
    */
   public getAllFulfillmentAgency({
     userId,
+    search,
     pageSize = 20,
     nextPageIndex,
   }: {
     userId?: string,
+    search?: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -76,6 +78,7 @@ export class FulfillmentAgencyService {
       url: '/fulfillment-agency',
       query: {
         'userId': userId,
+        'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },
