@@ -120,4 +120,54 @@ export declare class PerformanceService {
         endDate?: string;
         storeId?: string;
     }): CancelablePromise<Array<StoreProductPerformanceResp>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentAgencyPerformanceSummary({ fulfillmentAgencyId, startDate, endDate, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        orders: {
+            growth: number;
+            value: number;
+        };
+        profit: {
+            growth: number;
+            value: number;
+        };
+        revenue: {
+            growth: number;
+            value: number;
+        };
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentAgencyRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        revenues: Array<StoreRevenueOverTime>;
+        period: Period;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentAgencyStatistic({ fulfillmentAgencyId, startDate, endDate, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<Array<{
+        gmv: number;
+        noOrders: number;
+        email: string;
+        avatar: any;
+        name: string;
+        id: number;
+    }>>;
 }
