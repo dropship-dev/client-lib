@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum COST_CALCULATION_METHOD {
+export enum CostCalculationMethod {
   FIXED = 'FIXED',
   PERCENTAGE = 'PERCENTAGE',
 }

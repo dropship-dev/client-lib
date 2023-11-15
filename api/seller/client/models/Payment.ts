@@ -12,6 +12,7 @@ export type Payment = {
   updatedAt: string;
   createdAt: string;
   fulfillmentAgencyId: number;
+  UIVersion: number;
   baseUrl: string | null;
   expiredAt: string | null;
   token: string | null;

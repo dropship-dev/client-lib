@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { COST_CALCULATION_METHOD } from '../models/COST_CALCULATION_METHOD';
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
@@ -60,7 +60,7 @@ export class FulfillmentAgencyService {
     data: Array<{
       updatedAt: string;
       createdAt: string;
-      costCalculationMethod: COST_CALCULATION_METHOD;
+      costCalculationMethod: CostCalculationMethod;
       executionTime: string;
       status: FulfillmentAgencyStatus;
       phone: string;
