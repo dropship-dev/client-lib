@@ -4,5 +4,8 @@
 /* eslint-disable */
 
 export type PercentageCostInfo = {
+  benefit: number;
+  defaultPrice: number;
+  supplierCost: number;
 };
 
