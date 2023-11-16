@@ -3,8 +3,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { CostCalculationMethod } from './CostCalculationMethod';
+
 export type UpdateFulfillmentAgencyDto = {
   name?: string;
   phone?: string;
+  costCalculationMethod?: CostCalculationMethod;
 };
 
