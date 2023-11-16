@@ -6,7 +6,7 @@ import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 export type FulfillmentAgency = {
     updatedAt: string;
     createdAt: string;
-    costCalculationMethod: CostCalculationMethod;
+    costCalculationMethod: CostCalculationMethod | null;
     executionTime: string;
     status: FulfillmentAgencyStatus;
     phone: string | null;
