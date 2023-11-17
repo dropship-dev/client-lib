@@ -5,6 +5,7 @@
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
+import type { SQLResult } from '../models/SQLResult';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
@@ -320,6 +321,10 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
   }): CancelablePromise<{
+    AOV: {
+      growth: number;
+      value: number;
+    };
     orders: {
       growth: number;
       value: number;
@@ -386,7 +391,7 @@ export class PerformanceService {
   }
 
   /**
-   * @returns any Ok
+   * @returns SQLResult Ok
    * @throws ApiError
    */
   public getFulfillmentAgencyStatistic({
@@ -397,14 +402,7 @@ export class PerformanceService {
     fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
-  }): CancelablePromise<Array<{
-    gmv: number;
-    noOrders: number;
-    email: string;
-    avatar: any;
-    name: string;
-    id: number;
-  }>> {
+  }): CancelablePromise<SQLResult> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/fulfillment-agency/statistic',
