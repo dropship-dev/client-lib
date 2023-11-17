@@ -4,9 +4,9 @@
 /* eslint-disable */
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
-import type { ProductPerformanceResult } from '../models/ProductPerformanceResult';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
+import type { TopProductByOrder } from '../models/TopProductByOrder';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -96,7 +96,7 @@ export class PerformanceService {
   }
 
   /**
-   * @returns ProductPerformanceResult Ok
+   * @returns TopProductByOrder Ok
    * @throws ApiError
    */
   public getTopProductsByOrders({
@@ -111,7 +111,7 @@ export class PerformanceService {
     endDate?: string,
     storeId?: string,
     limit?: number,
-  }): CancelablePromise<Array<ProductPerformanceResult>> {
+  }): CancelablePromise<Array<TopProductByOrder>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-products-by-orders',
