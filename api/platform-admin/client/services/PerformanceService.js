@@ -218,7 +218,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns SQLResult Ok
      * @throws ApiError
      */
     getFulfillmentAgencyStatistic({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {

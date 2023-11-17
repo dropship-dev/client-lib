@@ -113,6 +113,7 @@ export type { RequestSourcing } from './models/RequestSourcing';
 export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Review } from './models/Review';
 export type { Setting } from './models/Setting';
+export type { SQLResult } from './models/SQLResult';
 export type { Store } from './models/Store';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
