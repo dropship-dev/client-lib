@@ -53,7 +53,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns ProductPerformanceResult Ok
+     * @returns TopProductByOrder Ok
      * @throws ApiError
      */
     getTopProductsByOrders({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, limit = 10, }) {
