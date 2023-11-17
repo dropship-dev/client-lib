@@ -7,8 +7,8 @@ export type Payment = {
     createdAt: string;
     fulfillmentAgencyId: number;
     UIVersion: number;
-    baseUrl: string | null;
-    expiredAt: string | null;
+    gatewayUrl: string | null;
+    tokenExpiredAt: string | null;
     token: string | null;
     secretKey: string;
     publishableKey: string;
