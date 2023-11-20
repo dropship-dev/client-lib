@@ -50,11 +50,15 @@ export class RequestSourcingService {
   public getAllRequestSourcing({
     storeId,
     statusRequest,
+    startDate,
+    endDate,
     pageSize = 20,
     nextPageIndex,
   }: {
     storeId: string,
     statusRequest?: Array<RequestSourcingStatus>,
+    startDate?: string,
+    endDate?: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -72,6 +76,8 @@ export class RequestSourcingService {
       },
       query: {
         'statusRequest': statusRequest,
+        'startDate': startDate,
+        'endDate': endDate,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },
