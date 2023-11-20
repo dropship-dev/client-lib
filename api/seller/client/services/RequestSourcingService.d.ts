@@ -19,9 +19,10 @@ export declare class RequestSourcingService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestSourcing({ storeId, statusRequest, startDate, endDate, pageSize, nextPageIndex, }: {
+    getAllRequestSourcing({ storeId, statusRequest, search, startDate, endDate, pageSize, nextPageIndex, }: {
         storeId: string;
         statusRequest?: Array<RequestSourcingStatus>;
+        search?: string;
         startDate?: string;
         endDate?: string;
         pageSize?: number;
