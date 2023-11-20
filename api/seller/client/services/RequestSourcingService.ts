@@ -50,6 +50,7 @@ export class RequestSourcingService {
   public getAllRequestSourcing({
     storeId,
     statusRequest,
+    search,
     startDate,
     endDate,
     pageSize = 20,
@@ -57,6 +58,7 @@ export class RequestSourcingService {
   }: {
     storeId: string,
     statusRequest?: Array<RequestSourcingStatus>,
+    search?: string,
     startDate?: string,
     endDate?: string,
     pageSize?: number,
@@ -76,6 +78,7 @@ export class RequestSourcingService {
       },
       query: {
         'statusRequest': statusRequest,
+        'search': search,
         'startDate': startDate,
         'endDate': endDate,
         'pageSize': pageSize,
