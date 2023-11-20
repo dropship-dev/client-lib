@@ -32,7 +32,7 @@ class RequestSourcingService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestSourcing({ storeId, statusRequest, pageSize = 20, nextPageIndex, }) {
+    getAllRequestSourcing({ storeId, statusRequest, startDate, endDate, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/request-sourcing',
@@ -41,6 +41,8 @@ class RequestSourcingService {
             },
             query: {
                 'statusRequest': statusRequest,
+                'startDate': startDate,
+                'endDate': endDate,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },

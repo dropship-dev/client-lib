@@ -19,9 +19,11 @@ export declare class RequestSourcingService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestSourcing({ storeId, statusRequest, pageSize, nextPageIndex, }: {
+    getAllRequestSourcing({ storeId, statusRequest, startDate, endDate, pageSize, nextPageIndex, }: {
         storeId: string;
         statusRequest?: Array<RequestSourcingStatus>;
+        startDate?: string;
+        endDate?: string;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{
