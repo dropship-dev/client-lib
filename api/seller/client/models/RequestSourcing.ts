@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
+import type { PrismaJson_RequestSourcingHistory } from './PrismaJson_RequestSourcingHistory';
 import type { RequestSourcingStatus } from './RequestSourcingStatus';
 
 /**
@@ -16,6 +17,10 @@ export type RequestSourcing = {
   storeId: string;
   productId: number | null;
   status: RequestSourcingStatus;
+  /**
+   * [RequestSourcingHistory]
+   */
+  historyRequestSourcing: PrismaJson_RequestSourcingHistory | null;
   acceptByAdmin: boolean;
   acceptBySeller: boolean;
   rejectReasonByAdmin: string | null;

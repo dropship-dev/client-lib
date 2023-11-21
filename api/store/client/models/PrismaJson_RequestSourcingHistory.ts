@@ -3,8 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ApproveRequestSourcingDto = {
-  platformProductId: number;
-  description?: string;
-};
-
+export type PrismaJson_RequestSourcingHistory = Array<{
+  createAt?: string;
+  value?: string;
+  label: string;
+}>;
