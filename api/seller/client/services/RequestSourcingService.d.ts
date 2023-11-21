@@ -1,6 +1,7 @@
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
+import type { Store } from '../models/Store';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -32,7 +33,9 @@ export declare class RequestSourcingService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<RequestSourcing>;
+        data: Array<(RequestSourcing & {
+            Store: Store;
+        })>;
     }>;
     /**
      * @returns RequestSourcing Ok

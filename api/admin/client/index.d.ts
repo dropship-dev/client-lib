@@ -98,6 +98,7 @@ export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCo
 export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_ProductDiscountItems';
 export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_ProductRequirementItems';
 export type { PrismaJson_RefundOrderItems } from './models/PrismaJson_RefundOrderItems';
+export type { PrismaJson_RequestSourcingHistory } from './models/PrismaJson_RequestSourcingHistory';
 export type { PrismaJson_Timezone } from './models/PrismaJson_Timezone';
 export type { PrismaJson_VariantComboItems } from './models/PrismaJson_VariantComboItems';
 export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptions';
