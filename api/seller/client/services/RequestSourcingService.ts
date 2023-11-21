@@ -50,6 +50,7 @@ export class RequestSourcingService {
    */
   public getAllRequestSourcing({
     storeId,
+    fulfillmentAgencyId,
     statusRequest,
     search,
     startDate,
@@ -58,6 +59,7 @@ export class RequestSourcingService {
     nextPageIndex,
   }: {
     storeId: string,
+    fulfillmentAgencyId?: number,
     statusRequest?: Array<RequestSourcingStatus>,
     search?: string,
     startDate?: string,
@@ -80,6 +82,7 @@ export class RequestSourcingService {
         'storeId': storeId,
       },
       query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'statusRequest': statusRequest,
         'search': search,
         'startDate': startDate,

@@ -5,8 +5,6 @@
 import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
-import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
-import type { Store } from '../models/Store';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -14,59 +12,6 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class RequestSourcingService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getAllRequestSourcing({
-    storeId,
-    statusRequest,
-    search,
-    startDate,
-    endDate,
-    pageSize = 20,
-    nextPageIndex,
-  }: {
-    storeId: string,
-    statusRequest?: Array<RequestSourcingStatus>,
-    search?: string,
-    startDate?: string,
-    endDate?: string,
-    pageSize?: number,
-    nextPageIndex?: number,
-  }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
-    total: number;
-    data: Array<(RequestSourcing & {
-      Store: Store;
-    })>;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/request-sourcing',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'statusRequest': statusRequest,
-        'search': search,
-        'startDate': startDate,
-        'endDate': endDate,
-        'pageSize': pageSize,
-        'nextPageIndex': nextPageIndex,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
 
   /**
    * @returns RequestSourcing Ok
