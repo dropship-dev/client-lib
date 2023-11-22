@@ -29,7 +29,7 @@ export class RequestSourcingService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    storeId: string,
+    storeId?: string,
     fulfillmentAgencyId?: number,
     statusRequest?: Array<RequestSourcingStatus>,
     search?: string,
@@ -48,11 +48,9 @@ export class RequestSourcingService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/request-sourcing',
-      path: {
-        'storeId': storeId,
-      },
+      url: '/request-sourcing',
       query: {
+        'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'statusRequest': statusRequest,
         'search': search,
@@ -86,10 +84,12 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/request-sourcing/{id}/approve',
+      url: '/request-sourcing/{id}/approve',
       path: {
-        'storeId': storeId,
         'id': id,
+      },
+      query: {
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -118,10 +118,12 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/request-sourcing/{id}/reject',
+      url: '/request-sourcing/{id}/reject',
       path: {
-        'storeId': storeId,
         'id': id,
+      },
+      query: {
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',

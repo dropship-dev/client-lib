@@ -28,8 +28,8 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/request-sourcing',
-      path: {
+      url: '/request-sourcing',
+      query: {
         'storeId': storeId,
       },
       body: requestBody,
@@ -58,7 +58,7 @@ export class RequestSourcingService {
     pageSize = 20,
     nextPageIndex,
   }: {
-    storeId: string,
+    storeId?: string,
     fulfillmentAgencyId?: number,
     statusRequest?: Array<RequestSourcingStatus>,
     search?: string,
@@ -77,11 +77,9 @@ export class RequestSourcingService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/request-sourcing',
-      path: {
-        'storeId': storeId,
-      },
+      url: '/request-sourcing',
       query: {
+        'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'statusRequest': statusRequest,
         'search': search,
@@ -113,10 +111,12 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/request-sourcing/{id}',
+      url: '/request-sourcing/{id}',
       path: {
-        'storeId': storeId,
         'id': id,
+      },
+      query: {
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -143,10 +143,12 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'PATCH',
-      url: '/store/{storeId}/request-sourcing/{id}',
+      url: '/request-sourcing/{id}',
       path: {
-        'storeId': storeId,
         'id': id,
+      },
+      query: {
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -173,10 +175,12 @@ export class RequestSourcingService {
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/store/{storeId}/request-sourcing/{id}',
+      url: '/request-sourcing/{id}',
       path: {
-        'storeId': storeId,
         'id': id,
+      },
+      query: {
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
