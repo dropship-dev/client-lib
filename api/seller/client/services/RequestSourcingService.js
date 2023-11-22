@@ -13,8 +13,8 @@ class RequestSourcingService {
     createRequestSourcing({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/request-sourcing',
-            path: {
+            url: '/request-sourcing',
+            query: {
                 'storeId': storeId,
             },
             body: requestBody,
@@ -35,11 +35,9 @@ class RequestSourcingService {
     getAllRequestSourcing({ storeId, fulfillmentAgencyId, statusRequest, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/request-sourcing',
-            path: {
-                'storeId': storeId,
-            },
+            url: '/request-sourcing',
             query: {
+                'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'statusRequest': statusRequest,
                 'search': search,
@@ -64,10 +62,12 @@ class RequestSourcingService {
     getRequestSourcing({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/request-sourcing/{id}',
+            url: '/request-sourcing/{id}',
             path: {
-                'storeId': storeId,
                 'id': id,
+            },
+            query: {
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,
@@ -85,10 +85,12 @@ class RequestSourcingService {
     updateRequestSourcing({ storeId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}/request-sourcing/{id}',
+            url: '/request-sourcing/{id}',
             path: {
-                'storeId': storeId,
                 'id': id,
+            },
+            query: {
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -108,10 +110,12 @@ class RequestSourcingService {
     deleteRequestSourcing({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}/request-sourcing/{id}',
+            url: '/request-sourcing/{id}',
             path: {
-                'storeId': storeId,
                 'id': id,
+            },
+            query: {
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,

@@ -13,7 +13,7 @@ export declare class RequestSourcingService {
      * @throws ApiError
      */
     getAllRequestSourcing({ storeId, fulfillmentAgencyId, statusRequest, search, startDate, endDate, pageSize, nextPageIndex, }: {
-        storeId: string;
+        storeId?: string;
         fulfillmentAgencyId?: number;
         statusRequest?: Array<RequestSourcingStatus>;
         search?: string;

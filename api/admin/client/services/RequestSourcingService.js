@@ -13,11 +13,9 @@ class RequestSourcingService {
     getAllRequestSourcing({ storeId, fulfillmentAgencyId, statusRequest, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/request-sourcing',
-            path: {
-                'storeId': storeId,
-            },
+            url: '/request-sourcing',
             query: {
+                'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'statusRequest': statusRequest,
                 'search': search,
@@ -42,10 +40,12 @@ class RequestSourcingService {
     approveRequestSourcing({ storeId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/request-sourcing/{id}/approve',
+            url: '/request-sourcing/{id}/approve',
             path: {
-                'storeId': storeId,
                 'id': id,
+            },
+            query: {
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -65,10 +65,12 @@ class RequestSourcingService {
     rejectRequestSourcing({ storeId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/request-sourcing/{id}/reject',
+            url: '/request-sourcing/{id}/reject',
             path: {
-                'storeId': storeId,
                 'id': id,
+            },
+            query: {
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
