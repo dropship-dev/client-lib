@@ -59,7 +59,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    getRequestSourcing({ storeId, id, }) {
+    getRequestSourcing({ id, storeId, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/request-sourcing/{id}',
@@ -68,6 +68,7 @@ class RequestSourcingService {
             },
             query: {
                 'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             errors: {
                 400: `Bad request`,
