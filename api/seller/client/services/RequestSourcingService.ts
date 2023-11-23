@@ -103,11 +103,13 @@ export class RequestSourcingService {
    * @throws ApiError
    */
   public getRequestSourcing({
-    storeId,
     id,
+    storeId,
+    fulfillmentAgencyId,
   }: {
-    storeId: string,
     id: number,
+    storeId?: string,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'GET',
@@ -117,6 +119,7 @@ export class RequestSourcingService {
       },
       query: {
         'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
