@@ -2,7 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
+import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { Store } from '../models/Store';
@@ -185,6 +187,80 @@ export class RequestSourcingService {
       query: {
         'storeId': storeId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RequestSourcing Ok
+   * @throws ApiError
+   */
+  public approveRequestSourcing({
+    storeId,
+    id,
+    requestBody,
+    fulfillmentAgencyId,
+  }: {
+    storeId: string,
+    id: number,
+    requestBody: ApproveRequestSourcingDto,
+    fulfillmentAgencyId?: number,
+  }): CancelablePromise<RequestSourcing> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/request-sourcing/{id}/approve',
+      path: {
+        'id': id,
+      },
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RequestSourcing Ok
+   * @throws ApiError
+   */
+  public rejectRequestSourcing({
+    storeId,
+    id,
+    requestBody,
+    fulfillmentAgencyId,
+  }: {
+    storeId: string,
+    id: number,
+    requestBody: RejectRequestSourcingDto,
+    fulfillmentAgencyId?: number,
+  }): CancelablePromise<RequestSourcing> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/request-sourcing/{id}/reject',
+      path: {
+        'id': id,
+      },
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
