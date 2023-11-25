@@ -1,4 +1,5 @@
 export type ApproveRequestSourcingDto = {
-    platformProductId: number;
+    platformProductId?: number;
+    productId: number;
     description?: string;
 };

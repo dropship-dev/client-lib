@@ -1,4 +1,6 @@
+import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
 import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDto';
+import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { Store } from '../models/Store';
@@ -63,5 +65,25 @@ export declare class RequestSourcingService {
     deleteRequestSourcing({ storeId, id, }: {
         storeId: string;
         id: number;
+    }): CancelablePromise<RequestSourcing>;
+    /**
+     * @returns RequestSourcing Ok
+     * @throws ApiError
+     */
+    approveRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }: {
+        storeId: string;
+        id: number;
+        requestBody: ApproveRequestSourcingDto;
+        fulfillmentAgencyId?: number;
+    }): CancelablePromise<RequestSourcing>;
+    /**
+     * @returns RequestSourcing Ok
+     * @throws ApiError
+     */
+    rejectRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }: {
+        storeId: string;
+        id: number;
+        requestBody: RejectRequestSourcingDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<RequestSourcing>;
 }

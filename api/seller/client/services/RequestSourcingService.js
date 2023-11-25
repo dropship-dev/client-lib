@@ -127,5 +127,57 @@ class RequestSourcingService {
             },
         });
     }
+    /**
+     * @returns RequestSourcing Ok
+     * @throws ApiError
+     */
+    approveRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/request-sourcing/{id}/approve',
+            path: {
+                'id': id,
+            },
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns RequestSourcing Ok
+     * @throws ApiError
+     */
+    rejectRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/request-sourcing/{id}/reject',
+            path: {
+                'id': id,
+            },
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.RequestSourcingService = RequestSourcingService;
