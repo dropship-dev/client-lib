@@ -7,7 +7,7 @@ export type PlatformVariantDto = {
     photo: PhotoDto;
     price: number;
     supplierPrice: number;
-    cost: PrismaJson_PlatformCostInfo;
+    cost?: PrismaJson_PlatformCostInfo | null;
     SKU: string;
     variantOption: PrismaJson_VariantOptionValues;
 };

@@ -12,7 +12,7 @@ export type PlatformVariant = {
     /**
      * [PlatformCostInfo]
      */
-    cost: PrismaJson_PlatformCostInfo;
+    cost: PrismaJson_PlatformCostInfo | null;
     supplierPrice: number;
     price: number;
     /**
