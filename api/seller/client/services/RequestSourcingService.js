@@ -131,7 +131,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    approveRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+    approveRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/request-sourcing/{id}/approve',
@@ -157,7 +157,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    rejectRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+    rejectRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/request-sourcing/{id}/reject',
