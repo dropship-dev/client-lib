@@ -202,14 +202,14 @@ export class RequestSourcingService {
    * @throws ApiError
    */
   public approveRequestSourcing({
-    storeId,
     id,
     requestBody,
+    storeId,
     fulfillmentAgencyId,
   }: {
-    storeId: string,
     id: number,
     requestBody: ApproveRequestSourcingDto,
+    storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
@@ -239,14 +239,14 @@ export class RequestSourcingService {
    * @throws ApiError
    */
   public rejectRequestSourcing({
-    storeId,
     id,
     requestBody,
+    storeId,
     fulfillmentAgencyId,
   }: {
-    storeId: string,
     id: number,
     requestBody: RejectRequestSourcingDto,
+    storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
