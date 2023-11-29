@@ -5,6 +5,7 @@
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { PaymentType } from '../models/PaymentType';
+import type { Product } from '../models/Product';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
@@ -106,7 +107,7 @@ export class StoreService {
   }
 
   /**
-   * @returns string Ok
+   * @returns Product Ok
    * @throws ApiError
    */
   public addProductToStores({
@@ -115,7 +116,7 @@ export class StoreService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<Array<Array<Product>>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
