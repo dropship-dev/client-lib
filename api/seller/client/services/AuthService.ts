@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { LoginDto } from '../models/LoginDto';
+import type { UserRole } from '../models/UserRole';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -21,9 +22,14 @@ export class AuthService {
   }: {
     requestBody: LoginDto,
   }): CancelablePromise<{
+    maxOwnedStores: number;
+    role: UserRole;
+    email: string;
+    name: string;
     FulfillmentUser: Array<{
       FulfillmentAgency: FulfillmentAgency;
     }>;
+    id: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',
