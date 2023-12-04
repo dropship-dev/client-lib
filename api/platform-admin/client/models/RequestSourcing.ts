@@ -11,11 +11,11 @@ import type { RequestSourcingStatus } from './RequestSourcingStatus';
  * Model RequestSourcing
  */
 export type RequestSourcing = {
+  productId: number | null;
   updatedAt: string;
   createdAt: string;
   isDeleted: boolean;
   storeId: string;
-  productId: number | null;
   status: RequestSourcingStatus;
   /**
    * [RequestSourcingHistory]
