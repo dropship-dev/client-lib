@@ -1,5 +1,6 @@
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { PaymentType } from '../models/PaymentType';
 import type { Product } from '../models/Product';
 import type { Store } from '../models/Store';
@@ -52,6 +53,9 @@ export declare class StoreService {
             phone: string;
             email: string;
             name: string;
+            FulfillmentAgency: {
+                costCalculationMethod: CostCalculationMethod;
+            };
             Payment: Array<{
                 name: string;
                 type: PaymentType;
