@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
@@ -90,6 +91,9 @@ export class StoreService {
       phone: string;
       email: string;
       name: string;
+      FulfillmentAgency: {
+        costCalculationMethod: CostCalculationMethod;
+      };
       Payment: Array<{
         name: string;
         type: PaymentType;
