@@ -7,6 +7,7 @@ export type UpdatePlatformProductDto = {
     name?: NameDto;
     description?: string;
     details?: string;
+    SKU?: string;
     photos?: Array<PhotoDto>;
     tags?: Array<string>;
     supplierContact?: string;

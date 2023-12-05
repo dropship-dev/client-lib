@@ -34,7 +34,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addProductToStores({ fulfillmentAgencyId, requestBody, }) {
