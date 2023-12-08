@@ -50,6 +50,7 @@ export declare class PlatformProductService {
             updatedAt: string;
             createdAt: string;
             fulfillmentAgencyId: number;
+            deleted: boolean;
             isEnable: boolean;
             isActive: boolean;
             supplierContact: string;
