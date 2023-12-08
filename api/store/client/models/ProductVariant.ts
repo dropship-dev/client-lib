@@ -13,6 +13,7 @@ export type ProductVariant = {
   createdAt: string;
   platformVariantId: number;
   productId: number;
+  deleted: boolean;
   isEnable: boolean;
   isActive: boolean;
   /**

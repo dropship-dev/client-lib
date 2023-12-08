@@ -353,7 +353,7 @@ export class ProductService {
     storeId: string,
     productId: number,
     requestBody: UpdateProductStatusDto,
-  }): CancelablePromise<Array<Product>> {
+  }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/status',

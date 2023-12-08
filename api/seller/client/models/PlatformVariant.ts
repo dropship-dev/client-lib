@@ -13,6 +13,7 @@ export type PlatformVariant = {
   updatedAt: string;
   createdAt: string;
   platformProductId: number;
+  deleted: boolean;
   isEnable: boolean;
   isActive: boolean;
   /**
