@@ -12,6 +12,7 @@ export type Payment = {
     token: string | null;
     secretKey: string;
     publishableKey: string;
+    companyName: string | null;
     name: string;
     email: string | null;
     type: PaymentType;

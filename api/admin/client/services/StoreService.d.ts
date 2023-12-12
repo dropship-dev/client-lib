@@ -87,6 +87,7 @@ export declare class StoreService {
     }): CancelablePromise<(Store & {
         Payment: Array<{
             publishableKey: string;
+            companyName: string;
             email: string;
             name: string;
             updatedAt: string;
@@ -131,6 +132,7 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;
