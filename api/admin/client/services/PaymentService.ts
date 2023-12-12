@@ -55,6 +55,7 @@ export class PaymentService {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    companyName: string;
     creator: {
       role: UserRole;
       avatar: string;
@@ -99,6 +100,7 @@ export class PaymentService {
     id: number,
   }): CancelablePromise<{
     publishableKey: string;
+    companyName: string;
     creator: {
       role: UserRole;
       avatar: string;
