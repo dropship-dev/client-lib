@@ -6,6 +6,7 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
 
@@ -186,6 +187,7 @@ export class PaymentService {
       avatar: string;
       email: string;
       name: string;
+      status: StoreStatus;
       id: string;
     }>;
   }> {
