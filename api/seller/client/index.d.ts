@@ -144,6 +144,7 @@ export type { UpdateFulfillmentAgencyStatusDto } from './models/UpdateFulfillmen
 export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
 export type { UpdateFulFillmentStatusError } from './models/UpdateFulFillmentStatusError';
 export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStatusResp';
+export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePaymentMethodDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderRefundDto } from './models/UpdateOrderRefundDto';
 export type { UpdateOrderRefundHistoryDto } from './models/UpdateOrderRefundHistoryDto';

@@ -7,6 +7,7 @@ import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
 import type { Timezone } from '../models/Timezone';
+import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -78,6 +79,25 @@ export declare class StoreService {
         fulfillmentAgencyId: number;
         requestBody: AddPlatformProductStoresDto;
     }): CancelablePromise<Array<any>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateManyStorePaymentMethod({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
+        requestBody: UpdateManyStorePaymentMethodDto;
+    }): CancelablePromise<Array<{
+        Payment: Array<{
+            publishableKey: string;
+            companyName: string;
+            email: string;
+            name: string;
+            createdAt: string;
+            type: PaymentType;
+            id: number;
+        }>;
+        id: string;
+    }>>;
     /**
      * @returns any Ok
      * @throws ApiError
