@@ -11,6 +11,7 @@ import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
 import type { Timezone } from '../models/Timezone';
+import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 
@@ -123,6 +124,46 @@ export class StoreService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public updateManyStorePaymentMethod({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: UpdateManyStorePaymentMethodDto,
+  }): CancelablePromise<Array<{
+    Payment: Array<{
+      publishableKey: string;
+      companyName: string;
+      email: string;
+      name: string;
+      createdAt: string;
+      type: PaymentType;
+      id: number;
+    }>;
+    id: string;
+  }>> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/payment-method',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
       },
