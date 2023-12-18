@@ -215,7 +215,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     cloneProduct({ storeId, productId, requestBody, }) {

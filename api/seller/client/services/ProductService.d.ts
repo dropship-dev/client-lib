@@ -161,12 +161,17 @@ export declare class ProductService {
         requestBody: UpdateProductStatusDto;
     }): CancelablePromise<Product>;
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     cloneProduct({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
         requestBody: CloneProductDto;
-    }): CancelablePromise<Product>;
+    }): CancelablePromise<(Product & {
+        ProductVariant: Array<{
+            platformVariantId: number;
+            id: number;
+        }>;
+    })>;
 }
