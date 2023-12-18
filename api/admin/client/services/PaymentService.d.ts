@@ -79,6 +79,14 @@ export declare class PaymentService {
         requestBody: UpdatePaymentDto;
     }): CancelablePromise<Payment>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePayment({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
+        id: number;
+    }): CancelablePromise<string>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
