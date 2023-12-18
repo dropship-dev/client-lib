@@ -375,7 +375,7 @@ export class ProductService {
   }
 
   /**
-   * @returns Product Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public cloneProduct({
@@ -386,7 +386,12 @@ export class ProductService {
     storeId: string,
     productId: number,
     requestBody: CloneProductDto,
-  }): CancelablePromise<Product> {
+  }): CancelablePromise<(Product & {
+    ProductVariant: Array<{
+      platformVariantId: number;
+      id: number;
+    }>;
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/clone',
