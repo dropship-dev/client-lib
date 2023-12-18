@@ -22,6 +22,7 @@ export type { Campaign } from './models/Campaign';
 export type { CampaignDto } from './models/CampaignDto';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
+export type { CloneProductDto } from './models/CloneProductDto';
 export type { Collection } from './models/Collection';
 export type { ComboItemDto } from './models/ComboItemDto';
 export { CostCalculationMethod } from './models/CostCalculationMethod';

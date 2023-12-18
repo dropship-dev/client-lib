@@ -1,5 +1,6 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
+import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Discount } from '../models/Discount';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -158,5 +159,14 @@ export declare class ProductService {
         storeId: string;
         productId: number;
         requestBody: UpdateProductStatusDto;
+    }): CancelablePromise<Product>;
+    /**
+     * @returns Product Ok
+     * @throws ApiError
+     */
+    cloneProduct({ storeId, productId, requestBody, }: {
+        storeId: string;
+        productId: number;
+        requestBody: CloneProductDto;
     }): CancelablePromise<Product>;
 }
