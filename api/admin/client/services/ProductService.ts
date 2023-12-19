@@ -171,7 +171,7 @@ export class ProductService {
     permalink: string,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
-      listDiscount: Array<Discount>;
+      Discount: Array<Discount>;
     });
     VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
@@ -218,7 +218,7 @@ export class ProductService {
     productId: number,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
-      listDiscount: Array<Discount>;
+      Discount: Array<Discount>;
     });
     VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
