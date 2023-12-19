@@ -21,13 +21,13 @@ export declare class StoreService {
         termsOfService: string;
         privacyPolicy: string;
         refundPolicy: string;
-        timezone: Timezone;
         subDomain: string;
         country: string;
         zipCode: string;
         city: string;
         apartmentAddress: string;
         address: string;
+        timezone: Timezone;
         phone: string;
         email: string;
         name: string;
