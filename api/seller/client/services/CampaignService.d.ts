@@ -70,7 +70,7 @@ export declare class CampaignService {
         storeId: string;
         campaignId: string;
     }): CancelablePromise<(Campaign & {
-        listDiscount: Array<Discount>;
+        Discount: Array<Discount>;
     })>;
     /**
      * @returns string Ok
