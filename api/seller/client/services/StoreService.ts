@@ -84,10 +84,10 @@ export class StoreService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      timezone: Timezone;
       primaryDomain: string;
       subDomain: string;
       avatar: string;
+      timezone: Timezone;
       phone: string;
       email: string;
       name: string;

@@ -5,6 +5,7 @@
 
 import type { CostCalculationMethod } from './CostCalculationMethod';
 import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
+import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 
 /**
  * Model FulfillmentAgency
@@ -12,6 +13,10 @@ import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 export type FulfillmentAgency = {
   updatedAt: string;
   createdAt: string;
+  /**
+   * [Timezone]
+   */
+  timezone: PrismaJson_Timezone | null;
   costCalculationMethod: CostCalculationMethod | null;
   executionTime: string;
   status: FulfillmentAgencyStatus;

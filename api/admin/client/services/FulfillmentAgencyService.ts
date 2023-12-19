@@ -5,6 +5,7 @@
 import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
+import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -36,6 +37,7 @@ export class FulfillmentAgencyService {
     data: Array<{
       updatedAt: string;
       createdAt: string;
+      timezone: Timezone;
       costCalculationMethod: CostCalculationMethod;
       executionTime: string;
       status: FulfillmentAgencyStatus;
