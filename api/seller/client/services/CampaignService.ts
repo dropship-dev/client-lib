@@ -219,7 +219,7 @@ export class CampaignService {
     storeId: string,
     campaignId: string,
   }): CancelablePromise<(Campaign & {
-    Discount: Array<Discount>;
+    listDiscount: Array<Discount>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
