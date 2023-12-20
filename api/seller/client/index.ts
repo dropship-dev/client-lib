@@ -129,6 +129,7 @@ export type { StoreRevenueOverTime } from './models/StoreRevenueOverTime';
 export { StoreRole } from './models/StoreRole';
 export { StoreStatus } from './models/StoreStatus';
 export type { StoreUser } from './models/StoreUser';
+export { SyncTrackingStatus } from './models/SyncTrackingStatus';
 export type { Tag } from './models/Tag';
 export type { Theme } from './models/Theme';
 export type { ThemeTemplate } from './models/ThemeTemplate';

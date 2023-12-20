@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { FulfillmentStatus } from './FulfillmentStatus';
+import type { SyncTrackingStatus } from './SyncTrackingStatus';
 
 /**
  * Model OrderItem
@@ -17,6 +18,7 @@ export type OrderItem = {
   variantComboId: number | null;
   productVariantId: number | null;
   productId: number;
+  syncTrackingStatus: SyncTrackingStatus | null;
   carrier: string | null;
   tracking: string | null;
   status: FulfillmentStatus;
