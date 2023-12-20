@@ -140,6 +140,7 @@ export type { TopStoreByRevenue } from './models/TopStoreByRevenue';
 export type { Transaction } from './models/Transaction';
 export { TransactionStatus } from './models/TransactionStatus';
 export { TransactionType } from './models/TransactionType';
+export { typeFulfillmentPrice } from './models/typeFulfillmentPrice';
 export type { UpdateCampaignDto } from './models/UpdateCampaignDto';
 export type { UpdateCollectionDto } from './models/UpdateCollectionDto';
 export type { UpdateComboDto } from './models/UpdateComboDto';

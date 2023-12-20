@@ -31,7 +31,8 @@ export type Order = {
   noItems: number;
   tax: number;
   platformFee: number;
-  profit: number;
+  profitFulfillAdmin: number | null;
+  profitSeller: number;
   subTotal: number;
   totalUSD: number;
   total: number;

@@ -11,6 +11,7 @@ import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItem
 export type VariantCombo = {
   updatedAt: string;
   createdAt: string;
+  minSellingPrice: number | null;
   productId: number;
   isEnable: boolean;
   isActive: boolean;
