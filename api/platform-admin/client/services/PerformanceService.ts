@@ -191,7 +191,7 @@ export class PerformanceService {
       growth: number;
       value: number;
     };
-    profitSeller: {
+    profit: {
       growth: number;
       value: number;
     };
@@ -329,7 +329,7 @@ export class PerformanceService {
       growth: number;
       value: number;
     };
-    profitSeller: {
+    profit: {
       growth: number;
       value: number;
     };
