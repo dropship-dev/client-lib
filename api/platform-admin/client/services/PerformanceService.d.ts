@@ -81,7 +81,7 @@ export declare class PerformanceService {
             growth: number;
             value: number;
         };
-        profit: {
+        profitSeller: {
             growth: number;
             value: number;
         };
@@ -138,7 +138,7 @@ export declare class PerformanceService {
             growth: number;
             value: number;
         };
-        profit: {
+        profitSeller: {
             growth: number;
             value: number;
         };
