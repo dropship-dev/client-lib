@@ -203,14 +203,14 @@ export class RequestSourcingService {
    */
   public approveRequestSourcing({
     id,
+    fulfillmentAgencyId,
     requestBody,
     storeId,
-    fulfillmentAgencyId,
   }: {
     id: number,
+    fulfillmentAgencyId: number,
     requestBody: ApproveRequestSourcingDto,
     storeId?: string,
-    fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
@@ -219,8 +219,8 @@ export class RequestSourcingService {
         'id': id,
       },
       query: {
-        'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
