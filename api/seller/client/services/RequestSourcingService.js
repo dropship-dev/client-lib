@@ -131,7 +131,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    approveRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {
+    approveRequestSourcing({ id, fulfillmentAgencyId, requestBody, storeId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/request-sourcing/{id}/approve',
@@ -139,8 +139,8 @@ class RequestSourcingService {
                 'id': id,
             },
             query: {
-                'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',

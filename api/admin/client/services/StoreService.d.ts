@@ -78,7 +78,7 @@ export declare class StoreService {
     addProductToStores({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: AddPlatformProductStoresDto;
-    }): CancelablePromise<Array<any>>;
+    }): CancelablePromise<Array<Array<any>>>;
     /**
      * @returns any Ok
      * @throws ApiError

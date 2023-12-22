@@ -70,11 +70,11 @@ export declare class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    approveRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }: {
+    approveRequestSourcing({ id, fulfillmentAgencyId, requestBody, storeId, }: {
         id: number;
+        fulfillmentAgencyId: number;
         requestBody: ApproveRequestSourcingDto;
         storeId?: string;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<RequestSourcing>;
     /**
      * @returns RequestSourcing Ok
