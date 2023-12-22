@@ -12,6 +12,8 @@ export type Product = {
     deleted: boolean;
     isEnable: boolean;
     isActive: boolean;
+    shippingFeeAdditional: number;
+    shippingFee: number;
     /**
      * [AvailableSet]
      */
