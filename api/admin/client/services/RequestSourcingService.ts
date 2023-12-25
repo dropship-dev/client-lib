@@ -108,13 +108,13 @@ export class RequestSourcingService {
    */
   public approveRequestSourcing({
     id,
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId,
     storeId,
   }: {
     id: number,
-    fulfillmentAgencyId: number,
     requestBody: ApproveRequestSourcingDto,
+    fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
