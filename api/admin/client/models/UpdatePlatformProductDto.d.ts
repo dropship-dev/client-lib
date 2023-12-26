@@ -14,4 +14,8 @@ export type UpdatePlatformProductDto = {
     variantOption?: PrismaJson_VariantOptions;
     PlatformVariant?: Array<UpdatePlatformProductVariantDto>;
     availableSet?: PrismaJson_AvailableSet;
+    GroupPlatformVariant?: Array<{
+        variants: Array<number>;
+        name: NameDto;
+    }>;
 };
