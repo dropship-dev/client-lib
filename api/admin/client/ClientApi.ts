@@ -10,6 +10,7 @@ import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
@@ -38,6 +39,7 @@ export class ClientApi {
   public readonly auth: AuthService;
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly groupPlatformVariant: GroupPlatformVariantService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly orderRefunds: OrderRefundsService;
@@ -77,6 +79,7 @@ export class ClientApi {
     this.auth = new AuthService(this.request);
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.orderRefunds = new OrderRefundsService(this.request);
