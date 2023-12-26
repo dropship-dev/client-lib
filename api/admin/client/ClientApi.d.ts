@@ -4,6 +4,7 @@ import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
@@ -29,6 +30,7 @@ export declare class ClientApi {
     readonly auth: AuthService;
     readonly currency: CurrencyService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
+    readonly groupPlatformVariant: GroupPlatformVariantService;
     readonly notification: NotificationService;
     readonly order: OrderService;
     readonly orderRefunds: OrderRefundsService;

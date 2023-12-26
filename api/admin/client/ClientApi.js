@@ -6,6 +6,7 @@ const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+const GroupPlatformVariantService_1 = require("./services/GroupPlatformVariantService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const OrderRefundsService_1 = require("./services/OrderRefundsService");
@@ -30,6 +31,7 @@ class ClientApi {
     auth;
     currency;
     fulfillmentAgency;
+    groupPlatformVariant;
     notification;
     order;
     orderRefunds;
@@ -66,6 +68,7 @@ class ClientApi {
         this.auth = new AuthService_1.AuthService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
+        this.groupPlatformVariant = new GroupPlatformVariantService_1.GroupPlatformVariantService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.orderRefunds = new OrderRefundsService_1.OrderRefundsService(this.request);
