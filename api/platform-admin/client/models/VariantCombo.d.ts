@@ -3,6 +3,7 @@ import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItem
  * Model VariantCombo
  */
 export type VariantCombo = {
+    isDeleted: boolean;
     updatedAt: string;
     createdAt: string;
     minSellingPrice: number | null;
