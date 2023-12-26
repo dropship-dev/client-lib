@@ -6,6 +6,7 @@ import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionV
 export type PlatformVariant = {
     updatedAt: string;
     createdAt: string;
+    groupPlatformVariantId: number | null;
     platformProductId: number;
     deleted: boolean;
     isEnable: boolean;
