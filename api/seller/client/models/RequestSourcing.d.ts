@@ -8,6 +8,7 @@ export type RequestSourcing = {
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
+    PlatformProductId: number | null;
     productId: number | null;
     storeId: string;
     status: RequestSourcingStatus;
