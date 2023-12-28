@@ -151,10 +151,10 @@ class PerformanceService {
         });
     }
     /**
-     * @returns StoreProductPerformanceResp Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getStoreProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+    getStoreProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, pageSize, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/store-product',
@@ -163,6 +163,8 @@ class PerformanceService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

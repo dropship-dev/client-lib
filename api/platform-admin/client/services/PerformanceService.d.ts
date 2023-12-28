@@ -112,15 +112,23 @@ export declare class PerformanceService {
         data: Array<ProductPerformance>;
     }>;
     /**
-     * @returns StoreProductPerformanceResp Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+    getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, pageSize, nextPageIndex, }: {
         fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<Array<StoreProductPerformanceResp>>;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<StoreProductPerformanceResp>;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
