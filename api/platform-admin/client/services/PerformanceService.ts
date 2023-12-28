@@ -283,6 +283,7 @@ export class PerformanceService {
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
+    search,
     pageSize,
     nextPageIndex,
   }: {
@@ -290,6 +291,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
+    search?: string,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -307,6 +309,7 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },
