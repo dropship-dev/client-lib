@@ -103,11 +103,12 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, pageSize, nextPageIndex, }: {
+    getStoreProductPerformance({ fulfillmentAgencyId, startDate, endDate, storeId, search, pageSize, nextPageIndex, }: {
         fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
+        search?: string;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{
