@@ -324,7 +324,7 @@ export class PerformanceService {
   }
 
   /**
-   * @returns StoreProductPerformanceResp Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getStoreProductPerformance({
@@ -332,12 +332,22 @@ export class PerformanceService {
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
+    pageSize,
+    nextPageIndex,
   }: {
     fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<StoreProductPerformanceResp>> {
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<StoreProductPerformanceResp>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/store-product',
@@ -346,6 +356,8 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,
