@@ -129,6 +129,7 @@ export type { SQLResult } from './models/SQLResult';
 export type { Store } from './models/Store';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
+export type { StoreProductProfit } from './models/StoreProductProfit';
 export type { StoreRevenueOverTime } from './models/StoreRevenueOverTime';
 export { StoreRole } from './models/StoreRole';
 export { StoreStatus } from './models/StoreStatus';

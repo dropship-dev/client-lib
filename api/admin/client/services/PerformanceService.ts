@@ -6,6 +6,7 @@ import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StorePerformance } from '../models/StorePerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
+import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
@@ -312,6 +313,43 @@ export class PerformanceService {
         'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns StoreProductProfit Ok
+   * @throws ApiError
+   */
+  public getStoreProductProfit({
+    fulfillmentAgencyId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    storeId,
+    search,
+  }: {
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+    search?: string,
+  }): CancelablePromise<StoreProductProfit> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/store-product/profit',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+        'search': search,
       },
       errors: {
         400: `Bad request`,
