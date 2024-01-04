@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum AsyncTaskType {
-  EXPORT_ORDER = 'EXPORT_ORDER',
-  EXPORT_ACCOUNTANCY = 'EXPORT_ACCOUNTANCY',
-}
+export type ExportAccountancyResult = {
+  url: string;
+};
+

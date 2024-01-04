@@ -82,6 +82,43 @@ export class AsyncTaskService {
    * @returns AsyncTask Ok
    * @throws ApiError
    */
+  public createExportAccountancyTask({
+    exportedFilename,
+    fulfillmentAgencyId,
+    startDate,
+    endDate,
+    storeId,
+  }: {
+    exportedFilename: string,
+    fulfillmentAgencyId: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+  }): CancelablePromise<AsyncTask> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/async-task/export-accountancy',
+      query: {
+        'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns AsyncTask Ok
+   * @throws ApiError
+   */
   public getAsyncTask({
     id,
   }: {
