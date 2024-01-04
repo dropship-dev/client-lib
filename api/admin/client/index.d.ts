@@ -56,6 +56,7 @@ export { CustomDomainStatus } from './models/CustomDomainStatus';
 export type { Discount } from './models/Discount';
 export type { DiscountDto } from './models/DiscountDto';
 export type { EmailDto } from './models/EmailDto';
+export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
 export type { FbPixel } from './models/FbPixel';
