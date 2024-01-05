@@ -196,6 +196,7 @@ export class ProductService {
       PlatformVariant: {
         cost: PlatformCostInfo;
         price: number;
+        id: number;
       };
     })>;
     Tag: Array<Tag>;
