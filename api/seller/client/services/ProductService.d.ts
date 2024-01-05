@@ -2,6 +2,7 @@ import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Discount } from '../models/Discount';
+import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -125,6 +126,7 @@ export declare class ProductService {
         VariantCombo: Array<VariantCombo>;
         ProductVariant: Array<(ProductVariant & {
             PlatformVariant: {
+                cost: PlatformCostInfo;
                 price: number;
             };
         })>;
