@@ -25,6 +25,7 @@ export type Order = {
   latestTotal: number;
   gatewayTransactionId: string | null;
   gatewayOrderId: string;
+  supplierCost: number | null;
   lastBalance: number;
   discount: number;
   discountShippingFee: number;
