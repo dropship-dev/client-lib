@@ -76,10 +76,13 @@ class CurrencyService {
      * @returns Currency Ok
      * @throws ApiError
      */
-    createCurrency({ requestBody, }) {
+    createCurrency({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/currency',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {

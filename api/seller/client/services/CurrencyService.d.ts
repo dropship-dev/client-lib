@@ -34,7 +34,8 @@ export declare class CurrencyService {
      * @returns Currency Ok
      * @throws ApiError
      */
-    createCurrency({ requestBody, }: {
+    createCurrency({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
         requestBody: CreateCurrencyDto;
     }): CancelablePromise<Currency>;
 }
