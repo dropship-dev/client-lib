@@ -8,6 +8,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
+import { BankAccountService } from './services/BankAccountService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
@@ -19,6 +20,7 @@ import { PerformanceService } from './services/PerformanceService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
+import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -30,6 +32,7 @@ import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
+import { WalletService } from './services/WalletService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -37,6 +40,7 @@ export class ClientApi {
 
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
+  public readonly bankAccount: BankAccountService;
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
@@ -48,6 +52,7 @@ export class ClientApi {
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
+  public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
@@ -59,6 +64,7 @@ export class ClientApi {
   public readonly user: UserService;
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
+  public readonly wallet: WalletService;
 
   public readonly request: BaseHttpRequest;
 
@@ -77,6 +83,7 @@ export class ClientApi {
 
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
+    this.bankAccount = new BankAccountService(this.request);
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
@@ -88,6 +95,7 @@ export class ClientApi {
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
+    this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);
@@ -99,6 +107,7 @@ export class ClientApi {
     this.user = new UserService(this.request);
     this.variant = new VariantService(this.request);
     this.variantCombo = new VariantComboService(this.request);
+    this.wallet = new WalletService(this.request);
   }
 }
 
