@@ -26,6 +26,14 @@ export declare class CurrencyService {
      * @returns Currency Ok
      * @throws ApiError
      */
+    getAllCurrency({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<Array<Currency>>;
+    /**
+     * @returns Currency Ok
+     * @throws ApiError
+     */
     createCurrency({ requestBody, }: {
         requestBody: CreateCurrencyDto;
     }): CancelablePromise<Currency>;
