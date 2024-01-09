@@ -105,13 +105,18 @@ export class CurrencyService {
    * @throws ApiError
    */
   public createCurrency({
+    fulfillmentAgencyId,
     requestBody,
   }: {
+    fulfillmentAgencyId: number,
     requestBody: CreateCurrencyDto,
   }): CancelablePromise<Currency> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/currency',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
