@@ -4,6 +4,7 @@ exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
+const BankAccountService_1 = require("./services/BankAccountService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GroupPlatformVariantService_1 = require("./services/GroupPlatformVariantService");
@@ -15,6 +16,7 @@ const PerformanceService_1 = require("./services/PerformanceService");
 const PlatformProductService_1 = require("./services/PlatformProductService");
 const PlatformVariantService_1 = require("./services/PlatformVariantService");
 const ProductService_1 = require("./services/ProductService");
+const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const SettingService_1 = require("./services/SettingService");
 const StoreService_1 = require("./services/StoreService");
@@ -26,9 +28,11 @@ const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 const VariantComboService_1 = require("./services/VariantComboService");
+const WalletService_1 = require("./services/WalletService");
 class ClientApi {
     asyncTask;
     auth;
+    bankAccount;
     currency;
     fulfillmentAgency;
     groupPlatformVariant;
@@ -40,6 +44,7 @@ class ClientApi {
     platformProduct;
     platformVariant;
     product;
+    requestPayout;
     requestSourcing;
     setting;
     store;
@@ -51,6 +56,7 @@ class ClientApi {
     user;
     variant;
     variantCombo;
+    wallet;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -66,6 +72,7 @@ class ClientApi {
         });
         this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
+        this.bankAccount = new BankAccountService_1.BankAccountService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.groupPlatformVariant = new GroupPlatformVariantService_1.GroupPlatformVariantService(this.request);
@@ -77,6 +84,7 @@ class ClientApi {
         this.platformProduct = new PlatformProductService_1.PlatformProductService(this.request);
         this.platformVariant = new PlatformVariantService_1.PlatformVariantService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
+        this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
         this.store = new StoreService_1.StoreService(this.request);
@@ -88,6 +96,7 @@ class ClientApi {
         this.user = new UserService_1.UserService(this.request);
         this.variant = new VariantService_1.VariantService(this.request);
         this.variantCombo = new VariantComboService_1.VariantComboService(this.request);
+        this.wallet = new WalletService_1.WalletService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

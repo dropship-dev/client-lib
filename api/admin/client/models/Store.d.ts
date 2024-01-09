@@ -10,6 +10,7 @@ export type Store = {
     fulfillmentAgencyId: number;
     maxUsers: number;
     balance: number;
+    defaultBankAccount: string | null;
     shippingPolicy: string | null;
     termsOfService: string | null;
     privacyPolicy: string | null;
