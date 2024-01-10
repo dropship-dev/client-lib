@@ -46,6 +46,7 @@ export declare class PlatformProductService {
             Product: Array<{
                 platformProductId: number;
                 id: number;
+                storeId: string;
             }>;
             Tag: Array<AdminTag>;
             GroupPlatformVariant: Array<(GroupPlatformVariant & {
