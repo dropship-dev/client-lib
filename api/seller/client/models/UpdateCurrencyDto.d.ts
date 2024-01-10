@@ -1,3 +1,4 @@
 export type UpdateCurrencyDto = {
-    rateToUSD: number;
+    rateToUSD?: number;
+    isSupported?: boolean;
 };
