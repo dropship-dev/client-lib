@@ -1,3 +1,3 @@
 export type UpdateBankAccountDto = {
-    bankAccountNumber: string;
+    id: string;
 };

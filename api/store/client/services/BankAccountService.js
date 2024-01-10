@@ -99,7 +99,7 @@ class BankAccountService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns void
      * @throws ApiError
      */
     updateDefault({ storeId, requestBody, }) {

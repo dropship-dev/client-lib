@@ -1,6 +1,5 @@
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateBankAccountDto } from '../models/CreateBankAccountDto';
-import type { Store } from '../models/Store';
 import type { UpdateBankAccountDto } from '../models/UpdateBankAccountDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -43,11 +42,11 @@ export declare class BankAccountService {
         storeId?: string;
     }): CancelablePromise<string>;
     /**
-     * @returns Store Ok
+     * @returns void
      * @throws ApiError
      */
     updateDefault({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateBankAccountDto;
-    }): CancelablePromise<Store>;
+    }): CancelablePromise<void>;
 }
