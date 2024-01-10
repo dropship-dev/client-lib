@@ -20,6 +20,14 @@ export declare class BankAccountService {
      * @returns BankAccount Ok
      * @throws ApiError
      */
+    getAllBankAccount({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<Array<BankAccount>>;
+    /**
+     * @returns BankAccount Ok
+     * @throws ApiError
+     */
     getBankAccount({ id, fulfillmentAgencyId, storeId, }: {
         id: string;
         fulfillmentAgencyId?: number;

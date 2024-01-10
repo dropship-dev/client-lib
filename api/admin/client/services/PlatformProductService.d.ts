@@ -44,6 +44,7 @@ export declare class PlatformProductService {
         total: number;
         data: Array<{
             Product: Array<{
+                platformProductId: number;
                 id: number;
             }>;
             Tag: Array<AdminTag>;
