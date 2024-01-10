@@ -50,6 +50,34 @@ export class BankAccountService {
    * @returns BankAccount Ok
    * @throws ApiError
    */
+  public getAllBankAccount({
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<Array<BankAccount>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/bank-account',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns BankAccount Ok
+   * @throws ApiError
+   */
   public getBankAccount({
     id,
     fulfillmentAgencyId,
