@@ -10,6 +10,7 @@ import type { Timezone } from '../models/Timezone';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
+import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -53,6 +54,7 @@ export declare class StoreService {
             phone: string;
             email: string;
             name: string;
+            Wallet: Array<Wallet>;
             FulfillmentAgency: {
                 costCalculationMethod: CostCalculationMethod;
             };
@@ -113,6 +115,7 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
+        Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
             companyName: string;
