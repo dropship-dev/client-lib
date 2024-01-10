@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateBankAccountDto } from '../models/CreateBankAccountDto';
-import type { Store } from '../models/Store';
 import type { UpdateBankAccountDto } from '../models/UpdateBankAccountDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -141,7 +140,7 @@ export class BankAccountService {
   }
 
   /**
-   * @returns Store Ok
+   * @returns void
    * @throws ApiError
    */
   public updateDefault({
@@ -150,7 +149,7 @@ export class BankAccountService {
   }: {
     storeId: string,
     requestBody: UpdateBankAccountDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/bank-account/{storeId}',
