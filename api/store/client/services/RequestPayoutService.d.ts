@@ -17,7 +17,15 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestPayout(): CancelablePromise<{
+    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
         prePageIndex: string;
