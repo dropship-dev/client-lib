@@ -41,7 +41,23 @@ export class RequestPayoutService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllRequestPayout(): CancelablePromise<{
+  public getAllRequestPayout({
+    storeId,
+    fulfillmentAgencyId,
+    search,
+    startDate,
+    endDate,
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    pageSize?: number,
+    nextPageIndex?: string,
+  }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
     prePageIndex: string;
@@ -51,6 +67,15 @@ export class RequestPayoutService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/request-payout',
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
