@@ -1,5 +1,7 @@
+import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { RequestPayout } from '../models/RequestPayout';
+import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -17,12 +19,13 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
         search?: string;
         startDate?: string;
         endDate?: string;
+        statusRequest?: Array<RequestPayoutStatus>;
         pageSize?: number;
         nextPageIndex?: string;
     }): CancelablePromise<{
@@ -30,7 +33,9 @@ export declare class RequestPayoutService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<RequestPayout>;
+        data: Array<(RequestPayout & {
+            BankAccount: BankAccount;
+        })>;
     }>;
     /**
      * @returns RequestPayout Ok

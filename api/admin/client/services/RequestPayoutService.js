@@ -29,7 +29,7 @@ class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
+    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/request-payout',
@@ -39,6 +39,7 @@ class RequestPayoutService {
                 'search': search,
                 'startDate': startDate,
                 'endDate': endDate,
+                'statusRequest': statusRequest,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },
