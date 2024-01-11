@@ -1,5 +1,4 @@
 import type { Transaction } from '../models/Transaction';
-import type { TransactionType } from '../models/TransactionType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class TransactionService {
@@ -9,15 +8,18 @@ export declare class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, transactionType, pageSize, nextPageIndex, }: {
-        storeId: string;
-        transactionType?: Array<TransactionType>;
+    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
         pageSize?: number;
-        nextPageIndex?: number;
+        nextPageIndex?: string;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
+        nextPageIndex: string;
+        prePageIndex: string;
         total: number;
         data: Array<Transaction>;
     }>;
