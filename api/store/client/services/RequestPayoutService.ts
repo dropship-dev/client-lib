@@ -2,8 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { RequestPayout } from '../models/RequestPayout';
+import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -47,6 +49,7 @@ export class RequestPayoutService {
     search,
     startDate,
     endDate,
+    statusRequest,
     pageSize = 20,
     nextPageIndex,
   }: {
@@ -55,6 +58,7 @@ export class RequestPayoutService {
     search?: string,
     startDate?: string,
     endDate?: string,
+    statusRequest?: Array<RequestPayoutStatus>,
     pageSize?: number,
     nextPageIndex?: string,
   }): CancelablePromise<{
@@ -62,7 +66,9 @@ export class RequestPayoutService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<RequestPayout>;
+    data: Array<(RequestPayout & {
+      BankAccount: BankAccount;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -73,6 +79,7 @@ export class RequestPayoutService {
         'search': search,
         'startDate': startDate,
         'endDate': endDate,
+        'statusRequest': statusRequest,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },
