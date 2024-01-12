@@ -97,14 +97,16 @@ export class FulfillmentAgencyService {
   }
 
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getFulfillmentAgency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<(FulfillmentAgency & {
+    Wallet: Array<Wallet>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/{id}',
