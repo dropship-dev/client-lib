@@ -40,12 +40,14 @@ export declare class FulfillmentAgencyService {
         }>;
     }>;
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getFulfillmentAgency({ id, }: {
         id: number;
-    }): CancelablePromise<FulfillmentAgency>;
+    }): CancelablePromise<(FulfillmentAgency & {
+        Wallet: Array<Wallet>;
+    })>;
     /**
      * @returns FulfillmentAgency Ok
      * @throws ApiError
