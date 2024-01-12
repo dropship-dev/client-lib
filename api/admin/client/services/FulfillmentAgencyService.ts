@@ -7,6 +7,7 @@ import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
+import type { Wallet } from '../models/Wallet';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -35,6 +36,7 @@ export class FulfillmentAgencyService {
     prePageIndex: number;
     total: number;
     data: Array<{
+      Wallet: Array<Wallet>;
       updatedAt: string;
       createdAt: string;
       timezone: Timezone;
