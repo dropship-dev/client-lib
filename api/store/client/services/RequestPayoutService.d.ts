@@ -2,6 +2,7 @@ import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
+import type { Store } from '../models/Store';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -35,16 +36,20 @@ export declare class RequestPayoutService {
         total: number;
         data: Array<(RequestPayout & {
             BankAccount: BankAccount;
+            Store: Store;
         })>;
     }>;
     /**
-     * @returns RequestPayout Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRequestPayout({ storeId, id, }: {
         storeId: string;
         id: string;
-    }): CancelablePromise<RequestPayout>;
+    }): CancelablePromise<(RequestPayout & {
+        BankAccount: BankAccount;
+        Store: Store;
+    })>;
     /**
      * @returns RequestPayout Ok
      * @throws ApiError

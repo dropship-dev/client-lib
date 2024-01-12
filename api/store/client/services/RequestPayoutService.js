@@ -53,7 +53,7 @@ class RequestPayoutService {
         });
     }
     /**
-     * @returns RequestPayout Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRequestPayout({ storeId, id, }) {
