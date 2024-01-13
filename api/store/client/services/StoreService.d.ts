@@ -48,9 +48,7 @@ export declare class StoreService {
             ThemeTemplate: ThemeTemplate;
         });
         Payment: Array<{
-            UIVersion: number;
             publishableKey: string;
-            companyName: string;
             email: string;
             updatedAt: string;
             createdAt: string;
@@ -67,7 +65,6 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
-        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;

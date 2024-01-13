@@ -10,7 +10,4 @@ var TransactionType;
     TransactionType["ORDER"] = "ORDER";
     TransactionType["PAYOUT"] = "PAYOUT";
     TransactionType["SUBSCRIPTION"] = "SUBSCRIPTION";
-    TransactionType["WITH_DRAW"] = "WITH_DRAW";
-    TransactionType["TOP_UP"] = "TOP_UP";
-    TransactionType["REQUEST_PAYOUT"] = "REQUEST_PAYOUT";
 })(TransactionType || (exports.TransactionType = TransactionType = {}));

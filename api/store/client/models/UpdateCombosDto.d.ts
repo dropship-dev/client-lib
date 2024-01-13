@@ -4,7 +4,6 @@ export type UpdateCombosDto = Array<{
     photo?: string;
     SKU?: string;
     compareAtPrice?: number;
-    minSellingPrice?: number;
     price?: number;
     name?: string;
     id: number;

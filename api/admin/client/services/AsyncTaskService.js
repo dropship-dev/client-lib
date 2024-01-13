@@ -43,30 +43,6 @@ class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/async-task/export-accountancy',
-            query: {
-                'exportedFilename': exportedFilename,
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'startDate': startDate,
-                'endDate': endDate,
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns AsyncTask Ok
-     * @throws ApiError
-     */
     getAsyncTask({ id, }) {
         return this.httpRequest.request({
             method: 'GET',

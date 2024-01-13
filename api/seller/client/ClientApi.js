@@ -4,7 +4,6 @@ exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
-const BankAccountService_1 = require("./services/BankAccountService");
 const CampaignService_1 = require("./services/CampaignService");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
@@ -15,7 +14,6 @@ const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const ProductService_1 = require("./services/ProductService");
-const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
 const SettingService_1 = require("./services/SettingService");
@@ -28,11 +26,9 @@ const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 const VariantService_1 = require("./services/VariantService");
 const VariantComboService_1 = require("./services/VariantComboService");
-const WalletService_1 = require("./services/WalletService");
 class ClientApi {
     asyncTask;
     auth;
-    bankAccount;
     campaign;
     collection;
     currency;
@@ -43,7 +39,6 @@ class ClientApi {
     order;
     performance;
     product;
-    requestPayout;
     requestSourcing;
     review;
     setting;
@@ -56,7 +51,6 @@ class ClientApi {
     user;
     variant;
     variantCombo;
-    wallet;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -72,7 +66,6 @@ class ClientApi {
         });
         this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
-        this.bankAccount = new BankAccountService_1.BankAccountService(this.request);
         this.campaign = new CampaignService_1.CampaignService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
@@ -83,7 +76,6 @@ class ClientApi {
         this.order = new OrderService_1.OrderService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
-        this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
@@ -96,7 +88,6 @@ class ClientApi {
         this.user = new UserService_1.UserService(this.request);
         this.variant = new VariantService_1.VariantService(this.request);
         this.variantCombo = new VariantComboService_1.VariantComboService(this.request);
-        this.wallet = new WalletService_1.WalletService(this.request);
     }
 }
 exports.ClientApi = ClientApi;
