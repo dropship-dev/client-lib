@@ -5,5 +5,4 @@
 
 export enum AsyncTaskType {
   EXPORT_ORDER = 'EXPORT_ORDER',
-  EXPORT_ACCOUNTANCY = 'EXPORT_ACCOUNTANCY',
 }

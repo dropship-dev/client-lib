@@ -15,10 +15,8 @@ export type PlatformProductStore = (Store & {
     }>;
   }>;
 } & {
-  minMinSellingPrice: number;
-  maxMinSellingPrice: number;
-  minFulfillmentPrice: number;
-  maxFulfillmentPrice: number;
+  minPriceOnStore: number;
+  maxPriceOnStore: number;
   statusOnStore: boolean;
 });
 

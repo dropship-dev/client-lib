@@ -181,34 +181,6 @@ export class CampaignService {
   }
 
   /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public deleteCampaign({
-    storeId,
-    campaignId,
-  }: {
-    storeId: string,
-    campaignId: string,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/store/{storeId}/campaign/{campaignId}',
-      path: {
-        'storeId': storeId,
-        'campaignId': campaignId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
    * @returns any Ok
    * @throws ApiError
    */
@@ -242,7 +214,7 @@ export class CampaignService {
    * @returns string Ok
    * @throws ApiError
    */
-  public deleteCampaignDeleted({
+  public deleteCampaign({
     storeId,
     campaignId,
     productId,

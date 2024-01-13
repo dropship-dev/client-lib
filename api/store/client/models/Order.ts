@@ -25,14 +25,12 @@ export type Order = {
   latestTotal: number;
   gatewayTransactionId: string | null;
   gatewayOrderId: string;
-  supplierCost: number | null;
   lastBalance: number;
   discount: number;
   discountShippingFee: number;
   noItems: number;
   tax: number;
   platformFee: number;
-  profitFulfillAdmin: number | null;
   profit: number;
   subTotal: number;
   totalUSD: number;

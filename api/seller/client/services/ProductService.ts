@@ -4,9 +4,7 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
-import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Discount } from '../models/Discount';
-import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -257,9 +255,7 @@ export class ProductService {
     VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: {
-        cost: PlatformCostInfo;
         price: number;
-        id: number;
       };
     })>;
     Tag: Array<Tag>;
@@ -357,47 +353,10 @@ export class ProductService {
     storeId: string,
     productId: number,
     requestBody: UpdateProductStatusDto,
-  }): CancelablePromise<Product> {
+  }): CancelablePromise<Array<Product>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/status',
-      path: {
-        'storeId': storeId,
-        'productId': productId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public cloneProduct({
-    storeId,
-    productId,
-    requestBody,
-  }: {
-    storeId: string,
-    productId: number,
-    requestBody: CloneProductDto,
-  }): CancelablePromise<(Product & {
-    ProductVariant: Array<{
-      platformVariantId: number;
-      id: number;
-    }>;
-  })> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/product/{productId}/clone',
       path: {
         'storeId': storeId,
         'productId': productId,

@@ -7,6 +7,5 @@ import type { UpdateFulFillmentStatusError } from './UpdateFulFillmentStatusErro
 
 export type UpdateFulFillmentStatusResp = {
   errors: Array<UpdateFulFillmentStatusError>;
-  success: number;
 };
 

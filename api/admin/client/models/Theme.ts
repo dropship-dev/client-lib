@@ -4,7 +4,6 @@
 /* eslint-disable */
 
 import type { LogoSize } from './LogoSize';
-import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
 
 /**
@@ -16,7 +15,6 @@ export type Theme = {
   themeTemplateId: number;
   storeId: string;
   isActivated: boolean | null;
-  components: Prisma_JsonValue | null;
   /**
    * [Colors]
    */
