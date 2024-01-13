@@ -1,0 +1,38 @@
+import type { BaseHttpRequest } from './core/BaseHttpRequest';
+import type { OpenAPIConfig } from './core/OpenAPI';
+import { BankAccountService } from './services/BankAccountService';
+import { CollectionService } from './services/CollectionService';
+import { CurrencyService } from './services/CurrencyService';
+import { OrderService } from './services/OrderService';
+import { ProductService } from './services/ProductService';
+import { RequestPayoutService } from './services/RequestPayoutService';
+import { ReviewService } from './services/ReviewService';
+import { SettingService } from './services/SettingService';
+import { StoreService } from './services/StoreService';
+import { StoreTagService } from './services/StoreTagService';
+import { ThemeService } from './services/ThemeService';
+import { UploadService } from './services/UploadService';
+import { VariantService } from './services/VariantService';
+import { VariantComboService } from './services/VariantComboService';
+import { WalletService } from './services/WalletService';
+type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
+export declare class ClientApi {
+    readonly bankAccount: BankAccountService;
+    readonly collection: CollectionService;
+    readonly currency: CurrencyService;
+    readonly order: OrderService;
+    readonly product: ProductService;
+    readonly requestPayout: RequestPayoutService;
+    readonly review: ReviewService;
+    readonly setting: SettingService;
+    readonly store: StoreService;
+    readonly storeTag: StoreTagService;
+    readonly theme: ThemeService;
+    readonly upload: UploadService;
+    readonly variant: VariantService;
+    readonly variantCombo: VariantComboService;
+    readonly wallet: WalletService;
+    readonly request: BaseHttpRequest;
+    constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
+}
+export {};
