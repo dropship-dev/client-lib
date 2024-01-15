@@ -34,6 +34,7 @@ export declare class FulfillmentAgencyService {
         total: number;
         data: Array<{
             Wallet: Array<Wallet>;
+            currencyId: number;
             updatedAt: string;
             createdAt: string;
             timezone: Timezone;

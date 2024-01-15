@@ -5,6 +5,7 @@ import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
  * Model FulfillmentAgency
  */
 export type FulfillmentAgency = {
+    currencyId: number;
     updatedAt: string;
     createdAt: string;
     /**
