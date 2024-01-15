@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -50,6 +50,8 @@ var StoreRole_1 = require("./models/StoreRole");
 Object.defineProperty(exports, "StoreRole", { enumerable: true, get: function () { return StoreRole_1.StoreRole; } });
 var StoreStatus_1 = require("./models/StoreStatus");
 Object.defineProperty(exports, "StoreStatus", { enumerable: true, get: function () { return StoreStatus_1.StoreStatus; } });
+var SyncTrackingStatus_1 = require("./models/SyncTrackingStatus");
+Object.defineProperty(exports, "SyncTrackingStatus", { enumerable: true, get: function () { return SyncTrackingStatus_1.SyncTrackingStatus; } });
 var TimezoneDto_1 = require("./models/TimezoneDto");
 Object.defineProperty(exports, "TimezoneDto", { enumerable: true, get: function () { return TimezoneDto_1.TimezoneDto; } });
 var TransactionStatus_1 = require("./models/TransactionStatus");

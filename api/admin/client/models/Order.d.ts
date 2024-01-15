@@ -1,6 +1,7 @@
 import type { FulfillmentStatus } from './FulfillmentStatus';
 import type { OrderDisputeStatus } from './OrderDisputeStatus';
 import type { OrderStatus } from './OrderStatus';
+import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 /**
  * Model Order
@@ -32,6 +33,7 @@ export type Order = {
     shippingFee: number;
     note: string | null;
     domain: string | null;
+    additionalInfo: Prisma_JsonValue | null;
     /**
      * [BillingInfo]
      */
