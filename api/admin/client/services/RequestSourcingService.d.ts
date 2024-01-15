@@ -1,5 +1,4 @@
 import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
-import type { GetRequestPayoutAggregateType_any_ } from '../models/GetRequestPayoutAggregateType_any_';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
@@ -30,9 +29,6 @@ export declare class RequestSourcingService {
         data: Array<(RequestSourcing & {
             Store: Store;
         })>;
-        countStatusApprove: GetRequestPayoutAggregateType_any_;
-        countStatusReject: GetRequestPayoutAggregateType_any_;
-        countStatusRequesting: GetRequestPayoutAggregateType_any_;
     }>;
     /**
      * @returns RequestSourcing Ok

@@ -42,11 +42,11 @@ export declare class BankAccountService {
         storeId?: string;
     }): CancelablePromise<string>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateDefault({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateBankAccountDto;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
 }
