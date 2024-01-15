@@ -44,11 +44,12 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    captureStoreOrder({ storeId, orderId, paymentType, requestBody, }: {
+    captureStoreOrder({ storeId, orderId, paymentType, requestBody, bmClientInfo, }: {
         storeId: string;
         orderId: string;
         paymentType: PaymentType;
         requestBody: CreateOrderDto;
+        bmClientInfo?: string;
     }): CancelablePromise<{
         status: string;
     }>;

@@ -54,13 +54,16 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    captureStoreOrder({ storeId, orderId, paymentType, requestBody, }) {
+    captureStoreOrder({ storeId, orderId, paymentType, requestBody, bmClientInfo, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order/{orderId}/capture',
             path: {
                 'storeId': storeId,
                 'orderId': orderId,
+            },
+            headers: {
+                'BM-Client-Info': bmClientInfo,
             },
             query: {
                 'paymentType': paymentType,
