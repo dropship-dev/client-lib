@@ -3,4 +3,9 @@ export type UpdateSettingDto = {
     refundPolicy?: string;
     termsOfService?: string;
     shippingPolicy?: string;
+    hold?: {
+        payoutIn?: number;
+        holdIn?: number;
+        retentionRate?: number;
+    };
 };
