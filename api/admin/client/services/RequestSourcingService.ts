@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
-import type { GetRequestPayoutAggregateType_any_ } from '../models/GetRequestPayoutAggregateType_any_';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
@@ -46,9 +45,6 @@ export class RequestSourcingService {
     data: Array<(RequestSourcing & {
       Store: Store;
     })>;
-    countStatusApprove: GetRequestPayoutAggregateType_any_;
-    countStatusReject: GetRequestPayoutAggregateType_any_;
-    countStatusRequesting: GetRequestPayoutAggregateType_any_;
   }> {
     return this.httpRequest.request({
       method: 'GET',

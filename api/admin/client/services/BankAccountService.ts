@@ -140,7 +140,7 @@ export class BankAccountService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public updateDefault({
@@ -149,7 +149,7 @@ export class BankAccountService {
   }: {
     storeId: string,
     requestBody: UpdateBankAccountDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/bank-account/{storeId}',
