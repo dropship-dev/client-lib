@@ -73,7 +73,6 @@ export { FulfillmentAgencyRole } from './models/FulfillmentAgencyRole';
 export { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
 export { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
-export type { GetRequestPayoutAggregateType_any_ } from './models/GetRequestPayoutAggregateType_any_';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { JsonArray } from './models/JsonArray';
 export type { JsonObject } from './models/JsonObject';
