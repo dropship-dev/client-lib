@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
+import type { GetRequestPayoutAggregateType_any_ } from '../models/GetRequestPayoutAggregateType_any_';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { Store } from '../models/Store';
@@ -71,6 +72,9 @@ export class RequestPayoutService {
       BankAccount: BankAccount;
       Store: Store;
     })>;
+    countStatusApprove: GetRequestPayoutAggregateType_any_;
+    countStatusReject: GetRequestPayoutAggregateType_any_;
+    countStatusRequesting: GetRequestPayoutAggregateType_any_;
   }> {
     return this.httpRequest.request({
       method: 'GET',
