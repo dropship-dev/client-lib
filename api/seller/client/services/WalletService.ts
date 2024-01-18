@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BankAccount } from '../models/BankAccount';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
-import type { Wallet } from '../models/Wallet';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -26,8 +24,17 @@ export class WalletService {
     id: string,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<(Wallet & {
-    BankAccount: Array<BankAccount>;
+  }): CancelablePromise<({
+    remainingBalance: number;
+    payableBalance: number;
+    totalBalance: number;
+  } | {
+    unavailableBalance: {
+      availableSoon: number;
+      hold: number;
+    };
+    availableBalance: number;
+    totalBalance: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
