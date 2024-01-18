@@ -8,7 +8,7 @@ export declare class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, walletId, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
         search?: string;
@@ -16,6 +16,7 @@ export declare class TransactionService {
         endDate?: string;
         pageSize?: number;
         nextPageIndex?: string;
+        walletId?: string;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;

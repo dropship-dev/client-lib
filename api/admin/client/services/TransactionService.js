@@ -10,7 +10,7 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
+    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize = 20, nextPageIndex, walletId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
@@ -22,6 +22,7 @@ class TransactionService {
                 'endDate': endDate,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
+                'walletId': walletId,
             },
             errors: {
                 400: `Bad request`,
