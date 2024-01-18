@@ -1,6 +1,5 @@
-import type { CurrencyCode } from './CurrencyCode';
 export type CreateCurrencyDto = {
-    name: CurrencyCode;
+    name: string;
     symbol: string;
     rateToUSD: number;
 };
