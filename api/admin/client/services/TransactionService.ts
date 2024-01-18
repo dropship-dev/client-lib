@@ -23,6 +23,7 @@ export class TransactionService {
     endDate,
     pageSize = 20,
     nextPageIndex,
+    walletId,
   }: {
     storeId?: string,
     fulfillmentAgencyId?: number,
@@ -31,6 +32,7 @@ export class TransactionService {
     endDate?: string,
     pageSize?: number,
     nextPageIndex?: string,
+    walletId?: string,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
@@ -49,6 +51,7 @@ export class TransactionService {
         'endDate': endDate,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+        'walletId': walletId,
       },
       errors: {
         400: `Bad request`,

@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BankAccount } from '../models/BankAccount';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
 
@@ -25,11 +26,13 @@ export class WalletService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
+    bankAccount: Array<BankAccount>;
     remainingBalance: number;
     payableBalance: number;
     totalBalance: number;
   } | {
     unavailableBalance: {
+      bankAccount: Array<BankAccount>;
       availableSoon: number;
       hold: number;
     };
