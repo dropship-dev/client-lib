@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
+import type { RequestPayout } from '../models/RequestPayout';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
 
@@ -31,6 +32,7 @@ export class WalletService {
     payableBalance: number;
     totalBalance: number;
   } | {
+    requestPayout: RequestPayout;
     unavailableBalance: {
       bankAccount: Array<BankAccount>;
       availableSoon: number;
@@ -38,6 +40,7 @@ export class WalletService {
     };
     availableBalance: number;
     totalBalance: number;
+    id: string;
   })> {
     return this.httpRequest.request({
       method: 'GET',
