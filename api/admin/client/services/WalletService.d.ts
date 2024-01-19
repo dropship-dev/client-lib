@@ -1,4 +1,5 @@
 import type { BankAccount } from '../models/BankAccount';
+import type { RequestPayout } from '../models/RequestPayout';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -20,6 +21,7 @@ export declare class WalletService {
         payableBalance: number;
         totalBalance: number;
     } | {
+        requestPayout: RequestPayout;
         unavailableBalance: {
             bankAccount: Array<BankAccount>;
             availableSoon: number;
@@ -27,6 +29,7 @@ export declare class WalletService {
         };
         availableBalance: number;
         totalBalance: number;
+        id: string;
     })>;
     /**
      * @returns string Ok
