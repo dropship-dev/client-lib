@@ -38,9 +38,7 @@ export declare class RequestPayoutService {
             BankAccount: BankAccount;
             Store: Store;
         })>;
-        countStatusApprove: number;
-        countStatusReject: number;
-        countStatusRequesting: number;
+        countStatusRequestPayout: number;
     }>;
     /**
      * @returns any Ok
