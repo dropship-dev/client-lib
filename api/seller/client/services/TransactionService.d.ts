@@ -1,3 +1,4 @@
+import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -22,14 +23,18 @@ export declare class TransactionService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<Transaction>;
+        data: Array<(Transaction & {
+            RequestPayout: RequestPayout;
+        })>;
     }>;
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStoreTransaction({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<Transaction>;
+    }): CancelablePromise<(Transaction & {
+        RequestPayout: RequestPayout;
+    })>;
 }

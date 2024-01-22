@@ -20,7 +20,7 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
+    countAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
         search?: string;
@@ -38,6 +38,22 @@ export declare class RequestPayoutService {
             BankAccount: BankAccount;
             Store: Store;
         })>;
+        countStatusRequestPayout: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        statusRequest?: Array<RequestPayoutStatus>;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
         countStatusRequestPayout: number;
     }>;
     /**
