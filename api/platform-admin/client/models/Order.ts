@@ -15,6 +15,7 @@ import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 export type Order = {
   updatedAt: string;
   createdAt: string;
+  retentionRate: number | null;
   payoutIn: string | null;
   holdIn: string | null;
   disputeStatus: OrderDisputeStatus | null;

@@ -44,7 +44,7 @@ export class RequestPayoutService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllRequestPayout({
+  public countAllRequestPayout({
     storeId,
     fulfillmentAgencyId,
     search,
@@ -76,6 +76,54 @@ export class RequestPayoutService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/request-payout',
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'statusRequest': statusRequest,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public countRequestPayout({
+    storeId,
+    fulfillmentAgencyId,
+    search,
+    startDate,
+    endDate,
+    statusRequest,
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    statusRequest?: Array<RequestPayoutStatus>,
+    pageSize?: number,
+    nextPageIndex?: string,
+  }): CancelablePromise<{
+    countStatusRequestPayout: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/request-payout/count-request-payout',
       query: {
         'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
