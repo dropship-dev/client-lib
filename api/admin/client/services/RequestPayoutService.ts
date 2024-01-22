@@ -44,7 +44,7 @@ export class RequestPayoutService {
    * @returns any Ok
    * @throws ApiError
    */
-  public countAllRequestPayout({
+  public getAllRequestPayout({
     storeId,
     fulfillmentAgencyId,
     search,
