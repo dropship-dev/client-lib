@@ -20,7 +20,7 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    countAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
+    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
         search?: string;
