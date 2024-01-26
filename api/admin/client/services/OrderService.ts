@@ -97,6 +97,7 @@ export class OrderService {
       Payment: {
         name: string;
         type: PaymentType;
+        id: number;
       };
       Store: Store;
     })>;
