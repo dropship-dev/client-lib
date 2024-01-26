@@ -96,7 +96,7 @@ export type { OrderRefund } from './models/OrderRefund';
 export { OrderStatus } from './models/OrderStatus';
 export type { Payment } from './models/Payment';
 export { PaymentMethodType } from './models/PaymentMethodType';
-export { PaymentType } from './models/PaymentType';
+export type { PaymentType } from './models/PaymentType';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
