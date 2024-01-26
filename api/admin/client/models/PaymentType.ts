@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PaymentType = {
-};
-
+export enum PaymentType {
+  PAYPAL = 'PAYPAL',
+  STRIPE = 'STRIPE',
+}

@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BankAccount } from '../models/BankAccount';
+import type { PaymentMethodType } from '../models/PaymentMethodType';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
 
@@ -40,7 +42,14 @@ export class TransactionService {
     prePageIndex: string;
     total: number;
     data: Array<(Transaction & {
-      RequestPayout: RequestPayout;
+      RequestPayout: {
+        bankAccountId: string;
+        convertCurrencyCode: string;
+        paymentMethod: PaymentMethodType;
+        convertCurrencyAmount: number;
+        BankAccount: BankAccount;
+        id: string;
+      };
     })>;
   }> {
     return this.httpRequest.request({
