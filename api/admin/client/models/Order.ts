@@ -8,6 +8,7 @@ import type { OrderDisputeStatus } from './OrderDisputeStatus';
 import type { OrderStatus } from './OrderStatus';
 import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
+import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmount';
 
 /**
  * Model Order
@@ -15,7 +16,10 @@ import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 export type Order = {
   updatedAt: string;
   createdAt: string;
-  isSyncBalance: boolean;
+  /**
+   * [SyncBalanceAmount]
+   */
+  isSyncBalance: PrismaJson_SyncBalanceAmount | null;
   retentionRate: number | null;
   payoutIn: string | null;
   holdIn: string | null;

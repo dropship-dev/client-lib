@@ -121,6 +121,7 @@ export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_Produc
 export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_ProductRequirementItems';
 export type { PrismaJson_RefundOrderItems } from './models/PrismaJson_RefundOrderItems';
 export type { PrismaJson_RequestSourcingHistory } from './models/PrismaJson_RequestSourcingHistory';
+export type { PrismaJson_SyncBalanceAmount } from './models/PrismaJson_SyncBalanceAmount';
 export type { PrismaJson_Timezone } from './models/PrismaJson_Timezone';
 export type { PrismaJson_UnavailableBalance } from './models/PrismaJson_UnavailableBalance';
 export type { PrismaJson_VariantComboItems } from './models/PrismaJson_VariantComboItems';
