@@ -76,4 +76,11 @@ export declare class RequestPayoutService {
         fulfillmentAgencyId: number;
         requestBody: UpdateRequestPayoutDto;
     }): CancelablePromise<RequestPayout>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    toolSyncBalanceAmountForSeller({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<void>;
 }
