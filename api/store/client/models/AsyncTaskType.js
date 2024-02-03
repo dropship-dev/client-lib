@@ -8,4 +8,5 @@ exports.AsyncTaskType = void 0;
 var AsyncTaskType;
 (function (AsyncTaskType) {
     AsyncTaskType["EXPORT_ORDER"] = "EXPORT_ORDER";
+    AsyncTaskType["EXPORT_ACCOUNTANCY"] = "EXPORT_ACCOUNTANCY";
 })(AsyncTaskType || (exports.AsyncTaskType = AsyncTaskType = {}));

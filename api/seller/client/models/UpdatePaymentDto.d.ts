@@ -1,4 +1,7 @@
+import type { EmailDto } from './EmailDto';
 import type { NameDto } from './NameDto';
 export type UpdatePaymentDto = {
-    name: NameDto;
+    name?: NameDto;
+    companyName?: string;
+    email?: EmailDto;
 };

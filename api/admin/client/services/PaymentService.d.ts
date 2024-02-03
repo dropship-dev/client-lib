@@ -2,6 +2,7 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -25,6 +26,7 @@ export declare class PaymentService {
         fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        companyName: string;
         creator: {
             role: UserRole;
             avatar: string;
@@ -50,6 +52,7 @@ export declare class PaymentService {
         id: number;
     }): CancelablePromise<{
         publishableKey: string;
+        companyName: string;
         creator: {
             role: UserRole;
             avatar: string;
@@ -76,6 +79,14 @@ export declare class PaymentService {
         requestBody: UpdatePaymentDto;
     }): CancelablePromise<Payment>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePayment({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
+        id: number;
+    }): CancelablePromise<string>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -88,6 +99,7 @@ export declare class PaymentService {
             avatar: string;
             email: string;
             name: string;
+            status: StoreStatus;
             id: string;
         }>;
     }>;

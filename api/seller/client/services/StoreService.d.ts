@@ -1,3 +1,4 @@
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
@@ -7,6 +8,7 @@ import type { Theme } from '../models/Theme';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
+import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -57,6 +59,10 @@ export declare class StoreService {
             phone: string;
             email: string;
             name: string;
+            Wallet: Array<Wallet>;
+            FulfillmentAgency: {
+                costCalculationMethod: CostCalculationMethod;
+            };
             Payment: Array<{
                 name: string;
                 type: PaymentType;
@@ -79,8 +85,10 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
+        Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
+            companyName: string;
             email: string;
             name: string;
             updatedAt: string;
@@ -122,6 +130,7 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;

@@ -50,6 +50,7 @@ export declare class StoreService {
         Payment: Array<{
             UIVersion: number;
             publishableKey: string;
+            companyName: string;
             email: string;
             updatedAt: string;
             createdAt: string;
@@ -66,6 +67,7 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;

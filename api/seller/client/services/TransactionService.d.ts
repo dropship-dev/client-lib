@@ -1,5 +1,7 @@
+import type { BankAccount } from '../models/BankAccount';
+import type { PaymentMethodType } from '../models/PaymentMethodType';
+import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
-import type { TransactionType } from '../models/TransactionType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class TransactionService {
@@ -9,24 +11,39 @@ export declare class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, transactionType, pageSize, nextPageIndex, }: {
-        storeId: string;
-        transactionType?: Array<TransactionType>;
+    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, walletId, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
         pageSize?: number;
-        nextPageIndex?: number;
+        nextPageIndex?: string;
+        walletId?: string;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
+        nextPageIndex: string;
+        prePageIndex: string;
         total: number;
-        data: Array<Transaction>;
+        data: Array<(Transaction & {
+            RequestPayout: {
+                bankAccountId: string;
+                convertCurrencyCode: string;
+                paymentMethod: PaymentMethodType;
+                convertCurrencyAmount: number;
+                BankAccount: BankAccount;
+                id: string;
+            };
+        })>;
     }>;
     /**
-     * @returns Transaction Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStoreTransaction({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<Transaction>;
+    }): CancelablePromise<(Transaction & {
+        RequestPayout: RequestPayout;
+    })>;
 }

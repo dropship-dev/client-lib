@@ -61,7 +61,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    approveRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+    approveRequestSourcing({ id, requestBody, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/request-sourcing/{id}/approve',
@@ -69,8 +69,8 @@ class RequestSourcingService {
                 'id': id,
             },
             query: {
-                'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -87,7 +87,7 @@ class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
-    rejectRequestSourcing({ storeId, id, requestBody, fulfillmentAgencyId, }) {
+    rejectRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/request-sourcing/{id}/reject',
