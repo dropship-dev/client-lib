@@ -11,8 +11,10 @@ import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
 export type ProductVariant = {
   updatedAt: string;
   createdAt: string;
+  margin: number | null;
   platformVariantId: number;
   productId: number;
+  deleted: boolean;
   isEnable: boolean;
   isActive: boolean;
   /**

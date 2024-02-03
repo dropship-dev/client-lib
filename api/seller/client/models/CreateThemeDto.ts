@@ -15,6 +15,7 @@ export type CreateThemeDto = {
   heroBanner: PhotoDto;
   font: string;
   colors: PrismaJson_Colors;
+  components?: string;
   themeTemplateId: number;
 };
 

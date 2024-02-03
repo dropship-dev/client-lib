@@ -12,13 +12,15 @@ import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionV
 export type PlatformVariant = {
   updatedAt: string;
   createdAt: string;
+  groupPlatformVariantId: number | null;
   platformProductId: number;
+  deleted: boolean;
   isEnable: boolean;
   isActive: boolean;
   /**
    * [PlatformCostInfo]
    */
-  cost: PrismaJson_PlatformCostInfo | null;
+  cost: PrismaJson_PlatformCostInfo;
   supplierPrice: number;
   price: number;
   /**

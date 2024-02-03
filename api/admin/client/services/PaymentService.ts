@@ -6,6 +6,7 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
 
@@ -55,6 +56,7 @@ export class PaymentService {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    companyName: string;
     creator: {
       role: UserRole;
       avatar: string;
@@ -99,6 +101,7 @@ export class PaymentService {
     id: number,
   }): CancelablePromise<{
     publishableKey: string;
+    companyName: string;
     creator: {
       role: UserRole;
       avatar: string;
@@ -169,6 +172,36 @@ export class PaymentService {
   }
 
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deletePayment({
+    fulfillmentAgencyId,
+    id,
+  }: {
+    fulfillmentAgencyId: number,
+    id: number,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/payment/{id}',
+      path: {
+        'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
    * @returns any Ok
    * @throws ApiError
    */
@@ -184,6 +217,7 @@ export class PaymentService {
       avatar: string;
       email: string;
       name: string;
+      status: StoreStatus;
       id: string;
     }>;
   }> {

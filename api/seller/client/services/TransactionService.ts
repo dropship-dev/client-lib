@@ -2,8 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BankAccount } from '../models/BankAccount';
+import type { PaymentMethodType } from '../models/PaymentMethodType';
+import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
-import type { TransactionType } from '../models/TransactionType';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -18,31 +20,50 @@ export class TransactionService {
    */
   public getAllStoreTransaction({
     storeId,
-    transactionType,
+    fulfillmentAgencyId,
+    search,
+    startDate,
+    endDate,
     pageSize = 20,
     nextPageIndex,
+    walletId,
   }: {
-    storeId: string,
-    transactionType?: Array<TransactionType>,
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
     pageSize?: number,
-    nextPageIndex?: number,
+    nextPageIndex?: string,
+    walletId?: string,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
+    nextPageIndex: string;
+    prePageIndex: string;
     total: number;
-    data: Array<Transaction>;
+    data: Array<(Transaction & {
+      RequestPayout: {
+        bankAccountId: string;
+        convertCurrencyCode: string;
+        paymentMethod: PaymentMethodType;
+        convertCurrencyAmount: number;
+        BankAccount: BankAccount;
+        id: string;
+      };
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction',
-      path: {
-        'storeId': storeId,
-      },
       query: {
-        'transactionType': transactionType,
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+        'walletId': walletId,
       },
       errors: {
         400: `Bad request`,
@@ -55,7 +76,7 @@ export class TransactionService {
   }
 
   /**
-   * @returns Transaction Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getStoreTransaction({
@@ -64,7 +85,9 @@ export class TransactionService {
   }: {
     storeId: string,
     id: number,
-  }): CancelablePromise<Transaction> {
+  }): CancelablePromise<(Transaction & {
+    RequestPayout: RequestPayout;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction/{id}',

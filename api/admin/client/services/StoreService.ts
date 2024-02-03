@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
@@ -13,6 +14,7 @@ import type { Timezone } from '../models/Timezone';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
+import type { Wallet } from '../models/Wallet';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -68,6 +70,10 @@ export class StoreService {
       phone: string;
       email: string;
       name: string;
+      Wallet: Array<Wallet>;
+      FulfillmentAgency: {
+        costCalculationMethod: CostCalculationMethod;
+      };
       Payment: Array<{
         name: string;
         type: PaymentType;
@@ -107,7 +113,7 @@ export class StoreService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public addProductToStores({
@@ -116,10 +122,39 @@ export class StoreService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<Array<Array<any>>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateProductToStores({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: AddPlatformProductStoresDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/update-product',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
       },
@@ -148,6 +183,7 @@ export class StoreService {
   }): CancelablePromise<Array<{
     Payment: Array<{
       publishableKey: string;
+      companyName: string;
       email: string;
       name: string;
       createdAt: string;
@@ -183,8 +219,10 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<(Store & {
+    Wallet: Array<Wallet>;
     Payment: Array<{
       publishableKey: string;
+      companyName: string;
       email: string;
       name: string;
       updatedAt: string;
@@ -318,6 +356,7 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    companyName: string;
     email: string;
     updatedAt: string;
     createdAt: string;

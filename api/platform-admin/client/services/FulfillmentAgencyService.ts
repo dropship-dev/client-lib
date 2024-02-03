@@ -9,6 +9,7 @@ import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus'
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
+import type { Wallet } from '../models/Wallet';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -61,6 +62,7 @@ export class FulfillmentAgencyService {
     prePageIndex: number;
     total: number;
     data: Array<{
+      Wallet: Array<Wallet>;
       updatedAt: string;
       createdAt: string;
       timezone: Timezone;
@@ -95,14 +97,16 @@ export class FulfillmentAgencyService {
   }
 
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getFulfillmentAgency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<(FulfillmentAgency & {
+    Wallet: Array<Wallet>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/{id}',
