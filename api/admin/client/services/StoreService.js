@@ -56,7 +56,7 @@ class StoreService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateProductToStores({ fulfillmentAgencyId, requestBody, }) {

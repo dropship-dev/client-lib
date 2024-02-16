@@ -82,13 +82,13 @@ export declare class StoreService {
         requestBody: AddPlatformProductStoresDto;
     }): CancelablePromise<Array<Array<any>>>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateProductToStores({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: AddPlatformProductStoresDto;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
