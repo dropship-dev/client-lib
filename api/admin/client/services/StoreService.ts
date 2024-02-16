@@ -142,7 +142,7 @@ export class StoreService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public updateProductToStores({
@@ -151,7 +151,7 @@ export class StoreService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/update-product',
