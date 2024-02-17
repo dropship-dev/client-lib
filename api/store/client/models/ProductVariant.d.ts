@@ -14,7 +14,7 @@ export type ProductVariant = {
     /**
      * [CostInfo]
      */
-    cost: PrismaJson_CostInfo | null;
+    cost: PrismaJson_CostInfo;
     minSellingPrice: number | null;
     compareAtPrice: number;
     price: number;
