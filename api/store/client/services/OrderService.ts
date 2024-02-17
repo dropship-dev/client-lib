@@ -116,7 +116,7 @@ export class OrderService {
         'orderId': orderId,
       },
       headers: {
-        'bm-client-info': bmClientInfo,
+        'BM-Client-Info': bmClientInfo,
       },
       query: {
         'paymentType': paymentType,
