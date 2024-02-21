@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
+import type { PrismaJson_MarginInfo } from './PrismaJson_MarginInfo';
 
 /**
  * Model ProductVariant
@@ -11,7 +12,10 @@ import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
 export type ProductVariant = {
   updatedAt: string;
   createdAt: string;
-  margin: number | null;
+  /**
+   * [MarginInfo]
+   */
+  margin: PrismaJson_MarginInfo | null;
   platformVariantId: number;
   productId: number;
   deleted: boolean;

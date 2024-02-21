@@ -115,6 +115,7 @@ export type { PrismaJson_BillingInfo } from './models/PrismaJson_BillingInfo';
 export type { PrismaJson_Colors } from './models/PrismaJson_Colors';
 export type { PrismaJson_CostInfo } from './models/PrismaJson_CostInfo';
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
+export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
 export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_ProductDiscountItems';
