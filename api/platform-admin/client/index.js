@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.ThemeTemplateService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreStatus = exports.StoreRole = exports.RequestSourcingStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -22,10 +22,6 @@ var AsyncTaskType_1 = require("./models/AsyncTaskType");
 Object.defineProperty(exports, "AsyncTaskType", { enumerable: true, get: function () { return AsyncTaskType_1.AsyncTaskType; } });
 var CostCalculationMethod_1 = require("./models/CostCalculationMethod");
 Object.defineProperty(exports, "CostCalculationMethod", { enumerable: true, get: function () { return CostCalculationMethod_1.CostCalculationMethod; } });
-var CurrencyCode_1 = require("./models/CurrencyCode");
-Object.defineProperty(exports, "CurrencyCode", { enumerable: true, get: function () { return CurrencyCode_1.CurrencyCode; } });
-var CurrencyType_1 = require("./models/CurrencyType");
-Object.defineProperty(exports, "CurrencyType", { enumerable: true, get: function () { return CurrencyType_1.CurrencyType; } });
 var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
@@ -42,20 +38,14 @@ var OrderDisputeStatus_1 = require("./models/OrderDisputeStatus");
 Object.defineProperty(exports, "OrderDisputeStatus", { enumerable: true, get: function () { return OrderDisputeStatus_1.OrderDisputeStatus; } });
 var OrderStatus_1 = require("./models/OrderStatus");
 Object.defineProperty(exports, "OrderStatus", { enumerable: true, get: function () { return OrderStatus_1.OrderStatus; } });
-var PaymentMethodType_1 = require("./models/PaymentMethodType");
-Object.defineProperty(exports, "PaymentMethodType", { enumerable: true, get: function () { return PaymentMethodType_1.PaymentMethodType; } });
 var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Period_1 = require("./models/Period");
 Object.defineProperty(exports, "Period", { enumerable: true, get: function () { return Period_1.Period; } });
 var RefundType_1 = require("./models/RefundType");
 Object.defineProperty(exports, "RefundType", { enumerable: true, get: function () { return RefundType_1.RefundType; } });
-var RequestPayoutStatus_1 = require("./models/RequestPayoutStatus");
-Object.defineProperty(exports, "RequestPayoutStatus", { enumerable: true, get: function () { return RequestPayoutStatus_1.RequestPayoutStatus; } });
 var RequestSourcingStatus_1 = require("./models/RequestSourcingStatus");
 Object.defineProperty(exports, "RequestSourcingStatus", { enumerable: true, get: function () { return RequestSourcingStatus_1.RequestSourcingStatus; } });
-var statusRequestPayout_1 = require("./models/statusRequestPayout");
-Object.defineProperty(exports, "statusRequestPayout", { enumerable: true, get: function () { return statusRequestPayout_1.statusRequestPayout; } });
 var StoreRole_1 = require("./models/StoreRole");
 Object.defineProperty(exports, "StoreRole", { enumerable: true, get: function () { return StoreRole_1.StoreRole; } });
 var StoreStatus_1 = require("./models/StoreStatus");
@@ -68,8 +58,6 @@ var TransactionStatus_1 = require("./models/TransactionStatus");
 Object.defineProperty(exports, "TransactionStatus", { enumerable: true, get: function () { return TransactionStatus_1.TransactionStatus; } });
 var TransactionType_1 = require("./models/TransactionType");
 Object.defineProperty(exports, "TransactionType", { enumerable: true, get: function () { return TransactionType_1.TransactionType; } });
-var typeFulfillmentPrice_1 = require("./models/typeFulfillmentPrice");
-Object.defineProperty(exports, "typeFulfillmentPrice", { enumerable: true, get: function () { return typeFulfillmentPrice_1.typeFulfillmentPrice; } });
 var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
 var AsyncTaskService_1 = require("./services/AsyncTaskService");

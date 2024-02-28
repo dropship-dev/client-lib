@@ -2,7 +2,6 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
-import { BankAccountService } from './services/BankAccountService';
 import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
@@ -13,7 +12,6 @@ import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
 import { ProductService } from './services/ProductService';
-import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
@@ -26,12 +24,10 @@ import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
-import { WalletService } from './services/WalletService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
     readonly auth: AuthService;
-    readonly bankAccount: BankAccountService;
     readonly campaign: CampaignService;
     readonly collection: CollectionService;
     readonly currency: CurrencyService;
@@ -42,7 +38,6 @@ export declare class ClientApi {
     readonly order: OrderService;
     readonly performance: PerformanceService;
     readonly product: ProductService;
-    readonly requestPayout: RequestPayoutService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;
     readonly setting: SettingService;
@@ -55,7 +50,6 @@ export declare class ClientApi {
     readonly user: UserService;
     readonly variant: VariantService;
     readonly variantCombo: VariantComboService;
-    readonly wallet: WalletService;
     readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest?: HttpRequestConstructor);
 }

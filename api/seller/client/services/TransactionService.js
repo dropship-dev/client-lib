@@ -10,19 +10,17 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize = 20, nextPageIndex, walletId, }) {
+    getAllStoreTransaction({ storeId, transactionType, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
-            query: {
+            path: {
                 'storeId': storeId,
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'search': search,
-                'startDate': startDate,
-                'endDate': endDate,
+            },
+            query: {
+                'transactionType': transactionType,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
-                'walletId': walletId,
             },
             errors: {
                 400: `Bad request`,
@@ -34,7 +32,7 @@ class TransactionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Transaction Ok
      * @throws ApiError
      */
     getStoreTransaction({ storeId, id, }) {

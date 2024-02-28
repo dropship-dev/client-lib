@@ -5,7 +5,6 @@ import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus'
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class FulfillmentAgencyService {
@@ -33,7 +32,6 @@ export declare class FulfillmentAgencyService {
         prePageIndex: number;
         total: number;
         data: Array<{
-            Wallet: Array<Wallet>;
             updatedAt: string;
             createdAt: string;
             timezone: Timezone;
@@ -49,14 +47,12 @@ export declare class FulfillmentAgencyService {
         }>;
     }>;
     /**
-     * @returns any Ok
+     * @returns FulfillmentAgency Ok
      * @throws ApiError
      */
     getFulfillmentAgency({ id, }: {
         id: number;
-    }): CancelablePromise<(FulfillmentAgency & {
-        Wallet: Array<Wallet>;
-    })>;
+    }): CancelablePromise<FulfillmentAgency>;
     /**
      * @returns FulfillmentAgency Ok
      * @throws ApiError

@@ -55,14 +55,6 @@ export declare class CampaignService {
         requestBody: UpdateCampaignDto;
     }): CancelablePromise<string>;
     /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCampaign({ storeId, campaignId, }: {
-        storeId: string;
-        campaignId: string;
-    }): CancelablePromise<string>;
-    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -76,7 +68,7 @@ export declare class CampaignService {
      * @returns string Ok
      * @throws ApiError
      */
-    deleteCampaignDeleted({ storeId, campaignId, productId, }: {
+    deleteCampaign({ storeId, campaignId, productId, }: {
         storeId: string;
         campaignId: string;
         productId: number;

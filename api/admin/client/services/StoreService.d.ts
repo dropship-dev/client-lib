@@ -1,6 +1,5 @@
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
-import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
@@ -10,7 +9,6 @@ import type { Timezone } from '../models/Timezone';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -54,10 +52,6 @@ export declare class StoreService {
             phone: string;
             email: string;
             name: string;
-            Wallet: Array<Wallet>;
-            FulfillmentAgency: {
-                costCalculationMethod: CostCalculationMethod;
-            };
             Payment: Array<{
                 name: string;
                 type: PaymentType;
@@ -74,18 +68,10 @@ export declare class StoreService {
         }>;
     }>;
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    addProductToStores({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
-        requestBody: AddPlatformProductStoresDto;
-    }): CancelablePromise<Array<Array<any>>>;
-    /**
      * @returns string Ok
      * @throws ApiError
      */
-    updateProductToStores({ fulfillmentAgencyId, requestBody, }: {
+    addProductToStores({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: AddPlatformProductStoresDto;
     }): CancelablePromise<string>;
@@ -99,7 +85,6 @@ export declare class StoreService {
     }): CancelablePromise<Array<{
         Payment: Array<{
             publishableKey: string;
-            companyName: string;
             email: string;
             name: string;
             createdAt: string;
@@ -115,10 +100,8 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
-        Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
-            companyName: string;
             email: string;
             name: string;
             updatedAt: string;
@@ -163,7 +146,6 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
-        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;

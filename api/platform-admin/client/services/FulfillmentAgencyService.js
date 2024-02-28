@@ -49,7 +49,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns FulfillmentAgency Ok
      * @throws ApiError
      */
     getFulfillmentAgency({ id, }) {

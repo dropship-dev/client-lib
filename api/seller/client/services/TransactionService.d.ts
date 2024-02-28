@@ -1,7 +1,5 @@
-import type { BankAccount } from '../models/BankAccount';
-import type { PaymentMethodType } from '../models/PaymentMethodType';
-import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
+import type { TransactionType } from '../models/TransactionType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class TransactionService {
@@ -11,39 +9,24 @@ export declare class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, walletId, }: {
-        storeId?: string;
-        fulfillmentAgencyId?: number;
-        search?: string;
-        startDate?: string;
-        endDate?: string;
+    getAllStoreTransaction({ storeId, transactionType, pageSize, nextPageIndex, }: {
+        storeId: string;
+        transactionType?: Array<TransactionType>;
         pageSize?: number;
-        nextPageIndex?: string;
-        walletId?: string;
+        nextPageIndex?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: string;
-        prePageIndex: string;
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
-        data: Array<(Transaction & {
-            RequestPayout: {
-                bankAccountId: string;
-                convertCurrencyCode: string;
-                paymentMethod: PaymentMethodType;
-                convertCurrencyAmount: number;
-                BankAccount: BankAccount;
-                id: string;
-            };
-        })>;
+        data: Array<Transaction>;
     }>;
     /**
-     * @returns any Ok
+     * @returns Transaction Ok
      * @throws ApiError
      */
     getStoreTransaction({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Transaction & {
-        RequestPayout: RequestPayout;
-    })>;
+    }): CancelablePromise<Transaction>;
 }
