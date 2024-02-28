@@ -6,7 +6,6 @@ import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDt
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
-import type { GroupPlatformVariant } from '../models/GroupPlatformVariant';
 import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformProductStore } from '../models/PlatformProductStore';
@@ -81,24 +80,13 @@ export class PlatformProductService {
     total: number;
     data: Array<{
       Product: Array<{
-        platformProductId: number;
         id: number;
-        storeId: string;
       }>;
       Tag: Array<AdminTag>;
-      GroupPlatformVariant: Array<(GroupPlatformVariant & {
-        PlatformVariant: Array<{
-          photo: string;
-          SKU: string;
-          name: string;
-          id: number;
-        }>;
-      })>;
       PlatformVariant: Array<PlatformVariant>;
       updatedAt: string;
       createdAt: string;
       fulfillmentAgencyId: number;
-      deleted: boolean;
       isEnable: boolean;
       isActive: boolean;
       supplierContact: string;
@@ -205,14 +193,6 @@ export class PlatformProductService {
     platformProductId: number,
   }): CancelablePromise<(PlatformProduct & {
     Tag: Array<AdminTag>;
-    GroupPlatformVariant: Array<(GroupPlatformVariant & {
-      PlatformVariant: Array<{
-        photo: string;
-        SKU: string;
-        name: string;
-        id: number;
-      }>;
-    })>;
     PlatformVariant: Array<PlatformVariant>;
   })> {
     return this.httpRequest.request({

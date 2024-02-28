@@ -9,7 +9,6 @@ import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
-import type { Payment } from '../models/Payment';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -94,7 +93,6 @@ export class OrderService {
         });
       })>;
       Transaction: Array<Transaction>;
-      Payment: Payment;
       Store: Store;
     })>;
   }> {

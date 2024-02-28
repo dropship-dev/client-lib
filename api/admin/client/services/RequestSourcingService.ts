@@ -107,15 +107,15 @@ export class RequestSourcingService {
    * @throws ApiError
    */
   public approveRequestSourcing({
+    storeId,
     id,
     requestBody,
     fulfillmentAgencyId,
-    storeId,
   }: {
+    storeId: string,
     id: number,
     requestBody: ApproveRequestSourcingDto,
     fulfillmentAgencyId?: number,
-    storeId?: string,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
@@ -124,8 +124,8 @@ export class RequestSourcingService {
         'id': id,
       },
       query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -144,14 +144,14 @@ export class RequestSourcingService {
    * @throws ApiError
    */
   public rejectRequestSourcing({
+    storeId,
     id,
     requestBody,
-    storeId,
     fulfillmentAgencyId,
   }: {
+    storeId: string,
     id: number,
     requestBody: RejectRequestSourcingDto,
-    storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({

@@ -6,12 +6,10 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
 
-import { BankAccountService } from './services/BankAccountService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
 import { ProductService } from './services/ProductService';
-import { RequestPayoutService } from './services/RequestPayoutService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
@@ -20,18 +18,15 @@ import { ThemeService } from './services/ThemeService';
 import { UploadService } from './services/UploadService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
-import { WalletService } from './services/WalletService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
-  public readonly bankAccount: BankAccountService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
   public readonly order: OrderService;
   public readonly product: ProductService;
-  public readonly requestPayout: RequestPayoutService;
   public readonly review: ReviewService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
@@ -40,7 +35,6 @@ export class ClientApi {
   public readonly upload: UploadService;
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
-  public readonly wallet: WalletService;
 
   public readonly request: BaseHttpRequest;
 
@@ -57,12 +51,10 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
 
-    this.bankAccount = new BankAccountService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);
     this.order = new OrderService(this.request);
     this.product = new ProductService(this.request);
-    this.requestPayout = new RequestPayoutService(this.request);
     this.review = new ReviewService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);
@@ -71,7 +63,6 @@ export class ClientApi {
     this.upload = new UploadService(this.request);
     this.variant = new VariantService(this.request);
     this.variantCombo = new VariantComboService(this.request);
-    this.wallet = new WalletService(this.request);
   }
 }
 
