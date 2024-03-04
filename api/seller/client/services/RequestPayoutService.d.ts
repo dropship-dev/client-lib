@@ -80,9 +80,5 @@ export declare class RequestPayoutService {
      * @returns string Ok
      * @throws ApiError
      */
-    toolSyncBalanceAmountForSeller({ fulfillmentAgencyId, expiredHoldSetting, expiredPayOutInSetting, }: {
-        fulfillmentAgencyId: number;
-        expiredHoldSetting: string;
-        expiredPayOutInSetting: string;
-    }): CancelablePromise<string>;
+    toolSyncBalanceAmountForSeller(): CancelablePromise<string>;
 }

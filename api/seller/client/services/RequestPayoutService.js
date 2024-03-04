@@ -131,15 +131,10 @@ class RequestPayoutService {
      * @returns string Ok
      * @throws ApiError
      */
-    toolSyncBalanceAmountForSeller({ fulfillmentAgencyId, expiredHoldSetting, expiredPayOutInSetting, }) {
+    toolSyncBalanceAmountForSeller() {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/request-payout/tool-sync-balance-amount-for-seller',
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'expiredHoldSetting': expiredHoldSetting,
-                'expiredPayOutInSetting': expiredPayOutInSetting,
-            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
