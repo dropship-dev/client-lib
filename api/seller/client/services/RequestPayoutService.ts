@@ -215,23 +215,10 @@ export class RequestPayoutService {
    * @returns string Ok
    * @throws ApiError
    */
-  public toolSyncBalanceAmountForSeller({
-    fulfillmentAgencyId,
-    expiredHoldSetting,
-    expiredPayOutInSetting,
-  }: {
-    fulfillmentAgencyId: number,
-    expiredHoldSetting: string,
-    expiredPayOutInSetting: string,
-  }): CancelablePromise<string> {
+  public toolSyncBalanceAmountForSeller(): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/request-payout/tool-sync-balance-amount-for-seller',
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'expiredHoldSetting': expiredHoldSetting,
-        'expiredPayOutInSetting': expiredPayOutInSetting,
-      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
