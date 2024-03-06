@@ -144,6 +144,7 @@ export type { StoreProductProfit } from './models/StoreProductProfit';
 export type { StoreRevenueOverTime } from './models/StoreRevenueOverTime';
 export { StoreRole } from './models/StoreRole';
 export { StoreStatus } from './models/StoreStatus';
+export { StoreType } from './models/StoreType';
 export type { StoreUser } from './models/StoreUser';
 export { SyncTrackingStatus } from './models/SyncTrackingStatus';
 export type { Tag } from './models/Tag';
