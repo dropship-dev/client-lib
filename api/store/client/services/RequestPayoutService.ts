@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
+import type { PingPongAccount } from '../models/PingPongAccount';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { Store } from '../models/Store';
@@ -68,6 +69,7 @@ export class RequestPayoutService {
     prePageIndex: string;
     total: number;
     data: Array<(RequestPayout & {
+      PingPongAccount: PingPongAccount;
       BankAccount: BankAccount;
       Store: Store;
     })>;
@@ -155,6 +157,7 @@ export class RequestPayoutService {
     storeId: string,
     id: string,
   }): CancelablePromise<(RequestPayout & {
+    PingPongAccount: PingPongAccount;
     BankAccount: BankAccount;
     Store: Store;
   })> {

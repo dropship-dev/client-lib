@@ -18,6 +18,7 @@ import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
+import { PingPongAccountService } from './services/PingPongAccountService';
 import { ProductService } from './services/ProductService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
@@ -50,6 +51,7 @@ export class ClientApi {
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly performance: PerformanceService;
+  public readonly pingPongAccount: PingPongAccountService;
   public readonly product: ProductService;
   public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
@@ -93,6 +95,7 @@ export class ClientApi {
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.performance = new PerformanceService(this.request);
+    this.pingPongAccount = new PingPongAccountService(this.request);
     this.product = new ProductService(this.request);
     this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
