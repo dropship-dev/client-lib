@@ -14,6 +14,7 @@ const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService"
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const PerformanceService_1 = require("./services/PerformanceService");
+const PingPongAccountService_1 = require("./services/PingPongAccountService");
 const ProductService_1 = require("./services/ProductService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
@@ -42,6 +43,7 @@ class ClientApi {
     notification;
     order;
     performance;
+    pingPongAccount;
     product;
     requestPayout;
     requestSourcing;
@@ -82,6 +84,7 @@ class ClientApi {
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
+        this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);

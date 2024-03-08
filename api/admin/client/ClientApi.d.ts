@@ -11,6 +11,7 @@ import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
+import { PingPongAccountService } from './services/PingPongAccountService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
@@ -40,6 +41,7 @@ export declare class ClientApi {
     readonly orderRefunds: OrderRefundsService;
     readonly payment: PaymentService;
     readonly performance: PerformanceService;
+    readonly pingPongAccount: PingPongAccountService;
     readonly platformProduct: PlatformProductService;
     readonly platformVariant: PlatformVariantService;
     readonly product: ProductService;

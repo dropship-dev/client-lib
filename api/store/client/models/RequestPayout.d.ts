@@ -15,6 +15,7 @@ export type RequestPayout = {
     noteByAdmin: string | null;
     noteBySeller: string | null;
     convertCurrencyCode: string;
+    pingPongAccountId: string | null;
     bankAccountId: string | null;
     status: RequestPayoutStatus;
     paymentMethod: PaymentMethodType;

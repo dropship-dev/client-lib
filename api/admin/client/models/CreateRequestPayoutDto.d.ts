@@ -6,6 +6,7 @@ export type CreateRequestPayoutDto = {
     amountConvert: number;
     type: PaymentMethodType;
     bankId?: string;
+    pingPongId?: string;
     notes?: string;
     storeId: string;
 };

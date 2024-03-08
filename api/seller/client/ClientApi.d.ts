@@ -12,6 +12,7 @@ import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
+import { PingPongAccountService } from './services/PingPongAccountService';
 import { ProductService } from './services/ProductService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
@@ -41,6 +42,7 @@ export declare class ClientApi {
     readonly notification: NotificationService;
     readonly order: OrderService;
     readonly performance: PerformanceService;
+    readonly pingPongAccount: PingPongAccountService;
     readonly product: ProductService;
     readonly requestPayout: RequestPayoutService;
     readonly requestSourcing: RequestSourcingService;
