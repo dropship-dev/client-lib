@@ -5,6 +5,7 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
+import type { CreateProductFromSellerDependeceDto } from '../models/CreateProductFromSellerDependeceDto';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -25,6 +26,67 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ProductService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns Product Ok
+   * @throws ApiError
+   */
+  public createProductForStoreInDepedence({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: CreateProductFromSellerDependeceDto,
+  }): CancelablePromise<Product> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/product/seller-indepedence',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public countProduct({
+    storeId,
+    isActive,
+  }: {
+    storeId: string,
+    isActive?: boolean,
+  }): CancelablePromise<{
+    count: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/count',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'isActive': isActive,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 
   /**
    * @returns any Ok
@@ -121,38 +183,6 @@ export class ProductService {
       },
       query: {
         'productIds': productIds,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public countProduct({
-    storeId,
-    isActive,
-  }: {
-    storeId: string,
-    isActive?: boolean,
-  }): CancelablePromise<{
-    count: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/count',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'isActive': isActive,
       },
       errors: {
         400: `Bad request`,

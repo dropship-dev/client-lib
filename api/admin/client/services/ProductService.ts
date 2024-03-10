@@ -27,7 +27,7 @@ export class ProductService {
    * @returns string Ok
    * @throws ApiError
    */
-  public createProduct({
+  public createProductForStoreJoinFa({
     storeId,
     requestBody,
   }: {
@@ -36,12 +36,44 @@ export class ProductService {
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product',
+      url: '/store/{storeId}/product/seller-depedence',
       path: {
         'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public countProduct({
+    storeId,
+    isActive,
+  }: {
+    storeId: string,
+    isActive?: boolean,
+  }): CancelablePromise<{
+    count: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/count',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'isActive': isActive,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -117,38 +149,6 @@ export class ProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public countProduct({
-    storeId,
-    isActive,
-  }: {
-    storeId: string,
-    isActive?: boolean,
-  }): CancelablePromise<{
-    count: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/count',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'isActive': isActive,
       },
       errors: {
         400: `Bad request`,

@@ -16,7 +16,7 @@ export type ProductVariant = {
    * [MarginInfo]
    */
   margin: PrismaJson_MarginInfo | null;
-  platformVariantId: number;
+  platformVariantId: number | null;
   productId: number;
   deleted: boolean;
   isEnable: boolean;
@@ -24,7 +24,8 @@ export type ProductVariant = {
   /**
    * [CostInfo]
    */
-  cost: PrismaJson_CostInfo;
+  cost: PrismaJson_CostInfo | null;
+  supplierPrice: number | null;
   minSellingPrice: number | null;
   compareAtPrice: number;
   price: number;
