@@ -20,10 +20,20 @@ export declare class ProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    createProduct({ storeId, requestBody, }: {
+    createProductForStoreJoinFa({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateProductDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countProduct({ storeId, isActive, }: {
+        storeId: string;
+        isActive?: boolean;
+    }): CancelablePromise<{
+        count: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -65,16 +75,6 @@ export declare class ProductService {
                 Tag: Array<AdminTag>;
             };
         })>;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    countProduct({ storeId, isActive, }: {
-        storeId: string;
-        isActive?: boolean;
-    }): CancelablePromise<{
-        count: number;
     }>;
     /**
      * @returns any Ok

@@ -7,6 +7,51 @@ class ProductService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @returns Product Ok
+     * @throws ApiError
+     */
+    createProductForStoreInDepedence({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/product/seller-indepedence',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countProduct({ storeId, isActive, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/count',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'isActive': isActive,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -48,29 +93,6 @@ class ProductService {
             },
             query: {
                 'productIds': productIds,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    countProduct({ storeId, isActive, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/count',
-            path: {
-                'storeId': storeId,
-            },
-            query: {
-                'isActive': isActive,
             },
             errors: {
                 400: `Bad request`,

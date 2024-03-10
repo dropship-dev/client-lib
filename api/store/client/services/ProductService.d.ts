@@ -19,6 +19,16 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    countProduct({ storeId, isActive, }: {
+        storeId: string;
+        isActive?: boolean;
+    }): CancelablePromise<{
+        count: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
         storeId: string;
         pageSize?: number;
@@ -56,16 +66,6 @@ export declare class ProductService {
                 Tag: Array<AdminTag>;
             };
         })>;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    countProduct({ storeId, isActive, }: {
-        storeId: string;
-        isActive?: boolean;
-    }): CancelablePromise<{
-        count: number;
     }>;
     /**
      * @returns any Ok

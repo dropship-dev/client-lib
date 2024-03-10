@@ -46,6 +46,7 @@ export type { CreatePlatformProductDto } from './models/CreatePlatformProductDto
 export type { CreatePlatformVariantDto } from './models/CreatePlatformVariantDto';
 export type { CreatePlatformVariantsDto } from './models/CreatePlatformVariantsDto';
 export type { CreateProductDto } from './models/CreateProductDto';
+export type { CreateProductFromSellerDependeceDto } from './models/CreateProductFromSellerDependeceDto';
 export type { CreateRequestPayoutDto } from './models/CreateRequestPayoutDto';
 export type { CreateRequestSourcingDto } from './models/CreateRequestSourcingDto';
 export type { CreateReviewDto } from './models/CreateReviewDto';
@@ -210,6 +211,7 @@ export type { URLDto } from './models/URLDto';
 export type { User } from './models/User';
 export { UserRole } from './models/UserRole';
 export type { VariantCombo } from './models/VariantCombo';
+export type { VariantDto } from './models/VariantDto';
 export type { VariantOptions } from './models/VariantOptions';
 export type { VariantOptionValues } from './models/VariantOptionValues';
 export type { Wallet } from './models/Wallet';
