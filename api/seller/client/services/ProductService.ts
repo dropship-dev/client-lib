@@ -242,6 +242,12 @@ export class ProductService {
       PlatformVariant: PlatformVariant;
     })>;
     Review: Array<Review>;
+    GoogleAnalytic: Array<{
+      measurementId: string;
+    }>;
+    TiktokPixel: Array<{
+      pixelId: string;
+    }>;
     FbPixel: Array<{
       pixelId: string;
     }>;

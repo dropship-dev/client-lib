@@ -15,6 +15,7 @@ import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { PerformanceService } from './services/PerformanceService';
@@ -28,6 +29,7 @@ import { StaffService } from './services/StaffService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
+import { TiktokPixelService } from './services/TiktokPixelService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
@@ -48,6 +50,7 @@ export class ClientApi {
   public readonly domain: DomainService;
   public readonly fbPixel: FbPixelService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly googleAnalytic: GoogleAnalyticService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly performance: PerformanceService;
@@ -61,6 +64,7 @@ export class ClientApi {
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly theme: ThemeService;
+  public readonly tiktokPixel: TiktokPixelService;
   public readonly transaction: TransactionService;
   public readonly upload: UploadService;
   public readonly user: UserService;
@@ -92,6 +96,7 @@ export class ClientApi {
     this.domain = new DomainService(this.request);
     this.fbPixel = new FbPixelService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.googleAnalytic = new GoogleAnalyticService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.performance = new PerformanceService(this.request);
@@ -105,6 +110,7 @@ export class ClientApi {
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.theme = new ThemeService(this.request);
+    this.tiktokPixel = new TiktokPixelService(this.request);
     this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
