@@ -47,7 +47,7 @@ export type { CreatePlatformProductDto } from './models/CreatePlatformProductDto
 export type { CreatePlatformVariantDto } from './models/CreatePlatformVariantDto';
 export type { CreatePlatformVariantsDto } from './models/CreatePlatformVariantsDto';
 export type { CreateProductDto } from './models/CreateProductDto';
-export type { CreateProductFromSellerDependeceDto } from './models/CreateProductFromSellerDependeceDto';
+export type { CreateProductFromSellerInDependeceDto } from './models/CreateProductFromSellerInDependeceDto';
 export type { CreateRequestPayoutDto } from './models/CreateRequestPayoutDto';
 export type { CreateRequestSourcingDto } from './models/CreateRequestSourcingDto';
 export type { CreateReviewDto } from './models/CreateReviewDto';
