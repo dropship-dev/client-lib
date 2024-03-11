@@ -103,7 +103,7 @@ class VariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateVariants({ storeId, productId, requestBody, }) {
+    updateVariantsForSellerJoinFa({ storeId, productId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/store/{storeId}/product/{productId}/variant',
