@@ -5,7 +5,7 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
-import type { CreateProductFromSellerDependeceDto } from '../models/CreateProductFromSellerDependeceDto';
+import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -36,7 +36,7 @@ export class ProductService {
     requestBody,
   }: {
     storeId: string,
-    requestBody: CreateProductFromSellerDependeceDto,
+    requestBody: CreateProductFromSellerInDependeceDto,
   }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'POST',
