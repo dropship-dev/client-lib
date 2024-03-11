@@ -1,5 +1,6 @@
 import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from './PrismaJson_MarginInfo';
+import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 /**
  * Model ProductVariant
  */
@@ -12,6 +13,10 @@ export type ProductVariant = {
     margin: PrismaJson_MarginInfo | null;
     platformVariantId: number | null;
     productId: number;
+    /**
+     * [VariantOptionValues]
+     */
+    variantOption: PrismaJson_VariantOptionValues | null;
     deleted: boolean;
     isEnable: boolean;
     isActive: boolean;
