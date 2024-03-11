@@ -13,11 +13,12 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+    getRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, referralCode, }: {
         fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
         storeId?: string;
+        referralCode?: string;
     }): CancelablePromise<{
         revenues: Array<StoreRevenueOverTime>;
         period: Period;

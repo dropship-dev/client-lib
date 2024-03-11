@@ -25,7 +25,7 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId, pageSize, status, periodFrom, nextPageIndex, name, userId, paymentGatewayIds, }: {
+    getAllStores({ fulfillmentAgencyId, pageSize, status, periodFrom, nextPageIndex, name, userId, paymentGatewayIds, platformProductId, referralCode, }: {
         fulfillmentAgencyId?: number;
         /**
          * number of stores to return
@@ -46,12 +46,15 @@ export declare class StoreService {
          */
         userId?: string;
         paymentGatewayIds?: Array<number>;
+        platformProductId?: number;
+        referralCode?: string;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
         data: Array<{
+            referralCode: string;
             primaryDomain: string;
             subDomain: string;
             avatar: string;

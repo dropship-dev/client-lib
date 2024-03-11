@@ -10,7 +10,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRevenueOverTime({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+    getRevenueOverTime({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, referralCode, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/revenue-over-time',
@@ -19,6 +19,7 @@ class PerformanceService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
+                'referralCode': referralCode,
             },
             errors: {
                 400: `Bad request`,

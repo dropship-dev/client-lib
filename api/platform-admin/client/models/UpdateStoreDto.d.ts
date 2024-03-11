@@ -20,4 +20,5 @@ export type UpdateStoreDto = {
     termsOfService?: string;
     shippingPolicy?: string;
     currencyId?: number;
+    referralCode?: string;
 };
