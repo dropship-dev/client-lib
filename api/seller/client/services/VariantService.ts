@@ -162,7 +162,7 @@ export class VariantService {
    * @returns string Ok
    * @throws ApiError
    */
-  public updateVariantsForSellerJoinFa({
+  public updateVariants({
     storeId,
     productId,
     requestBody,
