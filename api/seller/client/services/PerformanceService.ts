@@ -25,11 +25,13 @@ export class PerformanceService {
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
+    referralCode,
   }: {
     fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
+    referralCode?: string,
   }): CancelablePromise<{
     revenues: Array<StoreRevenueOverTime>;
     period: Period;
@@ -42,6 +44,7 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'referralCode': referralCode,
       },
       errors: {
         400: `Bad request`,

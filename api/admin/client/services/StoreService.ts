@@ -36,6 +36,8 @@ export class StoreService {
     name,
     userId,
     paymentGatewayIds,
+    platformProductId,
+    referralCode,
   }: {
     fulfillmentAgencyId?: number,
     /**
@@ -57,12 +59,15 @@ export class StoreService {
      */
     userId?: string,
     paymentGatewayIds?: Array<number>,
+    platformProductId?: number,
+    referralCode?: string,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
     data: Array<{
+      referralCode: string;
       primaryDomain: string;
       subDomain: string;
       avatar: string;
@@ -101,6 +106,8 @@ export class StoreService {
         'name': name,
         'userId': userId,
         'paymentGatewayIds': paymentGatewayIds,
+        'platformProductId': platformProductId,
+        'referralCode': referralCode,
       },
       errors: {
         400: `Bad request`,
