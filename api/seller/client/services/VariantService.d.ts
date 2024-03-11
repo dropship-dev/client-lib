@@ -60,7 +60,7 @@ export declare class VariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateVariantsForSellerJoinFa({ storeId, productId, requestBody, }: {
+    updateVariants({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
         requestBody: UpdateVariantsDto;
