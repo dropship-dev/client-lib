@@ -112,9 +112,14 @@ export class PaymentService {
     id: number;
   } | (Store & {
     Payment: Array<{
+      isShowCompanyAddress: boolean;
       publishableKey: string;
+      companyAddress: string;
+      companyName: string;
       email: string;
+      name: string;
       type: PaymentType;
+      id: number;
     }>;
   }))> {
     return this.httpRequest.request({
