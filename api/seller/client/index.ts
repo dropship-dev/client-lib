@@ -241,6 +241,7 @@ export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { GoogleAnalyticService } from './services/GoogleAnalyticService';
 export { NotificationService } from './services/NotificationService';
 export { OrderService } from './services/OrderService';
+export { PaymentService } from './services/PaymentService';
 export { PerformanceService } from './services/PerformanceService';
 export { PingPongAccountService } from './services/PingPongAccountService';
 export { ProductService } from './services/ProductService';
