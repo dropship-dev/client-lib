@@ -14,6 +14,7 @@ const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService"
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
+const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const PingPongAccountService_1 = require("./services/PingPongAccountService");
 const ProductService_1 = require("./services/ProductService");
@@ -45,6 +46,7 @@ class ClientApi {
     googleAnalytic;
     notification;
     order;
+    payment;
     performance;
     pingPongAccount;
     product;
@@ -88,6 +90,7 @@ class ClientApi {
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
+        this.payment = new PaymentService_1.PaymentService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
