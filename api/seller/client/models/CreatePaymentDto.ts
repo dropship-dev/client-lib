@@ -14,5 +14,7 @@ export type CreatePaymentDto = {
   publishableKey: string;
   secretKey: string;
   companyName: string;
+  companyAddress?: string;
+  isShowCompanyAddress?: boolean;
 };
 
