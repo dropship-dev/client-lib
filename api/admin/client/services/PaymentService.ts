@@ -6,6 +6,7 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { Store } from '../models/Store';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
@@ -55,32 +56,19 @@ export class PaymentService {
    */
   public getAllPayment({
     fulfillmentAgencyId,
+    storeId,
   }: {
-    fulfillmentAgencyId: number,
-  }): CancelablePromise<Array<{
-    publishableKey: string;
-    companyName: string;
-    creator: {
-      role: UserRole;
-      avatar: string;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: string;
-    };
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    type: PaymentType;
-    id: number;
-  }>> {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<(Store & {
+    Payment: Array<Payment>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -97,12 +85,14 @@ export class PaymentService {
    * @throws ApiError
    */
   public getPayment({
-    fulfillmentAgencyId,
     id,
+    fulfillmentAgencyId,
+    storeId,
   }: {
-    fulfillmentAgencyId: number,
     id: number,
-  }): CancelablePromise<{
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<({
     publishableKey: string;
     companyName: string;
     creator: {
@@ -120,7 +110,9 @@ export class PaymentService {
     createdAt: string;
     type: PaymentType;
     id: number;
-  }> {
+  } | (Store & {
+    Payment: Array<Payment>;
+  }))> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/{id}',
@@ -129,6 +121,7 @@ export class PaymentService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -145,13 +138,15 @@ export class PaymentService {
    * @throws ApiError
    */
   public updatePayment({
-    fulfillmentAgencyId,
     id,
     requestBody,
+    fulfillmentAgencyId,
+    storeId,
   }: {
-    fulfillmentAgencyId: number,
     id: number,
     requestBody: UpdatePaymentDto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
   }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -161,6 +156,7 @@ export class PaymentService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -179,11 +175,13 @@ export class PaymentService {
    * @throws ApiError
    */
   public deletePayment({
-    fulfillmentAgencyId,
     id,
+    fulfillmentAgencyId,
+    storeId,
   }: {
-    fulfillmentAgencyId: number,
     id: number,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -193,6 +191,7 @@ export class PaymentService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
