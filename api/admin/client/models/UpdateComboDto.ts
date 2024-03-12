@@ -11,6 +11,7 @@ export type UpdateComboDto = {
   compareAtPrice?: number;
   SKU?: string;
   photo?: string;
+  supplierCost?: number;
   items?: PrismaJson_VariantComboItems;
 };
 

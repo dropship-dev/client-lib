@@ -12,6 +12,7 @@ export type VariantCombo = {
   isDeleted: boolean;
   updatedAt: string;
   createdAt: string;
+  supplierCost: number | null;
   minSellingPrice: number | null;
   productId: number;
   isEnable: boolean;
