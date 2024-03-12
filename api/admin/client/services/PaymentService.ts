@@ -22,17 +22,20 @@ export class PaymentService {
    * @throws ApiError
    */
   public createPayment({
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId,
+    storeId,
   }: {
-    fulfillmentAgencyId: number,
     requestBody: CreatePaymentDto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
   }): CancelablePromise<Payment> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
