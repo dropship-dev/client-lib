@@ -9,4 +9,5 @@ export type CreateComboDto = {
     photo: PhotoDto;
     minSellingPrice: number;
     items: PrismaJson_VariantComboItems;
+    supplierCost?: number;
 };
