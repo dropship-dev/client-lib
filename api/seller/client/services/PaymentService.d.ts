@@ -2,6 +2,7 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
+import type { Store } from '../models/Store';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
@@ -23,35 +24,21 @@ export declare class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment({ fulfillmentAgencyId, }: {
-        fulfillmentAgencyId: number;
-    }): CancelablePromise<Array<{
-        publishableKey: string;
-        companyName: string;
-        creator: {
-            role: UserRole;
-            avatar: string;
-            email: string;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: string;
-        };
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        type: PaymentType;
-        id: number;
-    }>>;
+    getAllPayment({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<(Store & {
+        Payment: Array<Payment>;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ fulfillmentAgencyId, id, }: {
-        fulfillmentAgencyId: number;
+    getPayment({ id, fulfillmentAgencyId, storeId, }: {
         id: number;
-    }): CancelablePromise<{
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<({
         publishableKey: string;
         companyName: string;
         creator: {
@@ -69,23 +56,27 @@ export declare class PaymentService {
         createdAt: string;
         type: PaymentType;
         id: number;
-    }>;
+    } | (Store & {
+        Payment: Array<Payment>;
+    }))>;
     /**
      * @returns Payment Ok
      * @throws ApiError
      */
-    updatePayment({ fulfillmentAgencyId, id, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updatePayment({ id, requestBody, fulfillmentAgencyId, storeId, }: {
         id: number;
         requestBody: UpdatePaymentDto;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
     }): CancelablePromise<Payment>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
-    deletePayment({ fulfillmentAgencyId, id, }: {
-        fulfillmentAgencyId: number;
+    deletePayment({ id, fulfillmentAgencyId, storeId, }: {
         id: number;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok

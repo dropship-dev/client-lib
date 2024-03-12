@@ -33,12 +33,13 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPayment({ fulfillmentAgencyId, }) {
+    getAllPayment({ fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,
@@ -53,7 +54,7 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPayment({ fulfillmentAgencyId, id, }) {
+    getPayment({ id, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/payment/{id}',
@@ -62,6 +63,7 @@ class PaymentService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,
@@ -76,7 +78,7 @@ class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    updatePayment({ fulfillmentAgencyId, id, requestBody, }) {
+    updatePayment({ id, requestBody, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/payment/{id}',
@@ -85,6 +87,7 @@ class PaymentService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -101,7 +104,7 @@ class PaymentService {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePayment({ fulfillmentAgencyId, id, }) {
+    deletePayment({ id, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/payment/{id}',
@@ -110,6 +113,7 @@ class PaymentService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,
