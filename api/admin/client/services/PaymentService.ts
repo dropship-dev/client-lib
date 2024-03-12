@@ -111,7 +111,11 @@ export class PaymentService {
     type: PaymentType;
     id: number;
   } | (Store & {
-    Payment: Array<Payment>;
+    Payment: Array<{
+      publishableKey: string;
+      email: string;
+      type: PaymentType;
+    }>;
   }))> {
     return this.httpRequest.request({
       method: 'GET',
