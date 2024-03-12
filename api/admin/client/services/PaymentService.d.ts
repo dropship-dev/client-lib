@@ -14,9 +14,10 @@ export declare class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    createPayment({ requestBody, fulfillmentAgencyId, storeId, }: {
         requestBody: CreatePaymentDto;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
     }): CancelablePromise<Payment>;
     /**
      * @returns any Ok

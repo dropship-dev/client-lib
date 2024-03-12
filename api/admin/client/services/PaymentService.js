@@ -10,12 +10,13 @@ class PaymentService {
      * @returns Payment Ok
      * @throws ApiError
      */
-    createPayment({ fulfillmentAgencyId, requestBody, }) {
+    createPayment({ requestBody, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/payment',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
