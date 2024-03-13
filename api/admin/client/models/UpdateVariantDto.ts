@@ -9,6 +9,6 @@ export type UpdateVariantDto = {
   compareAtPrice?: number;
   SKU?: string;
   photo?: string;
-  supplierCost?: number;
+  supplierPrice?: number;
 };
 
