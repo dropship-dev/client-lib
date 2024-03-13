@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BatchPayload } from '../models/BatchPayload';
+import type { CreateVariantsDto } from '../models/CreateVariantsDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
@@ -16,94 +18,24 @@ export class VariantService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns BatchPayload Ok
    * @throws ApiError
    */
-  public getVariant({
+  public createVariants({
     storeId,
-    productId,
-    id,
-  }: {
-    storeId: string,
-    productId: number,
-    id: number,
-  }): CancelablePromise<(ProductVariant & {
-    PlatformVariant: PlatformVariant;
-  })> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/{productId}/variant/{id}',
-      path: {
-        'storeId': storeId,
-        'productId': productId,
-        'id': id,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns ProductVariant Ok
-   * @throws ApiError
-   */
-  public updateVariant({
-    storeId,
-    productId,
-    id,
     requestBody,
   }: {
     storeId: string,
-    productId: number,
-    id: number,
-    requestBody: UpdateVariantDto,
-  }): CancelablePromise<ProductVariant> {
+    requestBody: Array<CreateVariantsDto>,
+  }): CancelablePromise<BatchPayload> {
     return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/store/{storeId}/product/{productId}/variant/{id}',
+      method: 'POST',
+      url: '/store/{storeId}/product/{productId}/variant',
       path: {
         'storeId': storeId,
-        'productId': productId,
-        'id': id,
       },
       body: requestBody,
       mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns ProductVariant Ok
-   * @throws ApiError
-   */
-  public deleteVariant({
-    storeId,
-    productId,
-    id,
-  }: {
-    storeId: string,
-    productId: number,
-    id: number,
-  }): CancelablePromise<ProductVariant> {
-    return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/store/{storeId}/product/{productId}/variant/{id}',
-      path: {
-        'storeId': storeId,
-        'productId': productId,
-        'id': id,
-      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -212,6 +144,105 @@ export class VariantService {
       },
       query: {
         'ids': ids,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getVariant({
+    storeId,
+    productId,
+    id,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+  }): CancelablePromise<(ProductVariant & {
+    PlatformVariant: PlatformVariant;
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/variant/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns ProductVariant Ok
+   * @throws ApiError
+   */
+  public updateVariant({
+    storeId,
+    productId,
+    id,
+    requestBody,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+    requestBody: UpdateVariantDto,
+  }): CancelablePromise<ProductVariant> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/product/{productId}/variant/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns ProductVariant Ok
+   * @throws ApiError
+   */
+  public deleteVariant({
+    storeId,
+    productId,
+    id,
+  }: {
+    storeId: string,
+    productId: number,
+    id: number,
+  }): CancelablePromise<ProductVariant> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/product/{productId}/variant/{id}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+        'id': id,
       },
       errors: {
         400: `Bad request`,
