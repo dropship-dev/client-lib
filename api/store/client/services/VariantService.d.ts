@@ -9,17 +9,6 @@ export declare class VariantService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariant({ storeId, productId, id, }: {
-        storeId: string;
-        productId: number;
-        id: number;
-    }): CancelablePromise<(ProductVariant & {
-        PlatformVariant: PlatformVariant;
-    })>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getAllVariant({ storeId, productId, pageSize, nextPageIndex, }: {
         storeId: string;
         productId: number;
@@ -34,4 +23,15 @@ export declare class VariantService {
             PlatformVariant: PlatformVariant;
         })>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVariant({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+    }): CancelablePromise<(ProductVariant & {
+        PlatformVariant: PlatformVariant;
+    })>;
 }

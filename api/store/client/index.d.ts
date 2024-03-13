@@ -59,6 +59,7 @@ export type { CreateThemeDto } from './models/CreateThemeDto';
 export type { CreateThemeTemplateDto } from './models/CreateThemeTemplateDto';
 export type { CreateTiktokPixelDto } from './models/CreateTiktokPixelDto';
 export type { CreateUploadDto } from './models/CreateUploadDto';
+export type { CreateVariantsDto } from './models/CreateVariantsDto';
 export type { Currency } from './models/Currency';
 export { CurrencyCode } from './models/CurrencyCode';
 export { CurrencyType } from './models/CurrencyType';
