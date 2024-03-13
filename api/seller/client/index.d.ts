@@ -212,6 +212,7 @@ export type { UpdateTiktokPixelDto } from './models/UpdateTiktokPixelDto';
 export type { UpdateUserDto } from './models/UpdateUserDto';
 export type { UpdateVariantDto } from './models/UpdateVariantDto';
 export type { UpdateVariantsDto } from './models/UpdateVariantsDto';
+export type { UpdateVariantsForSellerInDependenceDto } from './models/UpdateVariantsForSellerInDependenceDto';
 export type { UpdateVariantStatusDto } from './models/UpdateVariantStatusDto';
 export type { URLDto } from './models/URLDto';
 export type { User } from './models/User';
