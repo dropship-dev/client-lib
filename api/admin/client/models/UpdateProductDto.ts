@@ -7,6 +7,8 @@ import type { CampaignDto } from './CampaignDto';
 import type { DiscountDto } from './DiscountDto';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
+import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
+import type { UpdateVariantDto } from './UpdateVariantDto';
 
 export type UpdateProductDto = {
   name?: NameDto;
@@ -15,6 +17,8 @@ export type UpdateProductDto = {
   photos?: Array<PhotoDto>;
   shippingFee?: number;
   shippingFeeAdditional?: number;
+  variantOption?: PrismaJson_VariantOptions;
+  variant?: Array<UpdateVariantDto>;
   SKU?: string;
   permalink?: string;
   tags?: Array<string>;
