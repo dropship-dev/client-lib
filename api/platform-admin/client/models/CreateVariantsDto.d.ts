@@ -7,5 +7,5 @@ export type CreateVariantsDto = {
     SKU: string;
     photo: PhotoDto;
     productId: number;
-    supplierCost: number;
+    supplierPrice: number;
 };
