@@ -19,8 +19,8 @@ export class AsyncTaskService {
    * @throws ApiError
    */
   public createExportOrderTask({
-    fulfillmentAgencyId,
     exportedFilename,
+    fulfillmentAgencyId,
     storeId,
     paymentStatus,
     fulfillmentStatus,
@@ -34,8 +34,8 @@ export class AsyncTaskService {
     disputeStatus,
     latestStat = false,
   }: {
-    fulfillmentAgencyId: number,
     exportedFilename: string,
+    fulfillmentAgencyId?: number,
     storeId?: string,
     paymentStatus?: Array<TransactionStatus>,
     fulfillmentStatus?: Array<FulfillmentStatus>,
@@ -53,8 +53,8 @@ export class AsyncTaskService {
       method: 'POST',
       url: '/async-task/export-order',
       query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
         'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
