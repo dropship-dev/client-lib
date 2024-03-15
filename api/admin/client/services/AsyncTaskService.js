@@ -10,13 +10,13 @@ class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
+    createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/async-task/export-order',
             query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'storeId': storeId,
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
