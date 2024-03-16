@@ -112,8 +112,8 @@ export class PaymentService {
     id: number;
   } | (Store & {
     Payment: Array<{
-      isShowCompanyAddress: boolean;
       publishableKey: string;
+      isShowCompanyAddress: boolean;
       companyAddress: string;
       companyName: string;
       email: string;
