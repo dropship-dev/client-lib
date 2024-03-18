@@ -7,15 +7,42 @@ import type { LogoSize } from './LogoSize';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
+import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 
 export type CreateThemeDto = {
   name: NameDto;
+  /**
+   * @deprecated
+   */
   logo: PhotoDto;
-  logoSize: LogoSize;
-  heroBanner: PhotoDto;
-  font: string;
-  colors: PrismaJson_Colors;
+  /**
+   * @deprecated
+   */
+  logoSize?: LogoSize;
+  /**
+   * @deprecated
+   */
+  heroBanner?: PhotoDto;
+  /**
+   * @deprecated
+   */
+  font?: string;
+  /**
+   * @deprecated
+   */
+  colors?: PrismaJson_Colors;
+  /**
+   * @deprecated
+   */
   components?: string;
-  themeTemplateId: number;
+  /**
+   * @deprecated
+   */
+  themeTemplateId?: number;
+  style?: PrismaJson_ThemeStyle;
+  ThemePage?: Array<{
+    content: string;
+    name: NameDto;
+  }>;
 };
 

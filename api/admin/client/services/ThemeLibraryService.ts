@@ -2,23 +2,24 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ThemeTemplate } from '../models/ThemeTemplate';
+import type { ThemeLibrary } from '../models/ThemeLibrary';
+import type { ThemePage } from '../models/ThemePage';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class ThemeTemplateService {
+export class ThemeLibraryService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns ThemeLibrary Ok
    * @throws ApiError
    */
-  public getAllThemeTemplate(): CancelablePromise<Array<ThemeTemplate>> {
+  public getAllThemeLibrary(): CancelablePromise<Array<ThemeLibrary>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/theme-template',
+      url: '/theme-library',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -30,17 +31,19 @@ export class ThemeTemplateService {
   }
 
   /**
-   * @returns ThemeTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public getThemeTemplate({
+  public getThemeLibrary({
     id,
   }: {
     id: number,
-  }): CancelablePromise<ThemeTemplate> {
+  }): CancelablePromise<(ThemeLibrary & {
+    ThemePage: Array<ThemePage>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/theme-template/{id}',
+      url: '/theme-library/{id}',
       path: {
         'id': id,
       },

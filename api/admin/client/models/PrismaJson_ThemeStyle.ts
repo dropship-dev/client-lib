@@ -3,9 +3,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PhotoDto } from './PhotoDto';
-
-export type UpdateThemeTemplateDto = {
-  image: PhotoDto;
-};
-
+export type PrismaJson_ThemeStyle = Record<string, (string | number)>;
