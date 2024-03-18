@@ -240,6 +240,5 @@ export { AuthService } from './services/AuthService';
 export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { NotificationService } from './services/NotificationService';
 export { PerformanceService } from './services/PerformanceService';
-export { ThemeLibraryService } from './services/ThemeLibraryService';
 export { UploadService } from './services/UploadService';
 export { UserService } from './services/UserService';

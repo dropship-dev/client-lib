@@ -11,7 +11,6 @@ import { AuthService } from './services/AuthService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
-import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 
@@ -24,7 +23,6 @@ export class ClientApi {
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly notification: NotificationService;
   public readonly performance: PerformanceService;
-  public readonly themeLibrary: ThemeLibraryService;
   public readonly upload: UploadService;
   public readonly user: UserService;
 
@@ -48,7 +46,6 @@ export class ClientApi {
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.notification = new NotificationService(this.request);
     this.performance = new PerformanceService(this.request);
-    this.themeLibrary = new ThemeLibraryService(this.request);
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
   }

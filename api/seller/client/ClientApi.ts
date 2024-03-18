@@ -30,6 +30,7 @@ import { StaffService } from './services/StaffService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
+import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TiktokPixelService } from './services/TiktokPixelService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
@@ -66,6 +67,7 @@ export class ClientApi {
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly theme: ThemeService;
+  public readonly themeLibrary: ThemeLibraryService;
   public readonly tiktokPixel: TiktokPixelService;
   public readonly transaction: TransactionService;
   public readonly upload: UploadService;
@@ -113,6 +115,7 @@ export class ClientApi {
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.theme = new ThemeService(this.request);
+    this.themeLibrary = new ThemeLibraryService(this.request);
     this.tiktokPixel = new TiktokPixelService(this.request);
     this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);

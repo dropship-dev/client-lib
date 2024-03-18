@@ -259,6 +259,7 @@ export { StaffService } from './services/StaffService';
 export { StoreService } from './services/StoreService';
 export { StoreTagService } from './services/StoreTagService';
 export { ThemeService } from './services/ThemeService';
+export { ThemeLibraryService } from './services/ThemeLibraryService';
 export { TiktokPixelService } from './services/TiktokPixelService';
 export { TransactionService } from './services/TransactionService';
 export { UploadService } from './services/UploadService';
