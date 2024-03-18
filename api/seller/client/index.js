@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PingPongAccountService = exports.PerformanceService = exports.PaymentService = exports.OrderService = exports.NotificationService = exports.GoogleAnalyticService = exports.FulfillmentAgencyService = exports.FbPixelService = exports.DomainService = exports.CurrencyService = exports.CollectionService = exports.CampaignService = exports.BankAccountService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.TiktokPixelService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.RequestPayoutService = exports.ProductService = void 0;
+exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.TiktokPixelService = exports.ThemeLibraryService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.StaffService = exports.SettingService = exports.ReviewService = exports.RequestSourcingService = exports.RequestPayoutService = exports.ProductService = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -123,6 +123,8 @@ var StoreTagService_1 = require("./services/StoreTagService");
 Object.defineProperty(exports, "StoreTagService", { enumerable: true, get: function () { return StoreTagService_1.StoreTagService; } });
 var ThemeService_1 = require("./services/ThemeService");
 Object.defineProperty(exports, "ThemeService", { enumerable: true, get: function () { return ThemeService_1.ThemeService; } });
+var ThemeLibraryService_1 = require("./services/ThemeLibraryService");
+Object.defineProperty(exports, "ThemeLibraryService", { enumerable: true, get: function () { return ThemeLibraryService_1.ThemeLibraryService; } });
 var TiktokPixelService_1 = require("./services/TiktokPixelService");
 Object.defineProperty(exports, "TiktokPixelService", { enumerable: true, get: function () { return TiktokPixelService_1.TiktokPixelService; } });
 var TransactionService_1 = require("./services/TransactionService");

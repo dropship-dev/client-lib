@@ -24,6 +24,7 @@ import { StaffService } from './services/StaffService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
+import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TiktokPixelService } from './services/TiktokPixelService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
@@ -57,6 +58,7 @@ export declare class ClientApi {
     readonly store: StoreService;
     readonly storeTag: StoreTagService;
     readonly theme: ThemeService;
+    readonly themeLibrary: ThemeLibraryService;
     readonly tiktokPixel: TiktokPixelService;
     readonly transaction: TransactionService;
     readonly upload: UploadService;
