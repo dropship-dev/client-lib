@@ -7,13 +7,17 @@ class ThemeLibraryService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns ThemeLibrary Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getAllThemeLibrary() {
+    getAllThemeLibrary({ pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/theme-library',
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

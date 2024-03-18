@@ -6,10 +6,19 @@ export declare class ThemeLibraryService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns ThemeLibrary Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getAllThemeLibrary(): CancelablePromise<Array<ThemeLibrary>>;
+    getAllThemeLibrary({ pageSize, nextPageIndex, }: {
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<ThemeLibrary>;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

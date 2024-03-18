@@ -20,12 +20,14 @@ export declare class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTheme({ storeId, }: {
+    getAllTheme({ storeId, pageSize, nextPageIndex, }: {
         storeId: string;
+        pageSize?: number;
+        nextPageIndex?: number;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: any;
-        prePageIndex: any;
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
         data: Array<Theme>;
     }>;
