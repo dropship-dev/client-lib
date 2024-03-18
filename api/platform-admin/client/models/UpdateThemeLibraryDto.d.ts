@@ -1,4 +1,4 @@
 import type { PhotoDto } from './PhotoDto';
-export type UpdateThemeTemplateDto = {
+export type UpdateThemeLibraryDto = {
     image: PhotoDto;
 };

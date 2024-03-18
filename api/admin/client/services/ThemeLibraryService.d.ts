@@ -1,27 +1,22 @@
-import type { Theme } from '../models/Theme';
+import type { ThemeLibrary } from '../models/ThemeLibrary';
 import type { ThemePage } from '../models/ThemePage';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-export declare class ThemeService {
+export declare class ThemeLibraryService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
-    getActiveTheme({ storeId, }: {
-        storeId: string;
-    }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
-    })>;
+    getAllThemeLibrary(): CancelablePromise<Array<ThemeLibrary>>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getTheme({ storeId, id, }: {
-        storeId: string;
+    getThemeLibrary({ id, }: {
         id: number;
-    }): CancelablePromise<(Theme & {
+    }): CancelablePromise<(ThemeLibrary & {
         ThemePage: Array<ThemePage>;
     })>;
 }

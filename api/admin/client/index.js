@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PingPongAccountService = exports.PerformanceService = exports.PaymentService = exports.OrderRefundsService = exports.OrderService = exports.NotificationService = exports.GroupPlatformVariantService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.BankAccountService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeTemplateService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.RequestPayoutService = void 0;
+exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeLibraryService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.RequestPayoutService = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -117,8 +117,8 @@ var StoreTagService_1 = require("./services/StoreTagService");
 Object.defineProperty(exports, "StoreTagService", { enumerable: true, get: function () { return StoreTagService_1.StoreTagService; } });
 var TagService_1 = require("./services/TagService");
 Object.defineProperty(exports, "TagService", { enumerable: true, get: function () { return TagService_1.TagService; } });
-var ThemeTemplateService_1 = require("./services/ThemeTemplateService");
-Object.defineProperty(exports, "ThemeTemplateService", { enumerable: true, get: function () { return ThemeTemplateService_1.ThemeTemplateService; } });
+var ThemeLibraryService_1 = require("./services/ThemeLibraryService");
+Object.defineProperty(exports, "ThemeLibraryService", { enumerable: true, get: function () { return ThemeLibraryService_1.ThemeLibraryService; } });
 var TransactionService_1 = require("./services/TransactionService");
 Object.defineProperty(exports, "TransactionService", { enumerable: true, get: function () { return TransactionService_1.TransactionService; } });
 var UploadService_1 = require("./services/UploadService");

@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ThemeTemplateService = void 0;
-class ThemeTemplateService {
+exports.ThemeLibraryService = void 0;
+class ThemeLibraryService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
-    createThemeTemplate({ requestBody, }) {
+    createThemeLibrary({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/theme-template',
+            url: '/theme-library',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -26,13 +26,13 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
-    getAllThemeTemplate() {
+    getAllThemeLibrary() {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/theme-template',
+            url: '/theme-library',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -43,13 +43,13 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getThemeTemplate({ id, }) {
+    getThemeLibrary({ id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/theme-template/{id}',
+            url: '/theme-library/{id}',
             path: {
                 'id': id,
             },
@@ -63,13 +63,13 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
-    updateThemeTemplate({ id, requestBody, }) {
+    updateThemeLibrary({ id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/theme-template/{id}',
+            url: '/theme-library/{id}',
             path: {
                 'id': id,
             },
@@ -85,13 +85,13 @@ class ThemeTemplateService {
         });
     }
     /**
-     * @returns ThemeTemplate Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
-    deleteThemeTemplate({ id, }) {
+    deleteThemeLibrary({ id, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/theme-template/{id}',
+            url: '/theme-library/{id}',
             path: {
                 'id': id,
             },
@@ -105,4 +105,4 @@ class ThemeTemplateService {
         });
     }
 }
-exports.ThemeTemplateService = ThemeTemplateService;
+exports.ThemeLibraryService = ThemeLibraryService;

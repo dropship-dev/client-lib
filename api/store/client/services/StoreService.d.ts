@@ -6,6 +6,7 @@ import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -48,6 +49,7 @@ export declare class StoreService {
         id: string;
         fulfillmentAgencyId: number;
         Theme: (Theme & {
+            ThemePage: Array<ThemePage>;
             ThemeTemplate: ThemeTemplate;
         });
         Payment: Array<{

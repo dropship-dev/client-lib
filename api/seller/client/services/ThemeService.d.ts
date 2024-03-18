@@ -1,6 +1,7 @@
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
 import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -29,12 +30,14 @@ export declare class ThemeService {
         data: Array<Theme>;
     }>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getActiveTheme({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<(Theme & {
+        ThemePage: Array<ThemePage>;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -44,13 +47,15 @@ export declare class ThemeService {
         requestBody: ChangeActiveTheme;
     }): CancelablePromise<string>;
     /**
-     * @returns Theme Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<Theme>;
+    }): CancelablePromise<(Theme & {
+        ThemePage: Array<ThemePage>;
+    })>;
     /**
      * @returns Theme Ok
      * @throws ApiError
