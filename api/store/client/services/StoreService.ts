@@ -2,8 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ContactFormDto } from '../models/ContactFormDto';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
+import type { Order } from '../models/Order';
+import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
@@ -138,6 +141,75 @@ export class StoreService {
       },
       query: {
         'clientId': clientId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public contactStore({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: ContactFormDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/contact',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreOrderByTracking({
+    storeId,
+    email,
+    orderId,
+  }: {
+    storeId: string,
+    email: string,
+    orderId?: string,
+  }): CancelablePromise<Array<(Order & {
+    OrderItem: Array<(OrderItem & {
+      ProductVariant: {
+        photo: string;
+        name: string;
+      };
+    })>;
+  })>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/tracking',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'email': email,
+        'orderId': orderId,
       },
       errors: {
         400: `Bad request`,

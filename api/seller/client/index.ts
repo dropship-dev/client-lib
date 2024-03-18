@@ -34,6 +34,7 @@ export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
 export type { CloneProductDto } from './models/CloneProductDto';
 export type { Collection } from './models/Collection';
 export type { ComboItemDto } from './models/ComboItemDto';
+export type { ContactFormDto } from './models/ContactFormDto';
 export { CostCalculationMethod } from './models/CostCalculationMethod';
 export type { CreateBankAccountDto } from './models/CreateBankAccountDto';
 export type { CreateCollectionDto } from './models/CreateCollectionDto';
