@@ -13,13 +13,29 @@ export class ThemeLibraryService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns ThemeLibrary Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public getAllThemeLibrary(): CancelablePromise<Array<ThemeLibrary>> {
+  public getAllThemeLibrary({
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<ThemeLibrary>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/theme-library',
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

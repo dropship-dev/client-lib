@@ -50,12 +50,16 @@ export class ThemeService {
    */
   public getAllTheme({
     storeId,
+    pageSize = 20,
+    nextPageIndex,
   }: {
     storeId: string,
+    pageSize?: number,
+    nextPageIndex?: number,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: any;
-    prePageIndex: any;
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<Theme>;
   }> {
@@ -64,6 +68,10 @@ export class ThemeService {
       url: '/store/{storeId}/theme',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,
