@@ -1,5 +1,8 @@
+import type { ContactFormDto } from '../models/ContactFormDto';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
+import type { Order } from '../models/Order';
+import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
@@ -84,4 +87,28 @@ export declare class StoreService {
     }): CancelablePromise<{
         clientToken: string;
     }>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    contactStore({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: ContactFormDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreOrderByTracking({ storeId, email, orderId, }: {
+        storeId: string;
+        email: string;
+        orderId?: string;
+    }): CancelablePromise<Array<(Order & {
+        OrderItem: Array<(OrderItem & {
+            ProductVariant: {
+                photo: string;
+                name: string;
+            };
+        })>;
+    })>>;
 }
