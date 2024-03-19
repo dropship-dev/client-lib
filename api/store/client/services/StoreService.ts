@@ -153,7 +153,7 @@ export class StoreService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public contactStore({
@@ -162,7 +162,7 @@ export class StoreService {
   }: {
     storeId: string,
     requestBody: ContactFormDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/contact',
