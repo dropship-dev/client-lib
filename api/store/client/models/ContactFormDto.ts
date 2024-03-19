@@ -11,6 +11,6 @@ export type ContactFormDto = {
   email: EmailDto;
   subject: string;
   message: string;
-  sendCopy: boolean;
+  sendCopy?: boolean;
 };
 

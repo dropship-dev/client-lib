@@ -5,8 +5,6 @@
 import type { ContactFormDto } from '../models/ContactFormDto';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
-import type { Order } from '../models/Order';
-import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
@@ -195,14 +193,19 @@ export class StoreService {
     storeId: string,
     email: string,
     orderId?: string,
-  }): CancelablePromise<Array<(Order & {
-    OrderItem: Array<(OrderItem & {
+  }): CancelablePromise<Array<{
+    OrderItem: Array<{
+      carrier: string;
+      tracking: string;
       ProductVariant: {
         photo: string;
         name: string;
       };
-    })>;
-  })>> {
+      Product: {
+        name: string;
+      };
+    }>;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/tracking',
