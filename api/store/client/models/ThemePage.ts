@@ -3,8 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Prisma_JsonValue } from './Prisma_JsonValue';
-
 /**
  * Model ThemePage
  */
@@ -13,7 +11,7 @@ export type ThemePage = {
   createdAt: string;
   themeId: number | null;
   themeLibraryId: number | null;
-  content: Prisma_JsonValue;
+  content: string;
   name: string;
   id: number;
 };
