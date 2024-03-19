@@ -88,13 +88,13 @@ export declare class StoreService {
         clientToken: string;
     }>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     contactStore({ storeId, requestBody, }: {
         storeId: string;
         requestBody: ContactFormDto;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

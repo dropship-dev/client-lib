@@ -4,6 +4,6 @@ export type ContactFormDto = {
     name?: string;
     email: EmailDto;
     subject: string;
-    message: string;
+    message?: string;
     sendCopy?: boolean;
 };

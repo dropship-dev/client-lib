@@ -70,7 +70,7 @@ class StoreService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     contactStore({ storeId, requestBody, }) {
