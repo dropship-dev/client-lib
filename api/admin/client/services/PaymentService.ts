@@ -6,7 +6,6 @@ import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
-import type { Store } from '../models/Store';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
@@ -60,9 +59,25 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<(Store & {
-    Payment: Array<Payment>;
-  })> {
+  }): CancelablePromise<Array<{
+    publishableKey: string;
+    companyName: string;
+    creator: {
+      role: UserRole;
+      avatar: string;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: string;
+    };
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    type: PaymentType;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
@@ -92,7 +107,7 @@ export class PaymentService {
     id: number,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<({
+  }): CancelablePromise<{
     publishableKey: string;
     companyName: string;
     creator: {
@@ -110,18 +125,7 @@ export class PaymentService {
     createdAt: string;
     type: PaymentType;
     id: number;
-  } | (Store & {
-    Payment: Array<{
-      publishableKey: string;
-      isShowCompanyAddress: boolean;
-      companyAddress: string;
-      companyName: string;
-      email: string;
-      name: string;
-      type: PaymentType;
-      id: number;
-    }>;
-  }))> {
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/{id}',
