@@ -187,7 +187,7 @@ export class StoreService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getStoreOrderByTracking({
+  public getStoreOrderTracking({
     storeId,
     email,
     orderId,
