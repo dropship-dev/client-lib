@@ -101,7 +101,7 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreOrderByTracking({ storeId, email, orderId, }: {
+    getStoreOrderTracking({ storeId, email, orderId, }: {
         storeId: string;
         email: string;
         orderId?: string;

@@ -9,4 +9,5 @@ var PaymentMethodType;
 (function (PaymentMethodType) {
     PaymentMethodType["CASH"] = "CASH";
     PaymentMethodType["BANK_TRANSFER"] = "BANK_TRANSFER";
+    PaymentMethodType["PINGPONG"] = "PINGPONG";
 })(PaymentMethodType || (exports.PaymentMethodType = PaymentMethodType = {}));
