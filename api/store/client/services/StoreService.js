@@ -69,5 +69,51 @@ class StoreService {
             },
         });
     }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    contactStore({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/contact',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreOrderTracking({ storeId, email, orderId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/tracking',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'email': email,
+                'orderId': orderId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.StoreService = StoreService;

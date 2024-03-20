@@ -1,3 +1,4 @@
+import type { ContactFormDto } from '../models/ContactFormDto';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
 import type { PaymentType } from '../models/PaymentType';
@@ -82,4 +83,33 @@ export declare class StoreService {
     }): CancelablePromise<{
         clientToken: string;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    contactStore({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: ContactFormDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreOrderTracking({ storeId, email, orderId, }: {
+        storeId: string;
+        email: string;
+        orderId?: string;
+    }): CancelablePromise<Array<{
+        OrderItem: Array<{
+            carrier: string;
+            tracking: string;
+            ProductVariant: {
+                photo: string;
+                name: string;
+            };
+            Product: {
+                name: string;
+            };
+        }>;
+    }>>;
 }
