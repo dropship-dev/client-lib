@@ -205,6 +205,7 @@ export class StoreService {
         name: string;
       };
     }>;
+    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
