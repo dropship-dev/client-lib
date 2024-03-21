@@ -115,5 +115,6 @@ export declare class StoreService {
                 name: string;
             };
         }>;
+        id: string;
     }>>;
 }
