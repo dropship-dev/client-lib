@@ -95,7 +95,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreOrderTracking({ storeId, email, orderId, }) {
+    getStoreByOrderTracking({ storeId, email, orderId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/tracking',

@@ -99,7 +99,7 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreOrderTracking({ storeId, email, orderId, }: {
+    getStoreByOrderTracking({ storeId, email, orderId, }: {
         storeId: string;
         email: string;
         orderId?: string;
