@@ -181,7 +181,7 @@ export class StoreService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getStoreOrderTracking({
+  public getOrderTracking({
     storeId,
     email,
     orderId,
@@ -201,6 +201,7 @@ export class StoreService {
         name: string;
       };
     }>;
+    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
