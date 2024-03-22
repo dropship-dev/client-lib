@@ -99,7 +99,7 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreByOrderTracking({ storeId, email, orderId, }: {
+    getOrderTracking({ storeId, email, orderId, }: {
         storeId: string;
         email: string;
         orderId?: string;
@@ -107,6 +107,10 @@ export declare class StoreService {
         OrderItem: Array<{
             carrier: string;
             tracking: string;
+            VariantCombo: {
+                photo: string;
+                name: string;
+            };
             ProductVariant: {
                 photo: string;
                 name: string;
