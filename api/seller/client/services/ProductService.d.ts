@@ -189,6 +189,7 @@ export declare class ProductService {
     }): CancelablePromise<(Product & {
         ProductVariant: Array<{
             platformVariantId: number;
+            name: string;
             id: number;
         }>;
     })>;
