@@ -17,8 +17,8 @@ import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
-import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -188,7 +188,7 @@ export class OrderService {
     requestBody,
   }: {
     fulfillmentAgencyId: number,
-    requestBody: UpdateFulFillmentStatusDto,
+    requestBody: UpdateOrderStatusDto,
   }): CancelablePromise<UpdateFulFillmentStatusResp> {
     return this.httpRequest.request({
       method: 'PATCH',

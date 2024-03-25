@@ -188,7 +188,6 @@ export type { UpdateDiscountDto } from './models/UpdateDiscountDto';
 export type { UpdateFbPixelDto } from './models/UpdateFbPixelDto';
 export type { UpdateFulfillmentAgencyDto } from './models/UpdateFulfillmentAgencyDto';
 export type { UpdateFulfillmentAgencyStatusDto } from './models/UpdateFulfillmentAgencyStatusDto';
-export type { UpdateFulFillmentStatusDto } from './models/UpdateFulFillmentStatusDto';
 export type { UpdateFulFillmentStatusError } from './models/UpdateFulFillmentStatusError';
 export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStatusResp';
 export type { UpdateGADto } from './models/UpdateGADto';
@@ -197,6 +196,7 @@ export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePa
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderRefundDto } from './models/UpdateOrderRefundDto';
 export type { UpdateOrderRefundHistoryDto } from './models/UpdateOrderRefundHistoryDto';
+export type { UpdateOrderStatusDto } from './models/UpdateOrderStatusDto';
 export type { UpdatePaymentDto } from './models/UpdatePaymentDto';
 export type { UpdatePingPongAccountDto } from './models/UpdatePingPongAccountDto';
 export type { UpdatePlatformProductDto } from './models/UpdatePlatformProductDto';

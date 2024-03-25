@@ -5,7 +5,7 @@
 
 import type { FulfillmentStatus } from './FulfillmentStatus';
 
-export type UpdateFulFillmentStatusDto = {
+export type UpdateOrderStatusDto = {
   orders: Array<{
     orderItems: Array<{
       carrier?: string;
