@@ -13,6 +13,8 @@ import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -162,6 +164,35 @@ export class OrderService {
         'storeId': storeId,
         'orderId': orderId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns UpdateFulFillmentStatusResp Ok
+   * @throws ApiError
+   */
+  public updateOrderOfStoreStatus({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateOrderStatusDto,
+  }): CancelablePromise<UpdateFulFillmentStatusResp> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/order/orderStatus',
+      query: {
+        'StoreId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
