@@ -9,6 +9,8 @@ import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -101,4 +103,12 @@ export declare class OrderService {
             type: PaymentType;
         };
     })>;
+    /**
+     * @returns UpdateFulFillmentStatusResp Ok
+     * @throws ApiError
+     */
+    updateOrderOfStoreStatus({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateOrderStatusDto;
+    }): CancelablePromise<UpdateFulFillmentStatusResp>;
 }

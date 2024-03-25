@@ -61,5 +61,27 @@ class OrderService {
             },
         });
     }
+    /**
+     * @returns UpdateFulFillmentStatusResp Ok
+     * @throws ApiError
+     */
+    updateOrderOfStoreStatus({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/order/orderStatus',
+            query: {
+                'StoreId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.OrderService = OrderService;
