@@ -185,9 +185,9 @@ export declare class OrderService {
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: {
+                    Product: (Product & {
                         Campaign: Campaign;
-                    };
+                    });
                 });
                 ProductVariant: (ProductVariant & {
                     Product: {

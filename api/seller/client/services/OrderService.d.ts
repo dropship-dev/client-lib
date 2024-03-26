@@ -5,6 +5,7 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { PaymentType } from '../models/PaymentType';
+import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
@@ -59,9 +60,9 @@ export declare class OrderService {
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: {
+                    Product: (Product & {
                         Campaign: Campaign;
-                    };
+                    });
                 });
                 ProductVariant: (ProductVariant & {
                     Product: {
