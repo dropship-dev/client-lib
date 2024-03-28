@@ -18,6 +18,7 @@ import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
+import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
@@ -55,6 +56,7 @@ export class ClientApi {
   public readonly googleAnalytic: GoogleAnalyticService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
+  public readonly orderRefunds: OrderRefundsService;
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
   public readonly pingPongAccount: PingPongAccountService;
@@ -103,6 +105,7 @@ export class ClientApi {
     this.googleAnalytic = new GoogleAnalyticService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
+    this.orderRefunds = new OrderRefundsService(this.request);
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);
     this.pingPongAccount = new PingPongAccountService(this.request);
