@@ -10,29 +10,6 @@ class PingPongAccountService {
      * @returns PingPongAccount Ok
      * @throws ApiError
      */
-    createPingPongAccount({ requestBody, fulfillmentAgencyId, storeId, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/pingpong-account',
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns PingPongAccount Ok
-     * @throws ApiError
-     */
     getAllPingPongAccount({ fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -65,52 +42,6 @@ class PingPongAccountService {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'storeId': storeId,
             },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deletePingPongAccount({ id, fulfillmentAgencyId, storeId, }) {
-        return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/pingpong-account/{id}',
-            path: {
-                'id': id,
-            },
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    updateDefault({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/pingpong-account/{storeId}',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
