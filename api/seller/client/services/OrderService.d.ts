@@ -5,8 +5,10 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { PaymentType } from '../models/PaymentType';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
@@ -112,4 +114,26 @@ export declare class OrderService {
         storeId: string;
         requestBody: UpdateOrderStatusDto;
     }): CancelablePromise<UpdateFulFillmentStatusResp>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    refundOrderForSeller({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: RefundOrderDto;
+    }): CancelablePromise<(Order & {
+        OrderRefund: Array<OrderRefund>;
+        OrderItem: Array<(OrderItem & {
+            VariantCombo: (VariantCombo & {
+                Product: Product;
+            });
+            ProductVariant: (ProductVariant & {
+                Product: Product;
+                PlatformVariant: PlatformVariant;
+            });
+        })>;
+        Transaction: Array<Transaction>;
+        Store: Store;
+    })>;
 }

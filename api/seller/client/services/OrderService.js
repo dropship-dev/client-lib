@@ -83,5 +83,29 @@ class OrderService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    refundOrderForSeller({ storeId, orderId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/{orderId}/refund-order',
+            path: {
+                'orderId': orderId,
+            },
+            query: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.OrderService = OrderService;
