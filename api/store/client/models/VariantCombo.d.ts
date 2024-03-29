@@ -6,12 +6,14 @@ export type VariantCombo = {
     updatedAt: string;
     createdAt: string;
     productId: number;
+    isDeleted: boolean;
     isEnable: boolean;
     isActive: boolean;
     /**
      * [VariantComboItems]
      */
     items: PrismaJson_VariantComboItems;
+    minSellingPrice: number | null;
     SKU: string;
     compareAtPrice: number;
     photo: string;
