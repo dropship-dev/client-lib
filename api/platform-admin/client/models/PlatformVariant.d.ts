@@ -8,7 +8,7 @@ export type PlatformVariant = {
     createdAt: string;
     groupPlatformVariantId: number | null;
     platformProductId: number;
-    isDeleted: boolean;
+    deleted: boolean;
     isEnable: boolean;
     isActive: boolean;
     /**

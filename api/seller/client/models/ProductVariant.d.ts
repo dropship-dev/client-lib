@@ -17,7 +17,7 @@ export type ProductVariant = {
      * [VariantOptionValues]
      */
     variantOption: PrismaJson_VariantOptionValues | null;
-    isDeleted: boolean;
+    deleted: boolean;
     isEnable: boolean;
     isActive: boolean;
     /**
