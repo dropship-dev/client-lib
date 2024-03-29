@@ -9,8 +9,10 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { PaymentType } from '../models/PaymentType';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
@@ -197,6 +199,52 @@ export class OrderService {
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public refundOrderForSeller({
+    storeId,
+    orderId,
+    requestBody,
+  }: {
+    storeId: string,
+    orderId: string,
+    requestBody: RefundOrderDto,
+  }): CancelablePromise<(Order & {
+    OrderRefund: Array<OrderRefund>;
+    OrderItem: Array<(OrderItem & {
+      VariantCombo: (VariantCombo & {
+        Product: Product;
+      });
+      ProductVariant: (ProductVariant & {
+        Product: Product;
+        PlatformVariant: PlatformVariant;
+      });
+    })>;
+    Transaction: Array<Transaction>;
+    Store: Store;
+  })> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/{orderId}/refund-order',
+      path: {
+        'orderId': orderId,
+      },
+      query: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
