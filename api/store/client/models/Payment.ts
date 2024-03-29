@@ -13,7 +13,7 @@ export type Payment = {
   createdAt: string;
   fulfillmentAgencyId: number;
   UIVersion: number;
-  isDeleted: boolean;
+  deleted: boolean;
   gatewayUrl: string | null;
   tokenExpiredAt: string | null;
   token: string | null;

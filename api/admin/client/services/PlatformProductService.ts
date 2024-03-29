@@ -87,7 +87,7 @@ export class PlatformProductService {
       updatedAt: string;
       createdAt: string;
       fulfillmentAgencyId: number;
-      isDeleted: boolean;
+      deleted: boolean;
       isEnable: boolean;
       isActive: boolean;
       supplierContact: string;

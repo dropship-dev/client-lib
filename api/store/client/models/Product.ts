@@ -16,7 +16,7 @@ export type Product = {
   campaignId: string | null;
   storeId: string;
   platformProductId: number;
-  isDeleted: boolean;
+  deleted: boolean;
   isEnable: boolean;
   isActive: boolean;
   supplierContact: string | null;
