@@ -14,6 +14,7 @@ export type RequestSourcing = {
   updatedAt: string;
   createdAt: string;
   isDeleted: boolean;
+  platformProductId: number | null;
   storeId: string;
   productId: number | null;
   status: RequestSourcingStatus;
