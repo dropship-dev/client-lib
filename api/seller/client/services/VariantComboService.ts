@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,14 +8,10 @@ import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
 import type { UpdateComboStatusDto } from '../models/UpdateComboStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class VariantComboService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns VariantCombo Ok
    * @throws ApiError
@@ -47,7 +43,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -89,7 +84,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -121,7 +115,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -154,7 +147,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns BatchPayload Ok
    * @throws ApiError
@@ -186,7 +178,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns VariantCombo Ok
    * @throws ApiError
@@ -217,7 +208,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns VariantCombo Ok
    * @throws ApiError
@@ -252,7 +242,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns VariantCombo Ok
    * @throws ApiError
@@ -283,7 +272,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns VariantCombo Ok
    * @throws ApiError
@@ -318,5 +306,4 @@ export class VariantComboService {
       },
     });
   }
-
 }

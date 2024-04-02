@@ -1,65 +1,69 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
-
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
+import { BankAccountService } from './services/BankAccountService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
+import { PingPongAccountService } from './services/PingPongAccountService';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
+import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { TagService } from './services/TagService';
-import { ThemeTemplateService } from './services/ThemeTemplateService';
+import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
-
+import { WalletService } from './services/WalletService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
-
 export class ClientApi {
-
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
+  public readonly bankAccount: BankAccountService;
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly groupPlatformVariant: GroupPlatformVariantService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly orderRefunds: OrderRefundsService;
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
+  public readonly pingPongAccount: PingPongAccountService;
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
+  public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly tag: TagService;
-  public readonly themeTemplate: ThemeTemplateService;
+  public readonly themeLibrary: ThemeLibraryService;
   public readonly transaction: TransactionService;
   public readonly upload: UploadService;
   public readonly user: UserService;
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
-
+  public readonly wallet: WalletService;
   public readonly request: BaseHttpRequest;
-
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
@@ -72,30 +76,34 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
-
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
+    this.bankAccount = new BankAccountService(this.request);
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.orderRefunds = new OrderRefundsService(this.request);
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);
+    this.pingPongAccount = new PingPongAccountService(this.request);
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
+    this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.tag = new TagService(this.request);
-    this.themeTemplate = new ThemeTemplateService(this.request);
+    this.themeLibrary = new ThemeLibraryService(this.request);
     this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);
     this.user = new UserService(this.request);
     this.variant = new VariantService(this.request);
     this.variantCombo = new VariantComboService(this.request);
+    this.wallet = new WalletService(this.request);
   }
 }
 

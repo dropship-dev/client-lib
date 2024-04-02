@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CostCalculationMethod } from './CostCalculationMethod';
 import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
-
 /**
  * Model FulfillmentAgency
  */

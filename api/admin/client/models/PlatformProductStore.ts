@@ -1,10 +1,8 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Store } from './Store';
-
 export type PlatformProductStore = (Store & {
   Product: Array<{
     permalink: string;
@@ -15,8 +13,10 @@ export type PlatformProductStore = (Store & {
     }>;
   }>;
 } & {
-  minPriceOnStore: number;
-  maxPriceOnStore: number;
+  minMinSellingPrice: number;
+  maxMinSellingPrice: number;
+  minFulfillmentPrice: number;
+  maxFulfillmentPrice: number;
   statusOnStore: boolean;
 });
 

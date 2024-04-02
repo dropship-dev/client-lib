@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,21 +6,17 @@ import type { AsyncTask } from '../models/AsyncTask';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { TransactionStatus } from '../models/TransactionStatus';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class AsyncTaskService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns AsyncTask Ok
    * @throws ApiError
    */
   public createExportOrderTask({
-    fulfillmentAgencyId,
     exportedFilename,
+    fulfillmentAgencyId,
     storeId,
     paymentStatus,
     fulfillmentStatus,
@@ -34,8 +30,8 @@ export class AsyncTaskService {
     disputeStatus,
     latestStat = false,
   }: {
-    fulfillmentAgencyId: number,
     exportedFilename: string,
+    fulfillmentAgencyId?: number,
     storeId?: string,
     paymentStatus?: Array<TransactionStatus>,
     fulfillmentStatus?: Array<FulfillmentStatus>,
@@ -53,8 +49,8 @@ export class AsyncTaskService {
       method: 'POST',
       url: '/async-task/export-order',
       query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
         'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
         'paymentStatus': paymentStatus,
         'fulfillmentStatus': fulfillmentStatus,
@@ -77,7 +73,42 @@ export class AsyncTaskService {
       },
     });
   }
-
+  /**
+   * @returns AsyncTask Ok
+   * @throws ApiError
+   */
+  public createExportAccountancyTask({
+    exportedFilename,
+    fulfillmentAgencyId,
+    startDate,
+    endDate,
+    storeId,
+  }: {
+    exportedFilename: string,
+    fulfillmentAgencyId: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+  }): CancelablePromise<AsyncTask> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/async-task/export-accountancy',
+      query: {
+        'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns AsyncTask Ok
    * @throws ApiError
@@ -102,5 +133,4 @@ export class AsyncTaskService {
       },
     });
   }
-
 }

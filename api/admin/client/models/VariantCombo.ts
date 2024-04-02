@@ -1,16 +1,15 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
-
 /**
  * Model VariantCombo
  */
 export type VariantCombo = {
   updatedAt: string;
   createdAt: string;
+  supplierCost: number | null;
   productId: number;
   isDeleted: boolean;
   isEnable: boolean;

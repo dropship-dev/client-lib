@@ -1,25 +1,24 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { Theme } from '../models/Theme';
-
+import type { ThemePage } from '../models/ThemePage';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ThemeService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Theme Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getActiveTheme({
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Theme> {
+  }): CancelablePromise<(Theme & {
+    ThemePage: Array<ThemePage>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/active',
@@ -35,9 +34,8 @@ export class ThemeService {
       },
     });
   }
-
   /**
-   * @returns Theme Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTheme({
@@ -46,7 +44,9 @@ export class ThemeService {
   }: {
     storeId: string,
     id: number,
-  }): CancelablePromise<Theme> {
+  }): CancelablePromise<(Theme & {
+    ThemePage: Array<ThemePage>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/{id}',
@@ -63,5 +63,4 @@ export class ThemeService {
       },
     });
   }
-
 }

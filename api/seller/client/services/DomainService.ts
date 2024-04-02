@@ -1,17 +1,13 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateDomainDto } from '../models/CreateDomainDto';
 import type { CustomDomain } from '../models/CustomDomain';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class DomainService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns CustomDomain Ok
    * @throws ApiError
@@ -40,7 +36,6 @@ export class DomainService {
       },
     });
   }
-
   /**
    * @returns CustomDomain Ok
    * @throws ApiError
@@ -65,7 +60,6 @@ export class DomainService {
       },
     });
   }
-
   /**
    * @returns CustomDomain Ok
    * @throws ApiError
@@ -93,7 +87,6 @@ export class DomainService {
       },
     });
   }
-
   /**
    * @returns CustomDomain Ok
    * @throws ApiError
@@ -121,7 +114,6 @@ export class DomainService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -149,7 +141,6 @@ export class DomainService {
       },
     });
   }
-
   /**
    * @returns CustomDomain Ok
    * @throws ApiError
@@ -177,5 +168,4 @@ export class DomainService {
       },
     });
   }
-
 }

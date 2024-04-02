@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,6 +6,7 @@ import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDt
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
+import type { GroupPlatformVariant } from '../models/GroupPlatformVariant';
 import type { Photos } from '../models/Photos';
 import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformProductStore } from '../models/PlatformProductStore';
@@ -14,14 +15,10 @@ import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDt
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
 import type { VariantOptions } from '../models/VariantOptions';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PlatformProductService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -50,7 +47,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -80,9 +76,19 @@ export class PlatformProductService {
     total: number;
     data: Array<{
       Product: Array<{
+        platformProductId: number;
         id: number;
+        storeId: string;
       }>;
       Tag: Array<AdminTag>;
+      GroupPlatformVariant: Array<(GroupPlatformVariant & {
+        PlatformVariant: Array<{
+          photo: string;
+          SKU: string;
+          name: string;
+          id: number;
+        }>;
+      })>;
       PlatformVariant: Array<PlatformVariant>;
       updatedAt: string;
       createdAt: string;
@@ -124,7 +130,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -152,7 +157,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -181,7 +185,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -194,6 +197,14 @@ export class PlatformProductService {
     platformProductId: number,
   }): CancelablePromise<(PlatformProduct & {
     Tag: Array<AdminTag>;
+    GroupPlatformVariant: Array<(GroupPlatformVariant & {
+      PlatformVariant: Array<{
+        photo: string;
+        SKU: string;
+        name: string;
+        id: number;
+      }>;
+    })>;
     PlatformVariant: Array<PlatformVariant>;
   })> {
     return this.httpRequest.request({
@@ -214,7 +225,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -248,7 +258,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -278,7 +287,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -312,7 +320,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -346,7 +353,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -379,7 +385,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProductStore Ok
    * @throws ApiError
@@ -409,5 +414,4 @@ export class PlatformProductService {
       },
     });
   }
-
 }

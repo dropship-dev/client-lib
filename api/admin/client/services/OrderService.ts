@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -9,6 +9,7 @@ import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
+import type { Payment } from '../models/Payment';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -16,17 +17,13 @@ import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
-import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class OrderService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -93,6 +90,7 @@ export class OrderService {
         });
       })>;
       Transaction: Array<Transaction>;
+      Payment: Payment;
       Store: Store;
     })>;
   }> {
@@ -124,7 +122,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns ExportOrderResponseDto Ok
    * @throws ApiError
@@ -176,7 +173,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns UpdateFulFillmentStatusResp Ok
    * @throws ApiError
@@ -186,7 +182,7 @@ export class OrderService {
     requestBody,
   }: {
     fulfillmentAgencyId: number,
-    requestBody: UpdateFulFillmentStatusDto,
+    requestBody: UpdateOrderStatusDto,
   }): CancelablePromise<UpdateFulFillmentStatusResp> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -205,7 +201,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -248,7 +243,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -295,7 +289,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -352,9 +345,9 @@ export class OrderService {
       OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
-          Product: {
+          Product: (Product & {
             Campaign: Campaign;
-          };
+          });
         });
         ProductVariant: (ProductVariant & {
           Product: {
@@ -401,5 +394,4 @@ export class OrderService {
       },
     });
   }
-
 }

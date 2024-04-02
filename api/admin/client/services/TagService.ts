@@ -1,17 +1,13 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { CreateTagDto } from '../models/CreateTagDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TagService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns AdminTag Ok
    * @throws ApiError
@@ -40,7 +36,6 @@ export class TagService {
       },
     });
   }
-
   /**
    * @returns AdminTag Ok
    * @throws ApiError
@@ -71,7 +66,6 @@ export class TagService {
       },
     });
   }
-
   /**
    * @returns AdminTag Ok
    * @throws ApiError
@@ -101,5 +95,4 @@ export class TagService {
       },
     });
   }
-
 }

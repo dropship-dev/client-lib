@@ -1,19 +1,17 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PrismaJson_CostInfo } from './PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from './PrismaJson_MarginInfo';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
-
 /**
  * Model ProductVariant
  */
 export type ProductVariant = {
   updatedAt: string;
   createdAt: string;
-  platformVariantId: number;
+  platformVariantId: number | null;
   productId: number;
   /**
    * [MarginInfo]

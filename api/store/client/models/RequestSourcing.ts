@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { PrismaJson_RequestSourcingHistory } from './PrismaJson_RequestSourcingHistory';
 import type { RequestSourcingStatus } from './RequestSourcingStatus';
-
 /**
  * Model RequestSourcing
  */

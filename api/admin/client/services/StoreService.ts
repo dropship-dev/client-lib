@@ -1,26 +1,25 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
+import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-
+import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StoreService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -34,6 +33,8 @@ export class StoreService {
     name,
     userId,
     paymentGatewayIds,
+    platformProductId,
+    referralCode,
   }: {
     fulfillmentAgencyId?: number,
     /**
@@ -55,12 +56,15 @@ export class StoreService {
      */
     userId?: string,
     paymentGatewayIds?: Array<number>,
+    platformProductId?: number,
+    referralCode?: string,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
     data: Array<{
+      referralCode: string;
       primaryDomain: string;
       subDomain: string;
       avatar: string;
@@ -68,6 +72,10 @@ export class StoreService {
       phone: string;
       email: string;
       name: string;
+      Wallet: Array<Wallet>;
+      FulfillmentAgency: {
+        costCalculationMethod: CostCalculationMethod;
+      };
       Payment: Array<{
         name: string;
         type: PaymentType;
@@ -95,6 +103,8 @@ export class StoreService {
         'name': name,
         'userId': userId,
         'paymentGatewayIds': paymentGatewayIds,
+        'platformProductId': platformProductId,
+        'referralCode': referralCode,
       },
       errors: {
         400: `Bad request`,
@@ -105,9 +115,8 @@ export class StoreService {
       },
     });
   }
-
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public addProductToStores({
@@ -116,7 +125,7 @@ export class StoreService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<Array<Array<any>>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
@@ -134,7 +143,34 @@ export class StoreService {
       },
     });
   }
-
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateProductToStores({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: AddPlatformProductStoresDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/update-product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns any Ok
    * @throws ApiError
@@ -148,6 +184,7 @@ export class StoreService {
   }): CancelablePromise<Array<{
     Payment: Array<{
       publishableKey: string;
+      companyName: string;
       email: string;
       name: string;
       createdAt: string;
@@ -173,7 +210,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -183,8 +219,10 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<(Store & {
+    Wallet: Array<Wallet>;
     Payment: Array<{
       publishableKey: string;
+      companyName: string;
       email: string;
       name: string;
       updatedAt: string;
@@ -193,7 +231,9 @@ export class StoreService {
       id: number;
       fulfillmentAgencyId: number;
     }>;
-    Theme: Array<Theme>;
+    Theme: Array<(Theme & {
+      ThemePage: Array<ThemePage>;
+    })>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -210,7 +250,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -239,7 +278,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -273,7 +311,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -307,7 +344,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -318,6 +354,7 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    companyName: string;
     email: string;
     updatedAt: string;
     createdAt: string;
@@ -339,5 +376,4 @@ export class StoreService {
       },
     });
   }
-
 }

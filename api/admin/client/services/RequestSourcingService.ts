@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -7,14 +7,10 @@ import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDt
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { Store } from '../models/Store';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class RequestSourcingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -68,7 +64,6 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
@@ -101,21 +96,20 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
    */
   public approveRequestSourcing({
-    storeId,
     id,
     requestBody,
     fulfillmentAgencyId,
+    storeId,
   }: {
-    storeId: string,
     id: number,
     requestBody: ApproveRequestSourcingDto,
     fulfillmentAgencyId?: number,
+    storeId?: string,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
@@ -124,8 +118,8 @@ export class RequestSourcingService {
         'id': id,
       },
       query: {
-        'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -138,20 +132,19 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
    */
   public rejectRequestSourcing({
-    storeId,
     id,
     requestBody,
+    storeId,
     fulfillmentAgencyId,
   }: {
-    storeId: string,
     id: number,
     requestBody: RejectRequestSourcingDto,
+    storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
@@ -175,5 +168,4 @@ export class RequestSourcingService {
       },
     });
   }
-
 }

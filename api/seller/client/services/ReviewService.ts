@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateReviewDto } from '../models/CreateReviewDto';
 import type { Review } from '../models/Review';
 import type { UpdateReviewDto } from '../models/UpdateReviewDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ReviewService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -44,7 +40,6 @@ export class ReviewService {
       },
     });
   }
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -72,7 +67,6 @@ export class ReviewService {
       },
     });
   }
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -103,7 +97,6 @@ export class ReviewService {
       },
     });
   }
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -138,7 +131,6 @@ export class ReviewService {
       },
     });
   }
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -169,5 +161,4 @@ export class ReviewService {
       },
     });
   }
-
 }

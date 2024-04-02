@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { Collection } from '../models/Collection';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class CollectionService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns Collection Ok
    * @throws ApiError
@@ -36,7 +32,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns Collection Ok
    * @throws ApiError
@@ -61,7 +56,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns Collection Ok
    * @throws ApiError
@@ -90,7 +84,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns Collection Ok
    * @throws ApiError
@@ -115,5 +108,4 @@ export class CollectionService {
       },
     });
   }
-
 }

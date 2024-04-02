@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,14 +8,10 @@ import type { PlatformVariant } from '../models/PlatformVariant';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
 import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
 import type { UpdatePlatformVariantStatusDto } from '../models/UpdatePlatformVariantStatusDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PlatformVariantService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns BatchPayload Ok
    * @throws ApiError
@@ -49,7 +45,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -83,7 +78,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -116,7 +110,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns PlatformVariant Ok
    * @throws ApiError
@@ -149,7 +142,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns PlatformVariant Ok
    * @throws ApiError
@@ -186,7 +178,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns PlatformVariant Ok
    * @throws ApiError
@@ -219,7 +210,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns PlatformVariant Ok
    * @throws ApiError
@@ -256,5 +246,4 @@ export class PlatformVariantService {
       },
     });
   }
-
 }

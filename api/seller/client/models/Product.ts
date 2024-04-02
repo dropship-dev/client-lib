@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PrismaJson_AvailableSet } from './PrismaJson_AvailableSet';
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
-
 /**
  * Model Product
  */
@@ -15,7 +13,7 @@ export type Product = {
   createdAt: string;
   campaignId: string | null;
   storeId: string;
-  platformProductId: number;
+  platformProductId: number | null;
   deleted: boolean;
   isEnable: boolean;
   isActive: boolean;

@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,16 +8,13 @@ import type { CustomDomain } from '../models/CustomDomain';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StoreService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -55,11 +52,13 @@ export class StoreService {
     id: string;
     fulfillmentAgencyId: number;
     Theme: (Theme & {
+      ThemePage: Array<ThemePage>;
       ThemeTemplate: ThemeTemplate;
     });
     Payment: Array<{
       UIVersion: number;
       publishableKey: string;
+      companyName: string;
       email: string;
       updatedAt: string;
       createdAt: string;
@@ -83,7 +82,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -94,6 +92,7 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    companyName: string;
     email: string;
     updatedAt: string;
     createdAt: string;
@@ -115,7 +114,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -147,7 +145,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -176,7 +173,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -226,5 +222,4 @@ export class StoreService {
       },
     });
   }
-
 }

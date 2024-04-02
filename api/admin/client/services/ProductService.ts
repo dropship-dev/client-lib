@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,6 +6,7 @@ import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Discount } from '../models/Discount';
+import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -14,19 +15,15 @@ import type { Tag } from '../models/Tag';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ProductService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns string Ok
    * @throws ApiError
    */
-  public createProduct({
+  public createProductForStoreJoinFa({
     storeId,
     requestBody,
   }: {
@@ -35,7 +32,7 @@ export class ProductService {
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product',
+      url: '/store/{storeId}/product/seller-depedence',
       path: {
         'storeId': storeId,
       },
@@ -50,7 +47,37 @@ export class ProductService {
       },
     });
   }
-
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public countProduct({
+    storeId,
+    isActive,
+  }: {
+    storeId: string,
+    isActive?: boolean,
+  }): CancelablePromise<{
+    count: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/count',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'isActive': isActive,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns any Ok
    * @throws ApiError
@@ -126,39 +153,6 @@ export class ProductService {
       },
     });
   }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public countProduct({
-    storeId,
-    isActive,
-  }: {
-    storeId: string,
-    isActive?: boolean,
-  }): CancelablePromise<{
-    count: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/count',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'isActive': isActive,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -211,7 +205,6 @@ export class ProductService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -229,7 +222,9 @@ export class ProductService {
     VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
       PlatformVariant: {
+        cost: PlatformCostInfo;
         price: number;
+        id: number;
       };
     })>;
     Tag: Array<Tag>;
@@ -254,7 +249,6 @@ export class ProductService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -282,5 +276,4 @@ export class ProductService {
       },
     });
   }
-
 }

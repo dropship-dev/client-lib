@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { TransactionStatus } from './TransactionStatus';
 import type { TransactionType } from './TransactionType';
-
 /**
  * Model Transaction
  */
@@ -20,8 +18,8 @@ export type Transaction = {
    * [Photos]
    */
   photos: PrismaJson_Photos | null;
-  requestPayoutId: string | null;
   walletId: string | null;
+  requestPayoutId: string | null;
   orderId: string | null;
   storeId: string | null;
   status: TransactionStatus;

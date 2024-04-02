@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,17 +6,14 @@ import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StorePerformance } from '../models/StorePerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
+import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PerformanceService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -26,11 +23,13 @@ export class PerformanceService {
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
+    referralCode,
   }: {
     fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
+    referralCode?: string,
   }): CancelablePromise<{
     revenues: Array<StoreRevenueOverTime>;
     period: Period;
@@ -43,6 +42,7 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'referralCode': referralCode,
       },
       errors: {
         400: `Bad request`,
@@ -53,7 +53,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -96,7 +95,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns TopProductByOrder Ok
    * @throws ApiError
@@ -133,7 +131,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns TopStoreByRevenue Ok
    * @throws ApiError
@@ -167,7 +164,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -218,7 +214,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -273,7 +268,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -322,30 +316,32 @@ export class PerformanceService {
       },
     });
   }
-
   /**
-   * @returns StoreProductPerformanceResp Ok
+   * @returns StoreProductProfit Ok
    * @throws ApiError
    */
-  public getStoreProductPerformance({
+  public getStoreProductProfit({
     fulfillmentAgencyId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
+    search,
   }: {
     fulfillmentAgencyId?: number,
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<StoreProductPerformanceResp>> {
+    search?: string,
+  }): CancelablePromise<StoreProductProfit> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/performance/store-product',
+      url: '/performance/store-product/profit',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'search': search,
       },
       errors: {
         400: `Bad request`,
@@ -356,5 +352,52 @@ export class PerformanceService {
       },
     });
   }
-
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreProductPerformance({
+    fulfillmentAgencyId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    storeId,
+    search,
+    pageSize,
+    nextPageIndex,
+  }: {
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+    search?: string,
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<StoreProductPerformanceResp>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/store-product',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+        'search': search,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
