@@ -6,7 +6,7 @@ export type CreateStoreDto = {
     name: NameDto;
     email: EmailDto;
     emailFulfillmentAgency?: EmailDto;
-    storeType: StoreType;
+    storeType?: StoreType;
     phone?: PhoneWithCountryCode;
     address?: string;
 };
