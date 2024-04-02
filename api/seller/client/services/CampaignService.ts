@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -7,10 +7,14 @@ import type { CreateDiscountDto } from '../models/CreateDiscountDto';
 import type { Discount } from '../models/Discount';
 import type { UpdateCampaignDto } from '../models/UpdateCampaignDto';
 import type { UpdateDiscountDto } from '../models/UpdateDiscountDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class CampaignService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -46,6 +50,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -78,6 +83,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -109,6 +115,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -140,6 +147,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -171,6 +179,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -198,6 +207,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -227,6 +237,7 @@ export class CampaignService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -257,4 +268,5 @@ export class CampaignService {
       },
     });
   }
+
 }

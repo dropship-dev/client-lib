@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -16,10 +16,14 @@ import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStoreP
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { Wallet } from '../models/Wallet';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class StoreService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -115,6 +119,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -143,6 +148,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -171,6 +177,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -210,6 +217,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -250,6 +258,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -278,6 +287,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -311,6 +321,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -344,6 +355,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -376,4 +388,5 @@ export class StoreService {
       },
     });
   }
+
 }

@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,10 +6,14 @@ import type { CreateFbPixelDto } from '../models/CreateFbPixelDto';
 import type { FbPixel } from '../models/FbPixel';
 import type { Product } from '../models/Product';
 import type { UpdateFbPixelDto } from '../models/UpdateFbPixelDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class FbPixelService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -40,6 +44,7 @@ export class FbPixelService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -66,6 +71,7 @@ export class FbPixelService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -95,6 +101,7 @@ export class FbPixelService {
       },
     });
   }
+
   /**
    * @returns FbPixel Ok
    * @throws ApiError
@@ -126,6 +133,7 @@ export class FbPixelService {
       },
     });
   }
+
   /**
    * @returns FbPixel Ok
    * @throws ApiError
@@ -153,4 +161,5 @@ export class FbPixelService {
       },
     });
   }
+
 }

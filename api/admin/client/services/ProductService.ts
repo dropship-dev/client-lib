@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -15,10 +15,14 @@ import type { Tag } from '../models/Tag';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class ProductService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -47,6 +51,7 @@ export class ProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -78,6 +83,7 @@ export class ProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -153,6 +159,7 @@ export class ProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -205,6 +212,7 @@ export class ProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -249,6 +257,7 @@ export class ProductService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -276,4 +285,5 @@ export class ProductService {
       },
     });
   }
+
 }

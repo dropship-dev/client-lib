@@ -1,10 +1,11 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
+
 import { BankAccountService } from './services/BankAccountService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
@@ -20,8 +21,11 @@ import { UploadService } from './services/UploadService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
 import { WalletService } from './services/WalletService';
+
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
+
 export class ClientApi {
+
   public readonly bankAccount: BankAccountService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
@@ -37,7 +41,9 @@ export class ClientApi {
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
   public readonly wallet: WalletService;
+
   public readonly request: BaseHttpRequest;
+
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
@@ -50,6 +56,7 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
+
     this.bankAccount = new BankAccountService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);

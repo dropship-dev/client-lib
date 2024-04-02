@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -9,10 +9,14 @@ import type { PaymentType } from '../models/PaymentType';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { UserRole } from '../models/UserRole';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class PaymentService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns Payment Ok
    * @throws ApiError
@@ -44,6 +48,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -89,6 +94,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -139,6 +145,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns Payment Ok
    * @throws ApiError
@@ -175,6 +182,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -207,6 +215,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -245,6 +254,7 @@ export class PaymentService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -278,4 +288,5 @@ export class PaymentService {
       },
     });
   }
+
 }

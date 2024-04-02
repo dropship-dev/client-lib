@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,10 +6,14 @@ import type { BankAccount } from '../models/BankAccount';
 import type { PaymentMethodType } from '../models/PaymentMethodType';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class TransactionService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -70,6 +74,7 @@ export class TransactionService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -99,4 +104,5 @@ export class TransactionService {
       },
     });
   }
+
 }

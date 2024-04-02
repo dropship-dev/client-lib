@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,10 +6,14 @@ import type { CreateThemeLibraryDto } from '../models/CreateThemeLibraryDto';
 import type { ThemeLibrary } from '../models/ThemeLibrary';
 import type { ThemePage } from '../models/ThemePage';
 import type { UpdateThemeLibraryDto } from '../models/UpdateThemeLibraryDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class ThemeLibraryService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns ThemeLibrary Ok
    * @throws ApiError
@@ -33,6 +37,7 @@ export class ThemeLibraryService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -66,6 +71,7 @@ export class ThemeLibraryService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -92,6 +98,7 @@ export class ThemeLibraryService {
       },
     });
   }
+
   /**
    * @returns ThemeLibrary Ok
    * @throws ApiError
@@ -120,6 +127,7 @@ export class ThemeLibraryService {
       },
     });
   }
+
   /**
    * @returns ThemeLibrary Ok
    * @throws ApiError
@@ -144,4 +152,5 @@ export class ThemeLibraryService {
       },
     });
   }
+
 }

@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -7,10 +7,14 @@ import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDt
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
 import type { Store } from '../models/Store';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class RequestSourcingService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -64,6 +68,7 @@ export class RequestSourcingService {
       },
     });
   }
+
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
@@ -96,6 +101,7 @@ export class RequestSourcingService {
       },
     });
   }
+
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
@@ -132,6 +138,7 @@ export class RequestSourcingService {
       },
     });
   }
+
   /**
    * @returns RequestSourcing Ok
    * @throws ApiError
@@ -168,4 +175,5 @@ export class RequestSourcingService {
       },
     });
   }
+
 }

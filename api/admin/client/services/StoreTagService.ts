@@ -1,13 +1,17 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateStoreTagDto } from '../models/CreateStoreTagDto';
 import type { Tag } from '../models/Tag';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class StoreTagService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns Tag Ok
    * @throws ApiError
@@ -36,6 +40,7 @@ export class StoreTagService {
       },
     });
   }
+
   /**
    * @returns Tag Ok
    * @throws ApiError
@@ -68,6 +73,7 @@ export class StoreTagService {
       },
     });
   }
+
   /**
    * @returns Tag Ok
    * @throws ApiError
@@ -95,4 +101,5 @@ export class StoreTagService {
       },
     });
   }
+
 }

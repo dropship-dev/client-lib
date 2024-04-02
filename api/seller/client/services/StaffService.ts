@@ -1,14 +1,18 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateStaffDto } from '../models/CreateStaffDto';
 import type { StoreUser } from '../models/StoreUser';
 import type { UpdateStaffDto } from '../models/UpdateStaffDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class StaffService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns StoreUser Ok
    * @throws ApiError
@@ -37,6 +41,7 @@ export class StaffService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -70,6 +75,7 @@ export class StaffService {
       },
     });
   }
+
   /**
    * @returns StoreUser Ok
    * @throws ApiError
@@ -101,6 +107,7 @@ export class StaffService {
       },
     });
   }
+
   /**
    * @returns StoreUser Ok
    * @throws ApiError
@@ -128,4 +135,5 @@ export class StaffService {
       },
     });
   }
+
 }

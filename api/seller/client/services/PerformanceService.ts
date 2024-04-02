@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,10 +8,14 @@ import type { StoreProductPerformanceResp } from '../models/StoreProductPerforma
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class PerformanceService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -51,6 +55,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -93,6 +98,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns TopProductByOrder Ok
    * @throws ApiError
@@ -129,6 +135,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -179,6 +186,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -233,6 +241,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns StoreProductProfit Ok
    * @throws ApiError
@@ -269,6 +278,7 @@ export class PerformanceService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -317,4 +327,5 @@ export class PerformanceService {
       },
     });
   }
+
 }

@@ -1,12 +1,16 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { PingPongAccount } from '../models/PingPongAccount';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class PingPongAccountService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns PingPongAccount Ok
    * @throws ApiError
@@ -34,6 +38,7 @@ export class PingPongAccountService {
       },
     });
   }
+
   /**
    * @returns PingPongAccount Ok
    * @throws ApiError
@@ -66,4 +71,5 @@ export class PingPongAccountService {
       },
     });
   }
+
 }

@@ -1,11 +1,13 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+
 import type { AsyncTaskStatus } from './AsyncTaskStatus';
 import type { AsyncTaskType } from './AsyncTaskType';
 import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_AsyncTaskResult } from './PrismaJson_AsyncTaskResult';
+
 /**
  * Model AsyncTask
  */

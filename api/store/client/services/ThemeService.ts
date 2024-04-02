@@ -1,13 +1,17 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { Theme } from '../models/Theme';
 import type { ThemePage } from '../models/ThemePage';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class ThemeService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -34,6 +38,7 @@ export class ThemeService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -63,4 +68,5 @@ export class ThemeService {
       },
     });
   }
+
 }

@@ -1,14 +1,18 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateBankAccountDto } from '../models/CreateBankAccountDto';
 import type { UpdateBankAccountDto } from '../models/UpdateBankAccountDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class BankAccountService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns BankAccount Ok
    * @throws ApiError
@@ -40,6 +44,7 @@ export class BankAccountService {
       },
     });
   }
+
   /**
    * @returns BankAccount Ok
    * @throws ApiError
@@ -67,6 +72,7 @@ export class BankAccountService {
       },
     });
   }
+
   /**
    * @returns BankAccount Ok
    * @throws ApiError
@@ -99,6 +105,7 @@ export class BankAccountService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -131,6 +138,7 @@ export class BankAccountService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -159,4 +167,5 @@ export class BankAccountService {
       },
     });
   }
+
 }

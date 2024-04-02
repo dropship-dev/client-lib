@@ -1,10 +1,12 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 import type { StoreStatus } from './StoreStatus';
 import type { StoreType } from './StoreType';
+
 /**
  * Model Store
  */

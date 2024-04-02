@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -15,10 +15,14 @@ import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDt
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
 import type { VariantOptions } from '../models/VariantOptions';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class PlatformProductService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -47,6 +51,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -130,6 +135,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -157,6 +163,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -185,6 +192,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -225,6 +233,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -258,6 +267,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -287,6 +297,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -320,6 +331,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -353,6 +365,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProduct Ok
    * @throws ApiError
@@ -385,6 +398,7 @@ export class PlatformProductService {
       },
     });
   }
+
   /**
    * @returns PlatformProductStore Ok
    * @throws ApiError
@@ -414,4 +428,5 @@ export class PlatformProductService {
       },
     });
   }
+
 }

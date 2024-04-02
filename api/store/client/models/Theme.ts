@@ -1,11 +1,13 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+
 import type { LogoSize } from './LogoSize';
 import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
+
 /**
  * Model Theme
  */

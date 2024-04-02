@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,10 +8,14 @@ import type { FulfillmentUser } from '../models/FulfillmentUser';
 import type { UpdateUserDto } from '../models/UpdateUserDto';
 import type { User } from '../models/User';
 import type { Wallet } from '../models/Wallet';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class UserService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -35,6 +39,7 @@ export class UserService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -62,6 +67,7 @@ export class UserService {
       },
     });
   }
+
   /**
    * @returns User Ok
    * @throws ApiError
@@ -79,6 +85,7 @@ export class UserService {
       },
     });
   }
+
   /**
    * @returns User Ok
    * @throws ApiError
@@ -102,4 +109,5 @@ export class UserService {
       },
     });
   }
+
 }

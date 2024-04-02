@@ -1,12 +1,16 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { AsyncTask } from '../models/AsyncTask';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class AsyncTaskService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns AsyncTask Ok
    * @throws ApiError
@@ -31,4 +35,5 @@ export class AsyncTaskService {
       },
     });
   }
+
 }

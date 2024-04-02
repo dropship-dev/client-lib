@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -20,10 +20,14 @@ import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class OrderService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -122,6 +126,7 @@ export class OrderService {
       },
     });
   }
+
   /**
    * @returns ExportOrderResponseDto Ok
    * @throws ApiError
@@ -173,6 +178,7 @@ export class OrderService {
       },
     });
   }
+
   /**
    * @returns UpdateFulFillmentStatusResp Ok
    * @throws ApiError
@@ -201,6 +207,7 @@ export class OrderService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -243,6 +250,7 @@ export class OrderService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -289,6 +297,7 @@ export class OrderService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -394,4 +403,5 @@ export class OrderService {
       },
     });
   }
+
 }

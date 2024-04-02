@@ -1,13 +1,15 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+
 import type { FulfillmentStatus } from './FulfillmentStatus';
 import type { OrderDisputeStatus } from './OrderDisputeStatus';
 import type { OrderStatus } from './OrderStatus';
 import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmount';
+
 /**
  * Model Order
  */

@@ -1,9 +1,11 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+
 import type { PrismaJson_PlatformCostInfo } from './PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
+
 /**
  * Model PlatformVariant
  */

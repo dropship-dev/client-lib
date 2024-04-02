@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -14,10 +14,14 @@ import type { Timezone } from '../models/Timezone';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { Wallet } from '../models/Wallet';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class StoreService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -41,6 +45,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -136,6 +141,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -176,6 +182,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -204,6 +211,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -228,6 +236,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns Store Ok
    * @throws ApiError
@@ -256,6 +265,7 @@ export class StoreService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -288,4 +298,5 @@ export class StoreService {
       },
     });
   }
+
 }

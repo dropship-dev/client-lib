@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -9,10 +9,14 @@ import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class VariantService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns BatchPayload Ok
    * @throws ApiError
@@ -41,6 +45,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -84,6 +89,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -115,6 +121,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -147,6 +154,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -179,6 +187,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns ProductVariant Ok
    * @throws ApiError
@@ -213,6 +222,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns ProductVariant Ok
    * @throws ApiError
@@ -243,6 +253,7 @@ export class VariantService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -277,4 +288,5 @@ export class VariantService {
       },
     });
   }
+
 }

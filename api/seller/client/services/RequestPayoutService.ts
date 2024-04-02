@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -9,10 +9,14 @@ import type { RequestPayout } from '../models/RequestPayout';
 import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { Store } from '../models/Store';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
 export class RequestPayoutService {
+
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
   /**
    * @returns RequestPayout Ok
    * @throws ApiError
@@ -36,6 +40,7 @@ export class RequestPayoutService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -92,6 +97,7 @@ export class RequestPayoutService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -139,6 +145,7 @@ export class RequestPayoutService {
       },
     });
   }
+
   /**
    * @returns any Ok
    * @throws ApiError
@@ -172,6 +179,7 @@ export class RequestPayoutService {
       },
     });
   }
+
   /**
    * @returns RequestPayout Ok
    * @throws ApiError
@@ -205,6 +213,7 @@ export class RequestPayoutService {
       },
     });
   }
+
   /**
    * @returns string Ok
    * @throws ApiError
@@ -222,4 +231,5 @@ export class RequestPayoutService {
       },
     });
   }
+
 }
