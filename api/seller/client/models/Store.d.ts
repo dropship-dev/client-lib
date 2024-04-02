@@ -1,5 +1,6 @@
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 import type { StoreStatus } from './StoreStatus';
+import type { StoreType } from './StoreType';
 /**
  * Model Store
  */
@@ -7,10 +8,11 @@ export type Store = {
     updatedAt: string;
     createdAt: string;
     currencyId: number;
-    fulfillmentAgencyId: number;
+    fulfillmentAgencyId: number | null;
     maxUsers: number;
     balance: number;
     referralCode: string | null;
+    type: StoreType;
     defaultBankAccount: string | null;
     shippingPolicy: string | null;
     termsOfService: string | null;

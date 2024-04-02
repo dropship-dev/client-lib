@@ -10,7 +10,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRevenueOverTime({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+    getRevenueOverTime({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, referralCode, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/revenue-over-time',
@@ -19,6 +19,7 @@ class PerformanceService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
+                'referralCode': referralCode,
             },
             errors: {
                 400: `Bad request`,
@@ -176,10 +177,34 @@ class PerformanceService {
         });
     }
     /**
-     * @returns StoreProductPerformanceResp Ok
+     * @returns StoreProductProfit Ok
      * @throws ApiError
      */
-    getStoreProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+    getStoreProductProfit({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, search, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/store-product/profit',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'storeId': storeId,
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, search, pageSize, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/store-product',
@@ -188,6 +213,9 @@ class PerformanceService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
+                'search': search,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

@@ -5,6 +5,7 @@ import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItem
 export type VariantCombo = {
     updatedAt: string;
     createdAt: string;
+    supplierCost: number | null;
     productId: number;
     isDeleted: boolean;
     isEnable: boolean;

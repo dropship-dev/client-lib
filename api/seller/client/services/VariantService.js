@@ -7,64 +7,18 @@ class VariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns BatchPayload Ok
      * @throws ApiError
      */
-    getVariant({ storeId, productId, id, }) {
+    createVariants({ storeId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}/variant/{id}',
+            method: 'POST',
+            url: '/store/{storeId}/product/{productId}/variant',
             path: {
                 'storeId': storeId,
-                'productId': productId,
-                'id': id,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    updateVariant({ storeId, productId, id, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/store/{storeId}/product/{productId}/variant/{id}',
-            path: {
-                'storeId': storeId,
-                'productId': productId,
-                'id': id,
             },
             body: requestBody,
             mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    deleteVariant({ storeId, productId, id, }) {
-        return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/store/{storeId}/product/{productId}/variant/{id}',
-            path: {
-                'storeId': storeId,
-                'productId': productId,
-                'id': id,
-            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -136,6 +90,74 @@ class VariantService {
             },
             query: {
                 'ids': ids,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVariant({ storeId, productId, id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/{productId}/variant/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ProductVariant Ok
+     * @throws ApiError
+     */
+    updateVariant({ storeId, productId, id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/product/{productId}/variant/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ProductVariant Ok
+     * @throws ApiError
+     */
+    deleteVariant({ storeId, productId, id, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/product/{productId}/variant/{id}',
+            path: {
+                'storeId': storeId,
+                'productId': productId,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,

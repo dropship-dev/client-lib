@@ -10,13 +10,13 @@ class AsyncTaskService {
      * @returns AsyncTask Ok
      * @throws ApiError
      */
-    createExportOrderTask({ fulfillmentAgencyId, exportedFilename, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
+    createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/async-task/export-order',
             query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'storeId': storeId,
                 'paymentStatus': paymentStatus,
                 'fulfillmentStatus': fulfillmentStatus,
@@ -29,6 +29,30 @@ class AsyncTaskService {
                 'gateway': gateway,
                 'disputeStatus': disputeStatus,
                 'latestStat': latestStat,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns AsyncTask Ok
+     * @throws ApiError
+     */
+    createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/async-task/export-accountancy',
+            query: {
+                'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,

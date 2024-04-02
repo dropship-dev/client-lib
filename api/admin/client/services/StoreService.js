@@ -10,7 +10,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, periodFrom = '2023-01-01T00:00:00.000Z', nextPageIndex, name, userId, paymentGatewayIds, }) {
+    getAllStores({ fulfillmentAgencyId, pageSize = 20, status, periodFrom = '2023-01-01T00:00:00.000Z', nextPageIndex, name, userId, paymentGatewayIds, platformProductId, referralCode, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store',
@@ -23,7 +23,31 @@ class StoreService {
                 'name': name,
                 'userId': userId,
                 'paymentGatewayIds': paymentGatewayIds,
+                'platformProductId': platformProductId,
+                'referralCode': referralCode,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    addProductToStores({ fulfillmentAgencyId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/product',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -37,10 +61,10 @@ class StoreService {
      * @returns string Ok
      * @throws ApiError
      */
-    addProductToStores({ fulfillmentAgencyId, requestBody, }) {
+    updateProductToStores({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/product',
+            method: 'PATCH',
+            url: '/store/update-product',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
             },

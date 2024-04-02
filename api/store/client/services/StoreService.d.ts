@@ -4,6 +4,7 @@ import type { CustomDomain } from '../models/CustomDomain';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { ThemeTemplate } from '../models/ThemeTemplate';
 import type { Timezone } from '../models/Timezone';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -46,11 +47,13 @@ export declare class StoreService {
         id: string;
         fulfillmentAgencyId: number;
         Theme: (Theme & {
+            ThemePage: Array<ThemePage>;
             ThemeTemplate: ThemeTemplate;
         });
         Payment: Array<{
             UIVersion: number;
             publishableKey: string;
+            companyName: string;
             email: string;
             updatedAt: string;
             createdAt: string;
@@ -67,6 +70,7 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        companyName: string;
         email: string;
         updatedAt: string;
         createdAt: string;

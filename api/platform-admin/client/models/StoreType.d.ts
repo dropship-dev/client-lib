@@ -1,0 +1,4 @@
+export declare enum StoreType {
+    DEPENDENT_STORE = "DEPENDENT_STORE",
+    SELF_FULFILLING_STORE = "SELF_FULFILLING_STORE"
+}

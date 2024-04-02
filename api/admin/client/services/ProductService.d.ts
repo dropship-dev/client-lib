@@ -2,6 +2,7 @@ import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Discount } from '../models/Discount';
+import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -19,10 +20,20 @@ export declare class ProductService {
      * @returns string Ok
      * @throws ApiError
      */
-    createProduct({ storeId, requestBody, }: {
+    createProductForStoreJoinFa({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateProductDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countProduct({ storeId, isActive, }: {
+        storeId: string;
+        isActive?: boolean;
+    }): CancelablePromise<{
+        count: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -69,16 +80,6 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    countProduct({ storeId, isActive, }: {
-        storeId: string;
-        isActive?: boolean;
-    }): CancelablePromise<{
-        count: number;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getProductByPermalink({ storeId, permalink, }: {
         storeId: string;
         permalink: string;
@@ -120,7 +121,9 @@ export declare class ProductService {
         VariantCombo: Array<VariantCombo>;
         ProductVariant: Array<(ProductVariant & {
             PlatformVariant: {
+                cost: PlatformCostInfo;
                 price: number;
+                id: number;
             };
         })>;
         Tag: Array<Tag>;

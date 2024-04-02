@@ -1,9 +1,5 @@
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { Order } from '../models/Order';
-import type { OrderItem } from '../models/OrderItem';
 import type { PaymentType } from '../models/PaymentType';
-import type { ProductVariant } from '../models/ProductVariant';
-import type { TransactionStatus } from '../models/TransactionStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class OrderService {
@@ -53,26 +49,4 @@ export declare class OrderService {
     }): CancelablePromise<{
         status: string;
     }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStoreOrderByTracking({ storeId, orderId, email, }: {
-        storeId: string;
-        orderId: string;
-        email: string;
-    }): CancelablePromise<(Order & {
-        OrderItem: Array<(OrderItem & {
-            ProductVariant: (ProductVariant & {
-                PlatformVariant: {
-                    price: number;
-                    name: string;
-                    id: number;
-                };
-            });
-        })>;
-        Transaction: Array<{
-            status: TransactionStatus;
-        }>;
-    })>;
 }

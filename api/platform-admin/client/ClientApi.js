@@ -7,7 +7,6 @@ const AuthService_1 = require("./services/AuthService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const NotificationService_1 = require("./services/NotificationService");
 const PerformanceService_1 = require("./services/PerformanceService");
-const ThemeTemplateService_1 = require("./services/ThemeTemplateService");
 const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 class ClientApi {
@@ -16,7 +15,6 @@ class ClientApi {
     fulfillmentAgency;
     notification;
     performance;
-    themeTemplate;
     upload;
     user;
     request;
@@ -37,7 +35,6 @@ class ClientApi {
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
-        this.themeTemplate = new ThemeTemplateService_1.ThemeTemplateService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
         this.user = new UserService_1.UserService(this.request);
     }

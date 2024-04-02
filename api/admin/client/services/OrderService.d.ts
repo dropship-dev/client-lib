@@ -5,6 +5,7 @@ import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
+import type { Payment } from '../models/Payment';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -12,8 +13,8 @@ import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
-import type { UpdateFulFillmentStatusDto } from '../models/UpdateFulFillmentStatusDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -71,6 +72,7 @@ export declare class OrderService {
                 });
             })>;
             Transaction: Array<Transaction>;
+            Payment: Payment;
             Store: Store;
         })>;
     }>;
@@ -96,7 +98,7 @@ export declare class OrderService {
      */
     updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
-        requestBody: UpdateFulFillmentStatusDto;
+        requestBody: UpdateOrderStatusDto;
     }): CancelablePromise<UpdateFulFillmentStatusResp>;
     /**
      * @returns any Ok
@@ -183,9 +185,9 @@ export declare class OrderService {
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: {
+                    Product: (Product & {
                         Campaign: Campaign;
-                    };
+                    });
                 });
                 ProductVariant: (ProductVariant & {
                     Product: {

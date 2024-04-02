@@ -1,0 +1,12 @@
+import type { CurrencyCode } from './CurrencyCode';
+import type { PaymentMethodType } from './PaymentMethodType';
+export type CreateRequestPayoutDto = {
+    amount: number;
+    currencyCode: CurrencyCode;
+    amountConvert: number;
+    type: PaymentMethodType;
+    bankId?: string;
+    pingPongId?: string;
+    notes?: string;
+    storeId: string;
+};

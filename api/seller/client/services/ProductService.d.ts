@@ -1,6 +1,9 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
+import type { CloneProductDto } from '../models/CloneProductDto';
+import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { Discount } from '../models/Discount';
+import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -17,6 +20,24 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ProductService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns Product Ok
+     * @throws ApiError
+     */
+    createProductForStoreInDepedence({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateProductFromSellerInDependeceDto;
+    }): CancelablePromise<Product>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    countProduct({ storeId, isActive, }: {
+        storeId: string;
+        isActive?: boolean;
+    }): CancelablePromise<{
+        count: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -67,16 +88,6 @@ export declare class ProductService {
         storeId: string;
         productIds: Array<number>;
     }): CancelablePromise<string>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    countProduct({ storeId, isActive, }: {
-        storeId: string;
-        isActive?: boolean;
-    }): CancelablePromise<{
-        count: number;
-    }>;
     /**
      * @returns Product Ok
      * @throws ApiError
@@ -130,7 +141,9 @@ export declare class ProductService {
         VariantCombo: Array<VariantCombo>;
         ProductVariant: Array<(ProductVariant & {
             PlatformVariant: {
+                cost: PlatformCostInfo;
                 price: number;
+                id: number;
             };
         })>;
         Tag: Array<Tag>;
@@ -164,5 +177,20 @@ export declare class ProductService {
         storeId: string;
         productId: number;
         requestBody: UpdateProductStatusDto;
-    }): CancelablePromise<Array<Product>>;
+    }): CancelablePromise<Product>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    cloneProduct({ storeId, productId, requestBody, }: {
+        storeId: string;
+        productId: number;
+        requestBody: CloneProductDto;
+    }): CancelablePromise<(Product & {
+        ProductVariant: Array<{
+            platformVariantId: number;
+            name: string;
+            id: number;
+        }>;
+    })>;
 }

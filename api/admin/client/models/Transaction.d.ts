@@ -14,8 +14,8 @@ export type Transaction = {
      * [Photos]
      */
     photos: PrismaJson_Photos | null;
-    requestPayoutId: string | null;
     walletId: string | null;
+    requestPayoutId: string | null;
     orderId: string | null;
     storeId: string | null;
     status: TransactionStatus;

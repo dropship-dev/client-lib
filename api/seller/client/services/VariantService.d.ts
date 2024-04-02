@@ -1,3 +1,5 @@
+import type { BatchPayload } from '../models/BatchPayload';
+import type { CreateVariantsDto } from '../models/CreateVariantsDto';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
@@ -9,35 +11,13 @@ export declare class VariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns BatchPayload Ok
      * @throws ApiError
      */
-    getVariant({ storeId, productId, id, }: {
+    createVariants({ storeId, requestBody, }: {
         storeId: string;
-        productId: number;
-        id: number;
-    }): CancelablePromise<(ProductVariant & {
-        PlatformVariant: PlatformVariant;
-    })>;
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    updateVariant({ storeId, productId, id, requestBody, }: {
-        storeId: string;
-        productId: number;
-        id: number;
-        requestBody: UpdateVariantDto;
-    }): CancelablePromise<ProductVariant>;
-    /**
-     * @returns ProductVariant Ok
-     * @throws ApiError
-     */
-    deleteVariant({ storeId, productId, id, }: {
-        storeId: string;
-        productId: number;
-        id: number;
-    }): CancelablePromise<ProductVariant>;
+        requestBody: Array<CreateVariantsDto>;
+    }): CancelablePromise<BatchPayload>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -74,6 +54,36 @@ export declare class VariantService {
         productId: number;
         ids: Array<number>;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVariant({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+    }): CancelablePromise<(ProductVariant & {
+        PlatformVariant: PlatformVariant;
+    })>;
+    /**
+     * @returns ProductVariant Ok
+     * @throws ApiError
+     */
+    updateVariant({ storeId, productId, id, requestBody, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+        requestBody: UpdateVariantDto;
+    }): CancelablePromise<ProductVariant>;
+    /**
+     * @returns ProductVariant Ok
+     * @throws ApiError
+     */
+    deleteVariant({ storeId, productId, id, }: {
+        storeId: string;
+        productId: number;
+        id: number;
+    }): CancelablePromise<ProductVariant>;
     /**
      * @returns string Ok
      * @throws ApiError

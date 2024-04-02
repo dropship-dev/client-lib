@@ -5,10 +5,15 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { PaymentType } from '../models/PaymentType';
+import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -57,9 +62,9 @@ export declare class OrderService {
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: {
+                    Product: (Product & {
                         Campaign: Campaign;
-                    };
+                    });
                 });
                 ProductVariant: (ProductVariant & {
                     Product: {
@@ -100,5 +105,35 @@ export declare class OrderService {
         Payment: {
             type: PaymentType;
         };
+    })>;
+    /**
+     * @returns UpdateFulFillmentStatusResp Ok
+     * @throws ApiError
+     */
+    updateOrderOfStoreStatus({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateOrderStatusDto;
+    }): CancelablePromise<UpdateFulFillmentStatusResp>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    refundOrderForSeller({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: RefundOrderDto;
+    }): CancelablePromise<(Order & {
+        OrderRefund: Array<OrderRefund>;
+        OrderItem: Array<(OrderItem & {
+            VariantCombo: (VariantCombo & {
+                Product: Product;
+            });
+            ProductVariant: (ProductVariant & {
+                Product: Product;
+                PlatformVariant: PlatformVariant;
+            });
+        })>;
+        Transaction: Array<Transaction>;
+        Store: Store;
     })>;
 }

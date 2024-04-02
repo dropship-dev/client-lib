@@ -125,6 +125,27 @@ class CampaignService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCampaign({ storeId, campaignId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/campaign/{campaignId}',
+            path: {
+                'storeId': storeId,
+                'campaignId': campaignId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -149,7 +170,7 @@ class CampaignService {
      * @returns string Ok
      * @throws ApiError
      */
-    deleteCampaign({ storeId, campaignId, productId, }) {
+    deleteCampaignDeleted({ storeId, campaignId, productId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/store/{storeId}/product/{productId}/campaign/{campaignId}',

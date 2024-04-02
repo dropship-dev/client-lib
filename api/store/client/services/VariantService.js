@@ -10,14 +10,17 @@ class VariantService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariant({ storeId, productId, id, }) {
+    getAllVariant({ storeId, productId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/{productId}/variant/{id}',
+            url: '/store/{storeId}/product/{productId}/variant',
             path: {
                 'storeId': storeId,
                 'productId': productId,
-                'id': id,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,
@@ -32,17 +35,14 @@ class VariantService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllVariant({ storeId, productId, pageSize = 20, nextPageIndex, }) {
+    getVariant({ storeId, productId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/{productId}/variant',
+            url: '/store/{storeId}/product/{productId}/variant/{id}',
             path: {
                 'storeId': storeId,
                 'productId': productId,
-            },
-            query: {
-                'pageSize': pageSize,
-                'nextPageIndex': nextPageIndex,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,

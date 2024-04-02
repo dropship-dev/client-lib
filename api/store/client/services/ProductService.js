@@ -10,6 +10,29 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    countProduct({ storeId, isActive, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/count',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'isActive': isActive,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -25,29 +48,6 @@ class ProductService {
                 'isActive': isActive,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    countProduct({ storeId, isActive, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/count',
-            path: {
-                'storeId': storeId,
-            },
-            query: {
-                'isActive': isActive,
             },
             errors: {
                 400: `Bad request`,

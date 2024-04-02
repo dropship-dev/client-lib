@@ -4,4 +4,5 @@ export type UpdateVariantDto = {
     compareAtPrice?: number;
     SKU?: string;
     photo?: string;
+    supplierPrice?: number;
 };
