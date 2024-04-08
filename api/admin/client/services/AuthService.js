@@ -24,5 +24,23 @@ class AuthService {
             },
         });
     }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    signInPusher({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/auth/auth/pusher/user-auth',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.AuthService = AuthService;

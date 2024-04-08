@@ -144,6 +144,7 @@ export type { RequestSourcing } from './models/RequestSourcing';
 export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Review } from './models/Review';
 export type { Setting } from './models/Setting';
+export type { SignInPusherDto } from './models/SignInPusherDto';
 export type { SQLResult } from './models/SQLResult';
 export { statusRequestPayout } from './models/statusRequestPayout';
 export type { Store } from './models/Store';
