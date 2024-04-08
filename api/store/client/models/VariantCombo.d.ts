@@ -3,18 +3,18 @@ import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItem
  * Model VariantCombo
  */
 export type VariantCombo = {
-    isDeleted: boolean;
     updatedAt: string;
     createdAt: string;
     supplierCost: number | null;
-    minSellingPrice: number | null;
     productId: number;
+    isDeleted: boolean;
     isEnable: boolean;
     isActive: boolean;
     /**
      * [VariantComboItems]
      */
     items: PrismaJson_VariantComboItems;
+    minSellingPrice: number | null;
     SKU: string;
     compareAtPrice: number;
     photo: string;
