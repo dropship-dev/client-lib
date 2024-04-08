@@ -13,12 +13,12 @@ import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionV
 export type ProductVariant = {
   updatedAt: string;
   createdAt: string;
+  platformVariantId: number | null;
+  productId: number;
   /**
    * [MarginInfo]
    */
   margin: PrismaJson_MarginInfo | null;
-  platformVariantId: number | null;
-  productId: number;
   /**
    * [VariantOptionValues]
    */

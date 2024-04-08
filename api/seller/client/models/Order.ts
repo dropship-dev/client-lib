@@ -16,6 +16,12 @@ import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmoun
 export type Order = {
   updatedAt: string;
   createdAt: string;
+  disputeStatus: OrderDisputeStatus | null;
+  status: OrderStatus;
+  paymentId: number;
+  currencyId: number;
+  storeId: string;
+  fulfillmentStatus: FulfillmentStatus;
   /**
    * [SyncBalanceAmount]
    */
@@ -23,12 +29,6 @@ export type Order = {
   retentionRate: number | null;
   payoutIn: string | null;
   holdIn: string | null;
-  disputeStatus: OrderDisputeStatus | null;
-  status: OrderStatus;
-  paymentId: number;
-  currencyId: number;
-  storeId: string;
-  fulfillmentStatus: FulfillmentStatus;
   latestNoItems: number;
   latestSubTotal: number;
   latestTotal: number;

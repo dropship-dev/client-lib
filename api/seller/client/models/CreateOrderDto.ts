@@ -17,5 +17,6 @@ export type CreateOrderDto = {
   payment: PaymentType;
   orderItems?: Array<OrderItemDto>;
   comboItems?: Array<ComboItemDto>;
+  referrer?: string;
 };
 
