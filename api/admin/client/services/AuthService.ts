@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { LoginDto } from '../models/LoginDto';
-import type { SignInPusherDto } from '../models/SignInPusherDto';
 import type { UserRole } from '../models/UserRole';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -47,19 +46,23 @@ export class AuthService {
   }
 
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
   public signInPusher({
-    requestBody,
+    socketId,
+    storeId,
   }: {
-    requestBody: SignInPusherDto,
-  }): CancelablePromise<void> {
+    socketId: string,
+    storeId: string,
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
-      method: 'POST',
+      method: 'GET',
       url: '/auth/pusher/user-auth',
-      body: requestBody,
-      mediaType: 'application/json',
+      query: {
+        'socket_id': socketId,
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         403: `Forbidden`,
