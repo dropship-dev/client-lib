@@ -50,19 +50,15 @@ export class AuthService {
    * @throws ApiError
    */
   public signInPusher({
-    socketId,
-    storeId,
+    requestBody,
   }: {
-    socketId: string,
-    storeId: string,
+    requestBody: any,
   }): CancelablePromise<any> {
     return this.httpRequest.request({
-      method: 'GET',
+      method: 'POST',
       url: '/auth/pusher/user-auth',
-      query: {
-        'socket_id': socketId,
-        'storeId': storeId,
-      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         403: `Forbidden`,
