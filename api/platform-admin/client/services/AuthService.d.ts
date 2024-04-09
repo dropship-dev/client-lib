@@ -26,8 +26,7 @@ export declare class AuthService {
      * @returns any Ok
      * @throws ApiError
      */
-    signInPusher({ socketId, storeId, }: {
-        socketId: string;
-        storeId: string;
+    signInPusher({ requestBody, }: {
+        requestBody: any;
     }): CancelablePromise<any>;
 }

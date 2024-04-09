@@ -28,14 +28,12 @@ class AuthService {
      * @returns any Ok
      * @throws ApiError
      */
-    signInPusher({ socketId, storeId, }) {
+    signInPusher({ requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
+            method: 'POST',
             url: '/auth/pusher/user-auth',
-            query: {
-                'socket_id': socketId,
-                'storeId': storeId,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 403: `Forbidden`,
