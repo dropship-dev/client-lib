@@ -25,15 +25,17 @@ class AuthService {
         });
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
-    signInPusher({ requestBody, }) {
+    signInPusher({ socketId, storeId, }) {
         return this.httpRequest.request({
-            method: 'POST',
+            method: 'GET',
             url: '/auth/pusher/user-auth',
-            body: requestBody,
-            mediaType: 'application/json',
+            query: {
+                'socket_id': socketId,
+                'storeId': storeId,
+            },
             errors: {
                 400: `Bad request`,
                 403: `Forbidden`,
