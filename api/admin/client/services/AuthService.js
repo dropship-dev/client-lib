@@ -31,7 +31,7 @@ class AuthService {
     signInPusher({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/auth/auth/pusher/user-auth',
+            url: '/auth/pusher/user-auth',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
