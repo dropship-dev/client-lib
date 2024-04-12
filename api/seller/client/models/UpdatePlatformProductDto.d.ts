@@ -4,7 +4,7 @@ import type { PrismaJson_AvailableSet } from './PrismaJson_AvailableSet';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 import type { UpdatePlatformProductVariantDto } from './UpdatePlatformProductVariantDto';
 export type UpdatePlatformProductDto = {
-    name?: NameDto;
+    name?: string;
     description?: string;
     details?: string;
     SKU?: string;
