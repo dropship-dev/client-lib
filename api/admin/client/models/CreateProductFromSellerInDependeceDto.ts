@@ -3,13 +3,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 import type { VariantDto } from './VariantDto';
 
 export type CreateProductFromSellerInDependeceDto = {
-  name: NameDto;
+  name: string;
   description?: string;
   details?: string;
   photos: Array<PhotoDto>;
