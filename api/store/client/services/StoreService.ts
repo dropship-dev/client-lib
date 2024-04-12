@@ -64,6 +64,7 @@ export class StoreService {
       publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;
+      companyPhone: string;
       companyName: string;
       email: string;
       updatedAt: string;
@@ -99,6 +100,9 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
     companyName: string;
     email: string;
     updatedAt: string;

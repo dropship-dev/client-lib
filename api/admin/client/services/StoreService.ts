@@ -191,6 +191,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     Payment: Array<{
       publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
       companyName: string;
       email: string;
       name: string;
@@ -230,6 +233,9 @@ export class StoreService {
     Wallet: Array<Wallet>;
     Payment: Array<{
       publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
       companyName: string;
       email: string;
       name: string;
@@ -366,6 +372,9 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
     companyName: string;
     email: string;
     updatedAt: string;

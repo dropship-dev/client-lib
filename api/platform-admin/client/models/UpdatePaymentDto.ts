@@ -10,5 +10,8 @@ export type UpdatePaymentDto = {
   name?: NameDto;
   companyName?: string;
   email?: EmailDto;
+  companyPhone?: string;
+  companyAddress?: string;
+  isShowCompanyAddress?: boolean;
 };
 
