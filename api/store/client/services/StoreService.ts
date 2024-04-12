@@ -62,6 +62,8 @@ export class StoreService {
     Payment: Array<{
       UIVersion: number;
       publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
       companyName: string;
       email: string;
       updatedAt: string;
