@@ -1,9 +1,8 @@
-import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 export type UpdateVariantsForSellerInDependenceDto = {
     id: number;
-    name: NameDto;
+    name: string;
     photo: PhotoDto;
     price: number;
     supplierPrice: number;
