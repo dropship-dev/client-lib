@@ -15,9 +15,10 @@ export type Payment = {
     publishableKey: string;
     isShowCompanyAddress: boolean | null;
     companyAddress: string | null;
+    companyPhone: string | null;
     companyName: string | null;
     name: string;
-    email: string | null;
+    email: string;
     type: PaymentType;
     userId: string;
     id: number;

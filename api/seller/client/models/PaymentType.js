@@ -9,4 +9,5 @@ var PaymentType;
 (function (PaymentType) {
     PaymentType["PAYPAL"] = "PAYPAL";
     PaymentType["STRIPE"] = "STRIPE";
+    PaymentType["CLOVER"] = "CLOVER";
 })(PaymentType || (exports.PaymentType = PaymentType = {}));

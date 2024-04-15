@@ -22,4 +22,11 @@ export declare class AuthService {
         }>;
         id: string;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    signInPusher({ requestBody, }: {
+        requestBody: any;
+    }): CancelablePromise<any>;
 }

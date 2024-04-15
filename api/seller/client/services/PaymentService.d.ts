@@ -28,6 +28,9 @@ export declare class PaymentService {
         storeId?: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
         companyName: string;
         creator: {
             role: UserRole;
@@ -55,6 +58,9 @@ export declare class PaymentService {
         storeId?: string;
     }): CancelablePromise<{
         publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
         companyName: string;
         creator: {
             role: UserRole;

@@ -103,6 +103,9 @@ export declare class StoreService {
     }): CancelablePromise<Array<{
         Payment: Array<{
             publishableKey: string;
+            isShowCompanyAddress: boolean;
+            companyAddress: string;
+            companyPhone: string;
             companyName: string;
             email: string;
             name: string;
@@ -122,6 +125,9 @@ export declare class StoreService {
         Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
+            isShowCompanyAddress: boolean;
+            companyAddress: string;
+            companyPhone: string;
             companyName: string;
             email: string;
             name: string;
@@ -162,6 +168,15 @@ export declare class StoreService {
         requestBody: UpdateStorePaymentMethodDto;
     }): CancelablePromise<Store>;
     /**
+     * @returns Store Ok
+     * @throws ApiError
+     */
+    deleteStorePaymentMethod({ fulfillmentAgencyId, storeId, paymentId, }: {
+        fulfillmentAgencyId: number;
+        storeId: string;
+        paymentId: number;
+    }): CancelablePromise<Store>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -169,6 +184,9 @@ export declare class StoreService {
         storeId: string;
     }): CancelablePromise<Array<{
         publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
         companyName: string;
         email: string;
         updatedAt: string;

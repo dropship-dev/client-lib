@@ -1,4 +1,5 @@
 export declare enum PaymentType {
     PAYPAL = "PAYPAL",
-    STRIPE = "STRIPE"
+    STRIPE = "STRIPE",
+    CLOVER = "CLOVER"
 }
