@@ -191,6 +191,9 @@ export class StoreService {
   }): CancelablePromise<Array<{
     Payment: Array<{
       publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
       companyName: string;
       email: string;
       name: string;
@@ -230,6 +233,9 @@ export class StoreService {
     Wallet: Array<Wallet>;
     Payment: Array<{
       publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
       companyName: string;
       email: string;
       name: string;
@@ -357,6 +363,39 @@ export class StoreService {
   }
 
   /**
+   * @returns Store Ok
+   * @throws ApiError
+   */
+  public deleteStorePaymentMethod({
+    fulfillmentAgencyId,
+    storeId,
+    paymentId,
+  }: {
+    fulfillmentAgencyId: number,
+    storeId: string,
+    paymentId: number,
+  }): CancelablePromise<Store> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/payment-method',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'paymentId': paymentId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
    * @returns any Ok
    * @throws ApiError
    */
@@ -366,6 +405,9 @@ export class StoreService {
     storeId: string,
   }): CancelablePromise<Array<{
     publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
     companyName: string;
     email: string;
     updatedAt: string;

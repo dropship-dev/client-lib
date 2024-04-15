@@ -28,7 +28,7 @@ export class TransactionService {
     nextPageIndex,
     walletId,
   }: {
-    storeId?: string,
+    storeId: string,
     fulfillmentAgencyId?: number,
     search?: string,
     startDate?: string,
@@ -55,8 +55,10 @@ export class TransactionService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction',
-      query: {
+      path: {
         'storeId': storeId,
+      },
+      query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'search': search,
         'startDate': startDate,

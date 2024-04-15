@@ -45,4 +45,27 @@ export class AuthService {
     });
   }
 
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public signInPusher({
+    requestBody,
+  }: {
+    requestBody: any,
+  }): CancelablePromise<any> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/auth/pusher/user-auth',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
 }
