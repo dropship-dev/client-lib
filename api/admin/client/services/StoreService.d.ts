@@ -168,6 +168,15 @@ export declare class StoreService {
         requestBody: UpdateStorePaymentMethodDto;
     }): CancelablePromise<Store>;
     /**
+     * @returns Store Ok
+     * @throws ApiError
+     */
+    deleteStorePaymentMethod({ fulfillmentAgencyId, storeId, paymentId, }: {
+        fulfillmentAgencyId: number;
+        storeId: string;
+        paymentId: number;
+    }): CancelablePromise<Store>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
