@@ -24,7 +24,7 @@ export type Payment = {
   companyPhone: string | null;
   companyName: string | null;
   name: string;
-  email: string | null;
+  email: string;
   type: PaymentType;
   userId: string;
   id: number;
