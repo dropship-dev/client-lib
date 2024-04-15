@@ -12,4 +12,8 @@ export type CreateOrderDto = {
     orderItems?: Array<OrderItemDto>;
     comboItems?: Array<ComboItemDto>;
     referrer?: string;
+    cloverOrder?: {
+        tokenCard: string;
+        orderCloverId: string;
+    };
 };
