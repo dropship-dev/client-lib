@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { PaymentMethodType } from '../models/PaymentMethodType';
+import type { PingPongAccount } from '../models/PingPongAccount';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
 
@@ -47,6 +48,7 @@ export class TransactionService {
         convertCurrencyCode: string;
         paymentMethod: PaymentMethodType;
         convertCurrencyAmount: number;
+        PingPongAccount: PingPongAccount;
         BankAccount: BankAccount;
         id: string;
       };
