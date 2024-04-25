@@ -316,6 +316,7 @@ export class OrderService {
     endDate,
     startTotal,
     endTotal,
+    gateway,
   }: {
     /**
      * filter by store ID
@@ -345,6 +346,7 @@ export class OrderService {
     endDate?: string,
     startTotal?: number,
     endTotal?: number,
+    gateway?: Array<number>,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
@@ -393,6 +395,7 @@ export class OrderService {
         'endDate': endDate,
         'startTotal': startTotal,
         'endTotal': endTotal,
+        'gateway': gateway,
       },
       errors: {
         400: `Bad request`,
