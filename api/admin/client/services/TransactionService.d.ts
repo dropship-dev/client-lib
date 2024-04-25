@@ -13,7 +13,7 @@ export declare class TransactionService {
      * @throws ApiError
      */
     getAllStoreTransaction({ storeId, fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, walletId, }: {
-        storeId: string;
+        storeId?: string;
         fulfillmentAgencyId?: number;
         search?: string;
         startDate?: string;
