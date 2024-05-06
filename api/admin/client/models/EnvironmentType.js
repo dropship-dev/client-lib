@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnvironmentType = void 0;
 var EnvironmentType;
 (function (EnvironmentType) {
-    EnvironmentType["DEVELOPMENT"] = "DEVELOPMENT";
-    EnvironmentType["STAGING"] = "STAGING";
     EnvironmentType["PRODUCTION"] = "PRODUCTION";
+    EnvironmentType["SANDBOX"] = "SANDBOX";
 })(EnvironmentType || (exports.EnvironmentType = EnvironmentType = {}));
