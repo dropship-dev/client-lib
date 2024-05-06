@@ -4,7 +4,6 @@
 /* eslint-disable */
 
 export enum EnvironmentType {
-  DEVELOPMENT = 'DEVELOPMENT',
-  STAGING = 'STAGING',
   PRODUCTION = 'PRODUCTION',
+  SANDBOX = 'SANDBOX',
 }
