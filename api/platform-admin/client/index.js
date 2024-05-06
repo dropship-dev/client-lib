@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = exports.UploadService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.EnvironmentType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CostCalculationMethod = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -28,6 +28,8 @@ var CurrencyType_1 = require("./models/CurrencyType");
 Object.defineProperty(exports, "CurrencyType", { enumerable: true, get: function () { return CurrencyType_1.CurrencyType; } });
 var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
+var EnvironmentType_1 = require("./models/EnvironmentType");
+Object.defineProperty(exports, "EnvironmentType", { enumerable: true, get: function () { return EnvironmentType_1.EnvironmentType; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
 Object.defineProperty(exports, "FulfillmentAgencyRole", { enumerable: true, get: function () { return FulfillmentAgencyRole_1.FulfillmentAgencyRole; } });
 var FulfillmentAgencyStatus_1 = require("./models/FulfillmentAgencyStatus");
