@@ -14,6 +14,6 @@ export type CreateOrderDto = {
     referrer?: string;
     cloverOrder?: {
         tokenCard: string;
-        orderCloverId: string;
+        orderSystemId: string;
     };
 };
