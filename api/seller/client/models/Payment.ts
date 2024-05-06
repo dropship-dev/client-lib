@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { EnvironmentType } from './EnvironmentType';
 import type { PaymentType } from './PaymentType';
 
 /**
@@ -12,6 +13,7 @@ export type Payment = {
   updatedAt: string;
   createdAt: string;
   fulfillmentAgencyId: number | null;
+  environment: EnvironmentType | null;
   UIVersion: number;
   deleted: boolean;
   gatewayUrl: string | null;
