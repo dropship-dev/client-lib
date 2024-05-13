@@ -230,11 +230,9 @@ export class ProductService {
   public getProductByPermalink({
     storeId,
     permalink,
-    bmClientInfo,
   }: {
     storeId: string,
     permalink: string,
-    bmClientInfo?: string,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
@@ -257,7 +255,6 @@ export class ProductService {
     PlatformProduct: {
       variantOption: VariantOptions;
       id: number;
-      fulfillmentAgencyId: number;
     };
   })> {
     return this.httpRequest.request({
@@ -265,9 +262,6 @@ export class ProductService {
       url: '/store/{storeId}/product/permalink',
       path: {
         'storeId': storeId,
-      },
-      headers: {
-        'BM-Client-Info': bmClientInfo,
       },
       query: {
         'permalink': permalink,
