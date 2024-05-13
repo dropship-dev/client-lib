@@ -100,10 +100,9 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, bmClientInfo, }: {
+    getProductByPermalink({ storeId, permalink, }: {
         storeId: string;
         permalink: string;
-        bmClientInfo?: string;
     }): CancelablePromise<(Product & {
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;
@@ -126,7 +125,6 @@ export declare class ProductService {
         PlatformProduct: {
             variantOption: VariantOptions;
             id: number;
-            fulfillmentAgencyId: number;
         };
     })>;
     /**
