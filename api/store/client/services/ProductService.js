@@ -62,12 +62,15 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, }) {
+    getProductByPermalink({ storeId, permalink, bmClientInfo, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/permalink',
             path: {
                 'storeId': storeId,
+            },
+            headers: {
+                'BM-Client-Info': bmClientInfo,
             },
             query: {
                 'permalink': permalink,
