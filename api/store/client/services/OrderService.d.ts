@@ -48,6 +48,8 @@ export declare class OrderService {
         requestBody: CreateOrderDto;
         bmClientInfo?: string;
     }): CancelablePromise<{
-        status: string;
+        status: {
+            notIn: Array<string>;
+        };
     }>;
 }
