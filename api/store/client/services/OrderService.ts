@@ -103,7 +103,9 @@ export class OrderService {
     requestBody: CreateOrderDto,
     bmClientInfo?: string,
   }): CancelablePromise<{
-    status: string;
+    status: {
+      notIn: Array<string>;
+    };
   }> {
     return this.httpRequest.request({
       method: 'POST',
