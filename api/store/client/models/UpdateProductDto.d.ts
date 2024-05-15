@@ -15,6 +15,7 @@ export type UpdateProductDto = {
     SKU?: string;
     permalink?: string;
     tags?: Array<string>;
+    supplierContact?: string;
     campaign?: CampaignDto;
     discount?: Array<DiscountDto>;
 };
