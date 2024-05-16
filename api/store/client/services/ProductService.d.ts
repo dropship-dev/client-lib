@@ -102,9 +102,10 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProduct({ storeId, productId, }: {
+    getProduct({ storeId, productId, isGetAllPlatformProductStore, }: {
         storeId: string;
         productId: number;
+        isGetAllPlatformProductStore?: boolean;
     }): CancelablePromise<(Product & {
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;
