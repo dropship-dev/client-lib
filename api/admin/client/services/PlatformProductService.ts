@@ -200,9 +200,11 @@ export class PlatformProductService {
   public getPlatformProduct({
     fulfillmentAgencyId,
     platformProductId,
+    isGetAllPlatformProductStore,
   }: {
     fulfillmentAgencyId: number,
     platformProductId: number,
+    isGetAllPlatformProductStore?: boolean,
   }): CancelablePromise<(PlatformProduct & {
     Tag: Array<AdminTag>;
     GroupPlatformVariant: Array<(GroupPlatformVariant & {
@@ -223,6 +225,7 @@ export class PlatformProductService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
       },
       errors: {
         400: `Bad request`,
@@ -406,9 +409,11 @@ export class PlatformProductService {
   public getPlatformProductStore({
     fulfillmentAgencyId,
     platformProductId,
+    isGetAllPlatformProductStore,
   }: {
     fulfillmentAgencyId: number,
     platformProductId: number,
+    isGetAllPlatformProductStore?: boolean,
   }): CancelablePromise<Array<PlatformProductStore>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -418,6 +423,7 @@ export class PlatformProductService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+        'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
       },
       errors: {
         400: `Bad request`,
