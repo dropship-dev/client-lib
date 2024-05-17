@@ -3,4 +3,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrismaJson_ThemeStyle = Record<string, any>;
+export type PrismaJson_ThemeSetting = Record<string, any>;

@@ -5,6 +5,7 @@
 import type { ContactFormDto } from '../models/ContactFormDto';
 import type { Currency } from '../models/Currency';
 import type { CustomDomain } from '../models/CustomDomain';
+import type { EnvironmentType } from '../models/EnvironmentType';
 import type { PaymentType } from '../models/PaymentType';
 import type { Photos } from '../models/Photos';
 import type { Theme } from '../models/Theme';
@@ -60,6 +61,7 @@ export class StoreService {
       ThemeTemplate: ThemeTemplate;
     });
     Payment: Array<{
+      environment: EnvironmentType;
       UIVersion: number;
       publishableKey: string;
       isShowCompanyAddress: boolean;

@@ -283,9 +283,11 @@ export class ProductService {
   public getProduct({
     storeId,
     productId,
+    isGetAllPlatformProductStore,
   }: {
     storeId: string,
     productId: number,
+    isGetAllPlatformProductStore?: boolean,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
@@ -310,6 +312,9 @@ export class ProductService {
       path: {
         'storeId': storeId,
         'productId': productId,
+      },
+      query: {
+        'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
       },
       errors: {
         400: `Bad request`,

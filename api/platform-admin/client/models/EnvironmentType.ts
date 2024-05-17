@@ -3,4 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrismaJson_ThemeStyle = Record<string, any>;
+export enum EnvironmentType {
+  PRODUCTION = 'PRODUCTION',
+  SANDBOX = 'SANDBOX',
+}

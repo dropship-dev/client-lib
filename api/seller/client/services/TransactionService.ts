@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { BankAccount } from '../models/BankAccount';
 import type { PaymentMethodType } from '../models/PaymentMethodType';
+import type { PingPongAccount } from '../models/PingPongAccount';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Transaction } from '../models/Transaction';
 
@@ -28,7 +29,7 @@ export class TransactionService {
     nextPageIndex,
     walletId,
   }: {
-    storeId: string,
+    storeId?: string,
     fulfillmentAgencyId?: number,
     search?: string,
     startDate?: string,
@@ -47,6 +48,7 @@ export class TransactionService {
         convertCurrencyCode: string;
         paymentMethod: PaymentMethodType;
         convertCurrencyAmount: number;
+        PingPongAccount: PingPongAccount;
         BankAccount: BankAccount;
         id: string;
       };
@@ -55,10 +57,8 @@ export class TransactionService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/transaction',
-      path: {
-        'storeId': storeId,
-      },
       query: {
+        'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'search': search,
         'startDate': startDate,
