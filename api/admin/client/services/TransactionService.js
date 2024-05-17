@@ -14,10 +14,8 @@ class TransactionService {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/transaction',
-            path: {
-                'storeId': storeId,
-            },
             query: {
+                'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'search': search,
                 'startDate': startDate,

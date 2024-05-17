@@ -14,6 +14,7 @@ export declare class OrderService {
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
         clientSecret: string;
+        orderId: string;
         id: string;
     }>;
     /**

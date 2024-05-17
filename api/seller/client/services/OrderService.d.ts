@@ -24,7 +24,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
         /**
          * filter by store ID
          */
@@ -53,6 +53,7 @@ export declare class OrderService {
         endDate?: string;
         startTotal?: number;
         endTotal?: number;
+        gateway?: Array<number>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;

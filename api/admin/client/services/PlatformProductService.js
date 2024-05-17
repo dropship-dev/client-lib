@@ -102,7 +102,7 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPlatformProduct({ fulfillmentAgencyId, platformProductId, }) {
+    getPlatformProduct({ fulfillmentAgencyId, platformProductId, isGetAllPlatformProductStore, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}',
@@ -111,6 +111,7 @@ class PlatformProductService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
             },
             errors: {
                 400: `Bad request`,
@@ -247,7 +248,7 @@ class PlatformProductService {
      * @returns PlatformProductStore Ok
      * @throws ApiError
      */
-    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, }) {
+    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, isGetAllPlatformProductStore, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product/{platformProductId}/store',
@@ -256,6 +257,7 @@ class PlatformProductService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+                'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
             },
             errors: {
                 400: `Bad request`,

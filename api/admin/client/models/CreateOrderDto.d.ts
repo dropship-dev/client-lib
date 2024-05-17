@@ -12,4 +12,9 @@ export type CreateOrderDto = {
     orderItems?: Array<OrderItemDto>;
     comboItems?: Array<ComboItemDto>;
     referrer?: string;
+    timezoneLocalBrowser?: string;
+    cloverOrder?: {
+        tokenCard: string;
+        orderSystemId: string;
+    };
 };

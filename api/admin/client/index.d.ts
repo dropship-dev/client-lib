@@ -69,6 +69,7 @@ export { CustomDomainStatus } from './models/CustomDomainStatus';
 export type { Discount } from './models/Discount';
 export type { DiscountDto } from './models/DiscountDto';
 export type { EmailDto } from './models/EmailDto';
+export { EnvironmentType } from './models/EnvironmentType';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
@@ -125,6 +126,7 @@ export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_Pro
 export type { PrismaJson_RefundOrderItems } from './models/PrismaJson_RefundOrderItems';
 export type { PrismaJson_RequestSourcingHistory } from './models/PrismaJson_RequestSourcingHistory';
 export type { PrismaJson_SyncBalanceAmount } from './models/PrismaJson_SyncBalanceAmount';
+export type { PrismaJson_ThemeSetting } from './models/PrismaJson_ThemeSetting';
 export type { PrismaJson_ThemeStyle } from './models/PrismaJson_ThemeStyle';
 export type { PrismaJson_Timezone } from './models/PrismaJson_Timezone';
 export type { PrismaJson_UnavailableBalance } from './models/PrismaJson_UnavailableBalance';

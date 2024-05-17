@@ -15,6 +15,7 @@ export type Order = {
     paymentId: number;
     currencyId: number;
     storeId: string;
+    timezoneLocalBrowser: string | null;
     fulfillmentStatus: FulfillmentStatus;
     /**
      * [SyncBalanceAmount]

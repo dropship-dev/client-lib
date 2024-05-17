@@ -1,3 +1,4 @@
+import type { EnvironmentType } from './EnvironmentType';
 import type { PaymentType } from './PaymentType';
 /**
  * Model Payment
@@ -6,6 +7,7 @@ export type Payment = {
     updatedAt: string;
     createdAt: string;
     fulfillmentAgencyId: number | null;
+    environment: EnvironmentType | null;
     UIVersion: number;
     deleted: boolean;
     gatewayUrl: string | null;

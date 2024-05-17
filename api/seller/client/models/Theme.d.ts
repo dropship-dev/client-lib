@@ -1,6 +1,7 @@
 import type { LogoSize } from './LogoSize';
 import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
+import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 /**
  * Model Theme
@@ -13,6 +14,10 @@ export type Theme = {
      */
     themeTemplateId: number | null;
     storeId: string;
+    /**
+     * [ThemeSetting]
+     */
+    setting: PrismaJson_ThemeSetting;
     /**
      * [ThemeStyle]
      */

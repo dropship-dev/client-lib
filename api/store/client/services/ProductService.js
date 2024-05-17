@@ -85,13 +85,16 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProduct({ storeId, productId, }) {
+    getProduct({ storeId, productId, isGetAllPlatformProductStore, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/{productId}',
             path: {
                 'storeId': storeId,
                 'productId': productId,
+            },
+            query: {
+                'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
             },
             errors: {
                 400: `Bad request`,

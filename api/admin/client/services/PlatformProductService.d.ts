@@ -96,9 +96,10 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getPlatformProduct({ fulfillmentAgencyId, platformProductId, }: {
+    getPlatformProduct({ fulfillmentAgencyId, platformProductId, isGetAllPlatformProductStore, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
+        isGetAllPlatformProductStore?: boolean;
     }): CancelablePromise<(PlatformProduct & {
         Tag: Array<AdminTag>;
         GroupPlatformVariant: Array<(GroupPlatformVariant & {
@@ -159,8 +160,9 @@ export declare class PlatformProductService {
      * @returns PlatformProductStore Ok
      * @throws ApiError
      */
-    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, }: {
+    getPlatformProductStore({ fulfillmentAgencyId, platformProductId, isGetAllPlatformProductStore, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
+        isGetAllPlatformProductStore?: boolean;
     }): CancelablePromise<Array<PlatformProductStore>>;
 }
