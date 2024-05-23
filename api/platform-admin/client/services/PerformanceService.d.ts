@@ -15,6 +15,22 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
+    getProductByLocation({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+        storeId?: string;
+    }): CancelablePromise<Array<{
+        quantityOfOrder: {
+            id: number;
+        };
+        city: string;
+        country: string;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getRevenueOverTime({ fulfillmentAgencyId, startDate, endDate, storeId, referralCode, }: {
         fulfillmentAgencyId?: number;
         startDate?: string;

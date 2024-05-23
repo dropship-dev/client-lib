@@ -10,6 +10,29 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
+    getProductByLocation({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/top-locations',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getRevenueOverTime({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, referralCode, }) {
         return this.httpRequest.request({
             method: 'GET',
