@@ -18,6 +18,16 @@ export declare class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
+    getActiveThemePage({ storeId, pageName, }: {
+        storeId: string;
+        pageName: string;
+    }): CancelablePromise<(Theme & {
+        ThemePage: Array<ThemePage>;
+    })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
