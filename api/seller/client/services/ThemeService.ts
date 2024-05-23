@@ -143,6 +143,36 @@ export class ThemeService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getActiveThemePage({
+    storeId,
+    pageName,
+  }: {
+    storeId: string,
+    pageName: string,
+  }): CancelablePromise<(Theme & {
+    ThemePage: Array<ThemePage>;
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/theme/active/page/{pageName}',
+      path: {
+        'storeId': storeId,
+        'pageName': pageName,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getTheme({
     storeId,
     id,
