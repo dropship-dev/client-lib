@@ -109,13 +109,13 @@ export declare class StoreService {
         })>;
     })>;
     /**
-     * @returns Store Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateStore({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStoreDto;
-    }): CancelablePromise<Store>;
+    }): CancelablePromise<string>;
     /**
      * @returns Store Ok
      * @throws ApiError
