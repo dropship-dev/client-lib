@@ -56,7 +56,7 @@ export declare class ThemeService {
         storeId: string;
         pageName: string;
     }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
+        ThemePage: ThemePage;
     })>;
     /**
      * @returns any Ok
