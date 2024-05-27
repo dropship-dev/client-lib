@@ -50,7 +50,7 @@ export class ThemeService {
     storeId: string,
     pageName: string,
   }): CancelablePromise<(Theme & {
-    ThemePage: Array<ThemePage>;
+    ThemePage: ThemePage;
   })> {
     return this.httpRequest.request({
       method: 'GET',
