@@ -30,18 +30,6 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVisitorViewProductByStore({ storeId, startDate, endDate, }: {
-        storeId: string;
-        startDate: string;
-        endDate: string;
-    }): CancelablePromise<{
-        coordinates: Array<coordinate>;
-        viewer: number;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }: {
         fulfillmentAgencyId: number;
         startDate: string;

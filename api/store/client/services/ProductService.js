@@ -33,30 +33,6 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVisitorViewProductByStore({ storeId, startDate, endDate, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/get-visitor-by-store',
-            path: {
-                'storeId': storeId,
-            },
-            query: {
-                'startDate': startDate,
-                'endDate': endDate,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
