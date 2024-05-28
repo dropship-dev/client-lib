@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
+import type { coordinate } from '../models/coordinate';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
@@ -73,6 +74,42 @@ export class ProductService {
       },
       query: {
         'isActive': isActive,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getVisitorViewProductByFulfillment({
+    fulfillmentAgencyId,
+    startDate,
+    endDate,
+  }: {
+    fulfillmentAgencyId: number,
+    startDate: string,
+    endDate: string,
+  }): CancelablePromise<{
+    coordinates: Array<coordinate>;
+    viewer: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{fulfillmentAgencyId}/get-visitor-by-fulfilmment-agency',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      query: {
+        'startDate': startDate,
+        'endDate': endDate,
       },
       errors: {
         400: `Bad request`,
