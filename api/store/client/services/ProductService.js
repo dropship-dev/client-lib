@@ -33,6 +33,54 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getVisitorViewProductByStore({ storeId, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/get-visitor-by-store',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/{fulfillmentAgencyId}/get-visitor-by-fulfilmment-agency',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            query: {
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
         return this.httpRequest.request({
             method: 'GET',

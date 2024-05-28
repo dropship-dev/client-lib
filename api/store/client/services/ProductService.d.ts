@@ -1,5 +1,6 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
+import type { coordinate } from '../models/coordinate';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -24,6 +25,30 @@ export declare class ProductService {
         isActive?: boolean;
     }): CancelablePromise<{
         count: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVisitorViewProductByStore({ storeId, startDate, endDate, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        coordinates: Array<coordinate>;
+        viewer: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }: {
+        fulfillmentAgencyId: number;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        coordinates: Array<coordinate>;
+        viewer: number;
     }>;
     /**
      * @returns any Ok
