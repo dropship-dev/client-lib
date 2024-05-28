@@ -44,7 +44,7 @@ export declare class ProductService {
         startDate: string;
         endDate: string;
     }): CancelablePromise<{
-        coordinates: Array<coordinate>;
+        coordinates: coordinate;
         viewer: number;
     }>;
     /**
