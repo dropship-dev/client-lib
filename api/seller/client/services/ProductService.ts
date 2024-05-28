@@ -102,7 +102,7 @@ export class ProductService {
     startDate: string,
     endDate: string,
   }): CancelablePromise<{
-    coordinates: Array<coordinate>;
+    coordinates: coordinate;
     viewer: number;
   }> {
     return this.httpRequest.request({
@@ -138,7 +138,7 @@ export class ProductService {
     startDate: string,
     endDate: string,
   }): CancelablePromise<{
-    coordinates: Array<coordinate>;
+    coordinates: coordinate;
     viewer: number;
   }> {
     return this.httpRequest.request({
