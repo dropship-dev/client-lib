@@ -59,42 +59,6 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getVisitorViewProductByStore({
-    storeId,
-    startDate,
-    endDate,
-  }: {
-    storeId: string,
-    startDate: string,
-    endDate: string,
-  }): CancelablePromise<{
-    coordinates: Array<coordinate>;
-    viewer: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/get-visitor-by-store',
-      path: {
-        'storeId': storeId,
-      },
-      query: {
-        'startDate': startDate,
-        'endDate': endDate,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public getVisitorViewProductByFulfillment({
     fulfillmentAgencyId,
     startDate,
