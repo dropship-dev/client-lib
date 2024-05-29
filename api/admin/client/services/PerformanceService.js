@@ -33,14 +33,13 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }) {
+    getLiveVisitor({ storeId, fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/performance/{fulfillmentAgencyId}/get-visitor-by-fulfilmment-agency',
-            path: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-            },
+            url: '/performance/visitor',
             query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
                 'startDate': startDate,
                 'endDate': endDate,
             },

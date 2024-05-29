@@ -1,4 +1,4 @@
-export type coordinate = Array<{
+export type Coordinate = {
     longitude: number;
     latitude: number;
-}>;
+};

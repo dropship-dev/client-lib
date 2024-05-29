@@ -1,4 +1,4 @@
-import type { coordinate } from '../models/coordinate';
+import type { Coordinate } from '../models/Coordinate';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StorePerformance } from '../models/StorePerformance';
@@ -32,12 +32,13 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }: {
-        fulfillmentAgencyId: number;
-        startDate: string;
-        endDate: string;
+    getLiveVisitor({ storeId, fulfillmentAgencyId, startDate, endDate, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
     }): CancelablePromise<{
-        coordinates: coordinate;
+        coordinates: Array<Coordinate>;
         viewer: number;
     }>;
     /**
