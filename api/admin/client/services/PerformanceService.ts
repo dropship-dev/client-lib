@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { coordinate } from '../models/coordinate';
+import type { Coordinate } from '../models/Coordinate';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StorePerformance } from '../models/StorePerformance';
@@ -63,25 +63,26 @@ export class PerformanceService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getVisitorViewProductByFulfillment({
+  public getLiveVisitor({
+    storeId,
     fulfillmentAgencyId,
-    startDate,
+    startDate = '2023-01-01T00:00:00.000Z',
     endDate,
   }: {
-    fulfillmentAgencyId: number,
-    startDate: string,
-    endDate: string,
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
   }): CancelablePromise<{
-    coordinates: coordinate;
+    coordinates: Array<Coordinate>;
     viewer: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/performance/{fulfillmentAgencyId}/get-visitor-by-fulfilmment-agency',
-      path: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-      },
+      url: '/performance/visitor',
       query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
         'startDate': startDate,
         'endDate': endDate,
       },

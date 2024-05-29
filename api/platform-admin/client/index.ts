@@ -35,7 +35,7 @@ export type { CloneProductDto } from './models/CloneProductDto';
 export type { Collection } from './models/Collection';
 export type { ComboItemDto } from './models/ComboItemDto';
 export type { ContactFormDto } from './models/ContactFormDto';
-export type { coordinate } from './models/coordinate';
+export type { Coordinate } from './models/Coordinate';
 export { CostCalculationMethod } from './models/CostCalculationMethod';
 export type { CreateBankAccountDto } from './models/CreateBankAccountDto';
 export type { CreateCollectionDto } from './models/CreateCollectionDto';
