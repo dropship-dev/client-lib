@@ -235,6 +235,7 @@ export { BankAccountService } from './services/BankAccountService';
 export { CollectionService } from './services/CollectionService';
 export { CurrencyService } from './services/CurrencyService';
 export { OrderService } from './services/OrderService';
+export { PerformanceService } from './services/PerformanceService';
 export { ProductService } from './services/ProductService';
 export { RequestPayoutService } from './services/RequestPayoutService';
 export { ReviewService } from './services/ReviewService';

@@ -6,6 +6,7 @@ const BankAccountService_1 = require("./services/BankAccountService");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
+const PerformanceService_1 = require("./services/PerformanceService");
 const ProductService_1 = require("./services/ProductService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const ReviewService_1 = require("./services/ReviewService");
@@ -22,6 +23,7 @@ class ClientApi {
     collection;
     currency;
     order;
+    performance;
     product;
     requestPayout;
     review;
@@ -50,6 +52,7 @@ class ClientApi {
         this.collection = new CollectionService_1.CollectionService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
+        this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);

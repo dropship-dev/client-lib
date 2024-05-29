@@ -1,6 +1,5 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
-import type { coordinate } from '../models/coordinate';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
@@ -34,18 +33,6 @@ export declare class ProductService {
         isActive?: boolean;
     }): CancelablePromise<{
         count: number;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getVisitorViewProductByFulfillment({ fulfillmentAgencyId, startDate, endDate, }: {
-        fulfillmentAgencyId: number;
-        startDate: string;
-        endDate: string;
-    }): CancelablePromise<{
-        coordinates: coordinate;
-        viewer: number;
     }>;
     /**
      * @returns any Ok
