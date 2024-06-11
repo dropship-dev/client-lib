@@ -22,6 +22,7 @@ export type Order = {
   currencyId: number;
   storeId: string;
   timezoneLocalBrowser: string | null;
+  fulfillmentCost: number | null;
   fulfillmentStatus: FulfillmentStatus;
   /**
    * [SyncBalanceAmount]

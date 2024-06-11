@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Coordinate } from '../models/Coordinate';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
@@ -15,6 +16,83 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PerformanceService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getProductByLocation({
+    fulfillmentAgencyId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+  }): CancelablePromise<Array<{
+    quantityOfOrder: {
+      id: number;
+    };
+    city: string;
+    country: string;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/top-locations',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getLiveVisitor({
+    storeId,
+    fulfillmentAgencyId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    coordinates: Array<Coordinate>;
+    viewer: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/visitor',
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 
   /**
    * @returns any Ok

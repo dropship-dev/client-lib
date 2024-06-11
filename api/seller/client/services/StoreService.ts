@@ -187,7 +187,7 @@ export class StoreService {
   }
 
   /**
-   * @returns Store Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public updateStore({
@@ -196,7 +196,7 @@ export class StoreService {
   }: {
     storeId: string,
     requestBody: UpdateStoreDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}',
