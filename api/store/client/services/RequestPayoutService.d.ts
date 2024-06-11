@@ -84,4 +84,12 @@ export declare class RequestPayoutService {
      * @throws ApiError
      */
     toolSyncBalanceAmountForSeller(): CancelablePromise<string>;
+    /**
+     * @returns number Ok
+     * @throws ApiError
+     */
+    getAllAmountRequestingStatus({ statusRequestPayout, fulfillmentAgencyId, }: {
+        statusRequestPayout: RequestPayoutStatus;
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<number>;
 }
