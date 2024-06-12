@@ -9,11 +9,11 @@ export type ThemeLibrary = {
     /**
      * [ThemeSetting]
      */
-    setting: PrismaJson_ThemeSetting;
+    setting: PrismaJson_ThemeSetting | null;
     /**
      * [ThemeStyle]
      */
-    style: PrismaJson_ThemeStyle;
+    style: PrismaJson_ThemeStyle | null;
     image: string | null;
     name: string;
     id: number;

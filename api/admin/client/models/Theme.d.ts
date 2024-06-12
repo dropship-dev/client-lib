@@ -17,11 +17,11 @@ export type Theme = {
     /**
      * [ThemeSetting]
      */
-    setting: PrismaJson_ThemeSetting;
+    setting: PrismaJson_ThemeSetting | null;
     /**
      * [ThemeStyle]
      */
-    style: PrismaJson_ThemeStyle;
+    style: PrismaJson_ThemeStyle | null;
     isActivated: boolean | null;
     /**
      * @deprecated
