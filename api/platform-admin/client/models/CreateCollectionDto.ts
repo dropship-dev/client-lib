@@ -5,18 +5,14 @@
 
 import type { CollectionStatus } from './CollectionStatus';
 import type { CollectionType } from './CollectionType';
-import type { CombineOperator } from './CombineOperator';
-import type { ConditionOperation } from './ConditionOperation';
 import type { NameDto } from './NameDto';
+import type { operatorCondition } from './operatorCondition';
 import type { PhotoDto } from './PhotoDto';
 
 export type CreateCollectionDto = {
   name: NameDto;
   photos?: Array<PhotoDto>;
-  condition?: {
-    combineOperator: CombineOperator;
-    conditionOperator: Array<ConditionOperation>;
-  };
+  condition?: operatorCondition;
   description?: string;
   SEO?: {
     metadata?: string;

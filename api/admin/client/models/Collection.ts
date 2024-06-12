@@ -28,7 +28,7 @@ export type Collection = {
   /**
    * [Photos]
    */
-  photos: PrismaJson_Photos;
+  photos: PrismaJson_Photos | null;
   name: string;
   status: CollectionStatus;
   type: CollectionType;

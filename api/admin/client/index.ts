@@ -112,6 +112,7 @@ export { OperatorCollection_LESS_TO } from './models/OperatorCollection_LESS_TO'
 export { OperatorCollection_NOT_CONTAIN } from './models/OperatorCollection_NOT_CONTAIN';
 export { OperatorCollection_NOT_EQUAL_TO } from './models/OperatorCollection_NOT_EQUAL_TO';
 export { OperatorCollection_STARTS_WITH } from './models/OperatorCollection_STARTS_WITH';
+export type { operatorCondition } from './models/operatorCondition';
 export type { Order } from './models/Order';
 export { OrderDisputeStatus } from './models/OrderDisputeStatus';
 export type { OrderItem } from './models/OrderItem';

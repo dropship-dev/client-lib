@@ -4,7 +4,9 @@
 /* eslint-disable */
 import type { Collection } from '../models/Collection';
 import type { CollectionStatus } from '../models/CollectionStatus';
+import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
+import type { operatorCondition } from '../models/operatorCondition';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -33,6 +35,54 @@ export class CollectionService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns Collection Ok
+   * @throws ApiError
+   */
+  public getAllCollection({
+    storeId,
+    pageSize = 20,
+    nextPageIndex,
+    startDate,
+    endDate,
+    search,
+    collectionType,
+    collectionStatus,
+  }: {
+    storeId: string,
+    pageSize?: number,
+    nextPageIndex?: string,
+    startDate?: string,
+    endDate?: string,
+    search?: string,
+    collectionType?: CollectionType,
+    collectionStatus?: CollectionStatus,
+  }): CancelablePromise<Array<Collection>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/collection',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+        'startDate': startDate,
+        'endDate': endDate,
+        'search': search,
+        'collectionType': collectionType,
+        'collectionStatus': collectionStatus,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -135,6 +185,35 @@ export class CollectionService {
    * @returns void
    * @throws ApiError
    */
+  public getProductByConditions({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: operatorCondition,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/collection/get-products-by-condtions-collection',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
   public updateStatusCollection({
     id,
     storeId,
@@ -153,6 +232,36 @@ export class CollectionService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteManyCollection({
+    id,
+    storeId,
+  }: {
+    id: Array<number>,
+    storeId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/collection/delete-many-collection',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'id': id,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
