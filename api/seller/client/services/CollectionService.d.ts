@@ -5,6 +5,7 @@ import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
+import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class CollectionService {
@@ -47,6 +48,14 @@ export declare class CollectionService {
         storeId: string;
     }): CancelablePromise<Collection>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCollection({ id, storeId, }: {
+        id: number;
+        storeId: string;
+    }): CancelablePromise<string>;
+    /**
      * @returns void
      * @throws ApiError
      */
@@ -56,14 +65,6 @@ export declare class CollectionService {
         requestBody: UpdateCollectionDto;
     }): CancelablePromise<void>;
     /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCollection({ id, storeId, }: {
-        id: number;
-        storeId: string;
-    }): CancelablePromise<string>;
-    /**
      * @returns Product Ok
      * @throws ApiError
      */
@@ -72,15 +73,6 @@ export declare class CollectionService {
         requestBody: operatorCondition;
     }): CancelablePromise<Array<Product>>;
     /**
-     * @returns void
-     * @throws ApiError
-     */
-    updateStatusCollection({ id, storeId, requestBody, }: {
-        id: number;
-        storeId: string;
-        requestBody: CollectionStatus;
-    }): CancelablePromise<void>;
-    /**
      * @returns string Ok
      * @throws ApiError
      */
@@ -88,6 +80,15 @@ export declare class CollectionService {
         id: Array<number>;
         storeId: string;
     }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateStatusCollection({ id, storeId, requestBody, }: {
+        id: number;
+        storeId: string;
+        requestBody: UpdateCollectionStatusDto;
+    }): CancelablePromise<void>;
     /**
      * @returns Collection Ok
      * @throws ApiError

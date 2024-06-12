@@ -196,6 +196,7 @@ export { typeFulfillmentPrice } from './models/typeFulfillmentPrice';
 export type { UpdateBankAccountDto } from './models/UpdateBankAccountDto';
 export type { UpdateCampaignDto } from './models/UpdateCampaignDto';
 export type { UpdateCollectionDto } from './models/UpdateCollectionDto';
+export type { UpdateCollectionStatusDto } from './models/UpdateCollectionStatusDto';
 export type { UpdateComboDto } from './models/UpdateComboDto';
 export type { UpdateCombosDto } from './models/UpdateCombosDto';
 export type { UpdateComboStatusDto } from './models/UpdateComboStatusDto';
