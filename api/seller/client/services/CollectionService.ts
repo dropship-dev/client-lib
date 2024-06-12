@@ -9,6 +9,7 @@ import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
+import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -129,6 +130,34 @@ export class CollectionService {
   }
 
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteCollection({
+    id,
+    storeId,
+  }: {
+    id: number,
+    storeId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/collection/{id}',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
    * @returns void
    * @throws ApiError
    */
@@ -150,34 +179,6 @@ export class CollectionService {
       },
       body: requestBody,
       mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public deleteCollection({
-    id,
-    storeId,
-  }: {
-    id: number,
-    storeId: string,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/store/{storeId}/collection/{id}',
-      path: {
-        'id': id,
-        'storeId': storeId,
-      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -218,38 +219,6 @@ export class CollectionService {
   }
 
   /**
-   * @returns void
-   * @throws ApiError
-   */
-  public updateStatusCollection({
-    id,
-    storeId,
-    requestBody,
-  }: {
-    id: number,
-    storeId: string,
-    requestBody: CollectionStatus,
-  }): CancelablePromise<void> {
-    return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/store/{storeId}/collection/{id}/status',
-      path: {
-        'id': id,
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
    * @returns string Ok
    * @throws ApiError
    */
@@ -269,6 +238,38 @@ export class CollectionService {
       query: {
         'id': id,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateStatusCollection({
+    id,
+    storeId,
+    requestBody,
+  }: {
+    id: number,
+    storeId: string,
+    requestBody: UpdateCollectionStatusDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/collection/{id}/status',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
