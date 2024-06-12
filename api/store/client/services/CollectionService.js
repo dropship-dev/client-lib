@@ -10,27 +10,6 @@ class CollectionService {
      * @returns Collection Ok
      * @throws ApiError
      */
-    getCollection({ id, storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/collection/{id}',
-            path: {
-                'id': id,
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns Collection Ok
-     * @throws ApiError
-     */
     getCrossSell({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',

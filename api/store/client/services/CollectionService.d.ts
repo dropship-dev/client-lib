@@ -8,14 +8,6 @@ export declare class CollectionService {
      * @returns Collection Ok
      * @throws ApiError
      */
-    getCollection({ id, storeId, }: {
-        id: number;
-        storeId: string;
-    }): CancelablePromise<Collection>;
-    /**
-     * @returns Collection Ok
-     * @throws ApiError
-     */
     getCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
