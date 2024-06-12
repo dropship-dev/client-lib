@@ -123,7 +123,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns void
+     * @returns Product Ok
      * @throws ApiError
      */
     getProductByConditions({ storeId, requestBody, }) {

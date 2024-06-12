@@ -3,6 +3,7 @@ import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
+import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -57,13 +58,13 @@ export declare class CollectionService {
         storeId: string;
     }): CancelablePromise<string>;
     /**
-     * @returns void
+     * @returns Product Ok
      * @throws ApiError
      */
     getProductByConditions({ storeId, requestBody, }: {
         storeId: string;
         requestBody: operatorCondition;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<Array<Product>>;
     /**
      * @returns void
      * @throws ApiError
