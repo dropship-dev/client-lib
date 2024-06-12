@@ -7,6 +7,7 @@ import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
+import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -182,7 +183,7 @@ export class CollectionService {
   }
 
   /**
-   * @returns void
+   * @returns Product Ok
    * @throws ApiError
    */
   public getProductByConditions({
@@ -191,7 +192,7 @@ export class CollectionService {
   }: {
     storeId: string,
     requestBody: operatorCondition,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<Array<Product>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/collection/get-products-by-condtions-collection',
