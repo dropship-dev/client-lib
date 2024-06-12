@@ -1,4 +1,5 @@
 import type { Collection } from '../models/Collection';
+import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -10,29 +11,84 @@ export declare class CollectionService {
      * @returns Collection Ok
      * @throws ApiError
      */
-    createCollection({ requestBody, }: {
+    createCollection({ storeId, requestBody, }: {
+        storeId: string;
         requestBody: CreateCollectionDto;
     }): CancelablePromise<Collection>;
     /**
      * @returns Collection Ok
      * @throws ApiError
      */
-    getCollection({ id, }: {
+    getCollection({ id, storeId, }: {
         id: number;
+        storeId: string;
     }): CancelablePromise<Collection>;
     /**
-     * @returns Collection Ok
+     * @returns void
      * @throws ApiError
      */
-    updateCollection({ id, requestBody, }: {
+    updateCollection({ id, storeId, requestBody, }: {
         id: number;
+        storeId: string;
         requestBody: UpdateCollectionDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCollection({ id, storeId, }: {
+        id: number;
+        storeId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateStatusCollection({ id, storeId, requestBody, }: {
+        id: number;
+        storeId: string;
+        requestBody: CollectionStatus;
+    }): CancelablePromise<void>;
+    /**
+     * @returns Collection Ok
+     * @throws ApiError
+     */
+    createCrossSell({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateCollectionDto;
     }): CancelablePromise<Collection>;
     /**
      * @returns Collection Ok
      * @throws ApiError
      */
-    deleteCollection({ id, }: {
+    getCrossSell({ id, storeId, }: {
         id: number;
+        storeId: string;
     }): CancelablePromise<Collection>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateCrossSell({ id, storeId, requestBody, }: {
+        id: number;
+        storeId: string;
+        requestBody: UpdateCollectionDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCrossSell({ id, storeId, }: {
+        id: number;
+        storeId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateStatusCrossSell({ id, storeId, requestBody, }: {
+        id: number;
+        storeId: string;
+        requestBody: CollectionStatus;
+    }): CancelablePromise<void>;
 }
