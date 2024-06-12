@@ -19,7 +19,7 @@ export declare class CollectionService {
         requestBody: CreateCollectionDto;
     }): CancelablePromise<Collection>;
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllCollection({ storeId, pageSize, nextPageIndex, startDate, endDate, search, collectionType, collectionStatus, }: {
@@ -31,7 +31,13 @@ export declare class CollectionService {
         search?: string;
         collectionType?: CollectionType;
         collectionStatus?: CollectionStatus;
-    }): CancelablePromise<Array<Collection>>;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<Collection>;
+    }>;
     /**
      * @returns Collection Ok
      * @throws ApiError

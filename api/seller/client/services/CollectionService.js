@@ -29,7 +29,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllCollection({ storeId, pageSize = 20, nextPageIndex, startDate, endDate, search, collectionType, collectionStatus, }) {
