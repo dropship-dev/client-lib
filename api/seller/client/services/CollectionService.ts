@@ -47,7 +47,7 @@ export class CollectionService {
   }
 
   /**
-   * @returns Collection Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllCollection({
@@ -68,7 +68,13 @@ export class CollectionService {
     search?: string,
     collectionType?: CollectionType,
     collectionStatus?: CollectionStatus,
-  }): CancelablePromise<Array<Collection>> {
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<Collection>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/collection',
