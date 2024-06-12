@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Collection } from '../models/Collection';
+import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 
@@ -18,13 +19,18 @@ export class CollectionService {
    * @throws ApiError
    */
   public createCollection({
+    storeId,
     requestBody,
   }: {
+    storeId: string,
     requestBody: CreateCollectionDto,
   }): CancelablePromise<Collection> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/collection',
+      path: {
+        'storeId': storeId,
+      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -43,14 +49,17 @@ export class CollectionService {
    */
   public getCollection({
     id,
+    storeId,
   }: {
     id: number,
+    storeId: string,
   }): CancelablePromise<Collection> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/collection/{id}',
       path: {
         'id': id,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -63,21 +72,84 @@ export class CollectionService {
   }
 
   /**
-   * @returns Collection Ok
+   * @returns void
    * @throws ApiError
    */
   public updateCollection({
     id,
+    storeId,
     requestBody,
   }: {
     id: number,
+    storeId: string,
     requestBody: UpdateCollectionDto,
-  }): CancelablePromise<Collection> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/collection/{id}',
       path: {
         'id': id,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteCollection({
+    id,
+    storeId,
+  }: {
+    id: number,
+    storeId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/collection/{id}',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateStatusCollection({
+    id,
+    storeId,
+    requestBody,
+  }: {
+    id: number,
+    storeId: string,
+    requestBody: CollectionStatus,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/collection/{id}/status',
+      path: {
+        'id': id,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -95,17 +167,141 @@ export class CollectionService {
    * @returns Collection Ok
    * @throws ApiError
    */
-  public deleteCollection({
-    id,
+  public createCrossSell({
+    storeId,
+    requestBody,
   }: {
-    id: number,
+    storeId: string,
+    requestBody: CreateCollectionDto,
   }): CancelablePromise<Collection> {
     return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/store/{storeId}/collection/{id}',
+      method: 'POST',
+      url: '/store/{storeId}/cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns Collection Ok
+   * @throws ApiError
+   */
+  public getCrossSell({
+    id,
+    storeId,
+  }: {
+    id: number,
+    storeId: string,
+  }): CancelablePromise<Collection> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/cross-sell/{id}',
       path: {
         'id': id,
+        'storeId': storeId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateCrossSell({
+    id,
+    storeId,
+    requestBody,
+  }: {
+    id: number,
+    storeId: string,
+    requestBody: UpdateCollectionDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/cross-sell/{id}',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteCrossSell({
+    id,
+    storeId,
+  }: {
+    id: number,
+    storeId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/cross-sell/{id}',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateStatusCrossSell({
+    id,
+    storeId,
+    requestBody,
+  }: {
+    id: number,
+    storeId: string,
+    requestBody: CollectionStatus,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/cross-sell/{id}/status',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
