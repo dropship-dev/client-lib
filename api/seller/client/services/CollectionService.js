@@ -58,7 +58,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCollection({ id, storeId, }) {

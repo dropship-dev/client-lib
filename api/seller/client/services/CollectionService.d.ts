@@ -1,8 +1,11 @@
 import type { Collection } from '../models/Collection';
 import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
+import type { ConditionCollection } from '../models/ConditionCollection';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
+import type { JsonValue } from '../models/JsonValue';
 import type { operatorCondition } from '../models/operatorCondition';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
@@ -40,13 +43,27 @@ export declare class CollectionService {
         data: Array<Collection>;
     }>;
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCollection({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<Collection>;
+    }): CancelablePromise<{
+        updatedAt: string;
+        createdAt: string;
+        SEO: JsonValue;
+        description: string;
+        queriesRaw: string;
+        condition: ConditionCollection;
+        photos: Photos;
+        name: string;
+        status: CollectionStatus;
+        type: CollectionType;
+        storeId: string;
+        id: number;
+        products: Array<Product>;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError
