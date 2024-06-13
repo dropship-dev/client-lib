@@ -3,6 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Collection } from '../models/Collection';
+import type { CrossSell } from '../models/CrossSell';
+import type { Product } from '../models/Product';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -12,7 +14,7 @@ export class CollectionService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Collection Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getCrossSell({
@@ -21,7 +23,10 @@ export class CollectionService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<Collection> {
+  }): CancelablePromise<(CrossSell & {
+    Product: Array<Product>;
+    Collection: Array<Collection>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/cross-sell/{id}',
