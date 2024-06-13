@@ -3,7 +3,7 @@ import type { NameDto } from './NameDto';
 import type { operatorCondition } from './operatorCondition';
 import type { PhotoDto } from './PhotoDto';
 export type UpdateCollectionDto = {
-    name: NameDto;
+    name?: NameDto;
     photos?: Array<PhotoDto>;
     condition?: operatorCondition;
     description?: string;
@@ -12,6 +12,6 @@ export type UpdateCollectionDto = {
         permalink: string;
         collectionTitle: string;
     };
-    status: CollectionStatus;
+    status?: CollectionStatus;
     productIds: Array<string>;
 };
