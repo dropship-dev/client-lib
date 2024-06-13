@@ -191,7 +191,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns string Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }) {
@@ -213,7 +213,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCrossSell({ id, storeId, }) {
@@ -234,7 +234,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }) {
@@ -257,7 +257,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }) {
@@ -291,6 +291,29 @@ class CollectionService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns BatchPayload Ok
+     * @throws ApiError
+     */
+    deleteManyCrossSell({ id, storeId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/cross-sell/delete-many-cross-sells',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'id': id,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

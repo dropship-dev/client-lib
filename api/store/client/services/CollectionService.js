@@ -7,7 +7,7 @@ class CollectionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCrossSell({ id, storeId, }) {
