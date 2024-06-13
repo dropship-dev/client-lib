@@ -10,7 +10,7 @@ import type { operatorCondition } from './operatorCondition';
 import type { PhotoDto } from './PhotoDto';
 
 export type CreateCollectionDto = {
-  name: NameDto;
+  name?: NameDto;
   photos?: Array<PhotoDto>;
   condition?: operatorCondition;
   description?: string;
@@ -19,7 +19,7 @@ export type CreateCollectionDto = {
     permalink: string;
     collectionTitle: string;
   };
-  status: CollectionStatus;
+  status?: CollectionStatus;
   type: CollectionType;
 };
 
