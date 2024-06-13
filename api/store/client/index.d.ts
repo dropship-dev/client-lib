@@ -107,6 +107,7 @@ export type { NameDto } from './models/NameDto';
 export type { Notification } from './models/Notification';
 export type { NotificationData } from './models/NotificationData';
 export { NotificationType } from './models/NotificationType';
+export { OperatorCollection_CONTAIN } from './models/OperatorCollection_CONTAIN';
 export { OperatorCollection_ENDS_WITH } from './models/OperatorCollection_ENDS_WITH';
 export { OperatorCollection_EQUAL_TO } from './models/OperatorCollection_EQUAL_TO';
 export { OperatorCollection_GREATER_TO } from './models/OperatorCollection_GREATER_TO';
