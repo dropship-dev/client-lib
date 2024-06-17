@@ -9,7 +9,7 @@ import type { Product } from '../models/Product';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class CollectionService {
+export class CrossSellService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 

@@ -275,6 +275,7 @@ export { AuthService } from './services/AuthService';
 export { BankAccountService } from './services/BankAccountService';
 export { CampaignService } from './services/CampaignService';
 export { CollectionService } from './services/CollectionService';
+export { CrossSellService } from './services/CrossSellService';
 export { CurrencyService } from './services/CurrencyService';
 export { DomainService } from './services/DomainService';
 export { FbPixelService } from './services/FbPixelService';

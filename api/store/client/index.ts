@@ -271,7 +271,7 @@ export type { Wallet } from './models/Wallet';
 export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 
 export { BankAccountService } from './services/BankAccountService';
-export { CollectionService } from './services/CollectionService';
+export { CrossSellService } from './services/CrossSellService';
 export { CurrencyService } from './services/CurrencyService';
 export { OrderService } from './services/OrderService';
 export { ProductService } from './services/ProductService';
