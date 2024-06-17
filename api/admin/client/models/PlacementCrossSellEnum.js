@@ -7,8 +7,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlacementCrossSellEnum = void 0;
 var PlacementCrossSellEnum;
 (function (PlacementCrossSellEnum) {
-    PlacementCrossSellEnum[PlacementCrossSellEnum["_0"] = 0] = "_0";
-    PlacementCrossSellEnum[PlacementCrossSellEnum["_1"] = 1] = "_1";
-    PlacementCrossSellEnum[PlacementCrossSellEnum["_2"] = 2] = "_2";
-    PlacementCrossSellEnum[PlacementCrossSellEnum["_3"] = 3] = "_3";
+    PlacementCrossSellEnum["CHECKOUT_PAGE"] = "CHECKOUT_PAGE";
+    PlacementCrossSellEnum["PRODUCT_PAGE"] = "PRODUCT_PAGE";
+    PlacementCrossSellEnum["CART_PAGE"] = "CART_PAGE";
+    PlacementCrossSellEnum["THANK_YOU_PAGE"] = "THANK_YOU_PAGE";
 })(PlacementCrossSellEnum || (exports.PlacementCrossSellEnum = PlacementCrossSellEnum = {}));
