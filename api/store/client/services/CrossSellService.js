@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CollectionService = void 0;
-class CollectionService {
+exports.CrossSellService = void 0;
+class CrossSellService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
@@ -28,4 +28,4 @@ class CollectionService {
         });
     }
 }
-exports.CollectionService = CollectionService;
+exports.CrossSellService = CrossSellService;

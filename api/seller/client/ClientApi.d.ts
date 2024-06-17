@@ -5,6 +5,7 @@ import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
 import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
+import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
@@ -40,6 +41,7 @@ export declare class ClientApi {
     readonly bankAccount: BankAccountService;
     readonly campaign: CampaignService;
     readonly collection: CollectionService;
+    readonly crossSell: CrossSellService;
     readonly currency: CurrencyService;
     readonly domain: DomainService;
     readonly fbPixel: FbPixelService;

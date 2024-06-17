@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.PlacementCrossSellType = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.EnvironmentType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.RequestPayoutService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CollectionService = exports.BankAccountService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = void 0;
+exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UploadService = exports.ThemeService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.ReviewService = exports.RequestPayoutService = exports.ProductService = exports.OrderService = exports.CurrencyService = exports.CrossSellService = exports.BankAccountService = exports.UserRole = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -115,8 +115,8 @@ var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
 var BankAccountService_1 = require("./services/BankAccountService");
 Object.defineProperty(exports, "BankAccountService", { enumerable: true, get: function () { return BankAccountService_1.BankAccountService; } });
-var CollectionService_1 = require("./services/CollectionService");
-Object.defineProperty(exports, "CollectionService", { enumerable: true, get: function () { return CollectionService_1.CollectionService; } });
+var CrossSellService_1 = require("./services/CrossSellService");
+Object.defineProperty(exports, "CrossSellService", { enumerable: true, get: function () { return CrossSellService_1.CrossSellService; } });
 var CurrencyService_1 = require("./services/CurrencyService");
 Object.defineProperty(exports, "CurrencyService", { enumerable: true, get: function () { return CurrencyService_1.CurrencyService; } });
 var OrderService_1 = require("./services/OrderService");
