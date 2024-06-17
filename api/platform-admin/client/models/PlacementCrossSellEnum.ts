@@ -4,8 +4,8 @@
 /* eslint-disable */
 
 export enum PlacementCrossSellEnum {
-  '_0' = 0,
-  '_1' = 1,
-  '_2' = 2,
-  '_3' = 3,
+  CHECKOUT_PAGE = 'CHECKOUT_PAGE',
+  PRODUCT_PAGE = 'PRODUCT_PAGE',
+  CART_PAGE = 'CART_PAGE',
+  THANK_YOU_PAGE = 'THANK_YOU_PAGE',
 }
