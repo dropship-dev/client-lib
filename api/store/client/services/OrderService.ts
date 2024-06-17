@@ -56,11 +56,17 @@ export class OrderService {
     storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
-    freeShipInfo: any;
-    total: any;
-    discountInfo: any;
-    subTotal: any;
-    shippingFee: any;
+    freeShipInfo: {
+      value?: number;
+      status?: boolean;
+    };
+    total: number;
+    discountInfo: {
+      value?: number;
+      label?: string;
+    };
+    subTotal: number;
+    shippingFee: number;
   }> {
     return this.httpRequest.request({
       method: 'POST',
