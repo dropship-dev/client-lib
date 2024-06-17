@@ -6,6 +6,7 @@ import type { BatchPayload } from '../models/BatchPayload';
 import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
+import type { CrossSellType } from '../models/CrossSellType';
 import type { Product } from '../models/Product';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
@@ -35,6 +36,63 @@ export class CrossSellService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllCrossSell({
+    storeId,
+    pageSize = 20,
+    nextPageIndex,
+    startDate,
+    endDate,
+    search,
+    crossSellType,
+    crossSellStatus,
+  }: {
+    storeId: string,
+    pageSize?: number,
+    nextPageIndex?: string,
+    startDate?: string,
+    endDate?: string,
+    search?: string,
+    crossSellType?: Array<CrossSellType>,
+    crossSellStatus?: boolean,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<(CrossSell & {
+      Product: Array<Product>;
+      Collection: Array<Collection>;
+    })>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+        'startDate': startDate,
+        'endDate': endDate,
+        'search': search,
+        'crossSellType': crossSellType,
+        'crossSellStatus': crossSellStatus,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
