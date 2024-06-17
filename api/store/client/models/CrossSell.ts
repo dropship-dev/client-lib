@@ -5,7 +5,7 @@
 
 import type { CrossSellTriggerType } from './CrossSellTriggerType';
 import type { CrossSellType } from './CrossSellType';
-import type { PrismaJson_DiscountCrossSell } from './PrismaJson_DiscountCrossSell';
+import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_PlacementCrossSellType } from './PrismaJson_PlacementCrossSellType';
 
 /**
@@ -17,9 +17,9 @@ export type CrossSell = {
   storeId: string;
   triggerBy: CrossSellTriggerType;
   /**
-   * [DiscountCrossSell]
+   * DiscountCrossSell
    */
-  discount: PrismaJson_DiscountCrossSell | null;
+  discount: Prisma_JsonValue | null;
   /**
    * [PlacementCrossSellType]
    */

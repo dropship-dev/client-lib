@@ -7,6 +7,7 @@ import type { LogoSize } from './LogoSize';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
+import type { PrismaJson_ThemeNotes } from './PrismaJson_ThemeNotes';
 import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 
@@ -46,5 +47,6 @@ export type CreateThemeDto = {
     content: string;
     name: NameDto;
   }>;
+  commonNotes?: PrismaJson_ThemeNotes;
 };
 
