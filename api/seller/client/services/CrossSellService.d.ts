@@ -2,6 +2,7 @@ import type { BatchPayload } from '../models/BatchPayload';
 import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
+import type { CrossSellType } from '../models/CrossSellType';
 import type { Product } from '../models/Product';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -17,6 +18,29 @@ export declare class CrossSellService {
         storeId: string;
         requestBody: CrossSellDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }: {
+        storeId: string;
+        pageSize?: number;
+        nextPageIndex?: string;
+        startDate?: string;
+        endDate?: string;
+        search?: string;
+        crossSellType?: Array<CrossSellType>;
+        crossSellStatus?: boolean;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<(CrossSell & {
+            Product: Array<Product>;
+            Collection: Array<Collection>;
+        })>;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

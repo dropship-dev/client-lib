@@ -32,6 +32,35 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
+    getAllCrossSell({ storeId, pageSize = 20, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/cross-sell',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+                'startDate': startDate,
+                'endDate': endDate,
+                'search': search,
+                'crossSellType': crossSellType,
+                'crossSellStatus': crossSellStatus,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getCrossSell({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
