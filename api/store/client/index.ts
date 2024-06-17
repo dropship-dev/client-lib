@@ -137,7 +137,7 @@ export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
 export type { PhotoDto } from './models/PhotoDto';
 export type { Photos } from './models/Photos';
 export type { PingPongAccount } from './models/PingPongAccount';
-export { PlacementCrossSellType } from './models/PlacementCrossSellType';
+export { PlacementCrossSellEnum } from './models/PlacementCrossSellEnum';
 export type { PlatformCostInfo } from './models/PlatformCostInfo';
 export type { PlatformProduct } from './models/PlatformProduct';
 export type { PlatformProductStore } from './models/PlatformProductStore';
@@ -156,6 +156,7 @@ export type { PrismaJson_DiscountCrossSell } from './models/PrismaJson_DiscountC
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
+export type { PrismaJson_PlacementCrossSellType } from './models/PrismaJson_PlacementCrossSellType';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
 export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_ProductDiscountItems';
 export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_ProductRequirementItems';

@@ -7,14 +7,14 @@ import type { CrossSellTriggerType } from './CrossSellTriggerType';
 import type { CrossSellType } from './CrossSellType';
 import type { DiscountCrossSell } from './DiscountCrossSell';
 import type { NameDto } from './NameDto';
-import type { PlacementCrossSellType } from './PlacementCrossSellType';
+import type { PlacementCrossSellEnum } from './PlacementCrossSellEnum';
 
 export type CrossSellDto = {
   name: NameDto;
   type: CrossSellType;
   discount: DiscountCrossSell;
   triggerBy: CrossSellTriggerType;
-  placement: PlacementCrossSellType;
+  placement: Array<PlacementCrossSellEnum>;
   idProduct?: Array<number>;
   idCollection?: Array<number>;
 };
