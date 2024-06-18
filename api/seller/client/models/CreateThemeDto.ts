@@ -43,10 +43,10 @@ export type CreateThemeDto = {
   themeTemplateId?: number;
   style?: PrismaJson_ThemeStyle;
   setting?: PrismaJson_ThemeSetting;
+  nodes?: PrismaJson_ThemeNodes;
   ThemePage?: Array<{
     content: string;
     name: NameDto;
   }>;
-  commonNodes?: PrismaJson_ThemeNodes;
 };
 
