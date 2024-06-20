@@ -9,6 +9,6 @@ export type CrossSellDto = {
     discount?: PrismaJson_DiscountCrossSell;
     triggerBy: CrossSellTriggerType;
     placement: Array<PlacementCrossSellEnum>;
-    idsProduct?: Array<number>;
-    idsCollection?: Array<number>;
+    idProduct?: Array<number>;
+    idCollection?: Array<number>;
 };
