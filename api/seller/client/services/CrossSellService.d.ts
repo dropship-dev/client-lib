@@ -25,7 +25,7 @@ export declare class CrossSellService {
     getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }: {
         storeId: string;
         pageSize?: number;
-        nextPageIndex?: string;
+        nextPageIndex?: number;
         startDate?: string;
         endDate?: string;
         search?: string;
@@ -33,8 +33,8 @@ export declare class CrossSellService {
         crossSellStatus?: boolean;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: string;
-        prePageIndex: string;
+        nextPageIndex: number;
+        prePageIndex: number;
         total: number;
         data: Array<(CrossSell & {
             Product: Array<Product>;
