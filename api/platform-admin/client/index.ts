@@ -137,7 +137,6 @@ export type { PhotoDto } from './models/PhotoDto';
 export type { Photos } from './models/Photos';
 export type { PingPongAccount } from './models/PingPongAccount';
 export { PlacementCrossSellEnum } from './models/PlacementCrossSellEnum';
-export type { PlacementCrossSellType } from './models/PlacementCrossSellType';
 export type { PlatformCostInfo } from './models/PlatformCostInfo';
 export type { PlatformProduct } from './models/PlatformProduct';
 export type { PlatformProductStore } from './models/PlatformProductStore';
