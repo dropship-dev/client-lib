@@ -15,6 +15,7 @@ export type CrossSell = {
   updatedAt: string;
   createdAt: string;
   storeId: string;
+  queriesRaw: string | null;
   triggerBy: CrossSellTriggerType;
   /**
    * DiscountCrossSell
