@@ -62,7 +62,7 @@ export class CrossSellService {
   }: {
     storeId: string,
     pageSize?: number,
-    nextPageIndex?: string,
+    nextPageIndex?: number,
     startDate?: string,
     endDate?: string,
     search?: string,
@@ -70,8 +70,8 @@ export class CrossSellService {
     crossSellStatus?: boolean,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: string;
-    prePageIndex: string;
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<(CrossSell & {
       Product: Array<Product>;

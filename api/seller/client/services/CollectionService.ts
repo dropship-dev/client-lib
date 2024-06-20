@@ -66,7 +66,7 @@ export class CollectionService {
   }: {
     storeId: string,
     pageSize?: number,
-    nextPageIndex?: string,
+    nextPageIndex?: number,
     startDate?: string,
     endDate?: string,
     search?: string,
@@ -74,8 +74,8 @@ export class CollectionService {
     collectionStatus?: CollectionStatus,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: string;
-    prePageIndex: string;
+    nextPageIndex: number;
+    prePageIndex: number;
     total: number;
     data: Array<Collection>;
   }> {
