@@ -1,7 +1,9 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
+import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
+import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -126,6 +128,10 @@ export declare class ProductService {
             variantOption: VariantOptions;
             id: number;
         };
+        CrossSell: Array<(CrossSell & {
+            Product: Array<Product>;
+            Collection: Array<Collection>;
+        })>;
     })>;
     /**
      * @returns any Ok
