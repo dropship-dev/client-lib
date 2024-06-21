@@ -4,7 +4,9 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { Campaign } from '../models/Campaign';
+import type { Collection } from '../models/Collection';
 import type { CreateProductDto } from '../models/CreateProductDto';
+import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -193,6 +195,10 @@ export class ProductService {
       variantOption: VariantOptions;
       id: number;
     };
+    CrossSell: Array<(CrossSell & {
+      Product: Array<Product>;
+      Collection: Array<Collection>;
+    })>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
