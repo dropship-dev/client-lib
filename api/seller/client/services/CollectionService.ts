@@ -130,7 +130,7 @@ export class CollectionService {
     type: CollectionType;
     storeId: string;
     id: number;
-    products: Array<Product>;
+    products: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
