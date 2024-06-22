@@ -65,7 +65,7 @@ export declare class CollectionService {
         type: CollectionType;
         storeId: string;
         id: number;
-        products: Array<Product>;
+        products: any;
     }>;
     /**
      * @returns string Ok
