@@ -19,6 +19,7 @@ export type CreateOrderDto = {
   comboItems?: Array<ComboItemDto>;
   referrer?: string;
   timezoneLocalBrowser?: string;
+  fingerPrint?: string;
   cloverOrder?: {
     tokenCard: string;
     orderSystemId: string;
