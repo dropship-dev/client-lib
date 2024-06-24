@@ -21,6 +21,7 @@ export type Order = {
   paymentId: number;
   currencyId: number;
   storeId: string;
+  fingerPrint: string | null;
   timezoneLocalBrowser: string | null;
   fulfillmentCost: number | null;
   fulfillmentStatus: FulfillmentStatus;
