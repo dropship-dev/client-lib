@@ -7,6 +7,7 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
 
 import { BankAccountService } from './services/BankAccountService';
+import { CollectionService } from './services/CollectionService';
 import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
@@ -27,6 +28,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class ClientApi {
 
   public readonly bankAccount: BankAccountService;
+  public readonly collection: CollectionService;
   public readonly crossSell: CrossSellService;
   public readonly currency: CurrencyService;
   public readonly order: OrderService;
@@ -58,6 +60,7 @@ export class ClientApi {
     });
 
     this.bankAccount = new BankAccountService(this.request);
+    this.collection = new CollectionService(this.request);
     this.crossSell = new CrossSellService(this.request);
     this.currency = new CurrencyService(this.request);
     this.order = new OrderService(this.request);

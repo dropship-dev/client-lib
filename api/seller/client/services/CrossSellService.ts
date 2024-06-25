@@ -202,19 +202,16 @@ export class CrossSellService {
    * @throws ApiError
    */
   public updateStatusCrossSell({
-    id,
     storeId,
     requestBody,
   }: {
-    id: number,
     storeId: string,
     requestBody: UpdateCrossSellStatusDto,
   }): CancelablePromise<void> {
     return this.httpRequest.request({
-      method: 'PATCH',
+      method: 'POST',
       url: '/store/{storeId}/cross-sell/{id}/status',
       path: {
-        'id': id,
         'storeId': storeId,
       },
       body: requestBody,
