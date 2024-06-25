@@ -76,8 +76,7 @@ export declare class CrossSellService {
      * @returns void
      * @throws ApiError
      */
-    updateStatusCrossSell({ id, storeId, requestBody, }: {
-        id: number;
+    updateStatusCrossSell({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateCrossSellStatusDto;
     }): CancelablePromise<void>;

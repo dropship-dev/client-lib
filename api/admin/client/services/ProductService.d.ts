@@ -113,6 +113,8 @@ export declare class ProductService {
                 ProductVariant: Array<{
                     compareAtPrice: number;
                     price: number;
+                    name: string;
+                    id: number;
                 }>;
             })>;
             Collection: Array<Collection>;

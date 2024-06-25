@@ -25,6 +25,7 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        discountCrossSell: any;
         freeShipInfo: any;
         total: any;
         discountInfo: any;

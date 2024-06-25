@@ -126,12 +126,11 @@ class CrossSellService {
      * @returns void
      * @throws ApiError
      */
-    updateStatusCrossSell({ id, storeId, requestBody, }) {
+    updateStatusCrossSell({ storeId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'PATCH',
+            method: 'POST',
             url: '/store/{storeId}/cross-sell/{id}/status',
             path: {
-                'id': id,
                 'storeId': storeId,
             },
             body: requestBody,
