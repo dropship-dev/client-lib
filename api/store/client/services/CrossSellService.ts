@@ -201,7 +201,7 @@ export class CrossSellService {
    * @returns void
    * @throws ApiError
    */
-  public updateStatusCrossSell({
+  public updateStatusesCrossSell({
     storeId,
     requestBody,
   }: {

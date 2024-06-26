@@ -148,6 +148,9 @@ export class ProductService {
     });
     VariantCombo: Array<VariantCombo>;
     ProductVariant: Array<(ProductVariant & {
+      Product: {
+        name: string;
+      };
       PlatformVariant: PlatformVariant;
     })>;
     Review: Array<Review>;

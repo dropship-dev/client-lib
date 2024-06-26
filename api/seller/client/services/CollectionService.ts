@@ -272,7 +272,7 @@ export class CollectionService {
    * @returns void
    * @throws ApiError
    */
-  public updateStatusCollection({
+  public updateStatusesCollection({
     storeId,
     requestBody,
   }: {
