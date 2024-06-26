@@ -104,7 +104,7 @@ export declare class CollectionService {
      * @returns void
      * @throws ApiError
      */
-    updateStatusCollection({ storeId, requestBody, }: {
+    updateStatusesCollection({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateCollectionStatusDto;
     }): CancelablePromise<void>;

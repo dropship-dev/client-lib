@@ -171,7 +171,7 @@ class CollectionService {
      * @returns void
      * @throws ApiError
      */
-    updateStatusCollection({ storeId, requestBody, }) {
+    updateStatusesCollection({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/collection/status',
