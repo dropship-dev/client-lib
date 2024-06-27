@@ -90,6 +90,7 @@ export { DiscountCrossSellType } from './models/DiscountCrossSellType';
 export type { DiscountDto } from './models/DiscountDto';
 export type { EmailDto } from './models/EmailDto';
 export { EnvironmentType } from './models/EnvironmentType';
+export type { EventFraudType } from './models/EventFraudType';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
@@ -123,6 +124,7 @@ export { OperatorCollection_STARTS_WITH } from './models/OperatorCollection_STAR
 export type { operatorCondition } from './models/operatorCondition';
 export type { Order } from './models/Order';
 export { OrderDisputeStatus } from './models/OrderDisputeStatus';
+export type { OrderInformationFraudType } from './models/OrderInformationFraudType';
 export type { OrderItem } from './models/OrderItem';
 export type { OrderItemDto } from './models/OrderItemDto';
 export type { OrderRefund } from './models/OrderRefund';
