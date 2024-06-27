@@ -109,7 +109,11 @@ export declare class ProductService {
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;
         });
-        VariantCombo: Array<VariantCombo>;
+        VariantCombo: Array<(VariantCombo & {
+            Product: {
+                name: string;
+            };
+        })>;
         ProductVariant: Array<(ProductVariant & {
             Product: {
                 name: string;
