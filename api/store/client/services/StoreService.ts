@@ -205,6 +205,8 @@ export class StoreService {
     OrderItem: Array<{
       carrier: string;
       tracking: string;
+      quantity: number;
+      price: number;
       VariantCombo: {
         photo: string;
         name: string;

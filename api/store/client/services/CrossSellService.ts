@@ -107,16 +107,40 @@ export class CrossSellService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getRandom({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<(CrossSell & {
+    Product: Array<Product>;
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/cross-sell/random-cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getCrossSell({
     id,
     storeId,
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
-    Collection: Array<Collection>;
-  })> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/cross-sell/{id}',
@@ -185,33 +209,6 @@ export class CrossSellService {
       url: '/store/{storeId}/cross-sell/{id}',
       path: {
         'id': id,
-        'storeId': storeId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getRandom({
-    storeId,
-  }: {
-    storeId: string,
-  }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
-  })> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/cross-sell/get-random',
-      path: {
         'storeId': storeId,
       },
       errors: {
