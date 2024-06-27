@@ -48,7 +48,18 @@ export declare class CrossSellService {
     getRandom({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(CrossSell & {
-        Product: Array<Product>;
+        Product: Array<(Product & {
+            VariantCombo: Array<{
+                compareAtPrice: number;
+                price: number;
+                id: number;
+            }>;
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+                id: number;
+            }>;
+        })>;
     })>;
     /**
      * @returns any Ok
