@@ -112,7 +112,18 @@ export class CrossSellService {
   }: {
     storeId: string,
   }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
+    Product: Array<(Product & {
+      VariantCombo: Array<{
+        compareAtPrice: number;
+        price: number;
+        id: number;
+      }>;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+        id: number;
+      }>;
+    })>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
