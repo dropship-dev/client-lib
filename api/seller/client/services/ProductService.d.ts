@@ -102,9 +102,10 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, }: {
+    getProductByPermalink({ storeId, permalink, productId, }: {
         storeId: string;
         permalink?: string;
+        productId?: number;
     }): CancelablePromise<(Product & {
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;

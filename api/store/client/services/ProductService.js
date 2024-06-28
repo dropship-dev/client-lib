@@ -62,7 +62,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, }) {
+    getProductByPermalink({ storeId, permalink, productId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/permalink',
@@ -71,6 +71,7 @@ class ProductService {
             },
             query: {
                 'permalink': permalink,
+                'productId': productId,
             },
             errors: {
                 400: `Bad request`,
