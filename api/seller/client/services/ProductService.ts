@@ -232,9 +232,11 @@ export class ProductService {
   public getProductByPermalink({
     storeId,
     permalink,
+    productId,
   }: {
     storeId: string,
     permalink?: string,
+    productId?: number,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
@@ -280,6 +282,7 @@ export class ProductService {
       },
       query: {
         'permalink': permalink,
+        'productId': productId,
       },
       errors: {
         400: `Bad request`,
