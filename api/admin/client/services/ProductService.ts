@@ -171,7 +171,7 @@ export class ProductService {
     permalink,
   }: {
     storeId: string,
-    permalink: string,
+    permalink?: string,
   }): CancelablePromise<(Product & {
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
