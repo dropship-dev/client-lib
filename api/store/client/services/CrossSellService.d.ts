@@ -68,7 +68,10 @@ export declare class CrossSellService {
     getCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<any>;
+    }): CancelablePromise<(CrossSell & {
+        Product: Array<Product>;
+        Collection: Array<Collection>;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
