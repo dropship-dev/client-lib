@@ -11,6 +11,7 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export { ActionOrderFraud } from './models/ActionOrderFraud';
+export { ActiveDetection } from './models/ActiveDetection';
 export type { AddPaymentToStores } from './models/AddPaymentToStores';
 export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';
 export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto';
@@ -110,6 +111,7 @@ export type { JsonObject } from './models/JsonObject';
 export type { JsonValue } from './models/JsonValue';
 export type { LoginDto } from './models/LoginDto';
 export { LogoSize } from './models/LogoSize';
+export type { ManualFraudDetectionDto } from './models/ManualFraudDetectionDto';
 export type { NameConditionDto } from './models/NameConditionDto';
 export type { NameDto } from './models/NameDto';
 export type { Notification } from './models/Notification';
