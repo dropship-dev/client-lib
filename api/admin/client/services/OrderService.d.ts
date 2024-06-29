@@ -1,6 +1,7 @@
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
@@ -121,6 +122,13 @@ export declare class OrderService {
         Transaction: Array<Transaction>;
         Store: Store;
     })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    manualFraudDetection({ requestBody, }: {
+        requestBody: ManualFraudDetectionDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
