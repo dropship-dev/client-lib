@@ -94,18 +94,13 @@ export declare class OrderService {
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: VariantCombo;
-            ProductVariant: {
-                photo: string;
-                name: string;
-                Product: {
-                    name: string;
-                };
-            };
+            ProductVariant: ProductVariant;
         })>;
         Transaction: Array<Transaction>;
         Payment: {
             type: PaymentType;
         };
+        Store: Store;
     })>;
     /**
      * @returns UpdateFulFillmentStatusResp Ok
