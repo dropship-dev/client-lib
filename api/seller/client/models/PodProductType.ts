@@ -7,9 +7,9 @@
  * Model PodProductType
  */
 export type PodProductType = {
-  isDeleted: boolean;
   updatedAt: string;
   createdAt: string;
+  isDeleted: boolean;
   podCategoryId: number;
   name: string;
   id: number;
