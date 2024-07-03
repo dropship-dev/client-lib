@@ -11,6 +11,7 @@ import { CollectionService } from './services/CollectionService';
 import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
+import { PodDesignService } from './services/PodDesignService';
 import { ProductService } from './services/ProductService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { ReviewService } from './services/ReviewService';
@@ -32,6 +33,7 @@ export class ClientApi {
   public readonly crossSell: CrossSellService;
   public readonly currency: CurrencyService;
   public readonly order: OrderService;
+  public readonly podDesign: PodDesignService;
   public readonly product: ProductService;
   public readonly requestPayout: RequestPayoutService;
   public readonly review: ReviewService;
@@ -64,6 +66,7 @@ export class ClientApi {
     this.crossSell = new CrossSellService(this.request);
     this.currency = new CurrencyService(this.request);
     this.order = new OrderService(this.request);
+    this.podDesign = new PodDesignService(this.request);
     this.product = new ProductService(this.request);
     this.requestPayout = new RequestPayoutService(this.request);
     this.review = new ReviewService(this.request);

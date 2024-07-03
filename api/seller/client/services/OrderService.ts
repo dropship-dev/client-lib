@@ -150,17 +150,18 @@ export class OrderService {
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: VariantCombo;
-      ProductVariant: (ProductVariant & {
+      ProductVariant: {
+        photo: string;
+        name: string;
         Product: {
           name: string;
         };
-      });
+      };
     })>;
     Transaction: Array<Transaction>;
     Payment: {
       type: PaymentType;
     };
-    Store: Store;
   })> {
     return this.httpRequest.request({
       method: 'GET',

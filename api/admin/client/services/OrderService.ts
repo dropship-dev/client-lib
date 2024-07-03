@@ -5,7 +5,6 @@
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
-import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
@@ -242,30 +241,6 @@ export class OrderService {
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
       },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public manualFraudDetection({
-    requestBody,
-  }: {
-    requestBody: ManualFraudDetectionDto,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/order/manual-fraud-detection',
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

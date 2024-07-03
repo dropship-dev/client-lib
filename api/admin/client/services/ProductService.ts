@@ -206,11 +206,7 @@ export class ProductService {
     };
     CrossSell: Array<(CrossSell & {
       Product: Array<(Product & {
-        ProductVariant: Array<(ProductVariant & {
-          Product: {
-            name: string;
-          };
-        })>;
+        ProductVariant: Array<ProductVariant>;
       })>;
       Collection: Array<Collection>;
     })>;
