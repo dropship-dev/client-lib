@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Category } from '../models/Category';
 import type { CreateCategoryDto } from '../models/CreateCategoryDto';
 import type { GetListCategoryByCatalog } from '../models/GetListCategoryByCatalog';
 import type { GetListCategoryByCategory } from '../models/GetListCategoryByCategory';
 import type { LayoutCategory } from '../models/LayoutCategory';
+import type { PodCategory } from '../models/PodCategory';
 import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -17,14 +17,14 @@ export class PodCategoryService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Category Ok
+   * @returns PodCategory Ok
    * @throws ApiError
    */
   public createCategory({
     requestBody,
   }: {
     requestBody: CreateCategoryDto,
-  }): CancelablePromise<Category> {
+  }): CancelablePromise<PodCategory> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/category',
@@ -81,7 +81,7 @@ export class PodCategoryService {
   }
 
   /**
-   * @returns Category Ok
+   * @returns PodCategory Ok
    * @throws ApiError
    */
   public updateCategory({
@@ -90,7 +90,7 @@ export class PodCategoryService {
   }: {
     id: number,
     requestBody: UpdateCategoryDto,
-  }): CancelablePromise<Category> {
+  }): CancelablePromise<PodCategory> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/category/{id}',
@@ -110,14 +110,14 @@ export class PodCategoryService {
   }
 
   /**
-   * @returns Category Ok
+   * @returns PodCategory Ok
    * @throws ApiError
    */
   public deleteCategory({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Category> {
+  }): CancelablePromise<PodCategory> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/pod/category/{id}',
@@ -135,14 +135,14 @@ export class PodCategoryService {
   }
 
   /**
-   * @returns Category Ok
+   * @returns PodCategory Ok
    * @throws ApiError
    */
   public listAllCategory({
     fulfillmentAgencyId,
   }: {
     fulfillmentAgencyId: number,
-  }): CancelablePromise<Array<Category>> {
+  }): CancelablePromise<Array<PodCategory>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/category/list',

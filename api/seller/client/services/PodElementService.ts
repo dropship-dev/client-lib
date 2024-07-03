@@ -3,8 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateElementDto } from '../models/CreateElementDto';
-import type { Element } from '../models/Element';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { PodElement } from '../models/PodElement';
 import type { Record_string_any_ } from '../models/Record_string_any_';
 import type { UpdateElementDto } from '../models/UpdateElementDto';
 
@@ -76,7 +76,7 @@ export class PodElementService {
   }
 
   /**
-   * @returns Element Ok
+   * @returns PodElement Ok
    * @throws ApiError
    */
   public updateElement({
@@ -85,7 +85,7 @@ export class PodElementService {
   }: {
     id: number,
     requestBody: UpdateElementDto,
-  }): CancelablePromise<Element> {
+  }): CancelablePromise<PodElement> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/element/{id}',
@@ -105,14 +105,14 @@ export class PodElementService {
   }
 
   /**
-   * @returns Element Ok
+   * @returns PodElement Ok
    * @throws ApiError
    */
   public deleteElement({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Element> {
+  }): CancelablePromise<PodElement> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/pod/element/{id}',

@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type MultiplePublishToStoreDto = {
-  designIds: Array<number>;
+  podDesignIds: Array<number>;
   storeId: string;
 };
 

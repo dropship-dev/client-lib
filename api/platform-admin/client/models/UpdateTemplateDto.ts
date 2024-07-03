@@ -5,9 +5,9 @@
 
 export type UpdateTemplateDto = {
   name?: string;
-  productTypeId?: number;
-  categoryId?: number;
-  techniqueId?: number;
+  podProductTypeId?: number;
+  podCategoryId?: number;
+  podTechniqueId?: number;
   description?: string;
   supplierContact?: string;
   keyFeature?: string;
@@ -18,12 +18,12 @@ export type UpdateTemplateDto = {
     isActive: boolean;
     faPrice: number;
     supplierCost: number;
-    templateVariantId: number;
+    podTemplateVariantId: number;
   }>;
-  printArea?: Array<{
+  podPrintArea?: Array<{
     faPrice: number;
     supplierCost: number;
-    printAreaId: number;
+    podPrintAreaId: number;
   }>;
 };
 

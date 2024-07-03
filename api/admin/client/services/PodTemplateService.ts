@@ -6,7 +6,7 @@ import type { CreateTemplateDto } from '../models/CreateTemplateDto';
 import type { FileProperties } from '../models/FileProperties';
 import type { FileType } from '../models/FileType';
 import type { IPageDetail } from '../models/IPageDetail';
-import type { Template } from '../models/Template';
+import type { PodTemplate } from '../models/PodTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
@@ -19,14 +19,14 @@ export class PodTemplateService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Template Ok
+   * @returns PodTemplate Ok
    * @throws ApiError
    */
   public createTemplate({
     requestBody,
   }: {
     requestBody: CreateTemplateDto,
-  }): CancelablePromise<Template> {
+  }): CancelablePromise<PodTemplate> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/template',
@@ -50,7 +50,7 @@ export class PodTemplateService {
     search,
     sort = 'ASC',
     status,
-    productTypeId,
+    podProductTypeId,
     storeId,
     fulfillmentAgencyId,
     isFavorite,
@@ -60,7 +60,7 @@ export class PodTemplateService {
     search?: string,
     sort?: 'ASC' | 'DESC',
     status?: boolean,
-    productTypeId?: number,
+    podProductTypeId?: number,
     storeId?: string,
     fulfillmentAgencyId?: number,
     isFavorite?: boolean,
@@ -81,8 +81,8 @@ export class PodTemplateService {
       file: string;
       minSellingPrice: number;
       description: string;
-      techniqueId: number;
-      productTypeId: number;
+      podTechniqueId: number;
+      podProductTypeId: number;
       name: string;
       id: number;
     }>;
@@ -95,7 +95,7 @@ export class PodTemplateService {
         'search': search,
         'sort': sort,
         'status': status,
-        'productTypeId': productTypeId,
+        'podProductTypeId': podProductTypeId,
         'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'isFavorite': isFavorite,
@@ -122,7 +122,7 @@ export class PodTemplateService {
   }: {
     id: number,
     requestBody: UpdateTemplateDto,
-  }): CancelablePromise<(Template | boolean)> {
+  }): CancelablePromise<(PodTemplate | boolean)> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/template/{id}',
@@ -154,25 +154,34 @@ export class PodTemplateService {
     sku: string;
     sizeGuide: string;
     keyFeature: string;
-    techniqueId: number;
-    productTypeId: number;
-    categoryId: number;
+    podTechniqueId: number;
+    podProductTypeId: number;
+    podCategoryId: number;
     isActive: boolean;
     supplierContact: string;
     variantOption: VariantOptions;
     description: string;
     name: string;
-    TemplateVariant: Array<{
+    PodFile: Array<{
+      podPrintAreaId: number;
+      properties: FileProperties;
+      file: string;
+      podDesignId: number;
+      podTemplateId: number;
+      type: FileType;
+      id: number;
+    }>;
+    PodTemplateVariant: Array<{
       faPrice: number;
       minSellingPrice: number;
       supplierCost: number;
       sku: string;
-      templateId: number;
+      podTemplateId: number;
       variantOption: VariantOptionValues;
       name: string;
       id: number;
     }>;
-    PrintArea: Array<{
+    PodPrintArea: Array<{
       faPrice: number;
       supplierCost: number;
       name: string;
@@ -181,11 +190,11 @@ export class PodTemplateService {
     id: number;
     File: {
       fileMockup: Array<{
-        printAreaId: number;
+        podPrintAreaId: number;
         properties: FileProperties;
-        designId: number;
-        templateId: number;
         file: string;
+        podDesignId: number;
+        podTemplateId: number;
         type: FileType;
         id: number;
       }>;
@@ -214,12 +223,12 @@ export class PodTemplateService {
    */
   public getTemplateVariant({
     id,
-    variantIds,
-    designId,
+    podVariantIds,
+    podDesignId,
   }: {
     id: number,
-    variantIds: Array<number>,
-    designId?: number,
+    podVariantIds: Array<number>,
+    podDesignId?: number,
   }): CancelablePromise<Array<{
     designVariantId: number;
     comparePrice: number;
@@ -237,8 +246,8 @@ export class PodTemplateService {
         'id': id,
       },
       query: {
-        'variantIds': variantIds,
-        'designId': designId,
+        'podVariantIds': podVariantIds,
+        'podDesignId': podDesignId,
       },
       errors: {
         400: `Bad request`,

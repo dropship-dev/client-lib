@@ -4,15 +4,15 @@
 /* eslint-disable */
 
 import type { FileCreateTemplate } from './FileCreateTemplate';
+import type { PodTemplateVariant } from './PodTemplateVariant';
 import type { PrintAreaItem } from './PrintAreaItem';
-import type { TemplateVariant } from './TemplateVariant';
 import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
 
 export type CreateTemplateDto = {
   name: string;
-  productTypeId: number;
-  categoryId: number;
-  techniqueId: number;
+  podProductTypeId: number;
+  podCategoryId: number;
+  podTechniqueId: number;
   description?: string;
   supplierContact?: string;
   keyFeature?: string;
@@ -20,9 +20,9 @@ export type CreateTemplateDto = {
   sku: string;
   isStock: boolean;
   isActive: boolean;
-  printArea: Array<PrintAreaItem>;
+  podPrintArea: Array<PrintAreaItem>;
   variantOption: Array<VariantOptionsPayLoad>;
-  variants: Array<TemplateVariant>;
+  variants: Array<PodTemplateVariant>;
   files: Array<FileCreateTemplate>;
 };
 

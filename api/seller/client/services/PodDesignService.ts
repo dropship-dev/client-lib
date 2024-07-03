@@ -4,11 +4,11 @@
 /* eslint-disable */
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
-import type { Design } from '../models/Design';
-import type { File } from '../models/File';
 import type { IPageDetail } from '../models/IPageDetail';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PhotoDesign } from '../models/PhotoDesign';
+import type { PodDesign } from '../models/PodDesign';
+import type { PodFile } from '../models/PodFile';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
@@ -23,14 +23,14 @@ export class PodDesignService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Design Ok
+   * @returns PodDesign Ok
    * @throws ApiError
    */
   public createNewDesign({
     requestBody,
   }: {
     requestBody: CreateDesignDto,
-  }): CancelablePromise<Design> {
+  }): CancelablePromise<PodDesign> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/design',
@@ -72,7 +72,7 @@ export class PodDesignService {
       description: string;
       name: string;
       storeId: string;
-      templateId: number;
+      podTemplateId: number;
       id: number;
     }>;
     pageDetail: IPageDetail;
@@ -196,7 +196,7 @@ export class PodDesignService {
       supplierContract: string;
       sku: string;
       sizeGuide: string;
-      templateId: number;
+      podTemplateId: number;
       photos: PhotoDesign;
       description: string;
       name: string;
@@ -207,8 +207,9 @@ export class PodDesignService {
       faPrice: number;
       supplierCost: number;
       name: string;
+      PodFile: Array<PodFile>;
       id: number;
-      File: File;
+      File: PodFile;
     }>;
     templateInformation: {
       blank: {
@@ -234,7 +235,7 @@ export class PodDesignService {
   }
 
   /**
-   * @returns Design Ok
+   * @returns PodDesign Ok
    * @throws ApiError
    */
   public updateMyDesign({
@@ -243,7 +244,7 @@ export class PodDesignService {
   }: {
     id: number,
     requestBody: UpdateDesignDto,
-  }): CancelablePromise<Design> {
+  }): CancelablePromise<PodDesign> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/design/{id}',

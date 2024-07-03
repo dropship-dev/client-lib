@@ -12,6 +12,6 @@ export type DesignVariant = {
   comparePrice: number;
   price: number;
   sku: string;
-  templateVariantId: number;
+  podTemplateVariantId: number;
 };
 

@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateProductTypeDto } from '../models/CreateProductTypeDto';
-import type { ProductType } from '../models/ProductType';
+import type { PodProductType } from '../models/PodProductType';
 import type { UpdateProductTypeDto } from '../models/UpdateProductTypeDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,14 +14,14 @@ export class PodProductTypeService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns ProductType Ok
+   * @returns PodProductType Ok
    * @throws ApiError
    */
   public createProductType({
     requestBody,
   }: {
     requestBody: CreateProductTypeDto,
-  }): CancelablePromise<ProductType> {
+  }): CancelablePromise<PodProductType> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/product-type',
@@ -38,19 +38,19 @@ export class PodProductTypeService {
   }
 
   /**
-   * @returns ProductType Ok
+   * @returns PodProductType Ok
    * @throws ApiError
    */
   public getAllProductType({
-    categoryId,
+    podCategoryId,
   }: {
-    categoryId: number,
-  }): CancelablePromise<Array<ProductType>> {
+    podCategoryId: number,
+  }): CancelablePromise<Array<PodProductType>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/product-type',
       query: {
-        'categoryId': categoryId,
+        'podCategoryId': podCategoryId,
       },
       errors: {
         400: `Bad request`,
@@ -63,7 +63,7 @@ export class PodProductTypeService {
   }
 
   /**
-   * @returns ProductType Ok
+   * @returns PodProductType Ok
    * @throws ApiError
    */
   public updateProductType({
@@ -72,7 +72,7 @@ export class PodProductTypeService {
   }: {
     id: number,
     requestBody: UpdateProductTypeDto,
-  }): CancelablePromise<ProductType> {
+  }): CancelablePromise<PodProductType> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/product-type/{id}',
@@ -92,14 +92,14 @@ export class PodProductTypeService {
   }
 
   /**
-   * @returns ProductType Ok
+   * @returns PodProductType Ok
    * @throws ApiError
    */
   public deleteProductType({
     id,
   }: {
     id: number,
-  }): CancelablePromise<ProductType> {
+  }): CancelablePromise<PodProductType> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/pod/product-type/{id}',

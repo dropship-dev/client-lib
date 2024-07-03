@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type CreateProductTypeDto = {
-  categoryId: number;
+  podCategoryId: number;
   name: string;
 };
 

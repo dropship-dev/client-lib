@@ -9,7 +9,7 @@ import type { PhotoDesign } from './PhotoDesign';
 import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
 
 export type CreateDesignDto = {
-  templateId: number;
+  podTemplateId: number;
   storeId: string;
   name: string;
   description?: string;

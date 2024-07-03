@@ -12,7 +12,7 @@ export type UpdateDesignVariant = {
   comparePrice: number;
   price: number;
   sku: string;
-  templateVariantId: number;
+  podTemplateVariantId: number;
   id?: number;
 };
 

@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTechniqueDto } from '../models/CreateTechniqueDto';
-import type { Technique } from '../models/Technique';
+import type { PodTechnique } from '../models/PodTechnique';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,14 +13,14 @@ export class PodTechniqueService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Technique Ok
+   * @returns PodTechnique Ok
    * @throws ApiError
    */
   public createTechnique({
     requestBody,
   }: {
     requestBody: CreateTechniqueDto,
-  }): CancelablePromise<Technique> {
+  }): CancelablePromise<PodTechnique> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/technique',

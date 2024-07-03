@@ -4,8 +4,8 @@
 /* eslint-disable */
 
 export type GetListCategoryByCatalog = {
-  ProductType: Array<{
-    categoryId: number;
+  PodProductType: Array<{
+    podCategoryId: number;
     createdAt: string;
     name: string;
     id: number;
