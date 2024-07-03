@@ -1,4 +1,5 @@
 import type { Campaign } from '../models/Campaign';
+import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
@@ -24,7 +25,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
         /**
          * filter by store ID
          */
@@ -54,6 +55,7 @@ export declare class OrderService {
         startTotal?: number;
         endTotal?: number;
         gateway?: Array<number>;
+        fraudStatus?: Array<FraudStatusType>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;

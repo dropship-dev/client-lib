@@ -1,5 +1,6 @@
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
+import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { Order } from '../models/Order';
@@ -26,7 +27,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
+    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: string;
@@ -41,6 +42,7 @@ export declare class OrderService {
         startTotal?: number;
         endTotal?: number;
         gateway?: Array<number>;
+        fraudStatus?: Array<FraudStatusType>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
@@ -140,7 +142,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
         /**
          * filter by store ID
          */
@@ -170,6 +172,7 @@ export declare class OrderService {
         startTotal?: number;
         endTotal?: number;
         gateway?: Array<number>;
+        fraudStatus?: Array<FraudStatusType>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;

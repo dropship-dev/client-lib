@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
+    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
@@ -29,6 +29,7 @@ class OrderService {
                 'startTotal': startTotal,
                 'endTotal': endTotal,
                 'gateway': gateway,
+                'fraudStatus': fraudStatus,
             },
             errors: {
                 400: `Bad request`,
@@ -161,7 +162,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
+    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/order',
@@ -182,6 +183,7 @@ class OrderService {
                 'startTotal': startTotal,
                 'endTotal': endTotal,
                 'gateway': gateway,
+                'fraudStatus': fraudStatus,
             },
             errors: {
                 400: `Bad request`,
