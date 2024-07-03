@@ -89,6 +89,7 @@ export { EnvironmentType } from './models/EnvironmentType';
 export type { EventFraudType } from './models/EventFraudType';
 export { EventOrderFraud } from './models/EventOrderFraud';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
+export type { ExportOrderDto } from './models/ExportOrderDto';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
 export type { FbPixel } from './models/FbPixel';
