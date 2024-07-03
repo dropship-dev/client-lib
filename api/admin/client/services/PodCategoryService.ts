@@ -4,6 +4,8 @@
 /* eslint-disable */
 import type { Category } from '../models/Category';
 import type { CreateCategoryDto } from '../models/CreateCategoryDto';
+import type { GetListCategoryByCatalog } from '../models/GetListCategoryByCatalog';
+import type { GetListCategoryByCategory } from '../models/GetListCategoryByCategory';
 import type { LayoutCategory } from '../models/LayoutCategory';
 import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
 
@@ -56,7 +58,7 @@ export class PodCategoryService {
     startDate?: string,
     endDate?: string,
     layout?: LayoutCategory,
-  }): CancelablePromise<> {
+  }): CancelablePromise<(Array<GetListCategoryByCatalog> | Array<GetListCategoryByCategory>)> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/category',
