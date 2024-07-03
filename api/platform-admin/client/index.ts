@@ -105,6 +105,7 @@ export { FulfillmentAgencyRole } from './models/FulfillmentAgencyRole';
 export { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
 export { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
+export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { JsonArray } from './models/JsonArray';
