@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { FraudStatusType } from './FraudStatusType';
 import type { FulfillmentStatus } from './FulfillmentStatus';
 import type { OrderDisputeStatus } from './OrderDisputeStatus';
 import type { TransactionStatus } from './TransactionStatus';
@@ -22,5 +23,6 @@ export type GetAllOrderDto = {
   startTotal?: number;
   endTotal?: number;
   gateway?: Array<number>;
+  fraudStatus?: Array<FraudStatusType>;
 };
 

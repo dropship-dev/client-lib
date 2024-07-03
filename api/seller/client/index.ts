@@ -100,6 +100,7 @@ export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
 export type { FbPixel } from './models/FbPixel';
 export type { FixedCostInfo } from './models/FixedCostInfo';
+export { FraudStatusType } from './models/FraudStatusType';
 export type { FulfillmentAgency } from './models/FulfillmentAgency';
 export { FulfillmentAgencyRole } from './models/FulfillmentAgencyRole';
 export { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
