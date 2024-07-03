@@ -11,5 +11,5 @@ export type FileTemplate = {
         height: number;
     }>;
     file?: string;
-    printAreaId: number;
+    podPrintAreaId: number;
 };

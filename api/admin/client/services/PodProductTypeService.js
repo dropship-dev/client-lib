@@ -7,7 +7,7 @@ class PodProductTypeService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns ProductType Ok
+     * @returns PodProductType Ok
      * @throws ApiError
      */
     createProductType({ requestBody, }) {
@@ -26,15 +26,15 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns ProductType Ok
+     * @returns PodProductType Ok
      * @throws ApiError
      */
-    getAllProductType({ categoryId, }) {
+    getAllProductType({ podCategoryId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/product-type',
             query: {
-                'categoryId': categoryId,
+                'podCategoryId': podCategoryId,
             },
             errors: {
                 400: `Bad request`,
@@ -46,7 +46,7 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns ProductType Ok
+     * @returns PodProductType Ok
      * @throws ApiError
      */
     updateProductType({ id, requestBody, }) {
@@ -68,7 +68,7 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns ProductType Ok
+     * @returns PodProductType Ok
      * @throws ApiError
      */
     deleteProductType({ id, }) {

@@ -7,7 +7,7 @@ class PodTechniqueService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Technique Ok
+     * @returns PodTechnique Ok
      * @throws ApiError
      */
     createTechnique({ requestBody, }) {

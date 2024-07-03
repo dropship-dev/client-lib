@@ -7,7 +7,7 @@ class PodDesignService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Design Ok
+     * @returns PodDesign Ok
      * @throws ApiError
      */
     createNewDesign({ requestBody, }) {
@@ -127,7 +127,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns Design Ok
+     * @returns PodDesign Ok
      * @throws ApiError
      */
     updateMyDesign({ id, requestBody, }) {

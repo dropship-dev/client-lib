@@ -2,7 +2,7 @@ import type { CreateTemplateDto } from '../models/CreateTemplateDto';
 import type { FileProperties } from '../models/FileProperties';
 import type { FileType } from '../models/FileType';
 import type { IPageDetail } from '../models/IPageDetail';
-import type { Template } from '../models/Template';
+import type { PodTemplate } from '../models/PodTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
@@ -12,21 +12,21 @@ export declare class PodTemplateService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Template Ok
+     * @returns PodTemplate Ok
      * @throws ApiError
      */
     createTemplate({ requestBody, }: {
         requestBody: CreateTemplateDto;
-    }): CancelablePromise<Template>;
+    }): CancelablePromise<PodTemplate>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTemplate({ search, sort, status, productTypeId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
+    getAllTemplate({ search, sort, status, podProductTypeId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
         search?: string;
         sort?: 'ASC' | 'DESC';
         status?: boolean;
-        productTypeId?: number;
+        podProductTypeId?: number;
         storeId?: string;
         fulfillmentAgencyId?: number;
         isFavorite?: boolean;
@@ -47,8 +47,8 @@ export declare class PodTemplateService {
             file: string;
             minSellingPrice: number;
             description: string;
-            techniqueId: number;
-            productTypeId: number;
+            podTechniqueId: number;
+            podProductTypeId: number;
             name: string;
             id: number;
         }>;
@@ -61,7 +61,7 @@ export declare class PodTemplateService {
     updateTemplate({ id, requestBody, }: {
         id: number;
         requestBody: UpdateTemplateDto;
-    }): CancelablePromise<(Template | boolean)>;
+    }): CancelablePromise<(PodTemplate | boolean)>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -73,25 +73,34 @@ export declare class PodTemplateService {
         sku: string;
         sizeGuide: string;
         keyFeature: string;
-        techniqueId: number;
-        productTypeId: number;
-        categoryId: number;
+        podTechniqueId: number;
+        podProductTypeId: number;
+        podCategoryId: number;
         isActive: boolean;
         supplierContact: string;
         variantOption: VariantOptions;
         description: string;
         name: string;
-        TemplateVariant: Array<{
+        PodFile: Array<{
+            podPrintAreaId: number;
+            properties: FileProperties;
+            file: string;
+            podDesignId: number;
+            podTemplateId: number;
+            type: FileType;
+            id: number;
+        }>;
+        PodTemplateVariant: Array<{
             faPrice: number;
             minSellingPrice: number;
             supplierCost: number;
             sku: string;
-            templateId: number;
+            podTemplateId: number;
             variantOption: VariantOptionValues;
             name: string;
             id: number;
         }>;
-        PrintArea: Array<{
+        PodPrintArea: Array<{
             faPrice: number;
             supplierCost: number;
             name: string;
@@ -100,11 +109,11 @@ export declare class PodTemplateService {
         id: number;
         File: {
             fileMockup: Array<{
-                printAreaId: number;
+                podPrintAreaId: number;
                 properties: FileProperties;
-                designId: number;
-                templateId: number;
                 file: string;
+                podDesignId: number;
+                podTemplateId: number;
                 type: FileType;
                 id: number;
             }>;
@@ -115,10 +124,10 @@ export declare class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getTemplateVariant({ id, variantIds, designId, }: {
+    getTemplateVariant({ id, podVariantIds, podDesignId, }: {
         id: number;
-        variantIds: Array<number>;
-        designId?: number;
+        podVariantIds: Array<number>;
+        podDesignId?: number;
     }): CancelablePromise<Array<{
         designVariantId: number;
         comparePrice: number;

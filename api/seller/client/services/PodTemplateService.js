@@ -10,7 +10,7 @@ class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTemplate({ search, sort = 'ASC', status, productTypeId, storeId, fulfillmentAgencyId, isFavorite, page = 1, limit = 10, }) {
+    getAllTemplate({ search, sort = 'ASC', status, podProductTypeId, storeId, fulfillmentAgencyId, isFavorite, page = 1, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/template',
@@ -18,7 +18,7 @@ class PodTemplateService {
                 'search': search,
                 'sort': sort,
                 'status': status,
-                'productTypeId': productTypeId,
+                'podProductTypeId': podProductTypeId,
                 'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'isFavorite': isFavorite,
@@ -58,7 +58,7 @@ class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getTemplateVariant({ id, variantIds, designId, }) {
+    getTemplateVariant({ id, podVariantIds, podDesignId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/template/{id}/template-variant',
@@ -66,8 +66,8 @@ class PodTemplateService {
                 'id': id,
             },
             query: {
-                'variantIds': variantIds,
-                'designId': designId,
+                'podVariantIds': podVariantIds,
+                'podDesignId': podDesignId,
             },
             errors: {
                 400: `Bad request`,
@@ -79,7 +79,7 @@ class PodTemplateService {
         });
     }
     /**
-     * @returns TemplateFavorite Ok
+     * @returns PodTemplateFavorite Ok
      * @throws ApiError
      */
     favoriteTemplate({ id, requestBody, }) {

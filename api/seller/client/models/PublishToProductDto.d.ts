@@ -3,7 +3,7 @@ import type { FileTemplate } from './FileTemplate';
 import type { PhotoDesign } from './PhotoDesign';
 import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
 export type PublishToProductDto = {
-    templateId: number;
+    podTemplateId: number;
     storeId: string;
     name: string;
     description?: string;

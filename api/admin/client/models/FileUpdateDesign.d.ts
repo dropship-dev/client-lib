@@ -10,7 +10,7 @@ export type FileUpdateDesign = {
         width: number;
         height: number;
     }>;
-    printAreaId?: number;
+    podPrintAreaId?: number;
     file?: string;
     id: number;
 };

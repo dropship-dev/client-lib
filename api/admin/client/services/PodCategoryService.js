@@ -7,7 +7,7 @@ class PodCategoryService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     createCategory({ requestBody, }) {
@@ -51,7 +51,7 @@ class PodCategoryService {
         });
     }
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     updateCategory({ id, requestBody, }) {
@@ -73,7 +73,7 @@ class PodCategoryService {
         });
     }
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     deleteCategory({ id, }) {
@@ -93,7 +93,7 @@ class PodCategoryService {
         });
     }
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     listAllCategory({ fulfillmentAgencyId, }) {

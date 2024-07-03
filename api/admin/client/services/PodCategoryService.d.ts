@@ -1,8 +1,8 @@
-import type { Category } from '../models/Category';
 import type { CreateCategoryDto } from '../models/CreateCategoryDto';
 import type { GetListCategoryByCatalog } from '../models/GetListCategoryByCatalog';
 import type { GetListCategoryByCategory } from '../models/GetListCategoryByCategory';
 import type { LayoutCategory } from '../models/LayoutCategory';
+import type { PodCategory } from '../models/PodCategory';
 import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -10,12 +10,12 @@ export declare class PodCategoryService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     createCategory({ requestBody, }: {
         requestBody: CreateCategoryDto;
-    }): CancelablePromise<Category>;
+    }): CancelablePromise<PodCategory>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -29,25 +29,25 @@ export declare class PodCategoryService {
         layout?: LayoutCategory;
     }): CancelablePromise<(Array<GetListCategoryByCatalog> | Array<GetListCategoryByCategory>)>;
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     updateCategory({ id, requestBody, }: {
         id: number;
         requestBody: UpdateCategoryDto;
-    }): CancelablePromise<Category>;
+    }): CancelablePromise<PodCategory>;
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     deleteCategory({ id, }: {
         id: number;
-    }): CancelablePromise<Category>;
+    }): CancelablePromise<PodCategory>;
     /**
-     * @returns Category Ok
+     * @returns PodCategory Ok
      * @throws ApiError
      */
     listAllCategory({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-    }): CancelablePromise<Array<Category>>;
+    }): CancelablePromise<Array<PodCategory>>;
 }

@@ -1,6 +1,6 @@
 import type { CreateElementDto } from '../models/CreateElementDto';
-import type { Element } from '../models/Element';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { PodElement } from '../models/PodElement';
 import type { Record_string_any_ } from '../models/Record_string_any_';
 import type { UpdateElementDto } from '../models/UpdateElementDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -32,18 +32,18 @@ export declare class PodElementService {
         pageDetail: IPageDetail;
     })>;
     /**
-     * @returns Element Ok
+     * @returns PodElement Ok
      * @throws ApiError
      */
     updateElement({ id, requestBody, }: {
         id: number;
         requestBody: UpdateElementDto;
-    }): CancelablePromise<Element>;
+    }): CancelablePromise<PodElement>;
     /**
-     * @returns Element Ok
+     * @returns PodElement Ok
      * @throws ApiError
      */
     deleteElement({ id, }: {
         id: number;
-    }): CancelablePromise<Element>;
+    }): CancelablePromise<PodElement>;
 }
