@@ -1,0 +1,5 @@
+export declare enum FulfillmentStatus {
+    UNFULFILLED = "UNFULFILLED",
+    PARTIALLY_FULFILLED = "PARTIALLY_FULFILLED",
+    FULFILLED = "FULFILLED"
+}
