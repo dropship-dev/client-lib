@@ -27,29 +27,14 @@ export declare class OrderService {
      * @throws ApiError
      */
     getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, }: {
-        /**
-         * filter by fulfillment agency ID.
-         */
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: string;
-        /**
-         * filter by store ID
-         */
         storeId?: string;
-        /**
-         * filter by payment status
-         */
         paymentStatus?: Array<TransactionStatus>;
-        /**
-         * filter by fulfillment status
-         */
         fulfillmentStatus?: Array<FulfillmentStatus>;
         search?: string;
         disputeStatus?: Array<OrderDisputeStatus>;
-        /**
-         * filter by product name (product name contain)
-         */
         productName?: string;
         startDate?: string;
         endDate?: string;
