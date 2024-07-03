@@ -5,6 +5,7 @@ import { CollectionService } from './services/CollectionService';
 import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { OrderService } from './services/OrderService';
+import { PodDesignService } from './services/PodDesignService';
 import { ProductService } from './services/ProductService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { ReviewService } from './services/ReviewService';
@@ -23,6 +24,7 @@ export declare class ClientApi {
     readonly crossSell: CrossSellService;
     readonly currency: CurrencyService;
     readonly order: OrderService;
+    readonly podDesign: PodDesignService;
     readonly product: ProductService;
     readonly requestPayout: RequestPayoutService;
     readonly review: ReviewService;

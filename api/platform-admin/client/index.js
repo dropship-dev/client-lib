@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.PlacementCrossSellEnum = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.EventOrderFraud = exports.EnvironmentType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.ActiveDetection = exports.ActionOrderFraud = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.UserService = exports.UploadService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = void 0;
+exports.RequestPayoutStatus = exports.RefundType = exports.PlacementCrossSellEnum = exports.PhotoDesign = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.LayoutCategory = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.FileType = exports.EventOrderFraud = exports.EnvironmentType = exports.ElementType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.ActiveDetection = exports.ActionOrderFraud = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.UserService = exports.UploadService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.RequestSourcingStatus = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -51,16 +51,22 @@ var CustomDomainStatus_1 = require("./models/CustomDomainStatus");
 Object.defineProperty(exports, "CustomDomainStatus", { enumerable: true, get: function () { return CustomDomainStatus_1.CustomDomainStatus; } });
 var DiscountCrossSellType_1 = require("./models/DiscountCrossSellType");
 Object.defineProperty(exports, "DiscountCrossSellType", { enumerable: true, get: function () { return DiscountCrossSellType_1.DiscountCrossSellType; } });
+var ElementType_1 = require("./models/ElementType");
+Object.defineProperty(exports, "ElementType", { enumerable: true, get: function () { return ElementType_1.ElementType; } });
 var EnvironmentType_1 = require("./models/EnvironmentType");
 Object.defineProperty(exports, "EnvironmentType", { enumerable: true, get: function () { return EnvironmentType_1.EnvironmentType; } });
 var EventOrderFraud_1 = require("./models/EventOrderFraud");
 Object.defineProperty(exports, "EventOrderFraud", { enumerable: true, get: function () { return EventOrderFraud_1.EventOrderFraud; } });
+var FileType_1 = require("./models/FileType");
+Object.defineProperty(exports, "FileType", { enumerable: true, get: function () { return FileType_1.FileType; } });
 var FulfillmentAgencyRole_1 = require("./models/FulfillmentAgencyRole");
 Object.defineProperty(exports, "FulfillmentAgencyRole", { enumerable: true, get: function () { return FulfillmentAgencyRole_1.FulfillmentAgencyRole; } });
 var FulfillmentAgencyStatus_1 = require("./models/FulfillmentAgencyStatus");
 Object.defineProperty(exports, "FulfillmentAgencyStatus", { enumerable: true, get: function () { return FulfillmentAgencyStatus_1.FulfillmentAgencyStatus; } });
 var FulfillmentStatus_1 = require("./models/FulfillmentStatus");
 Object.defineProperty(exports, "FulfillmentStatus", { enumerable: true, get: function () { return FulfillmentStatus_1.FulfillmentStatus; } });
+var LayoutCategory_1 = require("./models/LayoutCategory");
+Object.defineProperty(exports, "LayoutCategory", { enumerable: true, get: function () { return LayoutCategory_1.LayoutCategory; } });
 var LogoSize_1 = require("./models/LogoSize");
 Object.defineProperty(exports, "LogoSize", { enumerable: true, get: function () { return LogoSize_1.LogoSize; } });
 var NotificationType_1 = require("./models/NotificationType");
@@ -91,6 +97,8 @@ var PaymentType_1 = require("./models/PaymentType");
 Object.defineProperty(exports, "PaymentType", { enumerable: true, get: function () { return PaymentType_1.PaymentType; } });
 var Period_1 = require("./models/Period");
 Object.defineProperty(exports, "Period", { enumerable: true, get: function () { return Period_1.Period; } });
+var PhotoDesign_1 = require("./models/PhotoDesign");
+Object.defineProperty(exports, "PhotoDesign", { enumerable: true, get: function () { return PhotoDesign_1.PhotoDesign; } });
 var PlacementCrossSellEnum_1 = require("./models/PlacementCrossSellEnum");
 Object.defineProperty(exports, "PlacementCrossSellEnum", { enumerable: true, get: function () { return PlacementCrossSellEnum_1.PlacementCrossSellEnum; } });
 var RefundType_1 = require("./models/RefundType");

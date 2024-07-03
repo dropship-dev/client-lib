@@ -7,6 +7,7 @@ const CollectionService_1 = require("./services/CollectionService");
 const CrossSellService_1 = require("./services/CrossSellService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
+const PodDesignService_1 = require("./services/PodDesignService");
 const ProductService_1 = require("./services/ProductService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const ReviewService_1 = require("./services/ReviewService");
@@ -24,6 +25,7 @@ class ClientApi {
     crossSell;
     currency;
     order;
+    podDesign;
     product;
     requestPayout;
     review;
@@ -53,6 +55,7 @@ class ClientApi {
         this.crossSell = new CrossSellService_1.CrossSellService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
+        this.podDesign = new PodDesignService_1.PodDesignService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);
