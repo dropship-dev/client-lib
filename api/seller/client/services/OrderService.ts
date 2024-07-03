@@ -150,7 +150,11 @@ export class OrderService {
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: VariantCombo;
-      ProductVariant: ProductVariant;
+      ProductVariant: (ProductVariant & {
+        Product: {
+          name: string;
+        };
+      });
     })>;
     Transaction: Array<Transaction>;
     Payment: {
