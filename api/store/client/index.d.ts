@@ -185,7 +185,6 @@ export { RequestPayoutStatus } from './models/RequestPayoutStatus';
 export type { RequestSourcing } from './models/RequestSourcing';
 export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Review } from './models/Review';
-export type { SaveDeviceTokenDto } from './models/SaveDeviceTokenDto';
 export type { Setting } from './models/Setting';
 export type { SQLResult } from './models/SQLResult';
 export { statusRequestPayout } from './models/statusRequestPayout';
