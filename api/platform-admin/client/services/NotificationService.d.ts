@@ -2,12 +2,20 @@ import type { CreateNotificationDto } from '../models/CreateNotificationDto';
 import type { Notification } from '../models/Notification';
 import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
+import type { SaveDeviceTokenDto } from '../models/SaveDeviceTokenDto';
 import type { UpdateNotificationDto } from '../models/UpdateNotificationDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class NotificationService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    saveDeviceToken({ requestBody, }: {
+        requestBody: SaveDeviceTokenDto;
+    }): CancelablePromise<string>;
     /**
      * @returns Notification Ok
      * @throws ApiError
