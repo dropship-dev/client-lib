@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
+import type { SaveDeviceTokenDto } from '../models/SaveDeviceTokenDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,6 +12,30 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class NotificationService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public saveDeviceToken({
+    requestBody,
+  }: {
+    requestBody: SaveDeviceTokenDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/notification/save-device-token',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 
   /**
    * @returns any Ok
