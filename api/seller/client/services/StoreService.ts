@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
+import type { FraudStatusType } from '../models/FraudStatusType';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
@@ -61,29 +62,19 @@ export class StoreService {
     paymentGatewayIds,
     platformProductId,
     referralCode,
+    fraudStatus,
   }: {
     fulfillmentAgencyId?: number,
-    /**
-     * number of stores to return
-     */
     pageSize?: number,
     status?: Array<StoreStatus>,
     periodFrom?: string,
-    /**
-     * last store id of previous page. Set to 0 to get first page
-     */
     nextPageIndex?: string,
-    /**
-     * filter by store name
-     */
     name?: string,
-    /**
-     * filter by user id. This param is only available for admin
-     */
     userId?: string,
     paymentGatewayIds?: Array<number>,
     platformProductId?: number,
     referralCode?: string,
+    fraudStatus?: Array<FraudStatusType>,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
@@ -131,6 +122,7 @@ export class StoreService {
         'paymentGatewayIds': paymentGatewayIds,
         'platformProductId': platformProductId,
         'referralCode': referralCode,
+        'fraudStatus': fraudStatus,
       },
       errors: {
         400: `Bad request`,
