@@ -1,6 +1,7 @@
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { CostCalculationMethod } from '../models/CostCalculationMethod';
+import type { FraudStatusType } from '../models/FraudStatusType';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
@@ -21,29 +22,18 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStores({ fulfillmentAgencyId, pageSize, status, periodFrom, nextPageIndex, name, userId, paymentGatewayIds, platformProductId, referralCode, }: {
+    getAllStores({ fulfillmentAgencyId, pageSize, status, periodFrom, nextPageIndex, name, userId, paymentGatewayIds, platformProductId, referralCode, fraudStatus, }: {
         fulfillmentAgencyId?: number;
-        /**
-         * number of stores to return
-         */
         pageSize?: number;
         status?: Array<StoreStatus>;
         periodFrom?: string;
-        /**
-         * last store id of previous page. Set to 0 to get first page
-         */
         nextPageIndex?: string;
-        /**
-         * filter by store name
-         */
         name?: string;
-        /**
-         * filter by user id. This param is only available for admin
-         */
         userId?: string;
         paymentGatewayIds?: Array<number>;
         platformProductId?: number;
         referralCode?: string;
+        fraudStatus?: Array<FraudStatusType>;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
