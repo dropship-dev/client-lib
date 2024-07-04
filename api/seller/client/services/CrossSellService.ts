@@ -75,7 +75,9 @@ export class CrossSellService {
     total: number;
     data: Array<(CrossSell & {
       Product: Array<Product>;
-      Collection: Array<Collection>;
+      Collection: Array<(Collection & {
+        Product: Array<Product>;
+      })>;
     })>;
   }> {
     return this.httpRequest.request({
