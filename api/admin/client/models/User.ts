@@ -17,7 +17,6 @@ export type User = {
   maxOwnedStores: number;
   shortId: string;
   role: UserRole;
-  firebaseDeviceToken: string | null;
   avatar: string | null;
   phone: string | null;
   country: string | null;
