@@ -163,6 +163,7 @@ export declare class OrderService {
         name: string;
         id: string;
         fraudStatus: FraudStatusType;
+        storeMapper: any;
     }>;
     /**
      * @returns string Ok
