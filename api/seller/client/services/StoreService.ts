@@ -81,6 +81,8 @@ export class StoreService {
     prePageIndex: string;
     total: number;
     data: Array<{
+      humanFraudDetect: boolean;
+      systemFraudDetect: boolean;
       referralCode: string;
       primaryDomain: string;
       subDomain: string;

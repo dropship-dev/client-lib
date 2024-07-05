@@ -5,4 +5,4 @@
 
 import type { TypeOfFraud } from './TypeOfFraud';
 
-export type TypeOfFraudService = Array<TypeOfFraud>;
+export type PrismaJson_TypeOfFraudService = Array<TypeOfFraud>;
