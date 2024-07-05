@@ -276,6 +276,7 @@ export class OrderService {
     name: string;
     id: string;
     fraudStatus: FraudStatusType;
+    storeMapper: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
