@@ -137,7 +137,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    refundOrder({ orderId, requestBody, fulfillmentAgencyId = 1, }) {
+    refundOrder({ fulfillmentAgencyId, orderId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/order/{orderId}/refund-order',

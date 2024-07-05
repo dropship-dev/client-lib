@@ -1,19 +1,23 @@
+import type { BillingInfo } from '../models/BillingInfo';
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { JsonValue } from '../models/JsonValue';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
+import type { OrderStatus } from '../models/OrderStatus';
 import type { Payment } from '../models/Payment';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
+import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
@@ -97,7 +101,7 @@ export declare class OrderService {
     getOrder({ fulfillmentAgencyId, id, }: {
         fulfillmentAgencyId: number;
         id: string;
-    }): CancelablePromise<(Order & {
+    }): CancelablePromise<{
         FraudDetection: Array<FraudDetection>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
@@ -111,7 +115,55 @@ export declare class OrderService {
         })>;
         Transaction: Array<Transaction>;
         Store: Store;
-    })>;
+        updatedAt: string;
+        createdAt: string;
+        disputeStatus: OrderDisputeStatus;
+        status: OrderStatus;
+        paymentId: number;
+        currencyId: number;
+        storeId: string;
+        fingerPrint: string;
+        timezoneLocalBrowser: string;
+        fulfillmentCost: number;
+        fulfillmentStatus: FulfillmentStatus;
+        isSyncBalance: SyncBalanceAmount;
+        retentionRate: number;
+        payoutIn: string;
+        holdIn: string;
+        latestNoItems: number;
+        latestSubTotal: number;
+        latestTotal: number;
+        gatewayTransactionId: string;
+        gatewayOrderId: string;
+        supplierCost: number;
+        lastBalance: number;
+        discount: number;
+        discountShippingFee: number;
+        noItems: number;
+        tax: number;
+        platformFee: number;
+        profitFulfillAdmin: number;
+        profit: number;
+        subTotal: number;
+        totalUSD: number;
+        total: number;
+        shippingFee: number;
+        note: string;
+        domain: string;
+        additionalInfo: JsonValue;
+        billingInfo: BillingInfo;
+        country: string;
+        zipCode: string;
+        province: string;
+        city: string;
+        address2: string;
+        address1: string;
+        phone: string;
+        email: string;
+        name: string;
+        id: string;
+        fraudStatus: FraudStatusType;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -123,10 +175,10 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    refundOrder({ orderId, requestBody, fulfillmentAgencyId, }: {
+    refundOrder({ fulfillmentAgencyId, orderId, requestBody, }: {
+        fulfillmentAgencyId: number;
         orderId: string;
         requestBody: RefundOrderDto;
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<(Order & {
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {

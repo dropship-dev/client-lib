@@ -5,6 +5,7 @@ import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
+import type { StoreType } from '../models/StoreType';
 import type { Theme } from '../models/Theme';
 import type { ThemePage } from '../models/ThemePage';
 import type { Timezone } from '../models/Timezone';
@@ -72,6 +73,7 @@ export declare class StoreService {
             id: string;
             fulfillmentAgencyId: number;
             userRole: StoreRole;
+            fraudStatus: FraudStatusType;
         }>;
     }>;
     /**
@@ -80,7 +82,7 @@ export declare class StoreService {
      */
     getStore({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<(Store & {
+    }): CancelablePromise<{
         Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
@@ -99,7 +101,40 @@ export declare class StoreService {
         Theme: Array<(Theme & {
             ThemePage: Array<ThemePage>;
         })>;
-    })>;
+        updatedAt: string;
+        createdAt: string;
+        currencyId: number;
+        fulfillmentAgencyId: number;
+        maxUsers: number;
+        balance: number;
+        humanFraudDetect: boolean;
+        systemFraudDetect: boolean;
+        referralCode: string;
+        type: StoreType;
+        defaultBankAccount: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        privacyPolicy: string;
+        refundPolicy: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        timezone: Timezone;
+        primaryDomain: string;
+        subDomain: string;
+        pageName: string;
+        status: StoreStatus;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        avatar: string;
+        email: string;
+        phone: string;
+        name: string;
+        id: string;
+        fraudStatus: FraudStatusType;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError
