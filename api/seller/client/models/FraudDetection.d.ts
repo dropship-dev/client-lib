@@ -12,7 +12,7 @@ export type FraudDetection = {
     labels: PrismaJson_TypeOfFraudService | null;
     idempotencyKey: string | null;
     humanFraudDetect: boolean | null;
-    systemFraudDetect: boolean;
+    systemFraudDetect: boolean | null;
     orderId: string;
     id: string;
 };
