@@ -1,5 +1,6 @@
 import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
+import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
@@ -49,6 +50,7 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<(Order & {
+            FraudDetection: Array<FraudDetection>;
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
@@ -96,6 +98,7 @@ export declare class OrderService {
         fulfillmentAgencyId: number;
         id: string;
     }): CancelablePromise<(Order & {
+        FraudDetection: Array<FraudDetection>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
