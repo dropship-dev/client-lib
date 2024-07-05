@@ -20,6 +20,7 @@ export type CreateOrderDto = {
   referrer?: string;
   timezoneLocalBrowser?: string;
   fingerPrint?: string;
+  crossSellId?: string;
   cloverOrder?: {
     tokenCard: string;
     orderSystemId: string;
