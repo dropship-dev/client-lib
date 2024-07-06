@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { PrismaJson_FirebaseDeviceToken } from './PrismaJson_FirebaseDeviceToken';
 import type { UserRole } from './UserRole';
 
 /**
@@ -12,7 +13,10 @@ export type User = {
   updatedAt: string;
   createdAt: string;
   subscriptionId: string | null;
-  firebaseDeviceToken: string | null;
+  /**
+   * [FirebaseDeviceToken]
+   */
+  firebaseDeviceToken: PrismaJson_FirebaseDeviceToken | null;
   firstLogin: boolean;
   maxStaffStores: number;
   maxOwnedStores: number;

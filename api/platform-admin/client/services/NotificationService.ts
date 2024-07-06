@@ -6,6 +6,8 @@ import type { CreateNotificationDto } from '../models/CreateNotificationDto';
 import type { Notification } from '../models/Notification';
 import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
+import type { SubscribeTopicDto } from '../models/SubscribeTopicDto';
+import type { UnsubscribeTopicDto } from '../models/UnsubscribeTopicDto';
 import type { UpdateNotificationDto } from '../models/UpdateNotificationDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,6 +16,59 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class NotificationService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public subscribeTopic({
+    requestBody,
+  }: {
+    requestBody: SubscribeTopicDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/notification/subscribe-topic',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public unsubscribeTopic({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UnsubscribeTopicDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/notification/unsubscribe-topic',
+      query: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 
   /**
    * @returns Notification Ok
