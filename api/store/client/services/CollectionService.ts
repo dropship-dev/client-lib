@@ -78,7 +78,9 @@ export class CollectionService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<Collection>;
+    data: Array<(Collection & {
+      Product: Array<Product>;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',

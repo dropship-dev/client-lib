@@ -3,6 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { TypeOfFraud } from './TypeOfFraud';
+export type SyncBalanceAmount = {
+  isSyncHoldIn: boolean;
+  isSyncPayoutIn: boolean;
+};
 
-export type TypeOfFraudService = Array<TypeOfFraud>;

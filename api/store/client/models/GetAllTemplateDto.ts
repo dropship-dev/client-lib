@@ -3,11 +3,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { StatusTemplate } from './StatusTemplate';
+
 export type GetAllTemplateDto = {
   search?: string;
   sort?: GetAllTemplateDto.sort;
-  status?: boolean;
+  status?: Array<StatusTemplate>;
   podProductTypeId?: number;
+  podCategoryId?: number;
   storeId?: string;
   fulfillmentAgencyId?: number;
   isFavorite?: boolean;

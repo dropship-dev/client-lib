@@ -4,11 +4,12 @@
 /* eslint-disable */
 
 import type { ActiveDetection } from './ActiveDetection';
+import type { FraudDetectionStatusType } from './FraudDetectionStatusType';
 
 export type ManualFraudDetectionDto = {
-  isFraud: boolean | null;
+  fraudDetectionStatus: FraudDetectionStatusType;
   orderId?: string;
-  storeId?: string;
+  storeId: string;
   action: ActiveDetection;
 };
 
