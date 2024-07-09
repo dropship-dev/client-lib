@@ -1,5 +1,6 @@
 import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
+import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
@@ -46,8 +47,6 @@ export declare class StoreService {
         prePageIndex: string;
         total: number;
         data: Array<{
-            humanFraudDetect: boolean;
-            systemFraudDetect: boolean;
             referralCode: string;
             primaryDomain: string;
             subDomain: string;
@@ -56,6 +55,7 @@ export declare class StoreService {
             phone: string;
             email: string;
             name: string;
+            FraudDetection: Array<FraudDetection>;
             Wallet: Array<Wallet>;
             FulfillmentAgency: {
                 costCalculationMethod: CostCalculationMethod;
@@ -83,6 +83,7 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        FraudDetection: Array<FraudDetection>;
         Wallet: Array<Wallet>;
         Payment: Array<{
             publishableKey: string;
@@ -107,8 +108,6 @@ export declare class StoreService {
         fulfillmentAgencyId: number;
         maxUsers: number;
         balance: number;
-        humanFraudDetect: boolean;
-        systemFraudDetect: boolean;
         referralCode: string;
         type: StoreType;
         defaultBankAccount: string;

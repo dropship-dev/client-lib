@@ -96,6 +96,8 @@ export type { ExportOrderResult } from './models/ExportOrderResult';
 export type { FbPixel } from './models/FbPixel';
 export type { FixedCostInfo } from './models/FixedCostInfo';
 export type { FraudDetection } from './models/FraudDetection';
+export { FraudDetectionStatusType } from './models/FraudDetectionStatusType';
+export { FraudDetectionType } from './models/FraudDetectionType';
 export { FraudStatusType } from './models/FraudStatusType';
 export type { FulfillmentAgency } from './models/FulfillmentAgency';
 export { FulfillmentAgencyRole } from './models/FulfillmentAgencyRole';

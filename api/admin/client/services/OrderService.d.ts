@@ -67,7 +67,9 @@ export declare class OrderService {
             })>;
             Transaction: Array<Transaction>;
             Payment: Payment;
-            Store: Store;
+            Store: (Store & {
+                FraudDetection: Array<FraudDetection>;
+            });
         })>;
     }>;
     /**
@@ -114,7 +116,9 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Store: Store;
+        Store: (Store & {
+            FraudDetection: Array<FraudDetection>;
+        });
         updatedAt: string;
         createdAt: string;
         disputeStatus: OrderDisputeStatus;

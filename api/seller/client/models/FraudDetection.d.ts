@@ -1,8 +1,11 @@
+import type { FraudDetectionStatusType } from './FraudDetectionStatusType';
+import type { FraudDetectionType } from './FraudDetectionType';
 import type { PrismaJson_TypeOfFraudService } from './PrismaJson_TypeOfFraudService';
 /**
  * Model FraudDetection
  */
 export type FraudDetection = {
+    storeId: string | null;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
@@ -11,8 +14,9 @@ export type FraudDetection = {
      */
     labels: PrismaJson_TypeOfFraudService | null;
     idempotencyKey: string | null;
-    humanFraudDetect: boolean | null;
-    systemFraudDetect: boolean | null;
-    orderId: string;
+    humanFraudDetect: FraudDetectionStatusType;
+    systemFraudDetect: FraudDetectionStatusType;
+    orderId: string | null;
+    type: FraudDetectionType;
     id: string;
 };
