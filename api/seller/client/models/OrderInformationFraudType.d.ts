@@ -1,5 +1,5 @@
-import type { TypeOfFraudService } from './TypeOfFraudService';
+import type { PrismaJson_TypeOfFraudService } from './PrismaJson_TypeOfFraudService';
 export type OrderInformationFraudType = {
     orderId: string;
-    types: TypeOfFraudService;
+    types: PrismaJson_TypeOfFraudService;
 };

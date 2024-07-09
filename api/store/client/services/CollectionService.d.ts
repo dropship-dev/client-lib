@@ -41,7 +41,9 @@ export declare class CollectionService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<Collection>;
+        data: Array<(Collection & {
+            Product: Array<Product>;
+        })>;
     }>;
     /**
      * @returns any Ok

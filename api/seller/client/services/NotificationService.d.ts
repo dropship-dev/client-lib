@@ -1,10 +1,27 @@
 import type { NotificationData } from '../models/NotificationData';
 import type { NotificationType } from '../models/NotificationType';
+import type { SubscribeTopicDto } from '../models/SubscribeTopicDto';
+import type { UnsubscribeTopicDto } from '../models/UnsubscribeTopicDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class NotificationService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    subscribeTopic({ requestBody, }: {
+        requestBody: SubscribeTopicDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    unsubscribeTopic({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UnsubscribeTopicDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

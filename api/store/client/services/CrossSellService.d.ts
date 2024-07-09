@@ -38,7 +38,9 @@ export declare class CrossSellService {
         total: number;
         data: Array<(CrossSell & {
             Product: Array<Product>;
-            Collection: Array<Collection>;
+            Collection: Array<(Collection & {
+                Product: Array<Product>;
+            })>;
         })>;
     }>;
     /**
@@ -70,7 +72,9 @@ export declare class CrossSellService {
         storeId: string;
     }): CancelablePromise<(CrossSell & {
         Product: Array<Product>;
-        Collection: Array<Collection>;
+        Collection: Array<(Collection & {
+            Product: Array<Product>;
+        })>;
     })>;
     /**
      * @returns string Ok

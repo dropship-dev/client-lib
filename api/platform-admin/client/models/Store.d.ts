@@ -11,7 +11,6 @@ export type Store = {
     fulfillmentAgencyId: number | null;
     maxUsers: number;
     balance: number;
-    isFraud: boolean | null;
     referralCode: string | null;
     type: StoreType;
     defaultBankAccount: string | null;

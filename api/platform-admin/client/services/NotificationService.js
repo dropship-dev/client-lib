@@ -7,6 +7,47 @@ class NotificationService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    subscribeTopic({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/notification/subscribe-topic',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    unsubscribeTopic({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/notification/unsubscribe-topic',
+            query: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns Notification Ok
      * @throws ApiError
      */

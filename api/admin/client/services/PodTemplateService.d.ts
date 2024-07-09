@@ -1,8 +1,10 @@
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
 import type { FileProperties } from '../models/FileProperties';
 import type { FileType } from '../models/FileType';
+import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
 import type { PodTemplate } from '../models/PodTemplate';
+import type { StatusTemplate } from '../models/StatusTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
@@ -22,38 +24,21 @@ export declare class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTemplate({ search, sort, status, podProductTypeId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
+    getAllTemplate({ search, sort, status, podProductTypeId, podCategoryId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
         search?: string;
         sort?: 'ASC' | 'DESC';
-        status?: boolean;
+        status?: Array<StatusTemplate>;
         podProductTypeId?: number;
+        podCategoryId?: number;
         storeId?: string;
         fulfillmentAgencyId?: number;
         isFavorite?: boolean;
         page?: number;
         limit?: number;
-    }): CancelablePromise<({
-        data?: any;
-        template: Array<any>;
+    }): CancelablePromise<{
+        data: Array<GetAllTemplateResponse>;
         pageDetail: IPageDetail;
-    } | {
-        template?: any;
-        data: Array<{
-            variantOption: Array<{
-                total: any;
-                name: string;
-            }>;
-            isActive: boolean;
-            file: string;
-            minSellingPrice: number;
-            description: string;
-            podTechniqueId: number;
-            podProductTypeId: number;
-            name: string;
-            id: number;
-        }>;
-        pageDetail: IPageDetail;
-    })>;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
