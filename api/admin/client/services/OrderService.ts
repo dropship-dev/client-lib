@@ -90,7 +90,9 @@ export class OrderService {
       })>;
       Transaction: Array<Transaction>;
       Payment: Payment;
-      Store: Store;
+      Store: (Store & {
+        FraudDetection: Array<FraudDetection>;
+      });
     })>;
   }> {
     return this.httpRequest.request({
@@ -227,7 +229,9 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Store: Store;
+    Store: (Store & {
+      FraudDetection: Array<FraudDetection>;
+    });
     updatedAt: string;
     createdAt: string;
     disputeStatus: OrderDisputeStatus;
