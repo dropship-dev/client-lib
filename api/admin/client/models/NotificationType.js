@@ -11,6 +11,7 @@ var NotificationType;
     NotificationType["STORE_REJECTED"] = "STORE_REJECTED";
     NotificationType["STORE_ACTIVATED"] = "STORE_ACTIVATED";
     NotificationType["STORE_SUSPENDED"] = "STORE_SUSPENDED";
+    NotificationType["STORE_REACTIVATED"] = "STORE_REACTIVATED";
     NotificationType["STORE_REQUESTING"] = "STORE_REQUESTING";
     NotificationType["PRODUCT_ADDED"] = "PRODUCT_ADDED";
     NotificationType["PRODUCT_REQUEST_REJECTED"] = "PRODUCT_REQUEST_REJECTED";
