@@ -184,6 +184,7 @@ export class ProductService {
       })>;
       Collection: Array<Collection>;
     })>;
+    Collection: Array<Collection>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
