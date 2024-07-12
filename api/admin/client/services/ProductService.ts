@@ -3,11 +3,13 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
+import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { Collection } from '../models/Collection';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -174,7 +176,7 @@ export class ProductService {
     storeId: string,
     permalink?: string,
     productId?: number,
-  }): CancelablePromise<(Product & {
+  }): CancelablePromise<{
     Campaign: (Campaign & {
       listDiscount: Array<Discount>;
     });
@@ -214,10 +216,29 @@ export class ProductService {
       })>;
       Collection: Array<Collection>;
     })>;
-    Collection: Array<(Collection & {
-      CrossSell: Array<CrossSell>;
-    })>;
-  })> {
+    updatedAt: string;
+    createdAt: string;
+    podTemplateId: number;
+    campaignId: string;
+    storeId: string;
+    platformProductId: number;
+    deleted: boolean;
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    variantOption: VariantOptions;
+    availableSet: AvailableSet;
+    SKU: string;
+    photos: Photos;
+    details: string;
+    description: string;
+    permalink: string;
+    name: string;
+    id: number;
+    Collection: any;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/permalink',
