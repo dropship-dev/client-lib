@@ -214,7 +214,9 @@ export class ProductService {
       })>;
       Collection: Array<Collection>;
     })>;
-    Collection: Array<Collection>;
+    Collection: Array<(Collection & {
+      CrossSell: Array<CrossSell>;
+    })>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
