@@ -117,6 +117,7 @@ export declare class ProductService {
             })>;
             Collection: Array<Collection>;
         })>;
+        Collection: Array<Collection>;
     })>;
     /**
      * @returns any Ok
