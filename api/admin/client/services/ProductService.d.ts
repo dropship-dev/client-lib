@@ -126,7 +126,9 @@ export declare class ProductService {
             })>;
             Collection: Array<Collection>;
         })>;
-        Collection: Array<Collection>;
+        Collection: Array<(Collection & {
+            CrossSell: Array<CrossSell>;
+        })>;
     })>;
     /**
      * @returns any Ok
