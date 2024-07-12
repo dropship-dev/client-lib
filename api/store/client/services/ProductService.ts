@@ -5,7 +5,6 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
-import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { Photos } from '../models/Photos';
@@ -184,7 +183,9 @@ export class ProductService {
           };
         })>;
       })>;
-      Collection: Array<Collection>;
+      Collection: Array<{
+        Product: Array<Product>;
+      }>;
     })>;
     updatedAt: string;
     createdAt: string;
