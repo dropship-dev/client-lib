@@ -16,6 +16,7 @@ var NotificationType;
     NotificationType["PRODUCT_ADDED"] = "PRODUCT_ADDED";
     NotificationType["PRODUCT_REQUEST_REJECTED"] = "PRODUCT_REQUEST_REJECTED";
     NotificationType["PRODUCT_PRICE_UPDATED"] = "PRODUCT_PRICE_UPDATED";
+    NotificationType["PRODUCT_REQUESTING"] = "PRODUCT_REQUESTING";
     NotificationType["PAYOUT_REQUESTING"] = "PAYOUT_REQUESTING";
     NotificationType["PAYOUT_APPROVED"] = "PAYOUT_APPROVED";
     NotificationType["PAYOUT_REJECTED"] = "PAYOUT_REJECTED";
