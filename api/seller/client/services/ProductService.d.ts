@@ -1,10 +1,12 @@
 import type { AdminTag } from '../models/AdminTag';
+import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -106,7 +108,7 @@ export declare class ProductService {
         storeId: string;
         permalink?: string;
         productId?: number;
-    }): CancelablePromise<(Product & {
+    }): CancelablePromise<{
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;
         });
@@ -146,10 +148,29 @@ export declare class ProductService {
             })>;
             Collection: Array<Collection>;
         })>;
-        Collection: Array<(Collection & {
-            CrossSell: Array<CrossSell>;
-        })>;
-    })>;
+        updatedAt: string;
+        createdAt: string;
+        podTemplateId: number;
+        campaignId: string;
+        storeId: string;
+        platformProductId: number;
+        deleted: boolean;
+        isEnable: boolean;
+        isActive: boolean;
+        supplierContact: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        variantOption: VariantOptions;
+        availableSet: AvailableSet;
+        SKU: string;
+        photos: Photos;
+        details: string;
+        description: string;
+        permalink: string;
+        name: string;
+        id: number;
+        Collection: any;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
