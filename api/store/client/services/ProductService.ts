@@ -234,6 +234,41 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getVariantsById({
+    storeId,
+    variantIds,
+  }: {
+    storeId: string,
+    variantIds: Array<number>,
+  }): CancelablePromise<Array<{
+    discount: any;
+    deleted: boolean;
+    isStock: boolean;
+    variant: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/variants',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'variantIds': variantIds,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getProduct({
     storeId,
     productId,
