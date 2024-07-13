@@ -208,6 +208,7 @@ export class ProductService {
     permalink: string;
     name: string;
     id: number;
+    productsOfCollection: Array<number>;
     Collection: any;
   }> {
     return this.httpRequest.request({
