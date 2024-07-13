@@ -208,7 +208,13 @@ export class ProductService {
     permalink: string;
     name: string;
     id: number;
-    productsOfCollection: Array<number>;
+    productsOfCollection: Array<(Product & {
+      ProductVariant: Array<(ProductVariant & {
+        Product: {
+          name: string;
+        };
+      })>;
+    })>;
     Collection: any;
   }> {
     return this.httpRequest.request({
