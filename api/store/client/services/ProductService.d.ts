@@ -141,6 +141,7 @@ export declare class ProductService {
         permalink: string;
         name: string;
         id: number;
+        productsOfCollection: Array<number>;
         Collection: any;
     }>;
     /**
