@@ -126,7 +126,13 @@ export declare class ProductService {
                 })>;
             })>;
             Collection: Array<{
-                Product: Array<Product>;
+                Product: Array<(Product & {
+                    ProductVariant: Array<(ProductVariant & {
+                        Product: {
+                            name: string;
+                        };
+                    })>;
+                })>;
             }>;
         })>;
         updatedAt: string;
@@ -150,13 +156,6 @@ export declare class ProductService {
         permalink: string;
         name: string;
         id: number;
-        productsOfCollection: Array<(Product & {
-            ProductVariant: Array<(ProductVariant & {
-                Product: {
-                    name: string;
-                };
-            })>;
-        })>;
         Collection: any;
     }>;
     /**
