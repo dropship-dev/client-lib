@@ -176,6 +176,19 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getVariantsById({ storeId, variantIds, }: {
+        storeId: string;
+        variantIds: Array<number>;
+    }): CancelablePromise<Array<{
+        discount: any;
+        deleted: boolean;
+        isStock: boolean;
+        variant: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getProduct({ storeId, productId, isGetAllPlatformProductStore, }: {
         storeId: string;
         productId: number;
