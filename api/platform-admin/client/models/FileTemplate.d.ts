@@ -1,15 +1,8 @@
+import type { FileType } from './FileType';
+import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
 export type FileTemplate = {
-    properties?: Array<{
-        file: string;
-        rotate?: string;
-        fontSize: number;
-        fontFamily?: string;
-        content?: string;
-        left: number;
-        top: number;
-        width: number;
-        height: number;
-    }>;
+    properties?: PrismaJson_PodFileProperties;
     file?: string;
-    podPrintAreaId: number;
+    type: FileType;
+    podPrintAreaId?: number;
 };

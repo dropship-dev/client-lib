@@ -18,8 +18,7 @@ export declare class NotificationService {
      * @returns string Ok
      * @throws ApiError
      */
-    unsubscribeTopic({ storeId, requestBody, }: {
-        storeId: string;
+    unsubscribeTopic({ requestBody, }: {
         requestBody: UnsubscribeTopicDto;
     }): CancelablePromise<string>;
     /**
@@ -52,5 +51,13 @@ export declare class NotificationService {
      */
     updateReadNotification({ id, }: {
         id: number;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    markAllReadNotifications({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
     }): CancelablePromise<string>;
 }

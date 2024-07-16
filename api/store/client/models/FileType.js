@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileType = void 0;
 var FileType;
 (function (FileType) {
-    FileType["DESIGN"] = "DESIGN";
     FileType["TEMPLATE"] = "TEMPLATE";
     FileType["MOCKUP"] = "MOCKUP";
+    FileType["DESIGN"] = "DESIGN";
 })(FileType || (exports.FileType = FileType = {}));

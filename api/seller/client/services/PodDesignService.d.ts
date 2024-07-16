@@ -2,7 +2,6 @@ import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
 import type { IPageDetail } from '../models/IPageDetail';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
-import type { PhotoDesign } from '../models/PhotoDesign';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
 import type { Product } from '../models/Product';
@@ -94,9 +93,9 @@ export declare class PodDesignService {
             sku: string;
             sizeGuide: string;
             podTemplateId: number;
-            photos: PhotoDesign;
             description: string;
             name: string;
+            PodFile: Array<PodFile>;
             id: number;
             storeId: string;
         };

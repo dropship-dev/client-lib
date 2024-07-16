@@ -1,5 +1,5 @@
 export declare enum FileType {
-    DESIGN = "DESIGN",
     TEMPLATE = "TEMPLATE",
-    MOCKUP = "MOCKUP"
+    MOCKUP = "MOCKUP",
+    DESIGN = "DESIGN"
 }
