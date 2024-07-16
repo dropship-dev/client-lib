@@ -16,12 +16,5 @@ export type UpdateDesignDto = {
   variantOption: Array<VariantOptionsPayLoad>;
   files: Array<FileUpdateDesign>;
   variants: Array<UpdateDesignVariant>;
-  photos: Array<{
-    type: 'THUMBNAIL_IMAGE' | 'MOCKUP_IMAGE';
-    order: number;
-    isSelected: boolean;
-    color: string;
-    photo: string;
-  }>;
 };
 

@@ -43,18 +43,13 @@ export class NotificationService {
    * @throws ApiError
    */
   public unsubscribeTopic({
-    storeId,
     requestBody,
   }: {
-    storeId: string,
     requestBody: UnsubscribeTopicDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/notification/unsubscribe-topic',
-      query: {
-        'storeId': storeId,
-      },
       body: requestBody,
       mediaType: 'application/json',
       errors: {
@@ -149,6 +144,34 @@ export class NotificationService {
       url: '/notification/{id}/read',
       path: {
         'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public markAllReadNotifications({
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/notification/mark-all-read',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,

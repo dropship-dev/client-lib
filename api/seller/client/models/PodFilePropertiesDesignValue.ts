@@ -3,14 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrismaJson_FileProperties = Array<{
-  file: string;
+export type PodFilePropertiesDesignValue = {
   rotate?: string;
   fontSize?: number;
   fontFamily?: string;
   content?: string;
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-}>;
+  size?: string;
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  file: string;
+  name: string;
+};
+

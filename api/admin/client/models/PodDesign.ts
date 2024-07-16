@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PrismaJson_PhotoDesign } from './PrismaJson_PhotoDesign';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 
 /**
@@ -24,10 +23,6 @@ export type PodDesign = {
   sizeGuide: string;
   description: string | null;
   name: string;
-  /**
-   * [PhotoDesign]
-   */
-  photos: PrismaJson_PhotoDesign;
   storeId: string;
   podTemplateId: number;
   id: number;

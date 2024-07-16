@@ -3,7 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum PhotoDesign {
-  THUMBNAIL_IMAGE = 'THUMBNAIL_IMAGE',
-  MOCKUP_IMAGE = 'MOCKUP_IMAGE',
+export enum PodFilePropertiesLabel {
+  DESIGN = 'DESIGN',
+  MOCKUP = 'MOCKUP',
+  OTHER = 'OTHER',
 }

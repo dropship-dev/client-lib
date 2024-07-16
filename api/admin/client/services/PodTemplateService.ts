@@ -3,10 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
-import type { FileProperties } from '../models/FileProperties';
 import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { PodFileProperties } from '../models/PodFileProperties';
 import type { PodTemplate } from '../models/PodTemplate';
 import type { StatusTemplate } from '../models/StatusTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
@@ -151,7 +151,7 @@ export class PodTemplateService {
     name: string;
     PodFile: Array<{
       podPrintAreaId: number;
-      properties: FileProperties;
+      properties: PodFileProperties;
       file: string;
       podDesignId: number;
       podTemplateId: number;
@@ -178,7 +178,7 @@ export class PodTemplateService {
     File: {
       fileMockup: Array<{
         podPrintAreaId: number;
-        properties: FileProperties;
+        properties: PodFileProperties;
         file: string;
         podDesignId: number;
         podTemplateId: number;

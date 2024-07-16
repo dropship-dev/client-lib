@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export enum FileType {
-  DESIGN = 'DESIGN',
   TEMPLATE = 'TEMPLATE',
   MOCKUP = 'MOCKUP',
+  DESIGN = 'DESIGN',
 }

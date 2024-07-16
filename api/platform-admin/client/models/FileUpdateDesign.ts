@@ -3,20 +3,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { FileType } from './FileType';
+import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
+
 export type FileUpdateDesign = {
-  properties?: Array<{
-    file: string;
-    rotate?: string;
-    fontSize: number;
-    fontFamily?: string;
-    content?: string;
-    left: number;
-    top: number;
-    width: number;
-    height: number;
-  }>;
+  properties?: PrismaJson_PodFileProperties;
   podPrintAreaId?: number;
+  type: FileType;
   file?: string;
-  id: number;
+  id?: number;
 };
 

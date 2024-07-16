@@ -3,10 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrismaJson_PhotoDesign = Array<{
-  type: 'THUMBNAIL_IMAGE' | 'MOCKUP_IMAGE';
-  order: number;
-  isSelected: boolean;
+export type PodFilePropertiesMockupValue = {
+  file: string;
   color: string;
-  photo: string;
-}>;
+};
+
