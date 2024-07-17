@@ -2,9 +2,9 @@ name: Build project
 
 on:
   push:
-    branches: ["main"]
+    branches: ["feature/seller-mail-marketing"]
   pull_request:
-    branches: ["main"]
+    branches: ["feature/seller-mail-marketing"]
 
 jobs:
   build:
@@ -27,6 +27,6 @@ jobs:
         uses: s0/git-publish-subdir-action@v2.6.0
         env:
           REPO: self
-          BRANCH: build
+          BRANCH: email-build
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
