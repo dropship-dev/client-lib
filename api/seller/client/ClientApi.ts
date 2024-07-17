@@ -17,6 +17,7 @@ import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
+import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
@@ -29,6 +30,7 @@ import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
 import { StaffService } from './services/StaffService';
+import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { ThemeService } from './services/ThemeService';
@@ -56,6 +58,7 @@ export class ClientApi {
   public readonly fbPixel: FbPixelService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly googleAnalytic: GoogleAnalyticService;
+  public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly orderRefunds: OrderRefundsService;
@@ -68,6 +71,7 @@ export class ClientApi {
   public readonly review: ReviewService;
   public readonly setting: SettingService;
   public readonly staff: StaffService;
+  public readonly statistics: StatisticsService;
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly theme: ThemeService;
@@ -106,6 +110,7 @@ export class ClientApi {
     this.fbPixel = new FbPixelService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.googleAnalytic = new GoogleAnalyticService(this.request);
+    this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.orderRefunds = new OrderRefundsService(this.request);
@@ -118,6 +123,7 @@ export class ClientApi {
     this.review = new ReviewService(this.request);
     this.setting = new SettingService(this.request);
     this.staff = new StaffService(this.request);
+    this.statistics = new StatisticsService(this.request);
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.theme = new ThemeService(this.request);

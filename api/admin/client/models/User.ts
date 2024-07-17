@@ -10,9 +10,9 @@ import type { UserRole } from './UserRole';
  * Model User
  */
 export type User = {
+  subscriptionId: string | null;
   updatedAt: string;
   createdAt: string;
-  subscriptionId: string | null;
   /**
    * [FirebaseDeviceToken]
    */

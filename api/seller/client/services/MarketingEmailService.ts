@@ -1,0 +1,333 @@
+/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { BatchPayload } from '../models/BatchPayload';
+import type { CreateAutomationEmailMarketingDto } from '../models/CreateAutomationEmailMarketingDto';
+import type { CreateComboItems } from '../models/CreateComboItems';
+import type { CreateOrderItems } from '../models/CreateOrderItems';
+import type { CreateTemplateDto } from '../models/CreateTemplateDto';
+import type { DirectionCursor } from '../models/DirectionCursor';
+import type { EmailTrackingAction } from '../models/EmailTrackingAction';
+import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
+import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
+import type { UpdateAutomationEmailMarketingDto } from '../models/UpdateAutomationEmailMarketingDto';
+import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
+
+import type { CancelablePromise } from '../core/CancelablePromise';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
+export class MarketingEmailService {
+
+  constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStatisticsStoreAbandonmentCheckout({
+    storeId,
+    startTime,
+    endTime,
+  }: {
+    storeId: string,
+    startTime: string,
+    endTime: string,
+  }): CancelablePromise<{
+    clickPercent: number;
+    totalClick: number;
+    totalOpenPercent: number;
+    totalOpen: number;
+    revenue: number;
+    conversionRate: number;
+    orderRecoveredPercent: number;
+    orderRecovered: number;
+    emailSent: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/statistics/abandonments-checkout/store/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'startTime': startTime,
+        'endTime': endTime,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns BatchPayload Ok
+   * @throws ApiError
+   */
+  public createAutomationEmailMarketing({
+    requestBody,
+  }: {
+    requestBody: CreateAutomationEmailMarketingDto,
+  }): CancelablePromise<BatchPayload> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/marketing/email/abandonment/settings',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateAutomationEmailMarketing({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateAutomationEmailMarketingDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/marketing/email/abandonment/settings/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public listAbandonmentSettings({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    items: Array<{
+      emailMarketingTemplate: {
+        data: string;
+        id: number;
+      };
+      createdAt: string;
+      advance: {
+        specificTime: string;
+        specificDays: string;
+      };
+      unit: string;
+      timeDelay: string;
+      subjectLine: string;
+      templateId: number;
+      id: number;
+    }>;
+    senderName: string;
+    isActive: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/email/abandonment/settings/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public listAbandonmentOrders({
+    storeId,
+    direction,
+    cursor,
+    limit,
+    emailStatus,
+    recoveryStatus,
+    id,
+    startDate,
+    endDate,
+  }: {
+    storeId: string,
+    direction: DirectionCursor,
+    cursor: number,
+    limit: number,
+    emailStatus?: OrderTrackingEmailStatus,
+    recoveryStatus?: OrderTrackingRecoveredStatus,
+    id?: number,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    nextCursor: number;
+    hasMore: boolean;
+    data: Array<{
+      emailStatus: OrderTrackingEmailStatus;
+      recoveredStatus: OrderTrackingRecoveredStatus;
+      total: number;
+      email: string;
+      createdAt: string;
+      id: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/email/abandonment/store/{storeId}/orders',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'direction': direction,
+        'cursor': cursor,
+        'limit': limit,
+        'emailStatus': emailStatus,
+        'recoveryStatus': recoveryStatus,
+        'id': id,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getDetailAbandonmentCheckout({
+    storeId,
+    orderTrackingId,
+  }: {
+    storeId: string,
+    orderTrackingId: number,
+  }): CancelablePromise<{
+    emailStatus: OrderTrackingEmailStatus;
+    recoveredStatus: OrderTrackingRecoveredStatus;
+    phoneNumber: string;
+    comboItems: CreateComboItems;
+    orderItems: CreateOrderItems;
+    subTotal: number;
+    total: number;
+    shippingFee: number;
+    email: string;
+    EmailTrackings: Array<{
+      action: EmailTrackingAction;
+      AbandonmentReminder: {
+        AbandonmentSettings: {
+          subjectLine: string;
+        };
+      };
+      createdAt: string;
+    }>;
+    createdAt: string;
+    id: number;
+    checkoutDetail: Array<{
+      quantity: number;
+      price: number;
+      photo: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/email/abandonment/store/{storeId}/orders/{orderTrackingId}',
+      path: {
+        'storeId': storeId,
+        'orderTrackingId': orderTrackingId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public createTemplate({
+    requestBody,
+  }: {
+    requestBody: CreateTemplateDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/marketing/email/template/settings',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateTemplate({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: UpdateTemplateDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/marketing/email/template/settings/{id}',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+}
