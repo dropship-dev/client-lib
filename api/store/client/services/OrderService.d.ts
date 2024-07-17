@@ -1,3 +1,4 @@
+import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -40,7 +41,7 @@ export declare class OrderService {
         storeId: string;
         orderId: string;
         paymentType: PaymentType;
-        requestBody: CreateOrderDto;
+        requestBody: CaptureOrderDto;
         bmClientInfo?: string;
     }): CancelablePromise<{
         status: string;

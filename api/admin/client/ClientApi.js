@@ -8,6 +8,7 @@ const BankAccountService_1 = require("./services/BankAccountService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GroupPlatformVariantService_1 = require("./services/GroupPlatformVariantService");
+const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const OrderRefundsService_1 = require("./services/OrderRefundsService");
@@ -20,6 +21,7 @@ const ProductService_1 = require("./services/ProductService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const SettingService_1 = require("./services/SettingService");
+const StatisticsService_1 = require("./services/StatisticsService");
 const StoreService_1 = require("./services/StoreService");
 const StoreTagService_1 = require("./services/StoreTagService");
 const TagService_1 = require("./services/TagService");
@@ -37,6 +39,7 @@ class ClientApi {
     currency;
     fulfillmentAgency;
     groupPlatformVariant;
+    marketingEmail;
     notification;
     order;
     orderRefunds;
@@ -49,6 +52,7 @@ class ClientApi {
     requestPayout;
     requestSourcing;
     setting;
+    statistics;
     store;
     storeTag;
     tag;
@@ -78,6 +82,7 @@ class ClientApi {
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.groupPlatformVariant = new GroupPlatformVariantService_1.GroupPlatformVariantService(this.request);
+        this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.orderRefunds = new OrderRefundsService_1.OrderRefundsService(this.request);
@@ -90,6 +95,7 @@ class ClientApi {
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
+        this.statistics = new StatisticsService_1.StatisticsService(this.request);
         this.store = new StoreService_1.StoreService(this.request);
         this.storeTag = new StoreTagService_1.StoreTagService(this.request);
         this.tag = new TagService_1.TagService(this.request);
