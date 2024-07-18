@@ -59,7 +59,6 @@ export declare class CollectionService {
         createdAt: string;
         SEO: JsonValue;
         description: string;
-        queriesRaw: string;
         condition: ConditionCollection;
         photos: Photos;
         name: string;

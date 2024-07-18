@@ -1,4 +1,4 @@
 export declare enum CollectionStatus {
-    PUBLISH = "PUBLISH",
-    HIDDEN = "HIDDEN"
+    ACTIVE = "ACTIVE",
+    IN_ACTIVE = "IN_ACTIVE"
 }
