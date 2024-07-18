@@ -11,6 +11,7 @@ import type { DirectionCursor } from '../models/DirectionCursor';
 import type { EmailTrackingAction } from '../models/EmailTrackingAction';
 import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
 import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
+import type { UpdateActiveStatusAutomationEmailMarketingDto } from '../models/UpdateActiveStatusAutomationEmailMarketingDto';
 import type { UpdateAutomationEmailMarketingDto } from '../models/UpdateAutomationEmailMarketingDto';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 
@@ -101,6 +102,35 @@ export class MarketingEmailService {
   }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'PUT',
+      url: '/marketing/email/abandonment/settings/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateActiveStatusAutomationEmailMarketing({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateActiveStatusAutomationEmailMarketingDto,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PATCH',
       url: '/marketing/email/abandonment/settings/{storeId}',
       path: {
         'storeId': storeId,
