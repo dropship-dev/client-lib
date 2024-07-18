@@ -5,6 +5,7 @@ export type UpdateOrderTrackingDto = {
     phoneNumber?: string;
     firstName?: string;
     lastName?: string;
+    fullName?: string;
     orderItems?: Array<OrderItemTrackingDto>;
     comboItems?: Array<ComboItemTrackingDto>;
     token: string;
