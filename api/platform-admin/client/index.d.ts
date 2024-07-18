@@ -92,7 +92,6 @@ export { CurrencyCode } from './models/CurrencyCode';
 export { CurrencyType } from './models/CurrencyType';
 export type { CustomDomain } from './models/CustomDomain';
 export { CustomDomainStatus } from './models/CustomDomainStatus';
-export { DirectionCursor } from './models/DirectionCursor';
 export type { Discount } from './models/Discount';
 export { DiscountCrossSellType } from './models/DiscountCrossSellType';
 export type { DiscountDto } from './models/DiscountDto';

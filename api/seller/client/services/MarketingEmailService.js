@@ -117,7 +117,7 @@ class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    listAbandonmentOrders({ storeId, direction, cursor, limit, emailStatus, recoveryStatus, id, startDate, endDate, }) {
+    listAbandonmentOrders({ storeId, pageSize, nextPageIndex, emailStatus, recoveryStatus, id, startDate, endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/email/abandonment/store/{storeId}/orders',
@@ -125,9 +125,8 @@ class MarketingEmailService {
                 'storeId': storeId,
             },
             query: {
-                'direction': direction,
-                'cursor': cursor,
-                'limit': limit,
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
                 'emailStatus': emailStatus,
                 'recoveryStatus': recoveryStatus,
                 'id': id,

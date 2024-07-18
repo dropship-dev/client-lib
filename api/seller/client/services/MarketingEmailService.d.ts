@@ -3,7 +3,6 @@ import type { CreateAutomationEmailMarketingDto } from '../models/CreateAutomati
 import type { CreateComboItems } from '../models/CreateComboItems';
 import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
-import type { DirectionCursor } from '../models/DirectionCursor';
 import type { EmailTrackingAction } from '../models/EmailTrackingAction';
 import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
 import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
@@ -87,19 +86,18 @@ export declare class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    listAbandonmentOrders({ storeId, direction, cursor, limit, emailStatus, recoveryStatus, id, startDate, endDate, }: {
+    listAbandonmentOrders({ storeId, pageSize, nextPageIndex, emailStatus, recoveryStatus, id, startDate, endDate, }: {
         storeId: string;
-        direction: DirectionCursor;
-        cursor: number;
-        limit: number;
+        pageSize: number;
+        nextPageIndex?: number;
         emailStatus?: OrderTrackingEmailStatus;
         recoveryStatus?: OrderTrackingRecoveredStatus;
         id?: number;
         startDate?: string;
         endDate?: string;
     }): CancelablePromise<{
-        nextCursor: number;
-        hasMore: boolean;
+        nextPageIndex: number;
+        prePageIndex: number;
         data: Array<{
             emailStatus: OrderTrackingEmailStatus;
             recoveredStatus: OrderTrackingRecoveredStatus;
