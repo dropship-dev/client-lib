@@ -64,13 +64,18 @@ export declare class CrossSellService {
         })>;
     })>;
     /**
-     * @returns CrossSell Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<CrossSell>;
+    }): CancelablePromise<(CrossSell & {
+        Product: Array<Product>;
+        Collection: Array<(Collection & {
+            Product: Array<Product>;
+        })>;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -81,13 +86,16 @@ export declare class CrossSellService {
         requestBody: CrossSellDto;
     }): CancelablePromise<string>;
     /**
-     * @returns CrossSell Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<CrossSell>;
+    }): CancelablePromise<(CrossSell & {
+        Product: Array<Product>;
+        Collection: Array<Collection>;
+    })>;
     /**
      * @returns void
      * @throws ApiError

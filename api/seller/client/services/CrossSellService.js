@@ -58,7 +58,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns CrossSell Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCrossSell({ id, storeId, }) {
@@ -102,7 +102,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns CrossSell Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }) {
