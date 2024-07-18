@@ -19,6 +19,6 @@ export type UpdateCollectionDto = {
     collectionTitle: string;
   };
   status?: CollectionStatus;
-  productIds: Array<string>;
+  productIds: Array<number>;
 };
 
