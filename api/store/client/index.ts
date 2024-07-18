@@ -48,7 +48,6 @@ export { CollectionType } from './models/CollectionType';
 export { CombineOperator } from './models/CombineOperator';
 export type { ComboItemDto } from './models/ComboItemDto';
 export type { ComboItemTrackingDto } from './models/ComboItemTrackingDto';
-export type { ConditionCollection } from './models/ConditionCollection';
 export type { ConditionOperation } from './models/ConditionOperation';
 export type { ContactFormDto } from './models/ContactFormDto';
 export type { Coordinate } from './models/Coordinate';

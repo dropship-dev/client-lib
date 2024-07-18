@@ -5,12 +5,9 @@
 import type { Collection } from '../models/Collection';
 import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
-import type { ConditionCollection } from '../models/ConditionCollection';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { CrossSell } from '../models/CrossSell';
-import type { JsonValue } from '../models/JsonValue';
 import type { operatorCondition } from '../models/operatorCondition';
-import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
@@ -117,23 +114,10 @@ export class CollectionService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<{
+  }): CancelablePromise<(Collection & {
     Product: Array<Product>;
     CrossSell: Array<CrossSell>;
-    updatedAt: string;
-    createdAt: string;
-    SEO: JsonValue;
-    description: string;
-    queriesRaw: string;
-    condition: ConditionCollection;
-    photos: Photos;
-    name: string;
-    status: CollectionStatus;
-    type: CollectionType;
-    storeId: string;
-    id: number;
-    products: any;
-  }> {
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/collection/{id}',
