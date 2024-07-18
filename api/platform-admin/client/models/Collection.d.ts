@@ -14,7 +14,6 @@ export type Collection = {
      */
     SEO: Prisma_JsonValue | null;
     description: string | null;
-    queriesRaw: string | null;
     /**
      * [ConditionCollection]
      */
