@@ -7,6 +7,7 @@ import type { DirectionCursor } from '../models/DirectionCursor';
 import type { EmailTrackingAction } from '../models/EmailTrackingAction';
 import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
 import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
+import type { UpdateActiveStatusAutomationEmailMarketingDto } from '../models/UpdateActiveStatusAutomationEmailMarketingDto';
 import type { UpdateAutomationEmailMarketingDto } from '../models/UpdateAutomationEmailMarketingDto';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -47,6 +48,14 @@ export declare class MarketingEmailService {
     updateAutomationEmailMarketing({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateAutomationEmailMarketingDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateActiveStatusAutomationEmailMarketing({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateActiveStatusAutomationEmailMarketingDto;
     }): CancelablePromise<void>;
     /**
      * @returns any Ok

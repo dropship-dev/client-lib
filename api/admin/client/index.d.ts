@@ -252,6 +252,7 @@ export { typeFulfillmentPrice } from './models/typeFulfillmentPrice';
 export { TypeOfFraud } from './models/TypeOfFraud';
 export type { UnsubscribeEmailMarketingDto } from './models/UnsubscribeEmailMarketingDto';
 export type { UnsubscribeTopicDto } from './models/UnsubscribeTopicDto';
+export type { UpdateActiveStatusAutomationEmailMarketingDto } from './models/UpdateActiveStatusAutomationEmailMarketingDto';
 export type { UpdateAutomationEmailMarketingDto } from './models/UpdateAutomationEmailMarketingDto';
 export type { UpdateAutomationEmailMarketingOptions } from './models/UpdateAutomationEmailMarketingOptions';
 export type { UpdateBankAccountDto } from './models/UpdateBankAccountDto';
