@@ -7,7 +7,6 @@ import type { CreateAutomationEmailMarketingDto } from '../models/CreateAutomati
 import type { CreateComboItems } from '../models/CreateComboItems';
 import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
-import type { DirectionCursor } from '../models/DirectionCursor';
 import type { EmailTrackingAction } from '../models/EmailTrackingAction';
 import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
 import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
@@ -197,9 +196,8 @@ export class MarketingEmailService {
    */
   public listAbandonmentOrders({
     storeId,
-    direction,
-    cursor,
-    limit,
+    pageSize,
+    nextPageIndex,
     emailStatus,
     recoveryStatus,
     id,
@@ -207,17 +205,16 @@ export class MarketingEmailService {
     endDate,
   }: {
     storeId: string,
-    direction: DirectionCursor,
-    cursor: number,
-    limit: number,
+    pageSize: number,
+    nextPageIndex?: number,
     emailStatus?: OrderTrackingEmailStatus,
     recoveryStatus?: OrderTrackingRecoveredStatus,
     id?: number,
     startDate?: string,
     endDate?: string,
   }): CancelablePromise<{
-    nextCursor: number;
-    hasMore: boolean;
+    nextPageIndex: number;
+    prePageIndex: number;
     data: Array<{
       emailStatus: OrderTrackingEmailStatus;
       recoveredStatus: OrderTrackingRecoveredStatus;
@@ -234,9 +231,8 @@ export class MarketingEmailService {
         'storeId': storeId,
       },
       query: {
-        'direction': direction,
-        'cursor': cursor,
-        'limit': limit,
+        'nextPageIndex': nextPageIndex,
+        'pageSize': pageSize,
         'emailStatus': emailStatus,
         'recoveryStatus': recoveryStatus,
         'id': id,
