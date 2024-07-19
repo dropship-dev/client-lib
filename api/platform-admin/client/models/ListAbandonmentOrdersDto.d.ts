@@ -1,10 +1,10 @@
-import type { OrderTrackingEmailStatus } from './OrderTrackingEmailStatus';
-import type { OrderTrackingRecoveredStatus } from './OrderTrackingRecoveredStatus';
+import type { OrderTrackingEmailStatusDto } from './OrderTrackingEmailStatusDto';
+import type { OrderTrackingRecoveredStatusDto } from './OrderTrackingRecoveredStatusDto';
 export type ListAbandonmentOrdersDto = {
     nextPageIndex?: number;
     pageSize: number;
-    emailStatus?: OrderTrackingEmailStatus;
-    recoveryStatus?: OrderTrackingRecoveredStatus;
+    emailStatus?: Array<OrderTrackingEmailStatusDto>;
+    recoveryStatus?: Array<OrderTrackingRecoveredStatusDto>;
     id?: number;
     startDate?: string;
     endDate?: string;
