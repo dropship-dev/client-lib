@@ -31,25 +31,6 @@ class MarketingEmailService {
         });
     }
     /**
-     * @returns BatchPayload Ok
-     * @throws ApiError
-     */
-    createAutomationEmailMarketing({ requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/marketing/email/abandonment/settings',
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
      * @returns void
      * @throws ApiError
      */

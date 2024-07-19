@@ -1,5 +1,3 @@
-import type { BatchPayload } from '../models/BatchPayload';
-import type { CreateAutomationEmailMarketingDto } from '../models/CreateAutomationEmailMarketingDto';
 import type { CreateComboItems } from '../models/CreateComboItems';
 import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
@@ -36,13 +34,6 @@ export declare class MarketingEmailService {
         emailSent: number;
     }>;
     /**
-     * @returns BatchPayload Ok
-     * @throws ApiError
-     */
-    createAutomationEmailMarketing({ requestBody, }: {
-        requestBody: CreateAutomationEmailMarketingDto;
-    }): CancelablePromise<BatchPayload>;
-    /**
      * @returns void
      * @throws ApiError
      */
@@ -73,7 +64,7 @@ export declare class MarketingEmailService {
             createdAt: string;
             advance: {
                 specificTime: string;
-                specificDays: string;
+                specificDays: Array<string>;
             };
             unit: string;
             timeDelay: string;
