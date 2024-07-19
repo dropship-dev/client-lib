@@ -2,8 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BatchPayload } from '../models/BatchPayload';
-import type { CreateAutomationEmailMarketingDto } from '../models/CreateAutomationEmailMarketingDto';
 import type { CreateComboItems } from '../models/CreateComboItems';
 import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
@@ -56,30 +54,6 @@ export class MarketingEmailService {
         'startTime': startTime,
         'endTime': endTime,
       },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns BatchPayload Ok
-   * @throws ApiError
-   */
-  public createAutomationEmailMarketing({
-    requestBody,
-  }: {
-    requestBody: CreateAutomationEmailMarketingDto,
-  }): CancelablePromise<BatchPayload> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/marketing/email/abandonment/settings',
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -165,7 +139,7 @@ export class MarketingEmailService {
       createdAt: string;
       advance: {
         specificTime: string;
-        specificDays: string;
+        specificDays: Array<string>;
       };
       unit: string;
       timeDelay: string;
