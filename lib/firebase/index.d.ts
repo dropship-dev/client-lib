@@ -1,4 +1,6 @@
 export * from "firebase/auth";
+export declare function initializeFirebaseApp(): import("@firebase/app").FirebaseApp;
+export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
 export declare function getToken(): Promise<string>;
 export declare function isLoggedIn(): boolean;
