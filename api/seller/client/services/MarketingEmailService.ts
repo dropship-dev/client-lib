@@ -34,15 +34,20 @@ export class MarketingEmailService {
     startTime: string,
     endTime: string,
   }): CancelablePromise<{
+    orderCompletedPercent: number;
+    orderCompleted: number;
     clickPercent: number;
     totalClick: number;
-    totalOpenPercent: number;
+    openPercent: number;
     totalOpen: number;
+    sentPercent: number;
+    totalSent: number;
+    revenueGrowthPercent: number;
     revenue: number;
+    orderConvertedGrowthPercent: number;
+    orderConverted: number;
+    conversionRateGrowthPercent: number;
     conversionRate: number;
-    orderRecoveredPercent: number;
-    orderRecovered: number;
-    emailSent: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
