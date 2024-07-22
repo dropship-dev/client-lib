@@ -24,6 +24,8 @@ const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
       messagingSenderId: "612092513795",
       appId: "1:612092513795:web:e1af974cd13f5865e44836",
       measurementId: "G-T5WCJD16F1",
+
+      
     };
 
 // Initialize Firebase
