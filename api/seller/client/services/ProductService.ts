@@ -14,6 +14,8 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RegionalShippingFee } from '../models/RegionalShippingFee';
+import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
@@ -531,6 +533,38 @@ export class ProductService {
       path: {
         'storeId': storeId,
         'productId': productId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
+  public updateReasonShippingFee({
+    storeId,
+    id,
+    requestBody,
+  }: {
+    storeId: string,
+    id: string,
+    requestBody: RegionalShippingFeeDto,
+  }): CancelablePromise<RegionalShippingFee> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/regional-shipping-fee/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
       },
       body: requestBody,
       mediaType: 'application/json',

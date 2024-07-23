@@ -13,6 +13,8 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RegionalShippingFee } from '../models/RegionalShippingFee';
+import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -368,6 +370,105 @@ export class ProductService {
       path: {
         'storeId': storeId,
         'productId': productId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
+  public createRegionalShippingFee({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: RegionalShippingFeeDto,
+  }): CancelablePromise<RegionalShippingFee> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/regional-shipping-fee',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
+  public getAllRegionalShippingFee({
+    storeId,
+    search,
+    startDate,
+    endDate,
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    storeId: string,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    pageSize?: number,
+    nextPageIndex?: string,
+  }): CancelablePromise<Array<RegionalShippingFee>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/regional-shipping-fee',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
+  public getRegionalShippingFee({
+    storeId,
+    id,
+  }: {
+    storeId: string,
+    id: string,
+  }): CancelablePromise<RegionalShippingFee> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/regional-shipping-fee/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
       },
       errors: {
         400: `Bad request`,
