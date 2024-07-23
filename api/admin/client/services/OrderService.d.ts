@@ -123,6 +123,7 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
+        Payment: Payment;
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
@@ -195,6 +196,7 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
+        Payment: Payment;
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
