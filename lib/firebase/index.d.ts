@@ -1,10 +1,6 @@
 export * from "firebase/auth";
-export declare function initializeFirebaseApp(): import("@firebase/app").FirebaseApp;
-export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
-export declare const messaging: import("@firebase/messaging").Messaging;
 export declare function getToken(): Promise<string>;
-export declare function getDeviceToken(): Promise<string>;
 export declare function isLoggedIn(): boolean;
 export declare function getUser(): import("@firebase/auth").User | null;
 export declare function signInWithGoogle(): Promise<import("@firebase/auth").User>;
