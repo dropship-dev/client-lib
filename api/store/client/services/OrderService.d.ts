@@ -16,6 +16,8 @@ export declare class OrderService {
         clientSecret: string;
         orderId: string;
         id: string;
+        timeExpried: number;
+        token: string;
     }>;
     /**
      * @returns any Ok
