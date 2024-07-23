@@ -35,6 +35,7 @@ export function initializeFirebaseApp() {
 
 export const app = initializeFirebaseApp();
 export const auth = getAuth(app);
+export const messaging = getMessaging(app)
 
 export async function getToken() {
   if (!auth.currentUser) {
