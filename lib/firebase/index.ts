@@ -45,7 +45,6 @@ export async function getToken() {
 }
 
 export async function getDeviceToken() {
-  const messaging = getMessaging(app)
   const deviceToken = await getFirebaseToken(messaging, {
     vapidKey: firebaseConfig.client.vapid_key,
   });
