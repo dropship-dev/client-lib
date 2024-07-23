@@ -384,6 +384,11 @@ export declare class OrderService {
                 });
             })>;
             Transaction: Array<Transaction>;
+            Payment: {
+                email: string;
+                name: string;
+                type: PaymentType;
+            };
             Store: Store;
         })>;
     }>;
