@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RefundType = exports.PlacementCrossSellEnum = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderTrackingRecoveredStatusDto = exports.OrderTrackingEmailStatusDto = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.FraudStatusType = exports.FraudDetectionType = exports.FraudDetectionStatusType = exports.EventOrderFraud = exports.EnvironmentType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.ActiveDetection = exports.ActionOrderFraud = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.UserService = exports.UploadService = exports.PerformanceService = exports.NotificationService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.Week = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.TimeEmailMarketingUnit = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.StatisticsDisplayType = exports.RequestSourcingStatus = exports.RequestPayoutStatus = void 0;
+exports.UserService = exports.UploadService = exports.StatisticsService = exports.PerformanceService = exports.NotificationService = exports.MarketingEmailService = exports.FulfillmentAgencyService = exports.AuthService = exports.AsyncTaskService = exports.Week = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.TimeEmailMarketingUnit = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.StatisticsDisplayType = exports.RequestSourcingStatus = exports.RequestPayoutStatus = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -143,10 +143,14 @@ var AuthService_1 = require("./services/AuthService");
 Object.defineProperty(exports, "AuthService", { enumerable: true, get: function () { return AuthService_1.AuthService; } });
 var FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 Object.defineProperty(exports, "FulfillmentAgencyService", { enumerable: true, get: function () { return FulfillmentAgencyService_1.FulfillmentAgencyService; } });
+var MarketingEmailService_1 = require("./services/MarketingEmailService");
+Object.defineProperty(exports, "MarketingEmailService", { enumerable: true, get: function () { return MarketingEmailService_1.MarketingEmailService; } });
 var NotificationService_1 = require("./services/NotificationService");
 Object.defineProperty(exports, "NotificationService", { enumerable: true, get: function () { return NotificationService_1.NotificationService; } });
 var PerformanceService_1 = require("./services/PerformanceService");
 Object.defineProperty(exports, "PerformanceService", { enumerable: true, get: function () { return PerformanceService_1.PerformanceService; } });
+var StatisticsService_1 = require("./services/StatisticsService");
+Object.defineProperty(exports, "StatisticsService", { enumerable: true, get: function () { return StatisticsService_1.StatisticsService; } });
 var UploadService_1 = require("./services/UploadService");
 Object.defineProperty(exports, "UploadService", { enumerable: true, get: function () { return UploadService_1.UploadService; } });
 var UserService_1 = require("./services/UserService");
