@@ -14,7 +14,7 @@ import {
 
 export * from "firebase/auth";
 
-const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
+export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
   : {
       apiKey: "AIzaSyDHbh2RvCg-Mr3S-LZzQzNr5AsjP79MVDQ",
@@ -31,7 +31,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 export function initFirebaseApp() {
-  initializeApp(firebaseConfig);
+  return initializeApp(firebaseConfig);
 }
 
 export async function getToken() {
