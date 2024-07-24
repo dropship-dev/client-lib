@@ -27,8 +27,12 @@ const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
     };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+export function initFirebaseApp() {
+  initializeApp(firebaseConfig);
+}
 
 export async function getToken() {
   if (!auth.currentUser) {
