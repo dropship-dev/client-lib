@@ -12,7 +12,6 @@ import { BankAccountService } from './services/BankAccountService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
-import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
 import { OrderRefundsService } from './services/OrderRefundsService';
@@ -25,7 +24,6 @@ import { ProductService } from './services/ProductService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { SettingService } from './services/SettingService';
-import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { TagService } from './services/TagService';
@@ -47,7 +45,6 @@ export class ClientApi {
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
-  public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
   public readonly orderRefunds: OrderRefundsService;
@@ -60,7 +57,6 @@ export class ClientApi {
   public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly setting: SettingService;
-  public readonly statistics: StatisticsService;
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly tag: TagService;
@@ -93,7 +89,6 @@ export class ClientApi {
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
-    this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
     this.orderRefunds = new OrderRefundsService(this.request);
@@ -106,7 +101,6 @@ export class ClientApi {
     this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.setting = new SettingService(this.request);
-    this.statistics = new StatisticsService(this.request);
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.tag = new TagService(this.request);
