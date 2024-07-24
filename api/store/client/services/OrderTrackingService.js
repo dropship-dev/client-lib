@@ -25,7 +25,7 @@ class OrderTrackingService {
         });
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     updateOrderTracking({ trackingId, requestBody, }) {
