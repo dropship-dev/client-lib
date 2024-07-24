@@ -13,6 +13,7 @@ import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type Product = {
   updatedAt: string;
   createdAt: string;
+  podTemplateId: number | null;
   campaignId: string | null;
   storeId: string;
   platformProductId: number | null;

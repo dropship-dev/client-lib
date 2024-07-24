@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 export enum OrderStatus {
+  FAILED = 'FAILED',
   REFUNDED = 'REFUNDED',
   UNPAID = 'UNPAID',
   COMPLETED = 'COMPLETED',

@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { PrismaJson_ThemeNodes } from './PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 
@@ -12,6 +13,10 @@ import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 export type ThemeLibrary = {
   updatedAt: string;
   createdAt: string;
+  /**
+   * [ThemeNodes]
+   */
+  nodes: PrismaJson_ThemeNodes | null;
   /**
    * [ThemeSetting]
    */

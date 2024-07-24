@@ -3,6 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Campaign } from '../models/Campaign';
+import type { FraudDetection } from '../models/FraudDetection';
+import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
@@ -46,6 +48,7 @@ export class OrderService {
     startTotal,
     endTotal,
     gateway,
+    fraudStatus,
   }: {
     /**
      * filter by store ID
@@ -76,6 +79,7 @@ export class OrderService {
     startTotal?: number,
     endTotal?: number,
     gateway?: Array<number>,
+    fraudStatus?: Array<FraudStatusType>,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: string;
@@ -102,6 +106,11 @@ export class OrderService {
         });
       })>;
       Transaction: Array<Transaction>;
+      Payment: {
+        email: string;
+        name: string;
+        type: PaymentType;
+      };
       Store: Store;
     })>;
   }> {
@@ -125,6 +134,7 @@ export class OrderService {
         'startTotal': startTotal,
         'endTotal': endTotal,
         'gateway': gateway,
+        'fraudStatus': fraudStatus,
       },
       errors: {
         400: `Bad request`,
@@ -147,21 +157,23 @@ export class OrderService {
     storeId: string,
     orderId: string,
   }): CancelablePromise<(Order & {
+    FraudDetection: Array<FraudDetection>;
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: VariantCombo;
-      ProductVariant: {
-        photo: string;
-        name: string;
+      ProductVariant: (ProductVariant & {
         Product: {
           name: string;
         };
-      };
+      });
     })>;
     Transaction: Array<Transaction>;
     Payment: {
+      email: string;
+      name: string;
       type: PaymentType;
     };
+    Store: Store;
   })> {
     return this.httpRequest.request({
       method: 'GET',

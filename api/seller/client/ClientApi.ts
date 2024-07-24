@@ -11,6 +11,7 @@ import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
 import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
+import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
@@ -49,6 +50,7 @@ export class ClientApi {
   public readonly bankAccount: BankAccountService;
   public readonly campaign: CampaignService;
   public readonly collection: CollectionService;
+  public readonly crossSell: CrossSellService;
   public readonly currency: CurrencyService;
   public readonly domain: DomainService;
   public readonly fbPixel: FbPixelService;
@@ -98,6 +100,7 @@ export class ClientApi {
     this.bankAccount = new BankAccountService(this.request);
     this.campaign = new CampaignService(this.request);
     this.collection = new CollectionService(this.request);
+    this.crossSell = new CrossSellService(this.request);
     this.currency = new CurrencyService(this.request);
     this.domain = new DomainService(this.request);
     this.fbPixel = new FbPixelService(this.request);
