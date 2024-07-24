@@ -15,5 +15,5 @@ export type CreateCollectionDto = {
     };
     status?: CollectionStatus;
     type?: CollectionType;
-    productIds: Array<number>;
+    productIds?: Array<number>;
 };
