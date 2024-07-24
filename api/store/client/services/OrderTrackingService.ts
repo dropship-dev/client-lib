@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateOrderTrackingDto } from '../models/CreateOrderTrackingDto';
+import type { NullableDateTimeFieldUpdateOperationsInput } from '../models/NullableDateTimeFieldUpdateOperationsInput';
 import type { UpdateOrderTrackingDto } from '../models/UpdateOrderTrackingDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -21,10 +22,9 @@ export class OrderTrackingService {
   }: {
     requestBody: CreateOrderTrackingDto,
   }): CancelablePromise<{
+    token: string;
     createdAt: string;
     id: number;
-    expiredAt: string;
-    token: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -41,7 +41,7 @@ export class OrderTrackingService {
   }
 
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
   public updateOrderTracking({
@@ -50,7 +50,11 @@ export class OrderTrackingService {
   }: {
     trackingId: number,
     requestBody: UpdateOrderTrackingDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<{
+    expiredAt: (string | NullableDateTimeFieldUpdateOperationsInput);
+    token: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PUT',
       url: '/marketing/orders/{trackingId}/track',
