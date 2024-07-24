@@ -7,6 +7,44 @@ class NotificationService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    subscribeTopic({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/notification/subscribe-topic',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    unsubscribeTopic({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/notification/unsubscribe-topic',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -60,6 +98,27 @@ class NotificationService {
             url: '/notification/{id}/read',
             path: {
                 'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    markAllReadNotifications({ fulfillmentAgencyId, storeId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/notification/mark-all-read',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,

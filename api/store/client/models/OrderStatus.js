@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderStatus = void 0;
 var OrderStatus;
 (function (OrderStatus) {
+    OrderStatus["FAILED"] = "FAILED";
     OrderStatus["REFUNDED"] = "REFUNDED";
     OrderStatus["UNPAID"] = "UNPAID";
     OrderStatus["COMPLETED"] = "COMPLETED";

@@ -4,6 +4,7 @@ exports.ClientApi = void 0;
 const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
 const BankAccountService_1 = require("./services/BankAccountService");
 const CollectionService_1 = require("./services/CollectionService");
+const CrossSellService_1 = require("./services/CrossSellService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const OrderService_1 = require("./services/OrderService");
 const ProductService_1 = require("./services/ProductService");
@@ -20,6 +21,7 @@ const WalletService_1 = require("./services/WalletService");
 class ClientApi {
     bankAccount;
     collection;
+    crossSell;
     currency;
     order;
     product;
@@ -48,6 +50,7 @@ class ClientApi {
         });
         this.bankAccount = new BankAccountService_1.BankAccountService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
+        this.crossSell = new CrossSellService_1.CrossSellService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.product = new ProductService_1.ProductService(this.request);

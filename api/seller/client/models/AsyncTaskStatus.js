@@ -5,9 +5,6 @@
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsyncTaskStatus = void 0;
-/**
- * Enums
- */
 var AsyncTaskStatus;
 (function (AsyncTaskStatus) {
     AsyncTaskStatus["PENDING"] = "PENDING";

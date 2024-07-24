@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
+    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/order',
@@ -29,6 +29,7 @@ class OrderService {
                 'startTotal': startTotal,
                 'endTotal': endTotal,
                 'gateway': gateway,
+                'fraudStatus': fraudStatus,
             },
             errors: {
                 400: `Bad request`,
@@ -117,7 +118,26 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    refundOrder({ orderId, requestBody, fulfillmentAgencyId = 1, }) {
+    manualFraudDetection({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/order/manual-fraud-detection',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    refundOrder({ fulfillmentAgencyId, orderId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/order/{orderId}/refund-order',
@@ -142,7 +162,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, }) {
+    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/order',
@@ -163,6 +183,7 @@ class OrderService {
                 'startTotal': startTotal,
                 'endTotal': endTotal,
                 'gateway': gateway,
+                'fraudStatus': fraudStatus,
             },
             errors: {
                 400: `Bad request`,

@@ -1,11 +1,16 @@
 import type { AdminTag } from '../models/AdminTag';
+import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CreateProductDto } from '../models/CreateProductDto';
+import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { RegionalShippingFee } from '../models/RegionalShippingFee';
+import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -80,15 +85,23 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, }: {
+    getProductByPermalink({ storeId, permalink, productId, }: {
         storeId: string;
-        permalink: string;
-    }): CancelablePromise<(Product & {
+        permalink?: string;
+        productId?: number;
+    }): CancelablePromise<{
         Campaign: (Campaign & {
             listDiscount: Array<Discount>;
         });
-        VariantCombo: Array<VariantCombo>;
+        VariantCombo: Array<(VariantCombo & {
+            Product: {
+                name: string;
+            };
+        })>;
         ProductVariant: Array<(ProductVariant & {
+            Product: {
+                name: string;
+            };
             PlatformVariant: PlatformVariant;
         })>;
         Review: Array<Review>;
@@ -106,7 +119,60 @@ export declare class ProductService {
             variantOption: VariantOptions;
             id: number;
         };
-    })>;
+        CrossSell: Array<(CrossSell & {
+            Product: Array<(Product & {
+                ProductVariant: Array<(ProductVariant & {
+                    Product: {
+                        name: string;
+                    };
+                })>;
+            })>;
+            Collection: Array<{
+                Product: Array<(Product & {
+                    ProductVariant: Array<(ProductVariant & {
+                        Product: {
+                            name: string;
+                        };
+                    })>;
+                })>;
+            }>;
+        })>;
+        updatedAt: string;
+        createdAt: string;
+        podTemplateId: number;
+        campaignId: string;
+        storeId: string;
+        platformProductId: number;
+        deleted: boolean;
+        isEnable: boolean;
+        isActive: boolean;
+        supplierContact: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        variantOption: VariantOptions;
+        availableSet: AvailableSet;
+        SKU: string;
+        photos: Photos;
+        details: string;
+        description: string;
+        permalink: string;
+        name: string;
+        id: number;
+        Collection: any;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getVariantsById({ storeId, variantIds, }: {
+        storeId: string;
+        variantIds: Array<number>;
+    }): CancelablePromise<Array<{
+        discount: any;
+        deleted: boolean;
+        isStock: boolean;
+        variant: number;
+    }>>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -141,4 +207,32 @@ export declare class ProductService {
         storeId: string;
         productId: number;
     }): CancelablePromise<string>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    createRegionalShippingFee({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: RegionalShippingFeeDto;
+    }): CancelablePromise<RegionalShippingFee>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    getAllRegionalShippingFee({ storeId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+        storeId: string;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<Array<RegionalShippingFee>>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    getRegionalShippingFee({ storeId, id, }: {
+        storeId: string;
+        id: string;
+    }): CancelablePromise<RegionalShippingFee>;
 }

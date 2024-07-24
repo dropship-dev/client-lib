@@ -10,10 +10,13 @@ class CollectionService {
      * @returns Collection Ok
      * @throws ApiError
      */
-    createCollection({ requestBody, }) {
+    createCollection({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/collection',
+            path: {
+                'storeId': storeId,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -26,15 +29,45 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getCollection({ id, }) {
+    getAllCollection({ storeId, pageSize = 20, nextPageIndex, startDate, endDate, search, collectionType, collectionStatus, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/collection',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+                'startDate': startDate,
+                'endDate': endDate,
+                'search': search,
+                'collectionType': collectionType,
+                'collectionStatus': collectionStatus,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCollection({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/collection/{id}',
             path: {
                 'id': id,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,
@@ -46,15 +79,37 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns string Ok
      * @throws ApiError
      */
-    updateCollection({ id, requestBody, }) {
+    deleteCollection({ id, storeId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/collection/{id}',
+            path: {
+                'id': id,
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateCollection({ id, storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/store/{storeId}/collection/{id}',
             path: {
                 'id': id,
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -68,16 +123,63 @@ class CollectionService {
         });
     }
     /**
-     * @returns Collection Ok
+     * @returns Product Ok
      * @throws ApiError
      */
-    deleteCollection({ id, }) {
+    getProductByConditions({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/collection/get-products-by-condtions-collection',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteManyCollection({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}/collection/{id}',
+            url: '/store/{storeId}/collection/delete-many-collection',
             path: {
+                'storeId': storeId,
+            },
+            query: {
                 'id': id,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateStatusesCollection({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/collection/status',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
