@@ -37,6 +37,10 @@ export async function test1234() {
   return "test1234";
 }
 
+export async function testConsole() {
+  console.log("test");
+}
+
 export async function getDeviceToken() {
   const messaging = getMessaging(app);
 
