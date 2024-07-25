@@ -9,8 +9,8 @@ export declare class StatisticsService {
      */
     getStatisticsStoreAbandonmentCheckout({ storeId, startTime, endTime, }: {
         storeId: string;
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
     }): CancelablePromise<{
         orderCompletedPercent: number;
         orderCompleted: number;

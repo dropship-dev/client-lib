@@ -1,4 +1,4 @@
 export type AbandonmentStatisticsDto = {
-    startTime: string;
-    endTime: string;
+    startTime?: string;
+    endTime?: string;
 };

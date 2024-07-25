@@ -20,8 +20,8 @@ export declare class MarketingEmailService {
      */
     getStatisticsStoreAbandonmentCheckout({ storeId, startTime, endTime, }: {
         storeId: string;
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
     }): CancelablePromise<{
         orderCompletedPercent: number;
         orderCompleted: number;
@@ -118,6 +118,7 @@ export declare class MarketingEmailService {
         phoneNumber: string;
         comboItems: CreateComboItems;
         orderItems: CreateOrderItems;
+        expiredAt: string;
         subTotal: number;
         total: number;
         shippingFee: number;

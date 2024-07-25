@@ -11,8 +11,8 @@ export declare class StatisticsService {
      * @throws ApiError
      */
     getStatisticsBusinessPerformancesSummary({ startTime, endTime, }: {
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
     }): CancelablePromise<{
         perRecipientGrowthPercent: number;
         perRecipientPreviousPeriod: number;
@@ -37,8 +37,8 @@ export declare class StatisticsService {
      * @throws ApiError
      */
     getStatisticsOverview({ startTime, endTime, timezone, }: {
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
         timezone?: string;
     }): CancelablePromise<{
         totalRecipientsGrowthPercent: number;
@@ -54,8 +54,8 @@ export declare class StatisticsService {
      * @throws ApiError
      */
     getStatisticsAutomationMetrics({ startTime, endTime, }: {
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
     }): CancelablePromise<{
         revenuePerRecipientGrowthPercent: number;
         revenuePerRecipient: number;
@@ -83,8 +83,8 @@ export declare class StatisticsService {
      * @throws ApiError
      */
     getStatisticsPerforming({ startTime, endTime, }: {
-        startTime: string;
-        endTime: string;
+        startTime?: string;
+        endTime?: string;
     }): CancelablePromise<{
         abandonedCheckout: {
             perRecipient: number;

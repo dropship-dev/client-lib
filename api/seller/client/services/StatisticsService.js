@@ -10,7 +10,7 @@ class StatisticsService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsStoreAbandonmentCheckout({ storeId, startTime, endTime, }) {
+    getStatisticsStoreAbandonmentCheckout({ storeId, startTime = '2023-01-01T00:00:00.000Z', endTime = '2024-07-25T02:03:44.030Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/abandonments-checkout/store/{storeId}',

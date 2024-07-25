@@ -1,4 +1,4 @@
 export type GetPerformingStatisticsDto = {
-    startTime: string;
-    endTime: string;
+    startTime?: string;
+    endTime?: string;
 };

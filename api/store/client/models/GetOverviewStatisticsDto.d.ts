@@ -1,5 +1,5 @@
 export type GetOverviewStatisticsDto = {
-    startTime: string;
-    endTime: string;
+    startTime?: string;
+    endTime?: string;
     timezone?: string;
 };
