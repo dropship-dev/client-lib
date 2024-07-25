@@ -30,7 +30,14 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// export const messaging = getMessaging(app);
+
+export function getFirebaseMessaging() {
+  if (typeof navigator !== 'undefined') {
+    return getMessaging(app);
+  } else {
+    return null;
+  }
+}
 
 export async function getToken() {
   if (!auth.currentUser) {
