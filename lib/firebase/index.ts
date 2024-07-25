@@ -11,7 +11,7 @@ import {
   sendPasswordResetEmail,
   fetchSignInMethodsForEmail,
 } from "firebase/auth";
-import { getMessaging } from "firebase/messaging";
+import {getMessaging} from "firebase/messaging";
 
 export * from "firebase/auth";
 
@@ -30,20 +30,7 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const messaging = getMessaging(initializeApp(firebaseConfig));
-export const message = getMessaging(app);
-
-export async function initializeFirebaseApp() {
-  return initializeApp(firebaseConfig);
-}
-
-export function getFirebaseMessaging() {
-  return getMessaging(app);
-}
-
-export async function gettingMessage(app: any) {
-  return getMessaging(app);
-}
+export const messaging = getMessaging(app);
 
 export async function getToken() {
   if (!auth.currentUser) {
