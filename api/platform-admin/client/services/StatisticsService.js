@@ -10,7 +10,7 @@ class StatisticsService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsBusinessPerformancesSummary({ startTime = '2023-01-01T00:00:00.000Z', endTime = '2024-07-25T02:10:16.316Z', }) {
+    getStatisticsBusinessPerformancesSummary({ startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-07-25T02:37:37.578Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/business-performances',
@@ -31,7 +31,7 @@ class StatisticsService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsOverview({ startTime = '2023-01-01T00:00:00.000Z', endTime = '2024-07-25T02:10:16.331Z', timezone, }) {
+    getStatisticsOverview({ startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-07-25T02:37:37.592Z', timezone, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/automation-overview',
@@ -53,7 +53,7 @@ class StatisticsService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsAutomationMetrics({ startTime = '2023-01-01T00:00:00.000Z', endTime = '2024-07-25T02:10:16.351Z', }) {
+    getStatisticsAutomationMetrics({ startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-07-25T02:37:37.636Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/automation-metrics',
@@ -74,7 +74,7 @@ class StatisticsService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsPerforming({ startTime = '2023-01-01T00:00:00.000Z', endTime = '2024-07-25T02:10:16.359Z', }) {
+    getStatisticsPerforming({ startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-07-25T02:37:37.644Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/performing',
