@@ -18,8 +18,8 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsBusinessPerformancesSummary({
-    startTime = '2023-01-01T00:00:00.000Z',
-    endTime = '2024-07-25T02:10:16.316Z',
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-25T02:37:37.578Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -64,8 +64,8 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsOverview({
-    startTime = '2023-01-01T00:00:00.000Z',
-    endTime = '2024-07-25T02:10:16.331Z',
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-25T02:37:37.592Z',
     timezone,
   }: {
     startTime?: string,
@@ -103,8 +103,8 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsAutomationMetrics({
-    startTime = '2023-01-01T00:00:00.000Z',
-    endTime = '2024-07-25T02:10:16.351Z',
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-25T02:37:37.636Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -152,8 +152,8 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsPerforming({
-    startTime = '2023-01-01T00:00:00.000Z',
-    endTime = '2024-07-25T02:10:16.359Z',
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-25T02:37:37.644Z',
   }: {
     startTime?: string,
     endTime?: string,
