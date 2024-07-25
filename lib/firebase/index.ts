@@ -12,9 +12,9 @@ import {
   fetchSignInMethodsForEmail,
 } from "firebase/auth";
 import {getMessaging} from "firebase/messaging";
+import {getToken as deviceToken } from "firebase/messaging";
 
 export * from "firebase/auth";
-export * from "firebase/messaging";
 
 export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
@@ -32,6 +32,19 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const messaging = getMessaging(app);
+
+export function test() {
+  return "test";
+}
+
+export async function getDeviceToken() {
+  const messaging = getMessaging(app);
+
+  const token = await deviceToken(messaging, {
+    vapidKey: "BD3e1yzKZEGdi0zUuVNdq_c-MkoYUpwGpgndg0d1FFjQUKStQEiFRd6RXVOlQS0EqQNqGeb4MYgZaGRfbHxzxHQ"
+  });
+  return token;
+}
 
 
 export async function getToken() {
