@@ -30,7 +30,7 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const messaging = getMessaging(app);
+export const messaging = getMessaging(initializeApp(firebaseConfig));
 
 export async function initializeFirebaseApp() {
   return initializeApp(firebaseConfig);
