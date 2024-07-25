@@ -33,6 +33,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const messaging = getMessaging(app);
 
+
 export async function getToken() {
   if (!auth.currentUser) {
     throw new Error("No current user");
@@ -40,6 +41,7 @@ export async function getToken() {
   return await auth.currentUser.getIdToken();
 }
 
+console.log('messaging', messaging);
 export function isLoggedIn() {
   return !!auth.currentUser;
 }
