@@ -31,9 +31,8 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const messaging = getMessaging(app);
 
-export function test() {
+export async function test() {
   return "test";
 }
 
@@ -54,7 +53,6 @@ export async function getToken() {
   return await auth.currentUser.getIdToken();
 }
 
-console.log('messaging', messaging);
 export function isLoggedIn() {
   return !!auth.currentUser;
 }
