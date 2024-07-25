@@ -13,9 +13,7 @@ import {
 } from "firebase/auth";
 import {getMessaging} from "firebase/messaging";
 import {getToken as deviceToken } from "firebase/messaging";
-
 export * from "firebase/auth";
-export * as myMessage from "firebase/messaging";
 
 export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
@@ -32,6 +30,8 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+export { getMessaging }
 
 export async function test1234() {
   return "test1234";
