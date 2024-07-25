@@ -39,6 +39,10 @@ export function getFirebaseMessaging() {
   return getMessaging(app);
 }
 
+export function gettingMessage(app: any) {
+  return getMessaging(app);
+}
+
 export async function getToken() {
   if (!auth.currentUser) {
     throw new Error("No current user");
