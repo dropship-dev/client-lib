@@ -15,6 +15,7 @@ import {getMessaging} from "firebase/messaging";
 import {getToken as deviceToken } from "firebase/messaging";
 
 export * from "firebase/auth";
+export * as myMessage from "firebase/messaging";
 
 export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
