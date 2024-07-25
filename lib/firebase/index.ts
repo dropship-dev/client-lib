@@ -31,12 +31,12 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-export function getFirebaseMessaging() {
-  if (typeof navigator !== 'undefined') {
-    return getMessaging(app);
-  } else {
-    return null;
-  }
+export function initializeFirebaseApp () {
+  return initializeApp(firebaseConfig);
+}
+
+export function getFirebaseMessaging() {  
+  return getMessaging(app);
 }
 
 export async function getToken() {
