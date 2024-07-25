@@ -27,12 +27,12 @@ export class MarketingEmailService {
    */
   public getStatisticsStoreAbandonmentCheckout({
     storeId,
-    startTime,
-    endTime,
+    startTime = '2023-01-01T00:00:00.000Z',
+    endTime = '2024-07-25T02:03:44.030Z',
   }: {
     storeId: string,
-    startTime: string,
-    endTime: string,
+    startTime?: string,
+    endTime?: string,
   }): CancelablePromise<{
     orderCompletedPercent: number;
     orderCompleted: number;
@@ -246,6 +246,7 @@ export class MarketingEmailService {
     phoneNumber: string;
     comboItems: CreateComboItems;
     orderItems: CreateOrderItems;
+    expiredAt: string;
     subTotal: number;
     total: number;
     shippingFee: number;

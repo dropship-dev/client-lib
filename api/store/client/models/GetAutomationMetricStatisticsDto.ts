@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type GetAutomationMetricStatisticsDto = {
-  startTime: string;
-  endTime: string;
+  startTime?: string;
+  endTime?: string;
 };
 
