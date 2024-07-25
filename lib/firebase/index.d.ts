@@ -1,8 +1,9 @@
+import { getMessaging } from "firebase/messaging";
 export * from "firebase/auth";
-export * as myMessage from "firebase/messaging";
 export declare const firebaseConfig: any;
 export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
+export { getMessaging };
 export declare function test1234(): Promise<string>;
 export declare function getDeviceToken(): Promise<string>;
 export declare function getToken(): Promise<string>;
