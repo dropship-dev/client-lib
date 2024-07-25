@@ -11,10 +11,11 @@ import {
   sendPasswordResetEmail,
   fetchSignInMethodsForEmail,
 } from "firebase/auth";
+import {getMessaging} from "firebase/messaging";
 
 export * from "firebase/auth";
 
-const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
+export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
   : {
       apiKey: "AIzaSyDHbh2RvCg-Mr3S-LZzQzNr5AsjP79MVDQ",
@@ -27,8 +28,9 @@ const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
     };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const messaging = getMessaging(app);
 
 export async function getToken() {
   if (!auth.currentUser) {
