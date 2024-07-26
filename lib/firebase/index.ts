@@ -12,7 +12,7 @@ import {
   fetchSignInMethodsForEmail,
 } from "firebase/auth";
 import {getMessaging} from "firebase/messaging";
-import {getToken as deviceToken } from "firebase/messaging";
+import {getToken as getFirebaseToken } from "firebase/messaging";
 export {User} from "firebase/auth"
 
 export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
@@ -25,6 +25,7 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
       messagingSenderId: "612092513795",
       appId: "1:612092513795:web:e1af974cd13f5865e44836",
       measurementId: "G-T5WCJD16F1",
+      vapid: "BD3e1yzKZEGdi0zUuVNdq_c-MkoYUpwGpgndg0d1FFjQUKStQEiFRd6RXVOlQS0EqQNqGeb4MYgZaGRfbHxzxHQ"
     };
 
 // Initialize Firebase
@@ -35,23 +36,22 @@ export async function getFirebaseMessage() {
   return getMessaging(app);
 }
 
-export async function test1234() {
-  return "test1234";
-}
-
-export async function testConsole() {
-  console.log("test");
-}
-
 export async function getDeviceToken() {
-  const messaging = getMessaging(app);
-
-  const token = await deviceToken(messaging, {
-    vapidKey: "BD3e1yzKZEGdi0zUuVNdq_c-MkoYUpwGpgndg0d1FFjQUKStQEiFRd6RXVOlQS0EqQNqGeb4MYgZaGRfbHxzxHQ"
-  });
-  return token;
+  let deviceToken = null
+  try {
+ const status = await Notification.requestPermission()
+    if (status && status === 'granted') {
+      const messaging = getMessaging(app);
+      deviceToken = await getFirebaseToken(messaging, {
+        vapidKey: firebaseConfig.vapid,
+      });
+    }
+  } catch {
+    deviceToken = null;
+  } finally {
+    return deviceToken;
+  }
 }
-
 export async function getToken() {
   if (!auth.currentUser) {
     throw new Error("No current user");
