@@ -1,6 +1,3 @@
-/**
- * Enums
- */
 export declare enum AsyncTaskStatus {
     PENDING = "PENDING",
     FAILED = "FAILED",
