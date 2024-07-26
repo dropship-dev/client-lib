@@ -337,10 +337,12 @@ export class ProductService {
    */
   public getCombosById({
     storeId,
-    variantIds,
+    productId,
+    comboIds,
   }: {
     storeId: string,
-    variantIds: Array<number>,
+    productId: number,
+    comboIds: Array<number>,
   }): CancelablePromise<Array<{
     discount: any;
     deleted: boolean;
@@ -349,12 +351,13 @@ export class ProductService {
   }>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/product/combos',
+      url: '/store/{storeId}/product/{productId}/combos',
       path: {
         'storeId': storeId,
+        'productId': productId,
       },
       query: {
-        'variantIds': variantIds,
+        'comboIds': comboIds,
       },
       errors: {
         400: `Bad request`,
@@ -371,9 +374,11 @@ export class ProductService {
    * @throws ApiError
    */
   public getVariantsById({
+    productId,
     storeId,
     variantIds,
   }: {
+    productId: number,
     storeId: string,
     variantIds: Array<number>,
   }): CancelablePromise<Array<{
@@ -384,8 +389,9 @@ export class ProductService {
   }>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/product/variants',
+      url: '/store/{storeId}/product/{productId}/variants',
       path: {
+        'productId': productId,
         'storeId': storeId,
       },
       query: {
