@@ -13,9 +13,9 @@ import {
 } from "firebase/auth";
 import {getMessaging} from "firebase/messaging";
 import {getToken as getFirebaseToken } from "firebase/messaging";
-export {User} from "firebase/auth"
+export * from "firebase/auth"
 
-export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
+const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
   ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
   : {
       apiKey: "AIzaSyDHbh2RvCg-Mr3S-LZzQzNr5AsjP79MVDQ",
@@ -39,7 +39,7 @@ export async function getFirebaseMessage() {
 export async function getDeviceToken() {
   let deviceToken = null
   try {
- const status = await Notification.requestPermission()
+    const status = await Notification.requestPermission()
     if (status && status === 'granted') {
       const messaging = getMessaging(app);
       deviceToken = await getFirebaseToken(messaging, {
