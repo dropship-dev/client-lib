@@ -29,26 +29,35 @@ const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
     };
 
 // Initialize Firebase
-export function initializeFirebaseApp() {
-   return initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
+export async function getFirebaseMessage() {
+  return getMessaging(app);
 }
 
-export const app = initializeFirebaseApp();
-export const auth = getAuth(app);
-export const messaging = getMessaging(app)
+export async function getDeviceToken() {
+  let deviceToken = null
+  try {
+    const status = await Notification.requestPermission()
+    if (status && status === 'granted') {
+      const messaging = getMessaging(app);
+      deviceToken = await getFirebaseToken(messaging, {
+        vapidKey: firebaseConfig.vapid,
+      });
+    }
+  } catch {
+    deviceToken = null;
+  } finally {
+    return deviceToken;
+  }
+}
 
 export async function getToken() {
   if (!auth.currentUser) {
     throw new Error("No current user");
   }
   return await auth.currentUser.getIdToken();
-}
-
-export async function getDeviceToken() {
-  const deviceToken = await getFirebaseToken(messaging, {
-    vapidKey: firebaseConfig.client.vapid_key,
-  });
-  return deviceToken;
 }
 
 export function isLoggedIn() {
