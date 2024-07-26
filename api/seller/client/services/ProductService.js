@@ -153,41 +153,15 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCombosById({ storeId, productId, comboIds, }) {
+    getStatusOrderItems({ storeId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}/combos',
+            method: 'POST',
+            url: '/store/{storeId}/product/getStatusOrderItems',
             path: {
                 'storeId': storeId,
-                'productId': productId,
             },
-            query: {
-                'comboIds': comboIds,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getVariantsById({ productId, storeId, variantIds, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}/variants',
-            path: {
-                'productId': productId,
-                'storeId': storeId,
-            },
-            query: {
-                'variantIds': variantIds,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

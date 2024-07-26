@@ -8,6 +8,7 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { QueriesStatusItemDto } from '../models/QueriesStatusItemDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -153,30 +154,10 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCombosById({ storeId, productId, comboIds, }: {
+    getStatusOrderItems({ storeId, requestBody, }: {
         storeId: string;
-        productId: number;
-        comboIds: Array<number>;
-    }): CancelablePromise<Array<{
-        discount: any;
-        deleted: boolean;
-        isStock: boolean;
-        comboId: number;
-    }>>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getVariantsById({ productId, storeId, variantIds, }: {
-        productId: number;
-        storeId: string;
-        variantIds: Array<number>;
-    }): CancelablePromise<Array<{
-        discount: any;
-        deleted: boolean;
-        isStock: boolean;
-        variant: number;
-    }>>;
+        requestBody: Array<QueriesStatusItemDto>;
+    }): CancelablePromise<Array<any>>;
     /**
      * @returns any Ok
      * @throws ApiError
