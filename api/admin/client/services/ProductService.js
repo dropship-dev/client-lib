@@ -108,15 +108,16 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCombosById({ storeId, variantIds, }) {
+    getCombosById({ storeId, productId, comboIds, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/combos',
+            url: '/store/{storeId}/product/{productId}/combos',
             path: {
                 'storeId': storeId,
+                'productId': productId,
             },
             query: {
-                'variantIds': variantIds,
+                'comboIds': comboIds,
             },
             errors: {
                 400: `Bad request`,
@@ -131,11 +132,12 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariantsById({ storeId, variantIds, }) {
+    getVariantsById({ productId, storeId, variantIds, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/variants',
+            url: '/store/{storeId}/product/{productId}/variants',
             path: {
+                'productId': productId,
                 'storeId': storeId,
             },
             query: {

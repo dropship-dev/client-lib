@@ -153,9 +153,10 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCombosById({ storeId, variantIds, }: {
+    getCombosById({ storeId, productId, comboIds, }: {
         storeId: string;
-        variantIds: Array<number>;
+        productId: number;
+        comboIds: Array<number>;
     }): CancelablePromise<Array<{
         discount: any;
         deleted: boolean;
@@ -166,7 +167,8 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariantsById({ storeId, variantIds, }: {
+    getVariantsById({ productId, storeId, variantIds, }: {
+        productId: number;
         storeId: string;
         variantIds: Array<number>;
     }): CancelablePromise<Array<{
