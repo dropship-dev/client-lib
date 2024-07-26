@@ -11,6 +11,8 @@ import {
   sendPasswordResetEmail,
   fetchSignInMethodsForEmail,
 } from "firebase/auth";
+import { getMessaging } from "firebase/messaging";
+import { getToken as getFirebaseToken } from "firebase/messaging"
 
 export * from "firebase/auth";
 
@@ -24,14 +26,32 @@ const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
       messagingSenderId: "612092513795",
       appId: "1:612092513795:web:e1af974cd13f5865e44836",
       measurementId: "G-T5WCJD16F1",
+      vapid_key: "BD3e1yzKZEGdi0zUuVNdq_c-MkoYUpwGpgndg0d1FFjQUKStQEiFRd6RXVOlQS0EqQNqGeb4MYgZaGRfbHxzxHQ"
     };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-export function initFirebaseApp() {
-  initializeApp(firebaseConfig);
+export async function getFirebaseMessage() {
+  return getMessaging(app);
+}
+
+export async function getDeviceToken() {
+  let deviceToken = null
+  try {
+    const status = await Notification.requestPermission()
+    if (status && status === 'granted') {
+      const messaging = getMessaging(app);
+      deviceToken = await getFirebaseToken(messaging, {
+        vapidKey: firebaseConfig.vapid,
+      });
+    }
+  } catch {
+    deviceToken = null;
+  } finally {
+    return deviceToken;
+  }
 }
 
 export async function getToken() {
