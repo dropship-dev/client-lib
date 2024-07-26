@@ -1,5 +1,4 @@
-export { User } from "firebase/auth";
-export declare const firebaseConfig: any;
+export * from "firebase/auth";
 export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
 export declare function getFirebaseMessage(): Promise<import("@firebase/messaging").Messaging>;
