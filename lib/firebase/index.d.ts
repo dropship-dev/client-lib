@@ -2,6 +2,7 @@ export { User } from "firebase/auth";
 export declare const firebaseConfig: any;
 export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
+export declare function getFirebaseMessage(): Promise<import("@firebase/messaging").Messaging>;
 export declare function test1234(): Promise<string>;
 export declare function testConsole(): Promise<void>;
 export declare function getDeviceToken(): Promise<string>;
