@@ -26,6 +26,8 @@ export class OrderService {
     clientSecret: string;
     orderId: string;
     id: string;
+    timeExpried: number;
+    token: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',

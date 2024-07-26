@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { getMessaging } from "firebase/messaging";
 import { getToken as getFirebaseToken } from "firebase/messaging"
+
 export * from "firebase/auth";
 
 const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
