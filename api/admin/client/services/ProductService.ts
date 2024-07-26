@@ -13,6 +13,7 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { QueriesStatusItemDto } from '../models/QueriesStatusItemDto';
 import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
@@ -272,68 +273,21 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getCombosById({
+  public getStatusOrderItems({
     storeId,
-    productId,
-    comboIds,
+    requestBody,
   }: {
     storeId: string,
-    productId: number,
-    comboIds: Array<number>,
-  }): CancelablePromise<Array<{
-    discount: any;
-    deleted: boolean;
-    isStock: boolean;
-    comboId: number;
-  }>> {
+    requestBody: Array<QueriesStatusItemDto>,
+  }): CancelablePromise<Array<any>> {
     return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/{productId}/combos',
+      method: 'POST',
+      url: '/store/{storeId}/product/getStatusOrderItems',
       path: {
         'storeId': storeId,
-        'productId': productId,
       },
-      query: {
-        'comboIds': comboIds,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getVariantsById({
-    productId,
-    storeId,
-    variantIds,
-  }: {
-    productId: number,
-    storeId: string,
-    variantIds: Array<number>,
-  }): CancelablePromise<Array<{
-    discount: any;
-    deleted: boolean;
-    isStock: boolean;
-    variant: number;
-  }>> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/product/{productId}/variants',
-      path: {
-        'productId': productId,
-        'storeId': storeId,
-      },
-      query: {
-        'variantIds': variantIds,
-      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
