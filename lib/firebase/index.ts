@@ -31,6 +31,10 @@ export const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+export async function getFirebaseMessage() {
+  return getMessaging(app);
+}
+
 export async function test1234() {
   return "test1234";
 }
