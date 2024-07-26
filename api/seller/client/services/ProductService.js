@@ -153,15 +153,17 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, requestBody, }) {
+    getStatusOrderItems({ storeId, variantIds, comboIds, }) {
         return this.httpRequest.request({
-            method: 'POST',
+            method: 'GET',
             url: '/store/{storeId}/product/getStatusOrderItems',
             path: {
                 'storeId': storeId,
             },
-            body: requestBody,
-            mediaType: 'application/json',
+            query: {
+                'variantIds': variantIds,
+                'comboIds': comboIds,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

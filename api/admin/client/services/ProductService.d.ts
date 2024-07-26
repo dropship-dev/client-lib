@@ -9,7 +9,6 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
-import type { QueriesStatusItemDto } from '../models/QueriesStatusItemDto';
 import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
@@ -165,9 +164,10 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, requestBody, }: {
+    getStatusOrderItems({ storeId, variantIds, comboIds, }: {
         storeId: string;
-        requestBody: Array<QueriesStatusItemDto>;
+        variantIds?: Array<number>;
+        comboIds?: Array<number>;
     }): CancelablePromise<Array<any>>;
     /**
      * @returns any Ok
