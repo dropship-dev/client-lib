@@ -3,7 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum CollectionStatus {
-  ACTIVE = 'ACTIVE',
-  IN_ACTIVE = 'IN_ACTIVE',
-}
+export type contryInfomationType = {
+  countryCode?: string;
+  countrySymbol?: string;
+  countryName: string;
+};
+

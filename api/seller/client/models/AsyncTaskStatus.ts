@@ -3,9 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-/**
- * Enums
- */
 export enum AsyncTaskStatus {
   PENDING = 'PENDING',
   FAILED = 'FAILED',

@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 import type { FileCreateTemplate } from './FileCreateTemplate';
-import type { PodTemplateVariant } from './PodTemplateVariant';
+import type { PodTemplateVariantData } from './PodTemplateVariantData';
 import type { PrintAreaItem } from './PrintAreaItem';
 import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
 
@@ -17,12 +17,12 @@ export type CreateTemplateDto = {
   supplierContact?: string;
   keyFeature?: string;
   sizeGuide?: string;
-  sku: string;
+  sku?: string;
   isStock: boolean;
   isActive: boolean;
   podPrintArea: Array<PrintAreaItem>;
   variantOption: Array<VariantOptionsPayLoad>;
-  variants: Array<PodTemplateVariant>;
+  variants: Array<PodTemplateVariantData>;
   files: Array<FileCreateTemplate>;
 };
 

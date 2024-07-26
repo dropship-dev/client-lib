@@ -20,7 +20,7 @@ export type PodTemplate = {
    */
   variantOption: PrismaJson_VariantOptions;
   podCategoryId: number;
-  sku: string;
+  sku: string | null;
   sizeGuide: string | null;
   keyFeature: string | null;
   supplierContact: string | null;

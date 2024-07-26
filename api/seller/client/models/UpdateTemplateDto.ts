@@ -16,8 +16,8 @@ export type UpdateTemplateDto = {
   isActive?: boolean;
   variants?: Array<{
     isActive: boolean;
-    faPrice: number;
-    supplierCost: number;
+    faPrice?: number;
+    supplierCost?: number;
     podTemplateVariantId: number;
   }>;
   podPrintArea?: Array<{
