@@ -14,7 +14,6 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
-import type { QueriesStatusItemDto } from '../models/QueriesStatusItemDto';
 import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
@@ -338,19 +337,23 @@ export class ProductService {
    */
   public getStatusOrderItems({
     storeId,
-    requestBody,
+    variantIds,
+    comboIds,
   }: {
     storeId: string,
-    requestBody: Array<QueriesStatusItemDto>,
+    variantIds?: Array<number>,
+    comboIds?: Array<number>,
   }): CancelablePromise<Array<any>> {
     return this.httpRequest.request({
-      method: 'POST',
+      method: 'GET',
       url: '/store/{storeId}/product/getStatusOrderItems',
       path: {
         'storeId': storeId,
       },
-      body: requestBody,
-      mediaType: 'application/json',
+      query: {
+        'variantIds': variantIds,
+        'comboIds': comboIds,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

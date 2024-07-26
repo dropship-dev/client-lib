@@ -191,7 +191,6 @@ export type { Product } from './models/Product';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductPerformanceResult } from './models/ProductPerformanceResult';
 export type { ProductVariant } from './models/ProductVariant';
-export type { QueriesStatusItemDto } from './models/QueriesStatusItemDto';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
 export type { RegionalShippingFee } from './models/RegionalShippingFee';
