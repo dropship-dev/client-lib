@@ -99,6 +99,7 @@ export declare class MarketingEmailService {
         data: Array<{
             emailStatus: OrderTrackingEmailStatus;
             recoveredStatus: OrderTrackingRecoveredStatus;
+            expiredAt: string;
             total: number;
             email: string;
             createdAt: string;
