@@ -120,6 +120,7 @@ export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto';
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
 export type { GetStoreStatisticsAbandonmentDto } from './models/GetStoreStatisticsAbandonmentDto';
+export type { GetTrackingOrderCheckoutDto } from './models/GetTrackingOrderCheckoutDto';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { JsonArray } from './models/JsonArray';

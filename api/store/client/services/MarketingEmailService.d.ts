@@ -1,3 +1,5 @@
+import type { CreateComboItems } from '../models/CreateComboItems';
+import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { UnsubscribeEmailMarketingDto } from '../models/UnsubscribeEmailMarketingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -27,4 +29,15 @@ export declare class MarketingEmailService {
         data: string;
         token: string;
     }): CancelablePromise<void>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTrackingOrderCheckout({ data, token, }: {
+        data: string;
+        token: string;
+    }): CancelablePromise<{
+        comboItems: CreateComboItems;
+        orderItems: CreateOrderItems;
+    }>;
 }

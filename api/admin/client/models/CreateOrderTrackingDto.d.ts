@@ -5,4 +5,9 @@ export type CreateOrderTrackingDto = {
     orderItems?: Array<OrderItemTrackingDto>;
     comboItems?: Array<ComboItemTrackingDto>;
     storeId: string;
+    email?: string;
+    phoneNumber?: string;
+    firstName?: string;
+    lastName?: string;
+    fullName?: string;
 };

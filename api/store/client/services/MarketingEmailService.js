@@ -64,5 +64,25 @@ class MarketingEmailService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTrackingOrderCheckout({ data, token, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/marketing/email/tracking/order/checkout',
+            query: {
+                'data': data,
+                'token': token,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.MarketingEmailService = MarketingEmailService;
