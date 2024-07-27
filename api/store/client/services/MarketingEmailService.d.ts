@@ -25,9 +25,10 @@ export declare class MarketingEmailService {
      * @returns void
      * @throws ApiError
      */
-    getOrder({ data, token, }: {
+    getOrder({ data, token, domain, }: {
         data: string;
         token: string;
+        domain: string;
     }): CancelablePromise<void>;
     /**
      * @returns any Ok
