@@ -48,14 +48,13 @@ class MarketingEmailService {
      * @returns void
      * @throws ApiError
      */
-    getOrder({ data, token, domain, }) {
+    getOrder({ data, token, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/email/click',
             query: {
                 'data': data,
                 'token': token,
-                'domain': domain,
             },
             errors: {
                 400: `Bad request`,
