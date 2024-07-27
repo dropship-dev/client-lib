@@ -70,11 +70,9 @@ export class MarketingEmailService {
   public getOrder({
     data,
     token,
-    domain,
   }: {
     data: string,
     token: string,
-    domain: string,
   }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'GET',
@@ -82,7 +80,6 @@ export class MarketingEmailService {
       query: {
         'data': data,
         'token': token,
-        'domain': domain,
       },
       errors: {
         400: `Bad request`,
