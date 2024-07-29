@@ -115,6 +115,34 @@ export class RegionalShippingService {
    * @returns RegionalShippingFee Ok
    * @throws ApiError
    */
+  public deleteReasonShippingFee({
+    storeId,
+    id,
+  }: {
+    storeId: string,
+    id: string,
+  }): CancelablePromise<RegionalShippingFee> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/regional-shipping-fee/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
   public updateReasonShippingFee({
     storeId,
     id,
