@@ -79,6 +79,34 @@ export class AsyncTaskService {
   }
 
   /**
+   * @returns void
+   * @throws ApiError
+   */
+  public createGeneratePngTask({
+    fulfillmentAgencyId,
+    imageDataIds,
+  }: {
+    fulfillmentAgencyId: number,
+    imageDataIds: Array<number>,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/async-task/generate-png',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'imageDataIds': imageDataIds,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
    * @returns AsyncTask Ok
    * @throws ApiError
    */

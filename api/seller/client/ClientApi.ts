@@ -28,6 +28,7 @@ import { PodElementService } from './services/PodElementService';
 import { PodTechniqueService } from './services/PodTechniqueService';
 import { PodTemplateService } from './services/PodTemplateService';
 import { ProductService } from './services/ProductService';
+import { RegionalShippingService } from './services/RegionalShippingService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
@@ -71,6 +72,7 @@ export class ClientApi {
   public readonly podTechnique: PodTechniqueService;
   public readonly podTemplate: PodTemplateService;
   public readonly product: ProductService;
+  public readonly regionalShipping: RegionalShippingService;
   public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly review: ReviewService;
@@ -125,6 +127,7 @@ export class ClientApi {
     this.podTechnique = new PodTechniqueService(this.request);
     this.podTemplate = new PodTemplateService(this.request);
     this.product = new ProductService(this.request);
+    this.regionalShipping = new RegionalShippingService(this.request);
     this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.review = new ReviewService(this.request);
