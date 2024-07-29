@@ -253,6 +253,7 @@ export type { UpdateGADto } from './models/UpdateGADto';
 export type { UpdateGroupPlatformVariantsDto } from './models/UpdateGroupPlatformVariantsDto';
 export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePaymentMethodDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
+export type { UpdateOrderDto } from './models/UpdateOrderDto';
 export type { UpdateOrderRefundDto } from './models/UpdateOrderRefundDto';
 export type { UpdateOrderRefundHistoryDto } from './models/UpdateOrderRefundHistoryDto';
 export type { UpdateOrderStatusDto } from './models/UpdateOrderStatusDto';
