@@ -1,5 +1,6 @@
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { PaymentType } from '../models/PaymentType';
+import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class OrderService {
@@ -19,6 +20,15 @@ export declare class OrderService {
         timeExpried: number;
         token: string;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateStoreOrder({ storeId, tokenClientInfo, requestBody, }: {
+        storeId: string;
+        tokenClientInfo: string;
+        requestBody: UpdateOrderDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

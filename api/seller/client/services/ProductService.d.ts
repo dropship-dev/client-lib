@@ -5,13 +5,13 @@ import type { CloneProductDto } from '../models/CloneProductDto';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { getStatusCombosType } from '../models/getStatusCombosType';
+import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
-import type { RegionalShippingFee } from '../models/RegionalShippingFee';
-import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
@@ -188,7 +188,7 @@ export declare class ProductService {
         storeId: string;
         variantIds?: Array<number>;
         comboIds?: Array<number>;
-    }): CancelablePromise<Array<any>>;
+    }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -256,13 +256,4 @@ export declare class ProductService {
             id: number;
         }>;
     })>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    updateReasonShippingFee({ storeId, id, requestBody, }: {
-        storeId: string;
-        id: string;
-        requestBody: RegionalShippingFeeDto;
-    }): CancelablePromise<RegionalShippingFee>;
 }

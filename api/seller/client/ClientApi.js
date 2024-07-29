@@ -24,6 +24,7 @@ const PodElementService_1 = require("./services/PodElementService");
 const PodTechniqueService_1 = require("./services/PodTechniqueService");
 const PodTemplateService_1 = require("./services/PodTemplateService");
 const ProductService_1 = require("./services/ProductService");
+const RegionalShippingService_1 = require("./services/RegionalShippingService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
@@ -63,6 +64,7 @@ class ClientApi {
     podTechnique;
     podTemplate;
     product;
+    regionalShipping;
     requestPayout;
     requestSourcing;
     review;
@@ -114,6 +116,7 @@ class ClientApi {
         this.podTechnique = new PodTechniqueService_1.PodTechniqueService(this.request);
         this.podTemplate = new PodTemplateService_1.PodTemplateService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
+        this.regionalShipping = new RegionalShippingService_1.RegionalShippingService(this.request);
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);

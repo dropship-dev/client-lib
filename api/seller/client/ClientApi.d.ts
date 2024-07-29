@@ -22,6 +22,7 @@ import { PodElementService } from './services/PodElementService';
 import { PodTechniqueService } from './services/PodTechniqueService';
 import { PodTemplateService } from './services/PodTemplateService';
 import { ProductService } from './services/ProductService';
+import { RegionalShippingService } from './services/RegionalShippingService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
@@ -62,6 +63,7 @@ export declare class ClientApi {
     readonly podTechnique: PodTechniqueService;
     readonly podTemplate: PodTemplateService;
     readonly product: ProductService;
+    readonly regionalShipping: RegionalShippingService;
     readonly requestPayout: RequestPayoutService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;

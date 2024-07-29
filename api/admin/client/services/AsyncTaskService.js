@@ -40,6 +40,27 @@ class AsyncTaskService {
         });
     }
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    createGeneratePngTask({ fulfillmentAgencyId, imageDataIds, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/async-task/generate-png',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'imageDataIds': imageDataIds,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns AsyncTask Ok
      * @throws ApiError
      */
