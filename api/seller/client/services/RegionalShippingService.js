@@ -80,6 +80,27 @@ class RegionalShippingService {
      * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
+    deleteReasonShippingFee({ storeId, id, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/regional-shipping-fee/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
     updateReasonShippingFee({ storeId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
