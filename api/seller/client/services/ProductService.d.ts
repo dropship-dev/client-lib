@@ -10,8 +10,6 @@ import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
-import type { RegionalShippingFee } from '../models/RegionalShippingFee';
-import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
@@ -256,41 +254,4 @@ export declare class ProductService {
             id: number;
         }>;
     })>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    createRegionalShippingFee({ storeId, requestBody, }: {
-        storeId: string;
-        requestBody: RegionalShippingFeeDto;
-    }): CancelablePromise<RegionalShippingFee>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    getAllRegionalShippingFee({ storeId, search, startDate, endDate, pageSize, nextPageIndex, }: {
-        storeId: string;
-        search?: string;
-        startDate?: string;
-        endDate?: string;
-        pageSize?: number;
-        nextPageIndex?: string;
-    }): CancelablePromise<Array<RegionalShippingFee>>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    getRegionalShippingFee({ storeId, id, }: {
-        storeId: string;
-        id: string;
-    }): CancelablePromise<RegionalShippingFee>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    updateReasonShippingFee({ storeId, id, requestBody, }: {
-        storeId: string;
-        id: string;
-        requestBody: RegionalShippingFeeDto;
-    }): CancelablePromise<RegionalShippingFee>;
 }

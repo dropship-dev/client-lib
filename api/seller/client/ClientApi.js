@@ -20,6 +20,7 @@ const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const PingPongAccountService_1 = require("./services/PingPongAccountService");
 const ProductService_1 = require("./services/ProductService");
+const RegionalShippingService_1 = require("./services/RegionalShippingService");
 const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
@@ -55,6 +56,7 @@ class ClientApi {
     performance;
     pingPongAccount;
     product;
+    regionalShipping;
     requestPayout;
     requestSourcing;
     review;
@@ -102,6 +104,7 @@ class ClientApi {
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
+        this.regionalShipping = new RegionalShippingService_1.RegionalShippingService(this.request);
         this.requestPayout = new RequestPayoutService_1.RequestPayoutService(this.request);
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);

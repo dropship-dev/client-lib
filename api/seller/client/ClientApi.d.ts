@@ -18,6 +18,7 @@ import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
 import { ProductService } from './services/ProductService';
+import { RegionalShippingService } from './services/RegionalShippingService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
@@ -54,6 +55,7 @@ export declare class ClientApi {
     readonly performance: PerformanceService;
     readonly pingPongAccount: PingPongAccountService;
     readonly product: ProductService;
+    readonly regionalShipping: RegionalShippingService;
     readonly requestPayout: RequestPayoutService;
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;

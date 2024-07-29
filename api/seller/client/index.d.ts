@@ -306,6 +306,7 @@ export { PaymentService } from './services/PaymentService';
 export { PerformanceService } from './services/PerformanceService';
 export { PingPongAccountService } from './services/PingPongAccountService';
 export { ProductService } from './services/ProductService';
+export { RegionalShippingService } from './services/RegionalShippingService';
 export { RequestPayoutService } from './services/RequestPayoutService';
 export { RequestSourcingService } from './services/RequestSourcingService';
 export { ReviewService } from './services/ReviewService';
