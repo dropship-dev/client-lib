@@ -39,7 +39,12 @@ export declare class CollectionService {
         prePageIndex: number;
         total: number;
         data: Array<(Collection & {
-            Product: Array<Product>;
+            Product: Array<(Product & {
+                ProductVariant: Array<{
+                    compareAtPrice: number;
+                    price: number;
+                }>;
+            })>;
         })>;
     }>;
     /**
@@ -50,7 +55,12 @@ export declare class CollectionService {
         id: number;
         storeId: string;
     }): CancelablePromise<(Collection & {
-        Product: Array<Product>;
+        Product: Array<(Product & {
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+            }>;
+        })>;
         CrossSell: Array<CrossSell>;
     })>;
     /**

@@ -86,15 +86,16 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariantsById({ storeId, variantIds, }) {
+    getStatusOrderItems({ storeId, variantIds, comboIds, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/variants',
+            url: '/store/{storeId}/product/getStatusOrderItems',
             path: {
                 'storeId': storeId,
             },
             query: {
                 'variantIds': variantIds,
+                'comboIds': comboIds,
             },
             errors: {
                 400: `Bad request`,
