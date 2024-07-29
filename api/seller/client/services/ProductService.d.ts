@@ -260,6 +260,34 @@ export declare class ProductService {
      * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
+    createRegionalShippingFee({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: RegionalShippingFeeDto;
+    }): CancelablePromise<RegionalShippingFee>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    getAllRegionalShippingFee({ storeId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+        storeId: string;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<Array<RegionalShippingFee>>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    getRegionalShippingFee({ storeId, id, }: {
+        storeId: string;
+        id: string;
+    }): CancelablePromise<RegionalShippingFee>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
     updateReasonShippingFee({ storeId, id, requestBody, }: {
         storeId: string;
         id: string;
