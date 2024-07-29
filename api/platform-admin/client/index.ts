@@ -112,6 +112,8 @@ export { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GetAllStoresDto } from './models/GetAllStoresDto';
+export type { getStatusCombosType } from './models/getStatusCombosType';
+export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { JsonArray } from './models/JsonArray';
