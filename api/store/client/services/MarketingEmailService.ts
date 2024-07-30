@@ -101,6 +101,7 @@ export class MarketingEmailService {
     data: string,
     token: string,
   }): CancelablePromise<{
+    storeId: string;
     comboItems: CreateComboItems;
     orderItems: CreateOrderItems;
   }> {
