@@ -1,5 +1,8 @@
 export * from "firebase/auth";
+export declare const app: import("@firebase/app").FirebaseApp;
 export declare const auth: import("@firebase/auth").Auth;
+export declare function getFirebaseMessage(): Promise<import("@firebase/messaging").Messaging>;
+export declare function getDeviceToken(): Promise<string | null>;
 export declare function getToken(): Promise<string>;
 export declare function isLoggedIn(): boolean;
 export declare function getUser(): import("@firebase/auth").User | null;
