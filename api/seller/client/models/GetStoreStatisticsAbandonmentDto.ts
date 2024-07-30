@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type GetStoreStatisticsAbandonmentDto = {
-  startTime: string;
-  endTime: string;
+  startTime?: string;
+  endTime?: string;
 };
 

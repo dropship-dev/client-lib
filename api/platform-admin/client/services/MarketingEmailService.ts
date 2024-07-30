@@ -9,7 +9,7 @@ import type { StatisticsOverviewConversionValue } from '../models/StatisticsOver
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class StatisticsService {
+export class MarketingEmailService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
@@ -18,11 +18,11 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsBusinessPerformancesSummary({
-    startTime,
-    endTime,
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-30T04:37:55.511Z',
   }: {
-    startTime: string,
-    endTime: string,
+    startTime?: string,
+    endTime?: string,
   }): CancelablePromise<{
     perRecipientGrowthPercent: number;
     perRecipientPreviousPeriod: number;
@@ -64,12 +64,12 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsOverview({
-    startTime,
-    endTime,
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-30T04:37:55.531Z',
     timezone,
   }: {
-    startTime: string,
-    endTime: string,
+    startTime?: string,
+    endTime?: string,
     timezone?: string,
   }): CancelablePromise<{
     totalRecipientsGrowthPercent: number;
@@ -103,11 +103,11 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsAutomationMetrics({
-    startTime,
-    endTime,
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-30T04:37:55.580Z',
   }: {
-    startTime: string,
-    endTime: string,
+    startTime?: string,
+    endTime?: string,
   }): CancelablePromise<{
     revenuePerRecipientGrowthPercent: number;
     revenuePerRecipient: number;
@@ -152,11 +152,11 @@ export class StatisticsService {
    * @throws ApiError
    */
   public getStatisticsPerforming({
-    startTime,
-    endTime,
+    startTime = '2023-01-02T00:00:00.000Z',
+    endTime = '2024-07-30T04:37:55.591Z',
   }: {
-    startTime: string,
-    endTime: string,
+    startTime?: string,
+    endTime?: string,
   }): CancelablePromise<{
     abandonedCheckout: {
       perRecipient: number;

@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CreateComboItems } from '../models/CreateComboItems';
+import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { UnsubscribeEmailMarketingDto } from '../models/UnsubscribeEmailMarketingDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -75,6 +77,36 @@ export class MarketingEmailService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/marketing/email/click',
+      query: {
+        'data': data,
+        'token': token,
+      },
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getTrackingOrderCheckout({
+    data,
+    token,
+  }: {
+    data: string,
+    token: string,
+  }): CancelablePromise<{
+    comboItems: CreateComboItems;
+    orderItems: CreateOrderItems;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/email/tracking/order/checkout',
       query: {
         'data': data,
         'token': token,

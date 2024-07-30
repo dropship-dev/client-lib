@@ -236,6 +236,7 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
+    Payment: Payment;
     Store: (Store & {
       FraudDetection: Array<FraudDetection>;
     });
@@ -329,6 +330,7 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
+    Payment: Payment;
     Store: (Store & {
       FraudDetection: Array<FraudDetection>;
     });
@@ -572,6 +574,11 @@ export class OrderService {
         });
       })>;
       Transaction: Array<Transaction>;
+      Payment: {
+        email: string;
+        name: string;
+        type: PaymentType;
+      };
       Store: Store;
     })>;
   }> {
