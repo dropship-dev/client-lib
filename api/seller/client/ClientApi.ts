@@ -24,6 +24,7 @@ import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
 import { ProductService } from './services/ProductService';
+import { RegionalShippingService } from './services/RegionalShippingService';
 import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
@@ -63,6 +64,7 @@ export class ClientApi {
   public readonly performance: PerformanceService;
   public readonly pingPongAccount: PingPongAccountService;
   public readonly product: ProductService;
+  public readonly regionalShipping: RegionalShippingService;
   public readonly requestPayout: RequestPayoutService;
   public readonly requestSourcing: RequestSourcingService;
   public readonly review: ReviewService;
@@ -113,6 +115,7 @@ export class ClientApi {
     this.performance = new PerformanceService(this.request);
     this.pingPongAccount = new PingPongAccountService(this.request);
     this.product = new ProductService(this.request);
+    this.regionalShipping = new RegionalShippingService(this.request);
     this.requestPayout = new RequestPayoutService(this.request);
     this.requestSourcing = new RequestSourcingService(this.request);
     this.review = new ReviewService(this.request);

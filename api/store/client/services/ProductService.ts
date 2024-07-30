@@ -7,6 +7,8 @@ import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { getStatusCombosType } from '../models/getStatusCombosType';
+import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -240,26 +242,24 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getVariantsById({
+  public getStatusOrderItems({
     storeId,
     variantIds,
+    comboIds,
   }: {
     storeId: string,
-    variantIds: Array<number>,
-  }): CancelablePromise<Array<{
-    discount: any;
-    deleted: boolean;
-    isStock: boolean;
-    variant: number;
-  }>> {
+    variantIds?: Array<number>,
+    comboIds?: Array<number>,
+  }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/product/variants',
+      url: '/store/{storeId}/product/getStatusOrderItems',
       path: {
         'storeId': storeId,
       },
       query: {
         'variantIds': variantIds,
+        'comboIds': comboIds,
       },
       errors: {
         400: `Bad request`,
