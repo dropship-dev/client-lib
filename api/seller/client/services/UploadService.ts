@@ -48,6 +48,7 @@ export class UploadService {
     requestBody: CreateUploadImageDataDto,
   }): CancelablePromise<{
     id: number;
+    url: string;
     signedUrl: string;
   }> {
     return this.httpRequest.request({
