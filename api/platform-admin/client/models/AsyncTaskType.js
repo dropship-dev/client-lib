@@ -9,4 +9,5 @@ var AsyncTaskType;
 (function (AsyncTaskType) {
     AsyncTaskType["EXPORT_ORDER"] = "EXPORT_ORDER";
     AsyncTaskType["EXPORT_ACCOUNTANCY"] = "EXPORT_ACCOUNTANCY";
+    AsyncTaskType["GENERATE_PNG"] = "GENERATE_PNG";
 })(AsyncTaskType || (exports.AsyncTaskType = AsyncTaskType = {}));
