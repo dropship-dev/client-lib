@@ -29,7 +29,7 @@ class RegionalShippingService {
         });
     }
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllRegionalShippingFee({ storeId, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
@@ -98,19 +98,16 @@ class RegionalShippingService {
         });
     }
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns string Ok
      * @throws ApiError
      */
-    updateReasonShippingFee({ storeId, id, requestBody, }) {
+    resetSetting({ storeId, }) {
         return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/store/{storeId}/regional-shipping-fee/{id}',
+            method: 'DELETE',
+            url: '/store/{storeId}/regional-shipping-fee/reset-setting',
             path: {
                 'storeId': storeId,
-                'id': id,
             },
-            body: requestBody,
-            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
