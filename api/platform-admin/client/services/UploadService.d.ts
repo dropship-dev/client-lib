@@ -23,6 +23,7 @@ export declare class UploadService {
         requestBody: CreateUploadImageDataDto;
     }): CancelablePromise<{
         id: number;
+        url: string;
         signedUrl: string;
     }>;
 }
