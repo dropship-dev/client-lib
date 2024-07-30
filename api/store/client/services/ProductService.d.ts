@@ -3,6 +3,8 @@ import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { getStatusCombosType } from '../models/getStatusCombosType';
+import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -153,15 +155,11 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getVariantsById({ storeId, variantIds, }: {
+    getStatusOrderItems({ storeId, variantIds, comboIds, }: {
         storeId: string;
-        variantIds: Array<number>;
-    }): CancelablePromise<Array<{
-        discount: any;
-        deleted: boolean;
-        isStock: boolean;
-        variant: number;
-    }>>;
+        variantIds?: Array<number>;
+        comboIds?: Array<number>;
+    }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>>;
     /**
      * @returns any Ok
      * @throws ApiError

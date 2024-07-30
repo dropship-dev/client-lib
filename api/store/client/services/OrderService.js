@@ -29,6 +29,31 @@ class OrderService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateStoreOrder({ storeId, tokenClientInfo, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/update-order',
+            path: {
+                'storeId': storeId,
+            },
+            headers: {
+                'Token-Client-Info': tokenClientInfo,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

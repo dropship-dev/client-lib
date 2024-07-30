@@ -1,25 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductService = void 0;
-class ProductService {
+exports.RegionalShippingService = void 0;
+class RegionalShippingService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
-    countProduct({ storeId, isActive, }) {
+    createRegionalShippingFee({ storeId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/count',
+            method: 'POST',
+            url: '/store/{storeId}/regional-shipping-fee',
             path: {
                 'storeId': storeId,
             },
-            query: {
-                'isActive': isActive,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -33,21 +32,19 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
+    getAllRegionalShippingFee({ storeId, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product',
+            url: '/store/{storeId}/regional-shipping-fee',
             path: {
                 'storeId': storeId,
             },
             query: {
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
-                'name': name,
-                'tags': tags,
-                'isActive': isActive,
-                'startPrice': startPrice,
-                'endPrice': endPrice,
             },
             errors: {
                 400: `Bad request`,
@@ -59,19 +56,16 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
-    getProductByPermalink({ storeId, permalink, productId, }) {
+    getRegionalShippingFee({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/product/permalink',
+            url: '/store/{storeId}/regional-shipping-fee/{id}',
             path: {
                 'storeId': storeId,
-            },
-            query: {
-                'permalink': permalink,
-                'productId': productId,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,
@@ -83,19 +77,16 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, }) {
+    deleteReasonShippingFee({ storeId, id, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/getStatusOrderItems',
+            method: 'DELETE',
+            url: '/store/{storeId}/regional-shipping-fee/{id}',
             path: {
                 'storeId': storeId,
-            },
-            query: {
-                'variantIds': variantIds,
-                'comboIds': comboIds,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,
@@ -107,19 +98,15 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
-    getProduct({ storeId, productId, isGetAllPlatformProductStore, }) {
+    resetSetting({ storeId, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}',
+            method: 'DELETE',
+            url: '/store/{storeId}/regional-shipping-fee/reset-setting',
             path: {
                 'storeId': storeId,
-                'productId': productId,
-            },
-            query: {
-                'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
             },
             errors: {
                 400: `Bad request`,
@@ -131,4 +118,4 @@ class ProductService {
         });
     }
 }
-exports.ProductService = ProductService;
+exports.RegionalShippingService = RegionalShippingService;

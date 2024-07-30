@@ -3,6 +3,7 @@ import type { PrismaJson_CountryInformations } from './PrismaJson_CountryInforma
  * Model RegionalShippingFee
  */
 export type RegionalShippingFee = {
+    deleted: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string | null;
