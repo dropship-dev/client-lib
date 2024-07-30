@@ -80,14 +80,16 @@ export class AsyncTaskService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createGeneratePngTask({
     requestBody,
   }: {
     requestBody: GeneratePngDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<{
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/async-task/generate-png',
