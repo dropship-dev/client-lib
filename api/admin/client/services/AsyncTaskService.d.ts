@@ -1,5 +1,6 @@
 import type { AsyncTask } from '../models/AsyncTask';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { GeneratePngDto } from '../models/GeneratePngDto';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { TransactionStatus } from '../models/TransactionStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -28,13 +29,12 @@ export declare class AsyncTaskService {
         latestStat?: boolean;
     }): CancelablePromise<AsyncTask>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
-    createGeneratePngTask({ fulfillmentAgencyId, imageDataIds, }: {
-        fulfillmentAgencyId: number;
-        imageDataIds: Array<number>;
-    }): CancelablePromise<void>;
+    createGeneratePngTask({ requestBody, }: {
+        requestBody: GeneratePngDto;
+    }): CancelablePromise<string>;
     /**
      * @returns AsyncTask Ok
      * @throws ApiError

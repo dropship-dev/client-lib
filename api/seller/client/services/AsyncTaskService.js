@@ -40,17 +40,15 @@ class AsyncTaskService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
-    createGeneratePngTask({ fulfillmentAgencyId, imageDataIds, }) {
+    createGeneratePngTask({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/async-task/generate-png',
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'imageDataIds': imageDataIds,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
