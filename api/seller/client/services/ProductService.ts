@@ -9,6 +9,8 @@ import type { CloneProductDto } from '../models/CloneProductDto';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
+import type { getStatusCombosType } from '../models/getStatusCombosType';
+import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
 import type { PlatformVariant } from '../models/PlatformVariant';
@@ -341,7 +343,7 @@ export class ProductService {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
-  }): CancelablePromise<Array<any>> {
+  }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/getStatusOrderItems',

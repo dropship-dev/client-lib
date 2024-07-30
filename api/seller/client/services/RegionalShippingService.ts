@@ -42,7 +42,7 @@ export class RegionalShippingService {
   }
 
   /**
-   * @returns RegionalShippingFee Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllRegionalShippingFee({
@@ -58,8 +58,14 @@ export class RegionalShippingService {
     startDate?: string,
     endDate?: string,
     pageSize?: number,
-    nextPageIndex?: string,
-  }): CancelablePromise<Array<RegionalShippingFee>> {
+    nextPageIndex?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<RegionalShippingFee>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/regional-shipping-fee',
@@ -140,27 +146,20 @@ export class RegionalShippingService {
   }
 
   /**
-   * @returns RegionalShippingFee Ok
+   * @returns string Ok
    * @throws ApiError
    */
-  public updateReasonShippingFee({
+  public resetSetting({
     storeId,
-    id,
-    requestBody,
   }: {
     storeId: string,
-    id: string,
-    requestBody: RegionalShippingFeeDto,
-  }): CancelablePromise<RegionalShippingFee> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/store/{storeId}/regional-shipping-fee/{id}',
+      method: 'DELETE',
+      url: '/store/{storeId}/regional-shipping-fee/reset-setting',
       path: {
         'storeId': storeId,
-        'id': id,
       },
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
