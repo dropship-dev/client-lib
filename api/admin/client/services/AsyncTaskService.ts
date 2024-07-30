@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { AsyncTask } from '../models/AsyncTask';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
+import type { GeneratePngDto } from '../models/GeneratePngDto';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { TransactionStatus } from '../models/TransactionStatus';
 
@@ -79,23 +80,19 @@ export class AsyncTaskService {
   }
 
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public createGeneratePngTask({
-    fulfillmentAgencyId,
-    imageDataIds,
+    requestBody,
   }: {
-    fulfillmentAgencyId: number,
-    imageDataIds: Array<number>,
-  }): CancelablePromise<void> {
+    requestBody: GeneratePngDto,
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/async-task/generate-png',
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'imageDataIds': imageDataIds,
-      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
