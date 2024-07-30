@@ -40,7 +40,7 @@ class AsyncTaskService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createGeneratePngTask({ requestBody, }) {

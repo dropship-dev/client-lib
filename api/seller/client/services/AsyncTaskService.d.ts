@@ -29,12 +29,14 @@ export declare class AsyncTaskService {
         latestStat?: boolean;
     }): CancelablePromise<AsyncTask>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createGeneratePngTask({ requestBody, }: {
         requestBody: GeneratePngDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<{
+        id: string;
+    }>;
     /**
      * @returns AsyncTask Ok
      * @throws ApiError
