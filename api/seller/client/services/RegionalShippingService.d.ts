@@ -23,11 +23,11 @@ export declare class RegionalShippingService {
         startDate?: string;
         endDate?: string;
         pageSize?: number;
-        nextPageIndex?: number;
+        nextPageIndex?: string;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
+        nextPageIndex: string;
+        prePageIndex: string;
         total: number;
         data: Array<RegionalShippingFee>;
     }>;
