@@ -16,7 +16,7 @@ export class StatisticsService {
   public getStatisticsStoreAbandonmentCheckout({
     storeId,
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-07-31T09:29:07.399Z',
+    endTime = '2024-07-31T09:39:01.163Z',
   }: {
     storeId: string,
     startTime?: string,
