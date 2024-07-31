@@ -32,6 +32,13 @@ export declare class RegionalShippingService {
         data: Array<RegionalShippingFee>;
     }>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getContriesExsitOnStore({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<Array<string>>;
+    /**
      * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
