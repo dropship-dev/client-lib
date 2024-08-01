@@ -2,8 +2,11 @@ import type { FavoriteTemplateDto } from '../models/FavoriteTemplateDto';
 import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { JsonValue } from '../models/JsonValue';
 import type { PodFileProperties } from '../models/PodFileProperties';
+import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PodTemplateFavorite } from '../models/PodTemplateFavorite';
+import type { PrintAreaBounds } from '../models/PrintAreaBounds';
 import type { StatusTemplate } from '../models/StatusTemplate';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
@@ -53,6 +56,7 @@ export declare class PodTemplateService {
         PodFile: Array<{
             podPrintAreaId: number;
             properties: PodFileProperties;
+            layers: JsonValue;
             file: string;
             podDesignId: number;
             podTemplateId: number;
@@ -70,6 +74,8 @@ export declare class PodTemplateService {
             id: number;
         }>;
         PodPrintArea: Array<{
+            printAreaBounds: PrintAreaBounds;
+            meshPoints: PodMeshPoints;
             faPrice: number;
             supplierCost: number;
             name: string;
@@ -80,6 +86,7 @@ export declare class PodTemplateService {
             fileMockup: Array<{
                 podPrintAreaId: number;
                 properties: PodFileProperties;
+                layers: JsonValue;
                 file: string;
                 podDesignId: number;
                 podTemplateId: number;

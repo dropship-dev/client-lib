@@ -51,9 +51,12 @@ export declare class CollectionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCollection({ id, storeId, }: {
+    getCollection({ id, storeId, isActiveProduct, isEnableProduct, deletedProduct, }: {
         id: number;
         storeId: string;
+        isActiveProduct?: boolean;
+        isEnableProduct?: boolean;
+        deletedProduct?: boolean;
     }): CancelablePromise<(Collection & {
         Product: Array<(Product & {
             ProductVariant: Array<{
