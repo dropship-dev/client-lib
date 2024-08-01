@@ -6,11 +6,13 @@ import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { PaymentType } from '../models/PaymentType';
 import type { Store } from '../models/Store';
 import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreType } from '../models/StoreType';
+import type { StoreUser } from '../models/StoreUser';
 import type { Theme } from '../models/Theme';
 import type { ThemePage } from '../models/ThemePage';
 import type { Timezone } from '../models/Timezone';
@@ -149,6 +151,7 @@ export class StoreService {
   }): CancelablePromise<{
     FraudDetection: Array<FraudDetection>;
     Wallet: Array<Wallet>;
+    FulfillmentAgency: FulfillmentAgency;
     Payment: Array<{
       publishableKey: string;
       isShowCompanyAddress: boolean;
@@ -166,6 +169,7 @@ export class StoreService {
     Theme: Array<(Theme & {
       ThemePage: Array<ThemePage>;
     })>;
+    StoreUser: Array<StoreUser>;
     updatedAt: string;
     createdAt: string;
     currencyId: number;
