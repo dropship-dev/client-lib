@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateUploadDto } from '../models/CreateUploadDto';
-import type { CreateUploadImageDataDto } from '../models/CreateUploadImageDataDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -31,34 +30,6 @@ export class UploadService {
       mediaType: 'application/json',
       errors: {
         400: `Bad request`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public createUploadImageData({
-    requestBody,
-  }: {
-    requestBody: CreateUploadImageDataDto,
-  }): CancelablePromise<{
-    id: number;
-    url: string;
-    signedUrl: string;
-  }> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/upload/image-data',
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,

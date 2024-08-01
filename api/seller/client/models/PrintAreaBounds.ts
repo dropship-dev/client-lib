@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type GeneratePngDto = {
-  fulfillmentAgencyId: number;
-  imageDataIds: Array<number>;
-};
-
+export type PrintAreaBounds = Array<{
+  'y': number;
+  'x': number;
+}>;

@@ -6,8 +6,11 @@ import type { CreateTemplateDto } from '../models/CreateTemplateDto';
 import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { JsonValue } from '../models/JsonValue';
 import type { PodFileProperties } from '../models/PodFileProperties';
+import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PodTemplate } from '../models/PodTemplate';
+import type { PrintAreaBounds } from '../models/PrintAreaBounds';
 import type { StatusTemplate } from '../models/StatusTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
 import type { VariantOptions } from '../models/VariantOptions';
@@ -152,6 +155,7 @@ export class PodTemplateService {
     PodFile: Array<{
       podPrintAreaId: number;
       properties: PodFileProperties;
+      layers: JsonValue;
       file: string;
       podDesignId: number;
       podTemplateId: number;
@@ -169,6 +173,8 @@ export class PodTemplateService {
       id: number;
     }>;
     PodPrintArea: Array<{
+      printAreaBounds: PrintAreaBounds;
+      meshPoints: PodMeshPoints;
       faPrice: number;
       supplierCost: number;
       name: string;
@@ -179,6 +185,7 @@ export class PodTemplateService {
       fileMockup: Array<{
         podPrintAreaId: number;
         properties: PodFileProperties;
+        layers: JsonValue;
         file: string;
         podDesignId: number;
         podTemplateId: number;

@@ -3,9 +3,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type contryInfomationType = {
-  countryCode: string;
-  countrySymbol?: string;
-  countryName: string;
-};
-
+export type PodMeshPoints = Array<number>;

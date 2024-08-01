@@ -58,11 +58,11 @@ export class RegionalShippingService {
     startDate?: string,
     endDate?: string,
     pageSize?: number,
-    nextPageIndex?: number,
+    nextPageIndex?: string,
   }): CancelablePromise<{
     orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
+    nextPageIndex: string;
+    prePageIndex: string;
     total: number;
     data: Array<RegionalShippingFee>;
   }> {
@@ -78,6 +78,31 @@ export class RegionalShippingService {
         'endDate': endDate,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public getContriesExsitOnStore({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<Array<string>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/regional-shipping-fee/get-countries-exsit-on-store',
+      path: {
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -135,6 +160,38 @@ export class RegionalShippingService {
         'storeId': storeId,
         'id': id,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RegionalShippingFee Ok
+   * @throws ApiError
+   */
+  public updateReasonShippingFee({
+    storeId,
+    id,
+    requestBody,
+  }: {
+    storeId: string,
+    id: string,
+    requestBody: RegionalShippingFeeDto,
+  }): CancelablePromise<RegionalShippingFee> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/regional-shipping-fee/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

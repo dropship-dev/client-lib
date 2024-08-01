@@ -20,7 +20,7 @@ export type PodDesign = {
   variantOption: PrismaJson_VariantOptions;
   sku: string | null;
   supplierContract: string | null;
-  sizeGuide: string;
+  sizeGuide: string | null;
   description: string | null;
   name: string;
   storeId: string;

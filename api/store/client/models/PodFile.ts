@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { FileType } from './FileType';
+import type { Prisma_JsonValue } from './Prisma_JsonValue';
 import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
 
 /**
@@ -19,6 +20,7 @@ export type PodFile = {
   podDesignId: number | null;
   podPrintAreaId: number | null;
   podTemplateId: number | null;
+  layers: Prisma_JsonValue | null;
   size: string | null;
   file: string | null;
   type: FileType;
