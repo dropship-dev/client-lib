@@ -188,6 +188,7 @@ export class ProductService {
     })>;
     ProductVariant: Array<(ProductVariant & {
       Product: {
+        platformProductId: number;
         name: string;
       };
       PlatformVariant: PlatformVariant;
