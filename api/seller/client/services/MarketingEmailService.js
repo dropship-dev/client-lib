@@ -10,7 +10,7 @@ class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatisticsStoreAbandonmentCheckout({ storeId, startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-08-02T09:39:01.138Z', }) {
+    getStatisticsStoreAbandonmentCheckout({ storeId, startTime = '2023-01-02T00:00:00.000Z', endTime = '2024-08-02T10:23:06.625Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/statistics/abandonments-checkout/store/{storeId}',
