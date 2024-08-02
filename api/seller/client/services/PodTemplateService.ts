@@ -121,25 +121,13 @@ export class PodTemplateService {
     PodPrintArea: Array<{
       printAreaBounds: PrintAreaBounds;
       meshPoints: PodMeshPoints;
+      photo: string;
       faPrice: number;
       supplierCost: number;
       name: string;
       id: number;
     }>;
     id: number;
-    File: {
-      fileMockup: Array<{
-        podPrintAreaId: number;
-        properties: PodFileProperties;
-        layers: JsonValue;
-        file: string;
-        podDesignId: number;
-        podTemplateId: number;
-        type: FileType;
-        id: number;
-      }>;
-      fileTemplate: any;
-    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
