@@ -19,7 +19,7 @@ export class MarketingEmailService {
    */
   public getStatisticsBusinessPerformancesSummary({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-02T08:51:02.611Z',
+    endTime = '2024-08-02T08:57:05.399Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -65,7 +65,7 @@ export class MarketingEmailService {
    */
   public getStatisticsOverview({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-02T08:51:02.627Z',
+    endTime = '2024-08-02T08:57:05.415Z',
     timezone,
   }: {
     startTime?: string,
@@ -104,7 +104,7 @@ export class MarketingEmailService {
    */
   public getStatisticsAutomationMetrics({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-02T08:51:02.666Z',
+    endTime = '2024-08-02T08:57:05.460Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -153,7 +153,7 @@ export class MarketingEmailService {
    */
   public getStatisticsPerforming({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-02T08:51:02.691Z',
+    endTime = '2024-08-02T08:57:05.469Z',
   }: {
     startTime?: string,
     endTime?: string,
