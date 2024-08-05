@@ -23,14 +23,21 @@ export declare class RegionalShippingService {
         startDate?: string;
         endDate?: string;
         pageSize?: number;
-        nextPageIndex?: number;
+        nextPageIndex?: string;
     }): CancelablePromise<{
         orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
+        nextPageIndex: string;
+        prePageIndex: string;
         total: number;
         data: Array<RegionalShippingFee>;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getContriesExsitOnStore({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<Array<string>>;
     /**
      * @returns RegionalShippingFee Ok
      * @throws ApiError
@@ -46,6 +53,15 @@ export declare class RegionalShippingService {
     deleteReasonShippingFee({ storeId, id, }: {
         storeId: string;
         id: string;
+    }): CancelablePromise<RegionalShippingFee>;
+    /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    updateReasonShippingFee({ storeId, id, requestBody, }: {
+        storeId: string;
+        id: string;
+        requestBody: RegionalShippingFeeDto;
     }): CancelablePromise<RegionalShippingFee>;
     /**
      * @returns string Ok

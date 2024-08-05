@@ -56,7 +56,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRequestSourcing({ id, storeId, fulfillmentAgencyId, }) {

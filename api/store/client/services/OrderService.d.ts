@@ -18,7 +18,7 @@ export declare class OrderService {
         clientSecret: string;
         orderId: string;
         id: string;
-        timeExpried: number;
+        timeExpired: number;
         token: string;
     }>;
     /**
