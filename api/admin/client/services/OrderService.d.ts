@@ -3,6 +3,7 @@ import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
 import type { JsonValue } from '../models/JsonValue';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
@@ -20,6 +21,7 @@ import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreType } from '../models/StoreType';
+import type { StoreUser } from '../models/StoreUser';
 import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
 import type { Theme } from '../models/Theme';
 import type { ThemePage } from '../models/ThemePage';
@@ -252,6 +254,7 @@ export declare class OrderService {
     } | {
         FraudDetection: Array<FraudDetection>;
         Wallet: Array<Wallet>;
+        FulfillmentAgency: FulfillmentAgency;
         Payment: Array<{
             publishableKey: string;
             isShowCompanyAddress: boolean;
@@ -269,6 +272,7 @@ export declare class OrderService {
         Theme: Array<(Theme & {
             ThemePage: Array<ThemePage>;
         })>;
+        StoreUser: Array<StoreUser>;
         updatedAt: string;
         createdAt: string;
         currencyId: number;
