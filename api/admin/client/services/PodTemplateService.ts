@@ -168,6 +168,7 @@ export class PodTemplateService {
       supplierCost: number;
       sku: string;
       podTemplateId: number;
+      isActive: boolean;
       variantOption: VariantOptionValues;
       name: string;
       id: number;
