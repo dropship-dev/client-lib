@@ -101,7 +101,7 @@ export class RequestSourcingService {
   }
 
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getRequestSourcing({
@@ -112,7 +112,9 @@ export class RequestSourcingService {
     id: number,
     storeId?: string,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<(RequestSourcing & {
+    Store: Store;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/request-sourcing/{id}',
