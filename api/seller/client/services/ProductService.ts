@@ -246,11 +246,13 @@ export class ProductService {
     });
     VariantCombo: Array<(VariantCombo & {
       Product: {
+        platformProductId: number;
         name: string;
       };
     })>;
     ProductVariant: Array<(ProductVariant & {
       Product: {
+        platformProductId: number;
         name: string;
       };
       PlatformVariant: PlatformVariant;
