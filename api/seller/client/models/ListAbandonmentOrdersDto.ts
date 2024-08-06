@@ -11,7 +11,7 @@ export type ListAbandonmentOrdersDto = {
   pageSize: number;
   emailStatus?: Array<OrderTrackingEmailStatusDto>;
   recoveryStatus?: Array<OrderTrackingRecoveredStatusDto>;
-  id?: number;
+  id?: string;
   startDate?: string;
   endDate?: string;
 };

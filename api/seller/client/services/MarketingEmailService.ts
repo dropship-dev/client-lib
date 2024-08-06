@@ -28,7 +28,7 @@ export class MarketingEmailService {
   public getStatisticsStoreAbandonmentCheckout({
     storeId,
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-06T02:32:32.680Z',
+    endTime = '2024-08-06T02:41:16.863Z',
   }: {
     storeId: string,
     startTime?: string,
@@ -190,7 +190,7 @@ export class MarketingEmailService {
     nextPageIndex?: number,
     emailStatus?: Array<OrderTrackingEmailStatusDto>,
     recoveryStatus?: Array<OrderTrackingRecoveredStatusDto>,
-    id?: number,
+    id?: string,
     startDate?: string,
     endDate?: string,
   }): CancelablePromise<{
