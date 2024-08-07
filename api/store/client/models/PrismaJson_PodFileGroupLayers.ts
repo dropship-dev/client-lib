@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PrintAreaBounds = Array<{
-  'y': number;
-  'x': number;
+export type PrismaJson_PodFileGroupLayers = Array<{
+  file: string;
+  name: string;
 }>;

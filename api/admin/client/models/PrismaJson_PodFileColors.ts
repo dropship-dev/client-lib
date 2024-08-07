@@ -3,4 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PodMeshPoints = Array<number>;
+export type PrismaJson_PodFileColors = Array<{
+  value: string;
+  name: string;
+}>;
