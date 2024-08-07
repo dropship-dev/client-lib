@@ -36,7 +36,7 @@ class PodTemplateService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PodTemplate Ok
      * @throws ApiError
      */
     getDetailTemplate({ id, }) {
