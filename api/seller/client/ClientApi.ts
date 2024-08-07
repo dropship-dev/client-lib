@@ -23,6 +23,7 @@ import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
+import { PodCategoryService } from './services/PodCategoryService';
 import { PodDesignService } from './services/PodDesignService';
 import { PodElementService } from './services/PodElementService';
 import { PodTechniqueService } from './services/PodTechniqueService';
@@ -67,6 +68,7 @@ export class ClientApi {
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
   public readonly pingPongAccount: PingPongAccountService;
+  public readonly podCategory: PodCategoryService;
   public readonly podDesign: PodDesignService;
   public readonly podElement: PodElementService;
   public readonly podTechnique: PodTechniqueService;
@@ -122,6 +124,7 @@ export class ClientApi {
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);
     this.pingPongAccount = new PingPongAccountService(this.request);
+    this.podCategory = new PodCategoryService(this.request);
     this.podDesign = new PodDesignService(this.request);
     this.podElement = new PodElementService(this.request);
     this.podTechnique = new PodTechniqueService(this.request);
