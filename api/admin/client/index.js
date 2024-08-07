@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RequestSourcingStatus = exports.RequestPayoutStatus = exports.RefundType = exports.PlacementCrossSellEnum = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.FraudStatusType = exports.FraudDetectionType = exports.FraudDetectionStatusType = exports.EventOrderFraud = exports.EnvironmentType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.ActiveDetection = exports.ActionOrderFraud = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
-exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeLibraryService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.RequestPayoutService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PingPongAccountService = exports.PerformanceService = exports.PaymentService = exports.OrderRefundsService = exports.OrderService = exports.NotificationService = exports.GroupPlatformVariantService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.BankAccountService = exports.AuthService = exports.AsyncTaskService = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = void 0;
+exports.RefundType = exports.PlacementCrossSellEnum = exports.Period = exports.PaymentType = exports.PaymentMethodType = exports.OrderTrackingRecoveredStatusDto = exports.OrderTrackingEmailStatusDto = exports.OrderStatus = exports.OrderDisputeStatus = exports.OperatorCollection_STARTS_WITH = exports.OperatorCollection_NOT_EQUAL_TO = exports.OperatorCollection_NOT_CONTAIN = exports.OperatorCollection_LESS_TO = exports.OperatorCollection_GREATER_TO = exports.OperatorCollection_EQUAL_TO = exports.OperatorCollection_ENDS_WITH = exports.OperatorCollection_CONTAIN = exports.NotificationType = exports.LogoSize = exports.FulfillmentStatus = exports.FulfillmentAgencyStatus = exports.FulfillmentAgencyRole = exports.FraudStatusType = exports.FraudDetectionType = exports.FraudDetectionStatusType = exports.EventOrderFraud = exports.EnvironmentType = exports.DiscountCrossSellType = exports.CustomDomainStatus = exports.CurrencyType = exports.CurrencyCode = exports.CrossSellType = exports.CrossSellTriggerType = exports.CostCalculationMethod = exports.CombineOperator = exports.CollectionType = exports.CollectionStatus = exports.CollectionField_tag = exports.CollectionField_price = exports.CollectionField_name = exports.AsyncTaskType = exports.AsyncTaskStatus = exports.ActiveDetection = exports.ActionOrderFraud = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.ClientApi = void 0;
+exports.WalletService = exports.VariantComboService = exports.VariantService = exports.UserService = exports.UploadService = exports.TransactionService = exports.ThemeLibraryService = exports.TagService = exports.StoreTagService = exports.StoreService = exports.SettingService = exports.RequestSourcingService = exports.RequestPayoutService = exports.ProductService = exports.PlatformVariantService = exports.PlatformProductService = exports.PingPongAccountService = exports.PerformanceService = exports.PaymentService = exports.OrderRefundsService = exports.OrderService = exports.NotificationService = exports.GroupPlatformVariantService = exports.FulfillmentAgencyService = exports.CurrencyService = exports.BankAccountService = exports.AuthService = exports.AsyncTaskService = exports.Week = exports.UserRole = exports.TypeOfFraud = exports.typeFulfillmentPrice = exports.TransactionType = exports.TransactionStatus = exports.TimezoneDto = exports.TimeEmailMarketingUnit = exports.SyncTrackingStatus = exports.StoreType = exports.StoreStatus = exports.StoreRole = exports.statusRequestPayout = exports.StatisticsDisplayType = exports.RequestSourcingStatus = exports.RequestPayoutStatus = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -91,6 +91,10 @@ var OrderDisputeStatus_1 = require("./models/OrderDisputeStatus");
 Object.defineProperty(exports, "OrderDisputeStatus", { enumerable: true, get: function () { return OrderDisputeStatus_1.OrderDisputeStatus; } });
 var OrderStatus_1 = require("./models/OrderStatus");
 Object.defineProperty(exports, "OrderStatus", { enumerable: true, get: function () { return OrderStatus_1.OrderStatus; } });
+var OrderTrackingEmailStatusDto_1 = require("./models/OrderTrackingEmailStatusDto");
+Object.defineProperty(exports, "OrderTrackingEmailStatusDto", { enumerable: true, get: function () { return OrderTrackingEmailStatusDto_1.OrderTrackingEmailStatusDto; } });
+var OrderTrackingRecoveredStatusDto_1 = require("./models/OrderTrackingRecoveredStatusDto");
+Object.defineProperty(exports, "OrderTrackingRecoveredStatusDto", { enumerable: true, get: function () { return OrderTrackingRecoveredStatusDto_1.OrderTrackingRecoveredStatusDto; } });
 var PaymentMethodType_1 = require("./models/PaymentMethodType");
 Object.defineProperty(exports, "PaymentMethodType", { enumerable: true, get: function () { return PaymentMethodType_1.PaymentMethodType; } });
 var PaymentType_1 = require("./models/PaymentType");
@@ -105,6 +109,8 @@ var RequestPayoutStatus_1 = require("./models/RequestPayoutStatus");
 Object.defineProperty(exports, "RequestPayoutStatus", { enumerable: true, get: function () { return RequestPayoutStatus_1.RequestPayoutStatus; } });
 var RequestSourcingStatus_1 = require("./models/RequestSourcingStatus");
 Object.defineProperty(exports, "RequestSourcingStatus", { enumerable: true, get: function () { return RequestSourcingStatus_1.RequestSourcingStatus; } });
+var StatisticsDisplayType_1 = require("./models/StatisticsDisplayType");
+Object.defineProperty(exports, "StatisticsDisplayType", { enumerable: true, get: function () { return StatisticsDisplayType_1.StatisticsDisplayType; } });
 var statusRequestPayout_1 = require("./models/statusRequestPayout");
 Object.defineProperty(exports, "statusRequestPayout", { enumerable: true, get: function () { return statusRequestPayout_1.statusRequestPayout; } });
 var StoreRole_1 = require("./models/StoreRole");
@@ -115,6 +121,8 @@ var StoreType_1 = require("./models/StoreType");
 Object.defineProperty(exports, "StoreType", { enumerable: true, get: function () { return StoreType_1.StoreType; } });
 var SyncTrackingStatus_1 = require("./models/SyncTrackingStatus");
 Object.defineProperty(exports, "SyncTrackingStatus", { enumerable: true, get: function () { return SyncTrackingStatus_1.SyncTrackingStatus; } });
+var TimeEmailMarketingUnit_1 = require("./models/TimeEmailMarketingUnit");
+Object.defineProperty(exports, "TimeEmailMarketingUnit", { enumerable: true, get: function () { return TimeEmailMarketingUnit_1.TimeEmailMarketingUnit; } });
 var TimezoneDto_1 = require("./models/TimezoneDto");
 Object.defineProperty(exports, "TimezoneDto", { enumerable: true, get: function () { return TimezoneDto_1.TimezoneDto; } });
 var TransactionStatus_1 = require("./models/TransactionStatus");
@@ -127,6 +135,8 @@ var TypeOfFraud_1 = require("./models/TypeOfFraud");
 Object.defineProperty(exports, "TypeOfFraud", { enumerable: true, get: function () { return TypeOfFraud_1.TypeOfFraud; } });
 var UserRole_1 = require("./models/UserRole");
 Object.defineProperty(exports, "UserRole", { enumerable: true, get: function () { return UserRole_1.UserRole; } });
+var Week_1 = require("./models/Week");
+Object.defineProperty(exports, "Week", { enumerable: true, get: function () { return Week_1.Week; } });
 var AsyncTaskService_1 = require("./services/AsyncTaskService");
 Object.defineProperty(exports, "AsyncTaskService", { enumerable: true, get: function () { return AsyncTaskService_1.AsyncTaskService; } });
 var AuthService_1 = require("./services/AuthService");
