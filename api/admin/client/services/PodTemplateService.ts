@@ -3,11 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
+import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { PodFileProperties } from '../models/PodFileProperties';
+import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PodTemplate } from '../models/PodTemplate';
+import type { PrintAreaBounds } from '../models/PrintAreaBounds';
 import type { StatusTemplate } from '../models/StatusTemplate';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
+import type { VariantOptions } from '../models/VariantOptions';
+import type { VariantOptionValues } from '../models/VariantOptionValues';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -125,14 +131,57 @@ export class PodTemplateService {
   }
 
   /**
-   * @returns PodTemplate Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getDetailTemplate({
     id,
   }: {
     id: number,
-  }): CancelablePromise<PodTemplate> {
+  }): CancelablePromise<{
+    isStock: boolean;
+    sku: string;
+    sizeGuide: string;
+    keyFeature: string;
+    podTechniqueId: number;
+    podProductTypeId: number;
+    podCategoryId: number;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: VariantOptions;
+    description: string;
+    name: string;
+    PodFile: Array<{
+      podPrintAreaId: number;
+      properties: PodFileProperties;
+      file: string;
+      podDesignId: number;
+      podTemplateId: number;
+      type: FileType;
+      id: number;
+    }>;
+    PodTemplateVariant: Array<{
+      faPrice: number;
+      minSellingPrice: number;
+      supplierCost: number;
+      sku: string;
+      podTemplateId: number;
+      isActive: boolean;
+      variantOption: VariantOptionValues;
+      name: string;
+      id: number;
+    }>;
+    PodPrintArea: Array<{
+      printAreaBounds: PrintAreaBounds;
+      meshPoints: PodMeshPoints;
+      photo: string;
+      faPrice: number;
+      supplierCost: number;
+      name: string;
+      id: number;
+    }>;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/template/{id}',
