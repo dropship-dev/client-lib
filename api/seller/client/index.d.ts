@@ -356,6 +356,7 @@ export { OrderRefundsService } from './services/OrderRefundsService';
 export { PaymentService } from './services/PaymentService';
 export { PerformanceService } from './services/PerformanceService';
 export { PingPongAccountService } from './services/PingPongAccountService';
+export { PodCategoryService } from './services/PodCategoryService';
 export { PodDesignService } from './services/PodDesignService';
 export { PodElementService } from './services/PodElementService';
 export { PodTechniqueService } from './services/PodTechniqueService';

@@ -19,6 +19,7 @@ const OrderRefundsService_1 = require("./services/OrderRefundsService");
 const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const PingPongAccountService_1 = require("./services/PingPongAccountService");
+const PodCategoryService_1 = require("./services/PodCategoryService");
 const PodDesignService_1 = require("./services/PodDesignService");
 const PodElementService_1 = require("./services/PodElementService");
 const PodTechniqueService_1 = require("./services/PodTechniqueService");
@@ -59,6 +60,7 @@ class ClientApi {
     payment;
     performance;
     pingPongAccount;
+    podCategory;
     podDesign;
     podElement;
     podTechnique;
@@ -111,6 +113,7 @@ class ClientApi {
         this.payment = new PaymentService_1.PaymentService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
+        this.podCategory = new PodCategoryService_1.PodCategoryService(this.request);
         this.podDesign = new PodDesignService_1.PodDesignService(this.request);
         this.podElement = new PodElementService_1.PodElementService(this.request);
         this.podTechnique = new PodTechniqueService_1.PodTechniqueService(this.request);

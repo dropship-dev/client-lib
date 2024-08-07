@@ -17,6 +17,7 @@ import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
+import { PodCategoryService } from './services/PodCategoryService';
 import { PodDesignService } from './services/PodDesignService';
 import { PodElementService } from './services/PodElementService';
 import { PodTechniqueService } from './services/PodTechniqueService';
@@ -58,6 +59,7 @@ export declare class ClientApi {
     readonly payment: PaymentService;
     readonly performance: PerformanceService;
     readonly pingPongAccount: PingPongAccountService;
+    readonly podCategory: PodCategoryService;
     readonly podDesign: PodDesignService;
     readonly podElement: PodElementService;
     readonly podTechnique: PodTechniqueService;
