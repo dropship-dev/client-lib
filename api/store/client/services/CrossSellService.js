@@ -7,7 +7,7 @@ class CrossSellService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns string Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }) {
@@ -61,26 +61,6 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRandom({ storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/cross-sell/random-cross-sell',
-            path: {
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getCrossSell({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -99,7 +79,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }) {
@@ -122,7 +102,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }) {

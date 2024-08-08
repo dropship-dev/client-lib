@@ -1,21 +1,5 @@
-import type { FileCreateTemplate } from './FileCreateTemplate';
-import type { PodTemplateVariantData } from './PodTemplateVariantData';
-import type { PrintAreaItem } from './PrintAreaItem';
-import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
 export type CreateTemplateDto = {
-    name: string;
-    podProductTypeId: number;
-    podCategoryId: number;
-    podTechniqueId: number;
-    description?: string;
-    supplierContact?: string;
-    keyFeature?: string;
-    sizeGuide?: string;
-    sku?: string;
-    isStock: boolean;
-    isActive: boolean;
-    podPrintArea: Array<PrintAreaItem>;
-    variantOption: Array<VariantOptionsPayLoad>;
-    variants: Array<PodTemplateVariantData>;
-    files: Array<FileCreateTemplate>;
+    data: string;
+    storeId: string;
+    isDefault?: boolean;
 };
