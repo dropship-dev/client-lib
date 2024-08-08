@@ -1,5 +1,6 @@
 import type { ComboItemTrackingDto } from './ComboItemTrackingDto';
 import type { OrderItemTrackingDto } from './OrderItemTrackingDto';
+import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 export type UpdateOrderTrackingDto = {
     email: string;
     phoneNumber?: string;
@@ -8,5 +9,6 @@ export type UpdateOrderTrackingDto = {
     fullName?: string;
     orderItems?: Array<OrderItemTrackingDto>;
     comboItems?: Array<ComboItemTrackingDto>;
+    shippingInfo?: PrismaJson_BillingInfo;
     token: string;
 };
