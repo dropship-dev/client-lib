@@ -21,6 +21,6 @@ export type RelatedProductType = {
 };
 export declare namespace RelatedProductType {
     enum kind {
-        RELATED_PRODUCT = "RelatedProduct"
+        BOUGHT_TOGETHER = "BoughtTogether"
     }
 }

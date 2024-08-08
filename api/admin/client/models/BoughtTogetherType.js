@@ -9,6 +9,6 @@ var BoughtTogetherType;
 (function (BoughtTogetherType) {
     let kind;
     (function (kind) {
-        kind["BOUGHT_TOGETHER"] = "BoughtTogether";
+        kind["RELATED_PRODUCT"] = "RelatedProduct";
     })(kind = BoughtTogetherType.kind || (BoughtTogetherType.kind = {}));
 })(BoughtTogetherType || (exports.BoughtTogetherType = BoughtTogetherType = {}));
