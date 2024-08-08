@@ -116,6 +116,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
   }): CancelablePromise<(CrossSell & {
+    rootProduct: Product;
     Product: Array<Product>;
     Collection: Array<(Collection & {
       Product: Array<Product>;
@@ -139,7 +140,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public updateCrossSell({
@@ -150,7 +151,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<(CrossSell | 'OK')> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/cross-sell/{id}',
