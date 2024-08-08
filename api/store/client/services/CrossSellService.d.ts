@@ -11,13 +11,13 @@ export declare class CrossSellService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns string Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CrossSellDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<CrossSell>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -47,26 +47,6 @@ export declare class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRandom({ storeId, }: {
-        storeId: string;
-    }): CancelablePromise<(CrossSell & {
-        Product: Array<(Product & {
-            VariantCombo: Array<{
-                compareAtPrice: number;
-                price: number;
-                id: number;
-            }>;
-            ProductVariant: Array<{
-                compareAtPrice: number;
-                price: number;
-                id: number;
-            }>;
-        })>;
-    })>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     getCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
@@ -77,25 +57,22 @@ export declare class CrossSellService {
         })>;
     })>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }: {
         id: number;
         storeId: string;
         requestBody: CrossSellDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<(CrossSell | 'OK')>;
     /**
-     * @returns any Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<(CrossSell & {
-        Product: Array<Product>;
-        Collection: Array<Collection>;
-    })>;
+    }): CancelablePromise<CrossSell>;
     /**
      * @returns void
      * @throws ApiError

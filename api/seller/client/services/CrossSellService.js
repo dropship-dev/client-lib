@@ -7,7 +7,7 @@ class CrossSellService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns string Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }) {
@@ -79,7 +79,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }) {
@@ -102,7 +102,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }) {
