@@ -12,8 +12,17 @@ import type { PrismaJson_PlacementCrossSellType } from './PrismaJson_PlacementCr
  * Model CrossSell
  */
 export type CrossSell = {
+  rootProductId: number | null;
   updatedAt: string;
   createdAt: string;
+  /**
+   * time life cross sell
+   */
+  endDate: string | null;
+  /**
+   * time life cross sell
+   */
+  startDate: string;
   storeId: string;
   triggerBy: CrossSellTriggerType;
   /**

@@ -18,7 +18,7 @@ export class CrossSellService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns string Ok
+   * @returns CrossSell Ok
    * @throws ApiError
    */
   public createCrossSell({
@@ -27,7 +27,7 @@ export class CrossSellService {
   }: {
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<CrossSell> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/cross-sell',
@@ -139,7 +139,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateCrossSell({
@@ -150,7 +150,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<(CrossSell | 'OK')> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/cross-sell/{id}',
@@ -171,7 +171,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns any Ok
+   * @returns CrossSell Ok
    * @throws ApiError
    */
   public deleteCrossSell({
@@ -180,10 +180,7 @@ export class CrossSellService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
-    Collection: Array<Collection>;
-  })> {
+  }): CancelablePromise<CrossSell> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/cross-sell/{id}',

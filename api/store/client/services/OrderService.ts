@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
@@ -132,7 +133,7 @@ export class OrderService {
     storeId: string,
     orderId: string,
     paymentType: PaymentType,
-    requestBody: CreateOrderDto,
+    requestBody: CaptureOrderDto,
     bmClientInfo?: string,
   }): CancelablePromise<{
     status: string;

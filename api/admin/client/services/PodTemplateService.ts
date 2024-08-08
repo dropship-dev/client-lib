@@ -145,11 +145,11 @@ export class PodTemplateService {
     keyFeature: string;
     podTechniqueId: number;
     podProductTypeId: number;
-    podCategoryId: number;
     isActive: boolean;
     supplierContact: string;
     variantOption: VariantOptions;
     description: string;
+    podCategoryId: number;
     name: string;
     PodFile: Array<{
       podPrintAreaId: number;
