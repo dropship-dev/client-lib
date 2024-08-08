@@ -22,7 +22,7 @@ export type BoughtTogetherType = {
 export namespace BoughtTogetherType {
 
   export enum kind {
-    BOUGHT_TOGETHER = 'BoughtTogether',
+    RELATED_PRODUCT = 'RelatedProduct',
   }
 
 
