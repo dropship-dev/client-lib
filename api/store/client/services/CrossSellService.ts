@@ -18,7 +18,7 @@ export class CrossSellService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns string Ok
+   * @returns CrossSell Ok
    * @throws ApiError
    */
   public createCrossSell({
@@ -27,7 +27,7 @@ export class CrossSellService {
   }: {
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<CrossSell> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/cross-sell',
@@ -109,44 +109,6 @@ export class CrossSellService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getRandom({
-    storeId,
-  }: {
-    storeId: string,
-  }): CancelablePromise<(CrossSell & {
-    Product: Array<(Product & {
-      VariantCombo: Array<{
-        compareAtPrice: number;
-        price: number;
-        id: number;
-      }>;
-      ProductVariant: Array<{
-        compareAtPrice: number;
-        price: number;
-        id: number;
-      }>;
-    })>;
-  })> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/cross-sell/random-cross-sell',
-      path: {
-        'storeId': storeId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public getCrossSell({
     id,
     storeId,
@@ -177,7 +139,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateCrossSell({
@@ -188,7 +150,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<(CrossSell | 'OK')> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/cross-sell/{id}',
@@ -209,7 +171,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns any Ok
+   * @returns CrossSell Ok
    * @throws ApiError
    */
   public deleteCrossSell({
@@ -218,10 +180,7 @@ export class CrossSellService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
-    Collection: Array<Collection>;
-  })> {
+  }): CancelablePromise<CrossSell> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/cross-sell/{id}',
