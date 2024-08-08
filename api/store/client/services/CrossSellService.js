@@ -79,7 +79,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }) {
