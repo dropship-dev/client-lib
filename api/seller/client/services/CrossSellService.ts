@@ -7,6 +7,7 @@ import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
@@ -59,6 +60,7 @@ export class CrossSellService {
     search,
     crossSellType,
     crossSellStatus,
+    isCheckRootProduct,
   }: {
     storeId: string,
     pageSize?: number,
@@ -68,6 +70,7 @@ export class CrossSellService {
     search?: string,
     crossSellType?: Array<CrossSellType>,
     crossSellStatus?: boolean,
+    isCheckRootProduct?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -94,6 +97,7 @@ export class CrossSellService {
         'search': search,
         'crossSellType': crossSellType,
         'crossSellStatus': crossSellStatus,
+        'isCheckRootProduct': isCheckRootProduct,
       },
       errors: {
         400: `Bad request`,
@@ -117,9 +121,23 @@ export class CrossSellService {
     storeId: string,
   }): CancelablePromise<(CrossSell & {
     rootProduct: Product;
-    Product: Array<Product>;
+    Product: Array<{
+      photos: Photos;
+      name: string;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+      }>;
+    }>;
     Collection: Array<(Collection & {
-      Product: Array<Product>;
+      Product: Array<{
+        photos: Photos;
+        name: string;
+        ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+        }>;
+      }>;
     })>;
   })> {
     return this.httpRequest.request({
