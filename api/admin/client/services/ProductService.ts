@@ -102,6 +102,7 @@ export class ProductService {
     isActive,
     startPrice,
     endPrice,
+    isCheckRootProductCrossSell,
   }: {
     storeId: string,
     pageSize?: number,
@@ -111,6 +112,7 @@ export class ProductService {
     isActive?: boolean,
     startPrice?: number,
     endPrice?: number,
+    isCheckRootProductCrossSell?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -154,6 +156,7 @@ export class ProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
+        'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
       },
       errors: {
         400: `Bad request`,

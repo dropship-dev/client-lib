@@ -60,7 +60,6 @@ export class CrossSellService {
     search,
     crossSellType,
     crossSellStatus,
-    isCheckRootProduct,
   }: {
     storeId: string,
     pageSize?: number,
@@ -70,7 +69,6 @@ export class CrossSellService {
     search?: string,
     crossSellType?: Array<CrossSellType>,
     crossSellStatus?: boolean,
-    isCheckRootProduct?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -97,7 +95,6 @@ export class CrossSellService {
         'search': search,
         'crossSellType': crossSellType,
         'crossSellStatus': crossSellStatus,
-        'isCheckRootProduct': isCheckRootProduct,
       },
       errors: {
         400: `Bad request`,
