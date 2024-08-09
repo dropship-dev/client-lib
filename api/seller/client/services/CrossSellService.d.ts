@@ -3,6 +3,7 @@ import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -22,7 +23,7 @@ export declare class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }: {
+    getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, isCheckRootProduct, }: {
         storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
@@ -31,6 +32,7 @@ export declare class CrossSellService {
         search?: string;
         crossSellType?: Array<CrossSellType>;
         crossSellStatus?: boolean;
+        isCheckRootProduct?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -52,9 +54,23 @@ export declare class CrossSellService {
         storeId: string;
     }): CancelablePromise<(CrossSell & {
         rootProduct: Product;
-        Product: Array<Product>;
+        Product: Array<{
+            photos: Photos;
+            name: string;
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+            }>;
+        }>;
         Collection: Array<(Collection & {
-            Product: Array<Product>;
+            Product: Array<{
+                photos: Photos;
+                name: string;
+                ProductVariant: Array<{
+                    compareAtPrice: number;
+                    price: number;
+                }>;
+            }>;
         })>;
     })>;
     /**
