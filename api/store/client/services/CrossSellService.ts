@@ -122,21 +122,27 @@ export class CrossSellService {
   }): CancelablePromise<(CrossSell & {
     rootProduct: Product;
     Product: Array<{
+      isEnable: boolean;
+      isActive: boolean;
       photos: Photos;
       name: string;
       ProductVariant: Array<{
         compareAtPrice: number;
         price: number;
       }>;
+      id: number;
     }>;
     Collection: Array<(Collection & {
       Product: Array<{
+        isEnable: boolean;
+        isActive: boolean;
         photos: Photos;
         name: string;
         ProductVariant: Array<{
           compareAtPrice: number;
           price: number;
         }>;
+        id: number;
       }>;
     })>;
   })> {
