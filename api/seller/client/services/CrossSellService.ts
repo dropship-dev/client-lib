@@ -9,6 +9,7 @@ import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
 import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -117,7 +118,9 @@ export class CrossSellService {
     id: number,
     storeId: string,
   }): CancelablePromise<(CrossSell & {
-    rootProduct: Product;
+    rootProduct: (Product & {
+      ProductVariant: Array<ProductVariant>;
+    });
     Product: Array<{
       isEnable: boolean;
       isActive: boolean;
