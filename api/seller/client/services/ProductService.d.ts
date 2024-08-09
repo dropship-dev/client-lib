@@ -47,7 +47,7 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
+    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }: {
         storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
@@ -56,6 +56,7 @@ export declare class ProductService {
         isActive?: boolean;
         startPrice?: number;
         endPrice?: number;
+        isCheckRootProductCrossSell?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;

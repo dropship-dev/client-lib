@@ -33,7 +33,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
+    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product',
@@ -48,6 +48,7 @@ class ProductService {
                 'isActive': isActive,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
+                'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
             },
             errors: {
                 400: `Bad request`,

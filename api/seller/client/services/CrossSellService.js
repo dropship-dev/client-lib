@@ -32,7 +32,7 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllCrossSell({ storeId, pageSize = 20, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, isCheckRootProduct, }) {
+    getAllCrossSell({ storeId, pageSize = 20, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/cross-sell',
@@ -47,7 +47,6 @@ class CrossSellService {
                 'search': search,
                 'crossSellType': crossSellType,
                 'crossSellStatus': crossSellStatus,
-                'isCheckRootProduct': isCheckRootProduct,
             },
             errors: {
                 400: `Bad request`,

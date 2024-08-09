@@ -23,7 +23,7 @@ export declare class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, isCheckRootProduct, }: {
+    getAllCrossSell({ storeId, pageSize, nextPageIndex, startDate, endDate, search, crossSellType, crossSellStatus, }: {
         storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
@@ -32,7 +32,6 @@ export declare class CrossSellService {
         search?: string;
         crossSellType?: Array<CrossSellType>;
         crossSellStatus?: boolean;
-        isCheckRootProduct?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
