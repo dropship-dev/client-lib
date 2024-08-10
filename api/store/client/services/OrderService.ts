@@ -4,7 +4,14 @@
 /* eslint-disable */
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
+import type { CrossSellTriggerType } from '../models/CrossSellTriggerType';
+import type { CrossSellType } from '../models/CrossSellType';
+import type { DiscountCrossSell } from '../models/DiscountCrossSell';
+import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { PaymentType } from '../models/PaymentType';
+import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
+import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -104,6 +111,55 @@ export class OrderService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/preview',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public suggestionCrossSell({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: Array<getCrossSellByProductDto>,
+  }): CancelablePromise<Array<{
+    suggestionProduct: Array<(Product & {
+      ProductVariant: Array<ProductVariant>;
+    })>;
+    Product: Array<(Product & {
+      ProductVariant: Array<ProductVariant>;
+    })>;
+    rootProductId: number;
+    updatedAt: string;
+    createdAt: string;
+    endDate: string;
+    startDate: string;
+    storeId: string;
+    triggerBy: CrossSellTriggerType;
+    discount: DiscountCrossSell;
+    placement: PlacementCrossSellType;
+    status: boolean;
+    type: CrossSellType;
+    name: string;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/suggestion-cross-sell',
       path: {
         'storeId': storeId,
       },
