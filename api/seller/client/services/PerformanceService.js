@@ -7,7 +7,7 @@ class PerformanceService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Response Ok
      * @throws ApiError
      */
     getProductByLocation({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {

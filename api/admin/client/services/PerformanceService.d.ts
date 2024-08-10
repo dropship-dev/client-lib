@@ -1,6 +1,7 @@
-import type { Coordinate } from '../models/Coordinate';
+import type { Coordinates } from '../models/Coordinates';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { Response } from '../models/Response';
 import type { StorePerformance } from '../models/StorePerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
@@ -13,7 +14,7 @@ export declare class PerformanceService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns Response Ok
      * @throws ApiError
      */
     getProductByLocation({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
@@ -21,13 +22,7 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<Array<{
-        quantityOfOrder: {
-            id: number;
-        };
-        city: string;
-        country: string;
-    }>>;
+    }): CancelablePromise<Array<Response>>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -38,7 +33,7 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
     }): CancelablePromise<{
-        coordinates: Array<Coordinate>;
+        coordinates: Coordinates;
         viewer: number;
     }>;
     /**
