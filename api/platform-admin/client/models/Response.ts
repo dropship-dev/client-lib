@@ -3,8 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type Coordinate = {
-  longitude: number;
-  latitude: number;
+export type Response = {
+  quantityOfOrder: number;
+  city: string;
+  country: string;
 };
 

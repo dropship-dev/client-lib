@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { Response } from '../models/Response';
 import type { SQLResult } from '../models/SQLResult';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
@@ -19,7 +20,7 @@ export class PerformanceService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Response Ok
    * @throws ApiError
    */
   public getProductByLocation({
@@ -32,13 +33,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<{
-    quantityOfOrder: {
-      id: number;
-    };
-    city: string;
-    country: string;
-  }>> {
+  }): CancelablePromise<Array<Response>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-locations',
