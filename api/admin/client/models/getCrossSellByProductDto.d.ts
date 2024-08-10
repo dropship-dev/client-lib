@@ -1,5 +1,5 @@
 export type getCrossSellByProductDto = {
-    crossSellId: number;
+    crossSellId?: number;
     quantity?: number;
     productVariantId: number;
     ProductId: number;
