@@ -5,6 +5,7 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
+import type { Collection } from '../models/Collection';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
@@ -230,6 +231,26 @@ export class ProductService {
         })>;
       }>;
     })>;
+    Collection: Array<(Collection & {
+      CrossSell: Array<(CrossSell & {
+        Product: Array<(Product & {
+          ProductVariant: Array<(ProductVariant & {
+            Product: {
+              name: string;
+            };
+          })>;
+        })>;
+        Collection: Array<{
+          Product: Array<(Product & {
+            ProductVariant: Array<(ProductVariant & {
+              Product: {
+                name: string;
+              };
+            })>;
+          })>;
+        }>;
+      })>;
+    })>;
     updatedAt: string;
     createdAt: string;
     podTemplateId: number;
@@ -251,7 +272,6 @@ export class ProductService {
     permalink: string;
     name: string;
     id: number;
-    Collection: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
