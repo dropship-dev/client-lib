@@ -2,7 +2,6 @@ export type ProductPerformanceResult = {
     platformProductId?: number;
     productId?: number;
     CR: number;
-    noOrders: number;
     checkout: number;
     addToCart: number;
     viewProduct: number;
