@@ -173,7 +173,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, productName, orderBy = 'revenue', order = 'DESC', pageSize = 20, nextPageIndex, }) {
+    getProductPerformance({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/product',
@@ -182,9 +182,6 @@ class PerformanceService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
-                'productName': productName,
-                'orderBy': orderBy,
-                'order': order,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },
