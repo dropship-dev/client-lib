@@ -118,6 +118,29 @@ class RegionalShippingService {
         });
     }
     /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    updateReasonShippingFee({ storeId, id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/regional-shipping-fee/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns string Ok
      * @throws ApiError
      */

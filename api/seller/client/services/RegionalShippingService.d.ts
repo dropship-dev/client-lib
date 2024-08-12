@@ -55,6 +55,15 @@ export declare class RegionalShippingService {
         id: string;
     }): CancelablePromise<RegionalShippingFee>;
     /**
+     * @returns RegionalShippingFee Ok
+     * @throws ApiError
+     */
+    updateReasonShippingFee({ storeId, id, requestBody, }: {
+        storeId: string;
+        id: string;
+        requestBody: RegionalShippingFeeDto;
+    }): CancelablePromise<RegionalShippingFee>;
+    /**
      * @returns string Ok
      * @throws ApiError
      */
