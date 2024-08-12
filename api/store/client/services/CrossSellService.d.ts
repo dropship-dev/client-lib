@@ -49,6 +49,25 @@ export declare class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
+    getRandomCrossSell({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        Product: Array<{
+            photos: Photos;
+            name: string;
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+                isEnable: boolean;
+                isActive: boolean;
+            }>;
+        }>;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
