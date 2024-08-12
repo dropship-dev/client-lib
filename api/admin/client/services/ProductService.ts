@@ -301,10 +301,12 @@ export class ProductService {
     storeId,
     variantIds,
     comboIds,
+    crossSellId,
   }: {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
+    crossSellId?: Array<number>,
   }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -315,6 +317,7 @@ export class ProductService {
       query: {
         'variantIds': variantIds,
         'comboIds': comboIds,
+        'crossSellId': crossSellId,
       },
       errors: {
         400: `Bad request`,
