@@ -93,14 +93,14 @@ export class RegionalShippingService {
    * @returns string Ok
    * @throws ApiError
    */
-  public getContriesExsitOnStore({
+  public getCountriesExistOnStore({
     storeId,
   }: {
     storeId: string,
   }): CancelablePromise<Array<string>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/regional-shipping-fee/get-countries-exsit-on-store',
+      url: '/store/{storeId}/regional-shipping-fee/get-countries-exist-on-store',
       path: {
         'storeId': storeId,
       },
