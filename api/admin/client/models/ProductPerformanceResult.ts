@@ -4,12 +4,13 @@
 /* eslint-disable */
 
 export type ProductPerformanceResult = {
-  platformProductId?: number;
-  productId?: number;
-  CR: number;
+  noOrders: number;
   checkout: number;
   addToCart: number;
   viewProduct: number;
+  platformProductId?: number;
+  productId?: number;
+  CR: number;
   AOV: number;
   revenue: number;
   name: string;
