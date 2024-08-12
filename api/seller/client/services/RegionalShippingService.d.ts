@@ -35,7 +35,7 @@ export declare class RegionalShippingService {
      * @returns string Ok
      * @throws ApiError
      */
-    getContriesExsitOnStore({ storeId, }: {
+    getCountriesExistOnStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<string>>;
     /**
@@ -53,15 +53,6 @@ export declare class RegionalShippingService {
     deleteReasonShippingFee({ storeId, id, }: {
         storeId: string;
         id: string;
-    }): CancelablePromise<RegionalShippingFee>;
-    /**
-     * @returns RegionalShippingFee Ok
-     * @throws ApiError
-     */
-    updateReasonShippingFee({ storeId, id, requestBody, }: {
-        storeId: string;
-        id: string;
-        requestBody: RegionalShippingFeeDto;
     }): CancelablePromise<RegionalShippingFee>;
     /**
      * @returns string Ok
