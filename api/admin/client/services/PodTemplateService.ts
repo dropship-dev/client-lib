@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CreateTemplateDto } from '../models/CreateTemplateDto';
+import type { CreateTemplatePodDto } from '../models/CreateTemplatePodDto';
 import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
@@ -29,7 +29,7 @@ export class PodTemplateService {
   public createTemplate({
     requestBody,
   }: {
-    requestBody: CreateTemplateDto,
+    requestBody: CreateTemplatePodDto,
   }): CancelablePromise<PodTemplate> {
     return this.httpRequest.request({
       method: 'POST',
