@@ -3,7 +3,9 @@ import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -11,13 +13,13 @@ export declare class CrossSellService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns string Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CrossSellDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<CrossSell>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -51,9 +53,32 @@ export declare class CrossSellService {
         id: number;
         storeId: string;
     }): CancelablePromise<(CrossSell & {
-        Product: Array<Product>;
+        rootProduct: (Product & {
+            ProductVariant: Array<ProductVariant>;
+        });
+        Product: Array<{
+            isEnable: boolean;
+            isActive: boolean;
+            photos: Photos;
+            name: string;
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+            }>;
+            id: number;
+        }>;
         Collection: Array<(Collection & {
-            Product: Array<Product>;
+            Product: Array<{
+                isEnable: boolean;
+                isActive: boolean;
+                photos: Photos;
+                name: string;
+                ProductVariant: Array<{
+                    compareAtPrice: number;
+                    price: number;
+                }>;
+                id: number;
+            }>;
         })>;
     })>;
     /**
@@ -66,16 +91,13 @@ export declare class CrossSellService {
         requestBody: CrossSellDto;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<(CrossSell & {
-        Product: Array<Product>;
-        Collection: Array<Collection>;
-    })>;
+    }): CancelablePromise<CrossSell>;
     /**
      * @returns void
      * @throws ApiError

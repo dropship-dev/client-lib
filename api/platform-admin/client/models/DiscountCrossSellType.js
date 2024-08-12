@@ -11,8 +11,8 @@ exports.DiscountCrossSellType = void 0;
  */
 var DiscountCrossSellType;
 (function (DiscountCrossSellType) {
-    DiscountCrossSellType["PERCENT_ON_EACH_PRODUCT"] = "Percent on each product";
-    DiscountCrossSellType["FIXED_AMOUNT_ON_EACH_PRODUCT"] = "Fixed amount on each product";
-    DiscountCrossSellType["PERCENT_AMOUNT_ON_SUBTOTAL"] = "Percent amount on subtotal";
-    DiscountCrossSellType["DIRECT_AMOUNT_ON_PRODUCT"] = "Direct amount on product";
+    DiscountCrossSellType["PERCENT_AMOUNT_ON_EACH_PRODUCT"] = "PercentAmountOnEachProduct";
+    DiscountCrossSellType["FIXED_AMOUNT_ON_EACH_PRODUCT"] = "FixedAmountOnEachProduct";
+    DiscountCrossSellType["PERCENT_AMOUNT_ON_TOTAL_PRICE"] = "PercentAmountOnTotalPrice";
+    DiscountCrossSellType["FIXED_AMOUNT_ON_TOTAL_PRICE"] = "FixedAmountOnTotalPrice";
 })(DiscountCrossSellType || (exports.DiscountCrossSellType = DiscountCrossSellType = {}));

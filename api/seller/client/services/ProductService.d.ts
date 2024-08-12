@@ -2,6 +2,7 @@ import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
+import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
@@ -47,7 +48,7 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
+    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }: {
         storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
@@ -56,6 +57,7 @@ export declare class ProductService {
         isActive?: boolean;
         startPrice?: number;
         endPrice?: number;
+        isCheckRootProductCrossSell?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -159,6 +161,26 @@ export declare class ProductService {
                 })>;
             }>;
         })>;
+        Collection: Array<(Collection & {
+            CrossSell: Array<(CrossSell & {
+                Product: Array<(Product & {
+                    ProductVariant: Array<(ProductVariant & {
+                        Product: {
+                            name: string;
+                        };
+                    })>;
+                })>;
+                Collection: Array<{
+                    Product: Array<(Product & {
+                        ProductVariant: Array<(ProductVariant & {
+                            Product: {
+                                name: string;
+                            };
+                        })>;
+                    })>;
+                }>;
+            })>;
+        })>;
         updatedAt: string;
         createdAt: string;
         podTemplateId: number;
@@ -180,7 +202,6 @@ export declare class ProductService {
         permalink: string;
         name: string;
         id: number;
-        Collection: any;
     }>;
     /**
      * @returns any Ok
