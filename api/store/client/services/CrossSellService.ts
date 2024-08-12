@@ -111,6 +111,43 @@ export class CrossSellService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getRandomCrossSell({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    Product: Array<{
+      photos: Photos;
+      name: string;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+        isEnable: boolean;
+        isActive: boolean;
+      }>;
+    }>;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/cross-sell/random',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getCrossSell({
     id,
     storeId,
