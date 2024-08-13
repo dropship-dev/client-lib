@@ -52,6 +52,7 @@ export declare class CrossSellService {
     getRandomCrossSell({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        id: number;
         Product: Array<{
             photos: Photos;
             name: string;
@@ -62,7 +63,6 @@ export declare class CrossSellService {
                 isActive: boolean;
             }>;
         }>;
-        id: number;
     }>;
     /**
      * @returns any Ok
