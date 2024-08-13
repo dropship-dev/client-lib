@@ -19,7 +19,7 @@ export class MarketingEmailService {
    */
   public getStatisticsBusinessPerformancesSummary({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-13T07:36:03.146Z',
+    endTime = '2024-08-13T07:36:54.301Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -65,7 +65,7 @@ export class MarketingEmailService {
    */
   public getStatisticsOverview({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-13T07:36:03.162Z',
+    endTime = '2024-08-13T07:36:54.317Z',
     timezone,
   }: {
     startTime?: string,
@@ -74,8 +74,8 @@ export class MarketingEmailService {
   }): CancelablePromise<{
     totalRecipientsGrowthPercent: number;
     totalRecipients: number;
-    conversionRateGrowthPercent: number;
-    conversionRate: number;
+    conversionValueGrowthPercent: number;
+    conversionValue: number;
     displayType: StatisticsDisplayType;
     totalRecipientsStatistics: Array<StatisticsOverviewAbandonedCheckout>;
     conversionValueStatistics: Array<StatisticsOverviewConversionValue>;
@@ -104,7 +104,7 @@ export class MarketingEmailService {
    */
   public getStatisticsAutomationMetrics({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-13T07:36:03.187Z',
+    endTime = '2024-08-13T07:36:54.341Z',
   }: {
     startTime?: string,
     endTime?: string,
@@ -153,7 +153,7 @@ export class MarketingEmailService {
    */
   public getStatisticsPerforming({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-13T07:36:03.212Z',
+    endTime = '2024-08-13T07:36:54.359Z',
   }: {
     startTime?: string,
     endTime?: string,
