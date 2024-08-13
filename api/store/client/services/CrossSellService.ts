@@ -116,6 +116,7 @@ export class CrossSellService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    id: number;
     Product: Array<{
       photos: Photos;
       name: string;
@@ -126,7 +127,6 @@ export class CrossSellService {
         isActive: boolean;
       }>;
     }>;
-    id: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
