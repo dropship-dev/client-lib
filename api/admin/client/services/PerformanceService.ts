@@ -2,9 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Coordinate } from '../models/Coordinate';
+import type { Coordinates } from '../models/Coordinates';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { Response } from '../models/Response';
 import type { StorePerformance } from '../models/StorePerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
@@ -20,7 +21,7 @@ export class PerformanceService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns Response Ok
    * @throws ApiError
    */
   public getProductByLocation({
@@ -33,13 +34,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<{
-    quantityOfOrder: {
-      id: number;
-    };
-    city: string;
-    country: string;
-  }>> {
+  }): CancelablePromise<Array<Response>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-locations',
@@ -74,7 +69,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
   }): CancelablePromise<{
-    coordinates: Array<Coordinate>;
+    coordinates: Coordinates;
     viewer: number;
   }> {
     return this.httpRequest.request({
@@ -310,9 +305,6 @@ export class PerformanceService {
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     storeId,
-    productName,
-    orderBy = 'revenue',
-    order = 'DESC',
     pageSize = 20,
     nextPageIndex,
   }: {
@@ -320,9 +312,6 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-    productName?: string,
-    orderBy?: 'revenue' | 'name',
-    order?: 'ASC' | 'DESC',
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -340,9 +329,6 @@ export class PerformanceService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
-        'productName': productName,
-        'orderBy': orderBy,
-        'order': order,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
       },

@@ -6,6 +6,7 @@ import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
+import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
@@ -106,6 +107,7 @@ export class ProductService {
     isActive,
     startPrice,
     endPrice,
+    isCheckRootProductCrossSell,
   }: {
     storeId: string,
     pageSize?: number,
@@ -115,6 +117,7 @@ export class ProductService {
     isActive?: boolean,
     startPrice?: number,
     endPrice?: number,
+    isCheckRootProductCrossSell?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -158,6 +161,7 @@ export class ProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
+        'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
       },
       errors: {
         400: `Bad request`,
@@ -290,6 +294,26 @@ export class ProductService {
         })>;
       }>;
     })>;
+    Collection: Array<(Collection & {
+      CrossSell: Array<(CrossSell & {
+        Product: Array<(Product & {
+          ProductVariant: Array<(ProductVariant & {
+            Product: {
+              name: string;
+            };
+          })>;
+        })>;
+        Collection: Array<{
+          Product: Array<(Product & {
+            ProductVariant: Array<(ProductVariant & {
+              Product: {
+                name: string;
+              };
+            })>;
+          })>;
+        }>;
+      })>;
+    })>;
     updatedAt: string;
     createdAt: string;
     podTemplateId: number;
@@ -311,7 +335,6 @@ export class ProductService {
     permalink: string;
     name: string;
     id: number;
-    Collection: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -341,10 +364,12 @@ export class ProductService {
     storeId,
     variantIds,
     comboIds,
+    crossSellId,
   }: {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
+    crossSellId?: Array<number>,
   }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -355,6 +380,7 @@ export class ProductService {
       query: {
         'variantIds': variantIds,
         'comboIds': comboIds,
+        'crossSellId': crossSellId,
       },
       errors: {
         400: `Bad request`,

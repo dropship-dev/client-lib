@@ -116,9 +116,15 @@ export class CollectionService {
   public getCollection({
     id,
     storeId,
+    isActiveProduct,
+    isEnableProduct,
+    deletedProduct,
   }: {
     id: number,
     storeId: string,
+    isActiveProduct?: boolean,
+    isEnableProduct?: boolean,
+    deletedProduct?: boolean,
   }): CancelablePromise<(Collection & {
     Product: Array<(Product & {
       ProductVariant: Array<{
@@ -134,6 +140,11 @@ export class CollectionService {
       path: {
         'id': id,
         'storeId': storeId,
+      },
+      query: {
+        'isActiveProduct': isActiveProduct,
+        'isEnableProduct': isEnableProduct,
+        'deletedProduct': deletedProduct,
       },
       errors: {
         400: `Bad request`,
