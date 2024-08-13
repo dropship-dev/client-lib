@@ -31,14 +31,16 @@ export declare class RequestSourcingService {
         })>;
     }>;
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRequestSourcing({ id, storeId, fulfillmentAgencyId, }: {
         id: number;
         storeId?: string;
         fulfillmentAgencyId?: number;
-    }): CancelablePromise<RequestSourcing>;
+    }): CancelablePromise<(RequestSourcing & {
+        Store: Store;
+    })>;
     /**
      * @returns RequestSourcing Ok
      * @throws ApiError

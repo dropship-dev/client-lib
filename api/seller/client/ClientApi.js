@@ -13,6 +13,7 @@ const DomainService_1 = require("./services/DomainService");
 const FbPixelService_1 = require("./services/FbPixelService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
+const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
 const OrderRefundsService_1 = require("./services/OrderRefundsService");
@@ -26,6 +27,7 @@ const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
 const SettingService_1 = require("./services/SettingService");
 const StaffService_1 = require("./services/StaffService");
+const StatisticsService_1 = require("./services/StatisticsService");
 const StoreService_1 = require("./services/StoreService");
 const StoreTagService_1 = require("./services/StoreTagService");
 const ThemeService_1 = require("./services/ThemeService");
@@ -49,6 +51,7 @@ class ClientApi {
     fbPixel;
     fulfillmentAgency;
     googleAnalytic;
+    marketingEmail;
     notification;
     order;
     orderRefunds;
@@ -62,6 +65,7 @@ class ClientApi {
     review;
     setting;
     staff;
+    statistics;
     store;
     storeTag;
     theme;
@@ -97,6 +101,7 @@ class ClientApi {
         this.fbPixel = new FbPixelService_1.FbPixelService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);
+        this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.orderRefunds = new OrderRefundsService_1.OrderRefundsService(this.request);
@@ -110,6 +115,7 @@ class ClientApi {
         this.review = new ReviewService_1.ReviewService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
         this.staff = new StaffService_1.StaffService(this.request);
+        this.statistics = new StatisticsService_1.StatisticsService(this.request);
         this.store = new StoreService_1.StoreService(this.request);
         this.storeTag = new StoreTagService_1.StoreTagService(this.request);
         this.theme = new ThemeService_1.ThemeService(this.request);

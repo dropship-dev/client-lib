@@ -1,14 +1,5 @@
-import type { CrossSellTriggerType } from './CrossSellTriggerType';
-import type { CrossSellType } from './CrossSellType';
-import type { NameDto } from './NameDto';
-import type { PlacementCrossSellEnum } from './PlacementCrossSellEnum';
-import type { PrismaJson_DiscountCrossSell } from './PrismaJson_DiscountCrossSell';
+import type { BoughtTogetherType } from './BoughtTogetherType';
+import type { RelatedProductType } from './RelatedProductType';
 export type CrossSellDto = {
-    name: NameDto;
-    type: CrossSellType;
-    discount?: PrismaJson_DiscountCrossSell;
-    triggerBy: CrossSellTriggerType;
-    placement: Array<PlacementCrossSellEnum>;
-    idProduct?: Array<number>;
-    idCollection?: Array<number>;
+    type: (BoughtTogetherType | RelatedProductType);
 };

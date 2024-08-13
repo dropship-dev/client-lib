@@ -7,7 +7,7 @@ class CrossSellService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns string Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     createCrossSell({ storeId, requestBody, }) {
@@ -61,10 +61,10 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRandom({ storeId, }) {
+    getRandomCrossSell({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/cross-sell/random-cross-sell',
+            url: '/store/{storeId}/cross-sell/random',
             path: {
                 'storeId': storeId,
             },
@@ -122,7 +122,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns CrossSell Ok
      * @throws ApiError
      */
     deleteCrossSell({ id, storeId, }) {

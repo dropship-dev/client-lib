@@ -61,13 +61,18 @@ class CollectionService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCollection({ id, storeId, }) {
+    getCollection({ id, storeId, isActiveProduct, isEnableProduct, deletedProduct, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/collection/{id}',
             path: {
                 'id': id,
                 'storeId': storeId,
+            },
+            query: {
+                'isActiveProduct': isActiveProduct,
+                'isEnableProduct': isEnableProduct,
+                'deletedProduct': deletedProduct,
             },
             errors: {
                 400: `Bad request`,

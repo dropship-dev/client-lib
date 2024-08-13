@@ -1,5 +1,5 @@
 export type contryInfomationType = {
-    countryCode?: string;
+    countryCode: string;
     countrySymbol?: string;
     countryName: string;
 };
