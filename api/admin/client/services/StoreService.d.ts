@@ -10,8 +10,6 @@ import type { StoreRole } from '../models/StoreRole';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreType } from '../models/StoreType';
 import type { StoreUser } from '../models/StoreUser';
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
@@ -135,9 +133,6 @@ export declare class StoreService {
             id: number;
             fulfillmentAgencyId: number;
         }>;
-        Theme: Array<(Theme & {
-            ThemePage: Array<ThemePage>;
-        })>;
         StoreUser: Array<StoreUser>;
         updatedAt: string;
         createdAt: string;

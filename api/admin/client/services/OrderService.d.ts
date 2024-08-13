@@ -23,8 +23,6 @@ import type { StoreStatus } from '../models/StoreStatus';
 import type { StoreType } from '../models/StoreType';
 import type { StoreUser } from '../models/StoreUser';
 import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
 import type { Timezone } from '../models/Timezone';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
@@ -269,9 +267,6 @@ export declare class OrderService {
             id: number;
             fulfillmentAgencyId: number;
         }>;
-        Theme: Array<(Theme & {
-            ThemePage: Array<ThemePage>;
-        })>;
         StoreUser: Array<StoreUser>;
         updatedAt: string;
         createdAt: string;
