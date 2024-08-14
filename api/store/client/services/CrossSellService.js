@@ -61,6 +61,26 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
+    getRandomCrossSell({ storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/cross-sell/random',
+            path: {
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getCrossSell({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -79,7 +99,7 @@ class CrossSellService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateCrossSell({ id, storeId, requestBody, }) {

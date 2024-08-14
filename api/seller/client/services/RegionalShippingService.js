@@ -59,10 +59,10 @@ class RegionalShippingService {
      * @returns string Ok
      * @throws ApiError
      */
-    getContriesExsitOnStore({ storeId, }) {
+    getCountriesExistOnStore({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/regional-shipping-fee/get-countries-exsit-on-store',
+            url: '/store/{storeId}/regional-shipping-fee/get-countries-exist-on-store',
             path: {
                 'storeId': storeId,
             },

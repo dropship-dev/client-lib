@@ -43,8 +43,8 @@ export declare class MarketingEmailService {
     }): CancelablePromise<{
         totalRecipientsGrowthPercent: number;
         totalRecipients: number;
-        conversionRateGrowthPercent: number;
-        conversionRate: number;
+        conversionValueGrowthPercent: number;
+        conversionValue: number;
         displayType: StatisticsDisplayType;
         totalRecipientsStatistics: Array<StatisticsOverviewAbandonedCheckout>;
         conversionValueStatistics: Array<StatisticsOverviewConversionValue>;

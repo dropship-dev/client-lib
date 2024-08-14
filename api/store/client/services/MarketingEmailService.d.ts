@@ -1,5 +1,4 @@
 import type { CreateComboItems } from '../models/CreateComboItems';
-import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { UnsubscribeEmailMarketingDto } from '../models/UnsubscribeEmailMarketingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -39,6 +38,12 @@ export declare class MarketingEmailService {
     }): CancelablePromise<{
         storeId: string;
         comboItems: CreateComboItems;
-        orderItems: CreateOrderItems;
+        orderItems: Array<{
+            productId: number;
+            isMainProduct: boolean;
+            crossSellId?: number;
+            quantity: number;
+            productVariantId: number;
+        }>;
     }>;
 }

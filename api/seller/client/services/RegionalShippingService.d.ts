@@ -35,7 +35,7 @@ export declare class RegionalShippingService {
      * @returns string Ok
      * @throws ApiError
      */
-    getContriesExsitOnStore({ storeId, }: {
+    getCountriesExistOnStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<string>>;
     /**
