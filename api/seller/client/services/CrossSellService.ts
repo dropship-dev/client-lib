@@ -7,7 +7,9 @@ import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -116,9 +118,32 @@ export class CrossSellService {
     id: number,
     storeId: string,
   }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
+    rootProduct: (Product & {
+      ProductVariant: Array<ProductVariant>;
+    });
+    Product: Array<{
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+      }>;
+      id: number;
+    }>;
     Collection: Array<(Collection & {
-      Product: Array<Product>;
+      Product: Array<{
+        isEnable: boolean;
+        isActive: boolean;
+        photos: Photos;
+        name: string;
+        ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+        }>;
+        id: number;
+      }>;
     })>;
   })> {
     return this.httpRequest.request({
@@ -139,7 +164,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public updateCrossSell({
@@ -150,7 +175,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<(CrossSell | 'OK')> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/cross-sell/{id}',

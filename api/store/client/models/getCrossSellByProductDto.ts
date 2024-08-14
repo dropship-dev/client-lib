@@ -3,8 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type Coordinate = {
-  longitude: number;
-  latitude: number;
+export type getCrossSellByProductDto = {
+  crossSellId?: number;
+  quantity?: number;
+  productVariantId: number;
+  ProductId: number;
 };
 

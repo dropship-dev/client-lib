@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateComboItems } from '../models/CreateComboItems';
-import type { CreateOrderItems } from '../models/CreateOrderItems';
 import type { UnsubscribeEmailMarketingDto } from '../models/UnsubscribeEmailMarketingDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -103,7 +102,13 @@ export class MarketingEmailService {
   }): CancelablePromise<{
     storeId: string;
     comboItems: CreateComboItems;
-    orderItems: CreateOrderItems;
+    orderItems: Array<{
+      productId: number;
+      isMainProduct: boolean;
+      crossSellId?: number;
+      quantity: number;
+      productVariantId: number;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',

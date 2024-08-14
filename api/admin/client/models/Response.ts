@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type OrderItemTrackingDto = {
-  productVariantId: number;
-  quantity: number;
-  crossSellId?: number;
+export type Response = {
+  quantityOfOrder: number;
+  city: string;
+  country: string;
 };
 

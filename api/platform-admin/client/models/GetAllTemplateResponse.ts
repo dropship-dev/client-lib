@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 export type GetAllTemplateResponse = {
+  isFavorite?: boolean;
   variantOption: Array<{
     total: number;
     name: string;

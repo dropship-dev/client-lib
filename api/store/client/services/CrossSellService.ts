@@ -7,7 +7,9 @@ import type { Collection } from '../models/Collection';
 import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -109,6 +111,43 @@ export class CrossSellService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getRandomCrossSell({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    id: number;
+    Product: Array<{
+      photos: Photos;
+      name: string;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+        isEnable: boolean;
+        isActive: boolean;
+      }>;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/cross-sell/random',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getCrossSell({
     id,
     storeId,
@@ -116,9 +155,32 @@ export class CrossSellService {
     id: number,
     storeId: string,
   }): CancelablePromise<(CrossSell & {
-    Product: Array<Product>;
+    rootProduct: (Product & {
+      ProductVariant: Array<ProductVariant>;
+    });
+    Product: Array<{
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+      }>;
+      id: number;
+    }>;
     Collection: Array<(Collection & {
-      Product: Array<Product>;
+      Product: Array<{
+        isEnable: boolean;
+        isActive: boolean;
+        photos: Photos;
+        name: string;
+        ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+        }>;
+        id: number;
+      }>;
     })>;
   })> {
     return this.httpRequest.request({
@@ -139,7 +201,7 @@ export class CrossSellService {
   }
 
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public updateCrossSell({
@@ -150,7 +212,7 @@ export class CrossSellService {
     id: number,
     storeId: string,
     requestBody: CrossSellDto,
-  }): CancelablePromise<(CrossSell | 'OK')> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/cross-sell/{id}',

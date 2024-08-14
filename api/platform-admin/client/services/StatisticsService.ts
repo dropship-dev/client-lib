@@ -19,7 +19,7 @@ export class StatisticsService {
    */
   public getStatisticsBusinessPerformancesSummary({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-12T10:09:34.270Z',
+    endTime,
   }: {
     startTime?: string,
     endTime?: string,
@@ -65,7 +65,7 @@ export class StatisticsService {
    */
   public getStatisticsOverview({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-12T10:09:34.293Z',
+    endTime,
     timezone,
   }: {
     startTime?: string,
@@ -74,8 +74,8 @@ export class StatisticsService {
   }): CancelablePromise<{
     totalRecipientsGrowthPercent: number;
     totalRecipients: number;
-    conversionRateGrowthPercent: number;
-    conversionRate: number;
+    conversionValueGrowthPercent: number;
+    conversionValue: number;
     displayType: StatisticsDisplayType;
     totalRecipientsStatistics: Array<StatisticsOverviewAbandonedCheckout>;
     conversionValueStatistics: Array<StatisticsOverviewConversionValue>;
@@ -104,7 +104,7 @@ export class StatisticsService {
    */
   public getStatisticsAutomationMetrics({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-12T10:09:34.322Z',
+    endTime,
   }: {
     startTime?: string,
     endTime?: string,
@@ -153,7 +153,7 @@ export class StatisticsService {
    */
   public getStatisticsPerforming({
     startTime = '2023-01-02T00:00:00.000Z',
-    endTime = '2024-08-12T10:09:34.347Z',
+    endTime,
   }: {
     startTime?: string,
     endTime?: string,

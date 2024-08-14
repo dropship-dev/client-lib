@@ -3,9 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type OrderItemTrackingDto = {
-  productVariantId: number;
-  quantity: number;
-  crossSellId?: number;
-};
-
+export type Coordinates = Array<{
+  longitude: number;
+  latitude: number;
+}>;
