@@ -158,7 +158,7 @@ export class OrderService {
   }>> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/order/suggestion-cross-sell/placement/{placement}',
+      url: '/store/{storeId}/order/suggestion-cross-sell',
       path: {
         'storeId': storeId,
       },
