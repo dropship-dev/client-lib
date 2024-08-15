@@ -79,13 +79,12 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    suggestionCrossSell({ storeId, placement, requestBody, }) {
+    suggestionCrossSell({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order/suggestion-cross-sell/placement/{placement}',
             path: {
                 'storeId': storeId,
-                'placement': placement,
             },
             body: requestBody,
             mediaType: 'application/json',
