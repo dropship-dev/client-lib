@@ -354,6 +354,7 @@ export type { UpdatePlatformProductVariantDto } from './models/UpdatePlatformPro
 export type { UpdatePlatformVariantDto } from './models/UpdatePlatformVariantDto';
 export type { UpdatePlatformVariantsDto } from './models/UpdatePlatformVariantsDto';
 export type { UpdatePlatformVariantStatusDto } from './models/UpdatePlatformVariantStatusDto';
+export type { UpdatePodTemplateDto } from './models/UpdatePodTemplateDto';
 export type { UpdateProductDto } from './models/UpdateProductDto';
 export type { UpdateProductStatusDto } from './models/UpdateProductStatusDto';
 export type { UpdateProductStatusesDto } from './models/UpdateProductStatusesDto';
