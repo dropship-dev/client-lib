@@ -8,6 +8,7 @@ import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
 import type { Photos } from '../models/Photos';
+import type { PlacementCrossSellEnum } from '../models/PlacementCrossSellEnum';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
@@ -113,8 +114,10 @@ export class CrossSellService {
    */
   public getRandomCrossSell({
     storeId,
+    placement,
   }: {
     storeId: string,
+    placement: PlacementCrossSellEnum,
   }): CancelablePromise<{
     id: number;
     Product: Array<{
@@ -130,9 +133,10 @@ export class CrossSellService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/cross-sell/random',
+      url: '/store/{storeId}/cross-sell/random/placement/{placement}',
       path: {
         'storeId': storeId,
+        'placement': placement,
       },
       errors: {
         400: `Bad request`,
