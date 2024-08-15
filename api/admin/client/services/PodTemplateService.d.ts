@@ -7,7 +7,7 @@ import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PodTemplate } from '../models/PodTemplate';
 import type { PrintAreaBounds } from '../models/PrintAreaBounds';
 import type { StatusTemplate } from '../models/StatusTemplate';
-import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
+import type { UpdatePodTemplateDto } from '../models/UpdatePodTemplateDto';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -47,7 +47,7 @@ export declare class PodTemplateService {
      */
     updateTemplate({ id, requestBody, }: {
         id: number;
-        requestBody: UpdateTemplateDto;
+        requestBody: UpdatePodTemplateDto;
     }): CancelablePromise<(PodTemplate | boolean)>;
     /**
      * @returns any Ok
