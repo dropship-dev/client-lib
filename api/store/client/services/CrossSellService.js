@@ -61,12 +61,13 @@ class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRandomCrossSell({ storeId, }) {
+    getRandomCrossSell({ storeId, placement, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/cross-sell/random',
+            url: '/store/{storeId}/cross-sell/random/placement/{placement}',
             path: {
                 'storeId': storeId,
+                'placement': placement,
             },
             errors: {
                 400: `Bad request`,
