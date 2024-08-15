@@ -118,19 +118,7 @@ export class CrossSellService {
   }: {
     storeId: string,
     placement: PlacementCrossSellEnum,
-  }): CancelablePromise<{
-    id: number;
-    Product: Array<{
-      photos: Photos;
-      name: string;
-      ProductVariant: Array<{
-        compareAtPrice: number;
-        price: number;
-        isEnable: boolean;
-        isActive: boolean;
-      }>;
-    }>;
-  }> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/cross-sell/random/placement/{placement}',
