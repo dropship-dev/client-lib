@@ -4,6 +4,7 @@ import type { CrossSell } from '../models/CrossSell';
 import type { CrossSellDto } from '../models/CrossSellDto';
 import type { CrossSellType } from '../models/CrossSellType';
 import type { Photos } from '../models/Photos';
+import type { PlacementCrossSellEnum } from '../models/PlacementCrossSellEnum';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
@@ -49,8 +50,9 @@ export declare class CrossSellService {
      * @returns any Ok
      * @throws ApiError
      */
-    getRandomCrossSell({ storeId, }: {
+    getRandomCrossSell({ storeId, placement, }: {
         storeId: string;
+        placement: PlacementCrossSellEnum;
     }): CancelablePromise<{
         id: number;
         Product: Array<{

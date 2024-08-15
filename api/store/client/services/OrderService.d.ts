@@ -5,6 +5,7 @@ import type { CrossSellType } from '../models/CrossSellType';
 import type { DiscountCrossSell } from '../models/DiscountCrossSell';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { PaymentType } from '../models/PaymentType';
+import type { PlacementCrossSellEnum } from '../models/PlacementCrossSellEnum';
 import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -55,8 +56,9 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    suggestionCrossSell({ storeId, requestBody, }: {
+    suggestionCrossSell({ storeId, placement, requestBody, }: {
         storeId: string;
+        placement: PlacementCrossSellEnum;
         requestBody: Array<getCrossSellByProductDto>;
     }): CancelablePromise<Array<{
         suggestionProduct: Array<(Product & {
