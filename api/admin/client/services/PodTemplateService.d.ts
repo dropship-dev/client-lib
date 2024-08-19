@@ -71,7 +71,7 @@ export declare class PodTemplateService {
         PodFile: Array<{
             podPrintAreaId: number;
             properties: PodFileProperties;
-            file: string;
+            fileName: string;
             podDesignId: number;
             podTemplateId: number;
             type: FileType;

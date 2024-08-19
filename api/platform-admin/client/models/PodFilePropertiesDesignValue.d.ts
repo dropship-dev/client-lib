@@ -8,6 +8,6 @@ export type PodFilePropertiesDesignValue = {
     top?: number;
     width?: number;
     height?: number;
-    file: string;
+    url: string;
     name: string;
 };

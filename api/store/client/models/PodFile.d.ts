@@ -22,9 +22,10 @@ export type PodFile = {
     /**
      * [PodFileGroupLayers]
      */
-    grouplayers: PrismaJson_PodFileGroupLayers | null;
+    groupLayers: PrismaJson_PodFileGroupLayers | null;
     size: string | null;
-    file: string | null;
+    url: string | null;
+    fileName: string | null;
     type: FileType;
     id: number;
 };
