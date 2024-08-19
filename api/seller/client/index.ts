@@ -218,7 +218,6 @@ export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptio
 export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_VariantOptionValues';
 export type { Product } from './models/Product';
 export type { ProductPerformance } from './models/ProductPerformance';
-export type { ProductPerformanceResult } from './models/ProductPerformanceResult';
 export type { ProductVariant } from './models/ProductVariant';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
