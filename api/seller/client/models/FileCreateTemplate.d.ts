@@ -13,6 +13,7 @@ export type FileCreateTemplate = {
         opacity?: number;
         blendMode?: string;
         file: string;
+        subName?: string;
         name: string;
     }>;
     properties?: PrismaJson_PodFileProperties;
