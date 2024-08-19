@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type PodFilePropertiesMockupValue = {
-  file: string;
+  url: string;
   color: string;
 };
 
