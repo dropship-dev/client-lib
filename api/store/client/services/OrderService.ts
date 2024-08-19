@@ -9,7 +9,6 @@ import type { CrossSellType } from '../models/CrossSellType';
 import type { DiscountCrossSell } from '../models/DiscountCrossSell';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { PaymentType } from '../models/PaymentType';
-import type { PlacementCrossSellEnum } from '../models/PlacementCrossSellEnum';
 import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
@@ -132,11 +131,9 @@ export class OrderService {
    */
   public suggestionCrossSell({
     storeId,
-    placement,
     requestBody,
   }: {
     storeId: string,
-    placement: PlacementCrossSellEnum,
     requestBody: Array<getCrossSellByProductDto>,
   }): CancelablePromise<Array<{
     suggestionProduct: Array<(Product & {
@@ -161,10 +158,9 @@ export class OrderService {
   }>> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/order/suggestion-cross-sell/placement/{placement}',
+      url: '/store/{storeId}/order/suggestion-cross-sell',
       path: {
         'storeId': storeId,
-        'placement': placement,
       },
       body: requestBody,
       mediaType: 'application/json',

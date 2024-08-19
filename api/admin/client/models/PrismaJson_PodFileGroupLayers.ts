@@ -11,5 +11,6 @@ export type PrismaJson_PodFileGroupLayers = Array<{
   opacity?: number;
   blendMode?: string;
   file: string;
+  subName?: string;
   name: string;
 }>;
