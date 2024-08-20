@@ -59,6 +59,7 @@ export type { CreateFbPixelDto } from './models/CreateFbPixelDto';
 export type { CreateFulfillmentAgencyDto } from './models/CreateFulfillmentAgencyDto';
 export type { CreateGADto } from './models/CreateGADto';
 export type { CreateGroupPlatformVariantsDto } from './models/CreateGroupPlatformVariantsDto';
+export type { CreateGTMDto } from './models/CreateGTMDto';
 export type { CreateNotificationDto } from './models/CreateNotificationDto';
 export type { CreateOrderDto } from './models/CreateOrderDto';
 export type { CreateOrderItems } from './models/CreateOrderItems';
@@ -128,6 +129,7 @@ export type { GetStoreStatisticsAbandonmentDto } from './models/GetStoreStatisti
 export type { GetTrackingOrderCheckoutDto } from './models/GetTrackingOrderCheckoutDto';
 export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
+export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { JsonArray } from './models/JsonArray';
 export type { JsonObject } from './models/JsonObject';
@@ -283,6 +285,7 @@ export type { UpdateFulFillmentStatusError } from './models/UpdateFulFillmentSta
 export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStatusResp';
 export type { UpdateGADto } from './models/UpdateGADto';
 export type { UpdateGroupPlatformVariantsDto } from './models/UpdateGroupPlatformVariantsDto';
+export type { UpdateGTMDto } from './models/UpdateGTMDto';
 export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePaymentMethodDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderDto } from './models/UpdateOrderDto';
