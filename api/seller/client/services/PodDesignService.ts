@@ -4,13 +4,13 @@
 /* eslint-disable */
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
+import type { DuplicateDesignDto } from '../models/DuplicateDesignDto';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
-import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -69,7 +69,10 @@ export class PodDesignService {
       printArea: Array<string>;
       isDraft: boolean;
       isActive: boolean;
-      variantOption: VariantOptions;
+      variantOption: Array<{
+        total: number;
+        name: string;
+      }>;
       sizeGuide: string;
       description: string;
       name: string;
@@ -110,6 +113,30 @@ export class PodDesignService {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/pod/design',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public duplicateDesign({
+    requestBody,
+  }: {
+    requestBody: DuplicateDesignDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/pod/design/duplicate',
       body: requestBody,
       mediaType: 'application/json',
       errors: {

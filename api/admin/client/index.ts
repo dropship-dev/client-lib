@@ -110,6 +110,7 @@ export type { Discount } from './models/Discount';
 export type { DiscountCrossSell } from './models/DiscountCrossSell';
 export { DiscountCrossSellType } from './models/DiscountCrossSellType';
 export type { DiscountDto } from './models/DiscountDto';
+export type { DuplicateDesignDto } from './models/DuplicateDesignDto';
 export { ElementType } from './models/ElementType';
 export type { EmailDto } from './models/EmailDto';
 export type { EmailTrackingAction } from './models/EmailTrackingAction';
