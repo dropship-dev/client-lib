@@ -1,12 +1,12 @@
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
+import type { DuplicateDesignDto } from '../models/DuplicateDesignDto';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
-import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -39,7 +39,10 @@ export declare class PodDesignService {
             printArea: Array<string>;
             isDraft: boolean;
             isActive: boolean;
-            variantOption: VariantOptions;
+            variantOption: Array<{
+                total: number;
+                name: string;
+            }>;
             sizeGuide: string;
             description: string;
             name: string;
@@ -55,6 +58,13 @@ export declare class PodDesignService {
     deleteMyDesign({ requestBody, }: {
         requestBody: Array<number>;
     }): CancelablePromise<BatchPayload>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    duplicateDesign({ requestBody, }: {
+        requestBody: DuplicateDesignDto;
+    }): CancelablePromise<string>;
     /**
      * @returns Product Ok
      * @throws ApiError

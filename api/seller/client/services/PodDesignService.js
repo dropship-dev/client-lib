@@ -69,6 +69,25 @@ class PodDesignService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    duplicateDesign({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/pod/design/duplicate',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns Product Ok
      * @throws ApiError
      */
