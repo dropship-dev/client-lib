@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
-import type { IPageDetail } from '../models/IPageDetail';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
@@ -51,17 +50,21 @@ export class PodDesignService {
    */
   public getAllDesign({
     storeId,
-    page = 1,
     limit = 10,
     name,
     printArea,
+    nextPageIndex,
   }: {
     storeId: string,
-    page?: number,
     limit?: number,
     name?: string,
-    printArea?: string,
+    printArea?: Array<string>,
+    nextPageIndex?: number,
   }): CancelablePromise<({
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
     data: Array<{
       printArea: Array<string>;
       isDraft: boolean;
@@ -74,17 +77,16 @@ export class PodDesignService {
       podTemplateId: number;
       id: number;
     }>;
-    pageDetail: IPageDetail;
   } | boolean)> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/design',
       query: {
         'storeId': storeId,
-        'page': page,
         'limit': limit,
         'name': name,
         'printArea': printArea,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,
