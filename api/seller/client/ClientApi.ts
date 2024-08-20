@@ -17,6 +17,7 @@ import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
+import { GoogleTagManagerService } from './services/GoogleTagManagerService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -64,6 +65,7 @@ export class ClientApi {
   public readonly fbPixel: FbPixelService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly googleAnalytic: GoogleAnalyticService;
+  public readonly googleTagManager: GoogleTagManagerService;
   public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
@@ -122,6 +124,7 @@ export class ClientApi {
     this.fbPixel = new FbPixelService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.googleAnalytic = new GoogleAnalyticService(this.request);
+    this.googleTagManager = new GoogleTagManagerService(this.request);
     this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
