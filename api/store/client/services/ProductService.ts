@@ -169,6 +169,9 @@ export class ProductService {
       PlatformVariant: PlatformVariant;
     })>;
     Review: Array<Review>;
+    GoogleTagManager: Array<{
+      tag: string;
+    }>;
     GoogleAnalytic: Array<{
       measurementId: string;
     }>;
