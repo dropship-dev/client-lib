@@ -29,16 +29,16 @@ class PodDesignService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllDesign({ storeId, page = 1, limit = 10, name, printArea, }) {
+    getAllDesign({ storeId, limit = 10, name, printArea, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/design',
             query: {
                 'storeId': storeId,
-                'page': page,
                 'limit': limit,
                 'name': name,
                 'printArea': printArea,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

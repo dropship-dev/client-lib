@@ -1,6 +1,5 @@
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
-import type { IPageDetail } from '../models/IPageDetail';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
@@ -25,13 +24,17 @@ export declare class PodDesignService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllDesign({ storeId, page, limit, name, printArea, }: {
+    getAllDesign({ storeId, limit, name, printArea, nextPageIndex, }: {
         storeId: string;
-        page?: number;
         limit?: number;
         name?: string;
-        printArea?: string;
+        printArea?: Array<string>;
+        nextPageIndex?: number;
     }): CancelablePromise<({
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
         data: Array<{
             printArea: Array<string>;
             isDraft: boolean;
@@ -44,7 +47,6 @@ export declare class PodDesignService {
             podTemplateId: number;
             id: number;
         }>;
-        pageDetail: IPageDetail;
     } | boolean)>;
     /**
      * @returns BatchPayload Ok
