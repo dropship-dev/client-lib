@@ -36,6 +36,7 @@ export declare class PodDesignService {
         prePageIndex: number;
         total: number;
         data: Array<{
+            url: string;
             printArea: Array<string>;
             isDraft: boolean;
             isActive: boolean;
