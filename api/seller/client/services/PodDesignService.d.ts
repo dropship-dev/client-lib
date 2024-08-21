@@ -60,12 +60,26 @@ export declare class PodDesignService {
         requestBody: Array<number>;
     }): CancelablePromise<BatchPayload>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     duplicateDesign({ requestBody, }: {
         requestBody: DuplicateDesignDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<{
+        isDraft: boolean;
+        sizeGuide: string;
+        podTemplateId: number;
+        isActive: boolean;
+        description: string;
+        name: string;
+        id: number;
+        storeId: string;
+        url: string;
+        variantOption: Array<{
+            total: number;
+            name: string;
+        }>;
+    }>;
     /**
      * @returns Product Ok
      * @throws ApiError

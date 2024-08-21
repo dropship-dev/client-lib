@@ -69,7 +69,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     duplicateDesign({ requestBody, }) {
