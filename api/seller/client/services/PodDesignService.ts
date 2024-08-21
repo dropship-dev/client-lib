@@ -127,14 +127,28 @@ export class PodDesignService {
   }
 
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public duplicateDesign({
     requestBody,
   }: {
     requestBody: DuplicateDesignDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<{
+    isDraft: boolean;
+    sizeGuide: string;
+    podTemplateId: number;
+    isActive: boolean;
+    description: string;
+    name: string;
+    id: number;
+    storeId: string;
+    url: string;
+    variantOption: Array<{
+      total: number;
+      name: string;
+    }>;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/design/duplicate',
