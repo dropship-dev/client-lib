@@ -7,7 +7,7 @@ import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 import type { VariantDto } from './VariantDto';
 
-export type CreateProductFromSellerInDependeceDto = {
+export type CreateProductFromSellerInDependenceDto = {
   name: string;
   description?: string;
   details?: string;
