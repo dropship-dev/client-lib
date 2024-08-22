@@ -25,10 +25,10 @@ export type CaptureOrderDto = {
     tokenCard: string;
     orderSystemId: string;
   };
-  abandonment?: CreateAbandonmentOrder;
   track?: {
     token: string;
     id: number;
   };
+  abandonment?: CreateAbandonmentOrder;
 };
 
