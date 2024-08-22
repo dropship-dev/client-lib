@@ -1,5 +1,4 @@
 import type { ComboItemDto } from './ComboItemDto';
-import type { CreateAbandonmentOrder } from './CreateAbandonmentOrder';
 import type { OrderItemDto } from './OrderItemDto';
 import type { PaymentType } from './PaymentType';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
@@ -19,5 +18,4 @@ export type CreateOrderDto = {
         tokenCard: string;
         orderSystemId: string;
     };
-    abandonment?: CreateAbandonmentOrder;
 };

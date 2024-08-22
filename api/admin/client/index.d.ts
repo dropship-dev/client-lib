@@ -207,6 +207,8 @@ export type { PodCategory } from './models/PodCategory';
 export type { PodDesign } from './models/PodDesign';
 export type { PodElement } from './models/PodElement';
 export type { PodFile } from './models/PodFile';
+export type { PodFileColors } from './models/PodFileColors';
+export type { PodFileGroupLayers } from './models/PodFileGroupLayers';
 export type { PodFileProperties } from './models/PodFileProperties';
 export type { PodFilePropertiesDesignValue } from './models/PodFilePropertiesDesignValue';
 export { PodFilePropertiesLabel } from './models/PodFilePropertiesLabel';

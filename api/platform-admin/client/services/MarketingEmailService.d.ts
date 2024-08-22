@@ -15,21 +15,16 @@ export declare class MarketingEmailService {
         endTime?: string;
     }): CancelablePromise<{
         perRecipientGrowthPercent: number;
-        perRecipientPreviousPeriod: number;
         perRecipient: number;
         automationPercent: number;
         automationGrowthPercent: number;
-        automationPreviousPeriod: number;
         automation: number;
         recipientGrowthPercent: number;
-        recipientPreviousPeriod: number;
         recipient: number;
         attributeRevenuePercent: number;
         attributeGrowthPercent: number;
-        attributePreviousPeriod: number;
         attributeRevenue: number;
         revenueGrowthPercent: number;
-        revenuePreviousPeriod: number;
         revenue: number;
     }>;
     /**

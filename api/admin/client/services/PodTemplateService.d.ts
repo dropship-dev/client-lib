@@ -2,6 +2,8 @@ import type { CreateTemplatePodDto } from '../models/CreateTemplatePodDto';
 import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
+import type { PodFileColors } from '../models/PodFileColors';
+import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
 import type { PodFileProperties } from '../models/PodFileProperties';
 import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PodTemplate } from '../models/PodTemplate';
@@ -71,6 +73,8 @@ export declare class PodTemplateService {
         PodFile: Array<{
             podPrintAreaId: number;
             properties: PodFileProperties;
+            color: PodFileColors;
+            groupLayers: PodFileGroupLayers;
             fileName: string;
             podDesignId: number;
             podTemplateId: number;
