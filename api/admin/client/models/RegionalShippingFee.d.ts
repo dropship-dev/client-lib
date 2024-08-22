@@ -1,4 +1,4 @@
-import type { PrismaJson_CountryInformations } from './PrismaJson_CountryInformations';
+import type { PrismaJson_CountryInformation } from './PrismaJson_CountryInformation';
 /**
  * Model RegionalShippingFee
  */
@@ -10,9 +10,9 @@ export type RegionalShippingFee = {
     shippingFeeAdditional: number;
     shippingFee: number;
     /**
-     * [CountryInformations]
+     * [CountryInformation]
      */
-    countries: PrismaJson_CountryInformations;
+    countries: PrismaJson_CountryInformation;
     zoneName: string;
     id: string;
 };

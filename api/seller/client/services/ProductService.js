@@ -10,10 +10,10 @@ class ProductService {
      * @returns Product Ok
      * @throws ApiError
      */
-    createProductForStoreInDepedence({ storeId, requestBody, }) {
+    createProductForStoreInDependence({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/product/seller-indepedence',
+            url: '/store/{storeId}/product/seller-independence',
             path: {
                 'storeId': storeId,
             },
