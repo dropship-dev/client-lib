@@ -102,6 +102,7 @@ export declare class PodTemplateService {
             id: number;
         }>;
         id: number;
+        isFavorite: boolean;
     }>;
     /**
      * @returns any Ok
