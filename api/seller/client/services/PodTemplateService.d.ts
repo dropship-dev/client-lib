@@ -20,12 +20,12 @@ export declare class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTemplate({ ignorePodTemplateId, search, sort, status, podProductTypeId, podCategoryId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
-        ignorePodTemplateId: number;
+    getAllTemplate({ search, sort, status, podProductTypeId, ignorePodTemplateId, podCategoryId, storeId, fulfillmentAgencyId, isFavorite, page, limit, }: {
         search?: string;
         sort?: 'ASC' | 'DESC';
         status?: Array<StatusTemplate>;
         podProductTypeId?: number;
+        ignorePodTemplateId?: number;
         podCategoryId?: number;
         storeId?: string;
         fulfillmentAgencyId?: number;

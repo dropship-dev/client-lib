@@ -29,7 +29,7 @@ class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllTemplate({ ignorePodTemplateId, search, sort = 'ASC', status, podProductTypeId, podCategoryId, storeId, fulfillmentAgencyId, isFavorite, page = 1, limit = 10, }) {
+    getAllTemplate({ search, sort = 'ASC', status, podProductTypeId, ignorePodTemplateId, podCategoryId, storeId, fulfillmentAgencyId, isFavorite, page = 1, limit = 10, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/template',
