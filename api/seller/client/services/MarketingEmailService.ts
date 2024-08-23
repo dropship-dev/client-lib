@@ -264,6 +264,9 @@ export class MarketingEmailService {
     createdAt: string;
     id: number;
     checkoutDetail: Array<{
+      comboVariantName?: string;
+      productVariantName?: string;
+      name: string;
       quantity: number;
       price: number;
       photo: string;
