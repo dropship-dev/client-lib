@@ -53,6 +53,7 @@ export class PodTemplateService {
    * @throws ApiError
    */
   public getAllTemplate({
+    ignorePodTemplateId,
     search,
     sort = 'ASC',
     status,
@@ -64,6 +65,7 @@ export class PodTemplateService {
     page = 1,
     limit = 10,
   }: {
+    ignorePodTemplateId: number,
     search?: string,
     sort?: 'ASC' | 'DESC',
     status?: Array<StatusTemplate>,
@@ -86,6 +88,7 @@ export class PodTemplateService {
         'sort': sort,
         'status': status,
         'podProductTypeId': podProductTypeId,
+        'ignorePodTemplateId': ignorePodTemplateId,
         'podCategoryId': podCategoryId,
         'storeId': storeId,
         'fulfillmentAgencyId': fulfillmentAgencyId,
