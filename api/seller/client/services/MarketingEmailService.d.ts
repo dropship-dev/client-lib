@@ -120,9 +120,9 @@ export declare class MarketingEmailService {
         comboItems: CreateComboItems;
         orderItems: CreateOrderItems;
         expiredAt: string;
+        discountShippingFee: number;
         subTotal: number;
         total: number;
-        shippingFee: number;
         email: string;
         EmailTrackings: Array<{
             action: EmailTrackingAction;
@@ -140,6 +140,7 @@ export declare class MarketingEmailService {
             price: number;
             photo: string;
         }>;
+        shippingFee: number;
     }>;
     /**
      * @returns void
