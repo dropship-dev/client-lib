@@ -10,7 +10,7 @@ export type GetAllTemplateDto = {
   sort?: GetAllTemplateDto.sort;
   status?: Array<StatusTemplate>;
   podProductTypeId?: number;
-  ignorePodTemplateId: number;
+  ignorePodTemplateId?: number;
   podCategoryId?: number;
   storeId?: string;
   fulfillmentAgencyId?: number;

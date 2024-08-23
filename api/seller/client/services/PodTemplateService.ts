@@ -28,11 +28,11 @@ export class PodTemplateService {
    * @throws ApiError
    */
   public getAllTemplate({
-    ignorePodTemplateId,
     search,
     sort = 'ASC',
     status,
     podProductTypeId,
+    ignorePodTemplateId,
     podCategoryId,
     storeId,
     fulfillmentAgencyId,
@@ -40,11 +40,11 @@ export class PodTemplateService {
     page = 1,
     limit = 10,
   }: {
-    ignorePodTemplateId: number,
     search?: string,
     sort?: 'ASC' | 'DESC',
     status?: Array<StatusTemplate>,
     podProductTypeId?: number,
+    ignorePodTemplateId?: number,
     podCategoryId?: number,
     storeId?: string,
     fulfillmentAgencyId?: number,
