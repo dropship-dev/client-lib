@@ -134,7 +134,7 @@ class CollectionService {
     getProductByConditions({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/collection/get-products-by-condtions-collection',
+            url: '/store/{storeId}/collection/get-products-by-conditions-collection',
             path: {
                 'storeId': storeId,
             },

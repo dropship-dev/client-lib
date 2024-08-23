@@ -27,6 +27,10 @@ export declare class AuthService {
      * @throws ApiError
      */
     signInPusher({ requestBody, }: {
-        requestBody: any;
+        requestBody: {
+            authorization: string;
+            channel_name: string;
+            socket_id: string;
+        };
     }): CancelablePromise<any>;
 }

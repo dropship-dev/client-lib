@@ -13,7 +13,7 @@ class ProductService {
     createProductForStoreJoinFa({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/product/seller-depedence',
+            url: '/store/{storeId}/product/seller-dependence',
             path: {
                 'storeId': storeId,
             },

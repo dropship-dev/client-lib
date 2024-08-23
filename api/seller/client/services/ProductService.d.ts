@@ -3,7 +3,7 @@ import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
-import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
+import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
@@ -30,9 +30,9 @@ export declare class ProductService {
      * @returns Product Ok
      * @throws ApiError
      */
-    createProductForStoreInDepedence({ storeId, requestBody, }: {
+    createProductForStoreInDependence({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: CreateProductFromSellerInDependeceDto;
+        requestBody: CreateProductFromSellerInDependenceDto;
     }): CancelablePromise<Product>;
     /**
      * @returns any Ok

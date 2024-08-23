@@ -1,4 +1,4 @@
-import type { typeFulfillmentPrice } from './typeFulfillmentPrice';
+import type { TypeFulfillmentPrice } from './TypeFulfillmentPrice';
 /**
  * key is "1", "2", etc
  * stand for set 1, set 2, etc
@@ -6,6 +6,6 @@ import type { typeFulfillmentPrice } from './typeFulfillmentPrice';
 export type PrismaJson_CostInfo = Record<string, {
     fulfillmentPrice: {
         value: number;
-        label: typeFulfillmentPrice;
+        label: TypeFulfillmentPrice;
     };
 }>;
