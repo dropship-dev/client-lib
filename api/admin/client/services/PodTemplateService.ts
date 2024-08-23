@@ -185,6 +185,7 @@ export class PodTemplateService {
       id: number;
     }>;
     id: number;
+    isFavorite: boolean;
   }> {
     return this.httpRequest.request({
       method: 'GET',
