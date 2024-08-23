@@ -7,7 +7,7 @@ import type { AvailableSet } from '../models/AvailableSet';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
-import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
+import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
@@ -37,16 +37,16 @@ export class ProductService {
    * @returns Product Ok
    * @throws ApiError
    */
-  public createProductForStoreInDepedence({
+  public createProductForStoreInDependence({
     storeId,
     requestBody,
   }: {
     storeId: string,
-    requestBody: CreateProductFromSellerInDependeceDto,
+    requestBody: CreateProductFromSellerInDependenceDto,
   }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product/seller-indepedence',
+      url: '/store/{storeId}/product/seller-independence',
       path: {
         'storeId': storeId,
       },

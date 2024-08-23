@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum typeFulfillmentPrice {
+export enum TypeFulfillmentPrice {
   FIXED_COST = 'FIXED_COST',
   PERCENTAGE_COST = 'PERCENTAGE_COST',
 }

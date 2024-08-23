@@ -52,7 +52,11 @@ export class AuthService {
   public signInPusher({
     requestBody,
   }: {
-    requestBody: any,
+    requestBody: {
+      authorization: string;
+      channel_name: string;
+      socket_id: string;
+    },
   }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',

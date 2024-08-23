@@ -42,7 +42,7 @@ export class ProductService {
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product/seller-depedence',
+      url: '/store/{storeId}/product/seller-dependence',
       path: {
         'storeId': storeId,
       },
