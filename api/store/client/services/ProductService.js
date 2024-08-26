@@ -33,7 +33,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductBoostSale, }) {
+    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product',
@@ -48,7 +48,7 @@ class ProductService {
                 'isActive': isActive,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
-                'isCheckRootProductBoostSale': isCheckRootProductBoostSale,
+                'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
             },
             errors: {
                 400: `Bad request`,
@@ -87,7 +87,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleId, }) {
+    getStatusOrderItems({ storeId, variantIds, comboIds, crossSellId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/getStatusOrderItems',
@@ -97,7 +97,7 @@ class ProductService {
             query: {
                 'variantIds': variantIds,
                 'comboIds': comboIds,
-                'boostSaleId': boostSaleId,
+                'crossSellId': crossSellId,
             },
             errors: {
                 400: `Bad request`,

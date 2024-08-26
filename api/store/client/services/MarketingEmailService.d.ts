@@ -41,7 +41,7 @@ export declare class MarketingEmailService {
         orderItems: Array<{
             productId: number;
             isMainProduct: boolean;
-            boostSaleId?: number;
+            crossSellId?: number;
             quantity: number;
             productVariantId: number;
         }>;

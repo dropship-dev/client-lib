@@ -1,5 +1,5 @@
 export type CreateOrderItems = Array<{
-    boostSaleId?: number;
+    crossSellId?: number;
     quantity: number;
     productVariantId: number;
 }>;

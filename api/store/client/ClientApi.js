@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
 const BankAccountService_1 = require("./services/BankAccountService");
-const BoostSaleService_1 = require("./services/BoostSaleService");
 const CollectionService_1 = require("./services/CollectionService");
+const CrossSellService_1 = require("./services/CrossSellService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const OrderService_1 = require("./services/OrderService");
@@ -22,8 +22,8 @@ const VariantComboService_1 = require("./services/VariantComboService");
 const WalletService_1 = require("./services/WalletService");
 class ClientApi {
     bankAccount;
-    boostSale;
     collection;
+    crossSell;
     currency;
     marketingEmail;
     order;
@@ -53,8 +53,8 @@ class ClientApi {
             ENCODE_PATH: config?.ENCODE_PATH,
         });
         this.bankAccount = new BankAccountService_1.BankAccountService(this.request);
-        this.boostSale = new BoostSaleService_1.BoostSaleService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
+        this.crossSell = new CrossSellService_1.CrossSellService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
