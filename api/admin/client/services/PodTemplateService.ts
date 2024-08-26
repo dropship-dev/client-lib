@@ -181,6 +181,7 @@ export class PodTemplateService {
     PodPrintArea: Array<{
       printAreaBounds: PrintAreaBounds;
       meshPoints: PodMeshPoints;
+      groupLayers: PodFileGroupLayers;
       photo: string;
       faPrice: number;
       supplierCost: number;
