@@ -7,6 +7,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketingType = void 0;
 var MarketingType;
 (function (MarketingType) {
-    MarketingType["CROSS_SELL"] = "CROSS_SELL";
-    MarketingType["UP_SELL"] = "UP_SELL";
+    MarketingType["CROSS_SALE"] = "CROSS_SALE";
+    MarketingType["UP_SALE"] = "UP_SALE";
 })(MarketingType || (exports.MarketingType = MarketingType = {}));

@@ -1,4 +1,4 @@
 export declare enum MarketingType {
-    CROSS_SELL = "CROSS_SELL",
-    UP_SELL = "UP_SELL"
+    CROSS_SALE = "CROSS_SALE",
+    UP_SALE = "UP_SALE"
 }
