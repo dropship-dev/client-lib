@@ -1,4 +1,5 @@
 import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
+import type { DiscountBoostSaleType } from './DiscountBoostSaleType';
 import type { NameDto } from './NameDto';
 import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
 export type DiscountForQuantityType = {
@@ -7,6 +8,11 @@ export type DiscountForQuantityType = {
     type: BoostSaleTriggerType;
     ids: Array<number>;
     placementList: Array<PlacementBoostSaleEnum>;
+    discounts: Array<{
+        value: number;
+        productId: number;
+        type: DiscountBoostSaleType;
+    }>;
     timeLife: {
         endDate?: string;
         startDate: string;
