@@ -4,9 +4,9 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
+import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { Collection } from '../models/Collection';
-import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
@@ -73,7 +73,7 @@ export class ProductService {
     isActive,
     startPrice,
     endPrice,
-    isCheckRootProductCrossSell,
+    isCheckRootProductBoostSale,
   }: {
     storeId: string,
     pageSize?: number,
@@ -83,7 +83,7 @@ export class ProductService {
     isActive?: boolean,
     startPrice?: number,
     endPrice?: number,
-    isCheckRootProductCrossSell?: boolean,
+    isCheckRootProductBoostSale?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -127,7 +127,7 @@ export class ProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
-        'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
+        'isCheckRootProductBoostSale': isCheckRootProductBoostSale,
       },
       errors: {
         400: `Bad request`,
@@ -186,7 +186,7 @@ export class ProductService {
       variantOption: VariantOptions;
       id: number;
     };
-    CrossSell: Array<(CrossSell & {
+    BoostSale: Array<(BoostSale & {
       Product: Array<(Product & {
         ProductVariant: Array<(ProductVariant & {
           Product: {
@@ -205,7 +205,7 @@ export class ProductService {
       }>;
     })>;
     Collection: Array<(Collection & {
-      CrossSell: Array<(CrossSell & {
+      BoostSale: Array<(BoostSale & {
         Product: Array<(Product & {
           ProductVariant: Array<(ProductVariant & {
             Product: {
@@ -274,12 +274,12 @@ export class ProductService {
     storeId,
     variantIds,
     comboIds,
-    crossSellId,
+    boostSaleId,
   }: {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
-    crossSellId?: Array<number>,
+    boostSaleId?: Array<number>,
   }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -290,7 +290,7 @@ export class ProductService {
       query: {
         'variantIds': variantIds,
         'comboIds': comboIds,
-        'crossSellId': crossSellId,
+        'boostSaleId': boostSaleId,
       },
       errors: {
         400: `Bad request`,
