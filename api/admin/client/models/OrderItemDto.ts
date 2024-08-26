@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type OrderItemDto = {
-  boostSaleId?: number;
+  crossSellId?: number;
   quantity: number;
   productVariantId: number;
 };

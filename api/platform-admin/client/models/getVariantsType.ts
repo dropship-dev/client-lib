@@ -9,7 +9,7 @@ export type getVariantsType = (ProductVariant & {
   deleted: boolean;
   isStock: boolean;
   Product?: {
-    BoostSale: {
+    CrossSell: {
       id?: (number | string);
       status?: boolean;
     };

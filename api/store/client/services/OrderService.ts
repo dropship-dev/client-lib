@@ -2,15 +2,15 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BoostSaleTriggerType } from '../models/BoostSaleTriggerType';
-import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { DiscountBoostSale } from '../models/DiscountBoostSale';
-import type { getBoostSaleByProductDto } from '../models/getBoostSaleByProductDto';
+import type { CrossSellTriggerType } from '../models/CrossSellTriggerType';
+import type { CrossSellType } from '../models/CrossSellType';
+import type { DiscountCrossSell } from '../models/DiscountCrossSell';
+import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
-import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
+import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
@@ -136,12 +136,12 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
-  public suggestionBoostSale({
+  public suggestionCrossSell({
     storeId,
     requestBody,
   }: {
     storeId: string,
-    requestBody: Array<getBoostSaleByProductDto>,
+    requestBody: Array<getCrossSellByProductDto>,
   }): CancelablePromise<Array<{
     suggestionProduct: Array<(Product & {
       ProductVariant: Array<ProductVariant>;
@@ -154,13 +154,13 @@ export class OrderService {
     createdAt: string;
     endDate: string;
     startDate: string;
-    marketingType: MarketingType;
     storeId: string;
-    triggerBy: BoostSaleTriggerType;
-    discount: DiscountBoostSale;
-    placement: PlacementBoostSaleType;
+    triggerBy: CrossSellTriggerType;
+    marketingType: MarketingType;
+    discount: DiscountCrossSell;
+    placement: PlacementCrossSellType;
     status: boolean;
-    type: BoostSaleType;
+    type: CrossSellType;
     name: string;
     id: number;
   }>> {

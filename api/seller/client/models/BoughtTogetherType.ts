@@ -3,23 +3,23 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
-import type { DiscountBoostSaleType } from './DiscountBoostSaleType';
+import type { CrossSellTriggerType } from './CrossSellTriggerType';
+import type { DiscountCrossSellType } from './DiscountCrossSellType';
 import type { NameDto } from './NameDto';
-import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
+import type { PlacementCrossSellEnum } from './PlacementCrossSellEnum';
 
 export type BoughtTogetherType = {
   kind: BoughtTogetherType.kind;
   title: NameDto;
-  type: BoostSaleTriggerType;
+  type: CrossSellTriggerType;
   rootProductId: number;
   childrenProductIds: Array<number>;
   discounts: Array<{
     value: number;
     productId: number;
-    type: DiscountBoostSaleType;
+    type: DiscountCrossSellType;
   }>;
-  placementList: Array<PlacementBoostSaleEnum>;
+  placementList: Array<PlacementCrossSellEnum>;
   timeLife: {
     endDate?: string;
     startDate: string;

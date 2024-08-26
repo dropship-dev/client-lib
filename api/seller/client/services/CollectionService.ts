@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BoostSale } from '../models/BoostSale';
 import type { Collection } from '../models/Collection';
 import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
+import type { CrossSell } from '../models/CrossSell';
 import type { operatorCondition } from '../models/operatorCondition';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
@@ -132,7 +132,7 @@ export class CollectionService {
         price: number;
       }>;
     })>;
-    BoostSale: Array<BoostSale>;
+    CrossSell: Array<CrossSell>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
