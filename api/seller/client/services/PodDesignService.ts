@@ -135,19 +135,20 @@ export class PodDesignService {
   }: {
     requestBody: DuplicateDesignDto,
   }): CancelablePromise<{
-    isDraft: boolean;
-    sizeGuide: string;
-    podTemplateId: number;
-    isActive: boolean;
-    description: string;
-    name: string;
-    id: number;
-    storeId: string;
+    printArea: Array<any>;
     url: string;
     variantOption: Array<{
       total: number;
       name: string;
     }>;
+    isDraft: boolean;
+    isActive: boolean;
+    sizeGuide: string;
+    description: string;
+    name: string;
+    storeId: string;
+    podTemplateId: number;
+    id: number;
   }> {
     return this.httpRequest.request({
       method: 'POST',

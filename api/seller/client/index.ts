@@ -165,6 +165,7 @@ export type { ListAbandonmentOrdersDto } from './models/ListAbandonmentOrdersDto
 export type { LoginDto } from './models/LoginDto';
 export { LogoSize } from './models/LogoSize';
 export type { ManualFraudDetectionDto } from './models/ManualFraudDetectionDto';
+export { MarketingType } from './models/MarketingType';
 export type { MultiplePublishToStoreDto } from './models/MultiplePublishToStoreDto';
 export type { NameConditionDto } from './models/NameConditionDto';
 export type { NameDto } from './models/NameDto';
