@@ -2,37 +2,38 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BatchPayload } from '../models/BatchPayload';
 import type { BoostSale } from '../models/BoostSale';
+import type { BoostSaleDto } from '../models/BoostSaleDto';
+import type { BoostSaleType } from '../models/BoostSaleType';
 import type { Collection } from '../models/Collection';
-import type { CollectionStatus } from '../models/CollectionStatus';
-import type { CollectionType } from '../models/CollectionType';
-import type { CreateCollectionDto } from '../models/CreateCollectionDto';
-import type { operatorCondition } from '../models/operatorCondition';
+import type { Photos } from '../models/Photos';
+import type { PlacementBoostSaleEnum } from '../models/PlacementBoostSaleEnum';
 import type { Product } from '../models/Product';
-import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
-import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
+import type { ProductVariant } from '../models/ProductVariant';
+import type { UpdateCrossSellStatusDto } from '../models/UpdateCrossSellStatusDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class CollectionService {
+export class BoostSalesService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Collection Ok
+   * @returns BoostSale Ok
    * @throws ApiError
    */
-  public createCollection({
+  public createBoostSale({
     storeId,
     requestBody,
   }: {
     storeId: string,
-    requestBody: CreateCollectionDto,
-  }): CancelablePromise<Collection> {
+    requestBody: BoostSaleDto,
+  }): CancelablePromise<BoostSale> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/collection',
+      url: '/store/{storeId}/boost-sales',
       path: {
         'storeId': storeId,
       },
@@ -52,15 +53,15 @@ export class CollectionService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getAllCollection({
+  public getAllBoostSale({
     storeId,
     pageSize = 20,
     nextPageIndex,
     startDate,
     endDate,
     search,
-    collectionType,
-    collectionStatus,
+    crossSellType,
+    crossSellStatus,
   }: {
     storeId: string,
     pageSize?: number,
@@ -68,25 +69,23 @@ export class CollectionService {
     startDate?: string,
     endDate?: string,
     search?: string,
-    collectionType?: CollectionType,
-    collectionStatus?: CollectionStatus,
+    crossSellType?: Array<BoostSaleType>,
+    crossSellStatus?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<(Collection & {
-      Product: Array<(Product & {
-        ProductVariant: Array<{
-          compareAtPrice: number;
-          price: number;
-        }>;
+    data: Array<(BoostSale & {
+      Product: Array<Product>;
+      Collection: Array<(Collection & {
+        Product: Array<Product>;
       })>;
     })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/collection',
+      url: '/store/{storeId}/boost-sales',
       path: {
         'storeId': storeId,
       },
@@ -96,8 +95,8 @@ export class CollectionService {
         'startDate': startDate,
         'endDate': endDate,
         'search': search,
-        'collectionType': collectionType,
-        'collectionStatus': collectionStatus,
+        'crossSellType': crossSellType,
+        'crossSellStatus': crossSellStatus,
       },
       errors: {
         400: `Bad request`,
@@ -113,38 +112,75 @@ export class CollectionService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getCollection({
+  public getRandomCrossSell({
+    storeId,
+    placement,
+  }: {
+    storeId: string,
+    placement: PlacementBoostSaleEnum,
+  }): CancelablePromise<any> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/boost-sales/random/placement/{placement}',
+      path: {
+        'storeId': storeId,
+        'placement': placement,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getBoostSales({
     id,
     storeId,
-    isActiveProduct,
-    isEnableProduct,
-    deletedProduct,
   }: {
     id: number,
     storeId: string,
-    isActiveProduct?: boolean,
-    isEnableProduct?: boolean,
-    deletedProduct?: boolean,
-  }): CancelablePromise<(Collection & {
-    Product: Array<(Product & {
+  }): CancelablePromise<(BoostSale & {
+    rootProduct: (Product & {
+      ProductVariant: Array<ProductVariant>;
+    });
+    Product: Array<{
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
       ProductVariant: Array<{
         compareAtPrice: number;
         price: number;
       }>;
+      id: number;
+    }>;
+    Collection: Array<(Collection & {
+      Product: Array<{
+        isEnable: boolean;
+        isActive: boolean;
+        photos: Photos;
+        name: string;
+        ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+        }>;
+        id: number;
+      }>;
     })>;
-    BoostSale: Array<BoostSale>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/collection/{id}',
+      url: '/store/{storeId}/boost-sales/{id}',
       path: {
         'id': id,
         'storeId': storeId,
-      },
-      query: {
-        'isActiveProduct': isActiveProduct,
-        'isEnableProduct': isEnableProduct,
-        'deletedProduct': deletedProduct,
       },
       errors: {
         400: `Bad request`,
@@ -160,16 +196,48 @@ export class CollectionService {
    * @returns string Ok
    * @throws ApiError
    */
-  public deleteCollection({
+  public updateBoostSales({
+    id,
+    storeId,
+    requestBody,
+  }: {
+    id: number,
+    storeId: string,
+    requestBody: BoostSaleDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/boost-sales/{id}',
+      path: {
+        'id': id,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns BoostSale Ok
+   * @throws ApiError
+   */
+  public deleteBoostSales({
     id,
     storeId,
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<BoostSale> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/store/{storeId}/collection/{id}',
+      url: '/store/{storeId}/boost-sales/{id}',
       path: {
         'id': id,
         'storeId': storeId,
@@ -188,48 +256,16 @@ export class CollectionService {
    * @returns void
    * @throws ApiError
    */
-  public updateCollection({
-    id,
+  public updateStatusesBoostSales({
     storeId,
     requestBody,
   }: {
-    id: number,
     storeId: string,
-    requestBody: UpdateCollectionDto,
+    requestBody: UpdateCrossSellStatusDto,
   }): CancelablePromise<void> {
     return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/store/{storeId}/collection/{id}',
-      path: {
-        'id': id,
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns Product Ok
-   * @throws ApiError
-   */
-  public getProductByConditions({
-    storeId,
-    requestBody,
-  }: {
-    storeId: string,
-    requestBody: operatorCondition,
-  }): CancelablePromise<Array<Product>> {
-    return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/collection/get-products-by-conditions-collection',
+      url: '/store/{storeId}/boost-sales/{id}/status',
       path: {
         'storeId': storeId,
       },
@@ -246,54 +282,25 @@ export class CollectionService {
   }
 
   /**
-   * @returns string Ok
+   * @returns BatchPayload Ok
    * @throws ApiError
    */
-  public deleteManyCollection({
+  public deleteManyBoostSales({
     id,
     storeId,
   }: {
     id: Array<number>,
     storeId: string,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<BatchPayload> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/store/{storeId}/collection/delete-many-collection',
+      url: '/store/{storeId}/boost-sales/delete-many-boost-sales',
       path: {
         'storeId': storeId,
       },
       query: {
         'id': id,
       },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns void
-   * @throws ApiError
-   */
-  public updateStatusesCollection({
-    storeId,
-    requestBody,
-  }: {
-    storeId: string,
-    requestBody: UpdateCollectionStatusDto,
-  }): CancelablePromise<void> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/collection/status',
-      path: {
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
