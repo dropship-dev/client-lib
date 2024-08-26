@@ -1,19 +1,19 @@
-import type { CrossSellTriggerType } from './CrossSellTriggerType';
-import type { DiscountCrossSellType } from './DiscountCrossSellType';
+import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
+import type { DiscountBoostSaleType } from './DiscountBoostSaleType';
 import type { NameDto } from './NameDto';
-import type { PlacementCrossSellEnum } from './PlacementCrossSellEnum';
+import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
 export type BoughtTogetherType = {
     kind: BoughtTogetherType.kind;
     title: NameDto;
-    type: CrossSellTriggerType;
+    type: BoostSaleTriggerType;
     rootProductId: number;
     childrenProductIds: Array<number>;
     discounts: Array<{
         value: number;
         productId: number;
-        type: DiscountCrossSellType;
+        type: DiscountBoostSaleType;
     }>;
-    placementList: Array<PlacementCrossSellEnum>;
+    placementList: Array<PlacementBoostSaleEnum>;
     timeLife: {
         endDate?: string;
         startDate: string;

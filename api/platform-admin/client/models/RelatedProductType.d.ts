@@ -1,12 +1,12 @@
-import type { CrossSellTriggerType } from './CrossSellTriggerType';
+import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
 import type { NameDto } from './NameDto';
-import type { PlacementCrossSellEnum } from './PlacementCrossSellEnum';
+import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
 export type RelatedProductType = {
     kind: RelatedProductType.kind;
     title: NameDto;
-    type: CrossSellTriggerType;
+    type: BoostSaleTriggerType;
     ids: Array<number>;
-    placementList: Array<PlacementCrossSellEnum>;
+    placementList: Array<PlacementBoostSaleEnum>;
     timeLife: {
         endDate?: string;
         startDate: string;
