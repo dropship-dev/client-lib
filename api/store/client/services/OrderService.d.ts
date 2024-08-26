@@ -4,6 +4,7 @@ import type { CrossSellTriggerType } from '../models/CrossSellTriggerType';
 import type { CrossSellType } from '../models/CrossSellType';
 import type { DiscountCrossSell } from '../models/DiscountCrossSell';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
+import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
 import type { Product } from '../models/Product';
@@ -78,6 +79,7 @@ export declare class OrderService {
         startDate: string;
         storeId: string;
         triggerBy: CrossSellTriggerType;
+        marketingType: MarketingType;
         discount: DiscountCrossSell;
         placement: PlacementCrossSellType;
         status: boolean;
