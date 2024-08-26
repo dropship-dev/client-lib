@@ -1,5 +1,5 @@
 export type OrderItemDto = {
-    crossSellId?: number;
+    boostSaleId?: number;
     quantity: number;
     productVariantId: number;
 };
