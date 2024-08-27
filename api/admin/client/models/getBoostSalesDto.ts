@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type getCrossSellByProductDto = {
-  isRootProduct?: boolean;
-  quantity?: number;
+export type getBoostSalesDto = {
+  boostSaleId: number;
   productVariantId: number;
   productId: number;
 };
