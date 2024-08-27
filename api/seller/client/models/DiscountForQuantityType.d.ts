@@ -11,7 +11,6 @@ export type DiscountForQuantityType = {
     discounts: Array<{
         value: number;
         quantity: number;
-        productId: number;
         type: DiscountBoostSaleType;
     }>;
     timeLife: {
