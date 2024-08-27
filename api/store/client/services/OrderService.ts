@@ -2,15 +2,15 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BoostSaleTriggerType } from '../models/BoostSaleTriggerType';
+import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { CrossSellTriggerType } from '../models/CrossSellTriggerType';
-import type { CrossSellType } from '../models/CrossSellType';
-import type { DiscountCrossSell } from '../models/DiscountCrossSell';
+import type { DiscountBoostSale } from '../models/DiscountBoostSale';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
-import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
+import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
@@ -155,12 +155,12 @@ export class OrderService {
     endDate: string;
     startDate: string;
     storeId: string;
-    triggerBy: CrossSellTriggerType;
+    triggerBy: BoostSaleTriggerType;
     marketingType: MarketingType;
-    discount: DiscountCrossSell;
-    placement: PlacementCrossSellType;
+    discount: DiscountBoostSale;
+    placement: PlacementBoostSaleType;
     status: boolean;
-    type: CrossSellType;
+    type: BoostSaleType;
     name: string;
     id: number;
   }>> {
