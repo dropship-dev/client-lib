@@ -9,5 +9,7 @@ var FileType;
 (function (FileType) {
     FileType["TEMPLATE"] = "TEMPLATE";
     FileType["MOCKUP"] = "MOCKUP";
+    FileType["MOCKUP_BACKGROUD"] = "MOCKUP_BACKGROUD";
+    FileType["CUSTOM_MOCKUP"] = "CUSTOM_MOCKUP";
     FileType["DESIGN"] = "DESIGN";
 })(FileType || (exports.FileType = FileType = {}));

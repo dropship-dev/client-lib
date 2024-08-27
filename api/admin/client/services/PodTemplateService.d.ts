@@ -104,6 +104,7 @@ export declare class PodTemplateService {
             id: number;
         }>;
         id: number;
+        url: string;
         isFavorite: boolean;
     }>;
     /**

@@ -1,8 +1,8 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
+import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { Collection } from '../models/Collection';
-import type { CrossSell } from '../models/CrossSell';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
@@ -117,7 +117,7 @@ export declare class ProductService {
             variantOption: VariantOptions;
             id: number;
         };
-        CrossSell: Array<(CrossSell & {
+        BoostSale: Array<(BoostSale & {
             Product: Array<(Product & {
                 ProductVariant: Array<(ProductVariant & {
                     Product: {
@@ -136,7 +136,7 @@ export declare class ProductService {
             }>;
         })>;
         Collection: Array<(Collection & {
-            CrossSell: Array<(CrossSell & {
+            BoostSale: Array<(BoostSale & {
                 Product: Array<(Product & {
                     ProductVariant: Array<(ProductVariant & {
                         Product: {

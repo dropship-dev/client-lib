@@ -1,7 +1,5 @@
 import type { CreateElementDto } from '../models/CreateElementDto';
-import type { IPageDetail } from '../models/IPageDetail';
 import type { PodElement } from '../models/PodElement';
-import type { Record_string_any_ } from '../models/Record_string_any_';
 import type { UpdateElementDto } from '../models/UpdateElementDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -21,16 +19,23 @@ export declare class PodElementService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllElement({ page, limit, }: {
-        page?: number;
+    getAllElement({ nextPageIndex, limit, }: {
+        nextPageIndex?: number;
         limit?: number;
-    }): CancelablePromise<({
-        data?: any;
-        pageDetail?: any;
-    } | {
-        data: Record_string_any_;
-        pageDetail: IPageDetail;
-    })>;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            name: string;
+            PodElement: Array<{
+                url: string;
+                name: string;
+            }>;
+            id: number;
+        }>;
+    }>;
     /**
      * @returns PodElement Ok
      * @throws ApiError
