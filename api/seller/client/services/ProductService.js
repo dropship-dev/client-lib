@@ -127,7 +127,7 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns void
      * @throws ApiError
      */
     getProductByPermalink({ storeId, permalink, productId, }) {
