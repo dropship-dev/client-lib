@@ -101,6 +101,28 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
+    suggestionBoostSale({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/suggestion-boost-sales',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     captureStoreOrder({ storeId, orderId, paymentType, requestBody, bmClientInfo, }) {
         return this.httpRequest.request({
             method: 'POST',

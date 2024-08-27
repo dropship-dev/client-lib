@@ -121,6 +121,7 @@ export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GetAllStoresDto } from './models/GetAllStoresDto';
 export type { GetAutomationMetricStatisticsDto } from './models/GetAutomationMetricStatisticsDto';
+export type { getBoostSalesDto } from './models/getBoostSalesDto';
 export type { getCrossSellByProductDto } from './models/getCrossSellByProductDto';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto';

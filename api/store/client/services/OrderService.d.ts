@@ -3,6 +3,8 @@ import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
+import type { DiscountBoostSaleType } from '../models/DiscountBoostSaleType';
+import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
@@ -86,6 +88,19 @@ export declare class OrderService {
         type: BoostSaleType;
         name: string;
         id: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    suggestionBoostSale({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: Array<getBoostSalesDto>;
+    }): CancelablePromise<Array<{
+        quantity?: number;
+        value: number;
+        productId: number;
+        type: DiscountBoostSaleType;
     }>>;
     /**
      * @returns any Ok
