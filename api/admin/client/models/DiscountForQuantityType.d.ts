@@ -10,6 +10,7 @@ export type DiscountForQuantityType = {
     placementList: Array<PlacementBoostSaleEnum>;
     discounts: Array<{
         value: number;
+        quantity: number;
         productId: number;
         type: DiscountBoostSaleType;
     }>;
