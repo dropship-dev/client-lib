@@ -7,6 +7,8 @@ import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
+import type { DiscountBoostSaleType } from '../models/DiscountBoostSaleType';
+import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
@@ -167,6 +169,40 @@ export class OrderService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/suggestion-cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public suggestionBoostSale({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: Array<getBoostSalesDto>,
+  }): CancelablePromise<Array<{
+    quantity?: number;
+    value: number;
+    productId: number;
+    type: DiscountBoostSaleType;
+  }>> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/suggestion-boost-sales',
       path: {
         'storeId': storeId,
       },
