@@ -58,7 +58,7 @@ export declare class PodTemplateService {
      */
     getDetailTemplate({ id, selectAllVariant, }: {
         id: number;
-        selectAllVariant: boolean;
+        selectAllVariant?: boolean;
     }): CancelablePromise<{
         isStock: boolean;
         sku: string;
