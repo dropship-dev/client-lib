@@ -60,7 +60,7 @@ class ProductService {
         });
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     getProductByPermalink({ storeId, permalink, productId, }) {
