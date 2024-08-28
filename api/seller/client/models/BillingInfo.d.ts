@@ -4,11 +4,11 @@ import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 export type BillingInfo = {
     country: string;
     zipCode: string;
-    province?: string;
-    city?: string;
-    address2?: string;
-    address1?: string;
-    phone?: PhoneWithCountryCode;
-    name?: NameDto;
-    email?: EmailDto;
+    province?: string | null;
+    city?: string | null;
+    address2?: string | null;
+    address1?: string | null;
+    phone?: PhoneWithCountryCode | null;
+    name?: NameDto | null;
+    email?: EmailDto | null;
 };
