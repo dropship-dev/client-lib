@@ -40,12 +40,15 @@ class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getDetailTemplate({ id, }) {
+    getDetailTemplate({ id, selectAllVariant, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/template/{id}',
             path: {
                 'id': id,
+            },
+            query: {
+                'selectAllVariant': selectAllVariant,
             },
             errors: {
                 400: `Bad request`,

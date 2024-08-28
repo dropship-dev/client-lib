@@ -7,6 +7,7 @@ import type { PodFile } from '../models/PodFile';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
+import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -121,6 +122,7 @@ export declare class PodDesignService {
             sku: string;
             sizeGuide: string;
             podTemplateId: number;
+            variantOption: VariantOptions;
             description: string;
             name: string;
             PodFile: Array<PodFile>;

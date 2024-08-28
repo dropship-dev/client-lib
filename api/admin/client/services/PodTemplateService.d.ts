@@ -56,8 +56,9 @@ export declare class PodTemplateService {
      * @returns any Ok
      * @throws ApiError
      */
-    getDetailTemplate({ id, }: {
+    getDetailTemplate({ id, selectAllVariant, }: {
         id: number;
+        selectAllVariant: boolean;
     }): CancelablePromise<{
         isStock: boolean;
         sku: string;
@@ -88,6 +89,7 @@ export declare class PodTemplateService {
             supplierCost: number;
             sku: string;
             podTemplateId: number;
+            isEnable: boolean;
             isActive: boolean;
             variantOption: VariantOptionValues;
             name: string;
