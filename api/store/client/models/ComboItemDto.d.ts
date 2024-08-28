@@ -1,5 +1,5 @@
 export type ComboItemDto = {
-    crossSellId?: number;
+    boostSaleId?: number;
     quantity: number;
     comboVariantId: number;
 };
