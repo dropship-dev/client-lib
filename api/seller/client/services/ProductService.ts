@@ -3,15 +3,21 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
+import type { AvailableSet } from '../models/AvailableSet';
+import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
+import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
+import type { Photos } from '../models/Photos';
 import type { PlatformCostInfo } from '../models/PlatformCostInfo';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { Review } from '../models/Review';
 import type { Tag } from '../models/Tag';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
@@ -227,7 +233,7 @@ export class ProductService {
   }
 
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
   public getProductByPermalink({
@@ -238,7 +244,101 @@ export class ProductService {
     storeId: string,
     permalink?: string,
     productId?: number,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<{
+    Campaign: (Campaign & {
+      listDiscount: Array<Discount>;
+    });
+    VariantCombo: Array<(VariantCombo & {
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
+    })>;
+    ProductVariant: Array<(ProductVariant & {
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
+      PlatformVariant: PlatformVariant;
+    })>;
+    Review: Array<Review>;
+    GoogleTagManager: Array<{
+      tag: string;
+    }>;
+    GoogleAnalytic: Array<{
+      measurementId: string;
+    }>;
+    TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    FbPixel: Array<{
+      pixelId: string;
+    }>;
+    Tag: Array<Tag>;
+    PlatformProduct: {
+      variantOption: VariantOptions;
+      id: number;
+    };
+    BoostSale: Array<(BoostSale & {
+      Product: Array<(Product & {
+        ProductVariant: Array<(ProductVariant & {
+          Product: {
+            name: string;
+          };
+        })>;
+      })>;
+      Collection: Array<{
+        Product: Array<(Product & {
+          ProductVariant: Array<(ProductVariant & {
+            Product: {
+              name: string;
+            };
+          })>;
+        })>;
+      }>;
+    })>;
+    Collection: Array<(Collection & {
+      BoostSale: Array<(BoostSale & {
+        Product: Array<(Product & {
+          ProductVariant: Array<(ProductVariant & {
+            Product: {
+              name: string;
+            };
+          })>;
+        })>;
+        Collection: Array<{
+          Product: Array<(Product & {
+            ProductVariant: Array<(ProductVariant & {
+              Product: {
+                name: string;
+              };
+            })>;
+          })>;
+        }>;
+      })>;
+    })>;
+    updatedAt: string;
+    createdAt: string;
+    podTemplateId: number;
+    campaignId: string;
+    storeId: string;
+    platformProductId: number;
+    deleted: boolean;
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    variantOption: VariantOptions;
+    availableSet: AvailableSet;
+    SKU: string;
+    photos: Photos;
+    details: string;
+    description: string;
+    permalink: string;
+    name: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/permalink',
