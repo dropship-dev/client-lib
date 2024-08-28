@@ -87,8 +87,10 @@ export class PodTemplateService {
    */
   public getDetailTemplate({
     id,
+    selectAllVariant,
   }: {
     id: number,
+    selectAllVariant: boolean,
   }): CancelablePromise<{
     isStock: boolean;
     sku: string;
@@ -119,6 +121,7 @@ export class PodTemplateService {
       supplierCost: number;
       sku: string;
       podTemplateId: number;
+      isEnable: boolean;
       isActive: boolean;
       variantOption: VariantOptionValues;
       name: string;
@@ -143,6 +146,9 @@ export class PodTemplateService {
       url: '/pod/template/{id}',
       path: {
         'id': id,
+      },
+      query: {
+        'selectAllVariant': selectAllVariant,
       },
       errors: {
         400: `Bad request`,

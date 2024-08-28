@@ -11,7 +11,7 @@ export type UpdateDesignVariant = {
   variantOption: VariantOptionValues;
   comparePrice: number;
   price: number;
-  sku: string;
+  sku?: string;
   podTemplateVariantId: number;
   id?: number;
 };
