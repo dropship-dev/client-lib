@@ -12,7 +12,8 @@ export type CreateDesignDto = {
   storeId: string;
   name: string;
   description?: string;
-  sizeGuide: string;
+  keyFeature?: string;
+  sizeGuide?: string;
   supplierContract?: string;
   sku?: string;
   variantOption: Array<VariantOptionsPayLoad>;
