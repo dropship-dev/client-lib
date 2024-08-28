@@ -138,6 +138,7 @@ export type { GetAllStoresDto } from './models/GetAllStoresDto';
 export { GetAllTemplateDto } from './models/GetAllTemplateDto';
 export type { GetAllTemplateResponse } from './models/GetAllTemplateResponse';
 export type { GetAutomationMetricStatisticsDto } from './models/GetAutomationMetricStatisticsDto';
+export type { getBoostSalesDto } from './models/getBoostSalesDto';
 export type { getCrossSellByProductDto } from './models/getCrossSellByProductDto';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetListCategoryByCatalog } from './models/GetListCategoryByCatalog';
