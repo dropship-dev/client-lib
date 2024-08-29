@@ -1,9 +1,13 @@
 import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
 import type { DuplicateDesignDto } from '../models/DuplicateDesignDto';
+import type { FileType } from '../models/FileType';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
+import type { PodFileColors } from '../models/PodFileColors';
+import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
+import type { PodFileProperties } from '../models/PodFileProperties';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
@@ -127,7 +131,15 @@ export declare class PodDesignService {
             variantOption: VariantOptions;
             description: string;
             name: string;
-            PodFile: Array<PodFile>;
+            PodFile: Array<{
+                podPrintAreaId: number;
+                properties: PodFileProperties;
+                color: PodFileColors;
+                groupLayers: PodFileGroupLayers;
+                fileName: string;
+                type: FileType;
+                id: number;
+            }>;
             id: number;
             storeId: string;
         };
