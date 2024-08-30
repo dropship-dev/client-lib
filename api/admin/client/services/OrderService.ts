@@ -83,24 +83,47 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
+    data: Array<{
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
       FraudDetection: Array<FraudDetection>;
       OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
-          Product: Product;
+          Product: {
+            name: string;
+            Campaign: Campaign;
+            id: number;
+          };
         });
         ProductVariant: (ProductVariant & {
-          Product: Product;
-          PlatformVariant: PlatformVariant;
+          Product: {
+            name: string;
+            Campaign: Campaign;
+            id: number;
+          };
+          PlatformVariant: {
+            price: number;
+            name: string;
+            id: number;
+          };
         });
       })>;
       Transaction: Array<Transaction>;
       Payment: Payment;
-      Store: (Store & {
+      Store: {
+        name: string;
         FraudDetection: Array<FraudDetection>;
-      });
-    })>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -552,13 +575,18 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
+    data: Array<{
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
       OrderRefund: Array<OrderRefund>;
       OrderItem: Array<(OrderItem & {
         VariantCombo: (VariantCombo & {
-          Product: (Product & {
+          Product: {
+            name: string;
             Campaign: Campaign;
-          });
+          };
         });
         ProductVariant: (ProductVariant & {
           Product: {
@@ -579,7 +607,12 @@ export class OrderService {
         type: PaymentType;
       };
       Store: Store;
-    })>;
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
