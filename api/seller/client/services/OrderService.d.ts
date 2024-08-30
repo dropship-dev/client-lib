@@ -6,6 +6,7 @@ import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
+import type { OrderStatus } from '../models/OrderStatus';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -62,13 +63,18 @@ export declare class OrderService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<(Order & {
+        data: Array<{
+            gatewayTransactionId: string;
+            total: number;
+            email: string;
+            name: string;
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: (Product & {
+                    Product: {
+                        name: string;
                         Campaign: Campaign;
-                    });
+                    };
                 });
                 ProductVariant: (ProductVariant & {
                     Product: {
@@ -89,7 +95,12 @@ export declare class OrderService {
                 type: PaymentType;
             };
             Store: Store;
-        })>;
+            createdAt: string;
+            status: OrderStatus;
+            id: string;
+            disputeStatus: OrderDisputeStatus;
+            fulfillmentStatus: FulfillmentStatus;
+        }>;
     }>;
     /**
      * @returns any Ok
