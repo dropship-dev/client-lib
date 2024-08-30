@@ -181,11 +181,11 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, crossSellId, }: {
+    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleIds, }: {
         storeId: string;
         variantIds?: Array<number>;
         comboIds?: Array<number>;
-        crossSellId?: Array<number>;
+        boostSaleIds?: Array<number>;
     }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>>;
     /**
      * @returns any Ok

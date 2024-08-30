@@ -1,11 +1,13 @@
+import type { BoostSaleType } from './BoostSaleType';
 import type { ProductVariant } from './ProductVariant';
 export type getVariantsType = (ProductVariant & {
     deleted: boolean;
     isStock: boolean;
     Product?: {
-        CrossSell: {
+        boostSale: {
             id?: (number | string);
             status?: boolean;
+            type?: BoostSaleType | null;
         };
         platformProductId: number | null;
         name: string;
