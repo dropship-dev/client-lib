@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateElementDto } from '../models/CreateElementDto';
+import type { IPageDetail } from '../models/IPageDetail';
 import type { PodElement } from '../models/PodElement';
 import type { UpdateElementDto } from '../models/UpdateElementDto';
 
@@ -44,30 +45,28 @@ export class PodElementService {
    * @throws ApiError
    */
   public getAllElement({
-    nextPageIndex,
+    page,
     limit,
   }: {
-    nextPageIndex?: number,
+    page?: number,
     limit?: number,
   }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
-    total: number;
     data: Array<{
       name: string;
       PodElement: Array<{
         url: string;
         name: string;
       }>;
+      order: number;
       id: number;
     }>;
+    pageDetail: IPageDetail;
   }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/element',
       query: {
-        'nextPageIndex': nextPageIndex,
+        'page': page,
         'limit': limit,
       },
       errors: {
