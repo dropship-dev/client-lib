@@ -29,12 +29,12 @@ class PodElementService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllElement({ nextPageIndex, limit, }) {
+    getAllElement({ page, limit, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/pod/element',
             query: {
-                'nextPageIndex': nextPageIndex,
+                'page': page,
                 'limit': limit,
             },
             errors: {
