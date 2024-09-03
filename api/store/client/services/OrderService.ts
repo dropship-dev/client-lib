@@ -7,7 +7,6 @@ import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
-import type { DiscountBoostSaleType } from '../models/DiscountBoostSaleType';
 import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
@@ -194,12 +193,7 @@ export class OrderService {
   }: {
     storeId: string,
     requestBody: Array<getBoostSalesDto>,
-  }): CancelablePromise<Array<{
-    quantity?: number;
-    value: number;
-    productId: number;
-    type: DiscountBoostSaleType;
-  }>> {
+  }): CancelablePromise<Array<any>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/suggestion-boost-sales',
