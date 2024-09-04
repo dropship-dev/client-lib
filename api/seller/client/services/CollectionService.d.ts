@@ -4,6 +4,7 @@ import type { CollectionStatus } from '../models/CollectionStatus';
 import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
+import type { Photos } from '../models/Photos';
 import type { Product } from '../models/Product';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
@@ -40,10 +41,14 @@ export declare class CollectionService {
         total: number;
         data: Array<(Collection & {
             Product: Array<{
+                permalink: string;
+                photos: Photos;
+                name: string;
                 ProductVariant: Array<{
                     compareAtPrice: number;
                     price: number;
                 }>;
+                id: number;
             }>;
         })>;
     }>;
@@ -58,12 +63,16 @@ export declare class CollectionService {
         isEnableProduct?: boolean;
         deletedProduct?: boolean;
     }): CancelablePromise<(Collection & {
-        Product: Array<(Product & {
+        Product: Array<{
+            permalink: string;
+            photos: Photos;
+            name: string;
             ProductVariant: Array<{
                 compareAtPrice: number;
                 price: number;
             }>;
-        })>;
+            id: number;
+        }>;
         BoostSale: Array<BoostSale>;
     })>;
     /**
