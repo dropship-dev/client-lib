@@ -42,7 +42,6 @@ export class OrderService {
     fulfillmentStatus,
     disputeStatus,
     search,
-    email,
     productName,
     startDate,
     endDate,
@@ -67,10 +66,6 @@ export class OrderService {
     fulfillmentStatus?: Array<FulfillmentStatus>,
     disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
-    /**
-     * filter by customer email (email contain)
-     */
-    email?: string,
     /**
      * filter by product name (product name contain)
      */
@@ -103,6 +98,7 @@ export class OrderService {
           Product: {
             name: string;
             Campaign: Campaign;
+            id: number;
           };
           PlatformVariant: {
             price: number;
@@ -138,7 +134,6 @@ export class OrderService {
         'fulfillmentStatus': fulfillmentStatus,
         'disputeStatus': disputeStatus,
         'search': search,
-        'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,
