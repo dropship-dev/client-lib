@@ -42,6 +42,9 @@ export declare class CollectionService {
         data: Array<(Collection & {
             Product: Array<{
                 permalink: string;
+                deleted: boolean;
+                isEnable: boolean;
+                isActive: boolean;
                 photos: Photos;
                 name: string;
                 ProductVariant: Array<{
@@ -65,6 +68,9 @@ export declare class CollectionService {
     }): CancelablePromise<(Collection & {
         Product: Array<{
             permalink: string;
+            deleted: boolean;
+            isEnable: boolean;
+            isActive: boolean;
             photos: Photos;
             name: string;
             ProductVariant: Array<{
