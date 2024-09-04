@@ -39,12 +39,12 @@ export declare class CollectionService {
         prePageIndex: number;
         total: number;
         data: Array<(Collection & {
-            Product: Array<(Product & {
+            Product: Array<{
                 ProductVariant: Array<{
                     compareAtPrice: number;
                     price: number;
                 }>;
-            })>;
+            }>;
         })>;
     }>;
     /**
