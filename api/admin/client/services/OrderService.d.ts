@@ -11,6 +11,7 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
+import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -69,11 +70,7 @@ export declare class OrderService {
                 tracking: string;
             }>;
             Transaction: Array<Transaction>;
-            Payment: {
-                email: string;
-                name: string;
-                type: PaymentType;
-            };
+            Payment: Payment;
             Store: {
                 primaryDomain: string;
                 name: string;
