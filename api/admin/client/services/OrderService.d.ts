@@ -1,5 +1,4 @@
 import type { BillingInfo } from '../models/BillingInfo';
-import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
@@ -60,33 +59,15 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<{
+            latestTotal: number;
             gatewayTransactionId: string;
             total: number;
             email: string;
             name: string;
             FraudDetection: Array<FraudDetection>;
-            OrderRefund: Array<OrderRefund>;
-            OrderItem: Array<(OrderItem & {
-                VariantCombo: (VariantCombo & {
-                    Product: {
-                        name: string;
-                        Campaign: Campaign;
-                        id: number;
-                    };
-                });
-                ProductVariant: (ProductVariant & {
-                    Product: {
-                        name: string;
-                        Campaign: Campaign;
-                        id: number;
-                    };
-                    PlatformVariant: {
-                        price: number;
-                        name: string;
-                        id: number;
-                    };
-                });
-            })>;
+            OrderItem: Array<{
+                tracking: string;
+            }>;
             Transaction: Array<Transaction>;
             Payment: {
                 email: string;
@@ -94,6 +75,7 @@ export declare class OrderService {
                 type: PaymentType;
             };
             Store: {
+                primaryDomain: string;
                 name: string;
                 FraudDetection: Array<FraudDetection>;
                 id: string;
@@ -395,38 +377,26 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<{
+            latestTotal: number;
             gatewayTransactionId: string;
             total: number;
             email: string;
             name: string;
-            OrderRefund: Array<OrderRefund>;
-            OrderItem: Array<(OrderItem & {
-                VariantCombo: (VariantCombo & {
-                    Product: {
-                        name: string;
-                        Campaign: Campaign;
-                    };
-                });
-                ProductVariant: (ProductVariant & {
-                    Product: {
-                        name: string;
-                        Campaign: Campaign;
-                        id: number;
-                    };
-                    PlatformVariant: {
-                        price: number;
-                        name: string;
-                        id: number;
-                    };
-                });
-            })>;
+            OrderItem: Array<{
+                tracking: string;
+            }>;
             Transaction: Array<Transaction>;
             Payment: {
                 email: string;
                 name: string;
                 type: PaymentType;
             };
-            Store: Store;
+            Store: {
+                primaryDomain: string;
+                name: string;
+                FraudDetection: Array<FraudDetection>;
+                id: string;
+            };
             createdAt: string;
             status: OrderStatus;
             id: string;
