@@ -14,6 +14,7 @@ import type { PaymentType } from '../models/PaymentType';
 import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -184,7 +185,7 @@ export class OrderService {
   }
 
   /**
-   * @returns any Ok
+   * @returns SuggestionResponseDto Ok
    * @throws ApiError
    */
   public suggestionBoostSale({
@@ -193,7 +194,7 @@ export class OrderService {
   }: {
     storeId: string,
     requestBody: Array<getBoostSalesDto>,
-  }): CancelablePromise<Array<any>> {
+  }): CancelablePromise<Array<SuggestionResponseDto>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/suggestion-boost-sales',
