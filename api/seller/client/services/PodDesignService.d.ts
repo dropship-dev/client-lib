@@ -109,6 +109,17 @@ export declare class PodDesignService {
     detailMyDesign({ id, }: {
         id: number;
     }): CancelablePromise<{
+        templateVariant: Array<{
+            faPrice: number;
+            minSellingPrice: number;
+            supplierCost: number;
+            sku: string;
+            podTemplateId: number;
+            variantOption: VariantOptionValues;
+            name: string;
+            id: number;
+            isSelected: boolean;
+        }>;
         designVariant: Array<{
             sku: string;
             templateVariantId: number;
@@ -147,9 +158,8 @@ export declare class PodDesignService {
             faPrice: number;
             supplierCost: number;
             name: string;
-            PodFile: Array<PodFile>;
             id: number;
-            File: PodFile;
+            PodFile: PodFile;
         }>;
         templateInformation: {
             blank: {
