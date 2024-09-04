@@ -170,7 +170,7 @@ export type { OrderTrackingRecoveredStatus } from './models/OrderTrackingRecover
 export { OrderTrackingRecoveredStatusDto } from './models/OrderTrackingRecoveredStatusDto';
 export type { Payment } from './models/Payment';
 export { PaymentMethodType } from './models/PaymentMethodType';
-export { PaymentType } from './models/PaymentType';
+export type { PaymentType } from './models/PaymentType';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';

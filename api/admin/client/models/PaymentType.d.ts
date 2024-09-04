@@ -1,5 +1,1 @@
-export declare enum PaymentType {
-    PAYPAL = "PAYPAL",
-    STRIPE = "STRIPE",
-    CLOVER = "CLOVER"
-}
+export type PaymentType = {};

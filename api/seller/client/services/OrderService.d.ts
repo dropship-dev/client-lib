@@ -27,7 +27,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
         /**
          * filter by store ID
          */
@@ -44,10 +44,6 @@ export declare class OrderService {
         fulfillmentStatus?: Array<FulfillmentStatus>;
         disputeStatus?: Array<OrderDisputeStatus>;
         search?: string;
-        /**
-         * filter by customer email (email contain)
-         */
-        email?: string;
         /**
          * filter by product name (product name contain)
          */
@@ -80,6 +76,7 @@ export declare class OrderService {
                     Product: {
                         name: string;
                         Campaign: Campaign;
+                        id: number;
                     };
                     PlatformVariant: {
                         price: number;

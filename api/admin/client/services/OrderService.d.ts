@@ -12,7 +12,6 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -89,7 +88,11 @@ export declare class OrderService {
                 });
             })>;
             Transaction: Array<Transaction>;
-            Payment: Payment;
+            Payment: {
+                email: string;
+                name: string;
+                type: PaymentType;
+            };
             Store: {
                 name: string;
                 FraudDetection: Array<FraudDetection>;
@@ -146,7 +149,12 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Payment: Payment;
+        Payment: {
+            email: string;
+            name: string;
+            type: PaymentType;
+            id: number;
+        };
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
@@ -219,7 +227,12 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Payment: Payment;
+        Payment: {
+            email: string;
+            name: string;
+            type: PaymentType;
+            id: number;
+        };
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
@@ -349,7 +362,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, email, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
         /**
          * filter by store ID
          */
@@ -366,10 +379,6 @@ export declare class OrderService {
         fulfillmentStatus?: Array<FulfillmentStatus>;
         disputeStatus?: Array<OrderDisputeStatus>;
         search?: string;
-        /**
-         * filter by customer email (email contain)
-         */
-        email?: string;
         /**
          * filter by product name (product name contain)
          */
@@ -402,6 +411,7 @@ export declare class OrderService {
                     Product: {
                         name: string;
                         Campaign: Campaign;
+                        id: number;
                     };
                     PlatformVariant: {
                         price: number;
