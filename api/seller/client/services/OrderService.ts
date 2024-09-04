@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Campaign } from '../models/Campaign';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -82,38 +81,26 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
+      latestTotal: number;
       gatewayTransactionId: string;
       total: number;
       email: string;
       name: string;
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-            id: number;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
       };
-      Store: Store;
+      Store: {
+        primaryDomain: string;
+        name: string;
+        FraudDetection: Array<FraudDetection>;
+        id: string;
+      };
       createdAt: string;
       status: OrderStatus;
       id: string;
