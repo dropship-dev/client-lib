@@ -246,6 +246,7 @@ export { StoreStatus } from './models/StoreStatus';
 export { StoreType } from './models/StoreType';
 export type { StoreUser } from './models/StoreUser';
 export type { SubscribeTopicDto } from './models/SubscribeTopicDto';
+export type { SuggestionResponseDto } from './models/SuggestionResponseDto';
 export type { SyncBalanceAmount } from './models/SyncBalanceAmount';
 export { SyncTrackingStatus } from './models/SyncTrackingStatus';
 export type { Tag } from './models/Tag';

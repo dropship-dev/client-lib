@@ -98,7 +98,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns SuggestionResponseDto Ok
      * @throws ApiError
      */
     suggestionBoostSale({ storeId, requestBody, }) {

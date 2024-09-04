@@ -10,6 +10,7 @@ import type { PaymentType } from '../models/PaymentType';
 import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -89,13 +90,13 @@ export declare class OrderService {
         id: number;
     }>>;
     /**
-     * @returns any Ok
+     * @returns SuggestionResponseDto Ok
      * @throws ApiError
      */
     suggestionBoostSale({ storeId, requestBody, }: {
         storeId: string;
         requestBody: Array<getBoostSalesDto>;
-    }): CancelablePromise<Array<any>>;
+    }): CancelablePromise<Array<SuggestionResponseDto>>;
     /**
      * @returns any Ok
      * @throws ApiError
