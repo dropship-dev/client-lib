@@ -147,6 +147,9 @@ export class OrderService {
   }): CancelablePromise<Array<{
     suggestionProduct: Array<{
       permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
       photos: Photos;
       name: string;
       ProductVariant: Array<ProductVariant>;
@@ -154,6 +157,9 @@ export class OrderService {
     }>;
     Product: Array<{
       permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
       photos: Photos;
       name: string;
       ProductVariant: Array<ProductVariant>;
