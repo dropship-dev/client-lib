@@ -7,7 +7,6 @@ import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
-import type { DiscountBoostSaleType } from '../models/DiscountBoostSaleType';
 import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
@@ -15,6 +14,7 @@ import type { PaymentType } from '../models/PaymentType';
 import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
 import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -185,7 +185,7 @@ export class OrderService {
   }
 
   /**
-   * @returns any Ok
+   * @returns SuggestionResponseDto Ok
    * @throws ApiError
    */
   public suggestionBoostSale({
@@ -194,12 +194,7 @@ export class OrderService {
   }: {
     storeId: string,
     requestBody: Array<getBoostSalesDto>,
-  }): CancelablePromise<Array<{
-    quantity?: number;
-    value: number;
-    productId: number;
-    type: DiscountBoostSaleType;
-  }>> {
+  }): CancelablePromise<Array<SuggestionResponseDto>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/suggestion-boost-sales',
