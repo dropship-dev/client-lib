@@ -10,5 +10,5 @@ var AsyncTaskType;
     AsyncTaskType["EXPORT_ORDER"] = "EXPORT_ORDER";
     AsyncTaskType["EXPORT_ACCOUNTANCY"] = "EXPORT_ACCOUNTANCY";
     AsyncTaskType["GENERATE_PNG"] = "GENERATE_PNG";
-    AsyncTaskType["SENT_MAIL"] = "SENT_MAIL";
+    AsyncTaskType["SEND_MAIL"] = "SEND_MAIL";
 })(AsyncTaskType || (exports.AsyncTaskType = AsyncTaskType = {}));
