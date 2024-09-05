@@ -196,8 +196,8 @@ export class StoreService {
   }): CancelablePromise<Array<{
     OrderItem: Array<{
       carrier: string;
-      tracking: string;
       quantity: number;
+      tracking: string;
       price: number;
       VariantCombo: {
         photo: string;

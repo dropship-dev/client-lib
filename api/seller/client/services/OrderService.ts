@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Campaign } from '../models/Campaign';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -10,6 +9,7 @@ import type { Order } from '../models/Order';
 import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
+import type { OrderStatus } from '../models/OrderStatus';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -41,7 +41,6 @@ export class OrderService {
     fulfillmentStatus,
     disputeStatus,
     search,
-    email,
     productName,
     startDate,
     endDate,
@@ -67,10 +66,6 @@ export class OrderService {
     disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
-     * filter by customer email (email contain)
-     */
-    email?: string,
-    /**
      * filter by product name (product name contain)
      */
     productName?: string,
@@ -85,34 +80,33 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: (Product & {
-            Campaign: Campaign;
-          });
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
+    data: Array<{
+      latestTotal: number;
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
       };
-      Store: Store;
-    })>;
+      Store: {
+        primaryDomain: string;
+        name: string;
+        FraudDetection: Array<FraudDetection>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -127,7 +121,6 @@ export class OrderService {
         'fulfillmentStatus': fulfillmentStatus,
         'disputeStatus': disputeStatus,
         'search': search,
-        'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,

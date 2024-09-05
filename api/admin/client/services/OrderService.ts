@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BillingInfo } from '../models/BillingInfo';
-import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
@@ -83,24 +82,30 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
+    data: Array<{
+      latestTotal: number;
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
       FraudDetection: Array<FraudDetection>;
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: Product;
-        });
-        ProductVariant: (ProductVariant & {
-          Product: Product;
-          PlatformVariant: PlatformVariant;
-        });
-      })>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: Payment;
-      Store: (Store & {
+      Store: {
+        primaryDomain: string;
+        name: string;
         FraudDetection: Array<FraudDetection>;
-      });
-    })>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -508,7 +513,6 @@ export class OrderService {
     fulfillmentStatus,
     disputeStatus,
     search,
-    email,
     productName,
     startDate,
     endDate,
@@ -534,10 +538,6 @@ export class OrderService {
     disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
-     * filter by customer email (email contain)
-     */
-    email?: string,
-    /**
      * filter by product name (product name contain)
      */
     productName?: string,
@@ -552,34 +552,33 @@ export class OrderService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(Order & {
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: (Product & {
-            Campaign: Campaign;
-          });
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
+    data: Array<{
+      latestTotal: number;
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
       };
-      Store: Store;
-    })>;
+      Store: {
+        primaryDomain: string;
+        name: string;
+        FraudDetection: Array<FraudDetection>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -594,7 +593,6 @@ export class OrderService {
         'fulfillmentStatus': fulfillmentStatus,
         'disputeStatus': disputeStatus,
         'search': search,
-        'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,
