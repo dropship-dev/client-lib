@@ -11,4 +11,5 @@ var AsyncTaskStatus;
     AsyncTaskStatus["FAILED"] = "FAILED";
     AsyncTaskStatus["PROCESSING"] = "PROCESSING";
     AsyncTaskStatus["COMPLETED"] = "COMPLETED";
+    AsyncTaskStatus["RETRY_FAILED"] = "RETRY_FAILED";
 })(AsyncTaskStatus || (exports.AsyncTaskStatus = AsyncTaskStatus = {}));
