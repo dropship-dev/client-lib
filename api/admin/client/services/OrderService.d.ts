@@ -1,6 +1,7 @@
 import type { BillingInfo } from '../models/BillingInfo';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
+import type { FraudDetectionStatusType } from '../models/FraudDetectionStatusType';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -65,7 +66,10 @@ export declare class OrderService {
         fulfillmentAgencyId: number;
         id: string;
     }): CancelablePromise<{
-        FraudDetection: Array<FraudDetection>;
+        FraudDetection: Array<{
+            humanFraudDetect: FraudDetectionStatusType;
+            systemFraudDetect: FraudDetectionStatusType;
+        }>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
@@ -77,9 +81,12 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Store: (Store & {
+        Store: {
+            primaryDomain: string;
+            name: string;
             FraudDetection: Array<FraudDetection>;
-        });
+            id: string;
+        };
         updatedAt: string;
         createdAt: string;
         disputeStatus: OrderDisputeStatus;
@@ -170,7 +177,10 @@ export declare class OrderService {
             total: number;
             email: string;
             name: string;
-            FraudDetection: Array<FraudDetection>;
+            FraudDetection: Array<{
+                humanFraudDetect: FraudDetectionStatusType;
+                systemFraudDetect: FraudDetectionStatusType;
+            }>;
             OrderItem: Array<{
                 tracking: string;
             }>;
@@ -184,7 +194,10 @@ export declare class OrderService {
             Store: {
                 primaryDomain: string;
                 name: string;
-                FraudDetection: Array<FraudDetection>;
+                FraudDetection: Array<{
+                    humanFraudDetect: FraudDetectionStatusType;
+                    systemFraudDetect: FraudDetectionStatusType;
+                }>;
                 id: string;
             };
             createdAt: string;
@@ -201,7 +214,10 @@ export declare class OrderService {
     manualFraudDetection({ requestBody, }: {
         requestBody: ManualFraudDetectionDto;
     }): CancelablePromise<({
-        FraudDetection: Array<FraudDetection>;
+        FraudDetection: Array<{
+            humanFraudDetect: FraudDetectionStatusType;
+            systemFraudDetect: FraudDetectionStatusType;
+        }>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
@@ -213,9 +229,12 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Store: (Store & {
+        Store: {
+            primaryDomain: string;
+            name: string;
             FraudDetection: Array<FraudDetection>;
-        });
+            id: string;
+        };
         updatedAt: string;
         createdAt: string;
         disputeStatus: OrderDisputeStatus;
@@ -401,7 +420,6 @@ export declare class OrderService {
             Store: {
                 primaryDomain: string;
                 name: string;
-                FraudDetection: Array<FraudDetection>;
                 id: string;
             };
             createdAt: string;

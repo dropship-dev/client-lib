@@ -76,7 +76,6 @@ export declare class OrderService {
             Store: {
                 primaryDomain: string;
                 name: string;
-                FraudDetection: Array<FraudDetection>;
                 id: string;
             };
             createdAt: string;
@@ -109,6 +108,7 @@ export declare class OrderService {
             email: string;
             name: string;
             type: PaymentType;
+            id: number;
         };
         Store: Store;
     })>;
