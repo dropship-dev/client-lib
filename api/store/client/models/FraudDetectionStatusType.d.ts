@@ -1,5 +1,5 @@
 export declare enum FraudDetectionStatusType {
-    FRAUD = "FRAUD",
     TRUSTED = "TRUSTED",
+    FRAUD = "FRAUD",
     NO_BEHAVIOR = "NO_BEHAVIOR"
 }

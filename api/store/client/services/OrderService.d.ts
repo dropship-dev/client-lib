@@ -3,14 +3,14 @@ import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
-import type { DiscountBoostSaleType } from '../models/DiscountBoostSaleType';
 import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
+import type { Photos } from '../models/Photos';
 import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
-import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -68,12 +68,26 @@ export declare class OrderService {
         storeId: string;
         requestBody: Array<getCrossSellByProductDto>;
     }): CancelablePromise<Array<{
-        suggestionProduct: Array<(Product & {
+        suggestionProduct: Array<{
+            permalink: string;
+            deleted: boolean;
+            isEnable: boolean;
+            isActive: boolean;
+            photos: Photos;
+            name: string;
             ProductVariant: Array<ProductVariant>;
-        })>;
-        Product: Array<(Product & {
+            id: number;
+        }>;
+        Product: Array<{
+            permalink: string;
+            deleted: boolean;
+            isEnable: boolean;
+            isActive: boolean;
+            photos: Photos;
+            name: string;
             ProductVariant: Array<ProductVariant>;
-        })>;
+            id: number;
+        }>;
         rootProductId: number;
         updatedAt: string;
         createdAt: string;
@@ -90,18 +104,13 @@ export declare class OrderService {
         id: number;
     }>>;
     /**
-     * @returns any Ok
+     * @returns SuggestionResponseDto Ok
      * @throws ApiError
      */
     suggestionBoostSale({ storeId, requestBody, }: {
         storeId: string;
         requestBody: Array<getBoostSalesDto>;
-    }): CancelablePromise<Array<{
-        quantity?: number;
-        value: number;
-        productId: number;
-        type: DiscountBoostSaleType;
-    }>>;
+    }): CancelablePromise<Array<SuggestionResponseDto>>;
     /**
      * @returns any Ok
      * @throws ApiError
