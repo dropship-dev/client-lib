@@ -8,4 +8,5 @@ export enum AsyncTaskStatus {
   FAILED = 'FAILED',
   PROCESSING = 'PROCESSING',
   COMPLETED = 'COMPLETED',
+  RETRY_FAILED = 'RETRY_FAILED',
 }
