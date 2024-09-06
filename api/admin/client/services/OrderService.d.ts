@@ -11,7 +11,6 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -34,56 +33,6 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class OrderService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
-        fulfillmentAgencyId: number;
-        pageSize?: number;
-        nextPageIndex?: string;
-        storeId?: string;
-        paymentStatus?: Array<TransactionStatus>;
-        fulfillmentStatus?: Array<FulfillmentStatus>;
-        search?: string;
-        disputeStatus?: Array<OrderDisputeStatus>;
-        productName?: string;
-        startDate?: string;
-        endDate?: string;
-        startTotal?: number;
-        endTotal?: number;
-        gateway?: Array<number>;
-        fraudStatus?: Array<FraudStatusType>;
-    }): CancelablePromise<{
-        orderBy: string;
-        nextPageIndex: string;
-        prePageIndex: string;
-        total: number;
-        data: Array<{
-            latestTotal: number;
-            gatewayTransactionId: string;
-            total: number;
-            email: string;
-            name: string;
-            FraudDetection: Array<FraudDetection>;
-            OrderItem: Array<{
-                tracking: string;
-            }>;
-            Transaction: Array<Transaction>;
-            Payment: Payment;
-            Store: {
-                primaryDomain: string;
-                name: string;
-                FraudDetection: Array<FraudDetection>;
-                id: string;
-            };
-            createdAt: string;
-            status: OrderStatus;
-            id: string;
-            disputeStatus: OrderDisputeStatus;
-            fulfillmentStatus: FulfillmentStatus;
-        }>;
-    }>;
     /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
@@ -128,12 +77,6 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Payment: {
-            email: string;
-            name: string;
-            type: PaymentType;
-            id: number;
-        };
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
@@ -186,6 +129,70 @@ export declare class OrderService {
         id: string;
         fraudStatus: FraudStatusType;
         storeMapper: any;
+        Payment: {
+            email: string;
+            name: string;
+            type: PaymentType;
+            id: number;
+            token: string;
+            secretKey: string;
+            publishableKey: string;
+        };
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllOrders({ fulfillmentAgencyId, pageSize, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
+        fulfillmentAgencyId: number;
+        pageSize?: number;
+        nextPageIndex?: string;
+        storeId?: string;
+        paymentStatus?: Array<TransactionStatus>;
+        fulfillmentStatus?: Array<FulfillmentStatus>;
+        search?: string;
+        disputeStatus?: Array<OrderDisputeStatus>;
+        productName?: string;
+        startDate?: string;
+        endDate?: string;
+        startTotal?: number;
+        endTotal?: number;
+        gateway?: Array<number>;
+        fraudStatus?: Array<FraudStatusType>;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            latestTotal: number;
+            gatewayTransactionId: string;
+            total: number;
+            email: string;
+            name: string;
+            FraudDetection: Array<FraudDetection>;
+            OrderItem: Array<{
+                tracking: string;
+            }>;
+            Transaction: Array<Transaction>;
+            Payment: {
+                email: string;
+                name: string;
+                type: PaymentType;
+                id: number;
+            };
+            Store: {
+                primaryDomain: string;
+                name: string;
+                FraudDetection: Array<FraudDetection>;
+                id: string;
+            };
+            createdAt: string;
+            status: OrderStatus;
+            id: string;
+            disputeStatus: OrderDisputeStatus;
+            fulfillmentStatus: FulfillmentStatus;
+        }>;
     }>;
     /**
      * @returns any Ok
@@ -206,12 +213,6 @@ export declare class OrderService {
             });
         })>;
         Transaction: Array<Transaction>;
-        Payment: {
-            email: string;
-            name: string;
-            type: PaymentType;
-            id: number;
-        };
         Store: (Store & {
             FraudDetection: Array<FraudDetection>;
         });
@@ -264,6 +265,15 @@ export declare class OrderService {
         id: string;
         fraudStatus: FraudStatusType;
         storeMapper: any;
+        Payment: {
+            email: string;
+            name: string;
+            type: PaymentType;
+            id: number;
+            token: string;
+            secretKey: string;
+            publishableKey: string;
+        };
     } | {
         FraudDetection: Array<FraudDetection>;
         Wallet: Array<Wallet>;

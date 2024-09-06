@@ -7,40 +7,6 @@ class OrderService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/order',
-            query: {
-                'pageSize': pageSize,
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'nextPageIndex': nextPageIndex,
-                'storeId': storeId,
-                'paymentStatus': paymentStatus,
-                'fulfillmentStatus': fulfillmentStatus,
-                'search': search,
-                'disputeStatus': disputeStatus,
-                'productName': productName,
-                'startDate': startDate,
-                'endDate': endDate,
-                'startTotal': startTotal,
-                'endTotal': endTotal,
-                'gateway': gateway,
-                'fraudStatus': fraudStatus,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
@@ -104,6 +70,40 @@ class OrderService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllOrders({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, storeId, paymentStatus, fulfillmentStatus, search, disputeStatus, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/order',
+            query: {
+                'pageSize': pageSize,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'nextPageIndex': nextPageIndex,
+                'storeId': storeId,
+                'paymentStatus': paymentStatus,
+                'fulfillmentStatus': fulfillmentStatus,
+                'search': search,
+                'disputeStatus': disputeStatus,
+                'productName': productName,
+                'startDate': startDate,
+                'endDate': endDate,
+                'startTotal': startTotal,
+                'endTotal': endTotal,
+                'gateway': gateway,
+                'fraudStatus': fraudStatus,
             },
             errors: {
                 400: `Bad request`,
