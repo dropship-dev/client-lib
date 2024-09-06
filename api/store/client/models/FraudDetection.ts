@@ -11,9 +11,9 @@ import type { PrismaJson_TypeOfFraudService } from './PrismaJson_TypeOfFraudServ
  * Model FraudDetection
  */
 export type FraudDetection = {
-  storeId: string | null;
   updatedAt: string;
   createdAt: string;
+  storeId: string | null;
   isDeleted: boolean;
   /**
    * [TypeOfFraudService]

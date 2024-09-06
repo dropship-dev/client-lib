@@ -11,8 +11,8 @@ import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
 import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
+import type { Photos } from '../models/Photos';
 import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
-import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
@@ -145,12 +145,26 @@ export class OrderService {
     storeId: string,
     requestBody: Array<getCrossSellByProductDto>,
   }): CancelablePromise<Array<{
-    suggestionProduct: Array<(Product & {
+    suggestionProduct: Array<{
+      permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
       ProductVariant: Array<ProductVariant>;
-    })>;
-    Product: Array<(Product & {
+      id: number;
+    }>;
+    Product: Array<{
+      permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
       ProductVariant: Array<ProductVariant>;
-    })>;
+      id: number;
+    }>;
     rootProductId: number;
     updatedAt: string;
     createdAt: string;

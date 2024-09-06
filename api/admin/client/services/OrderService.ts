@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BillingInfo } from '../models/BillingInfo';
-import type { Campaign } from '../models/Campaign';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
+import type { FraudDetectionStatusType } from '../models/FraudDetectionStatusType';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -16,7 +16,6 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -41,119 +40,6 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class OrderService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getAllOrders({
-    fulfillmentAgencyId,
-    pageSize = 20,
-    nextPageIndex,
-    storeId,
-    paymentStatus,
-    fulfillmentStatus,
-    search,
-    disputeStatus,
-    productName,
-    startDate,
-    endDate,
-    startTotal,
-    endTotal,
-    gateway,
-    fraudStatus,
-  }: {
-    fulfillmentAgencyId: number,
-    pageSize?: number,
-    nextPageIndex?: string,
-    storeId?: string,
-    paymentStatus?: Array<TransactionStatus>,
-    fulfillmentStatus?: Array<FulfillmentStatus>,
-    search?: string,
-    disputeStatus?: Array<OrderDisputeStatus>,
-    productName?: string,
-    startDate?: string,
-    endDate?: string,
-    startTotal?: number,
-    endTotal?: number,
-    gateway?: Array<number>,
-    fraudStatus?: Array<FraudStatusType>,
-  }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: string;
-    prePageIndex: string;
-    total: number;
-    data: Array<{
-      gatewayTransactionId: string;
-      total: number;
-      email: string;
-      name: string;
-      FraudDetection: Array<FraudDetection>;
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-            id: number;
-          };
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-            id: number;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
-      Transaction: Array<Transaction>;
-      Payment: Payment;
-      Store: {
-        name: string;
-        FraudDetection: Array<FraudDetection>;
-        id: string;
-      };
-      createdAt: string;
-      status: OrderStatus;
-      id: string;
-      disputeStatus: OrderDisputeStatus;
-      fulfillmentStatus: FulfillmentStatus;
-    }>;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/order',
-      query: {
-        'pageSize': pageSize,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'nextPageIndex': nextPageIndex,
-        'storeId': storeId,
-        'paymentStatus': paymentStatus,
-        'fulfillmentStatus': fulfillmentStatus,
-        'search': search,
-        'disputeStatus': disputeStatus,
-        'productName': productName,
-        'startDate': startDate,
-        'endDate': endDate,
-        'startTotal': startTotal,
-        'endTotal': endTotal,
-        'gateway': gateway,
-        'fraudStatus': fraudStatus,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
 
   /**
    * @returns ExportOrderResponseDto Ok
@@ -247,7 +133,10 @@ export class OrderService {
     fulfillmentAgencyId: number,
     id: string,
   }): CancelablePromise<{
-    FraudDetection: Array<FraudDetection>;
+    FraudDetection: Array<{
+      humanFraudDetect: FraudDetectionStatusType;
+      systemFraudDetect: FraudDetectionStatusType;
+    }>;
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: (VariantCombo & {
@@ -259,10 +148,12 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Payment: Payment;
-    Store: (Store & {
+    Store: {
+      primaryDomain: string;
+      name: string;
       FraudDetection: Array<FraudDetection>;
-    });
+      id: string;
+    };
     updatedAt: string;
     createdAt: string;
     disputeStatus: OrderDisputeStatus;
@@ -312,6 +203,15 @@ export class OrderService {
     id: string;
     fraudStatus: FraudStatusType;
     storeMapper: any;
+    Payment: {
+      email: string;
+      name: string;
+      type: PaymentType;
+      id: number;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -336,12 +236,122 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getAllOrders({
+    fulfillmentAgencyId,
+    pageSize = 20,
+    nextPageIndex,
+    storeId,
+    paymentStatus,
+    fulfillmentStatus,
+    search,
+    disputeStatus,
+    productName,
+    startDate,
+    endDate,
+    startTotal,
+    endTotal,
+    gateway,
+    fraudStatus,
+  }: {
+    fulfillmentAgencyId: number,
+    pageSize?: number,
+    nextPageIndex?: string,
+    storeId?: string,
+    paymentStatus?: Array<TransactionStatus>,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
+    search?: string,
+    disputeStatus?: Array<OrderDisputeStatus>,
+    productName?: string,
+    startDate?: string,
+    endDate?: string,
+    startTotal?: number,
+    endTotal?: number,
+    gateway?: Array<number>,
+    fraudStatus?: Array<FraudStatusType>,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      latestTotal: number;
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
+      FraudDetection: Array<{
+        humanFraudDetect: FraudDetectionStatusType;
+        systemFraudDetect: FraudDetectionStatusType;
+      }>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
+      Transaction: Array<Transaction>;
+      Payment: {
+        email: string;
+        name: string;
+        type: PaymentType;
+        id: number;
+      };
+      Store: {
+        primaryDomain: string;
+        name: string;
+        FraudDetection: Array<{
+          humanFraudDetect: FraudDetectionStatusType;
+          systemFraudDetect: FraudDetectionStatusType;
+        }>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/order',
+      query: {
+        'pageSize': pageSize,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'nextPageIndex': nextPageIndex,
+        'storeId': storeId,
+        'paymentStatus': paymentStatus,
+        'fulfillmentStatus': fulfillmentStatus,
+        'search': search,
+        'disputeStatus': disputeStatus,
+        'productName': productName,
+        'startDate': startDate,
+        'endDate': endDate,
+        'startTotal': startTotal,
+        'endTotal': endTotal,
+        'gateway': gateway,
+        'fraudStatus': fraudStatus,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public manualFraudDetection({
     requestBody,
   }: {
     requestBody: ManualFraudDetectionDto,
   }): CancelablePromise<({
-    FraudDetection: Array<FraudDetection>;
+    FraudDetection: Array<{
+      humanFraudDetect: FraudDetectionStatusType;
+      systemFraudDetect: FraudDetectionStatusType;
+    }>;
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: (VariantCombo & {
@@ -353,10 +363,12 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Payment: Payment;
-    Store: (Store & {
+    Store: {
+      primaryDomain: string;
+      name: string;
       FraudDetection: Array<FraudDetection>;
-    });
+      id: string;
+    };
     updatedAt: string;
     createdAt: string;
     disputeStatus: OrderDisputeStatus;
@@ -406,6 +418,15 @@ export class OrderService {
     id: string;
     fraudStatus: FraudStatusType;
     storeMapper: any;
+    Payment: {
+      email: string;
+      name: string;
+      type: PaymentType;
+      id: number;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+    };
   } | {
     FraudDetection: Array<FraudDetection>;
     Wallet: Array<Wallet>;
@@ -531,7 +552,6 @@ export class OrderService {
     fulfillmentStatus,
     disputeStatus,
     search,
-    email,
     productName,
     startDate,
     endDate,
@@ -557,10 +577,6 @@ export class OrderService {
     disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
-     * filter by customer email (email contain)
-     */
-    email?: string,
-    /**
      * filter by product name (product name contain)
      */
     productName?: string,
@@ -576,37 +592,25 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
+      latestTotal: number;
       gatewayTransactionId: string;
       total: number;
       email: string;
       name: string;
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
       };
-      Store: Store;
+      Store: {
+        primaryDomain: string;
+        name: string;
+        id: string;
+      };
       createdAt: string;
       status: OrderStatus;
       id: string;
@@ -627,7 +631,6 @@ export class OrderService {
         'fulfillmentStatus': fulfillmentStatus,
         'disputeStatus': disputeStatus,
         'search': search,
-        'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,

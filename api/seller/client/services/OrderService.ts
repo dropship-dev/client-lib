@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Campaign } from '../models/Campaign';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -42,7 +41,6 @@ export class OrderService {
     fulfillmentStatus,
     disputeStatus,
     search,
-    email,
     productName,
     startDate,
     endDate,
@@ -68,10 +66,6 @@ export class OrderService {
     disputeStatus?: Array<OrderDisputeStatus>,
     search?: string,
     /**
-     * filter by customer email (email contain)
-     */
-    email?: string,
-    /**
      * filter by product name (product name contain)
      */
     productName?: string,
@@ -87,37 +81,25 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
+      latestTotal: number;
       gatewayTransactionId: string;
       total: number;
       email: string;
       name: string;
-      OrderRefund: Array<OrderRefund>;
-      OrderItem: Array<(OrderItem & {
-        VariantCombo: (VariantCombo & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-        });
-        ProductVariant: (ProductVariant & {
-          Product: {
-            name: string;
-            Campaign: Campaign;
-          };
-          PlatformVariant: {
-            price: number;
-            name: string;
-            id: number;
-          };
-        });
-      })>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
       Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
       };
-      Store: Store;
+      Store: {
+        primaryDomain: string;
+        name: string;
+        id: string;
+      };
       createdAt: string;
       status: OrderStatus;
       id: string;
@@ -138,7 +120,6 @@ export class OrderService {
         'fulfillmentStatus': fulfillmentStatus,
         'disputeStatus': disputeStatus,
         'search': search,
-        'email': email,
         'productName': productName,
         'startDate': startDate,
         'endDate': endDate,
@@ -183,6 +164,7 @@ export class OrderService {
       email: string;
       name: string;
       type: PaymentType;
+      id: number;
     };
     Store: Store;
   })> {
