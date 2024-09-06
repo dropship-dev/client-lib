@@ -105,7 +105,7 @@ export { DiscountCrossSellType } from './models/DiscountCrossSellType';
 export type { DiscountDto } from './models/DiscountDto';
 export type { EmailDto } from './models/EmailDto';
 export type { EmailTrackingAction } from './models/EmailTrackingAction';
-export { EnvironmentType } from './models/EnvironmentType';
+export type { EnvironmentType } from './models/EnvironmentType';
 export type { EventFraudType } from './models/EventFraudType';
 export { EventOrderFraud } from './models/EventOrderFraud';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';

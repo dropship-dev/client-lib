@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BillingInfo } from '../models/BillingInfo';
+import type { EnvironmentType } from '../models/EnvironmentType';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
@@ -15,7 +16,6 @@ import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
-import type { Payment } from '../models/Payment';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
 import type { Product } from '../models/Product';
@@ -40,102 +40,6 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class OrderService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getAllOrders({
-    fulfillmentAgencyId,
-    pageSize = 20,
-    nextPageIndex,
-    storeId,
-    paymentStatus,
-    fulfillmentStatus,
-    search,
-    disputeStatus,
-    productName,
-    startDate,
-    endDate,
-    startTotal,
-    endTotal,
-    gateway,
-    fraudStatus,
-  }: {
-    fulfillmentAgencyId: number,
-    pageSize?: number,
-    nextPageIndex?: string,
-    storeId?: string,
-    paymentStatus?: Array<TransactionStatus>,
-    fulfillmentStatus?: Array<FulfillmentStatus>,
-    search?: string,
-    disputeStatus?: Array<OrderDisputeStatus>,
-    productName?: string,
-    startDate?: string,
-    endDate?: string,
-    startTotal?: number,
-    endTotal?: number,
-    gateway?: Array<number>,
-    fraudStatus?: Array<FraudStatusType>,
-  }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: string;
-    prePageIndex: string;
-    total: number;
-    data: Array<{
-      latestTotal: number;
-      gatewayTransactionId: string;
-      total: number;
-      email: string;
-      name: string;
-      FraudDetection: Array<FraudDetection>;
-      OrderItem: Array<{
-        tracking: string;
-      }>;
-      Transaction: Array<Transaction>;
-      Payment: Payment;
-      Store: {
-        primaryDomain: string;
-        name: string;
-        FraudDetection: Array<FraudDetection>;
-        id: string;
-      };
-      createdAt: string;
-      status: OrderStatus;
-      id: string;
-      disputeStatus: OrderDisputeStatus;
-      fulfillmentStatus: FulfillmentStatus;
-    }>;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/order',
-      query: {
-        'pageSize': pageSize,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'nextPageIndex': nextPageIndex,
-        'storeId': storeId,
-        'paymentStatus': paymentStatus,
-        'fulfillmentStatus': fulfillmentStatus,
-        'search': search,
-        'disputeStatus': disputeStatus,
-        'productName': productName,
-        'startDate': startDate,
-        'endDate': endDate,
-        'startTotal': startTotal,
-        'endTotal': endTotal,
-        'gateway': gateway,
-        'fraudStatus': fraudStatus,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
 
   /**
    * @returns ExportOrderResponseDto Ok
@@ -241,7 +145,6 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Payment: Payment;
     Store: (Store & {
       FraudDetection: Array<FraudDetection>;
     });
@@ -294,6 +197,28 @@ export class OrderService {
     id: string;
     fraudStatus: FraudStatusType;
     storeMapper: any;
+    Payment: {
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      environment: EnvironmentType;
+      UIVersion: number;
+      deleted: boolean;
+      gatewayUrl: string;
+      tokenExpiredAt: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      name: string;
+      email: string;
+      type: PaymentType;
+      userId: string;
+      id: number;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -303,6 +228,107 @@ export class OrderService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllOrders({
+    fulfillmentAgencyId,
+    pageSize = 20,
+    nextPageIndex,
+    storeId,
+    paymentStatus,
+    fulfillmentStatus,
+    search,
+    disputeStatus,
+    productName,
+    startDate,
+    endDate,
+    startTotal,
+    endTotal,
+    gateway,
+    fraudStatus,
+  }: {
+    fulfillmentAgencyId: number,
+    pageSize?: number,
+    nextPageIndex?: string,
+    storeId?: string,
+    paymentStatus?: Array<TransactionStatus>,
+    fulfillmentStatus?: Array<FulfillmentStatus>,
+    search?: string,
+    disputeStatus?: Array<OrderDisputeStatus>,
+    productName?: string,
+    startDate?: string,
+    endDate?: string,
+    startTotal?: number,
+    endTotal?: number,
+    gateway?: Array<number>,
+    fraudStatus?: Array<FraudStatusType>,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      latestTotal: number;
+      gatewayTransactionId: string;
+      total: number;
+      email: string;
+      name: string;
+      FraudDetection: Array<FraudDetection>;
+      OrderItem: Array<{
+        tracking: string;
+      }>;
+      Transaction: Array<Transaction>;
+      Payment: {
+        email: string;
+        name: string;
+        type: PaymentType;
+        id: number;
+      };
+      Store: {
+        primaryDomain: string;
+        name: string;
+        FraudDetection: Array<FraudDetection>;
+        id: string;
+      };
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/order',
+      query: {
+        'pageSize': pageSize,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'nextPageIndex': nextPageIndex,
+        'storeId': storeId,
+        'paymentStatus': paymentStatus,
+        'fulfillmentStatus': fulfillmentStatus,
+        'search': search,
+        'disputeStatus': disputeStatus,
+        'productName': productName,
+        'startDate': startDate,
+        'endDate': endDate,
+        'startTotal': startTotal,
+        'endTotal': endTotal,
+        'gateway': gateway,
+        'fraudStatus': fraudStatus,
       },
       errors: {
         400: `Bad request`,
@@ -335,7 +361,6 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Payment: Payment;
     Store: (Store & {
       FraudDetection: Array<FraudDetection>;
     });
@@ -388,6 +413,28 @@ export class OrderService {
     id: string;
     fraudStatus: FraudStatusType;
     storeMapper: any;
+    Payment: {
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      environment: EnvironmentType;
+      UIVersion: number;
+      deleted: boolean;
+      gatewayUrl: string;
+      tokenExpiredAt: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      name: string;
+      email: string;
+      type: PaymentType;
+      userId: string;
+      id: number;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+    };
   } | {
     FraudDetection: Array<FraudDetection>;
     Wallet: Array<Wallet>;
