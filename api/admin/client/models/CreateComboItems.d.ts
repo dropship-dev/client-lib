@@ -1,5 +1,5 @@
 export type CreateComboItems = Array<{
-    crossSellId?: number;
+    boostSaleId?: number;
     quantity: number;
     comboVariantId: number;
 }>;
