@@ -213,6 +213,7 @@ export type { PodFile } from './models/PodFile';
 export type { PodFileColors } from './models/PodFileColors';
 export type { PodFileGroupLayers } from './models/PodFileGroupLayers';
 export type { PodFileProperties } from './models/PodFileProperties';
+export { PodFilePropertiesDesignType } from './models/PodFilePropertiesDesignType';
 export type { PodFilePropertiesDesignValue } from './models/PodFilePropertiesDesignValue';
 export { PodFilePropertiesLabel } from './models/PodFilePropertiesLabel';
 export type { PodFilePropertiesMockupValue } from './models/PodFilePropertiesMockupValue';
