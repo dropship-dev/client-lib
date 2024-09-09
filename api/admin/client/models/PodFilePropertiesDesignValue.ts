@@ -3,16 +3,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { PodFilePropertiesDesignType } from './PodFilePropertiesDesignType';
+
 export type PodFilePropertiesDesignValue = {
-  rotate?: string;
-  fontSize?: number;
-  fontFamily?: string;
-  content?: string;
-  size?: string;
-  left?: number;
-  top?: number;
-  width?: number;
-  height?: number;
+  description?: string;
+  type: PodFilePropertiesDesignType;
+  style: string;
   url: string;
   name: string;
 };

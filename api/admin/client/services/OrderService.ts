@@ -148,12 +148,6 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Store: {
-      primaryDomain: string;
-      name: string;
-      FraudDetection: Array<FraudDetection>;
-      id: string;
-    };
     updatedAt: string;
     createdAt: string;
     disputeStatus: OrderDisputeStatus;
@@ -202,15 +196,18 @@ export class OrderService {
     name: string;
     id: string;
     fraudStatus: FraudStatusType;
-    storeMapper: any;
+    Store: {
+      primaryDomain: string;
+      name: string;
+      FraudDetection: Array<FraudDetection>;
+      id: string;
+      fraudStatus: FraudStatusType;
+    };
     Payment: {
+      type: PaymentType;
       email: string;
       name: string;
-      type: PaymentType;
       id: number;
-      token: string;
-      secretKey: string;
-      publishableKey: string;
     };
   }> {
     return this.httpRequest.request({
@@ -363,12 +360,6 @@ export class OrderService {
       });
     })>;
     Transaction: Array<Transaction>;
-    Store: {
-      primaryDomain: string;
-      name: string;
-      FraudDetection: Array<FraudDetection>;
-      id: string;
-    };
     updatedAt: string;
     createdAt: string;
     disputeStatus: OrderDisputeStatus;
@@ -417,15 +408,18 @@ export class OrderService {
     name: string;
     id: string;
     fraudStatus: FraudStatusType;
-    storeMapper: any;
+    Store: {
+      primaryDomain: string;
+      name: string;
+      FraudDetection: Array<FraudDetection>;
+      id: string;
+      fraudStatus: FraudStatusType;
+    };
     Payment: {
+      type: PaymentType;
       email: string;
       name: string;
-      type: PaymentType;
       id: number;
-      token: string;
-      secretKey: string;
-      publishableKey: string;
     };
   } | {
     FraudDetection: Array<FraudDetection>;

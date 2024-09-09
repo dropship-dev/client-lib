@@ -8,6 +8,7 @@ import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFilePropertie
 
 export type FileTemplate = {
   properties?: PrismaJson_PodFileProperties;
+  backgroundUrl?: string;
   fileName?: string;
   type: FileType;
   podPrintAreaId?: number;

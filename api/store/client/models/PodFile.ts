@@ -30,6 +30,7 @@ export type PodFile = {
    */
   groupLayers: PrismaJson_PodFileGroupLayers | null;
   size: string | null;
+  backgroundUrl: string | null;
   url: string | null;
   fileName: string | null;
   type: FileType;

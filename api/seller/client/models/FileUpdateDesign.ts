@@ -10,6 +10,7 @@ export type FileUpdateDesign = {
   properties?: PrismaJson_PodFileProperties;
   podPrintAreaId?: number;
   type: FileType;
+  backgroundUrl?: string;
   url?: string;
   fileName?: string;
   id?: number;

@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type CreateComboItems = Array<{
-  boostSaleId?: number;
-  quantity: number;
-  comboVariantId: number;
-}>;
+export enum PodFilePropertiesDesignType {
+  IMAGE = 'IMAGE',
+  TEXT = 'TEXT',
+}

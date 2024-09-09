@@ -126,7 +126,9 @@ export class StoreService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddPlatformProductStoresDto,
-  }): CancelablePromise<Array<Array<any>>> {
+  }): CancelablePromise<Array<{
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/product',
