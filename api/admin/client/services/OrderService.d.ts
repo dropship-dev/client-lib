@@ -169,17 +169,27 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<{
-            latestTotal: number;
+            domain: string;
+            paymentId: number;
             gatewayTransactionId: string;
-            total: number;
+            fulfillmentStatus: FulfillmentStatus;
+            disputeStatus: OrderDisputeStatus;
+            status: OrderStatus;
             email: string;
             name: string;
+            total: number;
+            latestTotal: number;
+            createdAt: string;
+            storeId: string;
+            id: string;
             FraudDetection: Array<{
                 humanFraudDetect: FraudDetectionStatusType;
                 systemFraudDetect: FraudDetectionStatusType;
+                orderId: string;
             }>;
             OrderItem: Array<{
                 tracking: string;
+                orderId: string;
             }>;
             Transaction: Array<Transaction>;
             Payment: {
@@ -196,12 +206,9 @@ export declare class OrderService {
                     systemFraudDetect: FraudDetectionStatusType;
                 }>;
                 id: string;
+                fraudStatus: FraudStatusType;
             };
-            createdAt: string;
-            status: OrderStatus;
-            id: string;
-            disputeStatus: OrderDisputeStatus;
-            fulfillmentStatus: FulfillmentStatus;
+            fraudStatus: FraudStatusType;
         }>;
     }>;
     /**
