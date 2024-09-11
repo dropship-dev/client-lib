@@ -191,7 +191,10 @@ export declare class OrderService {
                 tracking: string;
                 orderId: string;
             }>;
-            Transaction: Array<Transaction>;
+            Transaction: Array<{
+                orderId: string;
+                status: TransactionStatus;
+            }>;
             Payment: {
                 email: string;
                 name: string;
