@@ -2,16 +2,19 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { BoostSaleTriggerType } from '../models/BoostSaleTriggerType';
+import type { BoostSaleType } from '../models/BoostSaleType';
 import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { CrossSellTriggerType } from '../models/CrossSellTriggerType';
-import type { CrossSellType } from '../models/CrossSellType';
-import type { DiscountCrossSell } from '../models/DiscountCrossSell';
+import type { DiscountBoostSale } from '../models/DiscountBoostSale';
+import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
+import type { MarketingType } from '../models/MarketingType';
 import type { PaymentType } from '../models/PaymentType';
-import type { PlacementCrossSellType } from '../models/PlacementCrossSellType';
-import type { Product } from '../models/Product';
+import type { Photos } from '../models/Photos';
+import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
 import type { ProductVariant } from '../models/ProductVariant';
+import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -101,11 +104,17 @@ export class OrderService {
     storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
-    freeShipInfo: any;
-    total: any;
-    discountInfo: any;
-    subTotal: any;
-    shippingFee: any;
+    freeShipInfo: {
+      value?: number;
+      status?: boolean;
+    };
+    total: number;
+    discountInfo: {
+      value?: number;
+      label?: string;
+    };
+    subTotal: number;
+    shippingFee: number;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -136,29 +145,73 @@ export class OrderService {
     storeId: string,
     requestBody: Array<getCrossSellByProductDto>,
   }): CancelablePromise<Array<{
-    suggestionProduct: Array<(Product & {
+    suggestionProduct: Array<{
+      permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
       ProductVariant: Array<ProductVariant>;
-    })>;
-    Product: Array<(Product & {
+      id: number;
+    }>;
+    Product: Array<{
+      permalink: string;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
+      photos: Photos;
+      name: string;
       ProductVariant: Array<ProductVariant>;
-    })>;
+      id: number;
+    }>;
     rootProductId: number;
     updatedAt: string;
     createdAt: string;
     endDate: string;
     startDate: string;
     storeId: string;
-    triggerBy: CrossSellTriggerType;
-    discount: DiscountCrossSell;
-    placement: PlacementCrossSellType;
+    triggerBy: BoostSaleTriggerType;
+    marketingType: MarketingType;
+    discount: DiscountBoostSale;
+    placement: PlacementBoostSaleType;
     status: boolean;
-    type: CrossSellType;
+    type: BoostSaleType;
     name: string;
     id: number;
   }>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/order/suggestion-cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns SuggestionResponseDto Ok
+   * @throws ApiError
+   */
+  public suggestionBoostSale({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: Array<getBoostSalesDto>,
+  }): CancelablePromise<Array<SuggestionResponseDto>> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/suggestion-boost-sales',
       path: {
         'storeId': storeId,
       },

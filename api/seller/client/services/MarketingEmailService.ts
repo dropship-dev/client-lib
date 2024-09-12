@@ -248,9 +248,9 @@ export class MarketingEmailService {
     comboItems: CreateComboItems;
     orderItems: CreateOrderItems;
     expiredAt: string;
+    discountShippingFee: number;
     subTotal: number;
     total: number;
-    shippingFee: number;
     email: string;
     EmailTrackings: Array<{
       action: EmailTrackingAction;
@@ -264,10 +264,14 @@ export class MarketingEmailService {
     createdAt: string;
     id: number;
     checkoutDetail: Array<{
+      comboVariantName?: string;
+      productVariantName?: string;
+      name: string;
       quantity: number;
       price: number;
       photo: string;
     }>;
+    shippingFee: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',

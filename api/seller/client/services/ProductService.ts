@@ -4,11 +4,11 @@
 /* eslint-disable */
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
+import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
-import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
-import type { CrossSell } from '../models/CrossSell';
+import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
@@ -37,16 +37,16 @@ export class ProductService {
    * @returns Product Ok
    * @throws ApiError
    */
-  public createProductForStoreInDepedence({
+  public createProductForStoreInDependence({
     storeId,
     requestBody,
   }: {
     storeId: string,
-    requestBody: CreateProductFromSellerInDependeceDto,
+    requestBody: CreateProductFromSellerInDependenceDto,
   }): CancelablePromise<Product> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/store/{storeId}/product/seller-indepedence',
+      url: '/store/{storeId}/product/seller-independence',
       path: {
         'storeId': storeId,
       },
@@ -279,11 +279,12 @@ export class ProductService {
       variantOption: VariantOptions;
       id: number;
     };
-    CrossSell: Array<(CrossSell & {
+    BoostSale: Array<(BoostSale & {
       Product: Array<(Product & {
         ProductVariant: Array<(ProductVariant & {
           Product: {
             name: string;
+            id: number;
           };
         })>;
       })>;
@@ -292,17 +293,19 @@ export class ProductService {
           ProductVariant: Array<(ProductVariant & {
             Product: {
               name: string;
+              id: number;
             };
           })>;
         })>;
       }>;
     })>;
     Collection: Array<(Collection & {
-      CrossSell: Array<(CrossSell & {
+      BoostSale: Array<(BoostSale & {
         Product: Array<(Product & {
           ProductVariant: Array<(ProductVariant & {
             Product: {
               name: string;
+              id: number;
             };
           })>;
         })>;
@@ -311,6 +314,7 @@ export class ProductService {
             ProductVariant: Array<(ProductVariant & {
               Product: {
                 name: string;
+                id: number;
               };
             })>;
           })>;
@@ -367,12 +371,12 @@ export class ProductService {
     storeId,
     variantIds,
     comboIds,
-    crossSellId,
+    boostSaleIds,
   }: {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
-    crossSellId?: Array<number>,
+    boostSaleIds?: Array<number>,
   }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -383,7 +387,7 @@ export class ProductService {
       query: {
         'variantIds': variantIds,
         'comboIds': comboIds,
-        'crossSellId': crossSellId,
+        'boostSaleIds': boostSaleIds,
       },
       errors: {
         400: `Bad request`,

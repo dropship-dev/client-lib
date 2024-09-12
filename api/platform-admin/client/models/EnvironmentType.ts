@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type EnvironmentType = {
-};
-
+export enum EnvironmentType {
+  PRODUCTION = 'PRODUCTION',
+  SANDBOX = 'SANDBOX',
+}

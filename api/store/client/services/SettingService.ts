@@ -12,7 +12,7 @@ export class SettingService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns Setting Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getSetting({
@@ -21,7 +21,12 @@ export class SettingService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Setting> {
+  }): CancelablePromise<(Setting | {
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/setting',
