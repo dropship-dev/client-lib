@@ -10,4 +10,5 @@ var CustomDomainStatus;
     CustomDomainStatus["PENDING"] = "PENDING";
     CustomDomainStatus["FAILED"] = "FAILED";
     CustomDomainStatus["SUCCESS"] = "SUCCESS";
+    CustomDomainStatus["EXPIRED"] = "EXPIRED";
 })(CustomDomainStatus || (exports.CustomDomainStatus = CustomDomainStatus = {}));
