@@ -29,6 +29,7 @@ import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
 import type { Timezone } from '../models/Timezone';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { TypeOfFraudService } from '../models/TypeOfFraudService';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -134,6 +135,7 @@ export class OrderService {
     id: string,
   }): CancelablePromise<{
     FraudDetection: Array<{
+      labels: TypeOfFraudService;
       humanFraudDetect: FraudDetectionStatusType;
       systemFraudDetect: FraudDetectionStatusType;
     }>;
@@ -284,11 +286,6 @@ export class OrderService {
       createdAt: string;
       storeId: string;
       id: string;
-      FraudDetection: Array<{
-        humanFraudDetect: FraudDetectionStatusType;
-        systemFraudDetect: FraudDetectionStatusType;
-        orderId: string;
-      }>;
       OrderItem: Array<{
         tracking: string;
         orderId: string;
@@ -356,6 +353,7 @@ export class OrderService {
     requestBody: ManualFraudDetectionDto,
   }): CancelablePromise<({
     FraudDetection: Array<{
+      labels: TypeOfFraudService;
       humanFraudDetect: FraudDetectionStatusType;
       systemFraudDetect: FraudDetectionStatusType;
     }>;
