@@ -2,7 +2,6 @@ import type { Order } from '../models/Order';
 import type { OrderItem } from '../models/OrderItem';
 import type { OrderRefund } from '../models/OrderRefund';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { Store } from '../models/Store';
 import type { Transaction } from '../models/Transaction';
@@ -27,10 +26,14 @@ export declare class OrderRefundsService {
             OrderRefund: Array<OrderRefund>;
             OrderItem: Array<(OrderItem & {
                 VariantCombo: (VariantCombo & {
-                    Product: Product;
+                    Product: {
+                        name: string;
+                    };
                 });
                 ProductVariant: (ProductVariant & {
-                    Product: Product;
+                    Product: {
+                        name: string;
+                    };
                     PlatformVariant: PlatformVariant;
                 });
             })>;

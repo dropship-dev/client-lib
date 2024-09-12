@@ -1,6 +1,5 @@
 import type { CreateGTMDto } from '../models/CreateGTMDto';
 import type { GoogleTagManager } from '../models/GoogleTagManager';
-import type { Product } from '../models/Product';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -15,7 +14,9 @@ export declare class GoogleTagManagerService {
         storeId: string;
         requestBody: CreateGTMDto;
     }): CancelablePromise<(GoogleTagManager & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>;
     /**
      * @returns any Ok
@@ -24,7 +25,9 @@ export declare class GoogleTagManagerService {
     getAllGoogleTagManager({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<(GoogleTagManager & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>>;
     /**
      * @returns any Ok
@@ -34,7 +37,9 @@ export declare class GoogleTagManagerService {
         storeId: string;
         tag: string;
     }): CancelablePromise<(GoogleTagManager & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>;
     /**
      * @returns GoogleTagManager Ok
