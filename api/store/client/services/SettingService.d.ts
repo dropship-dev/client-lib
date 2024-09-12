@@ -5,11 +5,16 @@ export declare class SettingService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Setting Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getSetting({ fulfillmentAgencyId, storeId, }: {
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<Setting>;
+    }): CancelablePromise<(Setting | {
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+    })>;
 }
