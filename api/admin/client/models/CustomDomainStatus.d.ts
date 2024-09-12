@@ -1,5 +1,6 @@
 export declare enum CustomDomainStatus {
     PENDING = "PENDING",
     FAILED = "FAILED",
-    SUCCESS = "SUCCESS"
+    SUCCESS = "SUCCESS",
+    EXPIRED = "EXPIRED"
 }

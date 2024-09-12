@@ -13,7 +13,7 @@ class ProductService {
     createProductForStoreJoinFa({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/product/seller-depedence',
+            url: '/store/{storeId}/product/seller-dependence',
             path: {
                 'storeId': storeId,
             },
@@ -109,7 +109,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, crossSellId, }) {
+    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleIds, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/getStatusOrderItems',
@@ -119,7 +119,7 @@ class ProductService {
             query: {
                 'variantIds': variantIds,
                 'comboIds': comboIds,
-                'crossSellId': crossSellId,
+                'boostSaleIds': boostSaleIds,
             },
             errors: {
                 400: `Bad request`,

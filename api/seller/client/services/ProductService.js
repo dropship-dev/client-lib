@@ -10,10 +10,10 @@ class ProductService {
      * @returns Product Ok
      * @throws ApiError
      */
-    createProductForStoreInDepedence({ storeId, requestBody, }) {
+    createProductForStoreInDependence({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/store/{storeId}/product/seller-indepedence',
+            url: '/store/{storeId}/product/seller-independence',
             path: {
                 'storeId': storeId,
             },
@@ -154,7 +154,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, crossSellId, }) {
+    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleIds, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product/getStatusOrderItems',
@@ -164,7 +164,7 @@ class ProductService {
             query: {
                 'variantIds': variantIds,
                 'comboIds': comboIds,
-                'crossSellId': crossSellId,
+                'boostSaleIds': boostSaleIds,
             },
             errors: {
                 400: `Bad request`,

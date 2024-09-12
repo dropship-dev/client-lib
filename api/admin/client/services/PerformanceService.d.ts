@@ -146,16 +146,13 @@ export declare class PerformanceService {
         search?: string;
         pageSize?: number;
         nextPageIndex?: number;
-    }): CancelablePromise<({
+    }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
         data: Array<StorePerformance>;
-    } | {
-        results: Array<any>;
-        nextPageIndex: number;
-    })>;
+    }>;
     /**
      * @returns StoreProductProfit Ok
      * @throws ApiError

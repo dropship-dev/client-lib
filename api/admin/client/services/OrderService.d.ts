@@ -1,7 +1,7 @@
 import type { BillingInfo } from '../models/BillingInfo';
-import type { EnvironmentType } from '../models/EnvironmentType';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudDetection } from '../models/FraudDetection';
+import type { FraudDetectionStatusType } from '../models/FraudDetectionStatusType';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentStatus } from '../models/FulfillmentStatus';
@@ -14,7 +14,6 @@ import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
@@ -25,6 +24,7 @@ import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
 import type { Timezone } from '../models/Timezone';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { TypeOfFraudService } from '../models/TypeOfFraudService';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -66,21 +66,28 @@ export declare class OrderService {
         fulfillmentAgencyId: number;
         id: string;
     }): CancelablePromise<{
-        FraudDetection: Array<FraudDetection>;
+        FraudDetection: Array<{
+            labels: TypeOfFraudService;
+            humanFraudDetect: FraudDetectionStatusType;
+            systemFraudDetect: FraudDetectionStatusType;
+        }>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
             });
             ProductVariant: (ProductVariant & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
                 PlatformVariant: PlatformVariant;
             });
         })>;
         Transaction: Array<Transaction>;
-        Store: (Store & {
-            FraudDetection: Array<FraudDetection>;
-        });
         updatedAt: string;
         createdAt: string;
         disputeStatus: OrderDisputeStatus;
@@ -129,28 +136,20 @@ export declare class OrderService {
         name: string;
         id: string;
         fraudStatus: FraudStatusType;
-        storeMapper: any;
-        Payment: {
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            environment: EnvironmentType;
-            UIVersion: number;
-            deleted: boolean;
-            gatewayUrl: string;
-            tokenExpiredAt: string;
-            isShowCompanyAddress: boolean;
-            companyAddress: string;
-            companyPhone: string;
-            companyName: string;
-            name: string;
+        Store: {
+            primaryDomain: string;
+            avatar: string;
             email: string;
+            name: string;
+            FraudDetection: Array<FraudDetection>;
+            id: string;
+            fraudStatus: FraudStatusType;
+        };
+        Payment: {
             type: PaymentType;
-            userId: string;
+            email: string;
+            name: string;
             id: number;
-            token: string;
-            secretKey: string;
-            publishableKey: string;
         };
     }>;
     /**
@@ -179,16 +178,27 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<{
-            latestTotal: number;
+            domain: string;
+            paymentId: number;
             gatewayTransactionId: string;
-            total: number;
+            fulfillmentStatus: FulfillmentStatus;
+            disputeStatus: OrderDisputeStatus;
+            status: OrderStatus;
             email: string;
             name: string;
-            FraudDetection: Array<FraudDetection>;
+            total: number;
+            latestTotal: number;
+            createdAt: string;
+            storeId: string;
+            id: string;
             OrderItem: Array<{
                 tracking: string;
+                orderId: string;
             }>;
-            Transaction: Array<Transaction>;
+            Transaction: Array<{
+                orderId: string;
+                status: TransactionStatus;
+            }>;
             Payment: {
                 email: string;
                 name: string;
@@ -198,14 +208,14 @@ export declare class OrderService {
             Store: {
                 primaryDomain: string;
                 name: string;
-                FraudDetection: Array<FraudDetection>;
+                FraudDetection: Array<{
+                    humanFraudDetect: FraudDetectionStatusType;
+                    systemFraudDetect: FraudDetectionStatusType;
+                }>;
                 id: string;
+                fraudStatus: FraudStatusType;
             };
-            createdAt: string;
-            status: OrderStatus;
-            id: string;
-            disputeStatus: OrderDisputeStatus;
-            fulfillmentStatus: FulfillmentStatus;
+            fraudStatus: FraudStatusType;
         }>;
     }>;
     /**
@@ -215,21 +225,28 @@ export declare class OrderService {
     manualFraudDetection({ requestBody, }: {
         requestBody: ManualFraudDetectionDto;
     }): CancelablePromise<({
-        FraudDetection: Array<FraudDetection>;
+        FraudDetection: Array<{
+            labels: TypeOfFraudService;
+            humanFraudDetect: FraudDetectionStatusType;
+            systemFraudDetect: FraudDetectionStatusType;
+        }>;
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
             });
             ProductVariant: (ProductVariant & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
                 PlatformVariant: PlatformVariant;
             });
         })>;
         Transaction: Array<Transaction>;
-        Store: (Store & {
-            FraudDetection: Array<FraudDetection>;
-        });
         updatedAt: string;
         createdAt: string;
         disputeStatus: OrderDisputeStatus;
@@ -278,28 +295,20 @@ export declare class OrderService {
         name: string;
         id: string;
         fraudStatus: FraudStatusType;
-        storeMapper: any;
-        Payment: {
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            environment: EnvironmentType;
-            UIVersion: number;
-            deleted: boolean;
-            gatewayUrl: string;
-            tokenExpiredAt: string;
-            isShowCompanyAddress: boolean;
-            companyAddress: string;
-            companyPhone: string;
-            companyName: string;
-            name: string;
+        Store: {
+            primaryDomain: string;
+            avatar: string;
             email: string;
+            name: string;
+            FraudDetection: Array<FraudDetection>;
+            id: string;
+            fraudStatus: FraudStatusType;
+        };
+        Payment: {
             type: PaymentType;
-            userId: string;
+            email: string;
+            name: string;
             id: number;
-            token: string;
-            secretKey: string;
-            publishableKey: string;
         };
     } | {
         FraudDetection: Array<FraudDetection>;
@@ -364,10 +373,16 @@ export declare class OrderService {
         OrderRefund: Array<OrderRefund>;
         OrderItem: Array<(OrderItem & {
             VariantCombo: (VariantCombo & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
             });
             ProductVariant: (ProductVariant & {
-                Product: Product;
+                Product: {
+                    name: string;
+                    id: number;
+                };
                 PlatformVariant: PlatformVariant;
             });
         })>;
@@ -411,31 +426,38 @@ export declare class OrderService {
         prePageIndex: string;
         total: number;
         data: Array<{
-            latestTotal: number;
+            domain: string;
+            paymentId: number;
             gatewayTransactionId: string;
-            total: number;
+            fulfillmentStatus: FulfillmentStatus;
+            disputeStatus: OrderDisputeStatus;
+            status: OrderStatus;
             email: string;
             name: string;
+            total: number;
+            latestTotal: number;
+            createdAt: string;
+            storeId: string;
+            id: string;
             OrderItem: Array<{
                 tracking: string;
+                orderId: string;
             }>;
-            Transaction: Array<Transaction>;
+            Transaction: Array<{
+                orderId: string;
+                status: TransactionStatus;
+            }>;
             Payment: {
                 email: string;
                 name: string;
                 type: PaymentType;
+                id: number;
             };
             Store: {
                 primaryDomain: string;
                 name: string;
-                FraudDetection: Array<FraudDetection>;
                 id: string;
             };
-            createdAt: string;
-            status: OrderStatus;
-            id: string;
-            disputeStatus: OrderDisputeStatus;
-            fulfillmentStatus: FulfillmentStatus;
         }>;
     }>;
 }

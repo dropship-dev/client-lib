@@ -26,4 +26,5 @@ var NotificationType;
     NotificationType["DISPUTE_RESOLVED"] = "DISPUTE_RESOLVED";
     NotificationType["FRAUD_DETECTED"] = "FRAUD_DETECTED";
     NotificationType["BROADCAST"] = "BROADCAST";
+    NotificationType["POD_TEMPLATE_UPDATED"] = "POD_TEMPLATE_UPDATED";
 })(NotificationType || (exports.NotificationType = NotificationType = {}));

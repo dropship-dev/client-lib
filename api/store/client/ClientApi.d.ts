@@ -1,8 +1,8 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { BankAccountService } from './services/BankAccountService';
+import { BoostSalesService } from './services/BoostSalesService';
 import { CollectionService } from './services/CollectionService';
-import { CrossSellService } from './services/CrossSellService';
 import { CurrencyService } from './services/CurrencyService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { OrderService } from './services/OrderService';
@@ -21,8 +21,8 @@ import { WalletService } from './services/WalletService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly bankAccount: BankAccountService;
+    readonly boostSales: BoostSalesService;
     readonly collection: CollectionService;
-    readonly crossSell: CrossSellService;
     readonly currency: CurrencyService;
     readonly marketingEmail: MarketingEmailService;
     readonly order: OrderService;

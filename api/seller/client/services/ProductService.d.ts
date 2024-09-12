@@ -1,10 +1,10 @@
 import type { AdminTag } from '../models/AdminTag';
 import type { AvailableSet } from '../models/AvailableSet';
+import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
-import type { CreateProductFromSellerInDependeceDto } from '../models/CreateProductFromSellerInDependeceDto';
-import type { CrossSell } from '../models/CrossSell';
+import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { Discount } from '../models/Discount';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
@@ -30,9 +30,9 @@ export declare class ProductService {
      * @returns Product Ok
      * @throws ApiError
      */
-    createProductForStoreInDepedence({ storeId, requestBody, }: {
+    createProductForStoreInDependence({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: CreateProductFromSellerInDependeceDto;
+        requestBody: CreateProductFromSellerInDependenceDto;
     }): CancelablePromise<Product>;
     /**
      * @returns any Ok
@@ -146,11 +146,12 @@ export declare class ProductService {
             variantOption: VariantOptions;
             id: number;
         };
-        CrossSell: Array<(CrossSell & {
+        BoostSale: Array<(BoostSale & {
             Product: Array<(Product & {
                 ProductVariant: Array<(ProductVariant & {
                     Product: {
                         name: string;
+                        id: number;
                     };
                 })>;
             })>;
@@ -159,17 +160,19 @@ export declare class ProductService {
                     ProductVariant: Array<(ProductVariant & {
                         Product: {
                             name: string;
+                            id: number;
                         };
                     })>;
                 })>;
             }>;
         })>;
         Collection: Array<(Collection & {
-            CrossSell: Array<(CrossSell & {
+            BoostSale: Array<(BoostSale & {
                 Product: Array<(Product & {
                     ProductVariant: Array<(ProductVariant & {
                         Product: {
                             name: string;
+                            id: number;
                         };
                     })>;
                 })>;
@@ -178,6 +181,7 @@ export declare class ProductService {
                         ProductVariant: Array<(ProductVariant & {
                             Product: {
                                 name: string;
+                                id: number;
                             };
                         })>;
                     })>;
@@ -210,11 +214,11 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, crossSellId, }: {
+    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleIds, }: {
         storeId: string;
         variantIds?: Array<number>;
         comboIds?: Array<number>;
-        crossSellId?: Array<number>;
+        boostSaleIds?: Array<number>;
     }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>>;
     /**
      * @returns any Ok

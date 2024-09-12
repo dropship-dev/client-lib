@@ -1,7 +1,7 @@
-import type { contryInfomationType } from './contryInfomationType';
+import type { CountryInformationType } from './CountryInformationType';
 export type RegionalShippingFeeDto = {
     zoneName: string;
-    countries: Array<contryInfomationType>;
+    countries: Array<CountryInformationType>;
     shippingFee: number;
     shippingFeeAdditional: number;
 };

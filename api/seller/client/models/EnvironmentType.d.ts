@@ -1,1 +1,4 @@
-export type EnvironmentType = {};
+export declare enum EnvironmentType {
+    PRODUCTION = "PRODUCTION",
+    SANDBOX = "SANDBOX"
+}
