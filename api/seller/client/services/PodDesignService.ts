@@ -12,6 +12,8 @@ import type { PodFile } from '../models/PodFile';
 import type { PodFileColors } from '../models/PodFileColors';
 import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
 import type { PodFileProperties } from '../models/PodFileProperties';
+import type { PodMeshPoints } from '../models/PodMeshPoints';
+import type { PrintAreaBounds } from '../models/PrintAreaBounds';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
@@ -275,6 +277,10 @@ export class PodDesignService {
       storeId: string;
     };
     printArea: Array<{
+      printAreaBounds: PrintAreaBounds;
+      meshPoints: PodMeshPoints;
+      groupLayers: PodFileGroupLayers;
+      photo: string;
       faPrice: number;
       supplierCost: number;
       name: string;
