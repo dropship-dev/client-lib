@@ -200,6 +200,8 @@ export class OrderService {
     fraudStatus: FraudStatusType;
     Store: {
       primaryDomain: string;
+      avatar: string;
+      email: string;
       name: string;
       FraudDetection: Array<FraudDetection>;
       id: string;
@@ -418,6 +420,8 @@ export class OrderService {
     fraudStatus: FraudStatusType;
     Store: {
       primaryDomain: string;
+      avatar: string;
+      email: string;
       name: string;
       FraudDetection: Array<FraudDetection>;
       id: string;
