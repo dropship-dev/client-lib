@@ -267,6 +267,7 @@ export { TransactionStatus } from './models/TransactionStatus';
 export { TransactionType } from './models/TransactionType';
 export { TypeFulfillmentPrice } from './models/TypeFulfillmentPrice';
 export { TypeOfFraud } from './models/TypeOfFraud';
+export type { TypeOfFraudService } from './models/TypeOfFraudService';
 export type { UnsubscribeEmailMarketingDto } from './models/UnsubscribeEmailMarketingDto';
 export type { UnsubscribeTopicDto } from './models/UnsubscribeTopicDto';
 export type { UpdateActiveStatusAutomationEmailMarketingDto } from './models/UpdateActiveStatusAutomationEmailMarketingDto';
