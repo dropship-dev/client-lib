@@ -76,11 +76,13 @@ export declare class OrderService {
             VariantCombo: (VariantCombo & {
                 Product: {
                     name: string;
+                    id: number;
                 };
             });
             ProductVariant: (ProductVariant & {
                 Product: {
                     name: string;
+                    id: number;
                 };
                 PlatformVariant: PlatformVariant;
             });
@@ -233,11 +235,13 @@ export declare class OrderService {
             VariantCombo: (VariantCombo & {
                 Product: {
                     name: string;
+                    id: number;
                 };
             });
             ProductVariant: (ProductVariant & {
                 Product: {
                     name: string;
+                    id: number;
                 };
                 PlatformVariant: PlatformVariant;
             });
@@ -371,11 +375,13 @@ export declare class OrderService {
             VariantCombo: (VariantCombo & {
                 Product: {
                     name: string;
+                    id: number;
                 };
             });
             ProductVariant: (ProductVariant & {
                 Product: {
                     name: string;
+                    id: number;
                 };
                 PlatformVariant: PlatformVariant;
             });
