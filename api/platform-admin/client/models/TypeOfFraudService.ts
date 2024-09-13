@@ -3,9 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum CustomDomainStatus {
-  PENDING = 'PENDING',
-  FAILED = 'FAILED',
-  SUCCESS = 'SUCCESS',
-  EXPIRED = 'EXPIRED',
-}
+import type { TypeOfFraud } from './TypeOfFraud';
+
+export type TypeOfFraudService = Array<TypeOfFraud>;

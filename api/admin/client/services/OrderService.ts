@@ -18,7 +18,6 @@ import type { OrderRefund } from '../models/OrderRefund';
 import type { OrderStatus } from '../models/OrderStatus';
 import type { PaymentType } from '../models/PaymentType';
 import type { PlatformVariant } from '../models/PlatformVariant';
-import type { Product } from '../models/Product';
 import type { ProductVariant } from '../models/ProductVariant';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { Store } from '../models/Store';
@@ -29,6 +28,7 @@ import type { SyncBalanceAmount } from '../models/SyncBalanceAmount';
 import type { Timezone } from '../models/Timezone';
 import type { Transaction } from '../models/Transaction';
 import type { TransactionStatus } from '../models/TransactionStatus';
+import type { TypeOfFraudService } from '../models/TypeOfFraudService';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { VariantCombo } from '../models/VariantCombo';
@@ -134,16 +134,23 @@ export class OrderService {
     id: string,
   }): CancelablePromise<{
     FraudDetection: Array<{
+      labels: TypeOfFraudService;
       humanFraudDetect: FraudDetectionStatusType;
       systemFraudDetect: FraudDetectionStatusType;
     }>;
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: (VariantCombo & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
       });
       ProductVariant: (ProductVariant & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
         PlatformVariant: PlatformVariant;
       });
     })>;
@@ -198,6 +205,8 @@ export class OrderService {
     fraudStatus: FraudStatusType;
     Store: {
       primaryDomain: string;
+      avatar: string;
+      email: string;
       name: string;
       FraudDetection: Array<FraudDetection>;
       id: string;
@@ -271,19 +280,27 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      latestTotal: number;
+      domain: string;
+      paymentId: number;
       gatewayTransactionId: string;
-      total: number;
+      fulfillmentStatus: FulfillmentStatus;
+      disputeStatus: OrderDisputeStatus;
+      status: OrderStatus;
       email: string;
       name: string;
-      FraudDetection: Array<{
-        humanFraudDetect: FraudDetectionStatusType;
-        systemFraudDetect: FraudDetectionStatusType;
-      }>;
+      total: number;
+      latestTotal: number;
+      createdAt: string;
+      storeId: string;
+      id: string;
       OrderItem: Array<{
         tracking: string;
+        orderId: string;
       }>;
-      Transaction: Array<Transaction>;
+      Transaction: Array<{
+        orderId: string;
+        status: TransactionStatus;
+      }>;
       Payment: {
         email: string;
         name: string;
@@ -298,12 +315,9 @@ export class OrderService {
           systemFraudDetect: FraudDetectionStatusType;
         }>;
         id: string;
+        fraudStatus: FraudStatusType;
       };
-      createdAt: string;
-      status: OrderStatus;
-      id: string;
-      disputeStatus: OrderDisputeStatus;
-      fulfillmentStatus: FulfillmentStatus;
+      fraudStatus: FraudStatusType;
     }>;
   }> {
     return this.httpRequest.request({
@@ -346,16 +360,23 @@ export class OrderService {
     requestBody: ManualFraudDetectionDto,
   }): CancelablePromise<({
     FraudDetection: Array<{
+      labels: TypeOfFraudService;
       humanFraudDetect: FraudDetectionStatusType;
       systemFraudDetect: FraudDetectionStatusType;
     }>;
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: (VariantCombo & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
       });
       ProductVariant: (ProductVariant & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
         PlatformVariant: PlatformVariant;
       });
     })>;
@@ -410,6 +431,8 @@ export class OrderService {
     fraudStatus: FraudStatusType;
     Store: {
       primaryDomain: string;
+      avatar: string;
+      email: string;
       name: string;
       FraudDetection: Array<FraudDetection>;
       id: string;
@@ -503,10 +526,16 @@ export class OrderService {
     OrderRefund: Array<OrderRefund>;
     OrderItem: Array<(OrderItem & {
       VariantCombo: (VariantCombo & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
       });
       ProductVariant: (ProductVariant & {
-        Product: Product;
+        Product: {
+          name: string;
+          id: number;
+        };
         PlatformVariant: PlatformVariant;
       });
     })>;
@@ -586,30 +615,38 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      latestTotal: number;
+      domain: string;
+      paymentId: number;
       gatewayTransactionId: string;
-      total: number;
+      fulfillmentStatus: FulfillmentStatus;
+      disputeStatus: OrderDisputeStatus;
+      status: OrderStatus;
       email: string;
       name: string;
+      total: number;
+      latestTotal: number;
+      createdAt: string;
+      storeId: string;
+      id: string;
       OrderItem: Array<{
         tracking: string;
+        orderId: string;
       }>;
-      Transaction: Array<Transaction>;
+      Transaction: Array<{
+        orderId: string;
+        status: TransactionStatus;
+      }>;
       Payment: {
         email: string;
         name: string;
         type: PaymentType;
+        id: number;
       };
       Store: {
         primaryDomain: string;
         name: string;
         id: string;
       };
-      createdAt: string;
-      status: OrderStatus;
-      id: string;
-      disputeStatus: OrderDisputeStatus;
-      fulfillmentStatus: FulfillmentStatus;
     }>;
   }> {
     return this.httpRequest.request({

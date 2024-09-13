@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTiktokPixelDto } from '../models/CreateTiktokPixelDto';
-import type { Product } from '../models/Product';
 import type { TiktokPixel } from '../models/TiktokPixel';
 import type { UpdateTiktokPixelDto } from '../models/UpdateTiktokPixelDto';
 
@@ -25,7 +24,9 @@ export class TiktokPixelService {
     storeId: string,
     requestBody: CreateTiktokPixelDto,
   }): CancelablePromise<(TiktokPixel & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -54,7 +55,9 @@ export class TiktokPixelService {
   }: {
     storeId: string,
   }): CancelablePromise<Array<(TiktokPixel & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -83,7 +86,9 @@ export class TiktokPixelService {
     storeId: string,
     pixelId: string,
   }): CancelablePromise<(TiktokPixel & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

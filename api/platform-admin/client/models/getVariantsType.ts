@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { BoostSaleType } from './BoostSaleType';
+import type { PrismaJson_DiscountBoostSale } from './PrismaJson_DiscountBoostSale';
 import type { ProductVariant } from './ProductVariant';
 
 export type getVariantsType = (ProductVariant & {
@@ -11,6 +12,7 @@ export type getVariantsType = (ProductVariant & {
   isStock: boolean;
   Product?: {
     boostSale: {
+      discount?: PrismaJson_DiscountBoostSale | null;
       id?: (number | string);
       status?: boolean;
       type?: BoostSaleType | null;

@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { CreateGTMDto } from '../models/CreateGTMDto';
 import type { GoogleTagManager } from '../models/GoogleTagManager';
-import type { Product } from '../models/Product';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -25,7 +24,9 @@ export class GoogleTagManagerService {
     storeId: string,
     requestBody: CreateGTMDto,
   }): CancelablePromise<(GoogleTagManager & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -54,7 +55,9 @@ export class GoogleTagManagerService {
   }: {
     storeId: string,
   }): CancelablePromise<Array<(GoogleTagManager & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -83,7 +86,9 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
   }): CancelablePromise<(GoogleTagManager & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

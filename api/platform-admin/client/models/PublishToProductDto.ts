@@ -14,7 +14,7 @@ export type PublishToProductDto = {
   description?: string;
   keyFeature?: string;
   sizeGuide?: string;
-  supplierContract?: string;
+  supplierContact?: string;
   sku?: string;
   variantOption: Array<VariantOptionsPayLoad>;
   variants: Array<DesignVariant>;

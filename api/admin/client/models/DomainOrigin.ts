@@ -3,9 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum CustomDomainStatus {
-  PENDING = 'PENDING',
-  FAILED = 'FAILED',
-  SUCCESS = 'SUCCESS',
-  EXPIRED = 'EXPIRED',
+export enum DomainOrigin {
+  BETTAMAX = 'BETTAMAX',
+  OTHERS = 'OTHERS',
 }

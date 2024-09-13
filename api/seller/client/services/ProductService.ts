@@ -284,6 +284,7 @@ export class ProductService {
         ProductVariant: Array<(ProductVariant & {
           Product: {
             name: string;
+            id: number;
           };
         })>;
       })>;
@@ -292,6 +293,7 @@ export class ProductService {
           ProductVariant: Array<(ProductVariant & {
             Product: {
               name: string;
+              id: number;
             };
           })>;
         })>;
@@ -303,6 +305,7 @@ export class ProductService {
           ProductVariant: Array<(ProductVariant & {
             Product: {
               name: string;
+              id: number;
             };
           })>;
         })>;
@@ -311,6 +314,7 @@ export class ProductService {
             ProductVariant: Array<(ProductVariant & {
               Product: {
                 name: string;
+                id: number;
               };
             })>;
           })>;

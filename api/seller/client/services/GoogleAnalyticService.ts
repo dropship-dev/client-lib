@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { CreateGADto } from '../models/CreateGADto';
 import type { GoogleAnalytic } from '../models/GoogleAnalytic';
-import type { Product } from '../models/Product';
 import type { UpdateGADto } from '../models/UpdateGADto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -25,7 +24,9 @@ export class GoogleAnalyticService {
     storeId: string,
     requestBody: CreateGADto,
   }): CancelablePromise<(GoogleAnalytic & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -54,7 +55,9 @@ export class GoogleAnalyticService {
   }: {
     storeId: string,
   }): CancelablePromise<Array<(GoogleAnalytic & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -83,7 +86,9 @@ export class GoogleAnalyticService {
     storeId: string,
     pixelId: string,
   }): CancelablePromise<(GoogleAnalytic & {
-    Product: Array<Product>;
+    Product: Array<{
+      id: number;
+    }>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

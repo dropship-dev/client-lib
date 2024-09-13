@@ -137,6 +137,10 @@ export class PodTemplateService {
       name: string;
       id: number;
     }>;
+    PodTechnique: {
+      name: string;
+      id: number;
+    };
     id: number;
     url: string;
     isFavorite: boolean;
