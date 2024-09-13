@@ -260,4 +260,29 @@ export class PodTemplateService {
     });
   }
 
+  /**
+   * @returns boolean Ok
+   * @throws ApiError
+   */
+  public downloadTemplate({
+    id,
+  }: {
+    id: number,
+  }): CancelablePromise<boolean> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/pod/template/{id}/download',
+      path: {
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
 }
