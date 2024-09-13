@@ -151,6 +151,7 @@ export declare class ProductService {
                 ProductVariant: Array<(ProductVariant & {
                     Product: {
                         name: string;
+                        id: number;
                     };
                 })>;
             })>;
@@ -159,6 +160,7 @@ export declare class ProductService {
                     ProductVariant: Array<(ProductVariant & {
                         Product: {
                             name: string;
+                            id: number;
                         };
                     })>;
                 })>;
@@ -170,6 +172,7 @@ export declare class ProductService {
                     ProductVariant: Array<(ProductVariant & {
                         Product: {
                             name: string;
+                            id: number;
                         };
                     })>;
                 })>;
@@ -178,6 +181,7 @@ export declare class ProductService {
                         ProductVariant: Array<(ProductVariant & {
                             Product: {
                                 name: string;
+                                id: number;
                             };
                         })>;
                     })>;

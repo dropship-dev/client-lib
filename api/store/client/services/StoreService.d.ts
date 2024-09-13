@@ -119,6 +119,7 @@ export declare class StoreService {
             };
             Product: {
                 name: string;
+                id: number;
             };
         }>;
         id: string;

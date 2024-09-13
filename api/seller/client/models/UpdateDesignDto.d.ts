@@ -5,7 +5,7 @@ export type UpdateDesignDto = {
     name: string;
     description?: string;
     sizeGuide?: string;
-    supplierContract?: string;
+    supplierContact?: string;
     sku?: string;
     variantOption: Array<VariantOptionsPayLoad>;
     files: Array<FileUpdateDesign>;

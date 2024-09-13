@@ -1,6 +1,5 @@
 import type { CreateFbPixelDto } from '../models/CreateFbPixelDto';
 import type { FbPixel } from '../models/FbPixel';
-import type { Product } from '../models/Product';
 import type { UpdateFbPixelDto } from '../models/UpdateFbPixelDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -15,7 +14,9 @@ export declare class FbPixelService {
         storeId: string;
         requestBody: CreateFbPixelDto;
     }): CancelablePromise<(FbPixel & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>;
     /**
      * @returns any Ok
@@ -24,7 +25,9 @@ export declare class FbPixelService {
     getAllFbPixel({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<(FbPixel & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>>;
     /**
      * @returns any Ok
@@ -34,7 +37,9 @@ export declare class FbPixelService {
         storeId: string;
         pixelId: string;
     }): CancelablePromise<(FbPixel & {
-        Product: Array<Product>;
+        Product: Array<{
+            id: number;
+        }>;
     })>;
     /**
      * @returns FbPixel Ok
