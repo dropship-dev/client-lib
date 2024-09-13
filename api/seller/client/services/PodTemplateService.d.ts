@@ -116,6 +116,13 @@ export declare class PodTemplateService {
         id: number;
     }>>;
     /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    downloadTemplate({ id, }: {
+        id: number;
+    }): CancelablePromise<boolean>;
+    /**
      * @returns PodTemplateFavorite Ok
      * @throws ApiError
      */
