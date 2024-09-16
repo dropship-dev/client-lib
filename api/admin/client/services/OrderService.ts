@@ -280,27 +280,19 @@ export class OrderService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      domain: string;
-      paymentId: number;
+      latestTotal: number;
       gatewayTransactionId: string;
-      fulfillmentStatus: FulfillmentStatus;
-      disputeStatus: OrderDisputeStatus;
-      status: OrderStatus;
+      total: number;
       email: string;
       name: string;
-      total: number;
-      latestTotal: number;
-      createdAt: string;
-      storeId: string;
-      id: string;
+      FraudDetection: Array<{
+        humanFraudDetect: FraudDetectionStatusType;
+        systemFraudDetect: FraudDetectionStatusType;
+      }>;
       OrderItem: Array<{
         tracking: string;
-        orderId: string;
       }>;
-      Transaction: Array<{
-        orderId: string;
-        status: TransactionStatus;
-      }>;
+      Transaction: Array<Transaction>;
       Payment: {
         email: string;
         name: string;
@@ -315,9 +307,12 @@ export class OrderService {
           systemFraudDetect: FraudDetectionStatusType;
         }>;
         id: string;
-        fraudStatus: FraudStatusType;
       };
-      fraudStatus: FraudStatusType;
+      createdAt: string;
+      status: OrderStatus;
+      id: string;
+      disputeStatus: OrderDisputeStatus;
+      fulfillmentStatus: FulfillmentStatus;
     }>;
   }> {
     return this.httpRequest.request({
