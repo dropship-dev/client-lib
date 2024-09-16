@@ -156,6 +156,29 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getUpSellByProductIds({ storeId, productIds, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/product/getUpSellByProductIds',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'productIds': productIds,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getProduct({ storeId, productId, isGetAllPlatformProductStore, }) {
         return this.httpRequest.request({
             method: 'GET',

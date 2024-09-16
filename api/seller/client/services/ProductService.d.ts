@@ -236,6 +236,17 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getUpSellByProductIds({ storeId, productIds, }: {
+        storeId: string;
+        productIds: Array<number>;
+    }): CancelablePromise<Array<{
+        upSellId: number;
+        productId: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getProduct({ storeId, productId, isGetAllPlatformProductStore, }: {
         storeId: string;
         productId: number;
