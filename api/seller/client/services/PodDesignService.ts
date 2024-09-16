@@ -248,7 +248,7 @@ export class PodDesignService {
     }>;
     designVariant: Array<{
       sku: string;
-      templateVariantId: number;
+      podTemplateVariantId: number;
       price: number;
       minSellingPrice: number;
       isDisable: boolean;
