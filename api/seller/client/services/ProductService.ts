@@ -10,6 +10,7 @@ import type { CloneProductDto } from '../models/CloneProductDto';
 import type { Collection } from '../models/Collection';
 import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
 import type { Discount } from '../models/Discount';
+import type { DiscountBoostSale } from '../models/DiscountBoostSale';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
@@ -371,12 +372,10 @@ export class ProductService {
     storeId,
     variantIds,
     comboIds,
-    boostSaleIds,
   }: {
     storeId: string,
     variantIds?: Array<number>,
     comboIds?: Array<number>,
-    boostSaleIds?: Array<number>,
   }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -387,7 +386,73 @@ export class ProductService {
       query: {
         'variantIds': variantIds,
         'comboIds': comboIds,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStatusBoostSale({
+    storeId,
+    boostSaleIds,
+  }: {
+    storeId: string,
+    boostSaleIds: Array<number>,
+  }): CancelablePromise<Array<{
+    discount: DiscountBoostSale;
+    status: boolean;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/getStatusBoostSales',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
         'boostSaleIds': boostSaleIds,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getUpSellByProductIds({
+    storeId,
+    productIds,
+  }: {
+    storeId: string,
+    productIds: Array<number>,
+  }): CancelablePromise<Array<{
+    upSellId: number;
+    productId: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/getUpSellByProductIds',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'productIds': productIds,
       },
       errors: {
         400: `Bad request`,
