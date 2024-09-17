@@ -4,6 +4,7 @@ import type { BoostSale } from '../models/BoostSale';
 import type { Campaign } from '../models/Campaign';
 import type { Collection } from '../models/Collection';
 import type { Discount } from '../models/Discount';
+import type { DiscountBoostSale } from '../models/DiscountBoostSale';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
 import type { Photos } from '../models/Photos';
@@ -185,12 +186,34 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStatusOrderItems({ storeId, variantIds, comboIds, boostSaleIds, }: {
+    getStatusOrderItems({ storeId, variantIds, comboIds, }: {
         storeId: string;
         variantIds?: Array<number>;
         comboIds?: Array<number>;
-        boostSaleIds?: Array<number>;
     }): CancelablePromise<Array<(getVariantsType | getStatusCombosType)>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStatusBoostSale({ storeId, boostSaleIds, }: {
+        storeId: string;
+        boostSaleIds: Array<number>;
+    }): CancelablePromise<Array<{
+        discount: DiscountBoostSale;
+        status: boolean;
+        id: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getUpSellByProductIds({ storeId, productIds, }: {
+        storeId: string;
+        productIds: Array<number>;
+    }): CancelablePromise<Array<{
+        upSellId: number;
+        productId: number;
+    }>>;
     /**
      * @returns any Ok
      * @throws ApiError
