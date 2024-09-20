@@ -167,6 +167,7 @@ export class StoreService {
     StoreUser: Array<StoreUser>;
     updatedAt: string;
     createdAt: string;
+    stripeCustomerId: string;
     currencyId: number;
     fulfillmentAgencyId: number;
     maxUsers: number;
