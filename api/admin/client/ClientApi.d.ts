@@ -3,7 +3,6 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
-import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
@@ -34,7 +33,6 @@ export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
     readonly auth: AuthService;
     readonly bankAccount: BankAccountService;
-    readonly boostSales: BoostSalesService;
     readonly currency: CurrencyService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
     readonly groupPlatformVariant: GroupPlatformVariantService;

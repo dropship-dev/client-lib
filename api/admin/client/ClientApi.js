@@ -5,7 +5,6 @@ const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const BankAccountService_1 = require("./services/BankAccountService");
-const BoostSalesService_1 = require("./services/BoostSalesService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GroupPlatformVariantService_1 = require("./services/GroupPlatformVariantService");
@@ -35,7 +34,6 @@ class ClientApi {
     asyncTask;
     auth;
     bankAccount;
-    boostSales;
     currency;
     fulfillmentAgency;
     groupPlatformVariant;
@@ -77,7 +75,6 @@ class ClientApi {
         this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
         this.bankAccount = new BankAccountService_1.BankAccountService(this.request);
-        this.boostSales = new BoostSalesService_1.BoostSalesService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.groupPlatformVariant = new GroupPlatformVariantService_1.GroupPlatformVariantService(this.request);
