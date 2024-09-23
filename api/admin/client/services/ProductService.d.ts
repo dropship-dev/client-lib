@@ -195,6 +195,70 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
+    getProductByPermalinkSideStore({ storeId, permalink, }: {
+        storeId: string;
+        permalink: string;
+    }): CancelablePromise<{
+        Campaign: (Campaign & {
+            listDiscount: Array<Discount>;
+        });
+        VariantCombo: Array<(VariantCombo & {
+            Product: {
+                platformProductId: number;
+                name: string;
+            };
+        })>;
+        ProductVariant: Array<(ProductVariant & {
+            Product: {
+                platformProductId: number;
+                name: string;
+            };
+            PlatformVariant: PlatformVariant;
+        })>;
+        Review: Array<Review>;
+        GoogleTagManager: Array<{
+            tag: string;
+        }>;
+        GoogleAnalytic: Array<{
+            measurementId: string;
+        }>;
+        TiktokPixel: Array<{
+            pixelId: string;
+        }>;
+        FbPixel: Array<{
+            pixelId: string;
+        }>;
+        Tag: Array<Tag>;
+        PlatformProduct: {
+            variantOption: VariantOptions;
+            id: number;
+        };
+        updatedAt: string;
+        createdAt: string;
+        podTemplateId: number;
+        campaignId: string;
+        storeId: string;
+        platformProductId: number;
+        deleted: boolean;
+        isEnable: boolean;
+        isActive: boolean;
+        supplierContact: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        variantOption: VariantOptions;
+        availableSet: AvailableSet;
+        SKU: string;
+        photos: Photos;
+        details: string;
+        description: string;
+        permalink: string;
+        name: string;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStatusOrderItems({ storeId, variantIds, comboIds, }: {
         storeId: string;
         variantIds?: Array<number>;
