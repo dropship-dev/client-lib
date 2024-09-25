@@ -46,8 +46,8 @@ export class TransactionService {
       RequestPayout: {
         bankAccountId: string;
         convertCurrencyCode: string;
-        paymentMethod: PaymentMethodType;
         convertCurrencyAmount: number;
+        paymentMethod: PaymentMethodType;
         PingPongAccount: PingPongAccount;
         BankAccount: BankAccount;
         id: string;
