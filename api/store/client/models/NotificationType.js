@@ -27,4 +27,6 @@ var NotificationType;
     NotificationType["FRAUD_DETECTED"] = "FRAUD_DETECTED";
     NotificationType["BROADCAST"] = "BROADCAST";
     NotificationType["POD_TEMPLATE_UPDATED"] = "POD_TEMPLATE_UPDATED";
+    NotificationType["DOMAIN_PURCHASE_SUCCESSFUL"] = "DOMAIN_PURCHASE_SUCCESSFUL";
+    NotificationType["DOMAIN_PURCHASE_FAILED"] = "DOMAIN_PURCHASE_FAILED";
 })(NotificationType || (exports.NotificationType = NotificationType = {}));

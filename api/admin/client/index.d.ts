@@ -212,6 +212,8 @@ export type { PrismaJson_ThemeNodes } from './models/PrismaJson_ThemeNodes';
 export type { PrismaJson_ThemeSetting } from './models/PrismaJson_ThemeSetting';
 export type { PrismaJson_ThemeStyle } from './models/PrismaJson_ThemeStyle';
 export type { PrismaJson_Timezone } from './models/PrismaJson_Timezone';
+export type { PrismaJson_TransactionDetails } from './models/PrismaJson_TransactionDetails';
+export { PrismaJson_TransactionPaymentMethod } from './models/PrismaJson_TransactionPaymentMethod';
 export type { PrismaJson_TypeOfFraudService } from './models/PrismaJson_TypeOfFraudService';
 export type { PrismaJson_UnavailableBalance } from './models/PrismaJson_UnavailableBalance';
 export type { PrismaJson_VariantComboItems } from './models/PrismaJson_VariantComboItems';
