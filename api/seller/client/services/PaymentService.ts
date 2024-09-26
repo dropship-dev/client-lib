@@ -5,6 +5,7 @@
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
+import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
@@ -285,6 +286,124 @@ export class PaymentService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public listStorePaymentMethods({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<Array<{
+    isPrimary: boolean;
+    cardHolderName: string;
+    cvcCheck: string;
+    expireYear: number;
+    expireMonth: number;
+    last4: string;
+    brand: string;
+    id: string;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/payments',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public retrieveClientSecret({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    clientSecret: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/payments/secret',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public setStoreDefaultPaymentMethod({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PaymentMethodIdDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/payments/set-primary',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteStoreCard({
+    storeId,
+    paymentMethodId,
+  }: {
+    storeId: string,
+    paymentMethodId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/payments/{paymentMethodId}',
+      path: {
+        'storeId': storeId,
+        'paymentMethodId': paymentMethodId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
