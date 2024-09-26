@@ -29,7 +29,7 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllDomain({ storeId, }) {
@@ -49,7 +49,96 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns string Ok
+     * @throws ApiError
+     */
+    buyDomain({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/domain/buy-domain',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchDomain({ storeId, keyword, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/domain/search-domain',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'keyword': keyword,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    switchAutoRenewDomain({ storeId, domain, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/domain/switch-autorenew/{domain}',
+            path: {
+                'storeId': storeId,
+                'domain': domain,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    renewDomainManually({ storeId, domain, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/domain/renew/{domain}',
+            path: {
+                'storeId': storeId,
+                'domain': domain,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
      * @throws ApiError
      */
     getDomain({ storeId, domain, }) {
