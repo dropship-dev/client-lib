@@ -97,13 +97,13 @@ class DomainService {
      * @returns string Ok
      * @throws ApiError
      */
-    switchAutoRenewDomain({ storeId, domain, }) {
+    switchAutoRenewDomain({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}/domain/switch-autorenew/{domain}',
+            url: '/store/{storeId}/domain/switch-autorenew/{id}',
             path: {
                 'storeId': storeId,
-                'domain': domain,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,
@@ -118,13 +118,13 @@ class DomainService {
      * @returns string Ok
      * @throws ApiError
      */
-    renewDomainManually({ storeId, domain, requestBody, }) {
+    renewDomainManually({ storeId, id, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}/domain/renew/{domain}',
+            url: '/store/{storeId}/domain/renew/{id}',
             path: {
                 'storeId': storeId,
-                'domain': domain,
+                'id': id,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -141,13 +141,13 @@ class DomainService {
      * @returns any Ok
      * @throws ApiError
      */
-    getDomain({ storeId, domain, }) {
+    getDomain({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/domain/{domain}',
+            url: '/store/{storeId}/domain/{id}',
             path: {
                 'storeId': storeId,
-                'domain': domain,
+                'id': id,
             },
             errors: {
                 400: `Bad request`,

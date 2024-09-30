@@ -69,26 +69,26 @@ export declare class DomainService {
      * @returns string Ok
      * @throws ApiError
      */
-    switchAutoRenewDomain({ storeId, domain, }: {
+    switchAutoRenewDomain({ storeId, id, }: {
         storeId: string;
-        domain: string;
+        id: number;
     }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError
      */
-    renewDomainManually({ storeId, domain, requestBody, }: {
+    renewDomainManually({ storeId, id, requestBody, }: {
         storeId: string;
-        domain: string;
+        id: number;
         requestBody: RenewDomainDto;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    getDomain({ storeId, domain, }: {
+    getDomain({ storeId, id, }: {
         storeId: string;
-        domain: string;
+        id: number;
     }): CancelablePromise<{
         updatedAt: string;
         createdAt: string;
