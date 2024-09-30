@@ -31,6 +31,7 @@ export declare class DomainService {
         storeId: string;
         contactInfo: DomainContactInfo;
         subscriptionId: string;
+        renewable: boolean;
         renewalPrice: number;
         purchasePrice: number;
         domainOrigin: DomainOrigin;
@@ -95,6 +96,7 @@ export declare class DomainService {
         storeId: string;
         contactInfo: DomainContactInfo;
         subscriptionId: string;
+        renewable: boolean;
         renewalPrice: number;
         purchasePrice: number;
         domainOrigin: DomainOrigin;

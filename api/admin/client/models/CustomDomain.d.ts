@@ -14,6 +14,7 @@ export type CustomDomain = {
      */
     contactInfo: PrismaJson_DomainContactInfo | null;
     subscriptionId: string | null;
+    renewable: boolean;
     renewalPrice: number;
     purchasePrice: number;
     domainOrigin: DomainOrigin;
