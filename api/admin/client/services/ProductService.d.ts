@@ -272,6 +272,9 @@ export declare class ProductService {
         storeId: string;
         boostSaleIds: Array<number>;
     }): CancelablePromise<Array<{
+        Product: Array<{
+            id: number;
+        }>;
         discount: DiscountBoostSale;
         status: boolean;
         id: number;
