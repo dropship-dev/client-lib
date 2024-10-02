@@ -193,7 +193,7 @@ export class DomainService {
   }: {
     storeId: string,
     id: number,
-    requestBody: RenewDomainDto,
+    requestBody?: RenewDomainDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
