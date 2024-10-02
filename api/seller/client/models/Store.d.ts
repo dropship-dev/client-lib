@@ -7,6 +7,7 @@ import type { StoreType } from './StoreType';
 export type Store = {
     updatedAt: string;
     createdAt: string;
+    stripeDefaultPaymentMethodId: string | null;
     stripeCustomerId: string | null;
     currencyId: number;
     fulfillmentAgencyId: number | null;

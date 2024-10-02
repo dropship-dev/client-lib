@@ -80,7 +80,7 @@ export declare class DomainService {
     renewDomainManually({ storeId, id, requestBody, }: {
         storeId: string;
         id: number;
-        requestBody: RenewDomainDto;
+        requestBody?: RenewDomainDto;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
