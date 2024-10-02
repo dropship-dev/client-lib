@@ -349,6 +349,7 @@ export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 export { AsyncTaskService } from './services/AsyncTaskService';
 export { AuthService } from './services/AuthService';
 export { BankAccountService } from './services/BankAccountService';
+export { BoostSalesService } from './services/BoostSalesService';
 export { CurrencyService } from './services/CurrencyService';
 export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
