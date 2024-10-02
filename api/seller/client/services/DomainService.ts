@@ -60,7 +60,6 @@ export class DomainService {
     isPrimary: boolean;
     storeId: string;
     contactInfo: DomainContactInfo;
-    subscriptionId: string;
     renewable: boolean;
     renewalPrice: number;
     purchasePrice: number;
@@ -230,7 +229,6 @@ export class DomainService {
     isPrimary: boolean;
     storeId: string;
     contactInfo: DomainContactInfo;
-    subscriptionId: string;
     renewable: boolean;
     renewalPrice: number;
     purchasePrice: number;
