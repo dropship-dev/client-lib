@@ -275,6 +275,92 @@ export class ProductService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getProductByPermalinkSideStore({
+    storeId,
+    permalink,
+  }: {
+    storeId: string,
+    permalink: string,
+  }): CancelablePromise<{
+    Campaign: (Campaign & {
+      listDiscount: Array<Discount>;
+    });
+    VariantCombo: Array<(VariantCombo & {
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
+    })>;
+    ProductVariant: Array<(ProductVariant & {
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
+      PlatformVariant: PlatformVariant;
+    })>;
+    Review: Array<Review>;
+    GoogleTagManager: Array<{
+      tag: string;
+    }>;
+    GoogleAnalytic: Array<{
+      measurementId: string;
+    }>;
+    TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    FbPixel: Array<{
+      pixelId: string;
+    }>;
+    Tag: Array<Tag>;
+    PlatformProduct: {
+      variantOption: VariantOptions;
+      id: number;
+    };
+    updatedAt: string;
+    createdAt: string;
+    podTemplateId: number;
+    campaignId: string;
+    storeId: string;
+    platformProductId: number;
+    deleted: boolean;
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    variantOption: VariantOptions;
+    availableSet: AvailableSet;
+    SKU: string;
+    photos: Photos;
+    details: string;
+    description: string;
+    permalink: string;
+    name: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/permalink-side-store',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'permalink': permalink,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getStatusOrderItems({
     storeId,
     variantIds,
@@ -315,6 +401,9 @@ export class ProductService {
     storeId: string,
     boostSaleIds: Array<number>,
   }): CancelablePromise<Array<{
+    Product: Array<{
+      id: number;
+    }>;
     discount: DiscountBoostSale;
     status: boolean;
     id: number;

@@ -9,6 +9,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
+import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
@@ -47,6 +48,7 @@ export class ClientApi {
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly bankAccount: BankAccountService;
+  public readonly boostSales: BoostSalesService;
   public readonly currency: CurrencyService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
@@ -96,6 +98,7 @@ export class ClientApi {
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.bankAccount = new BankAccountService(this.request);
+    this.boostSales = new BoostSalesService(this.request);
     this.currency = new CurrencyService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
