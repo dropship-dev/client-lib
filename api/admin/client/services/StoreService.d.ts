@@ -138,6 +138,7 @@ export declare class StoreService {
         StoreUser: Array<StoreUser>;
         updatedAt: string;
         createdAt: string;
+        stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         currencyId: number;
         fulfillmentAgencyId: number;

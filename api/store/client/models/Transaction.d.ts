@@ -1,4 +1,6 @@
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
+import type { PrismaJson_TransactionDetails } from './PrismaJson_TransactionDetails';
+import type { PrismaJson_TransactionPaymentMethod } from './PrismaJson_TransactionPaymentMethod';
 import type { TransactionStatus } from './TransactionStatus';
 import type { TransactionType } from './TransactionType';
 /**
@@ -9,6 +11,14 @@ export type Transaction = {
     createdAt: string;
     isRollback: boolean;
     refundIdGateway: string | null;
+    /**
+     * [TransactionDetails]
+     */
+    transactionDetails: PrismaJson_TransactionDetails | null;
+    /**
+     * [TransactionPaymentMethod]
+     */
+    paymentMethod: PrismaJson_TransactionPaymentMethod | null;
     notes: string | null;
     /**
      * [Photos]

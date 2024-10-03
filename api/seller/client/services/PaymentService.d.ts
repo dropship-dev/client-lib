@@ -1,6 +1,7 @@
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { Payment } from '../models/Payment';
+import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
 import type { PaymentType } from '../models/PaymentType';
 import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
@@ -122,5 +123,46 @@ export declare class PaymentService {
         fulfillmentAgencyId: number;
         id: number;
         requestBody: AddPaymentToStores;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listStorePaymentMethods({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<Array<{
+        isPrimary: boolean;
+        cardHolderName: string;
+        cvcCheck: string;
+        expireYear: number;
+        expireMonth: number;
+        last4: string;
+        brand: string;
+        id: string;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    retrieveClientSecret({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        clientSecret: string;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    setStoreDefaultPaymentMethod({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: PaymentMethodIdDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteStoreCard({ storeId, paymentMethodId, }: {
+        storeId: string;
+        paymentMethodId: string;
     }): CancelablePromise<string>;
 }

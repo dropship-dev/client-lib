@@ -13,10 +13,10 @@ export type CustomDomain = {
      * [DomainContactInfo]
      */
     contactInfo: PrismaJson_DomainContactInfo | null;
-    subscriptionId: string | null;
-    renewalPrice: number;
-    purchasePrice: number;
-    domainOrigin: DomainOrigin;
+    renewable: boolean | null;
+    renewalPrice: number | null;
+    purchasePrice: number | null;
+    domainOrigin: DomainOrigin | null;
     autoRenew: boolean | null;
     expirationDate: string | null;
     status: CustomDomainStatus;

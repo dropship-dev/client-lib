@@ -49,6 +49,58 @@ export declare class BoostSalesService {
      * @returns any Ok
      * @throws ApiError
      */
+    getBoostSaleByPermalinkSideStore({ storeId, permalink, }: {
+        storeId: string;
+        permalink: string;
+    }): CancelablePromise<{
+        BoostSale: Array<(BoostSale & {
+            Product: Array<(Product & {
+                ProductVariant: Array<(ProductVariant & {
+                    Product: {
+                        name: string;
+                        id: number;
+                    };
+                })>;
+            })>;
+            Collection: Array<{
+                Product: Array<(Product & {
+                    ProductVariant: Array<(ProductVariant & {
+                        Product: {
+                            name: string;
+                            id: number;
+                        };
+                    })>;
+                })>;
+            }>;
+        })>;
+        Collection: Array<(Collection & {
+            BoostSale: Array<(BoostSale & {
+                Product: Array<(Product & {
+                    ProductVariant: Array<(ProductVariant & {
+                        Product: {
+                            name: string;
+                            id: number;
+                        };
+                    })>;
+                })>;
+                Collection: Array<{
+                    Product: Array<(Product & {
+                        ProductVariant: Array<(ProductVariant & {
+                            Product: {
+                                name: string;
+                                id: number;
+                            };
+                        })>;
+                    })>;
+                }>;
+            })>;
+        })>;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getBoostSales({ id, storeId, }: {
         id: number;
         storeId: string;

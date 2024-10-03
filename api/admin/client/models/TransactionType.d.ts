@@ -1,5 +1,6 @@
 export declare enum TransactionType {
     ORDER = "ORDER",
+    DOMAIN = "DOMAIN",
     PAYOUT = "PAYOUT",
     SUBSCRIPTION = "SUBSCRIPTION",
     WITH_DRAW = "WITH_DRAW",
