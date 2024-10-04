@@ -6,6 +6,7 @@ import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
 import type { PodFileProperties } from '../models/PodFileProperties';
 import type { PodTemplateFavorite } from '../models/PodTemplateFavorite';
 import type { PrintAreaBounds } from '../models/PrintAreaBounds';
+import type { PrintAreaPhotos } from '../models/PrintAreaPhotos';
 import type { StatusTemplate } from '../models/StatusTemplate';
 import type { VariantOptions } from '../models/VariantOptions';
 import type { VariantOptionValues } from '../models/VariantOptionValues';
@@ -80,6 +81,7 @@ export declare class PodTemplateService {
             printAreaBounds: PrintAreaBounds;
             faPrice: number;
             supplierCost: number;
+            photos: PrintAreaPhotos;
             name: string;
             id: number;
         }>;
