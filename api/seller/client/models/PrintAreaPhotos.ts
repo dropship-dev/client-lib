@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type PodFileColors = Array<{
-  value: string;
-  name: string;
+export type PrintAreaPhotos = Array<{
+  color: string;
+  url: string;
 }>;

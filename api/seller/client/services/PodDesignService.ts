@@ -9,11 +9,10 @@ import type { FileType } from '../models/FileType';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
 import type { PodDesign } from '../models/PodDesign';
 import type { PodFile } from '../models/PodFile';
-import type { PodFileColors } from '../models/PodFileColors';
 import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
 import type { PodFileProperties } from '../models/PodFileProperties';
-import type { PodMeshPoints } from '../models/PodMeshPoints';
 import type { PrintAreaBounds } from '../models/PrintAreaBounds';
+import type { PrintAreaPhotos } from '../models/PrintAreaPhotos';
 import type { Product } from '../models/Product';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
@@ -271,7 +270,6 @@ export class PodDesignService {
       PodFile: Array<{
         podPrintAreaId: number;
         properties: PodFileProperties;
-        color: PodFileColors;
         groupLayers: PodFileGroupLayers;
         fileName: string;
         type: FileType;
@@ -282,11 +280,9 @@ export class PodDesignService {
     };
     printArea: Array<{
       printAreaBounds: PrintAreaBounds;
-      meshPoints: PodMeshPoints;
-      groupLayers: PodFileGroupLayers;
-      photo: string;
       faPrice: number;
       supplierCost: number;
+      photos: PrintAreaPhotos;
       name: string;
       id: number;
       PodFile: PodFile;
