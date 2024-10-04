@@ -1,5 +1,4 @@
 import type { FileType } from './FileType';
-import type { PrismaJson_PodFileColors } from './PrismaJson_PodFileColors';
 import type { PrismaJson_PodFileGroupLayers } from './PrismaJson_PodFileGroupLayers';
 import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
 /**
@@ -15,10 +14,6 @@ export type PodFile = {
     podDesignId: number | null;
     podPrintAreaId: number | null;
     podTemplateId: number | null;
-    /**
-     * [PodFileColors]
-     */
-    color: PrismaJson_PodFileColors | null;
     /**
      * [PodFileGroupLayers]
      */
