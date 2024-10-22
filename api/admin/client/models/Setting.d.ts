@@ -6,6 +6,7 @@ export type Setting = {
     updatedAt: string;
     createdAt: string;
     fulfillmentAgencyId: number;
+    percentageCostPlatformFee: number | null;
     /**
      * [HoldSetting]
      */
