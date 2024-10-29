@@ -5,6 +5,7 @@
 import type { CreateMarketingAccount } from '../models/CreateMarketingAccount';
 import type { GetListStoreMarketingDto } from '../models/GetListStoreMarketingDto';
 import type { SendEmailToListStoreDto } from '../models/SendEmailToListStoreDto';
+import type { StoreEmailLogStatus } from '../models/StoreEmailLogStatus';
 import type { User } from '../models/User';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -62,6 +63,37 @@ export class MarketingService {
       mediaType: 'application/json',
       errors: {
         400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreEmailMarketingLog({
+    userId,
+  }: {
+    userId: string,
+  }): CancelablePromise<Array<{
+    emailId: string;
+    createdAt: string;
+    status: StoreEmailLogStatus;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/store/{userId}',
+      path: {
+        'userId': userId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
@@ -83,6 +115,28 @@ export class MarketingService {
       url: '/marketing/send-email',
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getEmailMarketingTemplate(): CancelablePromise<Array<{
+    name: string;
+    id: number;
+    data: string;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/template',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
