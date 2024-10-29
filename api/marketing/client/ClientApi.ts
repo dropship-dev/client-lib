@@ -7,12 +7,14 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
 import { MarketingService } from './services/MarketingService';
+import { UploadService } from './services/UploadService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ClientApi {
 
   public readonly marketing: MarketingService;
+  public readonly upload: UploadService;
 
   public readonly request: BaseHttpRequest;
 
@@ -30,6 +32,7 @@ export class ClientApi {
     });
 
     this.marketing = new MarketingService(this.request);
+    this.upload = new UploadService(this.request);
   }
 }
 

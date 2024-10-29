@@ -358,3 +358,4 @@ export { Week } from './models/Week';
 export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 
 export { MarketingService } from './services/MarketingService';
+export { UploadService } from './services/UploadService';
