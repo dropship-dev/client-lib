@@ -2,6 +2,7 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
+import { DefaultService } from './services/DefaultService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
@@ -13,6 +14,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
     readonly auth: AuthService;
+    readonly default: DefaultService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
     readonly marketingEmail: MarketingEmailService;
     readonly notification: NotificationService;
