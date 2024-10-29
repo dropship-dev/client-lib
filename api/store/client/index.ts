@@ -71,6 +71,7 @@ export type { CreateFulfillmentAgencyDto } from './models/CreateFulfillmentAgenc
 export type { CreateGADto } from './models/CreateGADto';
 export type { CreateGroupPlatformVariantsDto } from './models/CreateGroupPlatformVariantsDto';
 export type { CreateGTMDto } from './models/CreateGTMDto';
+export type { CreateMarketingAccount } from './models/CreateMarketingAccount';
 export type { CreateNotificationDto } from './models/CreateNotificationDto';
 export type { CreateOrderDto } from './models/CreateOrderDto';
 export type { CreateOrderItems } from './models/CreateOrderItems';
@@ -133,6 +134,7 @@ export type { GetAutomationMetricStatisticsDto } from './models/GetAutomationMet
 export type { getBoostSalesDto } from './models/getBoostSalesDto';
 export type { getCrossSellByProductDto } from './models/getCrossSellByProductDto';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
+export type { GetListStoreMarketingDto } from './models/GetListStoreMarketingDto';
 export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto';
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
 export type { getStatusCombosType } from './models/getStatusCombosType';
@@ -245,6 +247,7 @@ export type { RequestSourcing } from './models/RequestSourcing';
 export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Response } from './models/Response';
 export type { Review } from './models/Review';
+export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
 export type { Setting } from './models/Setting';
 export type { SQLResult } from './models/SQLResult';
 export { StatisticsDisplayType } from './models/StatisticsDisplayType';
@@ -252,6 +255,7 @@ export type { StatisticsOverviewAbandonedCheckout } from './models/StatisticsOve
 export type { StatisticsOverviewConversionValue } from './models/StatisticsOverviewConversionValue';
 export { statusRequestPayout } from './models/statusRequestPayout';
 export type { Store } from './models/Store';
+export { StoreEmailLogStatus } from './models/StoreEmailLogStatus';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
 export type { StoreProductProfit } from './models/StoreProductProfit';

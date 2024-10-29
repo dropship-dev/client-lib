@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum UserRole {
-  PLATFORM_ADMIN = 'PLATFORM_ADMIN',
-  ADMIN = 'ADMIN',
-  SELLER = 'SELLER',
-  MARKETING = 'MARKETING',
+export enum StoreEmailLogStatus {
+  FAILED = 'FAILED',
+  IN_PROGRESS = 'IN_PROGRESS',
+  SUCCESS = 'SUCCESS',
 }

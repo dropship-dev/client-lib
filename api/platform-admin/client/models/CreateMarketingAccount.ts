@@ -3,9 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum UserRole {
-  PLATFORM_ADMIN = 'PLATFORM_ADMIN',
-  ADMIN = 'ADMIN',
-  SELLER = 'SELLER',
-  MARKETING = 'MARKETING',
-}
+export type CreateMarketingAccount = {
+  name: string;
+  email: string;
+  password: string;
+  phone?: string;
+};
+
