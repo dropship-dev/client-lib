@@ -8,7 +8,7 @@ import type { User } from '../models/User';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class DefaultService {
+export class MarketingService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 

@@ -357,13 +357,4 @@ export type { Wallet } from './models/Wallet';
 export { Week } from './models/Week';
 export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 
-export { AsyncTaskService } from './services/AsyncTaskService';
-export { AuthService } from './services/AuthService';
-export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { MarketingService } from './services/MarketingService';
-export { MarketingEmailService } from './services/MarketingEmailService';
-export { NotificationService } from './services/NotificationService';
-export { PerformanceService } from './services/PerformanceService';
-export { StatisticsService } from './services/StatisticsService';
-export { UploadService } from './services/UploadService';
-export { UserService } from './services/UserService';
