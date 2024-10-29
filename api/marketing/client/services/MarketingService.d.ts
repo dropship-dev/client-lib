@@ -1,6 +1,7 @@
 import type { CreateMarketingAccount } from '../models/CreateMarketingAccount';
 import type { GetListStoreMarketingDto } from '../models/GetListStoreMarketingDto';
 import type { SendEmailToListStoreDto } from '../models/SendEmailToListStoreDto';
+import type { StoreEmailLogStatus } from '../models/StoreEmailLogStatus';
 import type { User } from '../models/User';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -30,10 +31,31 @@ export declare class MarketingService {
         }>;
     }>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreEmailMarketingLog({ userId, }: {
+        userId: string;
+    }): CancelablePromise<Array<{
+        emailId: string;
+        createdAt: string;
+        status: StoreEmailLogStatus;
+        id: number;
+    }>>;
+    /**
      * @returns string Ok
      * @throws ApiError
      */
     sendEmailToListStore({ requestBody, }: {
         requestBody: SendEmailToListStoreDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getEmailMarketingTemplate(): CancelablePromise<Array<{
+        name: string;
+        id: number;
+        data: string;
+    }>>;
 }

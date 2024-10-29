@@ -37,6 +37,27 @@ class MarketingService {
             mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreEmailMarketingLog({ userId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/marketing/store/{userId}',
+            path: {
+                'userId': userId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,
@@ -53,6 +74,23 @@ class MarketingService {
             url: '/marketing/send-email',
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getEmailMarketingTemplate() {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/marketing/template',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
