@@ -2,9 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
 const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const AuthService_1 = require("./services/AuthService");
 const MarketingService_1 = require("./services/MarketingService");
 const UploadService_1 = require("./services/UploadService");
 class ClientApi {
+    auth;
     marketing;
     upload;
     request;
@@ -20,6 +22,7 @@ class ClientApi {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
+        this.auth = new AuthService_1.AuthService(this.request);
         this.marketing = new MarketingService_1.MarketingService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
     }
