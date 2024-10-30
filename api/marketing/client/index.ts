@@ -357,5 +357,6 @@ export type { Wallet } from './models/Wallet';
 export { Week } from './models/Week';
 export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 
+export { AuthService } from './services/AuthService';
 export { MarketingService } from './services/MarketingService';
 export { UploadService } from './services/UploadService';
