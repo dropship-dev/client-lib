@@ -9,6 +9,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AuthService } from './services/AuthService';
 import { MarketingService } from './services/MarketingService';
 import { UploadService } from './services/UploadService';
+import { UserService } from './services/UserService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -17,6 +18,7 @@ export class ClientApi {
   public readonly auth: AuthService;
   public readonly marketing: MarketingService;
   public readonly upload: UploadService;
+  public readonly user: UserService;
 
   public readonly request: BaseHttpRequest;
 
@@ -36,6 +38,7 @@ export class ClientApi {
     this.auth = new AuthService(this.request);
     this.marketing = new MarketingService(this.request);
     this.upload = new UploadService(this.request);
+    this.user = new UserService(this.request);
   }
 }
 
