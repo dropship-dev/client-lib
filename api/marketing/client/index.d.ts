@@ -353,3 +353,4 @@ export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 export { AuthService } from './services/AuthService';
 export { MarketingService } from './services/MarketingService';
 export { UploadService } from './services/UploadService';
+export { UserService } from './services/UserService';
