@@ -48,6 +48,7 @@ export class MarketingService {
   }: {
     requestBody: GetListStoreMarketingDto,
   }): CancelablePromise<{
+    preCursor: boolean;
     nextCursor: string;
     data: Array<{
       email: string;
