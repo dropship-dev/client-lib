@@ -51,6 +51,7 @@ export class MarketingService {
     preCursor: boolean;
     nextCursor: string;
     data: Array<{
+      status: StoreEmailLogStatus;
       name: string;
       id: string;
     }>;
