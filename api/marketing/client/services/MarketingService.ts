@@ -51,10 +51,8 @@ export class MarketingService {
     preCursor: boolean;
     nextCursor: string;
     data: Array<{
-      email: string;
       name: string;
       id: string;
-      revenue: number;
     }>;
   }> {
     return this.httpRequest.request({
@@ -82,6 +80,9 @@ export class MarketingService {
     userId: string,
   }): CancelablePromise<Array<{
     emailId: string;
+    EmailMarketingTemplate: {
+      name: string;
+    };
     createdAt: string;
     status: StoreEmailLogStatus;
     id: number;

@@ -248,6 +248,7 @@ export { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { Response } from './models/Response';
 export type { Review } from './models/Review';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
+export { SendEmailToListStoreStatus } from './models/SendEmailToListStoreStatus';
 export type { Setting } from './models/Setting';
 export type { SQLResult } from './models/SQLResult';
 export { StatisticsDisplayType } from './models/StatisticsDisplayType';
