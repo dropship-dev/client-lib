@@ -250,7 +250,7 @@ export type { StatisticsOverviewAbandonedCheckout } from './models/StatisticsOve
 export type { StatisticsOverviewConversionValue } from './models/StatisticsOverviewConversionValue';
 export { statusRequestPayout } from './models/statusRequestPayout';
 export type { Store } from './models/Store';
-export { StoreEmailLogStatus } from './models/StoreEmailLogStatus';
+export type { StoreEmailLogStatus } from './models/StoreEmailLogStatus';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
 export type { StoreProductProfit } from './models/StoreProductProfit';
