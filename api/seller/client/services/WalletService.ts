@@ -33,6 +33,8 @@ export class WalletService {
     totalBalance: number;
   } | {
     requestPayout: RequestPayout;
+    payoutAmount: number;
+    holdAmount: number;
     unavailableBalance: {
       bankAccount: Array<BankAccount>;
       availableSoon: number;
