@@ -95,6 +95,7 @@ export declare class OrderService {
         paymentId: number;
         currencyId: number;
         storeId: string;
+        isHandleEvents: boolean;
         fingerPrint: string;
         timezoneLocalBrowser: string;
         fulfillmentCost: number;
@@ -254,6 +255,7 @@ export declare class OrderService {
         paymentId: number;
         currencyId: number;
         storeId: string;
+        isHandleEvents: boolean;
         fingerPrint: string;
         timezoneLocalBrowser: string;
         fulfillmentCost: number;
