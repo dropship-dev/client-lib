@@ -23,12 +23,16 @@ export declare class SubscriptionService {
         subscriptionPlan: {
             endDate: string;
             startDate: string;
+            daysLeftToRenewSubscription: number;
             interval: SubscriptionInterval;
             price: number;
             status: string;
             name: string;
         };
-        freeTrialDaysLeft: any;
+        freeTrial: {
+            startDate: string;
+            freeTrialDaysLeft: number;
+        };
         type: SubscriptionType;
     }>;
     /**
@@ -39,4 +43,23 @@ export declare class SubscriptionService {
         storeId: string;
         requestBody: PrismaJson_UpgradeSubscriptionPlan;
     }): CancelablePromise<Subscription>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listSubscriptionPlans(): CancelablePromise<{
+        features: Array<{
+            availablePlans: Array<boolean>;
+            description: string;
+            name: string;
+        }>;
+        plans: Array<{
+            platformTransactionFee: number;
+            yearlyPrice: number;
+            monthlyPrice: number;
+            description: string;
+            name: string;
+            id: number;
+        }>;
+    }>;
 }

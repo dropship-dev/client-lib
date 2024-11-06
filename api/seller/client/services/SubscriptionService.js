@@ -48,5 +48,21 @@ class SubscriptionService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listSubscriptionPlans() {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/subscriptions',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.SubscriptionService = SubscriptionService;
