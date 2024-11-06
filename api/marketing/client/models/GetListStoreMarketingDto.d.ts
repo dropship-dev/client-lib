@@ -1,4 +1,4 @@
-import type { StoreEmailLogStatus } from './StoreEmailLogStatus';
+import type { ESendMailStatus } from './ESendMailStatus';
 export type GetListStoreMarketingDto = {
     search?: string;
     rangeDate?: {
@@ -11,5 +11,5 @@ export type GetListStoreMarketingDto = {
     };
     cursor?: string;
     limit?: number;
-    status?: Array<StoreEmailLogStatus>;
+    status?: Array<ESendMailStatus>;
 };

@@ -107,6 +107,7 @@ export { DomainOrigin } from './models/DomainOrigin';
 export type { EmailDto } from './models/EmailDto';
 export type { EmailTrackingAction } from './models/EmailTrackingAction';
 export { EnvironmentType } from './models/EnvironmentType';
+export { ESendMailStatus } from './models/ESendMailStatus';
 export type { EventFraudType } from './models/EventFraudType';
 export { EventOrderFraud } from './models/EventOrderFraud';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
