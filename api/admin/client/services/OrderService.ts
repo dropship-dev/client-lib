@@ -162,6 +162,7 @@ export class OrderService {
     paymentId: number;
     currencyId: number;
     storeId: string;
+    isHandleEvents: boolean;
     fingerPrint: string;
     timezoneLocalBrowser: string;
     fulfillmentCost: number;
@@ -388,6 +389,7 @@ export class OrderService {
     paymentId: number;
     currencyId: number;
     storeId: string;
+    isHandleEvents: boolean;
     fingerPrint: string;
     timezoneLocalBrowser: string;
     fulfillmentCost: number;
