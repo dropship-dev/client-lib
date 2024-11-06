@@ -32,12 +32,16 @@ export class SubscriptionService {
     subscriptionPlan: {
       endDate: string;
       startDate: string;
+      daysLeftToRenewSubscription: number;
       interval: SubscriptionInterval;
       price: number;
       status: string;
       name: string;
     };
-    freeTrialDaysLeft: any;
+    freeTrial: {
+      startDate: string;
+      freeTrialDaysLeft: number;
+    };
     type: SubscriptionType;
   }> {
     return this.httpRequest.request({
@@ -78,6 +82,37 @@ export class SubscriptionService {
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public listSubscriptionPlans(): CancelablePromise<{
+    features: Array<{
+      availablePlans: Array<boolean>;
+      description: string;
+      name: string;
+    }>;
+    plans: Array<{
+      platformTransactionFee: number;
+      yearlyPrice: number;
+      monthlyPrice: number;
+      description: string;
+      name: string;
+      id: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/subscriptions',
+      errors: {
+        400: `Bad request`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
