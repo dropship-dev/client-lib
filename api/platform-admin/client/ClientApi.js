@@ -10,6 +10,7 @@ const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const StatisticsService_1 = require("./services/StatisticsService");
+const SubscriptionService_1 = require("./services/SubscriptionService");
 const UploadService_1 = require("./services/UploadService");
 const UserService_1 = require("./services/UserService");
 class ClientApi {
@@ -21,6 +22,7 @@ class ClientApi {
     notification;
     performance;
     statistics;
+    subscription;
     upload;
     user;
     request;
@@ -44,6 +46,7 @@ class ClientApi {
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.statistics = new StatisticsService_1.StatisticsService(this.request);
+        this.subscription = new SubscriptionService_1.SubscriptionService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
         this.user = new UserService_1.UserService(this.request);
     }

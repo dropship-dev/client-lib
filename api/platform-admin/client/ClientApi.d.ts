@@ -8,6 +8,7 @@ import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
 import { StatisticsService } from './services/StatisticsService';
+import { SubscriptionService } from './services/SubscriptionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
@@ -20,6 +21,7 @@ export declare class ClientApi {
     readonly notification: NotificationService;
     readonly performance: PerformanceService;
     readonly statistics: StatisticsService;
+    readonly subscription: SubscriptionService;
     readonly upload: UploadService;
     readonly user: UserService;
     readonly request: BaseHttpRequest;
