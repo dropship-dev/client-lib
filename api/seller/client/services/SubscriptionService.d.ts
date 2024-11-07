@@ -21,6 +21,7 @@ export declare class SubscriptionService {
             name: string;
         };
         subscriptionPlan: {
+            nextChargeDate: string;
             endDate: string;
             startDate: string;
             daysLeftToRenewSubscription: number;
