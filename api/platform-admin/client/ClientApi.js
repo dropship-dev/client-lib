@@ -5,6 +5,7 @@ const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+const MarketingService_1 = require("./services/MarketingService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const PerformanceService_1 = require("./services/PerformanceService");
@@ -15,6 +16,7 @@ class ClientApi {
     asyncTask;
     auth;
     fulfillmentAgency;
+    marketing;
     marketingEmail;
     notification;
     performance;
@@ -37,6 +39,7 @@ class ClientApi {
         this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
+        this.marketing = new MarketingService_1.MarketingService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
