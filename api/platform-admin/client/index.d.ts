@@ -32,7 +32,6 @@ export { BoostSaleType } from './models/BoostSaleType';
 export { BoughtTogetherType } from './models/BoughtTogetherType';
 export type { Campaign } from './models/Campaign';
 export type { CampaignDto } from './models/CampaignDto';
-export type { CaptureOrderDto } from './models/CaptureOrderDto';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
 export type { ClickToOrderDto } from './models/ClickToOrderDto';
