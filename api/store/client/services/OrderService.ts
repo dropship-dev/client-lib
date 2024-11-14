@@ -31,9 +31,11 @@ export class OrderService {
   public createStoreOrder({
     storeId,
     requestBody,
+    clientInfo,
   }: {
     storeId: string,
     requestBody: CreateOrderDto,
+    clientInfo?: string,
   }): CancelablePromise<{
     clientSecret: string;
     orderId: string;
@@ -46,6 +48,9 @@ export class OrderService {
       url: '/store/{storeId}/order',
       path: {
         'storeId': storeId,
+      },
+      headers: {
+        'clientInfo': clientInfo,
       },
       body: requestBody,
       mediaType: 'application/json',
