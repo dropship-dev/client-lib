@@ -123,6 +123,7 @@ export { FraudStatusType } from './models/FraudStatusType';
 export type { FulfillmentAgency } from './models/FulfillmentAgency';
 export { FulfillmentAgencyRole } from './models/FulfillmentAgencyRole';
 export { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
+export { FulfillmentAgencyType } from './models/FulfillmentAgencyType';
 export { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
