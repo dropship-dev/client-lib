@@ -10,15 +10,12 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    createStoreOrder({ storeId, requestBody, clientInfo, }) {
+    createStoreOrder({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/store/{storeId}/order',
             path: {
                 'storeId': storeId,
-            },
-            headers: {
-                'clientInfo': clientInfo,
             },
             body: requestBody,
             mediaType: 'application/json',

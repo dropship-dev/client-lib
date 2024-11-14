@@ -21,10 +21,9 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    createStoreOrder({ storeId, requestBody, clientInfo, }: {
+    createStoreOrder({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateOrderDto;
-        clientInfo?: string;
     }): CancelablePromise<{
         clientSecret: string;
         orderId: string;
