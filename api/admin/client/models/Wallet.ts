@@ -18,6 +18,8 @@ export type Wallet = {
    * [UnavailableBalance]
    */
   balanceUnavailable: PrismaJson_UnavailableBalance | null;
+  payoutAmount: number;
+  holdAmount: number;
   balanceAvailable: number;
   balanceAmount: number;
   walletName: string | null;
