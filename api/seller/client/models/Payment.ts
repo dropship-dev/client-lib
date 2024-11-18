@@ -16,6 +16,7 @@ export type Payment = {
   environment: EnvironmentType | null;
   UIVersion: number;
   deleted: boolean;
+  merchantId: string | null;
   gatewayUrl: string | null;
   tokenExpiredAt: string | null;
   token: string | null;
