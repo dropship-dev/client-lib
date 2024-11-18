@@ -11,6 +11,7 @@ import type { OnboardingStatus } from './OnboardingStatus';
 export type PaymentOnboarding = {
   updatedAt: string;
   createdAt: string;
+  paypalPartnerReferralId: string | null;
   onboardingStatus: OnboardingStatus | null;
   onboardingUrl: string;
   onboardingId: string;

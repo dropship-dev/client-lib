@@ -7,7 +7,6 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
-import type { Payment } from '../models/Payment';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
@@ -28,9 +27,19 @@ export class FulfillmentAgencyService {
     requestBody,
   }: {
     requestBody: CreateFulfillmentAgencyDto,
-  }): CancelablePromise<(FulfillmentAgency & {
-    Payment: Array<Payment>;
-  })> {
+  }): CancelablePromise<{
+    updatedAt: string;
+    createdAt: string;
+    timezone: Timezone;
+    type: FulfillmentAgencyType;
+    costCalculationMethod: CostCalculationMethod;
+    executionTime: string;
+    status: FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/fulfillment-agency',

@@ -7,6 +7,7 @@ import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
+import type { PaymentType } from '../models/PaymentType';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { Wallet } from '../models/Wallet';
@@ -155,16 +156,23 @@ export class FulfillmentAgencyService {
   }
 
   /**
-   * @returns PaymentOnboarding Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public verifyJoinPlatform({
     id,
     paymentId,
+    merchantId,
   }: {
     id: number,
     paymentId: number,
-  }): CancelablePromise<PaymentOnboarding> {
+    merchantId: string,
+  }): CancelablePromise<(PaymentOnboarding & {
+    Payment: {
+      merchantId: string;
+      type: PaymentType;
+    };
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentId}',
@@ -172,9 +180,11 @@ export class FulfillmentAgencyService {
         'id': id,
         'paymentId': paymentId,
       },
+      query: {
+        'merchantId': merchantId,
+      },
       errors: {
         400: `Bad request`,
-        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
