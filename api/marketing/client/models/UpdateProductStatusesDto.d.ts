@@ -1,5 +1,4 @@
-export type UpdateProductStatusesDto = {
-    isCreateProduct?: boolean;
-    isActive: boolean;
+import type { UpdateProductStatusDto } from './UpdateProductStatusDto';
+export type UpdateProductStatusesDto = (UpdateProductStatusDto & {
     ids: Array<number>;
-};
+});
