@@ -184,6 +184,7 @@ export { OrderTrackingEmailStatusDto } from './models/OrderTrackingEmailStatusDt
 export type { OrderTrackingRecoveredStatus } from './models/OrderTrackingRecoveredStatus';
 export { OrderTrackingRecoveredStatusDto } from './models/OrderTrackingRecoveredStatusDto';
 export type { Partial_CreateSubscriptionFeatureDto_ } from './models/Partial_CreateSubscriptionFeatureDto_';
+export type { Partial_Omit_CreateProductFromSellerDependenceDto_variant__ } from './models/Partial_Omit_CreateProductFromSellerDependenceDto_variant__';
 export type { Payment } from './models/Payment';
 export type { PaymentInfo } from './models/PaymentInfo';
 export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
