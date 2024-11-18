@@ -6,6 +6,7 @@ import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
+import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { Wallet } from '../models/Wallet';
@@ -142,6 +143,34 @@ export class FulfillmentAgencyService {
       url: '/fulfillment-agency/{id}',
       path: {
         'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns PaymentOnboarding Ok
+   * @throws ApiError
+   */
+  public verifyJoinPlatform({
+    id,
+    paymentId,
+  }: {
+    id: number,
+    paymentId: number,
+  }): CancelablePromise<PaymentOnboarding> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentId}',
+      path: {
+        'id': id,
+        'paymentId': paymentId,
       },
       errors: {
         400: `Bad request`,

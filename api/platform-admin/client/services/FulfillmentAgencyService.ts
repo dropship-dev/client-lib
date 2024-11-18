@@ -7,6 +7,7 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
+import type { Payment } from '../models/Payment';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
@@ -20,14 +21,16 @@ export class FulfillmentAgencyService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createFulfillmentAgency({
     requestBody,
   }: {
     requestBody: CreateFulfillmentAgencyDto,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<(FulfillmentAgency & {
+    Payment: Array<Payment>;
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/fulfillment-agency',
