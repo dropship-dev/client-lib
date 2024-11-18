@@ -190,7 +190,7 @@ export type { PaymentInfo } from './models/PaymentInfo';
 export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
 export { PaymentMethodType } from './models/PaymentMethodType';
 export type { PaymentOnboarding } from './models/PaymentOnboarding';
-export type { PaymentType } from './models/PaymentType';
+export { PaymentType } from './models/PaymentType';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';

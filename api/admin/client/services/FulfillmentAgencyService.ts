@@ -6,8 +6,8 @@ import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
+import type { OnboardingStatus } from '../models/OnboardingStatus';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
-import type { PaymentType } from '../models/PaymentType';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { Wallet } from '../models/Wallet';
@@ -40,6 +40,7 @@ export class FulfillmentAgencyService {
     total: number;
     data: Array<{
       Wallet: Array<Wallet>;
+      PaymentOnboarding: Array<PaymentOnboarding>;
       updatedAt: string;
       createdAt: string;
       timezone: Timezone;
@@ -84,6 +85,7 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<(FulfillmentAgency & {
     Wallet: Array<Wallet>;
+    PaymentOnboarding: Array<PaymentOnboarding>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -162,26 +164,29 @@ export class FulfillmentAgencyService {
   public verifyJoinPlatform({
     id,
     paymentId,
-    merchantId,
   }: {
     id: number,
     paymentId: number,
-    merchantId: string,
-  }): CancelablePromise<(PaymentOnboarding & {
-    Payment: {
-      merchantId: string;
-      type: PaymentType;
-    };
-  })> {
+  }): CancelablePromise<{
+    updatedAt: string;
+    createdAt: string;
+    paypalPartnerReferralId: string;
+    onboardingStatus: OnboardingStatus;
+    onboardingUrl: string;
+    onboardingId: string;
+    merchantEmail: string;
+    merchantId: string;
+    paymentId: number;
+    fulfillmentAgencyId: number;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentId}',
       path: {
         'id': id,
         'paymentId': paymentId,
-      },
-      query: {
-        'merchantId': merchantId,
       },
       errors: {
         400: `Bad request`,

@@ -7,6 +7,7 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
+import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
@@ -76,6 +77,7 @@ export class FulfillmentAgencyService {
     total: number;
     data: Array<{
       Wallet: Array<Wallet>;
+      PaymentOnboarding: Array<PaymentOnboarding>;
       updatedAt: string;
       createdAt: string;
       timezone: Timezone;
@@ -120,6 +122,7 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<(FulfillmentAgency & {
     Wallet: Array<Wallet>;
+    PaymentOnboarding: Array<PaymentOnboarding>;
   })> {
     return this.httpRequest.request({
       method: 'GET',
