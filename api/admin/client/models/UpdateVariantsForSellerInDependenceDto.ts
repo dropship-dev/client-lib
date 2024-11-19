@@ -3,9 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { VariantDto } from './VariantDto';
+import type { PhotoDto } from './PhotoDto';
+import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 
-export type UpdateVariantsForSellerInDependenceDto = (VariantDto & {
+export type UpdateVariantsForSellerInDependenceDto = {
   id: number;
-});
+  name: string;
+  photo: PhotoDto;
+  price: number;
+  supplierPrice: number;
+  compareAtPrice: number;
+  SKU: string;
+  variantOption: PrismaJson_VariantOptionValues;
+};
 

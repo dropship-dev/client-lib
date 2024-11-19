@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { UpdateProductStatusDto } from './UpdateProductStatusDto';
-
-export type UpdateProductStatusesDto = (UpdateProductStatusDto & {
+export type UpdateProductStatusesDto = {
+  isCreateProduct?: boolean;
+  isActive: boolean;
   ids: Array<number>;
-});
+};
 
