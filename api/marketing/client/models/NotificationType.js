@@ -23,6 +23,8 @@ var NotificationType;
     NotificationType["ORDER_CREATED"] = "ORDER_CREATED";
     NotificationType["ORDER_DISPUTED"] = "ORDER_DISPUTED";
     NotificationType["ORDER_REFUNDED"] = "ORDER_REFUNDED";
+    NotificationType["ORDER_DEBIT"] = "ORDER_DEBIT";
+    NotificationType["FULFILLMENT_FEE_ORDER"] = "FULFILLMENT_FEE_ORDER";
     NotificationType["DISPUTE_RESOLVED"] = "DISPUTE_RESOLVED";
     NotificationType["FRAUD_DETECTED"] = "FRAUD_DETECTED";
     NotificationType["BROADCAST"] = "BROADCAST";
