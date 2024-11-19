@@ -2,9 +2,7 @@ name: Build project
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: ["paypal_platform"]
 
 jobs:
   build:
@@ -27,6 +25,6 @@ jobs:
         uses: s0/git-publish-subdir-action@v2.6.0
         env:
           REPO: self
-          BRANCH: build
+          BRANCH: paypal-platform-build
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
