@@ -1,12 +1,21 @@
 import type { CampaignDto } from './CampaignDto';
 import type { DiscountDto } from './DiscountDto';
-import type { Partial_Omit_CreateProductFromSellerDependenceDto_variant__ } from './Partial_Omit_CreateProductFromSellerDependenceDto_variant__';
+import type { PhotoDto } from './PhotoDto';
+import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 import type { UpdateVariantsForSellerInDependenceDto } from './UpdateVariantsForSellerInDependenceDto';
-export type UpdateProductDto = (Partial_Omit_CreateProductFromSellerDependenceDto_variant__ & {
-    discount?: Array<DiscountDto>;
-    campaign?: CampaignDto;
-    variants?: Array<UpdateVariantsForSellerInDependenceDto>;
-    shippingFeeAdditional?: number;
+export type UpdateProductDto = {
+    name?: string;
+    description?: string;
+    details?: string;
+    photos?: Array<PhotoDto>;
     shippingFee?: number;
-    description: string;
-});
+    shippingFeeAdditional?: number;
+    variantOption?: PrismaJson_VariantOptions;
+    variants?: Array<UpdateVariantsForSellerInDependenceDto>;
+    SKU?: string;
+    permalink?: string;
+    tags?: Array<string>;
+    supplierContact?: string;
+    campaign?: CampaignDto;
+    discount?: Array<DiscountDto>;
+};
