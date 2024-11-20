@@ -5,6 +5,7 @@ export type CreateOrderTrackingDto = {
     timezoneLocalBrowser?: string;
     orderItems?: Array<OrderItemTrackingDto>;
     comboItems?: Array<ComboItemTrackingDto>;
+    orderId?: string;
     storeId: string;
     email?: string;
     phoneNumber?: string;
