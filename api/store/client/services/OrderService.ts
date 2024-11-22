@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { BoostSaleTriggerType } from '../models/BoostSaleTriggerType';
 import type { BoostSaleType } from '../models/BoostSaleType';
-import type { CaptureOrderDto } from '../models/CaptureOrderDto';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { DiscountBoostSale } from '../models/DiscountBoostSale';
 import type { getBoostSalesDto } from '../models/getBoostSalesDto';
@@ -241,7 +240,7 @@ export class OrderService {
     storeId: string,
     orderId: string,
     paymentType: PaymentType,
-    requestBody: CaptureOrderDto,
+    requestBody: CreateOrderDto,
     bmClientInfo?: string,
   }): CancelablePromise<{
     status: string;
