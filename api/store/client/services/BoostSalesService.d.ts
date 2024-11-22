@@ -54,8 +54,8 @@ export declare class BoostSalesService {
         storeId: string;
         placement: PlacementBoostSaleEnum;
     }): CancelablePromise<{
-        id: number;
         Product: Array<{
+            permalink: string;
             photos: Photos;
             name: string;
             ProductVariant: Array<{
@@ -65,6 +65,7 @@ export declare class BoostSalesService {
                 isActive: boolean;
             }>;
         }>;
+        id: number;
     }>;
     /**
      * @returns any Ok

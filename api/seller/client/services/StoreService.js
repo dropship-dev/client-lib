@@ -76,7 +76,7 @@ class StoreService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns Store Ok
      * @throws ApiError
      */
     updateStore({ storeId, requestBody, }) {

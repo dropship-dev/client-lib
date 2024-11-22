@@ -52,8 +52,8 @@ export declare class PodTemplateService {
         isActive: boolean;
         supplierContact: string;
         variantOption: VariantOptions;
-        description: string;
         podCategoryId: number;
+        description: string;
         name: string;
         PodFile: Array<{
             podPrintAreaId: number;

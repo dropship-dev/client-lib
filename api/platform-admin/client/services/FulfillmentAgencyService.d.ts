@@ -2,6 +2,7 @@ import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
+import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
@@ -37,6 +38,7 @@ export declare class FulfillmentAgencyService {
             updatedAt: string;
             createdAt: string;
             timezone: Timezone;
+            type: FulfillmentAgencyType;
             costCalculationMethod: CostCalculationMethod;
             executionTime: string;
             status: FulfillmentAgencyStatus;

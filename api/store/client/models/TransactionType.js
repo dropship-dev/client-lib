@@ -8,6 +8,7 @@ exports.TransactionType = void 0;
 var TransactionType;
 (function (TransactionType) {
     TransactionType["ORDER"] = "ORDER";
+    TransactionType["DEBT_PAYMENT"] = "DEBT_PAYMENT";
     TransactionType["DOMAIN"] = "DOMAIN";
     TransactionType["PAYOUT"] = "PAYOUT";
     TransactionType["SUBSCRIPTION"] = "SUBSCRIPTION";

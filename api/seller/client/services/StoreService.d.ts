@@ -136,13 +136,13 @@ export declare class StoreService {
         fraudStatus: FraudStatusType;
     }>;
     /**
-     * @returns string Ok
+     * @returns Store Ok
      * @throws ApiError
      */
     updateStore({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStoreDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<Store>;
     /**
      * @returns Store Ok
      * @throws ApiError
