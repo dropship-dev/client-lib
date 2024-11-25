@@ -65,4 +65,18 @@ export declare class FulfillmentAgencyService {
     deleteFulfillmentAgency({ id, }: {
         id: number;
     }): CancelablePromise<FulfillmentAgency>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreDebtPayment({ id, }: {
+        id: number;
+    }): CancelablePromise<Array<{
+        name: string;
+        Wallet: Array<{
+            balanceDebt: number;
+            id: string;
+        }>;
+        id: string;
+    }>>;
 }

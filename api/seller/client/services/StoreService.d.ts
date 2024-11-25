@@ -176,4 +176,13 @@ export declare class StoreService {
         type: PaymentType;
         id: number;
     }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDebtPayment({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        balanceDebt: number;
+    }>;
 }
