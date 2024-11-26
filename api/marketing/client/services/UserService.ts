@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentUser } from '../models/FulfillmentUser';
+import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { User } from '../models/User';
 import type { Wallet } from '../models/Wallet';
 
@@ -22,6 +23,7 @@ export class UserService {
     FulfillmentUser: Array<(FulfillmentUser & {
       FulfillmentAgency: (FulfillmentAgency & {
         Wallet: Array<Wallet>;
+        PaymentOnboarding: Array<PaymentOnboarding>;
       });
     })>;
   })> {
