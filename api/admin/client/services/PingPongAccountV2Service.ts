@@ -1,0 +1,110 @@
+/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
+import type { PingPongAccount } from '../models/PingPongAccount';
+import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
+
+import type { CancelablePromise } from '../core/CancelablePromise';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+
+export class PingPongAccountV2Service {
+
+  constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * @returns PingPongAccount Ok
+   * @throws ApiError
+   */
+  public createPingPongAccountV2({
+    requestBody,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    requestBody: CreatePingPongAccountDto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<PingPongAccount> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/v2/pingpong-account',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deletePingPongAccountV2({
+    id,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    id: string,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/v2/pingpong-account/{id}',
+      path: {
+        'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateDefaultV2({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdatePingPongAccountDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/v2/pingpong-account/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+}
