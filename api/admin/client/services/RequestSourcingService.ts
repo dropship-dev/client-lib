@@ -108,6 +108,39 @@ export class RequestSourcingService {
    * @returns RequestSourcing Ok
    * @throws ApiError
    */
+  public setProcessingRequestSourcing({
+    id,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    id: number,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<RequestSourcing> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/request-sourcing/{id}/processing',
+      path: {
+        'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns RequestSourcing Ok
+   * @throws ApiError
+   */
   public approveRequestSourcing({
     id,
     requestBody,
