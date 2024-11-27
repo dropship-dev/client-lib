@@ -375,6 +375,7 @@ export { OrderRefundsService } from './services/OrderRefundsService';
 export { PaymentService } from './services/PaymentService';
 export { PerformanceService } from './services/PerformanceService';
 export { PingPongAccountService } from './services/PingPongAccountService';
+export { PingPongAccountV2Service } from './services/PingPongAccountV2Service';
 export { PlatformProductService } from './services/PlatformProductService';
 export { PlatformVariantService } from './services/PlatformVariantService';
 export { ProductService } from './services/ProductService';
