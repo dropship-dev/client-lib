@@ -92,7 +92,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PaymentOnboarding Ok
      * @throws ApiError
      */
     verifyJoinPlatform({ id, paymentId, }) {

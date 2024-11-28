@@ -2,7 +2,6 @@ import type { CostCalculationMethod } from '../models/CostCalculationMethod';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
-import type { OnboardingStatus } from '../models/OnboardingStatus';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -70,24 +69,11 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<FulfillmentAgency>;
     /**
-     * @returns any Ok
+     * @returns PaymentOnboarding Ok
      * @throws ApiError
      */
     verifyJoinPlatform({ id, paymentId, }: {
         id: number;
         paymentId: number;
-    }): CancelablePromise<{
-        updatedAt: string;
-        createdAt: string;
-        paypalPartnerReferralId: string;
-        onboardingStatus: OnboardingStatus;
-        onboardingUrl: string;
-        onboardingId: string;
-        merchantEmail: string;
-        merchantId: string;
-        paymentId: number;
-        fulfillmentAgencyId: number;
-        storeId: string;
-        id: number;
-    }>;
+    }): CancelablePromise<PaymentOnboarding>;
 }
