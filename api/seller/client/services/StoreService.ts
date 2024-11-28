@@ -216,7 +216,7 @@ export class StoreService {
   }
 
   /**
-   * @returns string Ok
+   * @returns Store Ok
    * @throws ApiError
    */
   public updateStore({
@@ -225,7 +225,7 @@ export class StoreService {
   }: {
     storeId: string,
     requestBody: UpdateStoreDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<Store> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}',
@@ -321,6 +321,33 @@ export class StoreService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/payment-method',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getDebtPayment({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    balanceDebt: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/debt-payment',
       path: {
         'storeId': storeId,
       },

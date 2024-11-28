@@ -119,8 +119,8 @@ export class BoostSalesService {
     storeId: string,
     placement: PlacementBoostSaleEnum,
   }): CancelablePromise<{
-    id: number;
     Product: Array<{
+      permalink: string;
       photos: Photos;
       name: string;
       ProductVariant: Array<{
@@ -130,6 +130,7 @@ export class BoostSalesService {
         isActive: boolean;
       }>;
     }>;
+    id: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',

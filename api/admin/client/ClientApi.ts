@@ -19,6 +19,7 @@ import { OrderRefundsService } from './services/OrderRefundsService';
 import { PaymentService } from './services/PaymentService';
 import { PerformanceService } from './services/PerformanceService';
 import { PingPongAccountService } from './services/PingPongAccountService';
+import { PingPongAccountV2Service } from './services/PingPongAccountV2Service';
 import { PlatformProductService } from './services/PlatformProductService';
 import { PlatformVariantService } from './services/PlatformVariantService';
 import { ProductService } from './services/ProductService';
@@ -53,6 +54,7 @@ export class ClientApi {
   public readonly payment: PaymentService;
   public readonly performance: PerformanceService;
   public readonly pingPongAccount: PingPongAccountService;
+  public readonly pingPongAccountV2: PingPongAccountV2Service;
   public readonly platformProduct: PlatformProductService;
   public readonly platformVariant: PlatformVariantService;
   public readonly product: ProductService;
@@ -98,6 +100,7 @@ export class ClientApi {
     this.payment = new PaymentService(this.request);
     this.performance = new PerformanceService(this.request);
     this.pingPongAccount = new PingPongAccountService(this.request);
+    this.pingPongAccountV2 = new PingPongAccountV2Service(this.request);
     this.platformProduct = new PlatformProductService(this.request);
     this.platformVariant = new PlatformVariantService(this.request);
     this.product = new ProductService(this.request);
