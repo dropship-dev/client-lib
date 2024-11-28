@@ -8,6 +8,7 @@ exports.RequestSourcingStatus = void 0;
 var RequestSourcingStatus;
 (function (RequestSourcingStatus) {
     RequestSourcingStatus["REQUESTING"] = "REQUESTING";
+    RequestSourcingStatus["ADMIN_PROCESSING"] = "ADMIN_PROCESSING";
     RequestSourcingStatus["ADMIN_ACCEPTED"] = "ADMIN_ACCEPTED";
     RequestSourcingStatus["ADMIN_REJECTED"] = "ADMIN_REJECTED";
     RequestSourcingStatus["SELLER_REJECTED"] = "SELLER_REJECTED";

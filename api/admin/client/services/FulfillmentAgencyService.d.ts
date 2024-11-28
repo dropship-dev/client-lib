@@ -77,4 +77,18 @@ export declare class FulfillmentAgencyService {
         id: number;
         paymentType: PaymentType;
     }): CancelablePromise<PaymentOnboarding>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreDebtPayment({ id, }: {
+        id: number;
+    }): CancelablePromise<Array<{
+        name: string;
+        Wallet: Array<{
+            balanceDebt: number;
+            id: string;
+        }>;
+        id: string;
+    }>>;
 }
