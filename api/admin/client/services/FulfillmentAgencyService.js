@@ -95,13 +95,13 @@ class FulfillmentAgencyService {
      * @returns PaymentOnboarding Ok
      * @throws ApiError
      */
-    verifyJoinPlatform({ id, paymentId, }) {
+    verifyJoinPlatform({ id, paymentType, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentId}',
+            url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
             path: {
                 'id': id,
-                'paymentId': paymentId,
+                'paymentType': paymentType,
             },
             errors: {
                 400: `Bad request`,

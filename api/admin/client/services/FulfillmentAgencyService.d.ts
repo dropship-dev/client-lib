@@ -3,6 +3,7 @@ import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
+import type { PaymentType } from '../models/PaymentType';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { Wallet } from '../models/Wallet';
@@ -72,8 +73,8 @@ export declare class FulfillmentAgencyService {
      * @returns PaymentOnboarding Ok
      * @throws ApiError
      */
-    verifyJoinPlatform({ id, paymentId, }: {
+    verifyJoinPlatform({ id, paymentType, }: {
         id: number;
-        paymentId: number;
+        paymentType: PaymentType;
     }): CancelablePromise<PaymentOnboarding>;
 }
