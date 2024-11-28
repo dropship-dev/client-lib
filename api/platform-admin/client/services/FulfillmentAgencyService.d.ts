@@ -3,6 +3,7 @@ import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgen
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
+import type { Payment } from '../models/Payment';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -19,19 +20,9 @@ export declare class FulfillmentAgencyService {
      */
     createFulfillmentAgency({ requestBody, }: {
         requestBody: CreateFulfillmentAgencyDto;
-    }): CancelablePromise<{
-        updatedAt: string;
-        createdAt: string;
-        timezone: Timezone;
-        type: FulfillmentAgencyType;
-        costCalculationMethod: CostCalculationMethod;
-        executionTime: string;
-        status: FulfillmentAgencyStatus;
-        phone: string;
-        email: string;
-        name: string;
-        id: number;
-    }>;
+    }): CancelablePromise<(FulfillmentAgency & {
+        Payment: Array<Payment>;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
