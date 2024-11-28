@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 import type { OnboardingStatus } from './OnboardingStatus';
+import type { PaymentType } from './PaymentType';
 
 /**
  * Model PaymentOnboarding
@@ -17,7 +18,7 @@ export type PaymentOnboarding = {
   onboardingId: string;
   merchantEmail: string | null;
   merchantId: string | null;
-  paymentId: number;
+  paymentType: PaymentType;
   fulfillmentAgencyId: number | null;
   storeId: string | null;
   id: number;
