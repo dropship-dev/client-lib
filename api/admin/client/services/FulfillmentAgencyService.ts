@@ -7,6 +7,7 @@ import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
 import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
 import type { PaymentOnboarding } from '../models/PaymentOnboarding';
+import type { PaymentType } from '../models/PaymentType';
 import type { Timezone } from '../models/Timezone';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { Wallet } from '../models/Wallet';
@@ -162,17 +163,17 @@ export class FulfillmentAgencyService {
    */
   public verifyJoinPlatform({
     id,
-    paymentId,
+    paymentType,
   }: {
     id: number,
-    paymentId: number,
+    paymentType: PaymentType,
   }): CancelablePromise<PaymentOnboarding> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentId}',
+      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
       path: {
         'id': id,
-        'paymentId': paymentId,
+        'paymentType': paymentType,
       },
       errors: {
         400: `Bad request`,
