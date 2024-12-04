@@ -6,6 +6,8 @@ import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
+import type { Theme } from '../models/Theme';
+import type { ThemePage } from '../models/ThemePage';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ThemeService {
@@ -125,34 +127,9 @@ export class ThemeService {
   }: {
     storeId: string,
     id: number,
-  }): CancelablePromise<({
-    ThemePage: Array<{
-      themeId: number;
-      themeLibraryId: number;
-      content: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: number;
-    }>;
-  } & {
-    themeTemplateId: number;
-    isActivated: boolean;
-    components: any;
-    colors: any;
-    font: string;
-    heroBanner: string;
-    logoSize: _36_Enums_LogoSize;
-    logo: string;
-    nodes: PrismaJson_ThemeNodes;
-    style: PrismaJson_ThemeStyle;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-    setting: PrismaJson_ThemeSetting;
-  })> {
+  }): CancelablePromise<(Theme & {
+    ThemePage: Array<ThemePage>;
+  }) | null> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/{id}',
