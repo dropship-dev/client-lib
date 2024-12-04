@@ -312,7 +312,7 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Product Ok
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }) {

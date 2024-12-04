@@ -20,6 +20,7 @@ import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_Pr
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
+import type { Product } from '../models/Product';
 import type { UpdateProductDto } from '../models/UpdateProductDto';
 import type { UpdateProductStatusDto } from '../models/UpdateProductStatusDto';
 import type { UpdateProductStatusesDto } from '../models/UpdateProductStatusesDto';
@@ -980,36 +981,14 @@ export declare class ProductService {
         productId: number;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns Product Ok
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
         requestBody: UpdateProductStatusDto;
-    }): CancelablePromise<{
-        podTemplateId: number;
-        campaignId: string;
-        isEnable: boolean;
-        isActive: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        permalink: string;
-        deleted: boolean;
-        platformProductId: number;
-        description: string;
-        photos: PrismaJson_Photos;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-    }>;
+    }): CancelablePromise<Product>;
     /**
      * @returns any Ok
      * @throws ApiError
