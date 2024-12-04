@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateGADto } from '../models/CreateGADto';
+import type { GoogleAnalytic } from '../models/GoogleAnalytic';
 import type { UpdateGADto } from '../models/UpdateGADto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -118,7 +119,7 @@ export class GoogleAnalyticService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns GoogleAnalytic Ok
    * @throws ApiError
    */
   public updateGa({
@@ -129,13 +130,7 @@ export class GoogleAnalyticService {
     storeId: string,
     pixelId: string,
     requestBody: UpdateGADto,
-  }): CancelablePromise<{
-    measurementId: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-  }> {
+  }): CancelablePromise<GoogleAnalytic> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/ga/{pixelId}',
