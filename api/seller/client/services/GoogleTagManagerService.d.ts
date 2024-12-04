@@ -1,4 +1,5 @@
 import type { CreateGTMDto } from '../models/CreateGTMDto';
+import type { GoogleTagManager } from '../models/GoogleTagManager';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -47,17 +48,11 @@ export declare class GoogleTagManagerService {
     getGoogleTagManager({ storeId, tag, }: {
         storeId: string;
         tag: string;
-    }): CancelablePromise<({
+    }): CancelablePromise<(GoogleTagManager & {
         Product: Array<{
             id: number;
         }>;
-    } & {
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-        tag: string;
-    })>;
+    }) | null>;
     /**
      * @returns any Ok
      * @throws ApiError

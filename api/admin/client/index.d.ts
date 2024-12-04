@@ -136,6 +136,7 @@ export type { DefaultSelection_Prisma__36_FraudDetectionPayload_ } from './model
 export type { DefaultSelection_Prisma__36_FulfillmentAgencyPayload_ } from './models/DefaultSelection_Prisma__36_FulfillmentAgencyPayload_';
 export type { DefaultSelection_Prisma__36_FulfillmentUserPayload_ } from './models/DefaultSelection_Prisma__36_FulfillmentUserPayload_';
 export type { DefaultSelection_Prisma__36_GoogleAnalyticPayload_ } from './models/DefaultSelection_Prisma__36_GoogleAnalyticPayload_';
+export type { DefaultSelection_Prisma__36_GoogleTagManagerPayload_ } from './models/DefaultSelection_Prisma__36_GoogleTagManagerPayload_';
 export type { DefaultSelection_Prisma__36_GroupPlatformVariantPayload_ } from './models/DefaultSelection_Prisma__36_GroupPlatformVariantPayload_';
 export type { DefaultSelection_Prisma__36_NotificationPayload_ } from './models/DefaultSelection_Prisma__36_NotificationPayload_';
 export type { DefaultSelection_Prisma__36_OrderItemPayload_ } from './models/DefaultSelection_Prisma__36_OrderItemPayload_';
@@ -191,6 +192,7 @@ export type { GetStoreStatisticsAbandonmentDto } from './models/GetStoreStatisti
 export type { GetTrackingOrderCheckoutDto } from './models/GetTrackingOrderCheckoutDto';
 export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
+export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
 export type { ListAbandonmentOrdersDto } from './models/ListAbandonmentOrdersDto';
 export type { LiveCoordinates } from './models/LiveCoordinates';
