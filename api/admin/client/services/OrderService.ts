@@ -305,6 +305,10 @@ export class OrderService {
     gateway?: Array<number>,
     fraudStatus?: Array<FraudStatusType>,
   }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex?: string | null;
+    prePageIndex: string | null;
+    total: number;
     data: Array<GetAllOrderResult>;
   }> {
     return this.httpRequest.request({
