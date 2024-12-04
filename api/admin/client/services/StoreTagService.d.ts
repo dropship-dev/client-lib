@@ -1,23 +1,18 @@
 import type { CreateStoreTagDto } from '../models/CreateStoreTagDto';
+import type { Tag } from '../models/Tag';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreTagService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns Tag Ok
      * @throws ApiError
      */
     createStoreTag({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateStoreTagDto;
-    }): CancelablePromise<{
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-    }>;
+    }): CancelablePromise<Tag>;
     /**
      * @returns any Ok
      * @throws ApiError

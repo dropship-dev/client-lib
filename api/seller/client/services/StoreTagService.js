@@ -7,7 +7,7 @@ class StoreTagService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Tag Ok
      * @throws ApiError
      */
     createStoreTag({ storeId, requestBody, }) {
