@@ -3,12 +3,13 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateStoreTagDto } from '../models/CreateStoreTagDto';
+import type { Tag } from '../models/Tag';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreTagService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns Tag Ok
    * @throws ApiError
    */
   public createStoreTag({
@@ -17,13 +18,7 @@ export class StoreTagService {
   }: {
     storeId: string,
     requestBody: CreateStoreTagDto,
-  }): CancelablePromise<{
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-  }> {
+  }): CancelablePromise<Tag> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/tag',
