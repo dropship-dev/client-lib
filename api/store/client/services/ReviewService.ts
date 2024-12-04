@@ -4,12 +4,13 @@
 /* eslint-disable */
 import type { CreateReviewDto } from '../models/CreateReviewDto';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { Review } from '../models/Review';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ReviewService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns Review Ok
    * @throws ApiError
    */
   public createReview({
@@ -20,17 +21,7 @@ export class ReviewService {
     storeId: string,
     productId: number,
     requestBody: CreateReviewDto,
-  }): CancelablePromise<{
-    comment: string;
-    rating: number;
-    productId: number;
-    photos: PrismaJson_Photos;
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    id: number;
-  }> {
+  }): CancelablePromise<Review> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/review',
