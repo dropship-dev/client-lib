@@ -93,7 +93,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GetOrderResult Ok
      * @throws ApiError
      */
     getOrder({ fulfillmentAgencyId, id, }) {
