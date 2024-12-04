@@ -2,6 +2,7 @@ import type { CreateThemeLibraryDto } from '../models/CreateThemeLibraryDto';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
+import type { ThemeLibrary } from '../models/ThemeLibrary';
 import type { UpdateThemeLibraryDto } from '../models/UpdateThemeLibraryDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -9,21 +10,12 @@ export declare class ThemeLibraryService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
     createThemeLibrary({ requestBody, }: {
         requestBody: CreateThemeLibraryDto;
-    }): CancelablePromise<{
-        nodes: PrismaJson_ThemeNodes;
-        style: PrismaJson_ThemeStyle;
-        image: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        id: number;
-        setting: PrismaJson_ThemeSetting;
-    }>;
+    }): CancelablePromise<ThemeLibrary>;
     /**
      * @returns any Ok
      * @throws ApiError

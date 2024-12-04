@@ -7,7 +7,7 @@ class ThemeLibraryService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns ThemeLibrary Ok
      * @throws ApiError
      */
     createThemeLibrary({ requestBody, }) {
