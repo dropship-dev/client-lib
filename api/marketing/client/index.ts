@@ -151,6 +151,7 @@ export type { DefaultSelection_Prisma__36_PlatformVariantPayload_ } from './mode
 export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/DefaultSelection_Prisma__36_ProductPayload_';
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
 export type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './models/DefaultSelection_Prisma__36_RequestPayoutPayload_';
+export type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './models/DefaultSelection_Prisma__36_RequestSourcingPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
 export type { DefaultSelection_Prisma__36_StoreUserPayload_ } from './models/DefaultSelection_Prisma__36_StoreUserPayload_';
 export type { DefaultSelection_Prisma__36_TiktokPixelPayload_ } from './models/DefaultSelection_Prisma__36_TiktokPixelPayload_';
@@ -291,6 +292,7 @@ export { RelatedProductType } from './models/RelatedProductType';
 export type { RenewDomainDto } from './models/RenewDomainDto';
 export type { RequestPayout } from './models/RequestPayout';
 export type { RequestPayoutStatus } from './models/RequestPayoutStatus';
+export type { RequestSourcing } from './models/RequestSourcing';
 export type { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';

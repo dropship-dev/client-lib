@@ -11,13 +11,14 @@ import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_RequestSourcingHistory } from '../models/PrismaJson_RequestSourcingHistory';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
+import type { RequestSourcing } from '../models/RequestSourcing';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class RequestSourcingService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns RequestSourcing Ok
    * @throws ApiError
    */
   public createRequestSourcing({
@@ -26,25 +27,7 @@ export class RequestSourcingService {
   }: {
     storeId: string,
     requestBody: CreateRequestSourcingDto,
-  }): CancelablePromise<{
-    historyRequestSourcing: PrismaJson_RequestSourcingHistory;
-    acceptByAdmin: boolean;
-    acceptBySeller: boolean;
-    rejectReasonByAdmin: string;
-    rejectReasonBySeller: string;
-    productId: number;
-    platformProductId: number;
-    description: string;
-    photos: PrismaJson_Photos;
-    status: _36_Enums_RequestSourcingStatus;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    isDeleted: boolean;
-    storeId: string;
-    id: number;
-    link: string;
-  }> {
+  }): CancelablePromise<RequestSourcing> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/request-sourcing',
