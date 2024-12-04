@@ -1,6 +1,10 @@
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
+import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
+import type { GroupPlatformVariant } from '../models/GroupPlatformVariant';
+import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformProductStore } from '../models/PlatformProductStore';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
@@ -143,62 +147,17 @@ export declare class PlatformProductService {
         fulfillmentAgencyId: number;
         platformProductId: number;
         isGetAllPlatformProductStore?: boolean;
-    }): CancelablePromise<({
-        Tag: Array<{
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: number;
-        }>;
-        GroupPlatformVariant: Array<({
+    }): CancelablePromise<(PlatformProduct & {
+        GroupPlatformVariant: Array<(GroupPlatformVariant & {
             PlatformVariant: Array<{
-                photo: string;
                 SKU: string;
                 name: string;
+                photo: string;
                 id: number;
             }>;
-        } & {
-            cost: PrismaJson_PlatformCostInfo;
-            platformProductId: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
         })>;
-        PlatformVariant: Array<{
-            groupPlatformVariantId: number;
-            cost: PrismaJson_PlatformCostInfo;
-            supplierPrice: number;
-            price: number;
-            photo: string;
-            isEnable: boolean;
-            isActive: boolean;
-            variantOption: PrismaJson_VariantOptionValues;
-            SKU: string;
-            deleted: boolean;
-            platformProductId: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
-        }>;
-    } & {
-        isEnable: boolean;
-        isActive: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        deleted: boolean;
-        description: string;
-        photos: PrismaJson_Photos;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: number;
+        PlatformVariant: Array<PlatformVariant>;
+        Tag: Array<AdminTag>;
     })>;
     /**
      * @returns any Ok

@@ -7,7 +7,7 @@ class TagService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns AdminTag Ok
      * @throws ApiError
      */
     createTag({ fulfillmentAgencyId, requestBody, }) {
