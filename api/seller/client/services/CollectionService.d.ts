@@ -1,15 +1,12 @@
-import type { _36_Enums_BoostSaleTriggerType } from '../models/_36_Enums_BoostSaleTriggerType';
-import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType';
 import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionStatus';
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
-import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
+import type { BoostSale } from '../models/BoostSale';
+import type { Collection } from '../models/Collection';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
-import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
-import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
@@ -94,48 +91,21 @@ export declare class CollectionService {
         isActiveProduct?: boolean;
         isEnableProduct?: boolean;
         deletedProduct?: boolean;
-    }): CancelablePromise<({
+    }): CancelablePromise<(Collection & {
         Product: Array<{
-            isEnable: boolean;
-            isActive: boolean;
-            permalink: string;
-            deleted: boolean;
-            photos: PrismaJson_Photos;
-            name: string;
-            id: number;
             ProductVariant: Array<{
                 compareAtPrice: number;
                 price: number;
             }>;
-        }>;
-        BoostSale: Array<{
-            rootProductId: number;
-            triggerBy: _36_Enums_BoostSaleTriggerType;
-            marketingType: _36_Enums_MarketingType;
-            placement: PrismaJson_PlacementBoostSaleType;
-            endDate: string;
-            startDate: string;
-            type: _36_Enums_BoostSaleType;
-            status: boolean;
+            deleted: boolean;
+            isEnable: boolean;
+            isActive: boolean;
+            permalink: string;
+            photos: Array<string>;
             name: string;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
             id: number;
-            discount: PrismaJson_DiscountBoostSale;
         }>;
-    } & {
-        SEO: any;
-        condition: PrismaJson_ConditionCollection;
-        description: string;
-        photos: PrismaJson_Photos;
-        type: _36_Enums_CollectionType;
-        status: _36_Enums_CollectionStatus;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
+        BoostSale: Array<BoostSale>;
     })>;
     /**
      * @returns string Ok
