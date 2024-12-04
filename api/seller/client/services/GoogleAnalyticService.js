@@ -70,7 +70,7 @@ class GoogleAnalyticService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GoogleAnalytic Ok
      * @throws ApiError
      */
     updateGa({ storeId, pixelId, requestBody, }) {
