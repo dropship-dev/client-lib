@@ -2,42 +2,30 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
-import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
-import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
+import type { BulkCreatePingpongAccountDto } from '../models/BulkCreatePingpongAccountDto';
+import type { BulkDeletePingpongAccountDto } from '../models/BulkDeletePingpongAccountDto';
+import type { BulkUpDatePingpongAccountDto } from '../models/BulkUpDatePingpongAccountDto';
+import type { ResponseStoreAddPingpong } from '../models/ResponseStoreAddPingpong';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PingPongAccountV2Service {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
-  public createPingPongAccountV2({
-    requestBody,
+  public bulkCreatePingPongAccount({
     fulfillmentAgencyId,
-    storeId,
+    requestBody,
   }: {
-    requestBody: CreatePingPongAccountDto,
-    fulfillmentAgencyId?: number,
-    storeId?: string,
-  }): CancelablePromise<{
-    walletId: string;
-    isBlock: boolean;
-    isDefault: boolean;
-    email: string;
-    updatedAt: string;
-    createdAt: string;
-    isDeleted: boolean;
-    id: string;
-    currency: _36_Enums_CurrencyType;
-  }> {
+    fulfillmentAgencyId: number,
+    requestBody: BulkCreatePingpongAccountDto,
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/v2/pingpong-account',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
-        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -54,25 +42,49 @@ export class PingPongAccountV2Service {
    * @returns string Ok
    * @throws ApiError
    */
-  public deletePingPongAccountV2({
-    id,
+  public bulkUpdatePingPongAccount({
     fulfillmentAgencyId,
-    storeId,
+    requestBody,
   }: {
-    id: string,
-    fulfillmentAgencyId?: number,
-    storeId?: string,
+    fulfillmentAgencyId: number,
+    requestBody: BulkUpDatePingpongAccountDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/v2/pingpong-account',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public bulkDeletePingPongAccount({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: BulkDeletePingpongAccountDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/v2/pingpong-account/{id}',
-      path: {
-        'id': id,
-      },
+      url: '/v2/pingpong-account',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
-        'storeId': storeId,
       },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -86,21 +98,44 @@ export class PingPongAccountV2Service {
    * @returns string Ok
    * @throws ApiError
    */
-  public updateDefaultV2({
-    storeId,
-    requestBody,
+  public getAllAccountPingpong({
+    fulfillmentAgencyId,
   }: {
-    storeId: string,
-    requestBody: UpdatePingPongAccountDto,
-  }): CancelablePromise<string> {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<Array<string>> {
     return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/v2/pingpong-account/{storeId}',
-      path: {
-        'storeId': storeId,
+      method: 'GET',
+      url: '/v2/pingpong-account',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
-      body: requestBody,
-      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponseStoreAddPingpong Ok
+   * @throws ApiError
+   */
+  public getStoreAddPingpongAccount({
+    fulfillmentAgencyId,
+    emailPingpong,
+  }: {
+    fulfillmentAgencyId: number,
+    emailPingpong?: string,
+  }): CancelablePromise<Array<ResponseStoreAddPingpong>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/v2/pingpong-account/store',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'emailPingpong': emailPingpong,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
