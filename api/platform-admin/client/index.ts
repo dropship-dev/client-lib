@@ -132,6 +132,7 @@ export type { DefaultSelection_Prisma__36_NotificationPayload_ } from './models/
 export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/DefaultSelection_Prisma__36_ProductPayload_';
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
+export type { DefaultSelection_Prisma__36_TiktokPixelPayload_ } from './models/DefaultSelection_Prisma__36_TiktokPixelPayload_';
 export type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './models/DefaultSelection_Prisma__36_VariantComboPayload_';
 export { DiscountBoostSaleType } from './models/DiscountBoostSaleType';
 export type { DiscountDto } from './models/DiscountDto';
@@ -269,6 +270,7 @@ export type { SubscribeTopicDto } from './models/SubscribeTopicDto';
 export type { SubscriptionInterval } from './models/SubscriptionInterval';
 export type { SuggestionResponseDto } from './models/SuggestionResponseDto';
 export type { TagConditionDto } from './models/TagConditionDto';
+export type { TiktokPixel } from './models/TiktokPixel';
 export { TimeEmailMarketingUnit } from './models/TimeEmailMarketingUnit';
 export { TimezoneDto } from './models/TimezoneDto';
 export type { TopProductByOrder } from './models/TopProductByOrder';
