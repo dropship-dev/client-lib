@@ -7,7 +7,7 @@ class PingPongAccountV2Service {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PingPongAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPingPongAccountV2({ requestBody, fulfillmentAgencyId, storeId, }) {

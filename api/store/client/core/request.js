@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.request = exports.catchErrorCodes = exports.getResponseBody = exports.getResponseHeader = exports.sendRequest = exports.getRequestBody = exports.getHeaders = exports.resolve = exports.getFormData = exports.getQueryString = exports.base64 = exports.isFormData = exports.isBlob = exports.isStringWithValue = exports.isString = exports.isDefined = void 0;
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -125,10 +125,12 @@ const resolve = async (options, resolver) => {
 };
 exports.resolve = resolve;
 const getHeaders = async (config, options) => {
-    const token = await (0, exports.resolve)(options, config.TOKEN);
-    const username = await (0, exports.resolve)(options, config.USERNAME);
-    const password = await (0, exports.resolve)(options, config.PASSWORD);
-    const additionalHeaders = await (0, exports.resolve)(options, config.HEADERS);
+    const [token, username, password, additionalHeaders] = await Promise.all([
+        (0, exports.resolve)(options, config.TOKEN),
+        (0, exports.resolve)(options, config.USERNAME),
+        (0, exports.resolve)(options, config.PASSWORD),
+        (0, exports.resolve)(options, config.HEADERS),
+    ]);
     const headers = Object.entries({
         Accept: 'application/json',
         ...additionalHeaders,
@@ -146,7 +148,7 @@ const getHeaders = async (config, options) => {
         const credentials = (0, exports.base64)(`${username}:${password}`);
         headers['Authorization'] = `Basic ${credentials}`;
     }
-    if (options.body) {
+    if (options.body !== undefined) {
         if (options.mediaType) {
             headers['Content-Type'] = options.mediaType;
         }

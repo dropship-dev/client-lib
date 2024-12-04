@@ -70,7 +70,7 @@ class GoogleTagManagerService {
         });
     }
     /**
-     * @returns GoogleTagManager Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateGoogleTagManager({ storeId, tag, requestBody, }) {
@@ -93,7 +93,7 @@ class GoogleTagManagerService {
         });
     }
     /**
-     * @returns GoogleTagManager Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteGoogleTagManager({ storeId, tag, }) {

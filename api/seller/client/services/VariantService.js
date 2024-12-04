@@ -7,7 +7,7 @@ class VariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     createVariants({ storeId, requestBody, }) {
@@ -123,7 +123,7 @@ class VariantService {
         });
     }
     /**
-     * @returns ProductVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateVariant({ storeId, productId, id, requestBody, }) {
@@ -147,7 +147,7 @@ class VariantService {
         });
     }
     /**
-     * @returns ProductVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteVariant({ storeId, productId, id, }) {

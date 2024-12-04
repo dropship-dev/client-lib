@@ -1,5 +1,2 @@
-export declare enum BoostSaleTriggerType {
-    ALL_PRODUCT = "ALL_PRODUCT",
-    SPECIFIC_PRODUCT = "SPECIFIC_PRODUCT",
-    COLLECTION = "COLLECTION"
-}
+import type { _36_Enums_BoostSaleTriggerType } from './_36_Enums_BoostSaleTriggerType';
+export type BoostSaleTriggerType = _36_Enums_BoostSaleTriggerType;

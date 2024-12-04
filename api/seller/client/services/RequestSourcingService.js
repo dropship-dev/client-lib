@@ -7,7 +7,7 @@ class RequestSourcingService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createRequestSourcing({ storeId, requestBody, }) {
@@ -80,7 +80,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateRequestSourcing({ storeId, id, requestBody, }) {
@@ -105,7 +105,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteRequestSourcing({ storeId, id, }) {
@@ -128,7 +128,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     approveRequestSourcing({ id, requestBody, fulfillmentAgencyId, storeId, }) {
@@ -154,7 +154,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     rejectRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {

@@ -1,5 +1,4 @@
 import type { CreateGTMDto } from '../models/CreateGTMDto';
-import type { GoogleTagManager } from '../models/GoogleTagManager';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,10 +12,16 @@ export declare class GoogleTagManagerService {
     createGoogleTagManager({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateGTMDto;
-    }): CancelablePromise<(GoogleTagManager & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        tag: string;
     })>;
     /**
      * @returns any Ok
@@ -24,10 +29,16 @@ export declare class GoogleTagManagerService {
      */
     getAllGoogleTagManager({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(GoogleTagManager & {
+    }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        tag: string;
     })>>;
     /**
      * @returns any Ok
@@ -36,26 +47,44 @@ export declare class GoogleTagManagerService {
     getGoogleTagManager({ storeId, tag, }: {
         storeId: string;
         tag: string;
-    }): CancelablePromise<(GoogleTagManager & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        tag: string;
     })>;
     /**
-     * @returns GoogleTagManager Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateGoogleTagManager({ storeId, tag, requestBody, }: {
         storeId: string;
         tag: string;
         requestBody: UpdateGTMDto;
-    }): CancelablePromise<GoogleTagManager>;
+    }): CancelablePromise<{
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        tag: string;
+    }>;
     /**
-     * @returns GoogleTagManager Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteGoogleTagManager({ storeId, tag, }: {
         storeId: string;
         tag: string;
-    }): CancelablePromise<GoogleTagManager>;
+    }): CancelablePromise<{
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        tag: string;
+    }>;
 }

@@ -1,24 +1,48 @@
+import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { Payment } from '../models/Payment';
-import type { PaymentType } from '../models/PaymentType';
-import type { StoreStatus } from '../models/StoreStatus';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
-import type { UserRole } from '../models/UserRole';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }: {
         requestBody: CreatePaymentDto;
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<Payment>;
+    }): CancelablePromise<{
+        environment: _36_Enums_EnvironmentType;
+        UIVersion: number;
+        deleted: boolean;
+        partnerId: string;
+        merchantId: string;
+        gatewayUrl: string;
+        tokenExpiredAt: string;
+        token: string;
+        secretKey: string;
+        publishableKey: string;
+        isPlatform: boolean;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        userId: string;
+        type: _36_Enums_PaymentType;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -27,13 +51,8 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<Array<{
-        publishableKey: string;
-        isShowCompanyAddress: boolean;
-        companyAddress: string;
-        companyPhone: string;
-        companyName: string;
         creator: {
-            role: UserRole;
+            role: _36_Enums_UserRole;
             avatar: string;
             email: string;
             name: string;
@@ -41,11 +60,16 @@ export declare class PaymentService {
             createdAt: string;
             id: string;
         };
+        publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        type: _36_Enums_PaymentType;
         email: string;
         name: string;
         updatedAt: string;
         createdAt: string;
-        type: PaymentType;
         id: number;
     }>>;
     /**
@@ -57,13 +81,8 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
-        publishableKey: string;
-        isShowCompanyAddress: boolean;
-        companyAddress: string;
-        companyPhone: string;
-        companyName: string;
         creator: {
-            role: UserRole;
+            role: _36_Enums_UserRole;
             avatar: string;
             email: string;
             name: string;
@@ -71,15 +90,20 @@ export declare class PaymentService {
             createdAt: string;
             id: string;
         };
+        publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        type: _36_Enums_PaymentType;
         email: string;
         name: string;
         updatedAt: string;
         createdAt: string;
-        type: PaymentType;
         id: number;
     }>;
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePayment({ id, requestBody, fulfillmentAgencyId, storeId, }: {
@@ -87,7 +111,31 @@ export declare class PaymentService {
         requestBody: UpdatePaymentDto;
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<Payment>;
+    }): CancelablePromise<{
+        environment: _36_Enums_EnvironmentType;
+        UIVersion: number;
+        deleted: boolean;
+        partnerId: string;
+        merchantId: string;
+        gatewayUrl: string;
+        tokenExpiredAt: string;
+        token: string;
+        secretKey: string;
+        publishableKey: string;
+        isPlatform: boolean;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        userId: string;
+        type: _36_Enums_PaymentType;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -108,9 +156,9 @@ export declare class PaymentService {
         Store: Array<{
             primaryDomain: string;
             avatar: string;
+            status: _36_Enums_StoreStatus;
             email: string;
             name: string;
-            status: StoreStatus;
             id: string;
         }>;
     }>;

@@ -1,5 +1,4 @@
 import type { CreateTiktokPixelDto } from '../models/CreateTiktokPixelDto';
-import type { TiktokPixel } from '../models/TiktokPixel';
 import type { UpdateTiktokPixelDto } from '../models/UpdateTiktokPixelDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,10 +12,16 @@ export declare class TiktokPixelService {
     createTiktokPixel({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateTiktokPixelDto;
-    }): CancelablePromise<(TiktokPixel & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
      * @returns any Ok
@@ -24,10 +29,16 @@ export declare class TiktokPixelService {
      */
     getAllTiktokPixel({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(TiktokPixel & {
+    }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>>;
     /**
      * @returns any Ok
@@ -36,26 +47,44 @@ export declare class TiktokPixelService {
     getTiktokPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<(TiktokPixel & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
-     * @returns TiktokPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateTiktokPixel({ storeId, pixelId, requestBody, }: {
         storeId: string;
         pixelId: string;
         requestBody: UpdateTiktokPixelDto;
-    }): CancelablePromise<TiktokPixel>;
+    }): CancelablePromise<{
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
-     * @returns TiktokPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteTiktokPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<TiktokPixel>;
+    }): CancelablePromise<{
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

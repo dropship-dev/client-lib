@@ -1,7 +1,9 @@
-import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateVariantsDto } from '../models/CreateVariantsDto';
-import type { PlatformVariant } from '../models/PlatformVariant';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
 import type { UpdateVariantStatusDto } from '../models/UpdateVariantStatusDto';
@@ -11,13 +13,13 @@ export declare class VariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     createVariants({ storeId, requestBody, }: {
         storeId: string;
         requestBody: Array<CreateVariantsDto>;
-    }): CancelablePromise<BatchPayload>;
+    }): CancelablePromise<Prisma_BatchPayload>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -32,8 +34,44 @@ export declare class VariantService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<(ProductVariant & {
-            PlatformVariant: PlatformVariant;
+        data: Array<({
+            PlatformVariant: {
+                groupPlatformVariantId: number;
+                cost: PrismaJson_PlatformCostInfo;
+                supplierPrice: number;
+                price: number;
+                photo: string;
+                isEnable: boolean;
+                isActive: boolean;
+                variantOption: PrismaJson_VariantOptionValues;
+                SKU: string;
+                deleted: boolean;
+                platformProductId: number;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            };
+        } & {
+            podDesignVariantId: number;
+            platformVariantId: number;
+            margin: PrismaJson_MarginInfo;
+            minSellingPrice: number;
+            compareAtPrice: number;
+            productId: number;
+            cost: PrismaJson_CostInfo;
+            supplierPrice: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            isActive: boolean;
+            variantOption: PrismaJson_VariantOptionValues;
+            SKU: string;
+            deleted: boolean;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
         })>;
     }>;
     /**
@@ -62,11 +100,47 @@ export declare class VariantService {
         storeId: string;
         productId: number;
         id: number;
-    }): CancelablePromise<(ProductVariant & {
-        PlatformVariant: PlatformVariant;
+    }): CancelablePromise<({
+        PlatformVariant: {
+            groupPlatformVariantId: number;
+            cost: PrismaJson_PlatformCostInfo;
+            supplierPrice: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            isActive: boolean;
+            variantOption: PrismaJson_VariantOptionValues;
+            SKU: string;
+            deleted: boolean;
+            platformProductId: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        };
+    } & {
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
     })>;
     /**
-     * @returns ProductVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateVariant({ storeId, productId, id, requestBody, }: {
@@ -74,16 +148,56 @@ export declare class VariantService {
         productId: number;
         id: number;
         requestBody: UpdateVariantDto;
-    }): CancelablePromise<ProductVariant>;
+    }): CancelablePromise<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
-     * @returns ProductVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteVariant({ storeId, productId, id, }: {
         storeId: string;
         productId: number;
         id: number;
-    }): CancelablePromise<ProductVariant>;
+    }): CancelablePromise<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError

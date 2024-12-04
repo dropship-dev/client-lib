@@ -70,7 +70,7 @@ class GoogleAnalyticService {
         });
     }
     /**
-     * @returns GoogleAnalytic Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateGa({ storeId, pixelId, requestBody, }) {
@@ -93,7 +93,7 @@ class GoogleAnalyticService {
         });
     }
     /**
-     * @returns GoogleAnalytic Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteGa({ storeId, pixelId, }) {

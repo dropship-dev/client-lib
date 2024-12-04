@@ -1,8 +1,12 @@
-import type { BankAccount } from '../models/BankAccount';
-import type { PaymentMethodType } from '../models/PaymentMethodType';
-import type { PingPongAccount } from '../models/PingPongAccount';
-import type { RequestPayout } from '../models/RequestPayout';
-import type { Transaction } from '../models/Transaction';
+import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
+import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
+import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
+import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
+import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_TransactionDetails } from '../models/PrismaJson_TransactionDetails';
+import type { PrismaJson_TransactionPaymentMethod } from '../models/PrismaJson_TransactionPaymentMethod';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class TransactionService {
@@ -26,16 +30,59 @@ export declare class TransactionService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<(Transaction & {
+        data: Array<({
             RequestPayout: {
-                bankAccountId: string;
                 convertCurrencyCode: string;
+                bankAccountId: string;
+                paymentMethod: _36_Enums_PaymentMethodType;
                 convertCurrencyAmount: number;
-                paymentMethod: PaymentMethodType;
-                PingPongAccount: PingPongAccount;
-                BankAccount: BankAccount;
                 id: string;
+                PingPongAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    email: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
+                BankAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    bank: PrismaJson_bankInfo;
+                    accountHolder: string;
+                    accountNumber: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
             };
+        } & {
+            isRollback: boolean;
+            refundIdGateway: string;
+            transactionDetails: PrismaJson_TransactionDetails;
+            notes: string;
+            requestPayoutId: string;
+            disputeFee: number;
+            fee: number;
+            amount: number;
+            idTransaction: string;
+            lastBalance: number;
+            orderId: string;
+            walletId: string;
+            photos: PrismaJson_Photos;
+            paymentMethod: PrismaJson_TransactionPaymentMethod;
+            type: _36_Enums_TransactionType;
+            status: _36_Enums_TransactionStatus;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
         })>;
     }>;
     /**
@@ -45,7 +92,43 @@ export declare class TransactionService {
     getStoreTransaction({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Transaction & {
-        RequestPayout: RequestPayout;
+    }): CancelablePromise<({
+        RequestPayout: {
+            photos: PrismaJson_Photos;
+            noteByAdmin: string;
+            noteBySeller: string;
+            convertCurrencyCode: string;
+            pingPongAccountId: string;
+            bankAccountId: string;
+            paymentMethod: _36_Enums_PaymentMethodType;
+            convertCurrencyAmount: number;
+            requestCurrencyAmount: number;
+            status: _36_Enums_RequestPayoutStatus;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: string;
+        };
+    } & {
+        isRollback: boolean;
+        refundIdGateway: string;
+        transactionDetails: PrismaJson_TransactionDetails;
+        notes: string;
+        requestPayoutId: string;
+        disputeFee: number;
+        fee: number;
+        amount: number;
+        idTransaction: string;
+        lastBalance: number;
+        orderId: string;
+        walletId: string;
+        photos: PrismaJson_Photos;
+        paymentMethod: PrismaJson_TransactionPaymentMethod;
+        type: _36_Enums_TransactionType;
+        status: _36_Enums_TransactionStatus;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
 }

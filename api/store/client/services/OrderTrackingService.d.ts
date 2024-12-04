@@ -1,5 +1,5 @@
 import type { CreateOrderTrackingDto } from '../models/CreateOrderTrackingDto';
-import type { NullableDateTimeFieldUpdateOperationsInput } from '../models/NullableDateTimeFieldUpdateOperationsInput';
+import type { Prisma_NullableDateTimeFieldUpdateOperationsInput } from '../models/Prisma_NullableDateTimeFieldUpdateOperationsInput';
 import type { UpdateOrderTrackingDto } from '../models/UpdateOrderTrackingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -25,7 +25,7 @@ export declare class OrderTrackingService {
         trackingId: number;
         requestBody: UpdateOrderTrackingDto;
     }): CancelablePromise<{
-        expiredAt: (string | NullableDateTimeFieldUpdateOperationsInput);
+        expiredAt: (string | Prisma_NullableDateTimeFieldUpdateOperationsInput);
         token: string;
         id: number;
     }>;

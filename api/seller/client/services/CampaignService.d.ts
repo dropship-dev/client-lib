@@ -1,6 +1,6 @@
-import type { Campaign } from '../models/Campaign';
 import type { CreateDiscountDto } from '../models/CreateDiscountDto';
-import type { Discount } from '../models/Discount';
+import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
+import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
 import type { UpdateCampaignDto } from '../models/UpdateCampaignDto';
 import type { UpdateDiscountDto } from '../models/UpdateDiscountDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -8,6 +8,63 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class CampaignService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateCampaign({ storeId, campaignId, requestBody, }: {
+        storeId: string;
+        campaignId: string;
+        requestBody: UpdateCampaignDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCampaign({ storeId, campaignId, }: {
+        storeId: string;
+        campaignId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCampaignById({ storeId, campaignId, }: {
+        storeId: string;
+        campaignId: string;
+    }): CancelablePromise<({
+        listDiscount: Array<{
+            requirementDiscount: PrismaJson_ProductRequirementItems;
+            typeDiscount: PrismaJson_ProductDiscountItems;
+            position: number;
+            userUpdated: string;
+            userCreated: string;
+            label: string;
+            campaignId: string;
+            updatedAt: string;
+            createdAt: string;
+            id: string;
+        }>;
+    } & {
+        userUpdated: string;
+        userCreated: string;
+        endDate: string;
+        startDate: string;
+        label: string;
+        status: boolean;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCampaignDeleted({ storeId, campaignId, productId, }: {
+        storeId: string;
+        campaignId: string;
+        productId: number;
+    }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -45,40 +102,4 @@ export declare class CampaignService {
         campaignId: string;
         requestBody: Array<UpdateDiscountDto>;
     }): CancelablePromise<'OK' | 'Nothing to update'>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    updateCampaign({ storeId, campaignId, requestBody, }: {
-        storeId: string;
-        campaignId: string;
-        requestBody: UpdateCampaignDto;
-    }): CancelablePromise<string>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCampaign({ storeId, campaignId, }: {
-        storeId: string;
-        campaignId: string;
-    }): CancelablePromise<string>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getCampaignById({ storeId, campaignId, }: {
-        storeId: string;
-        campaignId: string;
-    }): CancelablePromise<(Campaign & {
-        listDiscount: Array<Discount>;
-    })>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCampaignDeleted({ storeId, campaignId, productId, }: {
-        storeId: string;
-        campaignId: string;
-        productId: number;
-    }): CancelablePromise<string>;
 }

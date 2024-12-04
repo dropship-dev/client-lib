@@ -7,7 +7,7 @@ class ReviewService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createReview({ storeId, productId, requestBody, }) {
@@ -30,7 +30,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllReview({ storeId, productId, }) {
@@ -51,7 +51,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getReview({ storeId, productId, id, }) {

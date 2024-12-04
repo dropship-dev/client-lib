@@ -1,5 +1,4 @@
 import type { CreateGADto } from '../models/CreateGADto';
-import type { GoogleAnalytic } from '../models/GoogleAnalytic';
 import type { UpdateGADto } from '../models/UpdateGADto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,10 +12,16 @@ export declare class GoogleAnalyticService {
     createGa({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateGADto;
-    }): CancelablePromise<(GoogleAnalytic & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        measurementId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
      * @returns any Ok
@@ -24,10 +29,16 @@ export declare class GoogleAnalyticService {
      */
     getAllGa({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(GoogleAnalytic & {
+    }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        measurementId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>>;
     /**
      * @returns any Ok
@@ -36,26 +47,44 @@ export declare class GoogleAnalyticService {
     getGa({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<(GoogleAnalytic & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        measurementId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
-     * @returns GoogleAnalytic Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateGa({ storeId, pixelId, requestBody, }: {
         storeId: string;
         pixelId: string;
         requestBody: UpdateGADto;
-    }): CancelablePromise<GoogleAnalytic>;
+    }): CancelablePromise<{
+        measurementId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
-     * @returns GoogleAnalytic Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteGa({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<GoogleAnalytic>;
+    }): CancelablePromise<{
+        measurementId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

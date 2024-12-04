@@ -7,7 +7,7 @@ class StoreService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createStore({ requestBody, }) {
@@ -76,7 +76,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStore({ storeId, requestBody, }) {
@@ -98,7 +98,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteStore({ storeId, }) {
@@ -118,7 +118,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStoreStatus({ storeId, requestBody, }) {

@@ -70,7 +70,7 @@ class TiktokPixelService {
         });
     }
     /**
-     * @returns TiktokPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateTiktokPixel({ storeId, pixelId, requestBody, }) {
@@ -93,7 +93,7 @@ class TiktokPixelService {
         });
     }
     /**
-     * @returns TiktokPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteTiktokPixel({ storeId, pixelId, }) {

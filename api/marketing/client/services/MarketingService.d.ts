@@ -1,20 +1,37 @@
+import type { _36_Enums_StoreEmailLogStatus } from '../models/_36_Enums_StoreEmailLogStatus';
+import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { CreateMarketingAccount } from '../models/CreateMarketingAccount';
 import type { GetListStoreMarketingDto } from '../models/GetListStoreMarketingDto';
+import type { PrismaJson_FirebaseDeviceToken } from '../models/PrismaJson_FirebaseDeviceToken';
 import type { SendEmailToListStoreDto } from '../models/SendEmailToListStoreDto';
-import type { StoreEmailLogStatus } from '../models/StoreEmailLogStatus';
-import type { User } from '../models/User';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class MarketingService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createMarketingAccount({ requestBody, }: {
         requestBody: CreateMarketingAccount;
-    }): CancelablePromise<User>;
+    }): CancelablePromise<{
+        subscriptionId: string;
+        firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+        firstLogin: boolean;
+        maxStaffStores: number;
+        maxOwnedStores: number;
+        shortId: string;
+        role: _36_Enums_UserRole;
+        country: string;
+        avatar: string;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -25,7 +42,7 @@ export declare class MarketingService {
         preCursor: boolean;
         nextCursor: string;
         data: Array<{
-            status: StoreEmailLogStatus;
+            status: _36_Enums_StoreEmailLogStatus;
             name: string;
             id: string;
         }>;
@@ -38,12 +55,12 @@ export declare class MarketingService {
         userId: string;
     }): CancelablePromise<Array<{
         emailId: string;
+        status: _36_Enums_StoreEmailLogStatus;
+        createdAt: string;
+        id: number;
         EmailMarketingTemplate: {
             name: string;
         };
-        createdAt: string;
-        status: StoreEmailLogStatus;
-        id: number;
     }>>;
     /**
      * @returns string Ok
@@ -57,8 +74,8 @@ export declare class MarketingService {
      * @throws ApiError
      */
     getEmailMarketingTemplate(): CancelablePromise<Array<{
+        data: string;
         name: string;
         id: number;
-        data: string;
     }>>;
 }

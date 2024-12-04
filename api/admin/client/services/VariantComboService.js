@@ -32,7 +32,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }) {

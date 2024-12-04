@@ -1,4 +1,4 @@
-import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
+import type { _36_Enums_FulfillmentAgencyStatus } from './_36_Enums_FulfillmentAgencyStatus';
 export type UpdateFulfillmentAgencyStatusDto = {
-    status: FulfillmentAgencyStatus;
+    status: _36_Enums_FulfillmentAgencyStatus;
 };

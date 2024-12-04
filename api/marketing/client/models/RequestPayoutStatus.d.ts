@@ -1,5 +1,2 @@
-export declare enum RequestPayoutStatus {
-    REQUESTING = "REQUESTING",
-    REJECTED = "REJECTED",
-    APPROVED = "APPROVED"
-}
+import type { _36_Enums_RequestPayoutStatus } from './_36_Enums_RequestPayoutStatus';
+export type RequestPayoutStatus = _36_Enums_RequestPayoutStatus;

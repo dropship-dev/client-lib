@@ -1,5 +1,7 @@
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
+import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
+import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
+import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ThemeService {
@@ -11,8 +13,33 @@ export declare class ThemeService {
      */
     getActiveTheme({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
+    }): CancelablePromise<({
+        ThemePage: Array<{
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        }>;
+    } & {
+        themeTemplateId: number;
+        isActivated: boolean;
+        components: any;
+        colors: any;
+        font: string;
+        heroBanner: string;
+        logoSize: _36_Enums_LogoSize;
+        logo: string;
+        nodes: PrismaJson_ThemeNodes;
+        style: PrismaJson_ThemeStyle;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        setting: PrismaJson_ThemeSetting;
     })>;
     /**
      * @returns any Ok
@@ -21,8 +48,33 @@ export declare class ThemeService {
     getActiveThemePage({ storeId, pageName, }: {
         storeId: string;
         pageName: string;
-    }): CancelablePromise<(Theme & {
-        ThemePage: ThemePage;
+    }): CancelablePromise<({
+        themeTemplateId: number;
+        isActivated: boolean;
+        components: any;
+        colors: any;
+        font: string;
+        heroBanner: string;
+        logoSize: _36_Enums_LogoSize;
+        logo: string;
+        nodes: PrismaJson_ThemeNodes;
+        style: PrismaJson_ThemeStyle;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        setting: PrismaJson_ThemeSetting;
+    } & {
+        ThemePage: {
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        };
     })>;
     /**
      * @returns any Ok
@@ -31,7 +83,32 @@ export declare class ThemeService {
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
+    }): CancelablePromise<({
+        ThemePage: Array<{
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        }>;
+    } & {
+        themeTemplateId: number;
+        isActivated: boolean;
+        components: any;
+        colors: any;
+        font: string;
+        heroBanner: string;
+        logoSize: _36_Enums_LogoSize;
+        logo: string;
+        nodes: PrismaJson_ThemeNodes;
+        style: PrismaJson_ThemeStyle;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        setting: PrismaJson_ThemeSetting;
     })>;
 }

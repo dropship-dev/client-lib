@@ -1,10 +1,10 @@
 "use strict";
-/* generated using openapi-typescript-codegen -- do no edit */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeFulfillmentPrice = void 0;
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TypeFulfillmentPrice = void 0;
 var TypeFulfillmentPrice;
 (function (TypeFulfillmentPrice) {
     TypeFulfillmentPrice["FIXED_COST"] = "FIXED_COST";

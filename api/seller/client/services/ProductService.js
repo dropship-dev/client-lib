@@ -7,7 +7,7 @@ class ProductService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createProductForStoreInDependence({ storeId, requestBody, }) {
@@ -105,7 +105,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductStatuses({ storeId, requestBody, }) {
@@ -268,7 +268,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProduct({ storeId, productId, requestBody, }) {
@@ -312,7 +312,7 @@ class ProductService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductStatus({ storeId, productId, requestBody, }) {

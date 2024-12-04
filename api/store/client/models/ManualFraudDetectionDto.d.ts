@@ -1,7 +1,7 @@
+import type { _36_Enums_FraudDetectionStatusType } from './_36_Enums_FraudDetectionStatusType';
 import type { ActiveDetection } from './ActiveDetection';
-import type { FraudDetectionStatusType } from './FraudDetectionStatusType';
 export type ManualFraudDetectionDto = {
-    fraudDetectionStatus: FraudDetectionStatusType;
+    fraudDetectionStatus: _36_Enums_FraudDetectionStatusType;
     orderId?: string;
     storeId: string;
     action: ActiveDetection;

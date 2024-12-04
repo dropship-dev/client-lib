@@ -1,11 +1,11 @@
-import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
+import type { _36_Enums_BoostSaleTriggerType } from './_36_Enums_BoostSaleTriggerType';
 import type { DiscountBoostSaleType } from './DiscountBoostSaleType';
 import type { NameDto } from './NameDto';
 import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
 export type DiscountForQuantityType = {
     kind: DiscountForQuantityType.kind;
     title: NameDto;
-    type: BoostSaleTriggerType;
+    type: _36_Enums_BoostSaleTriggerType;
     ids: Array<number>;
     placementList: Array<PlacementBoostSaleEnum>;
     discounts: Array<{

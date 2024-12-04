@@ -1,7 +1,6 @@
+import type { _36_Enums_NotificationType } from '../models/_36_Enums_NotificationType';
 import type { CreateNotificationDto } from '../models/CreateNotificationDto';
-import type { Notification } from '../models/Notification';
 import type { NotificationData } from '../models/NotificationData';
-import type { NotificationType } from '../models/NotificationType';
 import type { SubscribeTopicDto } from '../models/SubscribeTopicDto';
 import type { UnsubscribeTopicDto } from '../models/UnsubscribeTopicDto';
 import type { UpdateNotificationDto } from '../models/UpdateNotificationDto';
@@ -25,12 +24,22 @@ export declare class NotificationService {
         requestBody: UnsubscribeTopicDto;
     }): CancelablePromise<string>;
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createNotification({ requestBody, }: {
         requestBody: CreateNotificationDto;
-    }): CancelablePromise<Notification>;
+    }): CancelablePromise<{
+        title: string;
+        description: string;
+        data: any;
+        type: _36_Enums_NotificationType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -38,7 +47,7 @@ export declare class NotificationService {
     getAllNotification({ fulfillmentAgencyId, storeId, type, pageSize, nextPageIndex, }: {
         fulfillmentAgencyId?: number;
         storeId?: string;
-        type?: Array<NotificationType>;
+        type?: Array<_36_Enums_NotificationType>;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{
@@ -56,20 +65,40 @@ export declare class NotificationService {
         id: number;
     }): CancelablePromise<NotificationData>;
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateNotification({ id, requestBody, }: {
         id: number;
         requestBody: UpdateNotificationDto;
-    }): CancelablePromise<Notification>;
+    }): CancelablePromise<{
+        title: string;
+        description: string;
+        data: any;
+        type: _36_Enums_NotificationType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteNotification({ id, }: {
         id: number;
-    }): CancelablePromise<Notification>;
+    }): CancelablePromise<{
+        title: string;
+        description: string;
+        data: any;
+        type: _36_Enums_NotificationType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError

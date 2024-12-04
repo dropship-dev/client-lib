@@ -7,7 +7,7 @@ class TagService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns AdminTag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createTag({ fulfillmentAgencyId, requestBody, }) {
@@ -29,7 +29,7 @@ class TagService {
         });
     }
     /**
-     * @returns AdminTag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTags({ fulfillmentAgencyId, search, limit = 10, }) {
@@ -51,7 +51,7 @@ class TagService {
         });
     }
     /**
-     * @returns AdminTag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTag({ fulfillmentAgencyId, id, }) {

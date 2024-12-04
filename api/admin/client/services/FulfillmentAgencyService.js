@@ -50,7 +50,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFulfillmentAgency({ id, requestBody, }) {
@@ -72,7 +72,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFulfillmentAgency({ id, }) {

@@ -23,7 +23,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionPlan Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createSubscriptionPlan({ requestBody, }) {
@@ -42,7 +42,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     listSubscriptionFeatures() {
@@ -58,7 +58,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createSubscriptionFeature({ requestBody, }) {
@@ -152,7 +152,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateSubscriptionFeature({ id, requestBody, }) {

@@ -1,22 +1,24 @@
-import type { AsyncTask } from '../models/AsyncTask';
-import type { FulfillmentStatus } from '../models/FulfillmentStatus';
-import type { OrderDisputeStatus } from '../models/OrderDisputeStatus';
-import type { TransactionStatus } from '../models/TransactionStatus';
+import type { _36_Enums_AsyncTaskStatus } from '../models/_36_Enums_AsyncTaskStatus';
+import type { _36_Enums_AsyncTaskType } from '../models/_36_Enums_AsyncTaskType';
+import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
+import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
+import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
+import type { PrismaJson_AsyncTaskResult } from '../models/PrismaJson_AsyncTaskResult';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class AsyncTaskService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns AsyncTask Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat, }: {
         exportedFilename: string;
         fulfillmentAgencyId?: number;
         storeId?: string;
-        paymentStatus?: Array<TransactionStatus>;
-        fulfillmentStatus?: Array<FulfillmentStatus>;
+        paymentStatus?: Array<_36_Enums_TransactionStatus>;
+        fulfillmentStatus?: Array<_36_Enums_FulfillmentStatus>;
         search?: string;
         productName?: string;
         startDate?: string;
@@ -24,14 +26,30 @@ export declare class AsyncTaskService {
         startTotal?: number;
         endTotal?: number;
         gateway?: Array<number>;
-        disputeStatus?: Array<OrderDisputeStatus>;
+        disputeStatus?: Array<_36_Enums_OrderDisputeStatus>;
         latestStat?: boolean;
-    }): CancelablePromise<AsyncTask>;
+    }): CancelablePromise<{
+        input: any;
+        type: _36_Enums_AsyncTaskType;
+        status: _36_Enums_AsyncTaskStatus;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+        result: PrismaJson_AsyncTaskResult;
+    }>;
     /**
-     * @returns AsyncTask Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAsyncTask({ id, }: {
         id: string;
-    }): CancelablePromise<AsyncTask>;
+    }): CancelablePromise<{
+        input: any;
+        type: _36_Enums_AsyncTaskType;
+        status: _36_Enums_AsyncTaskStatus;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+        result: PrismaJson_AsyncTaskResult;
+    }>;
 }

@@ -70,7 +70,7 @@ class FbPixelService {
         });
     }
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFbPixel({ storeId, pixelId, requestBody, }) {
@@ -93,7 +93,7 @@ class FbPixelService {
         });
     }
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFbPixel({ storeId, pixelId, }) {

@@ -7,6 +7,41 @@ class OrderService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+                'paymentStatus': paymentStatus,
+                'fulfillmentStatus': fulfillmentStatus,
+                'disputeStatus': disputeStatus,
+                'search': search,
+                'productName': productName,
+                'startDate': startDate,
+                'endDate': endDate,
+                'startTotal': startTotal,
+                'endTotal': endTotal,
+                'gateway': gateway,
+                'fraudStatus': fraudStatus,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
@@ -149,41 +184,6 @@ class OrderService {
             },
             body: requestBody,
             mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/order',
-            path: {
-                'storeId': storeId,
-            },
-            query: {
-                'pageSize': pageSize,
-                'nextPageIndex': nextPageIndex,
-                'paymentStatus': paymentStatus,
-                'fulfillmentStatus': fulfillmentStatus,
-                'disputeStatus': disputeStatus,
-                'search': search,
-                'productName': productName,
-                'startDate': startDate,
-                'endDate': endDate,
-                'startTotal': startTotal,
-                'endTotal': endTotal,
-                'gateway': gateway,
-                'fraudStatus': fraudStatus,
-            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
