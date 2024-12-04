@@ -1,10 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum StoreRole {
-  ADMIN = 'ADMIN',
-  OWNER = 'OWNER',
-  STAFF = 'STAFF',
-}
+import type { _36_Enums_StoreRole } from './_36_Enums_StoreRole';
+export type StoreRole = _36_Enums_StoreRole;

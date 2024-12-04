@@ -1,19 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { AdminTag } from '../models/AdminTag';
 import type { CreateTagDto } from '../models/CreateTagDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TagService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns AdminTag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createTag({
@@ -22,7 +17,13 @@ export class TagService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: CreateTagDto,
-  }): CancelablePromise<AdminTag> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/tag',
@@ -40,9 +41,8 @@ export class TagService {
       },
     });
   }
-
   /**
-   * @returns AdminTag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTags({
@@ -53,7 +53,13 @@ export class TagService {
     fulfillmentAgencyId: number,
     search?: string,
     limit?: number,
-  }): CancelablePromise<Array<AdminTag>> {
+  }): CancelablePromise<Array<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/tag',
@@ -71,9 +77,8 @@ export class TagService {
       },
     });
   }
-
   /**
-   * @returns AdminTag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTag({
@@ -82,7 +87,13 @@ export class TagService {
   }: {
     fulfillmentAgencyId: number,
     id: string,
-  }): CancelablePromise<AdminTag> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/tag/{id}',
@@ -101,5 +112,4 @@ export class TagService {
       },
     });
   }
-
 }

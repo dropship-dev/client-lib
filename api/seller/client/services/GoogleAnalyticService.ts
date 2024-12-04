@@ -1,18 +1,13 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateGADto } from '../models/CreateGADto';
-import type { GoogleAnalytic } from '../models/GoogleAnalytic';
 import type { UpdateGADto } from '../models/UpdateGADto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class GoogleAnalyticService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -23,10 +18,16 @@ export class GoogleAnalyticService {
   }: {
     storeId: string,
     requestBody: CreateGADto,
-  }): CancelablePromise<(GoogleAnalytic & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    measurementId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -45,7 +46,6 @@ export class GoogleAnalyticService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -54,10 +54,16 @@ export class GoogleAnalyticService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<(GoogleAnalytic & {
+  }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    measurementId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -74,7 +80,6 @@ export class GoogleAnalyticService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -85,10 +90,16 @@ export class GoogleAnalyticService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<(GoogleAnalytic & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    measurementId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -106,9 +117,8 @@ export class GoogleAnalyticService {
       },
     });
   }
-
   /**
-   * @returns GoogleAnalytic Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateGa({
@@ -119,7 +129,13 @@ export class GoogleAnalyticService {
     storeId: string,
     pixelId: string,
     requestBody: UpdateGADto,
-  }): CancelablePromise<GoogleAnalytic> {
+  }): CancelablePromise<{
+    measurementId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/ga/{pixelId}',
@@ -138,9 +154,8 @@ export class GoogleAnalyticService {
       },
     });
   }
-
   /**
-   * @returns GoogleAnalytic Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteGa({
@@ -149,7 +164,13 @@ export class GoogleAnalyticService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<GoogleAnalytic> {
+  }): CancelablePromise<{
+    measurementId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/ga/{pixelId}',
@@ -166,5 +187,4 @@ export class GoogleAnalyticService {
       },
     });
   }
-
 }

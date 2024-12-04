@@ -1,11 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
-
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
@@ -17,11 +16,8 @@ import { StatisticsService } from './services/StatisticsService';
 import { SubscriptionService } from './services/SubscriptionService';
 import { UploadService } from './services/UploadService';
 import { UserService } from './services/UserService';
-
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
-
 export class ClientApi {
-
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
@@ -33,9 +29,7 @@ export class ClientApi {
   public readonly subscription: SubscriptionService;
   public readonly upload: UploadService;
   public readonly user: UserService;
-
   public readonly request: BaseHttpRequest;
-
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
@@ -48,7 +42,6 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
-
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);

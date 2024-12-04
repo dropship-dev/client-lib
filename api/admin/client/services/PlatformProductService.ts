@@ -1,30 +1,24 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
-import type { AdminTag } from '../models/AdminTag';
-import type { AvailableSet } from '../models/AvailableSet';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
-import type { GroupPlatformVariant } from '../models/GroupPlatformVariant';
-import type { Photos } from '../models/Photos';
-import type { PlatformProduct } from '../models/PlatformProduct';
 import type { PlatformProductStore } from '../models/PlatformProductStore';
-import type { PlatformVariant } from '../models/PlatformVariant';
+import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdatePlatformProductDto } from '../models/UpdatePlatformProductDto';
 import type { UpdatePlatformProductStatusDto } from '../models/UpdatePlatformProductStatusDto';
 import type { UpdatePlatformProductStatusesDto } from '../models/UpdatePlatformProductStatusesDto';
-import type { VariantOptions } from '../models/VariantOptions';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PlatformProductService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createPlatformProduct({
@@ -33,7 +27,23 @@ export class PlatformProductService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: CreatePlatformProductDto,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product',
@@ -51,7 +61,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -80,36 +89,65 @@ export class PlatformProductService {
     prePageIndex: number;
     total: number;
     data: Array<{
+      isEnable: boolean;
+      isActive: boolean;
+      supplierContact: string;
+      variantOption: PrismaJson_VariantOptions;
+      availableSet: PrismaJson_AvailableSet;
+      SKU: string;
+      details: string;
+      deleted: boolean;
+      description: string;
+      photos: PrismaJson_Photos;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
       Product: Array<{
         platformProductId: number;
-        id: number;
         storeId: string;
+        id: number;
       }>;
-      Tag: Array<AdminTag>;
-      GroupPlatformVariant: Array<(GroupPlatformVariant & {
+      Tag: Array<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
+      GroupPlatformVariant: Array<({
         PlatformVariant: Array<{
           photo: string;
           SKU: string;
           name: string;
           id: number;
         }>;
+      } & {
+        cost: PrismaJson_PlatformCostInfo;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
       })>;
-      PlatformVariant: Array<PlatformVariant>;
-      updatedAt: string;
-      createdAt: string;
-      fulfillmentAgencyId: number;
-      deleted: boolean;
-      isEnable: boolean;
-      isActive: boolean;
-      supplierContact: string;
-      availableSet: AvailableSet;
-      variantOption: VariantOptions;
-      photos: Photos;
-      details: string;
-      description: string;
-      name: string;
-      SKU: string;
-      id: number;
+      PlatformVariant: Array<{
+        groupPlatformVariantId: number;
+        cost: PrismaJson_PlatformCostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
       noStores: number;
     }>;
   }> {
@@ -135,7 +173,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -163,7 +200,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -192,7 +228,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -205,17 +240,62 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     isGetAllPlatformProductStore?: boolean,
-  }): CancelablePromise<(PlatformProduct & {
-    Tag: Array<AdminTag>;
-    GroupPlatformVariant: Array<(GroupPlatformVariant & {
+  }): CancelablePromise<({
+    Tag: Array<{
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
+    GroupPlatformVariant: Array<({
       PlatformVariant: Array<{
         photo: string;
         SKU: string;
         name: string;
         id: number;
       }>;
+    } & {
+      cost: PrismaJson_PlatformCostInfo;
+      platformProductId: number;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
     })>;
-    PlatformVariant: Array<PlatformVariant>;
+    PlatformVariant: Array<{
+      groupPlatformVariantId: number;
+      cost: PrismaJson_PlatformCostInfo;
+      supplierPrice: number;
+      price: number;
+      photo: string;
+      isEnable: boolean;
+      isActive: boolean;
+      variantOption: PrismaJson_VariantOptionValues;
+      SKU: string;
+      deleted: boolean;
+      platformProductId: number;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
+  } & {
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -236,9 +316,8 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformProduct({
@@ -249,7 +328,23 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}',
@@ -270,9 +365,8 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deletePlatformProduct({
@@ -281,7 +375,23 @@ export class PlatformProductService {
   }: {
     fulfillmentAgencyId: number,
     platformProductId: number,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}',
@@ -300,9 +410,8 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformProductStatus({
@@ -313,7 +422,23 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/status',
@@ -334,9 +459,8 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public addPlatformProductTag({
@@ -347,7 +471,23 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/tag',
@@ -368,9 +508,8 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
-   * @returns PlatformProduct Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deletePlatformProductTag({
@@ -381,7 +520,23 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     tagId: string,
-  }): CancelablePromise<PlatformProduct> {
+  }): CancelablePromise<{
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    deleted: boolean;
+    description: string;
+    photos: PrismaJson_Photos;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}/tag/{tagId}',
@@ -401,7 +556,6 @@ export class PlatformProductService {
       },
     });
   }
-
   /**
    * @returns PlatformProductStore Ok
    * @throws ApiError
@@ -434,5 +588,4 @@ export class PlatformProductService {
       },
     });
   }
-
 }

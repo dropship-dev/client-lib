@@ -1,17 +1,15 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
-
+import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
+import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
+import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ThemeService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -20,8 +18,33 @@ export class ThemeService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<(Theme & {
-    ThemePage: Array<ThemePage>;
+  }): CancelablePromise<({
+    ThemePage: Array<{
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
+  } & {
+    themeTemplateId: number;
+    isActivated: boolean;
+    components: any;
+    colors: any;
+    font: string;
+    heroBanner: string;
+    logoSize: _36_Enums_LogoSize;
+    logo: string;
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -38,7 +61,6 @@ export class ThemeService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -49,8 +71,33 @@ export class ThemeService {
   }: {
     storeId: string,
     pageName: string,
-  }): CancelablePromise<(Theme & {
-    ThemePage: ThemePage;
+  }): CancelablePromise<({
+    themeTemplateId: number;
+    isActivated: boolean;
+    components: any;
+    colors: any;
+    font: string;
+    heroBanner: string;
+    logoSize: _36_Enums_LogoSize;
+    logo: string;
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
+  } & {
+    ThemePage: {
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -68,7 +115,6 @@ export class ThemeService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -79,8 +125,33 @@ export class ThemeService {
   }: {
     storeId: string,
     id: number,
-  }): CancelablePromise<(Theme & {
-    ThemePage: Array<ThemePage>;
+  }): CancelablePromise<({
+    ThemePage: Array<{
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
+  } & {
+    themeTemplateId: number;
+    isActivated: boolean;
+    components: any;
+    colors: any;
+    font: string;
+    heroBanner: string;
+    logoSize: _36_Enums_LogoSize;
+    logo: string;
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -98,5 +169,4 @@ export class ThemeService {
       },
     });
   }
-
 }

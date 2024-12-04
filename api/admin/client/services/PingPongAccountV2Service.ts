@@ -1,20 +1,16 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
-import type { PingPongAccount } from '../models/PingPongAccount';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PingPongAccountV2Service {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns PingPongAccount Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createPingPongAccountV2({
@@ -25,7 +21,17 @@ export class PingPongAccountV2Service {
     requestBody: CreatePingPongAccountDto,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<PingPongAccount> {
+  }): CancelablePromise<{
+    walletId: string;
+    isBlock: boolean;
+    isDefault: boolean;
+    email: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: string;
+    currency: _36_Enums_CurrencyType;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/v2/pingpong-account',
@@ -44,7 +50,6 @@ export class PingPongAccountV2Service {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -77,7 +82,6 @@ export class PingPongAccountV2Service {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -106,5 +110,4 @@ export class PingPongAccountV2Service {
       },
     });
   }
-
 }

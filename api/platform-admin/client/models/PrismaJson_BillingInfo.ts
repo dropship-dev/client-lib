@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { EmailDto } from './EmailDto';
 import type { NameDto } from './NameDto';
 import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
-
 export type PrismaJson_BillingInfo = {
   country?: string;
   zipCode?: string;

@@ -1,14 +1,12 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { CollectionStatus } from './CollectionStatus';
-import type { CollectionType } from './CollectionType';
+import type { _36_Enums_CollectionStatus } from './_36_Enums_CollectionStatus';
+import type { _36_Enums_CollectionType } from './_36_Enums_CollectionType';
 import type { NameDto } from './NameDto';
 import type { operatorCondition } from './operatorCondition';
 import type { PhotoDto } from './PhotoDto';
-
 export type CreateCollectionDto = {
   name?: NameDto;
   photos?: Array<PhotoDto>;
@@ -19,8 +17,8 @@ export type CreateCollectionDto = {
     permalink: string;
     collectionTitle: string;
   };
-  status?: CollectionStatus;
-  type?: CollectionType;
+  status?: _36_Enums_CollectionStatus;
+  type?: _36_Enums_CollectionType;
   productIds?: Array<number>;
 };
 

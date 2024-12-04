@@ -1,24 +1,22 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CustomDomainStatus } from '../models/_36_Enums_CustomDomainStatus';
+import type { _36_Enums_DomainOrigin } from '../models/_36_Enums_DomainOrigin';
+import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
+import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { ContactFormDto } from '../models/ContactFormDto';
-import type { Currency } from '../models/Currency';
-import type { CustomDomain } from '../models/CustomDomain';
-import type { EnvironmentType } from '../models/EnvironmentType';
-import type { PaymentType } from '../models/PaymentType';
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
-import type { ThemeTemplate } from '../models/ThemeTemplate';
-import type { Timezone } from '../models/Timezone';
-
+import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
+import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
+import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
+import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StoreService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -38,32 +36,89 @@ export class StoreService {
     city: string;
     apartmentAddress: string;
     address: string;
-    timezone: Timezone;
+    timezone: PrismaJson_Timezone;
     phone: string;
     email: string;
     name: string;
-    Currency: Currency;
-    CustomDomain: Array<CustomDomain>;
     updatedAt: string;
     createdAt: string;
-    id: string;
     fulfillmentAgencyId: number;
-    Theme: (Theme & {
-      ThemePage: Array<ThemePage>;
-      ThemeTemplate: ThemeTemplate;
+    id: string;
+    Currency: {
+      isSupported: boolean;
+      rateToUSD: number;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+      symbol: string;
+    };
+    CustomDomain: Array<{
+      isPrimary: boolean;
+      contactInfo: PrismaJson_DomainContactInfo;
+      renewable: boolean;
+      renewalPrice: number;
+      purchasePrice: number;
+      domainOrigin: _36_Enums_DomainOrigin;
+      autoRenew: boolean;
+      expirationDate: string;
+      target: string;
+      domain: string;
+      status: _36_Enums_CustomDomainStatus;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
+    }>;
+    Theme: ({
+      ThemePage: Array<{
+        themeId: number;
+        themeLibraryId: number;
+        content: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
+      ThemeTemplate: {
+        image: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+        link: string;
+      };
+    } & {
+      themeTemplateId: number;
+      isActivated: boolean;
+      components: any;
+      colors: any;
+      font: string;
+      heroBanner: string;
+      logoSize: _36_Enums_LogoSize;
+      logo: string;
+      nodes: PrismaJson_ThemeNodes;
+      style: PrismaJson_ThemeStyle;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
+      setting: PrismaJson_ThemeSetting;
     });
     Payment: Array<{
-      environment: EnvironmentType;
+      environment: _36_Enums_EnvironmentType;
       UIVersion: number;
       publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      type: _36_Enums_PaymentType;
       email: string;
       updatedAt: string;
       createdAt: string;
-      type: PaymentType;
       id: number;
       clientToken: string;
     }>;
@@ -83,7 +138,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -98,10 +152,10 @@ export class StoreService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    type: _36_Enums_PaymentType;
     email: string;
     updatedAt: string;
     createdAt: string;
-    type: PaymentType;
     id: number;
   }>> {
     return this.httpRequest.request({
@@ -119,7 +173,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -151,7 +204,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -180,7 +232,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -194,6 +245,7 @@ export class StoreService {
     email: string,
     orderId?: string,
   }): CancelablePromise<Array<{
+    id: string;
     OrderItem: Array<{
       carrier: string;
       tracking: string;
@@ -212,7 +264,6 @@ export class StoreService {
         id: number;
       };
     }>;
-    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -233,7 +284,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -260,5 +310,4 @@ export class StoreService {
       },
     });
   }
-
 }

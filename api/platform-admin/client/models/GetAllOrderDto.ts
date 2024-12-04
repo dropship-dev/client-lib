@@ -1,22 +1,20 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
+import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus';
+import type { _36_Enums_OrderDisputeStatus } from './_36_Enums_OrderDisputeStatus';
+import type { _36_Enums_TransactionStatus } from './_36_Enums_TransactionStatus';
 import type { FraudStatusType } from './FraudStatusType';
-import type { FulfillmentStatus } from './FulfillmentStatus';
-import type { OrderDisputeStatus } from './OrderDisputeStatus';
-import type { TransactionStatus } from './TransactionStatus';
-
 export type GetAllOrderDto = {
   pageSize?: number;
   fulfillmentAgencyId: number;
   nextPageIndex?: string;
   storeId?: string;
-  paymentStatus?: Array<TransactionStatus>;
-  fulfillmentStatus?: Array<FulfillmentStatus>;
+  paymentStatus?: Array<_36_Enums_TransactionStatus>;
+  fulfillmentStatus?: Array<_36_Enums_FulfillmentStatus>;
   search?: string;
-  disputeStatus?: Array<OrderDisputeStatus>;
+  disputeStatus?: Array<_36_Enums_OrderDisputeStatus>;
   productName?: string;
   startDate?: string;
   endDate?: string;

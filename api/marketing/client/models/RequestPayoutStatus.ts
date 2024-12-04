@@ -1,10 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum RequestPayoutStatus {
-  REQUESTING = 'REQUESTING',
-  REJECTED = 'REJECTED',
-  APPROVED = 'APPROVED',
-}
+import type { _36_Enums_RequestPayoutStatus } from './_36_Enums_RequestPayoutStatus';
+export type RequestPayoutStatus = _36_Enums_RequestPayoutStatus;

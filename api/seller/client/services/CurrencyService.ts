@@ -1,27 +1,31 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateCurrencyDto } from '../models/CreateCurrencyDto';
-import type { Currency } from '../models/Currency';
 import type { UpdateCurrencyDto } from '../models/UpdateCurrencyDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class CurrencyService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Currency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getCurrency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<Currency> {
+  }): CancelablePromise<{
+    isSupported: boolean;
+    rateToUSD: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+    symbol: string;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/currency/{id}',
@@ -37,9 +41,8 @@ export class CurrencyService {
       },
     });
   }
-
   /**
-   * @returns Currency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateCurrency({
@@ -50,7 +53,16 @@ export class CurrencyService {
     fulfillmentAgencyId: number,
     id: number,
     requestBody: UpdateCurrencyDto,
-  }): CancelablePromise<Currency> {
+  }): CancelablePromise<{
+    isSupported: boolean;
+    rateToUSD: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+    symbol: string;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/currency/{id}',
@@ -71,9 +83,8 @@ export class CurrencyService {
       },
     });
   }
-
   /**
-   * @returns Currency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllCurrency({
@@ -82,7 +93,16 @@ export class CurrencyService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Array<Currency>> {
+  }): CancelablePromise<Array<{
+    isSupported: boolean;
+    rateToUSD: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+    symbol: string;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/currency',
@@ -99,9 +119,8 @@ export class CurrencyService {
       },
     });
   }
-
   /**
-   * @returns Currency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createCurrency({
@@ -110,7 +129,16 @@ export class CurrencyService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: CreateCurrencyDto,
-  }): CancelablePromise<Currency> {
+  }): CancelablePromise<{
+    isSupported: boolean;
+    rateToUSD: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+    symbol: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/currency',
@@ -128,5 +156,4 @@ export class CurrencyService {
       },
     });
   }
-
 }

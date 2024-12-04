@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { EmailDto } from './EmailDto';
 import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
-
 export type UpdateStoreDto = {
   name?: string;
   phone?: PhoneWithCountryCode;

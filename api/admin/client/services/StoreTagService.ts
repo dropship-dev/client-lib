@@ -1,19 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateStoreTagDto } from '../models/CreateStoreTagDto';
-import type { Tag } from '../models/Tag';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StoreTagService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Tag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createStoreTag({
@@ -22,7 +17,13 @@ export class StoreTagService {
   }: {
     storeId: string,
     requestBody: CreateStoreTagDto,
-  }): CancelablePromise<Tag> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/tag',
@@ -40,9 +41,8 @@ export class StoreTagService {
       },
     });
   }
-
   /**
-   * @returns Tag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getStoreTags({
@@ -53,7 +53,13 @@ export class StoreTagService {
     storeId: string,
     search?: string,
     limit?: number,
-  }): CancelablePromise<Array<Tag>> {
+  }): CancelablePromise<Array<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/tag',
@@ -73,9 +79,8 @@ export class StoreTagService {
       },
     });
   }
-
   /**
-   * @returns Tag Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteStoreTag({
@@ -84,7 +89,13 @@ export class StoreTagService {
   }: {
     storeId: string,
     name: string,
-  }): CancelablePromise<Tag> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/tag/{name}',
@@ -101,5 +112,4 @@ export class StoreTagService {
       },
     });
   }
-
 }

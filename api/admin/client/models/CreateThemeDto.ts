@@ -1,16 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { LogoSize } from './LogoSize';
+import type { _36_Enums_LogoSize } from './_36_Enums_LogoSize';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
 import type { PrismaJson_ThemeNodes } from './PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
-
 export type CreateThemeDto = {
   name: NameDto;
   /**
@@ -20,7 +18,7 @@ export type CreateThemeDto = {
   /**
    * @deprecated
    */
-  logoSize?: LogoSize;
+  logoSize?: _36_Enums_LogoSize;
   /**
    * @deprecated
    */

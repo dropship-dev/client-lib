@@ -1,11 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { FulfillmentStatus } from './FulfillmentStatus';
-import type { PaymentType } from './PaymentType';
-
+import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus';
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 export type ExportOrderResponseDto = {
   OrderId: string;
   ItemCode: string;
@@ -15,7 +13,7 @@ export type ExportOrderResponseDto = {
   Domain: string;
   Quantity: number;
   SupplierCost?: number;
-  ItemStatus: FulfillmentStatus;
+  ItemStatus: _36_Enums_FulfillmentStatus;
   LastUpdatedAt: string;
   PaidAt: string;
   LastUpdatedDateAt: string;
@@ -43,7 +41,7 @@ export type ExportOrderResponseDto = {
   StoreName: string;
   PaymentGatewayId: string;
   PaymentGatewayName: string;
-  GatewayType: PaymentType;
+  GatewayType: _36_Enums_PaymentType;
   TransactionId?: string;
 };
 

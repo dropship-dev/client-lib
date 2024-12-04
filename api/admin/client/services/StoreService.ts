@@ -1,32 +1,29 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
+import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDetectionType';
+import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
+import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
-import type { CostCalculationMethod } from '../models/CostCalculationMethod';
-import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { PaymentType } from '../models/PaymentType';
-import type { Store } from '../models/Store';
-import type { StoreRole } from '../models/StoreRole';
-import type { StoreStatus } from '../models/StoreStatus';
-import type { StoreType } from '../models/StoreType';
-import type { StoreUser } from '../models/StoreUser';
-import type { Timezone } from '../models/Timezone';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
+import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-import type { Wallet } from '../models/Wallet';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StoreService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -46,7 +43,7 @@ export class StoreService {
   }: {
     fulfillmentAgencyId?: number,
     pageSize?: number,
-    status?: Array<StoreStatus>,
+    status?: Array<_36_Enums_StoreStatus>,
     periodFrom?: string,
     nextPageIndex?: string,
     name?: string,
@@ -65,28 +62,54 @@ export class StoreService {
       primaryDomain: string;
       subDomain: string;
       avatar: string;
-      timezone: Timezone;
+      timezone: PrismaJson_Timezone;
+      status: _36_Enums_StoreStatus;
       phone: string;
       email: string;
       name: string;
-      FraudDetection: Array<FraudDetection>;
-      Wallet: Array<Wallet>;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: string;
+      FraudDetection: Array<{
+        labels: PrismaJson_TypeOfFraudService;
+        idempotencyKey: string;
+        orderId: string;
+        systemFraudDetect: _36_Enums_FraudDetectionStatusType;
+        humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+        type: _36_Enums_FraudDetectionType;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: string;
+      }>;
+      Wallet: Array<{
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        balanceUnavailable: PrismaJson_UnavailableBalance;
+        payoutAmount: number;
+        holdAmount: number;
+        balanceDebt: number;
+        balanceAvailable: number;
+        balanceAmount: number;
+        walletName: string;
+        id: string;
+      }>;
       FulfillmentAgency: {
-        costCalculationMethod: CostCalculationMethod;
+        costCalculationMethod: _36_Enums_CostCalculationMethod;
       };
       Payment: Array<{
+        type: _36_Enums_PaymentType;
         name: string;
-        type: PaymentType;
         id: number;
       }>;
       StoreUser: Array<{
-        role: StoreRole;
+        role: _36_Enums_StoreRole;
       }>;
-      createdAt: string;
-      status: StoreStatus;
-      id: string;
-      fulfillmentAgencyId: number;
-      userRole: StoreRole;
+      userRole: _36_Enums_StoreRole;
       fraudStatus: FraudStatusType;
     }>;
   }> {
@@ -115,7 +138,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -146,7 +168,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -175,7 +196,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -187,19 +207,19 @@ export class StoreService {
     fulfillmentAgencyId: number,
     requestBody: UpdateManyStorePaymentMethodDto,
   }): CancelablePromise<Array<{
+    id: string;
     Payment: Array<{
       publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      type: _36_Enums_PaymentType;
       email: string;
       name: string;
       createdAt: string;
-      type: PaymentType;
       id: number;
     }>;
-    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'POST',
@@ -218,7 +238,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -228,34 +247,12 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    FraudDetection: Array<FraudDetection>;
-    Wallet: Array<Wallet>;
-    FulfillmentAgency: FulfillmentAgency;
-    Payment: Array<{
-      publishableKey: string;
-      isShowCompanyAddress: boolean;
-      companyAddress: string;
-      companyPhone: string;
-      companyName: string;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      type: PaymentType;
-      id: number;
-      fulfillmentAgencyId: number;
-    }>;
-    StoreUser: Array<StoreUser>;
-    updatedAt: string;
-    createdAt: string;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     currencyId: number;
-    fulfillmentAgencyId: number;
     maxUsers: number;
     balance: number;
     referralCode: string;
-    type: StoreType;
     defaultBankAccount: string;
     shippingPolicy: string;
     termsOfService: string;
@@ -263,21 +260,89 @@ export class StoreService {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    timezone: Timezone;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
-    status: StoreStatus;
     country: string;
     zipCode: string;
     city: string;
     apartmentAddress: string;
     address: string;
     avatar: string;
-    email: string;
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_StoreType;
+    status: _36_Enums_StoreStatus;
     phone: string;
+    email: string;
     name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
     id: string;
+    FraudDetection: Array<{
+      labels: PrismaJson_TypeOfFraudService;
+      idempotencyKey: string;
+      orderId: string;
+      systemFraudDetect: _36_Enums_FraudDetectionStatusType;
+      humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+      type: _36_Enums_FraudDetectionType;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      id: string;
+    }>;
+    Wallet: Array<{
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      balanceUnavailable: PrismaJson_UnavailableBalance;
+      payoutAmount: number;
+      holdAmount: number;
+      balanceDebt: number;
+      balanceAvailable: number;
+      balanceAmount: number;
+      walletName: string;
+      id: string;
+    }>;
+    FulfillmentAgency: {
+      timezone: PrismaJson_Timezone;
+      type: _36_Enums_FulfillmentAgencyType;
+      costCalculationMethod: _36_Enums_CostCalculationMethod;
+      executionTime: string;
+      status: _36_Enums_FulfillmentAgencyStatus;
+      phone: string;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+    Payment: Array<{
+      publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
+    StoreUser: Array<{
+      isOwner: boolean;
+      userId: string;
+      role: _36_Enums_StoreRole;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
+    }>;
     fraudStatus: FraudStatusType;
   }> {
     return this.httpRequest.request({
@@ -295,9 +360,8 @@ export class StoreService {
       },
     });
   }
-
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateStoreStatus({
@@ -306,7 +370,40 @@ export class StoreService {
   }: {
     storeId: string,
     requestBody: UpdateStoreStatusDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<{
+    stripeDefaultPaymentMethodId: string;
+    stripeCustomerId: string;
+    currencyId: number;
+    maxUsers: number;
+    balance: number;
+    referralCode: string;
+    defaultBankAccount: string;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    primaryDomain: string;
+    subDomain: string;
+    pageName: string;
+    country: string;
+    zipCode: string;
+    city: string;
+    apartmentAddress: string;
+    address: string;
+    avatar: string;
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_StoreType;
+    status: _36_Enums_StoreStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status',
@@ -324,9 +421,8 @@ export class StoreService {
       },
     });
   }
-
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public approveStore({
@@ -337,7 +433,40 @@ export class StoreService {
     fulfillmentAgencyId: number,
     storeId: string,
     requestBody: ApproveStoreDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<{
+    stripeDefaultPaymentMethodId: string;
+    stripeCustomerId: string;
+    currencyId: number;
+    maxUsers: number;
+    balance: number;
+    referralCode: string;
+    defaultBankAccount: string;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    primaryDomain: string;
+    subDomain: string;
+    pageName: string;
+    country: string;
+    zipCode: string;
+    city: string;
+    apartmentAddress: string;
+    address: string;
+    avatar: string;
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_StoreType;
+    status: _36_Enums_StoreStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/status/approve',
@@ -358,9 +487,8 @@ export class StoreService {
       },
     });
   }
-
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateStorePaymentMethod({
@@ -371,7 +499,40 @@ export class StoreService {
     fulfillmentAgencyId: number,
     storeId: string,
     requestBody: UpdateStorePaymentMethodDto,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<{
+    stripeDefaultPaymentMethodId: string;
+    stripeCustomerId: string;
+    currencyId: number;
+    maxUsers: number;
+    balance: number;
+    referralCode: string;
+    defaultBankAccount: string;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    primaryDomain: string;
+    subDomain: string;
+    pageName: string;
+    country: string;
+    zipCode: string;
+    city: string;
+    apartmentAddress: string;
+    address: string;
+    avatar: string;
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_StoreType;
+    status: _36_Enums_StoreStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/payment-method',
@@ -392,9 +553,8 @@ export class StoreService {
       },
     });
   }
-
   /**
-   * @returns Store Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteStorePaymentMethod({
@@ -405,7 +565,40 @@ export class StoreService {
     fulfillmentAgencyId: number,
     storeId: string,
     paymentId: number,
-  }): CancelablePromise<Store> {
+  }): CancelablePromise<{
+    stripeDefaultPaymentMethodId: string;
+    stripeCustomerId: string;
+    currencyId: number;
+    maxUsers: number;
+    balance: number;
+    referralCode: string;
+    defaultBankAccount: string;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    primaryDomain: string;
+    subDomain: string;
+    pageName: string;
+    country: string;
+    zipCode: string;
+    city: string;
+    apartmentAddress: string;
+    address: string;
+    avatar: string;
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_StoreType;
+    status: _36_Enums_StoreStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/payment-method',
@@ -425,7 +618,6 @@ export class StoreService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -440,10 +632,10 @@ export class StoreService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    type: _36_Enums_PaymentType;
     email: string;
     updatedAt: string;
     createdAt: string;
-    type: PaymentType;
     id: number;
   }>> {
     return this.httpRequest.request({
@@ -461,5 +653,4 @@ export class StoreService {
       },
     });
   }
-
 }

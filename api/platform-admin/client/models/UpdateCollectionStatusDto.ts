@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { CollectionStatus } from './CollectionStatus';
-
+import type { _36_Enums_CollectionStatus } from './_36_Enums_CollectionStatus';
 export type UpdateCollectionStatusDto = {
-  status: CollectionStatus;
+  status: _36_Enums_CollectionStatus;
   ids: Array<number>;
 };
 

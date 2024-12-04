@@ -1,10 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum PaymentMethodType {
-  CASH = 'CASH',
-  BANK_TRANSFER = 'BANK_TRANSFER',
-  PINGPONG = 'PINGPONG',
-}
+import type { _36_Enums_PaymentMethodType } from './_36_Enums_PaymentMethodType';
+export type PaymentMethodType = _36_Enums_PaymentMethodType;

@@ -1,22 +1,17 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CostCalculationMethod } from '../models/CostCalculationMethod';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
-import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
-import type { Timezone } from '../models/Timezone';
+import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
+import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
-import type { Wallet } from '../models/Wallet';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class FulfillmentAgencyService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -37,18 +32,32 @@ export class FulfillmentAgencyService {
     prePageIndex: number;
     total: number;
     data: Array<{
-      Wallet: Array<Wallet>;
-      updatedAt: string;
-      createdAt: string;
-      timezone: Timezone;
-      type: FulfillmentAgencyType;
-      costCalculationMethod: CostCalculationMethod;
+      timezone: PrismaJson_Timezone;
+      type: _36_Enums_FulfillmentAgencyType;
+      costCalculationMethod: _36_Enums_CostCalculationMethod;
       executionTime: string;
-      status: FulfillmentAgencyStatus;
+      status: _36_Enums_FulfillmentAgencyStatus;
       phone: string;
       email: string;
       name: string;
+      updatedAt: string;
+      createdAt: string;
       id: number;
+      Wallet: Array<{
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        balanceUnavailable: PrismaJson_UnavailableBalance;
+        payoutAmount: number;
+        holdAmount: number;
+        balanceDebt: number;
+        balanceAvailable: number;
+        balanceAmount: number;
+        walletName: string;
+        id: string;
+      }>;
       noProduct: number;
       noStore: number;
     }>;
@@ -71,7 +80,6 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -80,8 +88,34 @@ export class FulfillmentAgencyService {
     id,
   }: {
     id: number,
-  }): CancelablePromise<(FulfillmentAgency & {
-    Wallet: Array<Wallet>;
+  }): CancelablePromise<({
+    Wallet: Array<{
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      balanceUnavailable: PrismaJson_UnavailableBalance;
+      payoutAmount: number;
+      holdAmount: number;
+      balanceDebt: number;
+      balanceAvailable: number;
+      balanceAmount: number;
+      walletName: string;
+      id: string;
+    }>;
+  } & {
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -98,9 +132,8 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateFulfillmentAgency({
@@ -109,7 +142,19 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
     requestBody: UpdateFulfillmentAgencyDto,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<{
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}',
@@ -127,16 +172,27 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteFulfillmentAgency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<{
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/fulfillment-agency/{id}',
@@ -152,7 +208,6 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -163,11 +218,11 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<Array<{
     name: string;
+    id: string;
     Wallet: Array<{
       balanceDebt: number;
       id: string;
     }>;
-    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -184,5 +239,4 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
 }

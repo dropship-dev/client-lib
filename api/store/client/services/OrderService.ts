@@ -1,28 +1,26 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BoostSaleTriggerType } from '../models/BoostSaleTriggerType';
-import type { BoostSaleType } from '../models/BoostSaleType';
+import type { _36_Enums_BoostSaleTriggerType } from '../models/_36_Enums_BoostSaleTriggerType';
+import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType';
+import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { DiscountBoostSale } from '../models/DiscountBoostSale';
 import type { getBoostSalesDto } from '../models/getBoostSalesDto';
 import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
-import type { MarketingType } from '../models/MarketingType';
-import type { PaymentType } from '../models/PaymentType';
-import type { Photos } from '../models/Photos';
-import type { PlacementBoostSaleType } from '../models/PlacementBoostSaleType';
-import type { ProductVariant } from '../models/ProductVariant';
+import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
+import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { SuggestionResponseDto } from '../models/SuggestionResponseDto';
 import type { UpdateOrderDto } from '../models/UpdateOrderDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class OrderService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -57,7 +55,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -91,7 +88,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -132,7 +128,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -145,39 +140,79 @@ export class OrderService {
     requestBody: Array<getCrossSellByProductDto>,
   }): CancelablePromise<Array<{
     suggestionProduct: Array<{
-      permalink: string;
-      deleted: boolean;
       isEnable: boolean;
       isActive: boolean;
-      photos: Photos;
-      name: string;
-      ProductVariant: Array<ProductVariant>;
-      id: number;
-    }>;
-    Product: Array<{
       permalink: string;
       deleted: boolean;
-      isEnable: boolean;
-      isActive: boolean;
-      photos: Photos;
+      photos: PrismaJson_Photos;
       name: string;
-      ProductVariant: Array<ProductVariant>;
       id: number;
+      ProductVariant: Array<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
     }>;
     rootProductId: number;
-    updatedAt: string;
-    createdAt: string;
+    triggerBy: _36_Enums_BoostSaleTriggerType;
+    marketingType: _36_Enums_MarketingType;
+    placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
-    storeId: string;
-    triggerBy: BoostSaleTriggerType;
-    marketingType: MarketingType;
-    discount: DiscountBoostSale;
-    placement: PlacementBoostSaleType;
+    type: _36_Enums_BoostSaleType;
     status: boolean;
-    type: BoostSaleType;
     name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
     id: number;
+    discount: PrismaJson_DiscountBoostSale;
+    Product: Array<{
+      isEnable: boolean;
+      isActive: boolean;
+      permalink: string;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      name: string;
+      id: number;
+      ProductVariant: Array<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
+    }>;
   }>> {
     return this.httpRequest.request({
       method: 'POST',
@@ -196,7 +231,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns SuggestionResponseDto Ok
    * @throws ApiError
@@ -225,7 +259,6 @@ export class OrderService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -239,7 +272,7 @@ export class OrderService {
   }: {
     storeId: string,
     orderId: string,
-    paymentType: PaymentType,
+    paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
     bmClientInfo?: string,
   }): CancelablePromise<{
@@ -269,5 +302,4 @@ export class OrderService {
       },
     });
   }
-
 }

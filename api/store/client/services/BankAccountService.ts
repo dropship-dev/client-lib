@@ -1,20 +1,17 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BankAccount } from '../models/BankAccount';
+import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { CreateBankAccountDto } from '../models/CreateBankAccountDto';
+import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { UpdateBankAccountDto } from '../models/UpdateBankAccountDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class BankAccountService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns BankAccount Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createBankAccount({
@@ -25,7 +22,19 @@ export class BankAccountService {
     requestBody: CreateBankAccountDto,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<BankAccount> {
+  }): CancelablePromise<{
+    walletId: string;
+    isBlock: boolean;
+    isDefault: boolean;
+    bank: PrismaJson_bankInfo;
+    accountHolder: string;
+    accountNumber: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: string;
+    currency: _36_Enums_CurrencyType;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/bank-account',
@@ -44,9 +53,8 @@ export class BankAccountService {
       },
     });
   }
-
   /**
-   * @returns BankAccount Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllBankAccount({
@@ -55,7 +63,19 @@ export class BankAccountService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Array<BankAccount>> {
+  }): CancelablePromise<Array<{
+    walletId: string;
+    isBlock: boolean;
+    isDefault: boolean;
+    bank: PrismaJson_bankInfo;
+    accountHolder: string;
+    accountNumber: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: string;
+    currency: _36_Enums_CurrencyType;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/bank-account',
@@ -72,9 +92,8 @@ export class BankAccountService {
       },
     });
   }
-
   /**
-   * @returns BankAccount Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getBankAccount({
@@ -85,7 +104,19 @@ export class BankAccountService {
     id: string,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<BankAccount> {
+  }): CancelablePromise<{
+    walletId: string;
+    isBlock: boolean;
+    isDefault: boolean;
+    bank: PrismaJson_bankInfo;
+    accountHolder: string;
+    accountNumber: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: string;
+    currency: _36_Enums_CurrencyType;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/bank-account/{id}',
@@ -105,7 +136,6 @@ export class BankAccountService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -138,7 +168,6 @@ export class BankAccountService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -167,5 +196,4 @@ export class BankAccountService {
       },
     });
   }
-
 }

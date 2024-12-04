@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ComboItemTrackingDto } from './ComboItemTrackingDto';
 import type { OrderItemTrackingDto } from './OrderItemTrackingDto';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
-
 export type UpdateOrderTrackingDto = {
   email: string;
   phoneNumber?: string;
