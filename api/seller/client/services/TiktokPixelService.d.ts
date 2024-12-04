@@ -1,4 +1,5 @@
 import type { CreateTiktokPixelDto } from '../models/CreateTiktokPixelDto';
+import type { TiktokPixel } from '../models/TiktokPixel';
 import type { UpdateTiktokPixelDto } from '../models/UpdateTiktokPixelDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -59,20 +60,14 @@ export declare class TiktokPixelService {
         id: number;
     })>;
     /**
-     * @returns any Ok
+     * @returns TiktokPixel Ok
      * @throws ApiError
      */
     updateTiktokPixel({ storeId, pixelId, requestBody, }: {
         storeId: string;
         pixelId: string;
         requestBody: UpdateTiktokPixelDto;
-    }): CancelablePromise<{
-        pixelId: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-    }>;
+    }): CancelablePromise<TiktokPixel>;
     /**
      * @returns any Ok
      * @throws ApiError

@@ -70,7 +70,7 @@ class TiktokPixelService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns TiktokPixel Ok
      * @throws ApiError
      */
     updateTiktokPixel({ storeId, pixelId, requestBody, }) {
