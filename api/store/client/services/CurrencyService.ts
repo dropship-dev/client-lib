@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateCurrencyDto } from '../models/CreateCurrencyDto';
+import type { Currency } from '../models/Currency';
 import type { UpdateCurrencyDto } from '../models/UpdateCurrencyDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -84,7 +85,7 @@ export class CurrencyService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns Currency Ok
    * @throws ApiError
    */
   public getAllCurrency({
@@ -93,16 +94,7 @@ export class CurrencyService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Array<{
-    isSupported: boolean;
-    rateToUSD: number;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
-    symbol: string;
-  }>> {
+  }): CancelablePromise<Array<Currency>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/currency',
