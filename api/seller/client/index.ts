@@ -157,6 +157,7 @@ export type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './models
 export type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './models/DefaultSelection_Prisma__36_RequestSourcingPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
 export type { DefaultSelection_Prisma__36_StoreUserPayload_ } from './models/DefaultSelection_Prisma__36_StoreUserPayload_';
+export type { DefaultSelection_Prisma__36_ThemeLibraryPayload_ } from './models/DefaultSelection_Prisma__36_ThemeLibraryPayload_';
 export type { DefaultSelection_Prisma__36_ThemePagePayload_ } from './models/DefaultSelection_Prisma__36_ThemePagePayload_';
 export type { DefaultSelection_Prisma__36_ThemePayload_ } from './models/DefaultSelection_Prisma__36_ThemePayload_';
 export type { DefaultSelection_Prisma__36_TiktokPixelPayload_ } from './models/DefaultSelection_Prisma__36_TiktokPixelPayload_';
@@ -321,6 +322,7 @@ export type { SubscriptionInterval } from './models/SubscriptionInterval';
 export type { SuggestionResponseDto } from './models/SuggestionResponseDto';
 export type { TagConditionDto } from './models/TagConditionDto';
 export type { Theme } from './models/Theme';
+export type { ThemeLibrary } from './models/ThemeLibrary';
 export type { ThemePage } from './models/ThemePage';
 export type { TiktokPixel } from './models/TiktokPixel';
 export { TimeEmailMarketingUnit } from './models/TimeEmailMarketingUnit';
