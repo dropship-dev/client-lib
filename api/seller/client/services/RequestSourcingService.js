@@ -7,7 +7,7 @@ class RequestSourcingService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns RequestSourcing Ok
      * @throws ApiError
      */
     createRequestSourcing({ storeId, requestBody, }) {
