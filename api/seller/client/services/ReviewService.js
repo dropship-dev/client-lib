@@ -7,7 +7,7 @@ class ReviewService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns Review Ok
      * @throws ApiError
      */
     createReview({ storeId, productId, requestBody, }) {

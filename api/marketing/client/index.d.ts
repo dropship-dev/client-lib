@@ -156,6 +156,7 @@ export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/Defau
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
 export type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './models/DefaultSelection_Prisma__36_RequestPayoutPayload_';
 export type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './models/DefaultSelection_Prisma__36_RequestSourcingPayload_';
+export type { DefaultSelection_Prisma__36_ReviewPayload_ } from './models/DefaultSelection_Prisma__36_ReviewPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
 export type { DefaultSelection_Prisma__36_StoreUserPayload_ } from './models/DefaultSelection_Prisma__36_StoreUserPayload_';
 export type { DefaultSelection_Prisma__36_TagPayload_ } from './models/DefaultSelection_Prisma__36_TagPayload_';
@@ -305,6 +306,7 @@ export type { RequestPayoutStatus } from './models/RequestPayoutStatus';
 export type { RequestSourcing } from './models/RequestSourcing';
 export type { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
+export type { Review } from './models/Review';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
 export { SendEmailToListStoreStatus } from './models/SendEmailToListStoreStatus';
 export { StatisticsDisplayType } from './models/StatisticsDisplayType';

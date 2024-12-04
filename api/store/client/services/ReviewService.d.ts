@@ -1,29 +1,20 @@
 import type { CreateReviewDto } from '../models/CreateReviewDto';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { Review } from '../models/Review';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ReviewService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns Review Ok
      * @throws ApiError
      */
     createReview({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
         requestBody: CreateReviewDto;
-    }): CancelablePromise<{
-        comment: string;
-        rating: number;
-        productId: number;
-        photos: PrismaJson_Photos;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        id: number;
-    }>;
+    }): CancelablePromise<Review>;
     /**
      * @returns any Ok
      * @throws ApiError
