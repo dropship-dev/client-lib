@@ -136,6 +136,7 @@ export type { CreateVariantsDto } from './models/CreateVariantsDto';
 export type { Currency } from './models/Currency';
 export { CurrencyCode } from './models/CurrencyCode';
 export type { CurrencyType } from './models/CurrencyType';
+export type { CustomDomain } from './models/CustomDomain';
 export type { DefaultSelection_Prisma__36_AdminTagPayload_ } from './models/DefaultSelection_Prisma__36_AdminTagPayload_';
 export type { DefaultSelection_Prisma__36_AsyncTaskPayload_ } from './models/DefaultSelection_Prisma__36_AsyncTaskPayload_';
 export type { DefaultSelection_Prisma__36_BankAccountPayload_ } from './models/DefaultSelection_Prisma__36_BankAccountPayload_';
@@ -143,6 +144,7 @@ export type { DefaultSelection_Prisma__36_BoostSalePayload_ } from './models/Def
 export type { DefaultSelection_Prisma__36_CampaignPayload_ } from './models/DefaultSelection_Prisma__36_CampaignPayload_';
 export type { DefaultSelection_Prisma__36_CollectionPayload_ } from './models/DefaultSelection_Prisma__36_CollectionPayload_';
 export type { DefaultSelection_Prisma__36_CurrencyPayload_ } from './models/DefaultSelection_Prisma__36_CurrencyPayload_';
+export type { DefaultSelection_Prisma__36_CustomDomainPayload_ } from './models/DefaultSelection_Prisma__36_CustomDomainPayload_';
 export type { DefaultSelection_Prisma__36_DiscountPayload_ } from './models/DefaultSelection_Prisma__36_DiscountPayload_';
 export type { DefaultSelection_Prisma__36_FbPixelPayload_ } from './models/DefaultSelection_Prisma__36_FbPixelPayload_';
 export type { DefaultSelection_Prisma__36_FraudDetectionPayload_ } from './models/DefaultSelection_Prisma__36_FraudDetectionPayload_';

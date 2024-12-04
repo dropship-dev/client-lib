@@ -6,6 +6,7 @@ import type { _36_Enums_CustomDomainStatus } from '../models/_36_Enums_CustomDom
 import type { _36_Enums_DomainOrigin } from '../models/_36_Enums_DomainOrigin';
 import type { BuyDomainDto } from '../models/BuyDomainDto';
 import type { CreateDomainDto } from '../models/CreateDomainDto';
+import type { CustomDomain } from '../models/CustomDomain';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { RenewDomainDto } from '../models/RenewDomainDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -13,7 +14,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class DomainService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns CustomDomain Ok
    * @throws ApiError
    */
   public createDomain({
@@ -22,23 +23,7 @@ export class DomainService {
   }: {
     storeId: string,
     requestBody: CreateDomainDto,
-  }): CancelablePromise<{
-    isPrimary: boolean;
-    contactInfo: PrismaJson_DomainContactInfo;
-    renewable: boolean;
-    renewalPrice: number;
-    purchasePrice: number;
-    domainOrigin: _36_Enums_DomainOrigin;
-    autoRenew: boolean;
-    expirationDate: string;
-    target: string;
-    domain: string;
-    status: _36_Enums_CustomDomainStatus;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-  }> {
+  }): CancelablePromise<CustomDomain> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/domain',
