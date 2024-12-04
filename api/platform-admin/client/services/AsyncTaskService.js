@@ -7,7 +7,7 @@ class AsyncTaskService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns AsyncTask Ok
      * @throws ApiError
      */
     getAsyncTask({ id, }) {

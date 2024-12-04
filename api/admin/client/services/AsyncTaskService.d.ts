@@ -3,6 +3,7 @@ import type { _36_Enums_AsyncTaskType } from '../models/_36_Enums_AsyncTaskType'
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
+import type { AsyncTask } from '../models/AsyncTask';
 import type { PrismaJson_AsyncTaskResult } from '../models/PrismaJson_AsyncTaskResult';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -57,18 +58,10 @@ export declare class AsyncTaskService {
         result: PrismaJson_AsyncTaskResult;
     }>;
     /**
-     * @returns any Ok
+     * @returns AsyncTask Ok
      * @throws ApiError
      */
     getAsyncTask({ id, }: {
         id: string;
-    }): CancelablePromise<{
-        input: any;
-        type: _36_Enums_AsyncTaskType;
-        status: _36_Enums_AsyncTaskStatus;
-        updatedAt: string;
-        createdAt: string;
-        id: string;
-        result: PrismaJson_AsyncTaskResult;
-    }>;
+    }): CancelablePromise<AsyncTask>;
 }
