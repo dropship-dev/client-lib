@@ -7,7 +7,7 @@ class DomainService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns CustomDomain Ok
      * @throws ApiError
      */
     createDomain({ storeId, requestBody, }) {
