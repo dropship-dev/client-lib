@@ -52,7 +52,7 @@ class CurrencyService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns Currency Ok
      * @throws ApiError
      */
     getAllCurrency({ fulfillmentAgencyId, storeId, }) {
