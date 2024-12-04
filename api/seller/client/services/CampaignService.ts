@@ -2,9 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Campaign } from '../models/Campaign';
 import type { CreateDiscountDto } from '../models/CreateDiscountDto';
-import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
-import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
+import type { Discount } from '../models/Discount';
 import type { UpdateCampaignDto } from '../models/UpdateCampaignDto';
 import type { UpdateDiscountDto } from '../models/UpdateDiscountDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -79,29 +79,8 @@ export class CampaignService {
   }: {
     storeId: string,
     campaignId: string,
-  }): CancelablePromise<({
-    listDiscount: Array<{
-      requirementDiscount: PrismaJson_ProductRequirementItems;
-      typeDiscount: PrismaJson_ProductDiscountItems;
-      position: number;
-      userUpdated: string;
-      userCreated: string;
-      label: string;
-      campaignId: string;
-      updatedAt: string;
-      createdAt: string;
-      id: string;
-    }>;
-  } & {
-    userUpdated: string;
-    userCreated: string;
-    endDate: string;
-    startDate: string;
-    label: string;
-    status: boolean;
-    updatedAt: string;
-    createdAt: string;
-    id: string;
+  }): CancelablePromise<(Campaign & {
+    listDiscount: Array<Discount>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

@@ -76,6 +76,7 @@ export type { BulkCreatePingpongAccountDto } from './models/BulkCreatePingpongAc
 export type { BulkDeletePingpongAccountDto } from './models/BulkDeletePingpongAccountDto';
 export type { BulkUpDatePingpongAccountDto } from './models/BulkUpDatePingpongAccountDto';
 export type { BuyDomainDto } from './models/BuyDomainDto';
+export type { Campaign } from './models/Campaign';
 export type { CampaignDto } from './models/CampaignDto';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
@@ -139,8 +140,10 @@ export type { DefaultSelection_Prisma__36_AdminTagPayload_ } from './models/Defa
 export type { DefaultSelection_Prisma__36_AsyncTaskPayload_ } from './models/DefaultSelection_Prisma__36_AsyncTaskPayload_';
 export type { DefaultSelection_Prisma__36_BankAccountPayload_ } from './models/DefaultSelection_Prisma__36_BankAccountPayload_';
 export type { DefaultSelection_Prisma__36_BoostSalePayload_ } from './models/DefaultSelection_Prisma__36_BoostSalePayload_';
+export type { DefaultSelection_Prisma__36_CampaignPayload_ } from './models/DefaultSelection_Prisma__36_CampaignPayload_';
 export type { DefaultSelection_Prisma__36_CollectionPayload_ } from './models/DefaultSelection_Prisma__36_CollectionPayload_';
 export type { DefaultSelection_Prisma__36_CurrencyPayload_ } from './models/DefaultSelection_Prisma__36_CurrencyPayload_';
+export type { DefaultSelection_Prisma__36_DiscountPayload_ } from './models/DefaultSelection_Prisma__36_DiscountPayload_';
 export type { DefaultSelection_Prisma__36_FbPixelPayload_ } from './models/DefaultSelection_Prisma__36_FbPixelPayload_';
 export type { DefaultSelection_Prisma__36_FraudDetectionPayload_ } from './models/DefaultSelection_Prisma__36_FraudDetectionPayload_';
 export type { DefaultSelection_Prisma__36_FulfillmentAgencyPayload_ } from './models/DefaultSelection_Prisma__36_FulfillmentAgencyPayload_';
@@ -169,6 +172,7 @@ export type { DefaultSelection_Prisma__36_TransactionPayload_ } from './models/D
 export type { DefaultSelection_Prisma__36_UserPayload_ } from './models/DefaultSelection_Prisma__36_UserPayload_';
 export type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './models/DefaultSelection_Prisma__36_VariantComboPayload_';
 export type { DefaultSelection_Prisma__36_WalletPayload_ } from './models/DefaultSelection_Prisma__36_WalletPayload_';
+export type { Discount } from './models/Discount';
 export { DiscountBoostSaleType } from './models/DiscountBoostSaleType';
 export type { DiscountDto } from './models/DiscountDto';
 export { DiscountForQuantityType } from './models/DiscountForQuantityType';
