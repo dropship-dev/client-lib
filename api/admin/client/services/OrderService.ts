@@ -19,13 +19,10 @@ import type { _36_Enums_SyncTrackingStatus } from '../models/_36_Enums_SyncTrack
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
-import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { GetAllOrderResult } from '../models/GetAllOrderResult';
+import type { GetOrderResult } from '../models/GetOrderResult';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
-import type { Order } from '../models/Order';
-import type { OrderItem } from '../models/OrderItem';
-import type { OrderRefund } from '../models/OrderRefund';
-import type { PlatformVariant } from '../models/PlatformVariant';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -40,12 +37,9 @@ import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfF
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
-import type { ProductVariant } from '../models/ProductVariant';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
-import type { Transaction } from '../models/Transaction';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
-import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class OrderService {
@@ -246,7 +240,7 @@ export class OrderService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns GetOrderResult Ok
    * @throws ApiError
    */
   public getOrder({
@@ -255,43 +249,7 @@ export class OrderService {
   }: {
     fulfillmentAgencyId: number,
     id: string,
-  }): CancelablePromise<(Order & {
-    FraudDetection: Array<FraudDetection>;
-  } & {
-    fraudStatus?: FraudStatusType;
-    OrderRefund: Array<OrderRefund>;
-    Store: {
-      fraudStatus?: FraudStatusType;
-      FraudDetection: Array<FraudDetection>;
-      email: string;
-      avatar: string | null;
-      primaryDomain: string;
-      name: string;
-      id: string;
-    };
-    OrderItem: Array<(OrderItem & {
-      VariantCombo: (VariantCombo & {
-        Product: {
-          name: string;
-          id: number;
-        };
-      }) | null;
-      ProductVariant: (ProductVariant & {
-        PlatformVariant: PlatformVariant | null;
-        Product: {
-          name: string;
-          id: number;
-        };
-      }) | null;
-    })>;
-    Transaction: Array<Transaction>;
-    Payment: {
-      type: _36_Enums_PaymentType;
-      email: string;
-      name: string;
-      id: number;
-    };
-  })> {
+  }): CancelablePromise<GetOrderResult> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/order/{id}',
@@ -347,50 +305,7 @@ export class OrderService {
     gateway?: Array<number>,
     fraudStatus?: Array<FraudStatusType>,
   }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: string;
-    prePageIndex: string;
-    total: number;
-    data: Array<{
-      domain: string;
-      paymentId: number;
-      gatewayTransactionId: string;
-      fulfillmentStatus: _36_Enums_FulfillmentStatus;
-      disputeStatus: _36_Enums_OrderDisputeStatus;
-      status: _36_Enums_OrderStatus;
-      email: string;
-      name: string;
-      total: number;
-      latestTotal: number;
-      createdAt: string;
-      storeId: string;
-      id: string;
-      OrderItem: Array<{
-        tracking: string;
-        orderId: string;
-      }>;
-      Transaction: Array<{
-        orderId: string;
-        status: _36_Enums_TransactionStatus;
-      }>;
-      Payment: {
-        type: _36_Enums_PaymentType;
-        email: string;
-        name: string;
-        id: number;
-      };
-      Store: {
-        primaryDomain: string;
-        name: string;
-        id: string;
-        FraudDetection: Array<{
-          systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-          humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-        }>;
-        fraudStatus: FraudStatusType;
-      };
-      fraudStatus: FraudStatusType;
-    }>;
+    data: Array<GetAllOrderResult>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
