@@ -7,7 +7,7 @@ class RegionalShippingService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
     createRegionalShippingFee({ storeId, requestBody, }) {

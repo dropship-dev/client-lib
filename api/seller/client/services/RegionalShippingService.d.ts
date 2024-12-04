@@ -1,4 +1,5 @@
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -6,23 +7,13 @@ export declare class RegionalShippingService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns RegionalShippingFee Ok
      * @throws ApiError
      */
     createRegionalShippingFee({ storeId, requestBody, }: {
         storeId: string;
         requestBody: RegionalShippingFeeDto;
-    }): CancelablePromise<{
-        countries: PrismaJson_CountryInformation;
-        zoneName: string;
-        deleted: boolean;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: string;
-    }>;
+    }): CancelablePromise<RegionalShippingFee>;
     /**
      * @returns any Ok
      * @throws ApiError
