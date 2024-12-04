@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateFbPixelDto } from '../models/CreateFbPixelDto';
+import type { FbPixel } from '../models/FbPixel';
 import type { UpdateFbPixelDto } from '../models/UpdateFbPixelDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -90,16 +91,10 @@ export class FbPixelService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<({
+  }): CancelablePromise<(FbPixel & {
     Product: Array<{
       id: number;
     }>;
-  } & {
-    pixelId: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
