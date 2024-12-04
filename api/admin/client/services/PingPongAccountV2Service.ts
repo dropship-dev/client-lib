@@ -2,23 +2,54 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BankAccount } from '../models/BankAccount';
-import type { RequestPayout } from '../models/RequestPayout';
-import type { TopUpWalletDto } from '../models/TopUpWalletDto';
-import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
+import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
+import type { PingPongAccount } from '../models/PingPongAccount';
+import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class WalletService {
+export class PingPongAccountV2Service {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
-   * @returns any Ok
+   * @returns PingPongAccount Ok
    * @throws ApiError
    */
-  public getWallet({
+  public createPingPongAccountV2({
+    requestBody,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    requestBody: CreatePingPongAccountDto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<PingPongAccount> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/v2/pingpong-account',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deletePingPongAccountV2({
     id,
     fulfillmentAgencyId,
     storeId,
@@ -26,28 +57,10 @@ export class WalletService {
     id: string,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<({
-    bankAccount: Array<BankAccount>;
-    remainingBalance: number;
-    payableBalance: number;
-    totalBalance: number;
-  } | {
-    balanceDebt: number;
-    requestPayout: RequestPayout;
-    payoutAmount: number;
-    holdAmount: number;
-    unavailableBalance: {
-      bankAccount: Array<BankAccount>;
-      availableSoon: number;
-      hold: number;
-    };
-    availableBalance: number;
-    totalBalance: number;
-    id: string;
-  })> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
-      method: 'GET',
-      url: '/wallet/{id}',
+      method: 'DELETE',
+      url: '/v2/pingpong-account/{id}',
       path: {
         'id': id,
       },
@@ -69,57 +82,18 @@ export class WalletService {
    * @returns string Ok
    * @throws ApiError
    */
-  public withdrawToWallet({
-    id,
-    fulfillmentAgencyId,
+  public updateDefaultV2({
+    storeId,
     requestBody,
   }: {
-    id: string,
-    fulfillmentAgencyId: number,
-    requestBody: WithdrawWalletDto,
+    storeId: string,
+    requestBody: UpdatePingPongAccountDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
-      url: '/wallet/{id}/withdraw',
+      url: '/v2/pingpong-account/{storeId}',
       path: {
-        'id': id,
-      },
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-
-  /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public topUpToWallet({
-    id,
-    fulfillmentAgencyId,
-    requestBody,
-  }: {
-    id: string,
-    fulfillmentAgencyId: number,
-    requestBody: TopUpWalletDto,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'PATCH',
-      url: '/wallet/{id}/top-up',
-      path: {
-        'id': id,
-      },
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
       },
       body: requestBody,
       mediaType: 'application/json',

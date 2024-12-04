@@ -32,6 +32,7 @@ export class WalletService {
     payableBalance: number;
     totalBalance: number;
   } | {
+    balanceDebt: number;
     requestPayout: RequestPayout;
     payoutAmount: number;
     holdAmount: number;
