@@ -91,5 +91,25 @@ class FulfillmentAgencyService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreDebtPayment({ id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/store-debt-payment',
+            path: {
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.FulfillmentAgencyService = FulfillmentAgencyService;

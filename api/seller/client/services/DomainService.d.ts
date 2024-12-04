@@ -82,6 +82,14 @@ export declare class DomainService {
         requestBody?: RenewDomainDto;
     }): CancelablePromise<string>;
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    disableDomainRenewal({ storeId, id, }: {
+        storeId: string;
+        id: number;
+    }): CancelablePromise<void>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */

@@ -45,6 +45,15 @@ export declare class RequestSourcingService {
      * @returns RequestSourcing Ok
      * @throws ApiError
      */
+    setProcessingRequestSourcing({ id, fulfillmentAgencyId, storeId, }: {
+        id: number;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<RequestSourcing>;
+    /**
+     * @returns RequestSourcing Ok
+     * @throws ApiError
+     */
     approveRequestSourcing({ id, requestBody, fulfillmentAgencyId, storeId, }: {
         id: number;
         requestBody: ApproveRequestSourcingDto;
