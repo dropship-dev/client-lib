@@ -3,13 +3,14 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class RegionalShippingService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns RegionalShippingFee Ok
    * @throws ApiError
    */
   public createRegionalShippingFee({
@@ -18,17 +19,7 @@ export class RegionalShippingService {
   }: {
     storeId: string,
     requestBody: RegionalShippingFeeDto,
-  }): CancelablePromise<{
-    countries: PrismaJson_CountryInformation;
-    zoneName: string;
-    deleted: boolean;
-    shippingFeeAdditional: number;
-    shippingFee: number;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: string;
-  }> {
+  }): CancelablePromise<RegionalShippingFee> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/regional-shipping-fee',

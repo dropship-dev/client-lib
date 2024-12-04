@@ -162,6 +162,7 @@ export type { DefaultSelection_Prisma__36_PlatformProductPayload_ } from './mode
 export type { DefaultSelection_Prisma__36_PlatformVariantPayload_ } from './models/DefaultSelection_Prisma__36_PlatformVariantPayload_';
 export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/DefaultSelection_Prisma__36_ProductPayload_';
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
+export type { DefaultSelection_Prisma__36_RegionalShippingFeePayload_ } from './models/DefaultSelection_Prisma__36_RegionalShippingFeePayload_';
 export type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './models/DefaultSelection_Prisma__36_RequestPayoutPayload_';
 export type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './models/DefaultSelection_Prisma__36_RequestSourcingPayload_';
 export type { DefaultSelection_Prisma__36_ReviewPayload_ } from './models/DefaultSelection_Prisma__36_ReviewPayload_';
@@ -305,6 +306,7 @@ export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
+export type { RegionalShippingFee } from './models/RegionalShippingFee';
 export type { RegionalShippingFeeDto } from './models/RegionalShippingFeeDto';
 export type { RejectRequestSourcingDto } from './models/RejectRequestSourcingDto';
 export { RelatedProductType } from './models/RelatedProductType';
