@@ -5,21 +5,25 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
 import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDetectionType';
-import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
-import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
+import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { FulfillmentAgency } from '../models/FulfillmentAgency';
+import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
+import type { Store } from '../models/Store';
+import type { StoreUser } from '../models/StoreUser';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
+import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreService {
@@ -246,105 +250,19 @@ export class StoreService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<{
-    stripeDefaultPaymentMethodId: string;
-    stripeCustomerId: string;
-    currencyId: number;
-    maxUsers: number;
-    balance: number;
-    referralCode: string;
-    defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
-    shippingFeeAdditional: number;
-    shippingFee: number;
-    primaryDomain: string;
-    subDomain: string;
-    pageName: string;
-    country: string;
-    zipCode: string;
-    city: string;
-    apartmentAddress: string;
-    address: string;
-    avatar: string;
-    timezone: PrismaJson_Timezone;
-    type: _36_Enums_StoreType;
-    status: _36_Enums_StoreStatus;
-    phone: string;
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: string;
-    FraudDetection: Array<{
-      labels: PrismaJson_TypeOfFraudService;
-      idempotencyKey: string;
-      orderId: string;
-      systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-      humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-      type: _36_Enums_FraudDetectionType;
-      updatedAt: string;
-      createdAt: string;
-      isDeleted: boolean;
-      storeId: string;
-      id: string;
-    }>;
-    Wallet: Array<{
-      updatedAt: string;
-      createdAt: string;
-      isDeleted: boolean;
-      storeId: string;
-      fulfillmentAgencyId: number;
-      balanceUnavailable: PrismaJson_UnavailableBalance;
-      payoutAmount: number;
-      holdAmount: number;
-      balanceDebt: number;
-      balanceAvailable: number;
-      balanceAmount: number;
-      walletName: string;
-      id: string;
-    }>;
-    FulfillmentAgency: {
-      timezone: PrismaJson_Timezone;
-      type: _36_Enums_FulfillmentAgencyType;
-      costCalculationMethod: _36_Enums_CostCalculationMethod;
-      executionTime: string;
-      status: _36_Enums_FulfillmentAgencyStatus;
-      phone: string;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: number;
-    };
-    Payment: Array<{
-      publishableKey: string;
-      isShowCompanyAddress: boolean;
-      companyAddress: string;
-      companyPhone: string;
-      companyName: string;
-      type: _36_Enums_PaymentType;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      fulfillmentAgencyId: number;
-      id: number;
-    }>;
-    StoreUser: Array<{
-      isOwner: boolean;
-      userId: string;
-      role: _36_Enums_StoreRole;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      id: number;
-    }>;
-    fraudStatus: FraudStatusType;
-  }> {
+  }): CancelablePromise<(Store & {
+    FulfillmentAgency: FulfillmentAgency | null;
+  } & {
+    StoreUser: Array<StoreUser>;
+  } & {
+    FraudDetection: Array<FraudDetection>;
+  } & {
+    Wallet: Array<Wallet>;
+  } & {
+    fraudStatus?: FraudStatusType;
+  } & {
+    Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_>;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}',
