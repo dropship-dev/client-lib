@@ -128,6 +128,7 @@ export { CurrencyCode } from './models/CurrencyCode';
 export type { CurrencyType } from './models/CurrencyType';
 export type { DefaultSelection_Prisma__36_FbPixelPayload_ } from './models/DefaultSelection_Prisma__36_FbPixelPayload_';
 export type { DefaultSelection_Prisma__36_NotificationPayload_ } from './models/DefaultSelection_Prisma__36_NotificationPayload_';
+export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/DefaultSelection_Prisma__36_ProductPayload_';
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
 export type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './models/DefaultSelection_Prisma__36_VariantComboPayload_';
@@ -237,6 +238,7 @@ export type { PrismaJson_UpgradeSubscriptionPlan } from './models/PrismaJson_Upg
 export type { PrismaJson_VariantComboItems } from './models/PrismaJson_VariantComboItems';
 export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptions';
 export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_VariantOptionValues';
+export type { Product } from './models/Product';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
 export type { RefundOrderDto } from './models/RefundOrderDto';
