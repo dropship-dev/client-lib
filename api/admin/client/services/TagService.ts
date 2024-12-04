@@ -2,13 +2,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AdminTag } from '../models/AdminTag';
 import type { CreateTagDto } from '../models/CreateTagDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class TagService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns any Ok
+   * @returns AdminTag Ok
    * @throws ApiError
    */
   public createTag({
@@ -17,13 +18,7 @@ export class TagService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: CreateTagDto,
-  }): CancelablePromise<{
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
-  }> {
+  }): CancelablePromise<AdminTag> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/tag',
