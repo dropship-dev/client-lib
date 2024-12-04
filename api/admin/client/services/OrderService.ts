@@ -19,8 +19,13 @@ import type { _36_Enums_SyncTrackingStatus } from '../models/_36_Enums_SyncTrack
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
+import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
+import type { Order } from '../models/Order';
+import type { OrderItem } from '../models/OrderItem';
+import type { OrderRefund } from '../models/OrderRefund';
+import type { PlatformVariant } from '../models/PlatformVariant';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -35,9 +40,12 @@ import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfF
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
+import type { ProductVariant } from '../models/ProductVariant';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
+import type { Transaction } from '../models/Transaction';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
+import type { VariantCombo } from '../models/VariantCombo';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class OrderService {
@@ -247,209 +255,43 @@ export class OrderService {
   }: {
     fulfillmentAgencyId: number,
     id: string,
-  }): CancelablePromise<{
-    disputeStatus: _36_Enums_OrderDisputeStatus;
-    paymentId: number;
-    isHandleEvents: boolean;
-    fingerPrint: string;
-    timezoneLocalBrowser: string;
-    fulfillmentCost: number;
-    fulfillmentStatus: _36_Enums_FulfillmentStatus;
-    isSyncBalance: PrismaJson_SyncBalanceAmount;
-    retentionRate: number;
-    payoutIn: string;
-    holdIn: string;
-    latestNoItems: number;
-    latestSubTotal: number;
-    latestTotal: number;
-    gatewayTransactionId: string;
-    gatewayOrderId: string;
-    supplierCost: number;
-    lastBalance: number;
-    discountShippingFee: number;
-    noItems: number;
-    tax: number;
-    platformFee: number;
-    profitFulfillAdmin: number;
-    profit: number;
-    subTotal: number;
-    totalUSD: number;
-    total: number;
-    note: string;
-    additionalInfo: any;
-    billingInfo: PrismaJson_BillingInfo;
-    province: string;
-    address2: string;
-    address1: string;
-    domain: string;
-    currencyId: number;
-    shippingFee: number;
-    country: string;
-    zipCode: string;
-    city: string;
-    status: _36_Enums_OrderStatus;
-    phone: string;
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: string;
-    discount: number;
-    FraudDetection: Array<{
-      labels: PrismaJson_TypeOfFraudService;
-      systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-      humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-    }>;
-    OrderRefund: Array<{
-      historyRefundOrder: PrismaJson_RefundOrderItems;
-      paymentGateId: number;
-      isRollback: boolean;
-      total: number;
-      note: string;
-      orderId: string;
-      type: string;
-      updatedAt: string;
-      createdAt: string;
-      id: string;
-    }>;
-    OrderItem: Array<({
-      VariantCombo: ({
-        Product: {
-          name: string;
-          id: number;
-        };
-      } & {
-        items: PrismaJson_VariantComboItems;
-        minSellingPrice: number;
-        compareAtPrice: number;
-        productId: number;
-        supplierCost: number;
-        price: number;
-        photo: string;
-        isEnable: boolean;
-        isActive: boolean;
-        SKU: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        isDeleted: boolean;
-        id: number;
-      });
-      ProductVariant: ({
-        Product: {
-          name: string;
-          id: number;
-        };
-        PlatformVariant: {
-          groupPlatformVariantId: number;
-          cost: PrismaJson_PlatformCostInfo;
-          supplierPrice: number;
-          price: number;
-          photo: string;
-          isEnable: boolean;
-          isActive: boolean;
-          variantOption: PrismaJson_VariantOptionValues;
-          SKU: string;
-          deleted: boolean;
-          platformProductId: number;
-          name: string;
-          updatedAt: string;
-          createdAt: string;
-          id: number;
-        };
-      } & {
-        podDesignVariantId: number;
-        platformVariantId: number;
-        margin: PrismaJson_MarginInfo;
-        minSellingPrice: number;
-        compareAtPrice: number;
-        productId: number;
-        cost: PrismaJson_CostInfo;
-        supplierPrice: number;
-        price: number;
-        photo: string;
-        isEnable: boolean;
-        isActive: boolean;
-        variantOption: PrismaJson_VariantOptionValues;
-        SKU: string;
-        deleted: boolean;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        id: number;
-      });
-    } & {
-      orderRefundId: string;
-      variantComboId: number;
-      productVariantId: number;
-      productId: number;
-      syncTrackingStatus: _36_Enums_SyncTrackingStatus;
-      carrier: string;
-      tracking: string;
-      latestQuantity: number;
-      platformPrice: number;
-      quantity: number;
-      priceUSD: number;
-      price: number;
-      orderId: string;
-      currencyId: number;
-      status: _36_Enums_FulfillmentStatus;
-      updatedAt: string;
-      createdAt: string;
-      id: string;
-    })>;
-    Transaction: Array<{
-      isRollback: boolean;
-      refundIdGateway: string;
-      transactionDetails: PrismaJson_TransactionDetails;
-      notes: string;
-      requestPayoutId: string;
-      disputeFee: number;
-      fee: number;
-      amount: number;
-      idTransaction: string;
-      lastBalance: number;
-      orderId: string;
-      walletId: string;
-      photos: PrismaJson_Photos;
-      paymentMethod: PrismaJson_TransactionPaymentMethod;
-      type: _36_Enums_TransactionType;
-      status: _36_Enums_TransactionStatus;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      id: number;
-    }>;
-    fraudStatus: FraudStatusType;
+  }): CancelablePromise<(Order & {
+    FraudDetection: Array<FraudDetection>;
+  } & {
+    fraudStatus?: FraudStatusType;
+    OrderRefund: Array<OrderRefund>;
     Store: {
-      primaryDomain: string;
-      avatar: string;
+      fraudStatus?: FraudStatusType;
+      FraudDetection: Array<FraudDetection>;
       email: string;
+      avatar: string | null;
+      primaryDomain: string;
       name: string;
       id: string;
-      FraudDetection: Array<{
-        labels: PrismaJson_TypeOfFraudService;
-        idempotencyKey: string;
-        orderId: string;
-        systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-        humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-        type: _36_Enums_FraudDetectionType;
-        updatedAt: string;
-        createdAt: string;
-        isDeleted: boolean;
-        storeId: string;
-        id: string;
-      }>;
-      fraudStatus: FraudStatusType;
     };
+    OrderItem: Array<(OrderItem & {
+      VariantCombo: (VariantCombo & {
+        Product: {
+          name: string;
+          id: number;
+        };
+      }) | null;
+      ProductVariant: (ProductVariant & {
+        PlatformVariant: PlatformVariant | null;
+        Product: {
+          name: string;
+          id: number;
+        };
+      }) | null;
+    })>;
+    Transaction: Array<Transaction>;
     Payment: {
       type: _36_Enums_PaymentType;
       email: string;
       name: string;
       id: number;
     };
-  }> {
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/order/{id}',
@@ -638,8 +480,16 @@ export class OrderService {
     discount: number;
     FraudDetection: Array<{
       labels: PrismaJson_TypeOfFraudService;
+      idempotencyKey: string;
+      orderId: string;
       systemFraudDetect: _36_Enums_FraudDetectionStatusType;
       humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+      type: _36_Enums_FraudDetectionType;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      id: string;
     }>;
     OrderRefund: Array<{
       historyRefundOrder: PrismaJson_RefundOrderItems;
