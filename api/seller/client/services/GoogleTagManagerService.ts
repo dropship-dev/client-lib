@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateGTMDto } from '../models/CreateGTMDto';
+import type { GoogleTagManager } from '../models/GoogleTagManager';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -90,17 +91,11 @@ export class GoogleTagManagerService {
   }: {
     storeId: string,
     tag: string,
-  }): CancelablePromise<({
+  }): CancelablePromise<(GoogleTagManager & {
     Product: Array<{
       id: number;
     }>;
-  } & {
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-    tag: string;
-  })> {
+  }) | null> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/google-tag-manager/{tag}',
