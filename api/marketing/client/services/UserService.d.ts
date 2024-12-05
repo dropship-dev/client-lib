@@ -1,6 +1,5 @@
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { FulfillmentUser } from '../models/FulfillmentUser';
-import type { PaymentOnboarding } from '../models/PaymentOnboarding';
 import type { User } from '../models/User';
 import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -16,7 +15,6 @@ export declare class UserService {
         FulfillmentUser: Array<(FulfillmentUser & {
             FulfillmentAgency: (FulfillmentAgency & {
                 Wallet: Array<Wallet>;
-                PaymentOnboarding: Array<PaymentOnboarding>;
             });
         })>;
     })>;

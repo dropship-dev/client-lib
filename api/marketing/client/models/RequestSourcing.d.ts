@@ -1,31 +1,5 @@
-import type { PrismaJson_Photos } from './PrismaJson_Photos';
-import type { PrismaJson_RequestSourcingHistory } from './PrismaJson_RequestSourcingHistory';
-import type { RequestSourcingStatus } from './RequestSourcingStatus';
+import type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './DefaultSelection_Prisma__36_RequestSourcingPayload_';
 /**
  * Model RequestSourcing
  */
-export type RequestSourcing = {
-    updatedAt: string;
-    createdAt: string;
-    isDeleted: boolean;
-    platformProductId: number | null;
-    storeId: string;
-    productId: number | null;
-    status: RequestSourcingStatus;
-    /**
-     * [RequestSourcingHistory]
-     */
-    historyRequestSourcing: PrismaJson_RequestSourcingHistory | null;
-    acceptByAdmin: boolean;
-    acceptBySeller: boolean;
-    rejectReasonByAdmin: string | null;
-    rejectReasonBySeller: string | null;
-    link: string;
-    /**
-     * [Photos]
-     */
-    photos: PrismaJson_Photos;
-    description: string | null;
-    name: string | null;
-    id: number;
-};
+export type RequestSourcing = DefaultSelection_Prisma__36_RequestSourcingPayload_;

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CancelablePromise = exports.CancelError = void 0;
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -36,14 +36,16 @@ class CancelablePromise {
                     return;
                 }
                 this.#isResolved = true;
-                this.#resolve?.(value);
+                if (this.#resolve)
+                    this.#resolve(value);
             };
             const onReject = (reason) => {
                 if (this.#isResolved || this.#isRejected || this.#isCancelled) {
                     return;
                 }
                 this.#isRejected = true;
-                this.#reject?.(reason);
+                if (this.#reject)
+                    this.#reject(reason);
             };
             const onCancel = (cancelHandler) => {
                 if (this.#isResolved || this.#isRejected || this.#isCancelled) {
@@ -92,7 +94,8 @@ class CancelablePromise {
             }
         }
         this.#cancelHandlers.length = 0;
-        this.#reject?.(new CancelError('Request aborted'));
+        if (this.#reject)
+            this.#reject(new CancelError('Request aborted'));
     }
     get isCancelled() {
         return this.#isCancelled;

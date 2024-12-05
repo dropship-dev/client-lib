@@ -14,20 +14,32 @@ export declare class StoreTagService {
         requestBody: CreateStoreTagDto;
     }): CancelablePromise<Tag>;
     /**
-     * @returns Tag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStoreTags({ storeId, search, limit, }: {
         storeId: string;
         search?: string;
         limit?: number;
-    }): CancelablePromise<Array<Tag>>;
+    }): CancelablePromise<Array<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>>;
     /**
-     * @returns Tag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteStoreTag({ storeId, name, }: {
         storeId: string;
         name: string;
-    }): CancelablePromise<Tag>;
+    }): CancelablePromise<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

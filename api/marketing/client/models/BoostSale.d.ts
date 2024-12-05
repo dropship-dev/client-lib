@@ -1,30 +1,5 @@
-import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
-import type { BoostSaleType } from './BoostSaleType';
-import type { MarketingType } from './MarketingType';
-import type { PrismaJson_DiscountBoostSale } from './PrismaJson_DiscountBoostSale';
-import type { PrismaJson_PlacementBoostSaleType } from './PrismaJson_PlacementBoostSaleType';
+import type { DefaultSelection_Prisma__36_BoostSalePayload_ } from './DefaultSelection_Prisma__36_BoostSalePayload_';
 /**
  * Model BoostSale
  */
-export type BoostSale = {
-    rootProductId: number | null;
-    updatedAt: string;
-    createdAt: string;
-    endDate: string | null;
-    startDate: string;
-    storeId: string;
-    triggerBy: BoostSaleTriggerType;
-    marketingType: MarketingType | null;
-    /**
-     * [DiscountBoostSale]
-     */
-    discount: PrismaJson_DiscountBoostSale | null;
-    /**
-     * [PlacementBoostSaleType]
-     */
-    placement: PrismaJson_PlacementBoostSaleType;
-    status: boolean;
-    type: BoostSaleType;
-    name: string;
-    id: number;
-};
+export type BoostSale = DefaultSelection_Prisma__36_BoostSalePayload_;

@@ -67,7 +67,7 @@ class ThemeLibraryService {
         });
     }
     /**
-     * @returns ThemeLibrary Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateThemeLibrary({ id, requestBody, }) {
@@ -89,7 +89,7 @@ class ThemeLibraryService {
         });
     }
     /**
-     * @returns ThemeLibrary Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteThemeLibrary({ id, }) {

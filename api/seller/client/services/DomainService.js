@@ -180,7 +180,7 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns any Ok
      * @throws ApiError
      */
     verifyDomain({ storeId, domain, }) {
@@ -222,7 +222,7 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteDomain({ storeId, domain, }) {

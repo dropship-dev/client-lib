@@ -1,7 +1,2 @@
-export declare enum TransactionStatus {
-    PENDING = "PENDING",
-    PAID = "PAID",
-    FAILED = "FAILED",
-    REFUNDED = "REFUNDED",
-    UNPAID = "UNPAID"
-}
+import type { _36_Enums_TransactionStatus } from './_36_Enums_TransactionStatus';
+export type TransactionStatus = _36_Enums_TransactionStatus;

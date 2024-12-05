@@ -45,7 +45,7 @@ class NotificationService {
         });
     }
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createNotification({ requestBody, }) {
@@ -108,7 +108,7 @@ class NotificationService {
         });
     }
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateNotification({ id, requestBody, }) {
@@ -130,7 +130,7 @@ class NotificationService {
         });
     }
     /**
-     * @returns Notification Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteNotification({ id, }) {

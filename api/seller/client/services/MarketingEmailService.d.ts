@@ -1,11 +1,11 @@
-import type { CreateComboItems } from '../models/CreateComboItems';
-import type { CreateOrderItems } from '../models/CreateOrderItems';
+import type { _36_Enums_EmailTrackingAction } from '../models/_36_Enums_EmailTrackingAction';
+import type { _36_Enums_OrderTrackingEmailStatus } from '../models/_36_Enums_OrderTrackingEmailStatus';
+import type { _36_Enums_OrderTrackingRecoveredStatus } from '../models/_36_Enums_OrderTrackingRecoveredStatus';
 import type { CreateTemplateDto } from '../models/CreateTemplateDto';
-import type { EmailTrackingAction } from '../models/EmailTrackingAction';
-import type { OrderTrackingEmailStatus } from '../models/OrderTrackingEmailStatus';
 import type { OrderTrackingEmailStatusDto } from '../models/OrderTrackingEmailStatusDto';
-import type { OrderTrackingRecoveredStatus } from '../models/OrderTrackingRecoveredStatus';
 import type { OrderTrackingRecoveredStatusDto } from '../models/OrderTrackingRecoveredStatusDto';
+import type { PrismaJson_CreateComboItems } from '../models/PrismaJson_CreateComboItems';
+import type { PrismaJson_CreateOrderItems } from '../models/PrismaJson_CreateOrderItems';
 import type { UpdateActiveStatusAutomationEmailMarketingDto } from '../models/UpdateActiveStatusAutomationEmailMarketingDto';
 import type { UpdateAutomationEmailMarketingDto } from '../models/UpdateAutomationEmailMarketingDto';
 import type { UpdateTemplateDto } from '../models/UpdateTemplateDto';
@@ -14,30 +14,6 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class MarketingEmailService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStatisticsStoreAbandonmentCheckout({ storeId, startTime, endTime, }: {
-        storeId: string;
-        startTime?: string;
-        endTime?: string;
-    }): CancelablePromise<{
-        orderCompletedPercent: number;
-        orderCompleted: number;
-        clickPercent: number;
-        totalClick: number;
-        openPercent: number;
-        totalOpen: number;
-        sentPercent: number;
-        totalSent: number;
-        revenueGrowthPercent: number;
-        revenue: number;
-        orderConvertedGrowthPercent: number;
-        orderConverted: number;
-        conversionRateGrowthPercent: number;
-        conversionRate: number;
-    }>;
     /**
      * @returns void
      * @throws ApiError
@@ -84,10 +60,10 @@ export declare class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    listAbandonmentOrders({ storeId, pageSize, nextPageIndex, emailStatus, recoveryStatus, id, startDate, endDate, }: {
+    listAbandonmentOrders({ storeId, nextPageIndex, pageSize, emailStatus, recoveryStatus, id, startDate, endDate, }: {
         storeId: string;
-        pageSize: number;
         nextPageIndex?: number;
+        pageSize?: number;
         emailStatus?: Array<OrderTrackingEmailStatusDto>;
         recoveryStatus?: Array<OrderTrackingRecoveredStatusDto>;
         id?: string;
@@ -97,8 +73,8 @@ export declare class MarketingEmailService {
         nextPageIndex: number;
         prePageIndex: number;
         data: Array<{
-            emailStatus: OrderTrackingEmailStatus;
-            recoveredStatus: OrderTrackingRecoveredStatus;
+            emailStatus: _36_Enums_OrderTrackingEmailStatus;
+            recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
             expiredAt: string;
             total: number;
             email: string;
@@ -114,27 +90,27 @@ export declare class MarketingEmailService {
         storeId: string;
         orderTrackingId: number;
     }): CancelablePromise<{
-        emailStatus: OrderTrackingEmailStatus;
-        recoveredStatus: OrderTrackingRecoveredStatus;
+        emailStatus: _36_Enums_OrderTrackingEmailStatus;
+        recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
         phoneNumber: string;
-        comboItems: CreateComboItems;
-        orderItems: CreateOrderItems;
+        comboItems: PrismaJson_CreateComboItems;
         expiredAt: string;
+        orderItems: PrismaJson_CreateOrderItems;
         discountShippingFee: number;
         subTotal: number;
         total: number;
         email: string;
+        createdAt: string;
+        id: number;
         EmailTrackings: Array<{
-            action: EmailTrackingAction;
             AbandonmentReminder: {
                 AbandonmentSettings: {
                     subjectLine: string;
                 };
             };
+            action: _36_Enums_EmailTrackingAction;
             createdAt: string;
         }>;
-        createdAt: string;
-        id: number;
         checkoutDetail: Array<{
             comboVariantName?: string;
             productVariantName?: string;
@@ -160,4 +136,28 @@ export declare class MarketingEmailService {
         id: number;
         requestBody: UpdateTemplateDto;
     }): CancelablePromise<void>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStatisticsStoreAbandonmentCheckout({ storeId, startTime, endTime, }: {
+        storeId: string;
+        startTime?: string;
+        endTime?: string;
+    }): CancelablePromise<{
+        orderCompletedPercent: number;
+        orderCompleted: number;
+        clickPercent: number;
+        totalClick: number;
+        openPercent: number;
+        totalOpen: number;
+        sentPercent: number;
+        totalSent: number;
+        revenueGrowthPercent: number;
+        revenue: number;
+        orderConvertedGrowthPercent: number;
+        orderConverted: number;
+        conversionRateGrowthPercent: number;
+        conversionRate: number;
+    }>;
 }

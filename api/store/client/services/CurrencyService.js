@@ -7,7 +7,7 @@ class CurrencyService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCurrency({ id, }) {
@@ -27,7 +27,7 @@ class CurrencyService {
         });
     }
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCurrency({ fulfillmentAgencyId, id, requestBody, }) {
@@ -73,7 +73,7 @@ class CurrencyService {
         });
     }
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createCurrency({ fulfillmentAgencyId, requestBody, }) {

@@ -7,7 +7,7 @@ class RequestPayoutService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns RequestPayout Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createRequestPayout({ requestBody, }) {
@@ -103,7 +103,7 @@ class RequestPayoutService {
         });
     }
     /**
-     * @returns RequestPayout Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateRequestPayout({ id, fulfillmentAgencyId, requestBody, }) {

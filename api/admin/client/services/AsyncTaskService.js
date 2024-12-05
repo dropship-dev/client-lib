@@ -7,7 +7,7 @@ class AsyncTaskService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns AsyncTask Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {
@@ -40,7 +40,7 @@ class AsyncTaskService {
         });
     }
     /**
-     * @returns AsyncTask Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, }) {

@@ -1,6 +1,6 @@
-import type { UserRole } from './UserRole';
+import type { _36_Enums_UserRole } from './_36_Enums_UserRole';
 export type AuthData = {
     id: string;
-    role: UserRole;
+    role: _36_Enums_UserRole;
     email?: string;
 };

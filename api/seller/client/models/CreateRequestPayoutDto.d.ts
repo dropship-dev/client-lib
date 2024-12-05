@@ -1,10 +1,10 @@
+import type { _36_Enums_PaymentMethodType } from './_36_Enums_PaymentMethodType';
 import type { CurrencyCode } from './CurrencyCode';
-import type { PaymentMethodType } from './PaymentMethodType';
 export type CreateRequestPayoutDto = {
     amount: number;
     currencyCode: CurrencyCode;
     amountConvert: number;
-    type: PaymentMethodType;
+    type: _36_Enums_PaymentMethodType;
     bankId?: string;
     pingPongId?: string;
     notes?: string;

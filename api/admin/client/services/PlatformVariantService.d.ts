@@ -1,6 +1,7 @@
-import type { BatchPayload } from '../models/BatchPayload';
 import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
-import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
 import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
 import type { UpdatePlatformVariantStatusDto } from '../models/UpdatePlatformVariantStatusDto';
@@ -10,14 +11,14 @@ export declare class PlatformVariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
         requestBody: CreatePlatformVariantsDto;
-    }): CancelablePromise<BatchPayload>;
+    }): CancelablePromise<Prisma_BatchPayload>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -37,16 +38,32 @@ export declare class PlatformVariantService {
         ids: Array<number>;
     }): CancelablePromise<string>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPlatformVariant({ fulfillmentAgencyId, platformProductId, id, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
         id: number;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<{
+        groupPlatformVariantId: number;
+        cost: PrismaJson_PlatformCostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariant({ fulfillmentAgencyId, platformProductId, id, requestBody, }: {
@@ -54,18 +71,50 @@ export declare class PlatformVariantService {
         platformProductId: number;
         id: number;
         requestBody: UpdatePlatformVariantDto;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<{
+        groupPlatformVariantId: number;
+        cost: PrismaJson_PlatformCostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformVariant({ fulfillmentAgencyId, platformProductId, id, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
         id: number;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<{
+        groupPlatformVariantId: number;
+        cost: PrismaJson_PlatformCostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariantStatus({ fulfillmentAgencyId, platformProductId, id, requestBody, }: {
@@ -73,5 +122,21 @@ export declare class PlatformVariantService {
         platformProductId: number;
         id: number;
         requestBody: UpdatePlatformVariantStatusDto;
-    }): CancelablePromise<PlatformVariant>;
+    }): CancelablePromise<{
+        groupPlatformVariantId: number;
+        cost: PrismaJson_PlatformCostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        platformProductId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
 }

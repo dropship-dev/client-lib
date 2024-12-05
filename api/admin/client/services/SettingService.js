@@ -27,7 +27,7 @@ class SettingService {
         });
     }
     /**
-     * @returns Setting Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateSetting({ fulfillmentAgencyId, requestBody, }) {

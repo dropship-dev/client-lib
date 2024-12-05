@@ -1,12 +1,5 @@
+import type { DefaultSelection_Prisma__36_ThemePagePayload_ } from './DefaultSelection_Prisma__36_ThemePagePayload_';
 /**
  * Model ThemePage
  */
-export type ThemePage = {
-    updatedAt: string;
-    createdAt: string;
-    themeId: number | null;
-    themeLibraryId: number | null;
-    content: string;
-    name: string;
-    id: number;
-};
+export type ThemePage = DefaultSelection_Prisma__36_ThemePagePayload_;

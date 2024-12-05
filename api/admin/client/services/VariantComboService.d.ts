@@ -1,4 +1,4 @@
-import type { VariantCombo } from '../models/VariantCombo';
+import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class VariantComboService {
@@ -18,15 +18,47 @@ export declare class VariantComboService {
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
-        data: Array<VariantCombo>;
+        data: Array<{
+            items: PrismaJson_VariantComboItems;
+            minSellingPrice: number;
+            compareAtPrice: number;
+            productId: number;
+            supplierCost: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            isActive: boolean;
+            SKU: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            id: number;
+        }>;
     }>;
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }: {
         storeId: string;
         productId: number;
         id: number;
-    }): CancelablePromise<VariantCombo>;
+    }): CancelablePromise<{
+        items: PrismaJson_VariantComboItems;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        productId: number;
+        supplierCost: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        isActive: boolean;
+        SKU: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>;
 }

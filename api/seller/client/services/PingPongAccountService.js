@@ -7,7 +7,7 @@ class PingPongAccountService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PingPongAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPingPongAccount({ requestBody, fulfillmentAgencyId, storeId, }) {
@@ -30,7 +30,7 @@ class PingPongAccountService {
         });
     }
     /**
-     * @returns PingPongAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllPingPongAccount({ fulfillmentAgencyId, storeId, }) {
@@ -51,7 +51,7 @@ class PingPongAccountService {
         });
     }
     /**
-     * @returns PingPongAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPingPongAccount({ id, fulfillmentAgencyId, storeId, }) {

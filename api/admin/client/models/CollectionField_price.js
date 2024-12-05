@@ -1,10 +1,10 @@
 "use strict";
-/* generated using openapi-typescript-codegen -- do no edit */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CollectionField_price = void 0;
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CollectionField_price = void 0;
 var CollectionField_price;
 (function (CollectionField_price) {
     CollectionField_price["PRICE"] = "price";

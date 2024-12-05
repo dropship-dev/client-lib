@@ -1,4 +1,4 @@
-import type { CreateComboItems } from '../models/CreateComboItems';
+import type { PrismaJson_CreateComboItems } from '../models/PrismaJson_CreateComboItems';
 import type { UnsubscribeEmailMarketingDto } from '../models/UnsubscribeEmailMarketingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -37,7 +37,7 @@ export declare class MarketingEmailService {
         token: string;
     }): CancelablePromise<{
         storeId: string;
-        comboItems: CreateComboItems;
+        comboItems: PrismaJson_CreateComboItems;
         orderItems: Array<{
             productId: number;
             isMainProduct: boolean;

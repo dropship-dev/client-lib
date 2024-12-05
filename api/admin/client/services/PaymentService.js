@@ -7,7 +7,7 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }) {
@@ -95,7 +95,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns Payment Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePayment({ id, requestBody, fulfillmentAgencyId, storeId, }) {

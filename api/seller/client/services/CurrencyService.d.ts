@@ -7,21 +7,39 @@ export declare class CurrencyService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCurrency({ id, }: {
         id: number;
-    }): CancelablePromise<Currency>;
+    }): CancelablePromise<{
+        isSupported: boolean;
+        rateToUSD: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+        symbol: string;
+    }>;
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCurrency({ fulfillmentAgencyId, id, requestBody, }: {
         fulfillmentAgencyId: number;
         id: number;
         requestBody: UpdateCurrencyDto;
-    }): CancelablePromise<Currency>;
+    }): CancelablePromise<{
+        isSupported: boolean;
+        rateToUSD: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+        symbol: string;
+    }>;
     /**
      * @returns Currency Ok
      * @throws ApiError
@@ -31,11 +49,20 @@ export declare class CurrencyService {
         storeId?: string;
     }): CancelablePromise<Array<Currency>>;
     /**
-     * @returns Currency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createCurrency({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: CreateCurrencyDto;
-    }): CancelablePromise<Currency>;
+    }): CancelablePromise<{
+        isSupported: boolean;
+        rateToUSD: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+        symbol: string;
+    }>;
 }

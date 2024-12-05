@@ -123,7 +123,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStoreStatus({ storeId, requestBody, }) {
@@ -145,7 +145,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     approveStore({ fulfillmentAgencyId, storeId, requestBody, }) {
@@ -170,7 +170,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStorePaymentMethod({ fulfillmentAgencyId, storeId, requestBody, }) {
@@ -195,7 +195,7 @@ class StoreService {
         });
     }
     /**
-     * @returns Store Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteStorePaymentMethod({ fulfillmentAgencyId, storeId, paymentId, }) {
