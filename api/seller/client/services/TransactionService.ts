@@ -123,6 +123,49 @@ export class TransactionService {
    * @returns any Ok
    * @throws ApiError
    */
+  public exportTransactionInvoice({
+    storeId,
+    id,
+  }: {
+    storeId: string,
+    id: number,
+  }): CancelablePromise<{
+    transactionDetails: PrismaJson_TransactionDetails;
+    fee: number;
+    amount: number;
+    idTransaction: string;
+    status: _36_Enums_TransactionStatus;
+    createdAt: string;
+    storeId: string;
+    Store: {
+      country: string;
+      zipCode: string;
+      city: string;
+      apartmentAddress: string;
+      address: string;
+      name: string;
+    };
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/transaction/{id}/export-invoice',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getStoreTransaction({
     storeId,
     id,
