@@ -61,6 +61,7 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        salt: string;
         environment: _36_Enums_EnvironmentType;
         UIVersion: number;
         deleted: boolean;
@@ -154,6 +155,7 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        salt: string;
         environment: _36_Enums_EnvironmentType;
         UIVersion: number;
         deleted: boolean;
