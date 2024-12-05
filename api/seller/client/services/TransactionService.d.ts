@@ -89,6 +89,30 @@ export declare class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
+    exportTransactionInvoice({ storeId, id, }: {
+        storeId: string;
+        id: number;
+    }): CancelablePromise<{
+        transactionDetails: PrismaJson_TransactionDetails;
+        fee: number;
+        amount: number;
+        idTransaction: string;
+        status: _36_Enums_TransactionStatus;
+        createdAt: string;
+        storeId: string;
+        Store: {
+            country: string;
+            zipCode: string;
+            city: string;
+            apartmentAddress: string;
+            address: string;
+            name: string;
+        };
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStoreTransaction({ storeId, id, }: {
         storeId: string;
         id: number;
