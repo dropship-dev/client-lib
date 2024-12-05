@@ -54,6 +54,26 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
+    getAllPaymentOnboarding({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/payment/onboarding',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getPayment({ id, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
