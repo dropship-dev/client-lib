@@ -128,7 +128,7 @@ export class PingPongAccountV2Service {
   }: {
     fulfillmentAgencyId: number,
     emailPingpong?: string,
-  }): CancelablePromise<Array<ResponseStoreAddPingpong>> {
+  }): CancelablePromise<ResponseStoreAddPingpong> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/v2/pingpong-account/store',
