@@ -13,7 +13,7 @@ import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_';
+import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
@@ -215,7 +215,7 @@ export class StoreService {
   } & {
     fraudStatus?: FraudStatusType;
   } & {
-    Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_>;
+    Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_>;
   })> {
     return this.httpRequest.request({
       method: 'GET',

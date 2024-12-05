@@ -108,6 +108,7 @@ export class StoreService {
       setting: PrismaJson_ThemeSetting;
     });
     Payment: Array<{
+      salt: string;
       environment: _36_Enums_EnvironmentType;
       UIVersion: number;
       publishableKey: string;
