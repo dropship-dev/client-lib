@@ -45,5 +45,5 @@ export declare class PingPongAccountV2Service {
     getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, }: {
         fulfillmentAgencyId: number;
         emailPingpong?: string;
-    }): CancelablePromise<Array<ResponseStoreAddPingpong>>;
+    }): CancelablePromise<ResponseStoreAddPingpong>;
 }
