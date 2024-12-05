@@ -1,19 +1,17 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateThemeLibraryDto } from '../models/CreateThemeLibraryDto';
+import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
+import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
+import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
 import type { ThemeLibrary } from '../models/ThemeLibrary';
-import type { ThemePage } from '../models/ThemePage';
 import type { UpdateThemeLibraryDto } from '../models/UpdateThemeLibraryDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ThemeLibraryService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns ThemeLibrary Ok
    * @throws ApiError
@@ -37,7 +35,6 @@ export class ThemeLibraryService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -53,7 +50,16 @@ export class ThemeLibraryService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<ThemeLibrary>;
+    data: Array<{
+      nodes: PrismaJson_ThemeNodes;
+      style: PrismaJson_ThemeStyle;
+      image: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+      setting: PrismaJson_ThemeSetting;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -71,7 +77,6 @@ export class ThemeLibraryService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -80,8 +85,25 @@ export class ThemeLibraryService {
     id,
   }: {
     id: number,
-  }): CancelablePromise<(ThemeLibrary & {
-    ThemePage: Array<ThemePage>;
+  }): CancelablePromise<({
+    ThemePage: Array<{
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
+  } & {
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    image: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -98,9 +120,8 @@ export class ThemeLibraryService {
       },
     });
   }
-
   /**
-   * @returns ThemeLibrary Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateThemeLibrary({
@@ -109,7 +130,16 @@ export class ThemeLibraryService {
   }: {
     id: number,
     requestBody: UpdateThemeLibraryDto,
-  }): CancelablePromise<ThemeLibrary> {
+  }): CancelablePromise<{
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    image: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/theme-library/{id}',
@@ -127,16 +157,24 @@ export class ThemeLibraryService {
       },
     });
   }
-
   /**
-   * @returns ThemeLibrary Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteThemeLibrary({
     id,
   }: {
     id: number,
-  }): CancelablePromise<ThemeLibrary> {
+  }): CancelablePromise<{
+    nodes: PrismaJson_ThemeNodes;
+    style: PrismaJson_ThemeStyle;
+    image: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+    setting: PrismaJson_ThemeSetting;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/theme-library/{id}',
@@ -152,5 +190,4 @@ export class ThemeLibraryService {
       },
     });
   }
-
 }

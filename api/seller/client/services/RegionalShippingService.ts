@@ -1,17 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class RegionalShippingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns RegionalShippingFee Ok
    * @throws ApiError
@@ -40,7 +37,6 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -64,7 +60,17 @@ export class RegionalShippingService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<RegionalShippingFee>;
+    data: Array<{
+      countries: PrismaJson_CountryInformation;
+      zoneName: string;
+      deleted: boolean;
+      shippingFeeAdditional: number;
+      shippingFee: number;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: string;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -88,7 +94,6 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -113,9 +118,8 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
-   * @returns RegionalShippingFee Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getRegionalShippingFee({
@@ -124,7 +128,17 @@ export class RegionalShippingService {
   }: {
     storeId: string,
     id: string,
-  }): CancelablePromise<RegionalShippingFee> {
+  }): CancelablePromise<{
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/regional-shipping-fee/{id}',
@@ -141,9 +155,8 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
-   * @returns RegionalShippingFee Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteReasonShippingFee({
@@ -152,7 +165,17 @@ export class RegionalShippingService {
   }: {
     storeId: string,
     id: string,
-  }): CancelablePromise<RegionalShippingFee> {
+  }): CancelablePromise<{
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/regional-shipping-fee/{id}',
@@ -169,9 +192,8 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
-   * @returns RegionalShippingFee Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateReasonShippingFee({
@@ -182,7 +204,17 @@ export class RegionalShippingService {
     storeId: string,
     id: string,
     requestBody: RegionalShippingFeeDto,
-  }): CancelablePromise<RegionalShippingFee> {
+  }): CancelablePromise<{
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/regional-shipping-fee/{id}',
@@ -201,7 +233,6 @@ export class RegionalShippingService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -226,5 +257,4 @@ export class RegionalShippingService {
       },
     });
   }
-
 }

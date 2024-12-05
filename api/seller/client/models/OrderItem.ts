@@ -1,32 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { FulfillmentStatus } from './FulfillmentStatus';
-import type { SyncTrackingStatus } from './SyncTrackingStatus';
-
+import type { DefaultSelection_Prisma__36_OrderItemPayload_ } from './DefaultSelection_Prisma__36_OrderItemPayload_';
 /**
  * Model OrderItem
  */
-export type OrderItem = {
-  updatedAt: string;
-  createdAt: string;
-  orderRefundId: string | null;
-  currencyId: number;
-  orderId: string;
-  variantComboId: number | null;
-  productVariantId: number | null;
-  productId: number;
-  syncTrackingStatus: SyncTrackingStatus | null;
-  carrier: string | null;
-  tracking: string | null;
-  status: FulfillmentStatus;
-  latestQuantity: number;
-  platformPrice: number;
-  quantity: number;
-  priceUSD: number;
-  price: number;
-  id: string;
-};
-
+export type OrderItem = DefaultSelection_Prisma__36_OrderItemPayload_;

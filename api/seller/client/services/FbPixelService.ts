@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateFbPixelDto } from '../models/CreateFbPixelDto';
 import type { FbPixel } from '../models/FbPixel';
 import type { UpdateFbPixelDto } from '../models/UpdateFbPixelDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class FbPixelService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -23,10 +19,16 @@ export class FbPixelService {
   }: {
     storeId: string,
     requestBody: CreateFbPixelDto,
-  }): CancelablePromise<(FbPixel & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -45,7 +47,6 @@ export class FbPixelService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -54,10 +55,16 @@ export class FbPixelService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<(FbPixel & {
+  }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -74,7 +81,6 @@ export class FbPixelService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -106,9 +112,8 @@ export class FbPixelService {
       },
     });
   }
-
   /**
-   * @returns FbPixel Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateFbPixel({
@@ -119,7 +124,13 @@ export class FbPixelService {
     storeId: string,
     pixelId: string,
     requestBody: UpdateFbPixelDto,
-  }): CancelablePromise<FbPixel> {
+  }): CancelablePromise<{
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/fb-pixel/{pixelId}',
@@ -138,9 +149,8 @@ export class FbPixelService {
       },
     });
   }
-
   /**
-   * @returns FbPixel Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteFbPixel({
@@ -149,7 +159,13 @@ export class FbPixelService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<FbPixel> {
+  }): CancelablePromise<{
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/fb-pixel/{pixelId}',
@@ -166,5 +182,4 @@ export class FbPixelService {
       },
     });
   }
-
 }

@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { CurrencyType } from './CurrencyType';
-
+import type { _36_Enums_CurrencyType } from './_36_Enums_CurrencyType';
 export type CreatePingPongAccountDto = {
   email: string;
-  currency: CurrencyType;
+  currency: _36_Enums_CurrencyType;
   isDefault?: boolean;
 };
 

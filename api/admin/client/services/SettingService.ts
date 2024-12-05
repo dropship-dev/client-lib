@@ -1,17 +1,13 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Setting } from '../models/Setting';
+import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class SettingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -22,7 +18,18 @@ export class SettingService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<(Setting | {
+  }): CancelablePromise<({
+    percentageCostPlatformFee: number;
+    hold: PrismaJson_HoldSetting;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  } | {
     shippingPolicy: string;
     termsOfService: string;
     refundPolicy: string;
@@ -43,9 +50,8 @@ export class SettingService {
       },
     });
   }
-
   /**
-   * @returns Setting Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateSetting({
@@ -54,7 +60,18 @@ export class SettingService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: UpdateSettingDto,
-  }): CancelablePromise<Setting> {
+  }): CancelablePromise<{
+    percentageCostPlatformFee: number;
+    hold: PrismaJson_HoldSetting;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/setting/{id}',
@@ -72,5 +89,4 @@ export class SettingService {
       },
     });
   }
-
 }

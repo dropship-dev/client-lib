@@ -1,18 +1,15 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateReviewDto } from '../models/CreateReviewDto';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { Review } from '../models/Review';
 import type { UpdateReviewDto } from '../models/UpdateReviewDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ReviewService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns Review Ok
    * @throws ApiError
@@ -44,9 +41,8 @@ export class ReviewService {
       },
     });
   }
-
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getAllReview({
@@ -55,7 +51,17 @@ export class ReviewService {
   }: {
     storeId: string,
     productId: number,
-  }): CancelablePromise<Array<Review>> {
+  }): CancelablePromise<Array<{
+    comment: string;
+    rating: number;
+    productId: number;
+    photos: PrismaJson_Photos;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/review',
@@ -72,9 +78,8 @@ export class ReviewService {
       },
     });
   }
-
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getReview({
@@ -85,7 +90,17 @@ export class ReviewService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<{
+    comment: string;
+    rating: number;
+    productId: number;
+    photos: PrismaJson_Photos;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/review/{id}',
@@ -103,9 +118,8 @@ export class ReviewService {
       },
     });
   }
-
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateReview({
@@ -118,7 +132,17 @@ export class ReviewService {
     productId: number,
     id: number,
     requestBody: UpdateReviewDto,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<{
+    comment: string;
+    rating: number;
+    productId: number;
+    photos: PrismaJson_Photos;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/review/{id}',
@@ -138,9 +162,8 @@ export class ReviewService {
       },
     });
   }
-
   /**
-   * @returns Review Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteReview({
@@ -151,7 +174,17 @@ export class ReviewService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<Review> {
+  }): CancelablePromise<{
+    comment: string;
+    rating: number;
+    productId: number;
+    photos: PrismaJson_Photos;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/review/{id}',
@@ -169,5 +202,4 @@ export class ReviewService {
       },
     });
   }
-
 }

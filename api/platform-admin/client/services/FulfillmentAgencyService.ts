@@ -1,26 +1,22 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CostCalculationMethod } from '../models/CostCalculationMethod';
+import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
+import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
+import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
-import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
-import type { Payment } from '../models/Payment';
-import type { PaymentOnboarding } from '../models/PaymentOnboarding';
-import type { Timezone } from '../models/Timezone';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { UpdateFulfillmentAgencyStatusDto } from '../models/UpdateFulfillmentAgencyStatusDto';
-import type { Wallet } from '../models/Wallet';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class FulfillmentAgencyService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -29,8 +25,45 @@ export class FulfillmentAgencyService {
     requestBody,
   }: {
     requestBody: CreateFulfillmentAgencyDto,
-  }): CancelablePromise<(FulfillmentAgency & {
-    Payment: Array<Payment>;
+  }): CancelablePromise<({
+    Payment: Array<{
+      salt: string;
+      environment: _36_Enums_EnvironmentType;
+      UIVersion: number;
+      deleted: boolean;
+      partnerId: string;
+      merchantId: string;
+      gatewayUrl: string;
+      tokenExpiredAt: string;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+      isPlatform: boolean;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      userId: string;
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
+  } & {
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -46,7 +79,6 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -67,19 +99,46 @@ export class FulfillmentAgencyService {
     prePageIndex: number;
     total: number;
     data: Array<{
-      Wallet: Array<Wallet>;
-      PaymentOnboarding: Array<PaymentOnboarding>;
-      updatedAt: string;
-      createdAt: string;
-      timezone: Timezone;
-      type: FulfillmentAgencyType;
-      costCalculationMethod: CostCalculationMethod;
+      timezone: PrismaJson_Timezone;
+      type: _36_Enums_FulfillmentAgencyType;
+      costCalculationMethod: _36_Enums_CostCalculationMethod;
       executionTime: string;
-      status: FulfillmentAgencyStatus;
+      status: _36_Enums_FulfillmentAgencyStatus;
       phone: string;
       email: string;
       name: string;
+      updatedAt: string;
+      createdAt: string;
       id: number;
+      Wallet: Array<{
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        balanceUnavailable: PrismaJson_UnavailableBalance;
+        payoutAmount: number;
+        holdAmount: number;
+        balanceDebt: number;
+        balanceAvailable: number;
+        balanceAmount: number;
+        walletName: string;
+        id: string;
+      }>;
+      PaymentOnboarding: Array<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        paymentType: _36_Enums_PaymentType;
+        merchantId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
       noProduct: number;
       noStore: number;
     }>;
@@ -102,7 +161,6 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -111,9 +169,48 @@ export class FulfillmentAgencyService {
     id,
   }: {
     id: number,
-  }): CancelablePromise<(FulfillmentAgency & {
-    Wallet: Array<Wallet>;
-    PaymentOnboarding: Array<PaymentOnboarding>;
+  }): CancelablePromise<({
+    Wallet: Array<{
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      balanceUnavailable: PrismaJson_UnavailableBalance;
+      payoutAmount: number;
+      holdAmount: number;
+      balanceDebt: number;
+      balanceAvailable: number;
+      balanceAmount: number;
+      walletName: string;
+      id: string;
+    }>;
+    PaymentOnboarding: Array<{
+      paypalPartnerReferralId: string;
+      onboardingStatus: _36_Enums_OnboardingStatus;
+      onboardingUrl: string;
+      onboardingId: string;
+      merchantEmail: string;
+      paymentType: _36_Enums_PaymentType;
+      merchantId: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
+  } & {
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -130,9 +227,8 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateFulfillmentAgency({
@@ -141,7 +237,19 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
     requestBody: UpdateFulfillmentAgencyDto,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<{
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}',
@@ -159,16 +267,27 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteFulfillmentAgency({
     id,
   }: {
     id: number,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<{
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/fulfillment-agency/{id}',
@@ -184,9 +303,8 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
   /**
-   * @returns FulfillmentAgency Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateFulfillmentAgencyStatus({
@@ -195,7 +313,19 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
     requestBody: UpdateFulfillmentAgencyStatusDto,
-  }): CancelablePromise<FulfillmentAgency> {
+  }): CancelablePromise<{
+    timezone: PrismaJson_Timezone;
+    type: _36_Enums_FulfillmentAgencyType;
+    costCalculationMethod: _36_Enums_CostCalculationMethod;
+    executionTime: string;
+    status: _36_Enums_FulfillmentAgencyStatus;
+    phone: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}/status',
@@ -213,5 +343,4 @@ export class FulfillmentAgencyService {
       },
     });
   }
-
 }

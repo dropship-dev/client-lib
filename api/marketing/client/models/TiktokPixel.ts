@@ -1,16 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
+import type { DefaultSelection_Prisma__36_TiktokPixelPayload_ } from './DefaultSelection_Prisma__36_TiktokPixelPayload_';
 /**
  * Model TiktokPixel
  */
-export type TiktokPixel = {
-  updatedAt: string;
-  createdAt: string;
-  storeId: string;
-  pixelId: string;
-  id: number;
-};
-
+export type TiktokPixel = DefaultSelection_Prisma__36_TiktokPixelPayload_;

@@ -1,11 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
-
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
@@ -36,11 +35,8 @@ import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
 import { WalletService } from './services/WalletService';
-
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
-
 export class ClientApi {
-
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly bankAccount: BankAccountService;
@@ -71,9 +67,7 @@ export class ClientApi {
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
   public readonly wallet: WalletService;
-
   public readonly request: BaseHttpRequest;
-
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
@@ -86,7 +80,6 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
-
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.bankAccount = new BankAccountService(this.request);

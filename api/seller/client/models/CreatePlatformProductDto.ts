@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PhotoDto } from './PhotoDto';
 import type { PlatformVariantDto } from './PlatformVariantDto';
 import type { PrismaJson_AvailableSet } from './PrismaJson_AvailableSet';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
-
 export type CreatePlatformProductDto = {
   name: string;
   description?: string;

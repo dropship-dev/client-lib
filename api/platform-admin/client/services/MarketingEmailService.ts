@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { StatisticsDisplayType } from '../models/StatisticsDisplayType';
 import type { StatisticsOverviewAbandonedCheckout } from '../models/StatisticsOverviewAbandonedCheckout';
 import type { StatisticsOverviewConversionValue } from '../models/StatisticsOverviewConversionValue';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class MarketingEmailService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -53,7 +49,6 @@ export class MarketingEmailService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -92,7 +87,6 @@ export class MarketingEmailService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -141,7 +135,6 @@ export class MarketingEmailService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -178,5 +171,4 @@ export class MarketingEmailService {
       },
     });
   }
-
 }
