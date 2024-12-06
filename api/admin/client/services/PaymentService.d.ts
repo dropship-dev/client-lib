@@ -79,7 +79,10 @@ export declare class PaymentService {
      */
     getAllPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-    }): CancelablePromise<any>;
+    }): CancelablePromise<Array<{
+        merchantEmail: string;
+        paymentType: _36_Enums_PaymentType;
+    }>>;
     /**
      * @returns any Ok
      * @throws ApiError
