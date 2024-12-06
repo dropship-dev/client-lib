@@ -1,6 +1,7 @@
 import type { BulkCreatePingpongAccountDto } from '../models/BulkCreatePingpongAccountDto';
 import type { BulkDeletePingpongAccountDto } from '../models/BulkDeletePingpongAccountDto';
 import type { BulkUpDatePingpongAccountDto } from '../models/BulkUpDatePingpongAccountDto';
+import type { ResponseGetStoreByPingpong } from '../models/ResponseGetStoreByPingpong';
 import type { ResponseStoreAddPingpong } from '../models/ResponseStoreAddPingpong';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -42,8 +43,19 @@ export declare class PingPongAccountV2Service {
      * @returns ResponseStoreAddPingpong Ok
      * @throws ApiError
      */
-    getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, }: {
+    getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, name, limit, cursor, }: {
         fulfillmentAgencyId: number;
         emailPingpong?: string;
-    }): CancelablePromise<Array<ResponseStoreAddPingpong>>;
+        name?: string;
+        limit?: number;
+        cursor?: string;
+    }): CancelablePromise<ResponseStoreAddPingpong>;
+    /**
+     * @returns ResponseGetStoreByPingpong Ok
+     * @throws ApiError
+     */
+    getStoreByPingpongAccount({ fulfillmentAgencyId, emailPingpong, }: {
+        fulfillmentAgencyId: number;
+        emailPingpong: string;
+    }): CancelablePromise<Array<ResponseGetStoreByPingpong>>;
 }

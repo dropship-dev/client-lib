@@ -96,10 +96,34 @@ class PingPongAccountV2Service {
      * @returns ResponseStoreAddPingpong Ok
      * @throws ApiError
      */
-    getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, }) {
+    getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, name, limit, cursor, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/v2/pingpong-account/store',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'emailPingpong': emailPingpong,
+                'name': name,
+                'limit': limit,
+                'cursor': cursor,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseGetStoreByPingpong Ok
+     * @throws ApiError
+     */
+    getStoreByPingpongAccount({ fulfillmentAgencyId, emailPingpong, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/pingpong-account/{email}',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'emailPingpong': emailPingpong,

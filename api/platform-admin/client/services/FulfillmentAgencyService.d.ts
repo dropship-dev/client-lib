@@ -49,6 +49,7 @@ export declare class FulfillmentAgencyService {
         }>;
     } & {
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
@@ -76,6 +77,7 @@ export declare class FulfillmentAgencyService {
         total: number;
         data: Array<{
             timezone: PrismaJson_Timezone;
+            platformFee: number;
             type: _36_Enums_FulfillmentAgencyType;
             costCalculationMethod: _36_Enums_CostCalculationMethod;
             executionTime: string;
@@ -157,6 +159,7 @@ export declare class FulfillmentAgencyService {
         }>;
     } & {
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
@@ -177,6 +180,7 @@ export declare class FulfillmentAgencyService {
         requestBody: UpdateFulfillmentAgencyDto;
     }): CancelablePromise<{
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
@@ -196,6 +200,7 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<{
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
@@ -216,6 +221,7 @@ export declare class FulfillmentAgencyService {
         requestBody: UpdateFulfillmentAgencyStatusDto;
     }): CancelablePromise<{
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
