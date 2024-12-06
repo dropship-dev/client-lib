@@ -8,6 +8,6 @@ exports._36_Enums_OnboardingStatus = void 0;
 var _36_Enums_OnboardingStatus;
 (function (_36_Enums_OnboardingStatus) {
     _36_Enums_OnboardingStatus["PENDING"] = "PENDING";
-    _36_Enums_OnboardingStatus["FAILED"] = "FAILED";
     _36_Enums_OnboardingStatus["COMPLETED"] = "COMPLETED";
+    _36_Enums_OnboardingStatus["FAILED"] = "FAILED";
 })(_36_Enums_OnboardingStatus || (exports._36_Enums_OnboardingStatus = _36_Enums_OnboardingStatus = {}));

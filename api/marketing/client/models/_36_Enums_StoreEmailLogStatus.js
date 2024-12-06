@@ -7,7 +7,7 @@ exports._36_Enums_StoreEmailLogStatus = void 0;
 /* eslint-disable */
 var _36_Enums_StoreEmailLogStatus;
 (function (_36_Enums_StoreEmailLogStatus) {
-    _36_Enums_StoreEmailLogStatus["SUCCESS"] = "SUCCESS";
     _36_Enums_StoreEmailLogStatus["FAILED"] = "FAILED";
+    _36_Enums_StoreEmailLogStatus["SUCCESS"] = "SUCCESS";
     _36_Enums_StoreEmailLogStatus["IN_PROGRESS"] = "IN_PROGRESS";
 })(_36_Enums_StoreEmailLogStatus || (exports._36_Enums_StoreEmailLogStatus = _36_Enums_StoreEmailLogStatus = {}));

@@ -27,7 +27,6 @@ export declare class FulfillmentAgencyService {
             UIVersion: number;
             deleted: boolean;
             partnerId: string;
-            merchantId: string;
             gatewayUrl: string;
             tokenExpiredAt: string;
             token: string;
@@ -38,6 +37,7 @@ export declare class FulfillmentAgencyService {
             companyAddress: string;
             companyPhone: string;
             companyName: string;
+            merchantId: string;
             userId: string;
             type: _36_Enums_PaymentType;
             email: string;
@@ -109,8 +109,8 @@ export declare class FulfillmentAgencyService {
                 onboardingUrl: string;
                 onboardingId: string;
                 merchantEmail: string;
-                paymentType: _36_Enums_PaymentType;
                 merchantId: string;
+                paymentType: _36_Enums_PaymentType;
                 updatedAt: string;
                 createdAt: string;
                 storeId: string;
@@ -149,8 +149,8 @@ export declare class FulfillmentAgencyService {
             onboardingUrl: string;
             onboardingId: string;
             merchantEmail: string;
-            paymentType: _36_Enums_PaymentType;
             merchantId: string;
+            paymentType: _36_Enums_PaymentType;
             updatedAt: string;
             createdAt: string;
             storeId: string;

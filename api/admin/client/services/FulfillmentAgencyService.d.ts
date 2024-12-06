@@ -59,8 +59,8 @@ export declare class FulfillmentAgencyService {
                 onboardingUrl: string;
                 onboardingId: string;
                 merchantEmail: string;
-                paymentType: _36_Enums_PaymentType;
                 merchantId: string;
+                paymentType: _36_Enums_PaymentType;
                 updatedAt: string;
                 createdAt: string;
                 storeId: string;
@@ -99,8 +99,8 @@ export declare class FulfillmentAgencyService {
             onboardingUrl: string;
             onboardingId: string;
             merchantEmail: string;
-            paymentType: _36_Enums_PaymentType;
             merchantId: string;
+            paymentType: _36_Enums_PaymentType;
             updatedAt: string;
             createdAt: string;
             storeId: string;
@@ -175,8 +175,8 @@ export declare class FulfillmentAgencyService {
         onboardingUrl: string;
         onboardingId: string;
         merchantEmail: string;
-        paymentType: _36_Enums_PaymentType;
         merchantId: string;
+        paymentType: _36_Enums_PaymentType;
         updatedAt: string;
         createdAt: string;
         storeId: string;
