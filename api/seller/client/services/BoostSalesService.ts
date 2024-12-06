@@ -40,6 +40,7 @@ export class BoostSalesService {
     placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
+    discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -47,7 +48,6 @@ export class BoostSalesService {
     createdAt: string;
     storeId: string;
     id: number;
-    discount: PrismaJson_DiscountBoostSale;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -161,6 +161,7 @@ export class BoostSalesService {
       placement: PrismaJson_PlacementBoostSaleType;
       endDate: string;
       startDate: string;
+      discount: PrismaJson_DiscountBoostSale;
       type: _36_Enums_BoostSaleType;
       status: boolean;
       name: string;
@@ -168,7 +169,6 @@ export class BoostSalesService {
       createdAt: string;
       storeId: string;
       id: number;
-      discount: PrismaJson_DiscountBoostSale;
     })>;
   }> {
     return this.httpRequest.request({
@@ -206,7 +206,6 @@ export class BoostSalesService {
     storeId: string,
     permalink: string,
   }): CancelablePromise<{
-    id: number;
     BoostSale: Array<({
       Product: Array<({
         ProductVariant: Array<({
@@ -317,6 +316,7 @@ export class BoostSalesService {
       placement: PrismaJson_PlacementBoostSaleType;
       endDate: string;
       startDate: string;
+      discount: PrismaJson_DiscountBoostSale;
       type: _36_Enums_BoostSaleType;
       status: boolean;
       name: string;
@@ -324,7 +324,6 @@ export class BoostSalesService {
       createdAt: string;
       storeId: string;
       id: number;
-      discount: PrismaJson_DiscountBoostSale;
     })>;
     Collection: Array<({
       BoostSale: Array<({
@@ -437,6 +436,7 @@ export class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -444,7 +444,6 @@ export class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
       })>;
     } & {
       SEO: any;
@@ -459,6 +458,7 @@ export class BoostSalesService {
       storeId: string;
       id: number;
     })>;
+    id: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -535,27 +535,27 @@ export class BoostSalesService {
       id: number;
     });
     Product: Array<{
+      ProductVariant: Array<{
+        compareAtPrice: number;
+        price: number;
+      }>;
       isEnable: boolean;
       isActive: boolean;
       photos: PrismaJson_Photos;
       name: string;
       id: number;
-      ProductVariant: Array<{
-        compareAtPrice: number;
-        price: number;
-      }>;
     }>;
     Collection: Array<({
       Product: Array<{
+        ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+        }>;
         isEnable: boolean;
         isActive: boolean;
         photos: PrismaJson_Photos;
         name: string;
         id: number;
-        ProductVariant: Array<{
-          compareAtPrice: number;
-          price: number;
-        }>;
       }>;
     } & {
       SEO: any;
@@ -577,6 +577,7 @@ export class BoostSalesService {
     placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
+    discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -584,7 +585,6 @@ export class BoostSalesService {
     createdAt: string;
     storeId: string;
     id: number;
-    discount: PrismaJson_DiscountBoostSale;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -650,6 +650,7 @@ export class BoostSalesService {
     placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
+    discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -657,7 +658,6 @@ export class BoostSalesService {
     createdAt: string;
     storeId: string;
     id: number;
-    discount: PrismaJson_DiscountBoostSale;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',

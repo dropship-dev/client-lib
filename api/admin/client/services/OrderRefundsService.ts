@@ -79,10 +79,6 @@ export class OrderRefundsService {
           id: number;
         });
         ProductVariant: ({
-          Product: {
-            name: string;
-            id: number;
-          };
           PlatformVariant: {
             groupPlatformVariantId: number;
             cost: PrismaJson_PlatformCostInfo;
@@ -98,6 +94,10 @@ export class OrderRefundsService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            id: number;
+          };
+          Product: {
+            name: string;
             id: number;
           };
         } & {
@@ -216,6 +216,7 @@ export class OrderRefundsService {
       gatewayOrderId: string;
       supplierCost: number;
       lastBalance: number;
+      discount: number;
       discountShippingFee: number;
       noItems: number;
       tax: number;
@@ -245,7 +246,6 @@ export class OrderRefundsService {
       createdAt: string;
       storeId: string;
       id: string;
-      discount: number;
     });
   }> {
     return this.httpRequest.request({

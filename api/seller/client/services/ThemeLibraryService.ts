@@ -26,13 +26,13 @@ export class ThemeLibraryService {
     total: number;
     data: Array<{
       nodes: PrismaJson_ThemeNodes;
+      setting: PrismaJson_ThemeSetting;
       style: PrismaJson_ThemeStyle;
       image: string;
       name: string;
       updatedAt: string;
       createdAt: string;
       id: number;
-      setting: PrismaJson_ThemeSetting;
     }>;
   }> {
     return this.httpRequest.request({
@@ -71,13 +71,13 @@ export class ThemeLibraryService {
     }>;
   } & {
     nodes: PrismaJson_ThemeNodes;
+    setting: PrismaJson_ThemeSetting;
     style: PrismaJson_ThemeStyle;
     image: string;
     name: string;
     updatedAt: string;
     createdAt: string;
     id: number;
-    setting: PrismaJson_ThemeSetting;
   })> {
     return this.httpRequest.request({
       method: 'GET',

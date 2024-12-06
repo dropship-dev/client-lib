@@ -21,12 +21,12 @@ export class PingPongAccountService {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
+    currency: _36_Enums_CurrencyType;
     email: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
-    currency: _36_Enums_CurrencyType;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -60,12 +60,12 @@ export class PingPongAccountService {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
+    currency: _36_Enums_CurrencyType;
     email: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
-    currency: _36_Enums_CurrencyType;
   }> {
     return this.httpRequest.request({
       method: 'GET',

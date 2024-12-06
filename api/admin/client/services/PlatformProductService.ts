@@ -108,18 +108,6 @@ export class PlatformProductService {
       createdAt: string;
       fulfillmentAgencyId: number;
       id: number;
-      Product: Array<{
-        platformProductId: number;
-        storeId: string;
-        id: number;
-      }>;
-      Tag: Array<{
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: number;
-      }>;
       GroupPlatformVariant: Array<({
         PlatformVariant: Array<{
           photo: string;
@@ -150,6 +138,18 @@ export class PlatformProductService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        id: number;
+      }>;
+      Tag: Array<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
+      Product: Array<{
+        platformProductId: number;
+        storeId: string;
         id: number;
       }>;
       noStores: number;

@@ -90,25 +90,25 @@ export class RequestPayoutService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
         email: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
-        currency: _36_Enums_CurrencyType;
       };
       BankAccount: {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
         bank: PrismaJson_bankInfo;
+        currency: _36_Enums_CurrencyType;
         accountHolder: string;
         accountNumber: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
-        currency: _36_Enums_CurrencyType;
       };
       Store: {
         stripeDefaultPaymentMethodId: string;

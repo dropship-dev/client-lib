@@ -23,9 +23,6 @@ export class AuthService {
   }): CancelablePromise<{
     maxOwnedStores: number;
     role: _36_Enums_UserRole;
-    email: string;
-    name: string;
-    id: string;
     FulfillmentUser: Array<{
       FulfillmentAgency: {
         timezone: PrismaJson_Timezone;
@@ -42,6 +39,9 @@ export class AuthService {
         id: number;
       };
     }>;
+    email: string;
+    name: string;
+    id: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',

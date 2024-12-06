@@ -112,6 +112,20 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      PaymentOnboarding: Array<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
       Wallet: Array<{
         updatedAt: string;
         createdAt: string;
@@ -126,20 +140,6 @@ export class FulfillmentAgencyService {
         balanceAmount: number;
         walletName: string;
         id: string;
-      }>;
-      PaymentOnboarding: Array<{
-        paypalPartnerReferralId: string;
-        onboardingStatus: _36_Enums_OnboardingStatus;
-        onboardingUrl: string;
-        onboardingId: string;
-        merchantEmail: string;
-        merchantId: string;
-        paymentType: _36_Enums_PaymentType;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        fulfillmentAgencyId: number;
-        id: number;
       }>;
       noProduct: number;
       noStore: number;
@@ -172,6 +172,20 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
   }): CancelablePromise<({
+    PaymentOnboarding: Array<{
+      paypalPartnerReferralId: string;
+      onboardingStatus: _36_Enums_OnboardingStatus;
+      onboardingUrl: string;
+      onboardingId: string;
+      merchantEmail: string;
+      merchantId: string;
+      paymentType: _36_Enums_PaymentType;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
     Wallet: Array<{
       updatedAt: string;
       createdAt: string;
@@ -186,20 +200,6 @@ export class FulfillmentAgencyService {
       balanceAmount: number;
       walletName: string;
       id: string;
-    }>;
-    PaymentOnboarding: Array<{
-      paypalPartnerReferralId: string;
-      onboardingStatus: _36_Enums_OnboardingStatus;
-      onboardingUrl: string;
-      onboardingId: string;
-      merchantEmail: string;
-      merchantId: string;
-      paymentType: _36_Enums_PaymentType;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      fulfillmentAgencyId: number;
-      id: number;
     }>;
   } & {
     timezone: PrismaJson_Timezone;

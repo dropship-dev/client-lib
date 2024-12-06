@@ -26,6 +26,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   gatewayOrderId: string;
   supplierCost: number;
   lastBalance: number;
+  discount: number;
   discountShippingFee: number;
   noItems: number;
   tax: number;
@@ -55,6 +56,5 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   createdAt: string;
   storeId: string;
   id: string;
-  discount: number;
 };
 

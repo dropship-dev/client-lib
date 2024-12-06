@@ -24,11 +24,11 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
+    tag: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
-    tag: string;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -60,11 +60,11 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
+    tag: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
-    tag: string;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -125,11 +125,11 @@ export class GoogleTagManagerService {
     tag: string,
     requestBody: UpdateGTMDto,
   }): CancelablePromise<{
+    tag: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
-    tag: string;
   }> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -160,11 +160,11 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
   }): CancelablePromise<{
+    tag: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
-    tag: string;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',

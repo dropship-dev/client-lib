@@ -125,10 +125,7 @@ export class PaymentService {
     fulfillmentAgencyId,
   }: {
     fulfillmentAgencyId: number,
-  }): CancelablePromise<Array<{
-    merchantEmail: string;
-    paymentType: _36_Enums_PaymentType;
-  }>> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment/onboarding',
