@@ -31,7 +31,6 @@ export class PaymentService {
     UIVersion: number;
     deleted: boolean;
     partnerId: string;
-    merchantId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
@@ -42,6 +41,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    merchantId: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;
@@ -217,7 +217,6 @@ export class PaymentService {
     UIVersion: number;
     deleted: boolean;
     partnerId: string;
-    merchantId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
@@ -228,6 +227,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    merchantId: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;

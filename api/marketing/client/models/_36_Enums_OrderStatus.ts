@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_OrderStatus {
+  COMPLETED = 'COMPLETED',
   FAILED = 'FAILED',
   CREATED = 'CREATED',
-  COMPLETED = 'COMPLETED',
   DISPUTED = 'DISPUTED',
   REFUNDED = 'REFUNDED',
   UNPAID = 'UNPAID',

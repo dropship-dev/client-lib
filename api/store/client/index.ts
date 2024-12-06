@@ -158,6 +158,7 @@ export type { DefaultSelection_Prisma__36_NotificationPayload_ } from './models/
 export type { DefaultSelection_Prisma__36_OrderItemPayload_ } from './models/DefaultSelection_Prisma__36_OrderItemPayload_';
 export type { DefaultSelection_Prisma__36_OrderPayload_ } from './models/DefaultSelection_Prisma__36_OrderPayload_';
 export type { DefaultSelection_Prisma__36_OrderRefundPayload_ } from './models/DefaultSelection_Prisma__36_OrderRefundPayload_';
+export type { DefaultSelection_Prisma__36_PaymentOnboardingPayload_ } from './models/DefaultSelection_Prisma__36_PaymentOnboardingPayload_';
 export type { DefaultSelection_Prisma__36_PingPongAccountPayload_ } from './models/DefaultSelection_Prisma__36_PingPongAccountPayload_';
 export type { DefaultSelection_Prisma__36_PlatformProductPayload_ } from './models/DefaultSelection_Prisma__36_PlatformProductPayload_';
 export type { DefaultSelection_Prisma__36_PlatformVariantPayload_ } from './models/DefaultSelection_Prisma__36_PlatformVariantPayload_';
@@ -254,6 +255,7 @@ export type { Partial_CreateSubscriptionFeatureDto_ } from './models/Partial_Cre
 export type { PaymentInfo } from './models/PaymentInfo';
 export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
 export type { PaymentMethodType } from './models/PaymentMethodType';
+export type { PaymentOnboarding } from './models/PaymentOnboarding';
 export type { PaymentType } from './models/PaymentType';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
@@ -319,6 +321,7 @@ export type { RequestPayoutStatus } from './models/RequestPayoutStatus';
 export type { RequestSourcing } from './models/RequestSourcing';
 export type { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { ResponseGetStoreByPingpong } from './models/ResponseGetStoreByPingpong';
+export type { ResponseGetUser } from './models/ResponseGetUser';
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
 export type { Review } from './models/Review';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';

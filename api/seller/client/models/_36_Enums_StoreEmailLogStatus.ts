@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_StoreEmailLogStatus {
-  SUCCESS = 'SUCCESS',
   FAILED = 'FAILED',
+  SUCCESS = 'SUCCESS',
   IN_PROGRESS = 'IN_PROGRESS',
 }

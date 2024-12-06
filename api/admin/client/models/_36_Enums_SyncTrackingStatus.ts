@@ -4,7 +4,7 @@
 /* eslint-disable */
 export enum _36_Enums_SyncTrackingStatus {
   PENDING = 'PENDING',
-  FAILED = 'FAILED',
   COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
   PROCESSING = 'PROCESSING',
 }
