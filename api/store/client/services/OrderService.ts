@@ -268,13 +268,11 @@ export class OrderService {
     orderId,
     paymentType,
     requestBody,
-    bmClientInfo,
   }: {
     storeId: string,
     orderId: string,
     paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
-    bmClientInfo?: string,
   }): CancelablePromise<{
     status: string;
   }> {
@@ -284,9 +282,6 @@ export class OrderService {
       path: {
         'storeId': storeId,
         'orderId': orderId,
-      },
-      headers: {
-        'BM-Client-Info': bmClientInfo,
       },
       query: {
         'paymentType': paymentType,
