@@ -5,6 +5,7 @@
 import type { BulkCreatePingpongAccountDto } from '../models/BulkCreatePingpongAccountDto';
 import type { BulkDeletePingpongAccountDto } from '../models/BulkDeletePingpongAccountDto';
 import type { BulkUpDatePingpongAccountDto } from '../models/BulkUpDatePingpongAccountDto';
+import type { ResponseGetStoreByPingpong } from '../models/ResponseGetStoreByPingpong';
 import type { ResponseStoreAddPingpong } from '../models/ResponseStoreAddPingpong';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -125,13 +126,49 @@ export class PingPongAccountV2Service {
   public getStoreAddPingpongAccount({
     fulfillmentAgencyId,
     emailPingpong,
+    name,
+    limit,
+    cursor,
   }: {
     fulfillmentAgencyId: number,
     emailPingpong?: string,
+    name?: string,
+    limit?: number,
+    cursor?: string,
   }): CancelablePromise<ResponseStoreAddPingpong> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/v2/pingpong-account/store',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'emailPingpong': emailPingpong,
+        'name': name,
+        'limit': limit,
+        'cursor': cursor,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponseGetStoreByPingpong Ok
+   * @throws ApiError
+   */
+  public getStoreByPingpongAccount({
+    fulfillmentAgencyId,
+    emailPingpong,
+  }: {
+    fulfillmentAgencyId: number,
+    emailPingpong: string,
+  }): CancelablePromise<Array<ResponseGetStoreByPingpong>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/v2/pingpong-account/{email}',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'emailPingpong': emailPingpong,
