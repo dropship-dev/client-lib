@@ -70,13 +70,6 @@ export declare class OrderService {
         requestBody: Array<getCrossSellByProductDto>;
     }): CancelablePromise<Array<{
         suggestionProduct: Array<{
-            isEnable: boolean;
-            isActive: boolean;
-            permalink: string;
-            deleted: boolean;
-            photos: PrismaJson_Photos;
-            name: string;
-            id: number;
             ProductVariant: Array<{
                 podDesignVariantId: number;
                 platformVariantId: number;
@@ -98,6 +91,13 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            isEnable: boolean;
+            isActive: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -105,6 +105,7 @@ export declare class OrderService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -112,15 +113,7 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
         Product: Array<{
-            isEnable: boolean;
-            isActive: boolean;
-            permalink: string;
-            deleted: boolean;
-            photos: PrismaJson_Photos;
-            name: string;
-            id: number;
             ProductVariant: Array<{
                 podDesignVariantId: number;
                 platformVariantId: number;
@@ -142,6 +135,13 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            isEnable: boolean;
+            isActive: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
         }>;
     }>>;
     /**

@@ -18,9 +18,6 @@ export declare class AuthService {
     }): CancelablePromise<{
         maxOwnedStores: number;
         role: _36_Enums_UserRole;
-        email: string;
-        name: string;
-        id: string;
         FulfillmentUser: Array<{
             FulfillmentAgency: {
                 timezone: PrismaJson_Timezone;
@@ -37,6 +34,9 @@ export declare class AuthService {
                 id: number;
             };
         }>;
+        email: string;
+        name: string;
+        id: string;
     }>;
     /**
      * @returns any Ok

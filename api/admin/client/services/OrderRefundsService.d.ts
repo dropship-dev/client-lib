@@ -71,10 +71,6 @@ export declare class OrderRefundsService {
                     id: number;
                 });
                 ProductVariant: ({
-                    Product: {
-                        name: string;
-                        id: number;
-                    };
                     PlatformVariant: {
                         groupPlatformVariantId: number;
                         cost: PrismaJson_PlatformCostInfo;
@@ -90,6 +86,10 @@ export declare class OrderRefundsService {
                         name: string;
                         updatedAt: string;
                         createdAt: string;
+                        id: number;
+                    };
+                    Product: {
+                        name: string;
                         id: number;
                     };
                 } & {
@@ -208,6 +208,7 @@ export declare class OrderRefundsService {
             gatewayOrderId: string;
             supplierCost: number;
             lastBalance: number;
+            discount: number;
             discountShippingFee: number;
             noItems: number;
             tax: number;
@@ -237,7 +238,6 @@ export declare class OrderRefundsService {
             createdAt: string;
             storeId: string;
             id: string;
-            discount: number;
         });
     }>;
 }

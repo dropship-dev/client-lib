@@ -196,6 +196,7 @@ export declare class OrderService {
         gatewayOrderId: string;
         supplierCost: number;
         lastBalance: number;
+        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
@@ -225,20 +226,6 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: string;
-        discount: number;
-        FraudDetection: Array<{
-            labels: PrismaJson_TypeOfFraudService;
-            idempotencyKey: string;
-            orderId: string;
-            systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-            humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-            type: _36_Enums_FraudDetectionType;
-            updatedAt: string;
-            createdAt: string;
-            isDeleted: boolean;
-            storeId: string;
-            id: string;
-        }>;
         OrderRefund: Array<{
             historyRefundOrder: PrismaJson_RefundOrderItems;
             paymentGateId: number;
@@ -275,10 +262,6 @@ export declare class OrderService {
                 id: number;
             });
             ProductVariant: ({
-                Product: {
-                    name: string;
-                    id: number;
-                };
                 PlatformVariant: {
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
@@ -294,6 +277,10 @@ export declare class OrderService {
                     name: string;
                     updatedAt: string;
                     createdAt: string;
+                    id: number;
+                };
+                Product: {
+                    name: string;
                     id: number;
                 };
             } & {
@@ -337,6 +324,19 @@ export declare class OrderService {
             createdAt: string;
             id: string;
         })>;
+        FraudDetection: Array<{
+            labels: PrismaJson_TypeOfFraudService;
+            idempotencyKey: string;
+            orderId: string;
+            systemFraudDetect: _36_Enums_FraudDetectionStatusType;
+            humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+            type: _36_Enums_FraudDetectionType;
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            storeId: string;
+            id: string;
+        }>;
         Transaction: Array<{
             isRollback: boolean;
             refundIdGateway: string;
@@ -361,11 +361,6 @@ export declare class OrderService {
         }>;
         fraudStatus: FraudStatusType;
         Store: {
-            primaryDomain: string;
-            avatar: string;
-            email: string;
-            name: string;
-            id: string;
             FraudDetection: Array<{
                 labels: PrismaJson_TypeOfFraudService;
                 idempotencyKey: string;
@@ -379,6 +374,11 @@ export declare class OrderService {
                 storeId: string;
                 id: string;
             }>;
+            primaryDomain: string;
+            avatar: string;
+            email: string;
+            name: string;
+            id: string;
             fraudStatus: FraudStatusType;
         };
         Payment: {
@@ -433,6 +433,32 @@ export declare class OrderService {
             storeId: string;
             id: string;
         }>;
+        StoreUser: Array<{
+            isOwner: boolean;
+            userId: string;
+            role: _36_Enums_StoreRole;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+        }>;
+        Payment: Array<{
+            environment: _36_Enums_EnvironmentType;
+            UIVersion: number;
+            publishableKey: string;
+            isShowCompanyAddress: boolean;
+            companyAddress: string;
+            companyPhone: string;
+            companyName: string;
+            merchantId: string;
+            type: _36_Enums_PaymentType;
+            email: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+        }>;
         Wallet: Array<{
             updatedAt: string;
             createdAt: string;
@@ -462,32 +488,6 @@ export declare class OrderService {
             createdAt: string;
             id: number;
         };
-        Payment: Array<{
-            environment: _36_Enums_EnvironmentType;
-            UIVersion: number;
-            publishableKey: string;
-            isShowCompanyAddress: boolean;
-            companyAddress: string;
-            companyPhone: string;
-            companyName: string;
-            merchantId: string;
-            type: _36_Enums_PaymentType;
-            email: string;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: number;
-        }>;
-        StoreUser: Array<{
-            isOwner: boolean;
-            userId: string;
-            role: _36_Enums_StoreRole;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: number;
-        }>;
         fraudStatus: FraudStatusType;
     })>;
     /**
@@ -535,10 +535,6 @@ export declare class OrderService {
                 id: number;
             });
             ProductVariant: ({
-                Product: {
-                    name: string;
-                    id: number;
-                };
                 PlatformVariant: {
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
@@ -554,6 +550,10 @@ export declare class OrderService {
                     name: string;
                     updatedAt: string;
                     createdAt: string;
+                    id: number;
+                };
+                Product: {
+                    name: string;
                     id: number;
                 };
             } & {
@@ -672,6 +672,7 @@ export declare class OrderService {
         gatewayOrderId: string;
         supplierCost: number;
         lastBalance: number;
+        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
@@ -701,6 +702,5 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: string;
-        discount: number;
     })>;
 }
