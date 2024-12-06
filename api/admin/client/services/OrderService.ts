@@ -370,7 +370,6 @@ export class OrderService {
     discountShippingFee: number;
     noItems: number;
     tax: number;
-    platformFee: number;
     profitFulfillAdmin: number;
     profit: number;
     subTotal: number;
@@ -388,6 +387,7 @@ export class OrderService {
     country: string;
     zipCode: string;
     city: string;
+    platformFee: number;
     status: _36_Enums_OrderStatus;
     phone: string;
     email: string;
@@ -621,6 +621,7 @@ export class OrderService {
     }>;
     FulfillmentAgency: {
       timezone: PrismaJson_Timezone;
+      platformFee: number;
       type: _36_Enums_FulfillmentAgencyType;
       costCalculationMethod: _36_Enums_CostCalculationMethod;
       executionTime: string;
@@ -863,7 +864,6 @@ export class OrderService {
     discountShippingFee: number;
     noItems: number;
     tax: number;
-    platformFee: number;
     profitFulfillAdmin: number;
     profit: number;
     subTotal: number;
@@ -881,6 +881,7 @@ export class OrderService {
     country: string;
     zipCode: string;
     city: string;
+    platformFee: number;
     status: _36_Enums_OrderStatus;
     phone: string;
     email: string;

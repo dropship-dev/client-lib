@@ -54,6 +54,7 @@ export class UserService {
     FulfillmentUser: Array<({
       FulfillmentAgency: {
         timezone: PrismaJson_Timezone;
+        platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         executionTime: string;
