@@ -29,7 +29,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   discountShippingFee: number;
   noItems: number;
   tax: number;
-  platformFee: number;
   profitFulfillAdmin: number;
   profit: number;
   subTotal: number;
@@ -47,6 +46,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   country: string;
   zipCode: string;
   city: string;
+  platformFee: number;
   status: _36_Enums_OrderStatus;
   phone: string;
   email: string;
