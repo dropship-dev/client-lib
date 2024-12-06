@@ -55,6 +55,10 @@ export declare class CollectionService {
         total: number;
         data: Array<({
             Product: Array<{
+                ProductVariant: Array<{
+                    compareAtPrice: number;
+                    price: number;
+                }>;
                 isEnable: boolean;
                 isActive: boolean;
                 permalink: string;
@@ -62,10 +66,6 @@ export declare class CollectionService {
                 photos: PrismaJson_Photos;
                 name: string;
                 id: number;
-                ProductVariant: Array<{
-                    compareAtPrice: number;
-                    price: number;
-                }>;
             }>;
         } & {
             SEO: any;

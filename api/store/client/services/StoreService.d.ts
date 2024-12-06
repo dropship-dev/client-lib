@@ -21,34 +21,6 @@ export declare class StoreService {
     getStoreActiveTheme({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
-        subDomain: string;
-        country: string;
-        zipCode: string;
-        city: string;
-        apartmentAddress: string;
-        address: string;
-        timezone: PrismaJson_Timezone;
-        phone: string;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: string;
-        Currency: {
-            isSupported: boolean;
-            rateToUSD: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: number;
-            symbol: string;
-        };
         CustomDomain: Array<{
             isPrimary: boolean;
             contactInfo: PrismaJson_DomainContactInfo;
@@ -66,7 +38,43 @@ export declare class StoreService {
             storeId: string;
             id: number;
         }>;
+        shippingPolicy: string;
+        termsOfService: string;
+        privacyPolicy: string;
+        refundPolicy: string;
+        subDomain: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        Currency: {
+            isSupported: boolean;
+            rateToUSD: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+            symbol: string;
+        };
+        timezone: PrismaJson_Timezone;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: string;
         Theme: ({
+            ThemeTemplate: {
+                link: string;
+                image: string;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            };
             ThemePage: Array<{
                 themeId: number;
                 themeLibraryId: number;
@@ -76,14 +84,6 @@ export declare class StoreService {
                 createdAt: string;
                 id: number;
             }>;
-            ThemeTemplate: {
-                image: string;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                id: number;
-                link: string;
-            };
         } & {
             themeTemplateId: number;
             isActivated: boolean;
@@ -94,13 +94,13 @@ export declare class StoreService {
             logoSize: _36_Enums_LogoSize;
             logo: string;
             nodes: PrismaJson_ThemeNodes;
+            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
             name: string;
             updatedAt: string;
             createdAt: string;
             storeId: string;
             id: number;
-            setting: PrismaJson_ThemeSetting;
         });
         Payment: Array<{
             salt: string;
@@ -164,7 +164,6 @@ export declare class StoreService {
         email: string;
         orderId?: string;
     }): CancelablePromise<Array<{
-        id: string;
         OrderItem: Array<{
             carrier: string;
             tracking: string;
@@ -183,6 +182,7 @@ export declare class StoreService {
                 id: number;
             };
         }>;
+        id: string;
     }>>;
     /**
      * @returns any Ok

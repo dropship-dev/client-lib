@@ -90,6 +90,15 @@ export declare class MarketingEmailService {
         storeId: string;
         orderTrackingId: number;
     }): CancelablePromise<{
+        EmailTrackings: Array<{
+            AbandonmentReminder: {
+                AbandonmentSettings: {
+                    subjectLine: string;
+                };
+            };
+            action: _36_Enums_EmailTrackingAction;
+            createdAt: string;
+        }>;
         emailStatus: _36_Enums_OrderTrackingEmailStatus;
         recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
         phoneNumber: string;
@@ -102,15 +111,6 @@ export declare class MarketingEmailService {
         email: string;
         createdAt: string;
         id: number;
-        EmailTrackings: Array<{
-            AbandonmentReminder: {
-                AbandonmentSettings: {
-                    subjectLine: string;
-                };
-            };
-            action: _36_Enums_EmailTrackingAction;
-            createdAt: string;
-        }>;
         checkoutDetail: Array<{
             comboVariantName?: string;
             productVariantName?: string;

@@ -109,11 +109,6 @@ export declare class OrderService {
         storeId: string;
         orderId: string;
     }): CancelablePromise<({
-        FraudDetection: Array<{
-            labels: PrismaJson_TypeOfFraudService;
-            systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-            humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-        }>;
         OrderRefund: Array<{
             historyRefundOrder: PrismaJson_RefundOrderItems;
             paymentGateId: number;
@@ -190,6 +185,17 @@ export declare class OrderService {
             createdAt: string;
             id: string;
         })>;
+        FraudDetection: Array<{
+            labels: PrismaJson_TypeOfFraudService;
+            systemFraudDetect: _36_Enums_FraudDetectionStatusType;
+            humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+        }>;
+        Payment: {
+            type: _36_Enums_PaymentType;
+            email: string;
+            name: string;
+            id: number;
+        };
         Transaction: Array<{
             isRollback: boolean;
             refundIdGateway: string;
@@ -212,12 +218,6 @@ export declare class OrderService {
             storeId: string;
             id: number;
         }>;
-        Payment: {
-            type: _36_Enums_PaymentType;
-            email: string;
-            name: string;
-            id: number;
-        };
         Store: {
             primaryDomain: string;
             avatar: string;
@@ -244,6 +244,7 @@ export declare class OrderService {
         gatewayOrderId: string;
         supplierCost: number;
         lastBalance: number;
+        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
@@ -273,7 +274,6 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: string;
-        discount: number;
     })>;
     /**
      * @returns UpdateFulFillmentStatusResp Ok
@@ -328,10 +328,6 @@ export declare class OrderService {
                 id: number;
             });
             ProductVariant: ({
-                Product: {
-                    name: string;
-                    id: number;
-                };
                 PlatformVariant: {
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
@@ -347,6 +343,10 @@ export declare class OrderService {
                     name: string;
                     updatedAt: string;
                     createdAt: string;
+                    id: number;
+                };
+                Product: {
+                    name: string;
                     id: number;
                 };
             } & {
@@ -465,6 +465,7 @@ export declare class OrderService {
         gatewayOrderId: string;
         supplierCost: number;
         lastBalance: number;
+        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
@@ -494,6 +495,5 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: string;
-        discount: number;
     })>;
 }

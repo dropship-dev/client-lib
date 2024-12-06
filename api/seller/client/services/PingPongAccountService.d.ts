@@ -18,12 +18,12 @@ export declare class PingPongAccountService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
         email: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
-        currency: _36_Enums_CurrencyType;
     }>;
     /**
      * @returns any Ok
@@ -36,12 +36,12 @@ export declare class PingPongAccountService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
         email: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
-        currency: _36_Enums_CurrencyType;
     }>>;
     /**
      * @returns any Ok
@@ -55,12 +55,12 @@ export declare class PingPongAccountService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
         email: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
-        currency: _36_Enums_CurrencyType;
     }>;
     /**
      * @returns string Ok

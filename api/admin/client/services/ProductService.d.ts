@@ -242,10 +242,6 @@ export declare class ProductService {
             id: number;
         })>;
         ProductVariant: Array<({
-            Product: {
-                platformProductId: number;
-                name: string;
-            };
             PlatformVariant: {
                 groupPlatformVariantId: number;
                 cost: PrismaJson_PlatformCostInfo;
@@ -262,6 +258,10 @@ export declare class ProductService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+            };
+            Product: {
+                platformProductId: number;
+                name: string;
             };
         } & {
             podDesignVariantId: number;
@@ -295,29 +295,6 @@ export declare class ProductService {
             createdAt: string;
             id: number;
         }>;
-        GoogleTagManager: Array<{
-            tag: string;
-        }>;
-        GoogleAnalytic: Array<{
-            measurementId: string;
-        }>;
-        TiktokPixel: Array<{
-            pixelId: string;
-        }>;
-        FbPixel: Array<{
-            pixelId: string;
-        }>;
-        Tag: Array<{
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: number;
-        }>;
-        PlatformProduct: {
-            variantOption: PrismaJson_VariantOptions;
-            id: number;
-        };
         BoostSale: Array<({
             Product: Array<({
                 ProductVariant: Array<({
@@ -428,6 +405,7 @@ export declare class ProductService {
             placement: PrismaJson_PlacementBoostSaleType;
             endDate: string;
             startDate: string;
+            discount: PrismaJson_DiscountBoostSale;
             type: _36_Enums_BoostSaleType;
             status: boolean;
             name: string;
@@ -435,8 +413,26 @@ export declare class ProductService {
             createdAt: string;
             storeId: string;
             id: number;
-            discount: PrismaJson_DiscountBoostSale;
         })>;
+        GoogleTagManager: Array<{
+            tag: string;
+        }>;
+        GoogleAnalytic: Array<{
+            measurementId: string;
+        }>;
+        TiktokPixel: Array<{
+            pixelId: string;
+        }>;
+        FbPixel: Array<{
+            pixelId: string;
+        }>;
+        Tag: Array<{
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+        }>;
         Collection: Array<({
             BoostSale: Array<({
                 Product: Array<({
@@ -548,6 +544,7 @@ export declare class ProductService {
                 placement: PrismaJson_PlacementBoostSaleType;
                 endDate: string;
                 startDate: string;
+                discount: PrismaJson_DiscountBoostSale;
                 type: _36_Enums_BoostSaleType;
                 status: boolean;
                 name: string;
@@ -555,7 +552,6 @@ export declare class ProductService {
                 createdAt: string;
                 storeId: string;
                 id: number;
-                discount: PrismaJson_DiscountBoostSale;
             })>;
         } & {
             SEO: any;
@@ -570,6 +566,10 @@ export declare class ProductService {
             storeId: string;
             id: number;
         })>;
+        PlatformProduct: {
+            variantOption: PrismaJson_VariantOptions;
+            id: number;
+        };
     }>;
     /**
      * @returns any Ok
@@ -647,10 +647,6 @@ export declare class ProductService {
             id: number;
         })>;
         ProductVariant: Array<({
-            Product: {
-                platformProductId: number;
-                name: string;
-            };
             PlatformVariant: {
                 groupPlatformVariantId: number;
                 cost: PrismaJson_PlatformCostInfo;
@@ -667,6 +663,10 @@ export declare class ProductService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+            };
+            Product: {
+                platformProductId: number;
+                name: string;
             };
         } & {
             podDesignVariantId: number;
@@ -741,12 +741,12 @@ export declare class ProductService {
         storeId: string;
         boostSaleIds: Array<number>;
     }): CancelablePromise<Array<{
-        status: boolean;
-        id: number;
+        discount: PrismaJson_DiscountBoostSale;
         Product: Array<{
             id: number;
         }>;
-        discount: PrismaJson_DiscountBoostSale;
+        status: boolean;
+        id: number;
     }>>;
     /**
      * @returns any Ok

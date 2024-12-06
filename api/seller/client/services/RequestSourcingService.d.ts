@@ -84,6 +84,7 @@ export declare class RequestSourcingService {
             productId: number;
             platformProductId: number;
             description: string;
+            link: string;
             photos: PrismaJson_Photos;
             status: _36_Enums_RequestSourcingStatus;
             name: string;
@@ -92,7 +93,6 @@ export declare class RequestSourcingService {
             isDeleted: boolean;
             storeId: string;
             id: number;
-            link: string;
         })>;
     }>;
     /**
@@ -147,6 +147,7 @@ export declare class RequestSourcingService {
         productId: number;
         platformProductId: number;
         description: string;
+        link: string;
         photos: PrismaJson_Photos;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
@@ -155,7 +156,6 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
-        link: string;
     })>;
     /**
      * @returns any Ok
@@ -174,6 +174,7 @@ export declare class RequestSourcingService {
         productId: number;
         platformProductId: number;
         description: string;
+        link: string;
         photos: PrismaJson_Photos;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
@@ -182,7 +183,6 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
-        link: string;
     }>;
     /**
      * @returns any Ok
@@ -200,6 +200,7 @@ export declare class RequestSourcingService {
         productId: number;
         platformProductId: number;
         description: string;
+        link: string;
         photos: PrismaJson_Photos;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
@@ -208,7 +209,6 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
-        link: string;
     }>;
     /**
      * @returns any Ok
@@ -228,6 +228,7 @@ export declare class RequestSourcingService {
         productId: number;
         platformProductId: number;
         description: string;
+        link: string;
         photos: PrismaJson_Photos;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
@@ -236,7 +237,6 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
-        link: string;
     }>;
     /**
      * @returns any Ok
@@ -256,6 +256,7 @@ export declare class RequestSourcingService {
         productId: number;
         platformProductId: number;
         description: string;
+        link: string;
         photos: PrismaJson_Photos;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
@@ -264,6 +265,5 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
-        link: string;
     }>;
 }

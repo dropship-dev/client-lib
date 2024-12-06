@@ -30,13 +30,13 @@ export declare class ThemeLibraryService {
         total: number;
         data: Array<{
             nodes: PrismaJson_ThemeNodes;
+            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
             image: string;
             name: string;
             updatedAt: string;
             createdAt: string;
             id: number;
-            setting: PrismaJson_ThemeSetting;
         }>;
     }>;
     /**
@@ -57,13 +57,13 @@ export declare class ThemeLibraryService {
         }>;
     } & {
         nodes: PrismaJson_ThemeNodes;
+        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         image: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
-        setting: PrismaJson_ThemeSetting;
     })>;
     /**
      * @returns any Ok
@@ -74,13 +74,13 @@ export declare class ThemeLibraryService {
         requestBody: UpdateThemeLibraryDto;
     }): CancelablePromise<{
         nodes: PrismaJson_ThemeNodes;
+        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         image: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
-        setting: PrismaJson_ThemeSetting;
     }>;
     /**
      * @returns any Ok
@@ -90,12 +90,12 @@ export declare class ThemeLibraryService {
         id: number;
     }): CancelablePromise<{
         nodes: PrismaJson_ThemeNodes;
+        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         image: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
-        setting: PrismaJson_ThemeSetting;
     }>;
 }

@@ -35,6 +35,7 @@ export declare class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -42,7 +43,6 @@ export declare class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
     }>;
     /**
      * @returns any Ok
@@ -130,6 +130,7 @@ export declare class BoostSalesService {
             placement: PrismaJson_PlacementBoostSaleType;
             endDate: string;
             startDate: string;
+            discount: PrismaJson_DiscountBoostSale;
             type: _36_Enums_BoostSaleType;
             status: boolean;
             name: string;
@@ -137,7 +138,6 @@ export declare class BoostSalesService {
             createdAt: string;
             storeId: string;
             id: number;
-            discount: PrismaJson_DiscountBoostSale;
         })>;
     }>;
     /**
@@ -148,18 +148,18 @@ export declare class BoostSalesService {
         storeId: string;
         placement: PlacementBoostSaleEnum;
     }): CancelablePromise<{
-        id: number;
         Product: Array<{
-            permalink: string;
-            photos: PrismaJson_Photos;
-            name: string;
             ProductVariant: Array<{
                 compareAtPrice: number;
                 price: number;
                 isEnable: boolean;
                 isActive: boolean;
             }>;
+            permalink: string;
+            photos: PrismaJson_Photos;
+            name: string;
         }>;
+        id: number;
     }>;
     /**
      * @returns any Ok
@@ -169,7 +169,6 @@ export declare class BoostSalesService {
         storeId: string;
         permalink: string;
     }): CancelablePromise<{
-        id: number;
         BoostSale: Array<({
             Product: Array<({
                 ProductVariant: Array<({
@@ -280,6 +279,7 @@ export declare class BoostSalesService {
             placement: PrismaJson_PlacementBoostSaleType;
             endDate: string;
             startDate: string;
+            discount: PrismaJson_DiscountBoostSale;
             type: _36_Enums_BoostSaleType;
             status: boolean;
             name: string;
@@ -287,7 +287,6 @@ export declare class BoostSalesService {
             createdAt: string;
             storeId: string;
             id: number;
-            discount: PrismaJson_DiscountBoostSale;
         })>;
         Collection: Array<({
             BoostSale: Array<({
@@ -400,6 +399,7 @@ export declare class BoostSalesService {
                 placement: PrismaJson_PlacementBoostSaleType;
                 endDate: string;
                 startDate: string;
+                discount: PrismaJson_DiscountBoostSale;
                 type: _36_Enums_BoostSaleType;
                 status: boolean;
                 name: string;
@@ -407,7 +407,6 @@ export declare class BoostSalesService {
                 createdAt: string;
                 storeId: string;
                 id: number;
-                discount: PrismaJson_DiscountBoostSale;
             })>;
         } & {
             SEO: any;
@@ -422,6 +421,7 @@ export declare class BoostSalesService {
             storeId: string;
             id: number;
         })>;
+        id: number;
     }>;
     /**
      * @returns any Ok
@@ -477,27 +477,27 @@ export declare class BoostSalesService {
             id: number;
         });
         Product: Array<{
+            ProductVariant: Array<{
+                compareAtPrice: number;
+                price: number;
+            }>;
             isEnable: boolean;
             isActive: boolean;
             photos: PrismaJson_Photos;
             name: string;
             id: number;
-            ProductVariant: Array<{
-                compareAtPrice: number;
-                price: number;
-            }>;
         }>;
         Collection: Array<({
             Product: Array<{
+                ProductVariant: Array<{
+                    compareAtPrice: number;
+                    price: number;
+                }>;
                 isEnable: boolean;
                 isActive: boolean;
                 photos: PrismaJson_Photos;
                 name: string;
                 id: number;
-                ProductVariant: Array<{
-                    compareAtPrice: number;
-                    price: number;
-                }>;
             }>;
         } & {
             SEO: any;
@@ -519,6 +519,7 @@ export declare class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -526,7 +527,6 @@ export declare class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
     })>;
     /**
      * @returns string Ok
@@ -551,6 +551,7 @@ export declare class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -558,7 +559,6 @@ export declare class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
     }>;
     /**
      * @returns void

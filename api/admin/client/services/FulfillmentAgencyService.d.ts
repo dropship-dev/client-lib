@@ -140,10 +140,10 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<Array<{
         name: string;
-        id: string;
         Wallet: Array<{
             balanceDebt: number;
             id: string;
         }>;
+        id: string;
     }>>;
 }

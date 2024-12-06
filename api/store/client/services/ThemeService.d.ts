@@ -35,13 +35,13 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
+        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
-        setting: PrismaJson_ThemeSetting;
     })>;
     /**
      * @returns any Ok
@@ -60,13 +60,13 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
+        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
-        setting: PrismaJson_ThemeSetting;
     } & {
         ThemePage: {
             themeId: number;
