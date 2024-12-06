@@ -116,6 +116,7 @@ export class RequestSourcingService {
       productId: number;
       platformProductId: number;
       description: string;
+      link: string;
       photos: PrismaJson_Photos;
       status: _36_Enums_RequestSourcingStatus;
       name: string;
@@ -124,7 +125,6 @@ export class RequestSourcingService {
       isDeleted: boolean;
       storeId: string;
       id: number;
-      link: string;
     })>;
   }> {
     return this.httpRequest.request({
@@ -205,6 +205,7 @@ export class RequestSourcingService {
     productId: number;
     platformProductId: number;
     description: string;
+    link: string;
     photos: PrismaJson_Photos;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
@@ -213,7 +214,6 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
-    link: string;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -255,6 +255,7 @@ export class RequestSourcingService {
     productId: number;
     platformProductId: number;
     description: string;
+    link: string;
     photos: PrismaJson_Photos;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
@@ -263,7 +264,6 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
-    link: string;
   }> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -304,6 +304,7 @@ export class RequestSourcingService {
     productId: number;
     platformProductId: number;
     description: string;
+    link: string;
     photos: PrismaJson_Photos;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
@@ -312,7 +313,6 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
-    link: string;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',
@@ -355,6 +355,7 @@ export class RequestSourcingService {
     productId: number;
     platformProductId: number;
     description: string;
+    link: string;
     photos: PrismaJson_Photos;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
@@ -363,7 +364,6 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
-    link: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -409,6 +409,7 @@ export class RequestSourcingService {
     productId: number;
     platformProductId: number;
     description: string;
+    link: string;
     photos: PrismaJson_Photos;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
@@ -417,7 +418,6 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
-    link: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',

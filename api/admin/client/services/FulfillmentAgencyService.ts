@@ -222,11 +222,11 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<Array<{
     name: string;
-    id: string;
     Wallet: Array<{
       balanceDebt: number;
       id: string;
     }>;
+    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',

@@ -14,6 +14,7 @@ export type DefaultSelection_Prisma__36_RequestSourcingPayload_ = {
   productId: number;
   platformProductId: number;
   description: string;
+  link: string;
   photos: PrismaJson_Photos;
   status: _36_Enums_RequestSourcingStatus;
   name: string;
@@ -22,6 +23,5 @@ export type DefaultSelection_Prisma__36_RequestSourcingPayload_ = {
   isDeleted: boolean;
   storeId: string;
   id: number;
-  link: string;
 };
 

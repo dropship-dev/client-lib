@@ -9,12 +9,12 @@ export type DefaultSelection_Prisma__36_BankAccountPayload_ = {
   isBlock: boolean;
   isDefault: boolean;
   bank: PrismaJson_bankInfo;
+  currency: _36_Enums_CurrencyType;
   accountHolder: string;
   accountNumber: string;
   updatedAt: string;
   createdAt: string;
   isDeleted: boolean;
   id: string;
-  currency: _36_Enums_CurrencyType;
 };
 

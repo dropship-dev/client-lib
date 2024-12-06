@@ -27,13 +27,13 @@ export class BankAccountService {
     isBlock: boolean;
     isDefault: boolean;
     bank: PrismaJson_bankInfo;
+    currency: _36_Enums_CurrencyType;
     accountHolder: string;
     accountNumber: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
-    currency: _36_Enums_CurrencyType;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -68,13 +68,13 @@ export class BankAccountService {
     isBlock: boolean;
     isDefault: boolean;
     bank: PrismaJson_bankInfo;
+    currency: _36_Enums_CurrencyType;
     accountHolder: string;
     accountNumber: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
-    currency: _36_Enums_CurrencyType;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -109,13 +109,13 @@ export class BankAccountService {
     isBlock: boolean;
     isDefault: boolean;
     bank: PrismaJson_bankInfo;
+    currency: _36_Enums_CurrencyType;
     accountHolder: string;
     accountNumber: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
-    currency: _36_Enums_CurrencyType;
   }> {
     return this.httpRequest.request({
       method: 'GET',

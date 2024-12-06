@@ -92,12 +92,12 @@ export class MarketingService {
     userId: string,
   }): CancelablePromise<Array<{
     emailId: string;
-    status: _36_Enums_StoreEmailLogStatus;
-    createdAt: string;
-    id: number;
     EmailMarketingTemplate: {
       name: string;
     };
+    status: _36_Enums_StoreEmailLogStatus;
+    createdAt: string;
+    id: number;
   }>> {
     return this.httpRequest.request({
       method: 'GET',

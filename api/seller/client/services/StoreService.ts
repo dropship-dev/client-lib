@@ -116,18 +116,6 @@ export class StoreService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      referralCode: string;
-      primaryDomain: string;
-      subDomain: string;
-      avatar: string;
-      timezone: PrismaJson_Timezone;
-      status: _36_Enums_StoreStatus;
-      phone: string;
-      email: string;
-      name: string;
-      createdAt: string;
-      fulfillmentAgencyId: number;
-      id: string;
       FraudDetection: Array<{
         labels: PrismaJson_TypeOfFraudService;
         idempotencyKey: string;
@@ -141,6 +129,23 @@ export class StoreService {
         storeId: string;
         id: string;
       }>;
+      StoreUser: Array<{
+        role: _36_Enums_StoreRole;
+      }>;
+      referralCode: string;
+      primaryDomain: string;
+      subDomain: string;
+      avatar: string;
+      Payment: Array<{
+        type: _36_Enums_PaymentType;
+        name: string;
+        id: number;
+      }>;
+      timezone: PrismaJson_Timezone;
+      status: _36_Enums_StoreStatus;
+      phone: string;
+      email: string;
+      name: string;
       Wallet: Array<{
         updatedAt: string;
         createdAt: string;
@@ -159,14 +164,9 @@ export class StoreService {
       FulfillmentAgency: {
         costCalculationMethod: _36_Enums_CostCalculationMethod;
       };
-      Payment: Array<{
-        type: _36_Enums_PaymentType;
-        name: string;
-        id: number;
-      }>;
-      StoreUser: Array<{
-        role: _36_Enums_StoreRole;
-      }>;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: string;
       userRole: _36_Enums_StoreRole;
       fraudStatus: FraudStatusType;
     }>;

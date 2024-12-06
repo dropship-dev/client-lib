@@ -31,7 +31,6 @@ export class BoostSalesService {
     storeId: string,
     permalink: string,
   }): CancelablePromise<{
-    id: number;
     BoostSale: Array<({
       Product: Array<({
         ProductVariant: Array<({
@@ -142,6 +141,7 @@ export class BoostSalesService {
       placement: PrismaJson_PlacementBoostSaleType;
       endDate: string;
       startDate: string;
+      discount: PrismaJson_DiscountBoostSale;
       type: _36_Enums_BoostSaleType;
       status: boolean;
       name: string;
@@ -149,7 +149,6 @@ export class BoostSalesService {
       createdAt: string;
       storeId: string;
       id: number;
-      discount: PrismaJson_DiscountBoostSale;
     })>;
     Collection: Array<({
       BoostSale: Array<({
@@ -262,6 +261,7 @@ export class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
+        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -269,7 +269,6 @@ export class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
-        discount: PrismaJson_DiscountBoostSale;
       })>;
     } & {
       SEO: any;
@@ -284,6 +283,7 @@ export class BoostSalesService {
       storeId: string;
       id: number;
     })>;
+    id: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',

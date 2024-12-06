@@ -160,11 +160,6 @@ export class OrderService {
     storeId: string,
     orderId: string,
   }): CancelablePromise<({
-    FraudDetection: Array<{
-      labels: PrismaJson_TypeOfFraudService;
-      systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-      humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-    }>;
     OrderRefund: Array<{
       historyRefundOrder: PrismaJson_RefundOrderItems;
       paymentGateId: number;
@@ -241,6 +236,17 @@ export class OrderService {
       createdAt: string;
       id: string;
     })>;
+    FraudDetection: Array<{
+      labels: PrismaJson_TypeOfFraudService;
+      systemFraudDetect: _36_Enums_FraudDetectionStatusType;
+      humanFraudDetect: _36_Enums_FraudDetectionStatusType;
+    }>;
+    Payment: {
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      id: number;
+    };
     Transaction: Array<{
       isRollback: boolean;
       refundIdGateway: string;
@@ -263,12 +269,6 @@ export class OrderService {
       storeId: string;
       id: number;
     }>;
-    Payment: {
-      type: _36_Enums_PaymentType;
-      email: string;
-      name: string;
-      id: number;
-    };
     Store: {
       primaryDomain: string;
       avatar: string;
@@ -295,6 +295,7 @@ export class OrderService {
     gatewayOrderId: string;
     supplierCost: number;
     lastBalance: number;
+    discount: number;
     discountShippingFee: number;
     noItems: number;
     tax: number;
@@ -324,7 +325,6 @@ export class OrderService {
     createdAt: string;
     storeId: string;
     id: string;
-    discount: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -419,10 +419,6 @@ export class OrderService {
         id: number;
       });
       ProductVariant: ({
-        Product: {
-          name: string;
-          id: number;
-        };
         PlatformVariant: {
           groupPlatformVariantId: number;
           cost: PrismaJson_PlatformCostInfo;
@@ -438,6 +434,10 @@ export class OrderService {
           name: string;
           updatedAt: string;
           createdAt: string;
+          id: number;
+        };
+        Product: {
+          name: string;
           id: number;
         };
       } & {
@@ -556,6 +556,7 @@ export class OrderService {
     gatewayOrderId: string;
     supplierCost: number;
     lastBalance: number;
+    discount: number;
     discountShippingFee: number;
     noItems: number;
     tax: number;
@@ -585,7 +586,6 @@ export class OrderService {
     createdAt: string;
     storeId: string;
     id: string;
-    discount: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
