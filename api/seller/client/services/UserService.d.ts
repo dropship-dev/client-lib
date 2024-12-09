@@ -4,29 +4,20 @@ import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_Fulf
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { ChangeUserPasswordDto } from '../models/ChangeUserPasswordDto';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentUser } from '../models/FulfillmentUser';
 import type { PrismaJson_FirebaseDeviceToken } from '../models/PrismaJson_FirebaseDeviceToken';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { ResponseGetUser } from '../models/ResponseGetUser';
 import type { UpdateUserDto } from '../models/UpdateUserDto';
-import type { User } from '../models/User';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class UserService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ResponseGetUser Ok
      * @throws ApiError
      */
-    getUser(): CancelablePromise<(User & {
-        FulfillmentUser: Array<(FulfillmentUser & {
-            FulfillmentAgency: (FulfillmentAgency & {
-                Wallet: Array<Wallet>;
-            });
-        })>;
-    })>;
+    getUser(): CancelablePromise<ResponseGetUser>;
     /**
      * @returns any Ok
      * @throws ApiError

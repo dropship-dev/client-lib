@@ -7,7 +7,7 @@ class UserService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
+     * @returns ResponseGetUser Ok
      * @throws ApiError
      */
     getUser() {

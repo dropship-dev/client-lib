@@ -1,6 +1,8 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -36,6 +38,20 @@ export declare class FulfillmentAgencyService {
             updatedAt: string;
             createdAt: string;
             id: number;
+            PaymentOnboarding: Array<{
+                paypalPartnerReferralId: string;
+                onboardingStatus: _36_Enums_OnboardingStatus;
+                onboardingUrl: string;
+                onboardingId: string;
+                merchantEmail: string;
+                merchantId: string;
+                paymentType: _36_Enums_PaymentType;
+                updatedAt: string;
+                createdAt: string;
+                storeId: string;
+                fulfillmentAgencyId: number;
+                id: number;
+            }>;
             Wallet: Array<{
                 updatedAt: string;
                 createdAt: string;
@@ -62,6 +78,20 @@ export declare class FulfillmentAgencyService {
     getFulfillmentAgency({ id, }: {
         id: number;
     }): CancelablePromise<({
+        PaymentOnboarding: Array<{
+            paypalPartnerReferralId: string;
+            onboardingStatus: _36_Enums_OnboardingStatus;
+            onboardingUrl: string;
+            onboardingId: string;
+            merchantEmail: string;
+            merchantId: string;
+            paymentType: _36_Enums_PaymentType;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            fulfillmentAgencyId: number;
+            id: number;
+        }>;
         Wallet: Array<{
             updatedAt: string;
             createdAt: string;
@@ -130,6 +160,27 @@ export declare class FulfillmentAgencyService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyJoinPlatform({ id, paymentType, }: {
+        id: number;
+        paymentType: _36_Enums_PaymentType;
+    }): CancelablePromise<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
         id: number;
     }>;
     /**

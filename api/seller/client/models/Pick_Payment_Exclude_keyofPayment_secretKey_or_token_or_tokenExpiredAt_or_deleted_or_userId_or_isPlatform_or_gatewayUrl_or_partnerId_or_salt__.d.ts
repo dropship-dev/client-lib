@@ -11,12 +11,12 @@ export type Pick_Payment_Exclude_keyofPayment_secretKey_or_token_or_tokenExpired
     name: string;
     email: string;
     type: _36_Enums_PaymentType;
+    merchantId: string;
     companyName: string;
     companyPhone: string;
     companyAddress: string;
     isShowCompanyAddress: boolean;
     publishableKey: string;
-    merchantId: string;
     UIVersion: number;
     environment: _36_Enums_EnvironmentType;
 };

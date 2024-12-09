@@ -66,7 +66,6 @@ export declare class PaymentService {
         UIVersion: number;
         deleted: boolean;
         partnerId: string;
-        merchantId: string;
         gatewayUrl: string;
         tokenExpiredAt: string;
         token: string;
@@ -77,6 +76,7 @@ export declare class PaymentService {
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        merchantId: string;
         userId: string;
         type: _36_Enums_PaymentType;
         email: string;
@@ -114,6 +114,16 @@ export declare class PaymentService {
         updatedAt: string;
         createdAt: string;
         id: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllPaymentOnboarding({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<Array<{
+        merchantEmail: string;
+        paymentType: _36_Enums_PaymentType;
     }>>;
     /**
      * @returns any Ok
@@ -160,7 +170,6 @@ export declare class PaymentService {
         UIVersion: number;
         deleted: boolean;
         partnerId: string;
-        merchantId: string;
         gatewayUrl: string;
         tokenExpiredAt: string;
         token: string;
@@ -171,6 +180,7 @@ export declare class PaymentService {
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        merchantId: string;
         userId: string;
         type: _36_Enums_PaymentType;
         email: string;

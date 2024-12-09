@@ -445,12 +445,12 @@ export declare class OrderService {
         Payment: Array<{
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
-            merchantId: string;
             publishableKey: string;
             isShowCompanyAddress: boolean;
             companyAddress: string;
             companyPhone: string;
             companyName: string;
+            merchantId: string;
             type: _36_Enums_PaymentType;
             email: string;
             name: string;
