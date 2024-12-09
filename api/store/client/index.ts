@@ -31,6 +31,7 @@ export { _36_Enums_FulfillmentStatus } from './models/_36_Enums_FulfillmentStatu
 export { _36_Enums_LogoSize } from './models/_36_Enums_LogoSize';
 export { _36_Enums_MarketingType } from './models/_36_Enums_MarketingType';
 export { _36_Enums_NotificationType } from './models/_36_Enums_NotificationType';
+export { _36_Enums_OnboardingStatus } from './models/_36_Enums_OnboardingStatus';
 export { _36_Enums_OrderDisputeStatus } from './models/_36_Enums_OrderDisputeStatus';
 export { _36_Enums_OrderStatus } from './models/_36_Enums_OrderStatus';
 export { _36_Enums_OrderTrackingEmailStatus } from './models/_36_Enums_OrderTrackingEmailStatus';
@@ -157,6 +158,7 @@ export type { DefaultSelection_Prisma__36_NotificationPayload_ } from './models/
 export type { DefaultSelection_Prisma__36_OrderItemPayload_ } from './models/DefaultSelection_Prisma__36_OrderItemPayload_';
 export type { DefaultSelection_Prisma__36_OrderPayload_ } from './models/DefaultSelection_Prisma__36_OrderPayload_';
 export type { DefaultSelection_Prisma__36_OrderRefundPayload_ } from './models/DefaultSelection_Prisma__36_OrderRefundPayload_';
+export type { DefaultSelection_Prisma__36_PaymentOnboardingPayload_ } from './models/DefaultSelection_Prisma__36_PaymentOnboardingPayload_';
 export type { DefaultSelection_Prisma__36_PingPongAccountPayload_ } from './models/DefaultSelection_Prisma__36_PingPongAccountPayload_';
 export type { DefaultSelection_Prisma__36_PlatformProductPayload_ } from './models/DefaultSelection_Prisma__36_PlatformProductPayload_';
 export type { DefaultSelection_Prisma__36_PlatformVariantPayload_ } from './models/DefaultSelection_Prisma__36_PlatformVariantPayload_';
@@ -196,6 +198,7 @@ export type { FraudDetectionStatusType } from './models/FraudDetectionStatusType
 export { FraudStatusType } from './models/FraudStatusType';
 export type { FulfillmentAgency } from './models/FulfillmentAgency';
 export type { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
+export type { FulfillmentAgencyType } from './models/FulfillmentAgencyType';
 export type { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
@@ -252,6 +255,7 @@ export type { Partial_CreateSubscriptionFeatureDto_ } from './models/Partial_Cre
 export type { PaymentInfo } from './models/PaymentInfo';
 export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
 export type { PaymentMethodType } from './models/PaymentMethodType';
+export type { PaymentOnboarding } from './models/PaymentOnboarding';
 export type { PaymentType } from './models/PaymentType';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
@@ -317,6 +321,7 @@ export type { RequestPayoutStatus } from './models/RequestPayoutStatus';
 export type { RequestSourcing } from './models/RequestSourcing';
 export type { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { ResponseGetStoreByPingpong } from './models/ResponseGetStoreByPingpong';
+export type { ResponseGetUser } from './models/ResponseGetUser';
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
 export type { Review } from './models/Review';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';

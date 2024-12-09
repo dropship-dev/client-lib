@@ -146,7 +146,6 @@ export class PaymentService {
     UIVersion: number;
     deleted: boolean;
     partnerId: string;
-    merchantId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
@@ -157,6 +156,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    merchantId: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;
@@ -222,6 +222,33 @@ export class PaymentService {
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllPaymentOnboarding({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<Array<{
+    merchantEmail: string;
+    paymentType: _36_Enums_PaymentType;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/payment/onboarding',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -305,7 +332,6 @@ export class PaymentService {
     UIVersion: number;
     deleted: boolean;
     partnerId: string;
-    merchantId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
@@ -316,6 +342,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    merchantId: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;

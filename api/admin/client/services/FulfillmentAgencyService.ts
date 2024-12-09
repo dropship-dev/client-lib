@@ -5,6 +5,8 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -44,6 +46,20 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      PaymentOnboarding: Array<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
       Wallet: Array<{
         updatedAt: string;
         createdAt: string;
@@ -90,6 +106,20 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
   }): CancelablePromise<({
+    PaymentOnboarding: Array<{
+      paypalPartnerReferralId: string;
+      onboardingStatus: _36_Enums_OnboardingStatus;
+      onboardingUrl: string;
+      onboardingId: string;
+      merchantEmail: string;
+      merchantId: string;
+      paymentType: _36_Enums_PaymentType;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
     Wallet: Array<{
       updatedAt: string;
       createdAt: string;
@@ -206,6 +236,45 @@ export class FulfillmentAgencyService {
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public verifyJoinPlatform({
+    id,
+    paymentType,
+  }: {
+    id: number,
+    paymentType: _36_Enums_PaymentType,
+  }): CancelablePromise<{
+    paypalPartnerReferralId: string;
+    onboardingStatus: _36_Enums_OnboardingStatus;
+    onboardingUrl: string;
+    onboardingId: string;
+    merchantEmail: string;
+    merchantId: string;
+    paymentType: _36_Enums_PaymentType;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
+      path: {
+        'id': id,
+        'paymentType': paymentType,
+      },
+      errors: {
+        400: `Bad request`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,

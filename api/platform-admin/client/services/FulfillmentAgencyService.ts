@@ -3,8 +3,11 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
@@ -22,7 +25,34 @@ export class FulfillmentAgencyService {
     requestBody,
   }: {
     requestBody: CreateFulfillmentAgencyDto,
-  }): CancelablePromise<{
+  }): CancelablePromise<({
+    Payment: Array<{
+      salt: string;
+      environment: _36_Enums_EnvironmentType;
+      UIVersion: number;
+      deleted: boolean;
+      partnerId: string;
+      gatewayUrl: string;
+      tokenExpiredAt: string;
+      token: string;
+      secretKey: string;
+      publishableKey: string;
+      isPlatform: boolean;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      merchantId: string;
+      userId: string;
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
+  } & {
     timezone: PrismaJson_Timezone;
     platformFee: number;
     type: _36_Enums_FulfillmentAgencyType;
@@ -35,7 +65,7 @@ export class FulfillmentAgencyService {
     updatedAt: string;
     createdAt: string;
     id: number;
-  }> {
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/fulfillment-agency',
@@ -82,6 +112,20 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      PaymentOnboarding: Array<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+      }>;
       Wallet: Array<{
         updatedAt: string;
         createdAt: string;
@@ -128,6 +172,20 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
   }): CancelablePromise<({
+    PaymentOnboarding: Array<{
+      paypalPartnerReferralId: string;
+      onboardingStatus: _36_Enums_OnboardingStatus;
+      onboardingUrl: string;
+      onboardingId: string;
+      merchantEmail: string;
+      merchantId: string;
+      paymentType: _36_Enums_PaymentType;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    }>;
     Wallet: Array<{
       updatedAt: string;
       createdAt: string;
