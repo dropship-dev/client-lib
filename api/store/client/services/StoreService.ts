@@ -311,4 +311,54 @@ export class StoreService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getWarningStore({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    warning: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/warning',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public toggleWarningStore({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/store/{storeId}/warning',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
