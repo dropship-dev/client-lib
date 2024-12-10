@@ -113,6 +113,7 @@ export class RequestPayoutService {
       Store: {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
+        warning: boolean;
         currencyId: number;
         maxUsers: number;
         balance: number;

@@ -45,6 +45,7 @@ export class RequestSourcingService {
       Store: {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
+        warning: boolean;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -134,6 +135,7 @@ export class RequestSourcingService {
     Store: {
       stripeDefaultPaymentMethodId: string;
       stripeCustomerId: string;
+      warning: boolean;
       currencyId: number;
       maxUsers: number;
       balance: number;

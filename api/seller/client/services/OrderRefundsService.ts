@@ -166,6 +166,7 @@ export class OrderRefundsService {
       Store: {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
+        warning: boolean;
         currencyId: number;
         maxUsers: number;
         balance: number;

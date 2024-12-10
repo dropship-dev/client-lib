@@ -37,6 +37,7 @@ export class StoreService {
   }): CancelablePromise<{
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
+    warning: boolean;
     currencyId: number;
     maxUsers: number;
     balance: number;
@@ -245,6 +246,7 @@ export class StoreService {
   }): CancelablePromise<{
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
+    warning: boolean;
     currencyId: number;
     maxUsers: number;
     balance: number;
@@ -304,6 +306,7 @@ export class StoreService {
   }): CancelablePromise<{
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
+    warning: boolean;
     currencyId: number;
     maxUsers: number;
     balance: number;
@@ -363,6 +366,7 @@ export class StoreService {
   }): CancelablePromise<{
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
+    warning: boolean;
     currencyId: number;
     maxUsers: number;
     balance: number;

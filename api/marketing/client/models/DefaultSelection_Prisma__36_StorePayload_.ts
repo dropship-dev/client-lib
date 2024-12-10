@@ -8,6 +8,7 @@ import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 export type DefaultSelection_Prisma__36_StorePayload_ = {
   stripeDefaultPaymentMethodId: string;
   stripeCustomerId: string;
+  warning: boolean;
   currencyId: number;
   maxUsers: number;
   balance: number;
