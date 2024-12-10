@@ -312,4 +312,20 @@ export declare class StoreService {
     }): CancelablePromise<{
         balanceDebt: number;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getWarningStore({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        warning: boolean;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    toggleWarningStore({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<string>;
 }
