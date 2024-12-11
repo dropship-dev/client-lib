@@ -100,6 +100,7 @@ export class SubscriptionService {
     stripeSubscriptionId: string;
     upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
     subscriptionPlanId: number;
+    lastPlatformFeeChargeAt: string;
     currentPlatformTransactionFee: number;
     nextChargeDate: string;
     paymentRetry: number;
