@@ -15,6 +15,7 @@ export type GetAllOrderResult = ({
     email: string;
     name: string;
     total: number;
+    platformFee?: number;
     latestTotal: number;
     createdAt: string;
     storeId: string;
