@@ -305,6 +305,7 @@ export class OrderService {
     gateway?: Array<number>,
     fraudStatus?: Array<FraudStatusType>,
   }): CancelablePromise<{
+    totalPlatformFee?: number;
     orderBy: string;
     nextPageIndex?: string | null;
     prePageIndex: string | null;
