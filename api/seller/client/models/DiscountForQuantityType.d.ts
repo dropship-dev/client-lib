@@ -14,7 +14,7 @@ export type DiscountForQuantityType = {
         type: DiscountBoostSaleType;
     }>;
     timeLife: {
-        endDate?: string;
+        endDate?: string | null;
         startDate: string;
     };
 };
