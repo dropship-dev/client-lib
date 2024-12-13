@@ -49,4 +49,15 @@ export declare class AuthService {
             socket_id: string;
         };
     }): CancelablePromise<any>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    signInSocket({ requestBody, }: {
+        requestBody: {
+            authorization: string;
+            appId: string;
+            appName: string;
+        };
+    }): CancelablePromise<any>;
 }
