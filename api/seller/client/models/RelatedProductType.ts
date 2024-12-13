@@ -12,7 +12,7 @@ export type RelatedProductType = {
   ids: Array<number>;
   placementList: Array<PlacementBoostSaleEnum>;
   timeLife: {
-    endDate?: string;
+    endDate?: string | null;
     startDate: string;
   };
 };

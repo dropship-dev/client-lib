@@ -19,7 +19,7 @@ export type BoughtTogetherType = {
   }>;
   placementList: Array<PlacementBoostSaleEnum>;
   timeLife: {
-    endDate?: string;
+    endDate?: string | null;
     startDate: string;
   };
 };
