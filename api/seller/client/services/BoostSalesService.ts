@@ -93,68 +93,7 @@ export class BoostSalesService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<({
-      Product: Array<{
-        podTemplateId: number;
-        campaignId: string;
-        isEnable: boolean;
-        isActive: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        permalink: string;
-        deleted: boolean;
-        platformProductId: number;
-        description: string;
-        photos: PrismaJson_Photos;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-      }>;
-      Collection: Array<({
-        Product: Array<{
-          podTemplateId: number;
-          campaignId: string;
-          isEnable: boolean;
-          isActive: boolean;
-          supplierContact: string;
-          variantOption: PrismaJson_VariantOptions;
-          availableSet: PrismaJson_AvailableSet;
-          SKU: string;
-          details: string;
-          permalink: string;
-          deleted: boolean;
-          platformProductId: number;
-          description: string;
-          photos: PrismaJson_Photos;
-          shippingFeeAdditional: number;
-          shippingFee: number;
-          name: string;
-          updatedAt: string;
-          createdAt: string;
-          storeId: string;
-          id: number;
-        }>;
-      } & {
-        SEO: any;
-        condition: PrismaJson_ConditionCollection;
-        description: string;
-        photos: PrismaJson_Photos;
-        type: _36_Enums_CollectionType;
-        status: _36_Enums_CollectionStatus;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-      })>;
-    } & {
+    data: Array<{
       rootProductId: number;
       triggerBy: _36_Enums_BoostSaleTriggerType;
       marketingType: _36_Enums_MarketingType;
@@ -169,7 +108,7 @@ export class BoostSalesService {
       createdAt: string;
       storeId: string;
       id: number;
-    })>;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
