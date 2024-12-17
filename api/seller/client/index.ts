@@ -416,6 +416,7 @@ export type { UpdateVariantDto } from './models/UpdateVariantDto';
 export type { UpdateVariantsDto } from './models/UpdateVariantsDto';
 export type { UpdateVariantsForSellerInDependenceDto } from './models/UpdateVariantsForSellerInDependenceDto';
 export type { UpdateVariantStatusDto } from './models/UpdateVariantStatusDto';
+export type { UpsertRevenueLimitDto } from './models/UpsertRevenueLimitDto';
 export type { URLDto } from './models/URLDto';
 export type { User } from './models/User';
 export type { UserRole } from './models/UserRole';

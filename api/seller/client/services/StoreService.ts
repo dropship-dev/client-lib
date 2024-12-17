@@ -164,6 +164,7 @@ export class StoreService {
       }>;
       FulfillmentAgency: {
         costCalculationMethod: _36_Enums_CostCalculationMethod;
+        name: string;
       };
       createdAt: string;
       fulfillmentAgencyId: number;
