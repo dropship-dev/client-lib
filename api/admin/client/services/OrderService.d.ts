@@ -213,6 +213,7 @@ export declare class OrderService {
         address2: string;
         address1: string;
         domain: string;
+        merchantId: string;
         currencyId: number;
         shippingFee: number;
         country: string;
@@ -691,6 +692,7 @@ export declare class OrderService {
         address2: string;
         address1: string;
         domain: string;
+        merchantId: string;
         currencyId: number;
         shippingFee: number;
         country: string;
