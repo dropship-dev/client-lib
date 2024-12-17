@@ -384,6 +384,7 @@ export class OrderService {
     address2: string;
     address1: string;
     domain: string;
+    merchantId: string;
     currencyId: number;
     shippingFee: number;
     country: string;
@@ -880,6 +881,7 @@ export class OrderService {
     address2: string;
     address1: string;
     domain: string;
+    merchantId: string;
     currencyId: number;
     shippingFee: number;
     country: string;
