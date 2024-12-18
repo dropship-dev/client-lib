@@ -15,4 +15,5 @@ var _36_Enums_TransactionType;
     _36_Enums_TransactionType["TOP_UP"] = "TOP_UP";
     _36_Enums_TransactionType["REQUEST_PAYOUT"] = "REQUEST_PAYOUT";
     _36_Enums_TransactionType["DEBT_PAYMENT"] = "DEBT_PAYMENT";
+    _36_Enums_TransactionType["PLATFORM_TRANSACTION_FEE"] = "PLATFORM_TRANSACTION_FEE";
 })(_36_Enums_TransactionType || (exports._36_Enums_TransactionType = _36_Enums_TransactionType = {}));
