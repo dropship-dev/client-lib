@@ -81,6 +81,7 @@ export class SettingService {
   }): CancelablePromise<{
     numberValue: number;
     key: string;
+    type: 'REVENUE_LIMIT';
     updatedAt: string;
     createdAt: string;
     id: number;
