@@ -17,6 +17,7 @@ export type Pick_Payment_Exclude_keyofPayment_secretKey_or_token_or_tokenExpired
     companyAddress: string;
     isShowCompanyAddress: boolean;
     publishableKey: string;
+    BNcode: string;
     UIVersion: number;
     environment: _36_Enums_EnvironmentType;
 };
