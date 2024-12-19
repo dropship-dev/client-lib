@@ -619,6 +619,7 @@ export class OrderService {
     Payment: Array<{
       environment: _36_Enums_EnvironmentType;
       UIVersion: number;
+      BNcode: string;
       publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;

@@ -145,6 +145,7 @@ export class PaymentService {
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
+    BNcode: string;
     partnerId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
@@ -331,6 +332,7 @@ export class PaymentService {
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
+    BNcode: string;
     partnerId: string;
     gatewayUrl: string;
     tokenExpiredAt: string;
