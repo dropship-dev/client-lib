@@ -7,16 +7,15 @@ class PingPongAccountV2Service {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PingPongAccount Ok
+     * @returns string Ok
      * @throws ApiError
      */
-    createPingPongAccountV2({ requestBody, fulfillmentAgencyId, storeId, }) {
+    bulkCreatePingPongAccount({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/v2/pingpong-account',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
-                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -33,17 +32,15 @@ class PingPongAccountV2Service {
      * @returns string Ok
      * @throws ApiError
      */
-    deletePingPongAccountV2({ id, fulfillmentAgencyId, storeId, }) {
+    bulkUpdatePingPongAccount({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/v2/pingpong-account/{id}',
-            path: {
-                'id': id,
-            },
+            method: 'PUT',
+            url: '/v2/pingpong-account',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
-                'storeId': storeId,
             },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -57,15 +54,80 @@ class PingPongAccountV2Service {
      * @returns string Ok
      * @throws ApiError
      */
-    updateDefaultV2({ storeId, requestBody, }) {
+    bulkDeletePingPongAccount({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'PATCH',
-            url: '/v2/pingpong-account/{storeId}',
-            path: {
-                'storeId': storeId,
+            method: 'DELETE',
+            url: '/v2/pingpong-account',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getAllAccountPingpong({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/pingpong-account',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseStoreAddPingpong Ok
+     * @throws ApiError
+     */
+    getStoreAddPingpongAccount({ fulfillmentAgencyId, emailPingpong, name, limit, cursor, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/pingpong-account/store',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'emailPingpong': emailPingpong,
+                'name': name,
+                'limit': limit,
+                'cursor': cursor,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseGetStoreByPingpong Ok
+     * @throws ApiError
+     */
+    getStoreByPingpongAccount({ fulfillmentAgencyId, emailPingpong, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/pingpong-account/{email}',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'emailPingpong': emailPingpong,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

@@ -7,7 +7,7 @@ class PodDesignService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PodDesign Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createNewDesign({ requestBody, }) {
@@ -50,7 +50,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     deleteMyDesign({ requestBody, }) {
@@ -88,7 +88,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     publishToProduct({ requestBody, }) {
@@ -146,7 +146,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns PodDesign Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateMyDesign({ id, requestBody, }) {

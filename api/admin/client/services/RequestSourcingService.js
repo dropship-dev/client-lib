@@ -58,7 +58,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     setProcessingRequestSourcing({ id, fulfillmentAgencyId, storeId, }) {
@@ -82,7 +82,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     approveRequestSourcing({ id, requestBody, fulfillmentAgencyId, storeId, }) {
@@ -108,7 +108,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     rejectRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {

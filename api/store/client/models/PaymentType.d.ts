@@ -1,5 +1,2 @@
-export declare enum PaymentType {
-    PAYPAL = "PAYPAL",
-    STRIPE = "STRIPE",
-    CLOVER = "CLOVER"
-}
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
+export type PaymentType = _36_Enums_PaymentType;

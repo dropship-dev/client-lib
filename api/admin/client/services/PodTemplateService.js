@@ -7,7 +7,7 @@ class PodTemplateService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PodTemplate Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createTemplate({ requestBody, }) {

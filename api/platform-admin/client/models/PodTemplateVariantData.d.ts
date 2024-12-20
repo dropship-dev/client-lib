@@ -1,7 +1,7 @@
-import type { VariantOptionValues } from './VariantOptionValues';
+import type { TemplateVariantOptionValues } from './TemplateVariantOptionValues';
 export type PodTemplateVariantData = {
     isActive: boolean;
-    variantOption: VariantOptionValues;
+    variantOption: TemplateVariantOptionValues;
     faPrice?: number;
     supplierCost?: number;
     sku?: string;

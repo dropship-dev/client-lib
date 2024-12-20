@@ -1,8 +1,2 @@
-export declare enum RequestSourcingStatus {
-    REQUESTING = "REQUESTING",
-    ADMIN_PROCESSING = "ADMIN_PROCESSING",
-    ADMIN_ACCEPTED = "ADMIN_ACCEPTED",
-    ADMIN_REJECTED = "ADMIN_REJECTED",
-    SELLER_REJECTED = "SELLER_REJECTED",
-    SELLER_ACCEPTED = "SELLER_ACCEPTED"
-}
+import type { _36_Enums_RequestSourcingStatus } from './_36_Enums_RequestSourcingStatus';
+export type RequestSourcingStatus = _36_Enums_RequestSourcingStatus;

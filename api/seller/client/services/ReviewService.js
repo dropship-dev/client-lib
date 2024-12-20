@@ -30,7 +30,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllReview({ storeId, productId, }) {
@@ -51,7 +51,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getReview({ storeId, productId, id, }) {
@@ -73,7 +73,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateReview({ storeId, productId, id, requestBody, }) {
@@ -97,7 +97,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteReview({ storeId, productId, id, }) {

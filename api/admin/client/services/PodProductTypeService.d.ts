@@ -1,5 +1,4 @@
 import type { CreateProductTypeDto } from '../models/CreateProductTypeDto';
-import type { PodProductType } from '../models/PodProductType';
 import type { UpdateProductTypeDto } from '../models/UpdateProductTypeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -7,32 +6,60 @@ export declare class PodProductTypeService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createProductType({ requestBody, }: {
         requestBody: CreateProductTypeDto;
-    }): CancelablePromise<PodProductType>;
+    }): CancelablePromise<{
+        podCategoryId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>;
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllProductType({ podCategoryId, }: {
         podCategoryId: number;
-    }): CancelablePromise<Array<PodProductType>>;
+    }): CancelablePromise<Array<{
+        podCategoryId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>>;
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductType({ id, requestBody, }: {
         id: number;
         requestBody: UpdateProductTypeDto;
-    }): CancelablePromise<PodProductType>;
+    }): CancelablePromise<{
+        podCategoryId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>;
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteProductType({ id, }: {
         id: number;
-    }): CancelablePromise<PodProductType>;
+    }): CancelablePromise<{
+        podCategoryId: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>;
 }

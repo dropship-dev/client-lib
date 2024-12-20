@@ -13,10 +13,16 @@ export declare class TiktokPixelService {
     createTiktokPixel({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateTiktokPixelDto;
-    }): CancelablePromise<(TiktokPixel & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
      * @returns any Ok
@@ -24,10 +30,16 @@ export declare class TiktokPixelService {
      */
     getAllTiktokPixel({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(TiktokPixel & {
+    }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>>;
     /**
      * @returns any Ok
@@ -36,10 +48,16 @@ export declare class TiktokPixelService {
     getTiktokPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<(TiktokPixel & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
      * @returns TiktokPixel Ok
@@ -51,11 +69,17 @@ export declare class TiktokPixelService {
         requestBody: UpdateTiktokPixelDto;
     }): CancelablePromise<TiktokPixel>;
     /**
-     * @returns TiktokPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteTiktokPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<TiktokPixel>;
+    }): CancelablePromise<{
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

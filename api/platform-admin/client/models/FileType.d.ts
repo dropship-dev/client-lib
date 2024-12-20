@@ -1,7 +1,2 @@
-export declare enum FileType {
-    TEMPLATE = "TEMPLATE",
-    MOCKUP = "MOCKUP",
-    MOCKUP_BACKGROUND = "MOCKUP_BACKGROUND",
-    CUSTOM_MOCKUP = "CUSTOM_MOCKUP",
-    DESIGN = "DESIGN"
-}
+import type { _36_Enums_FileType } from './_36_Enums_FileType';
+export type FileType = _36_Enums_FileType;

@@ -7,7 +7,7 @@ class PodProductTypeService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createProductType({ requestBody, }) {
@@ -26,7 +26,7 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllProductType({ podCategoryId, }) {
@@ -46,7 +46,7 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateProductType({ id, requestBody, }) {
@@ -68,7 +68,7 @@ class PodProductTypeService {
         });
     }
     /**
-     * @returns PodProductType Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteProductType({ id, }) {

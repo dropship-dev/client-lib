@@ -1,31 +1,46 @@
-import type { BatchPayload } from '../models/BatchPayload';
+import type { _36_Enums_FileType } from '../models/_36_Enums_FileType';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
 import type { DuplicateDesignDto } from '../models/DuplicateDesignDto';
-import type { FileType } from '../models/FileType';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
-import type { PodDesign } from '../models/PodDesign';
-import type { PodFile } from '../models/PodFile';
-import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
-import type { PodFileProperties } from '../models/PodFileProperties';
-import type { PrintAreaBounds } from '../models/PrintAreaBounds';
-import type { PrintAreaPhotos } from '../models/PrintAreaPhotos';
-import type { Product } from '../models/Product';
+import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_PodFileGroupLayers } from '../models/PrismaJson_PodFileGroupLayers';
+import type { PrismaJson_PodFileProperties } from '../models/PrismaJson_PodFileProperties';
+import type { PrismaJson_PrintAreaBounds } from '../models/PrismaJson_PrintAreaBounds';
+import type { PrismaJson_PrintAreaPhotos } from '../models/PrismaJson_PrintAreaPhotos';
+import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { PublishToProductDto } from '../models/PublishToProductDto';
 import type { UpdateDesignDto } from '../models/UpdateDesignDto';
-import type { VariantOptions } from '../models/VariantOptions';
-import type { VariantOptionValues } from '../models/VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PodDesignService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PodDesign Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createNewDesign({ requestBody, }: {
         requestBody: CreateDesignDto;
-    }): CancelablePromise<PodDesign>;
+    }): CancelablePromise<{
+        isDraft: boolean;
+        sku: string;
+        sizeGuide: string;
+        keyFeature: string;
+        podTemplateId: number;
+        isActive: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        description: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -59,12 +74,12 @@ export declare class PodDesignService {
         }>;
     } | boolean)>;
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     deleteMyDesign({ requestBody, }: {
         requestBody: Array<number>;
-    }): CancelablePromise<BatchPayload>;
+    }): CancelablePromise<Prisma_BatchPayload>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -88,12 +103,34 @@ export declare class PodDesignService {
         id: number;
     }>;
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     publishToProduct({ requestBody, }: {
         requestBody: PublishToProductDto;
-    }): CancelablePromise<Product>;
+    }): CancelablePromise<{
+        podTemplateId: number;
+        campaignId: string;
+        isEnable: boolean;
+        isActive: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        availableSet: PrismaJson_AvailableSet;
+        SKU: string;
+        details: string;
+        permalink: string;
+        deleted: boolean;
+        platformProductId: number;
+        description: string;
+        photos: PrismaJson_Photos;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -116,11 +153,11 @@ export declare class PodDesignService {
         };
         templateVariant: Array<{
             faPrice: number;
+            sku: string;
             minSellingPrice: number;
             supplierCost: number;
-            sku: string;
             podTemplateId: number;
-            variantOption: VariantOptionValues;
+            variantOption: PrismaJson_VariantOptionValues;
             name: string;
             id: number;
             isSelected: boolean;
@@ -133,39 +170,53 @@ export declare class PodDesignService {
             isDisable: boolean;
             isActive: boolean;
             comparePrice: number;
-            variantOption: VariantOptionValues;
+            variantOption: PrismaJson_VariantOptionValues;
             name: string;
             id: number;
         }>;
         myDesign: {
             isDraft: boolean;
+            PodFile: Array<{
+                podPrintAreaId: number;
+                properties: PrismaJson_PodFileProperties;
+                groupLayers: PrismaJson_PodFileGroupLayers;
+                fileName: string;
+                type: _36_Enums_FileType;
+                id: number;
+            }>;
             sku: string;
             sizeGuide: string;
             keyFeature: string;
             podTemplateId: number;
             supplierContact: string;
-            variantOption: VariantOptions;
+            variantOption: PrismaJson_VariantOptions;
             description: string;
             name: string;
-            PodFile: Array<{
-                podPrintAreaId: number;
-                properties: PodFileProperties;
-                groupLayers: PodFileGroupLayers;
-                fileName: string;
-                type: FileType;
-                id: number;
-            }>;
-            id: number;
             storeId: string;
+            id: number;
         };
         printArea: Array<{
-            printAreaBounds: PrintAreaBounds;
+            printAreaBounds: PrismaJson_PrintAreaBounds;
             faPrice: number;
             supplierCost: number;
-            photos: PrintAreaPhotos;
+            photos: PrismaJson_PrintAreaPhotos;
             name: string;
             id: number;
-            PodFile: PodFile;
+            PodFile: {
+                podDesignId: number;
+                podPrintAreaId: number;
+                properties: PrismaJson_PodFileProperties;
+                groupLayers: PrismaJson_PodFileGroupLayers;
+                size: string;
+                backgroundUrl: string;
+                url: string;
+                fileName: string;
+                podTemplateId: number;
+                type: _36_Enums_FileType;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            };
         }>;
         templateInformation: {
             blank: {
@@ -175,13 +226,29 @@ export declare class PodDesignService {
         };
     }>;
     /**
-     * @returns PodDesign Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateMyDesign({ id, requestBody, }: {
         id: number;
         requestBody: UpdateDesignDto;
-    }): CancelablePromise<PodDesign>;
+    }): CancelablePromise<{
+        isDraft: boolean;
+        sku: string;
+        sizeGuide: string;
+        keyFeature: string;
+        podTemplateId: number;
+        isActive: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        description: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: number;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError

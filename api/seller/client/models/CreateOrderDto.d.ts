@@ -1,7 +1,7 @@
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 import type { ComboItemDto } from './ComboItemDto';
 import type { CreateAbandonmentOrder } from './CreateAbandonmentOrder';
 import type { OrderItemDto } from './OrderItemDto';
-import type { PaymentType } from './PaymentType';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 export type CreateOrderDto = {
     shippingInfo?: PrismaJson_BillingInfo;
@@ -9,7 +9,7 @@ export type CreateOrderDto = {
     note?: string;
     domain?: string;
     clientId?: string;
-    payment: PaymentType;
+    payment: _36_Enums_PaymentType;
     orderItems?: Array<OrderItemDto>;
     comboItems?: Array<ComboItemDto>;
     referrer?: string;

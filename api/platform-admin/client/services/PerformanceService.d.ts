@@ -1,7 +1,7 @@
+import type { AgencyStatisticResp } from '../models/AgencyStatisticResp';
+import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
-import type { Response } from '../models/Response';
-import type { SQLResult } from '../models/SQLResult';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
@@ -13,7 +13,7 @@ export declare class PerformanceService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Response Ok
+     * @returns LocationResult Ok
      * @throws ApiError
      */
     getProductByLocation({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
@@ -21,7 +21,7 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<Array<Response>>;
+    }): CancelablePromise<Array<LocationResult>>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -190,12 +190,12 @@ export declare class PerformanceService {
         period: Period;
     }>;
     /**
-     * @returns SQLResult Ok
+     * @returns AgencyStatisticResp Ok
      * @throws ApiError
      */
     getFulfillmentAgencyStatistic({ fulfillmentAgencyId, startDate, endDate, }: {
         fulfillmentAgencyId?: number;
         startDate?: string;
         endDate?: string;
-    }): CancelablePromise<SQLResult>;
+    }): CancelablePromise<AgencyStatisticResp>;
 }

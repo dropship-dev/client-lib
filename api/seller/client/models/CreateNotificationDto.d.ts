@@ -1,6 +1,6 @@
-import type { NotificationType } from './NotificationType';
+import type { _36_Enums_NotificationType } from './_36_Enums_NotificationType';
 export type CreateNotificationDto = {
     title: string;
     description?: string;
-    type: NotificationType;
+    type: _36_Enums_NotificationType;
 };

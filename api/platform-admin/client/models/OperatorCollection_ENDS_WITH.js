@@ -1,10 +1,10 @@
 "use strict";
-/* generated using openapi-typescript-codegen -- do no edit */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OperatorCollection_ENDS_WITH = void 0;
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.OperatorCollection_ENDS_WITH = void 0;
 var OperatorCollection_ENDS_WITH;
 (function (OperatorCollection_ENDS_WITH) {
     OperatorCollection_ENDS_WITH["ENDS_WITH"] = "endsWith";

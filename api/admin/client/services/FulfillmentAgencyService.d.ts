@@ -1,10 +1,11 @@
-import type { CostCalculationMethod } from '../models/CostCalculationMethod';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentAgencyStatus } from '../models/FulfillmentAgencyStatus';
-import type { FulfillmentAgencyType } from '../models/FulfillmentAgencyType';
-import type { Timezone } from '../models/Timezone';
+import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
+import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class FulfillmentAgencyService {
@@ -25,18 +26,47 @@ export declare class FulfillmentAgencyService {
         prePageIndex: number;
         total: number;
         data: Array<{
-            Wallet: Array<Wallet>;
-            updatedAt: string;
-            createdAt: string;
-            timezone: Timezone;
-            type: FulfillmentAgencyType;
-            costCalculationMethod: CostCalculationMethod;
+            timezone: PrismaJson_Timezone;
+            platformFee: number;
+            type: _36_Enums_FulfillmentAgencyType;
+            costCalculationMethod: _36_Enums_CostCalculationMethod;
             executionTime: string;
-            status: FulfillmentAgencyStatus;
+            status: _36_Enums_FulfillmentAgencyStatus;
             phone: string;
             email: string;
             name: string;
+            updatedAt: string;
+            createdAt: string;
             id: number;
+            PaymentOnboarding: Array<{
+                paypalPartnerReferralId: string;
+                onboardingStatus: _36_Enums_OnboardingStatus;
+                onboardingUrl: string;
+                onboardingId: string;
+                merchantEmail: string;
+                merchantId: string;
+                paymentType: _36_Enums_PaymentType;
+                updatedAt: string;
+                createdAt: string;
+                storeId: string;
+                fulfillmentAgencyId: number;
+                id: number;
+            }>;
+            Wallet: Array<{
+                updatedAt: string;
+                createdAt: string;
+                isDeleted: boolean;
+                storeId: string;
+                fulfillmentAgencyId: number;
+                balanceUnavailable: PrismaJson_UnavailableBalance;
+                payoutAmount: number;
+                holdAmount: number;
+                balanceDebt: number;
+                balanceAvailable: number;
+                balanceAmount: number;
+                walletName: string;
+                id: string;
+            }>;
             noProduct: number;
             noStore: number;
         }>;
@@ -47,24 +77,112 @@ export declare class FulfillmentAgencyService {
      */
     getFulfillmentAgency({ id, }: {
         id: number;
-    }): CancelablePromise<(FulfillmentAgency & {
-        Wallet: Array<Wallet>;
+    }): CancelablePromise<({
+        PaymentOnboarding: Array<{
+            paypalPartnerReferralId: string;
+            onboardingStatus: _36_Enums_OnboardingStatus;
+            onboardingUrl: string;
+            onboardingId: string;
+            merchantEmail: string;
+            merchantId: string;
+            paymentType: _36_Enums_PaymentType;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            fulfillmentAgencyId: number;
+            id: number;
+        }>;
+        Wallet: Array<{
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            storeId: string;
+            fulfillmentAgencyId: number;
+            balanceUnavailable: PrismaJson_UnavailableBalance;
+            payoutAmount: number;
+            holdAmount: number;
+            balanceDebt: number;
+            balanceAvailable: number;
+            balanceAmount: number;
+            walletName: string;
+            id: string;
+        }>;
+    } & {
+        timezone: PrismaJson_Timezone;
+        platformFee: number;
+        type: _36_Enums_FulfillmentAgencyType;
+        costCalculationMethod: _36_Enums_CostCalculationMethod;
+        executionTime: string;
+        status: _36_Enums_FulfillmentAgencyStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
     })>;
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFulfillmentAgency({ id, requestBody, }: {
         id: number;
         requestBody: UpdateFulfillmentAgencyDto;
-    }): CancelablePromise<FulfillmentAgency>;
+    }): CancelablePromise<{
+        timezone: PrismaJson_Timezone;
+        platformFee: number;
+        type: _36_Enums_FulfillmentAgencyType;
+        costCalculationMethod: _36_Enums_CostCalculationMethod;
+        executionTime: string;
+        status: _36_Enums_FulfillmentAgencyStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFulfillmentAgency({ id, }: {
         id: number;
-    }): CancelablePromise<FulfillmentAgency>;
+    }): CancelablePromise<{
+        timezone: PrismaJson_Timezone;
+        platformFee: number;
+        type: _36_Enums_FulfillmentAgencyType;
+        costCalculationMethod: _36_Enums_CostCalculationMethod;
+        executionTime: string;
+        status: _36_Enums_FulfillmentAgencyStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyJoinPlatform({ id, paymentType, }: {
+        id: number;
+        paymentType: _36_Enums_PaymentType;
+    }): CancelablePromise<{
+        paypalPartnerReferralId: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

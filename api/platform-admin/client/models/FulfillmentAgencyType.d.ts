@@ -1,4 +1,2 @@
-export declare enum FulfillmentAgencyType {
-    SELF_PAYMENT = "SELF_PAYMENT",
-    JOIN_PLATFORM = "JOIN_PLATFORM"
-}
+import type { _36_Enums_FulfillmentAgencyType } from './_36_Enums_FulfillmentAgencyType';
+export type FulfillmentAgencyType = _36_Enums_FulfillmentAgencyType;

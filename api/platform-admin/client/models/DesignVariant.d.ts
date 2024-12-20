@@ -1,8 +1,8 @@
-import type { VariantOptionValues } from './VariantOptionValues';
+import type { DesignVariantOptionValues } from './DesignVariantOptionValues';
 export type DesignVariant = {
     isActive: boolean;
     minSellingPrice: number;
-    variantOption: VariantOptionValues;
+    variantOption: DesignVariantOptionValues;
     comparePrice: number;
     price: number;
     sku: string;

@@ -84,7 +84,7 @@ class PodTemplateService {
         });
     }
     /**
-     * @returns PodTemplateFavorite Ok
+     * @returns any Ok
      * @throws ApiError
      */
     favoriteTemplate({ id, requestBody, }) {

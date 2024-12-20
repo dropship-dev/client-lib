@@ -2,7 +2,6 @@ import type { CreateCategoryDto } from '../models/CreateCategoryDto';
 import type { GetListCategoryByCatalog } from '../models/GetListCategoryByCatalog';
 import type { GetListCategoryByCategory } from '../models/GetListCategoryByCategory';
 import type { LayoutCategory } from '../models/LayoutCategory';
-import type { PodCategory } from '../models/PodCategory';
 import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -10,12 +9,19 @@ export declare class PodCategoryService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PodCategory Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createCategory({ requestBody, }: {
         requestBody: CreateCategoryDto;
-    }): CancelablePromise<PodCategory>;
+    }): CancelablePromise<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -29,25 +35,46 @@ export declare class PodCategoryService {
         layout?: LayoutCategory;
     }): CancelablePromise<(Array<GetListCategoryByCatalog> | Array<GetListCategoryByCategory>)>;
     /**
-     * @returns PodCategory Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCategory({ id, requestBody, }: {
         id: number;
         requestBody: UpdateCategoryDto;
-    }): CancelablePromise<PodCategory>;
+    }): CancelablePromise<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
-     * @returns PodCategory Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteCategory({ id, }: {
         id: number;
-    }): CancelablePromise<PodCategory>;
+    }): CancelablePromise<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
     /**
-     * @returns PodCategory Ok
+     * @returns any Ok
      * @throws ApiError
      */
     listAllCategory({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-    }): CancelablePromise<Array<PodCategory>>;
+    }): CancelablePromise<Array<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>>;
 }

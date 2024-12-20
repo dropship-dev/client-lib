@@ -1,5 +1,5 @@
+import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { CreateStaffDto } from '../models/CreateStaffDto';
-import type { StoreUser } from '../models/StoreUser';
 import type { UpdateStaffDto } from '../models/UpdateStaffDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -7,20 +7,28 @@ export declare class StaffService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns StoreUser Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createStaff({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateStaffDto;
-    }): CancelablePromise<StoreUser>;
+    }): CancelablePromise<{
+        isOwner: boolean;
+        userId: string;
+        role: _36_Enums_StoreRole;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
     getAllStaff({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(StoreUser & {
+    }): CancelablePromise<Array<({
         User: {
             avatar: string;
             email: string;
@@ -29,22 +37,46 @@ export declare class StaffService {
             createdAt: string;
             id: string;
         };
+    } & {
+        isOwner: boolean;
+        userId: string;
+        role: _36_Enums_StoreRole;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>>;
     /**
-     * @returns StoreUser Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateStaff({ storeId, userId, requestBody, }: {
         storeId: string;
         userId: string;
         requestBody: UpdateStaffDto;
-    }): CancelablePromise<StoreUser>;
+    }): CancelablePromise<{
+        isOwner: boolean;
+        userId: string;
+        role: _36_Enums_StoreRole;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
-     * @returns StoreUser Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteStaff({ storeId, userId, }: {
         storeId: string;
         userId: string;
-    }): CancelablePromise<StoreUser>;
+    }): CancelablePromise<{
+        isOwner: boolean;
+        userId: string;
+        role: _36_Enums_StoreRole;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

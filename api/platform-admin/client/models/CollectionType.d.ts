@@ -1,4 +1,2 @@
-export declare enum CollectionType {
-    AUTOMATED = "AUTOMATED",
-    MANUAL = "MANUAL"
-}
+import type { _36_Enums_CollectionType } from './_36_Enums_CollectionType';
+export type CollectionType = _36_Enums_CollectionType;

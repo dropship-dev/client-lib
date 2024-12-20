@@ -47,7 +47,7 @@ class PodElementService {
         });
     }
     /**
-     * @returns PodElement Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateElement({ id, requestBody, }) {
@@ -69,7 +69,7 @@ class PodElementService {
         });
     }
     /**
-     * @returns PodElement Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteElement({ id, }) {

@@ -1,15 +1,14 @@
+import type { _36_Enums_FileType } from '../models/_36_Enums_FileType';
 import type { FavoriteTemplateDto } from '../models/FavoriteTemplateDto';
-import type { FileType } from '../models/FileType';
 import type { GetAllTemplateResponse } from '../models/GetAllTemplateResponse';
 import type { IPageDetail } from '../models/IPageDetail';
-import type { PodFileGroupLayers } from '../models/PodFileGroupLayers';
-import type { PodFileProperties } from '../models/PodFileProperties';
-import type { PodTemplateFavorite } from '../models/PodTemplateFavorite';
-import type { PrintAreaBounds } from '../models/PrintAreaBounds';
-import type { PrintAreaPhotos } from '../models/PrintAreaPhotos';
+import type { PrismaJson_PodFileGroupLayers } from '../models/PrismaJson_PodFileGroupLayers';
+import type { PrismaJson_PodFileProperties } from '../models/PrismaJson_PodFileProperties';
+import type { PrismaJson_PrintAreaBounds } from '../models/PrismaJson_PrintAreaBounds';
+import type { PrismaJson_PrintAreaPhotos } from '../models/PrismaJson_PrintAreaPhotos';
+import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { StatusTemplate } from '../models/StatusTemplate';
-import type { VariantOptions } from '../models/VariantOptions';
-import type { VariantOptionValues } from '../models/VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PodTemplateService {
@@ -43,45 +42,33 @@ export declare class PodTemplateService {
         id: number;
         selectAllVariant?: boolean;
     }): CancelablePromise<{
-        isStock: boolean;
-        sku: string;
-        sizeGuide: string;
-        keyFeature: string;
-        podTechniqueId: number;
-        podProductTypeId: number;
-        isActive: boolean;
-        supplierContact: string;
-        variantOption: VariantOptions;
-        podCategoryId: number;
-        description: string;
-        name: string;
-        PodFile: Array<{
-            podPrintAreaId: number;
-            properties: PodFileProperties;
-            groupLayers: PodFileGroupLayers;
-            fileName: string;
-            podDesignId: number;
-            podTemplateId: number;
-            type: FileType;
-            id: number;
-        }>;
         PodTemplateVariant: Array<{
             faPrice: number;
+            sku: string;
             minSellingPrice: number;
             supplierCost: number;
-            sku: string;
             podTemplateId: number;
             isEnable: boolean;
             isActive: boolean;
-            variantOption: VariantOptionValues;
+            variantOption: PrismaJson_VariantOptionValues;
             name: string;
             id: number;
         }>;
+        PodFile: Array<{
+            podDesignId: number;
+            podPrintAreaId: number;
+            properties: PrismaJson_PodFileProperties;
+            groupLayers: PrismaJson_PodFileGroupLayers;
+            fileName: string;
+            podTemplateId: number;
+            type: _36_Enums_FileType;
+            id: number;
+        }>;
         PodPrintArea: Array<{
-            printAreaBounds: PrintAreaBounds;
+            printAreaBounds: PrismaJson_PrintAreaBounds;
             faPrice: number;
             supplierCost: number;
-            photos: PrintAreaPhotos;
+            photos: PrismaJson_PrintAreaPhotos;
             name: string;
             id: number;
         }>;
@@ -89,6 +76,18 @@ export declare class PodTemplateService {
             name: string;
             id: number;
         };
+        isStock: boolean;
+        podCategoryId: number;
+        sku: string;
+        sizeGuide: string;
+        keyFeature: string;
+        podTechniqueId: number;
+        podProductTypeId: number;
+        isActive: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        description: string;
+        name: string;
         id: number;
         url: string;
         isFavorite: boolean;
@@ -112,11 +111,17 @@ export declare class PodTemplateService {
         id: number;
     }>>;
     /**
-     * @returns PodTemplateFavorite Ok
+     * @returns any Ok
      * @throws ApiError
      */
     favoriteTemplate({ id, requestBody, }: {
         id: number;
         requestBody: FavoriteTemplateDto;
-    }): CancelablePromise<PodTemplateFavorite>;
+    }): CancelablePromise<{
+        podTemplateId: number;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

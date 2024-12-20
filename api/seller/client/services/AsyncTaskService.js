@@ -7,7 +7,7 @@ class AsyncTaskService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns AsyncTask Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat = false, }) {

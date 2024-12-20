@@ -7,7 +7,7 @@ class VariantComboService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createCombo({ storeId, productId, requestBody, }) {
@@ -102,7 +102,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     createCombos({ storeId, productId, requestBody, }) {
@@ -125,7 +125,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getCombo({ storeId, productId, id, }) {
@@ -147,7 +147,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateCombo({ storeId, productId, id, requestBody, }) {
@@ -171,7 +171,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteCombo({ storeId, productId, id, }) {
@@ -193,7 +193,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns VariantCombo Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateComboStatus({ storeId, productId, id, requestBody, }) {

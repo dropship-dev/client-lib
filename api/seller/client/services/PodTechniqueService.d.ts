@@ -1,17 +1,21 @@
 import type { CreateTechniqueDto } from '../models/CreateTechniqueDto';
-import type { PodTechnique } from '../models/PodTechnique';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PodTechniqueService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns PodTechnique Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createTechnique({ requestBody, }: {
         requestBody: CreateTechniqueDto;
-    }): CancelablePromise<PodTechnique>;
+    }): CancelablePromise<{
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

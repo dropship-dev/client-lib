@@ -23,7 +23,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionPlan Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createSubscriptionPlan({ requestBody, }) {
@@ -42,7 +42,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     listSubscriptionFeatures() {
@@ -58,7 +58,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createSubscriptionFeature({ requestBody, }) {
@@ -125,7 +125,6 @@ class SubscriptionService {
             url: '/subscriptions/seeding',
             errors: {
                 400: `Bad request`,
-                401: `Invalid token`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,
@@ -144,7 +143,6 @@ class SubscriptionService {
             mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
-                401: `Invalid token`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,
@@ -152,7 +150,7 @@ class SubscriptionService {
         });
     }
     /**
-     * @returns SubscriptionFeature Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateSubscriptionFeature({ id, requestBody, }) {

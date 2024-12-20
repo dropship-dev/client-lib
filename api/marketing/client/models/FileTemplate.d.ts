@@ -1,4 +1,4 @@
-import type { FileType } from './FileType';
+import type { _36_Enums_FileType } from './_36_Enums_FileType';
 import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
 export type FileTemplate = {
     properties?: PrismaJson_PodFileProperties;
@@ -19,6 +19,6 @@ export type FileTemplate = {
     }>;
     backgroundUrl?: string;
     fileName?: string;
-    type: FileType;
+    type: _36_Enums_FileType;
     podPrintAreaId?: number;
 };

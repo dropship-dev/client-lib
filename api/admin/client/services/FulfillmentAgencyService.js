@@ -50,7 +50,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFulfillmentAgency({ id, requestBody, }) {
@@ -72,7 +72,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFulfillmentAgency({ id, }) {
@@ -85,6 +85,26 @@ class FulfillmentAgencyService {
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyJoinPlatform({ id, paymentType, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
+            path: {
+                'id': id,
+                'paymentType': paymentType,
+            },
+            errors: {
+                400: `Bad request`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,

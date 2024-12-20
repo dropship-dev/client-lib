@@ -1,4 +1,5 @@
 import type { CreateReviewDto } from '../models/CreateReviewDto';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { Review } from '../models/Review';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -15,20 +16,40 @@ export declare class ReviewService {
         requestBody: CreateReviewDto;
     }): CancelablePromise<Review>;
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllReview({ storeId, productId, }: {
         storeId: string;
         productId: number;
-    }): CancelablePromise<Array<Review>>;
+    }): CancelablePromise<Array<{
+        comment: string;
+        rating: number;
+        productId: number;
+        photos: PrismaJson_Photos;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>>;
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getReview({ storeId, productId, id, }: {
         storeId: string;
         productId: number;
         id: number;
-    }): CancelablePromise<Review>;
+    }): CancelablePromise<{
+        comment: string;
+        rating: number;
+        productId: number;
+        photos: PrismaJson_Photos;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
 }

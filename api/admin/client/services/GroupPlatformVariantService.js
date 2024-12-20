@@ -7,7 +7,7 @@ class GroupPlatformVariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns GroupPlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createGroupPlatformVariant({ fulfillmentAgencyId, platformProductId, requestBody, }) {
@@ -80,7 +80,7 @@ class GroupPlatformVariantService {
         });
     }
     /**
-     * @returns GroupPlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateGroupPlatformVariant({ fulfillmentAgencyId, platformProductId, groupPlatformVariantId, requestBody, }) {
