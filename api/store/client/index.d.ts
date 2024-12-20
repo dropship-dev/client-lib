@@ -40,6 +40,7 @@ export { _36_Enums_StoreStatus } from './models/_36_Enums_StoreStatus';
 export { _36_Enums_StoreType } from './models/_36_Enums_StoreType';
 export { _36_Enums_SubscriptionFeatureType } from './models/_36_Enums_SubscriptionFeatureType';
 export { _36_Enums_SubscriptionInterval } from './models/_36_Enums_SubscriptionInterval';
+export { _36_Enums_SubscriptionStatus } from './models/_36_Enums_SubscriptionStatus';
 export { _36_Enums_SubscriptionType } from './models/_36_Enums_SubscriptionType';
 export { _36_Enums_SyncTrackingStatus } from './models/_36_Enums_SyncTrackingStatus';
 export { _36_Enums_TransactionStatus } from './models/_36_Enums_TransactionStatus';
