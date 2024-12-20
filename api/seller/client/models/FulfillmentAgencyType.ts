@@ -1,9 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum FulfillmentAgencyType {
-  SELF_PAYMENT = 'SELF_PAYMENT',
-  JOIN_PLATFORM = 'JOIN_PLATFORM',
-}
+import type { _36_Enums_FulfillmentAgencyType } from './_36_Enums_FulfillmentAgencyType';
+export type FulfillmentAgencyType = _36_Enums_FulfillmentAgencyType;

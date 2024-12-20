@@ -1,30 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_ProductDiscountItems } from './PrismaJson_ProductDiscountItems';
-import type { PrismaJson_ProductRequirementItems } from './PrismaJson_ProductRequirementItems';
-
+import type { DefaultSelection_Prisma__36_DiscountPayload_ } from './DefaultSelection_Prisma__36_DiscountPayload_';
 /**
  * Model Discount
  */
-export type Discount = {
-  updatedAt: string;
-  createdAt: string;
-  position: number | null;
-  campaignId: string | null;
-  userUpdated: string | null;
-  userCreated: string | null;
-  /**
-   * [ProductRequirementItems]
-   */
-  requirementDiscount: PrismaJson_ProductRequirementItems;
-  /**
-   * [ProductDiscountItems]
-   */
-  typeDiscount: PrismaJson_ProductDiscountItems;
-  label: string;
-  id: string;
-};
-
+export type Discount = DefaultSelection_Prisma__36_DiscountPayload_;

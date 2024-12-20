@@ -1,14 +1,12 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
+import type { _36_Enums_ElementType } from './_36_Enums_ElementType';
 import type { CreateElement } from './CreateElement';
-import type { ElementType } from './ElementType';
-
 export type CreateElementDto = {
   name: string;
-  type: ElementType;
+  type: _36_Enums_ElementType;
   order?: number;
   payload: Array<CreateElement>;
 };

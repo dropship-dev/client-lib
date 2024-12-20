@@ -1,20 +1,16 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { CreateStaffDto } from '../models/CreateStaffDto';
-import type { StoreUser } from '../models/StoreUser';
 import type { UpdateStaffDto } from '../models/UpdateStaffDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class StaffService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns StoreUser Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createStaff({
@@ -23,7 +19,15 @@ export class StaffService {
   }: {
     storeId: string,
     requestBody: CreateStaffDto,
-  }): CancelablePromise<StoreUser> {
+  }): CancelablePromise<{
+    isOwner: boolean;
+    userId: string;
+    role: _36_Enums_StoreRole;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/staff',
@@ -41,7 +45,6 @@ export class StaffService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -50,7 +53,7 @@ export class StaffService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<(StoreUser & {
+  }): CancelablePromise<Array<({
     User: {
       avatar: string;
       email: string;
@@ -59,6 +62,14 @@ export class StaffService {
       createdAt: string;
       id: string;
     };
+  } & {
+    isOwner: boolean;
+    userId: string;
+    role: _36_Enums_StoreRole;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -75,9 +86,8 @@ export class StaffService {
       },
     });
   }
-
   /**
-   * @returns StoreUser Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateStaff({
@@ -88,7 +98,15 @@ export class StaffService {
     storeId: string,
     userId: string,
     requestBody: UpdateStaffDto,
-  }): CancelablePromise<StoreUser> {
+  }): CancelablePromise<{
+    isOwner: boolean;
+    userId: string;
+    role: _36_Enums_StoreRole;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/staff/{userId}',
@@ -107,9 +125,8 @@ export class StaffService {
       },
     });
   }
-
   /**
-   * @returns StoreUser Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteStaff({
@@ -118,7 +135,15 @@ export class StaffService {
   }: {
     storeId: string,
     userId: string,
-  }): CancelablePromise<StoreUser> {
+  }): CancelablePromise<{
+    isOwner: boolean;
+    userId: string;
+    role: _36_Enums_StoreRole;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/staff/{userId}',
@@ -135,5 +160,4 @@ export class StaffService {
       },
     });
   }
-
 }

@@ -1,20 +1,15 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_SubscriptionFeatureType } from '../models/_36_Enums_SubscriptionFeatureType';
 import type { CreateSubscriptionFeatureDto } from '../models/CreateSubscriptionFeatureDto';
 import type { CreateSubscriptionPlanDto } from '../models/CreateSubscriptionPlanDto';
 import type { Partial_CreateSubscriptionFeatureDto_ } from '../models/Partial_CreateSubscriptionFeatureDto_';
-import type { SubscriptionFeature } from '../models/SubscriptionFeature';
-import type { SubscriptionPlan } from '../models/SubscriptionPlan';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class SubscriptionService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -45,16 +40,27 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
-   * @returns SubscriptionPlan Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createSubscriptionPlan({
     requestBody,
   }: {
     requestBody: CreateSubscriptionPlanDto,
-  }): CancelablePromise<SubscriptionPlan> {
+  }): CancelablePromise<{
+    platformTransactionFee: number;
+    yearlyStripePriceId: string;
+    monthlyStripePriceId: string;
+    stripeProductId: string;
+    yearlyPrice: number;
+    monthlyPrice: number;
+    description: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/subscriptions',
@@ -69,12 +75,18 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
-   * @returns SubscriptionFeature Ok
+   * @returns any Ok
    * @throws ApiError
    */
-  public listSubscriptionFeatures(): CancelablePromise<Array<SubscriptionFeature>> {
+  public listSubscriptionFeatures(): CancelablePromise<Array<{
+    description: string;
+    type: _36_Enums_SubscriptionFeatureType;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/subscriptions/features',
@@ -86,16 +98,22 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
-   * @returns SubscriptionFeature Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createSubscriptionFeature({
     requestBody,
   }: {
     requestBody: CreateSubscriptionFeatureDto,
-  }): CancelablePromise<SubscriptionFeature> {
+  }): CancelablePromise<{
+    description: string;
+    type: _36_Enums_SubscriptionFeatureType;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/subscriptions/features',
@@ -110,7 +128,6 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -134,7 +151,6 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -159,7 +175,6 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -170,14 +185,12 @@ export class SubscriptionService {
       url: '/subscriptions/seeding',
       errors: {
         400: `Bad request`,
-        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -196,16 +209,14 @@ export class SubscriptionService {
       mediaType: 'application/json',
       errors: {
         400: `Bad request`,
-        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
       },
     });
   }
-
   /**
-   * @returns SubscriptionFeature Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateSubscriptionFeature({
@@ -214,7 +225,14 @@ export class SubscriptionService {
   }: {
     id: number,
     requestBody: Partial_CreateSubscriptionFeatureDto_,
-  }): CancelablePromise<SubscriptionFeature> {
+  }): CancelablePromise<{
+    description: string;
+    type: _36_Enums_SubscriptionFeatureType;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/subscriptions/features/{id}',
@@ -232,7 +250,6 @@ export class SubscriptionService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -257,5 +274,4 @@ export class SubscriptionService {
       },
     });
   }
-
 }

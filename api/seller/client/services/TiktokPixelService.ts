@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTiktokPixelDto } from '../models/CreateTiktokPixelDto';
 import type { TiktokPixel } from '../models/TiktokPixel';
 import type { UpdateTiktokPixelDto } from '../models/UpdateTiktokPixelDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TiktokPixelService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -23,10 +19,16 @@ export class TiktokPixelService {
   }: {
     storeId: string,
     requestBody: CreateTiktokPixelDto,
-  }): CancelablePromise<(TiktokPixel & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -45,7 +47,6 @@ export class TiktokPixelService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -54,10 +55,16 @@ export class TiktokPixelService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<(TiktokPixel & {
+  }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -74,7 +81,6 @@ export class TiktokPixelService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -85,10 +91,16 @@ export class TiktokPixelService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<(TiktokPixel & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -106,7 +118,6 @@ export class TiktokPixelService {
       },
     });
   }
-
   /**
    * @returns TiktokPixel Ok
    * @throws ApiError
@@ -138,9 +149,8 @@ export class TiktokPixelService {
       },
     });
   }
-
   /**
-   * @returns TiktokPixel Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteTiktokPixel({
@@ -149,7 +159,13 @@ export class TiktokPixelService {
   }: {
     storeId: string,
     pixelId: string,
-  }): CancelablePromise<TiktokPixel> {
+  }): CancelablePromise<{
+    pixelId: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/tiktok-pixel/{pixelId}',
@@ -166,5 +182,4 @@ export class TiktokPixelService {
       },
     });
   }
-
 }

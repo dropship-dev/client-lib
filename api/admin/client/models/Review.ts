@@ -1,25 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_Photos } from './PrismaJson_Photos';
-
+import type { DefaultSelection_Prisma__36_ReviewPayload_ } from './DefaultSelection_Prisma__36_ReviewPayload_';
 /**
  * Model Review
  */
-export type Review = {
-  updatedAt: string;
-  createdAt: string;
-  productId: number;
-  /**
-   * [Photos]
-   */
-  photos: PrismaJson_Photos;
-  comment: string;
-  rating: number;
-  email: string | null;
-  name: string | null;
-  id: number;
-};
-
+export type Review = DefaultSelection_Prisma__36_ReviewPayload_;

@@ -1,10 +1,8 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { StatusTemplate } from './StatusTemplate';
-
 export type GetAllTemplateDto = {
   search?: string;
   sort?: GetAllTemplateDto.sort;
@@ -18,14 +16,10 @@ export type GetAllTemplateDto = {
   page?: number;
   limit?: number;
 };
-
 export namespace GetAllTemplateDto {
-
   export enum sort {
     ASC = 'ASC',
     DESC = 'DESC',
   }
-
-
 }
 

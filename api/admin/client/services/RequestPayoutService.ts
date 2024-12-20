@@ -1,31 +1,49 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
+import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
+import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RequestPayout } from '../models/RequestPayout';
-import type { RequestPayoutStatus } from '../models/RequestPayoutStatus';
 import type { Store } from '../models/Store';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class RequestPayoutService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns RequestPayout Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createRequestPayout({
     requestBody,
   }: {
     requestBody: CreateRequestPayoutDto,
-  }): CancelablePromise<RequestPayout> {
+  }): CancelablePromise<{
+    photos: PrismaJson_Photos;
+    noteByAdmin: string;
+    noteBySeller: string;
+    convertCurrencyCode: string;
+    pingPongAccountId: string;
+    bankAccountId: string;
+    paymentMethod: _36_Enums_PaymentMethodType;
+    convertCurrencyAmount: number;
+    requestCurrencyAmount: number;
+    status: _36_Enums_RequestPayoutStatus;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/request-payout',
@@ -40,7 +58,6 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -60,7 +77,7 @@ export class RequestPayoutService {
     search?: string,
     startDate?: string,
     endDate?: string,
-    statusRequest?: Array<RequestPayoutStatus>,
+    statusRequest?: Array<_36_Enums_RequestPayoutStatus>,
     pageSize?: number,
     nextPageIndex?: string,
   }): CancelablePromise<{
@@ -68,10 +85,81 @@ export class RequestPayoutService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<(RequestPayout & {
-      PingPongAccount: PingPongAccount;
-      BankAccount: BankAccount;
-      Store: Store;
+    data: Array<({
+      PingPongAccount: {
+        walletId: string;
+        isBlock: boolean;
+        isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
+        email: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: string;
+      };
+      BankAccount: {
+        walletId: string;
+        isBlock: boolean;
+        isDefault: boolean;
+        bank: PrismaJson_bankInfo;
+        currency: _36_Enums_CurrencyType;
+        accountHolder: string;
+        accountNumber: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: string;
+      };
+      Store: {
+        stripeDefaultPaymentMethodId: string;
+        stripeCustomerId: string;
+        warning: boolean;
+        currencyId: number;
+        maxUsers: number;
+        balance: number;
+        referralCode: string;
+        defaultBankAccount: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        privacyPolicy: string;
+        refundPolicy: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        primaryDomain: string;
+        subDomain: string;
+        pageName: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        avatar: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: string;
+      };
+    } & {
+      photos: PrismaJson_Photos;
+      noteByAdmin: string;
+      noteBySeller: string;
+      convertCurrencyCode: string;
+      pingPongAccountId: string;
+      bankAccountId: string;
+      paymentMethod: _36_Enums_PaymentMethodType;
+      convertCurrencyAmount: number;
+      requestCurrencyAmount: number;
+      status: _36_Enums_RequestPayoutStatus;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: string;
     })>;
     countStatusRequestPayout: number;
   }> {
@@ -97,7 +185,6 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -117,7 +204,7 @@ export class RequestPayoutService {
     search?: string,
     startDate?: string,
     endDate?: string,
-    statusRequest?: Array<RequestPayoutStatus>,
+    statusRequest?: Array<_36_Enums_RequestPayoutStatus>,
     pageSize?: number,
     nextPageIndex?: string,
   }): CancelablePromise<{
@@ -145,7 +232,6 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -157,9 +243,9 @@ export class RequestPayoutService {
     storeId: string,
     id: string,
   }): CancelablePromise<(RequestPayout & {
-    PingPongAccount: PingPongAccount;
-    BankAccount: BankAccount;
-    Store: Store;
+    Store: Store | null;
+    PingPongAccount: PingPongAccount | null;
+    BankAccount: BankAccount | null;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -179,9 +265,8 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
-   * @returns RequestPayout Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateRequestPayout({
@@ -192,7 +277,22 @@ export class RequestPayoutService {
     id: string,
     fulfillmentAgencyId: number,
     requestBody: UpdateRequestPayoutDto,
-  }): CancelablePromise<RequestPayout> {
+  }): CancelablePromise<{
+    photos: PrismaJson_Photos;
+    noteByAdmin: string;
+    noteBySeller: string;
+    convertCurrencyCode: string;
+    pingPongAccountId: string;
+    bankAccountId: string;
+    paymentMethod: _36_Enums_PaymentMethodType;
+    convertCurrencyAmount: number;
+    requestCurrencyAmount: number;
+    status: _36_Enums_RequestPayoutStatus;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: string;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/request-payout/{id}',
@@ -213,7 +313,6 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -231,7 +330,6 @@ export class RequestPayoutService {
       },
     });
   }
-
   /**
    * @returns number Ok
    * @throws ApiError
@@ -240,7 +338,7 @@ export class RequestPayoutService {
     statusRequestPayout,
     fulfillmentAgencyId,
   }: {
-    statusRequestPayout: RequestPayoutStatus,
+    statusRequestPayout: _36_Enums_RequestPayoutStatus,
     fulfillmentAgencyId: number,
   }): CancelablePromise<number> {
     return this.httpRequest.request({
@@ -261,5 +359,4 @@ export class RequestPayoutService {
       },
     });
   }
-
 }

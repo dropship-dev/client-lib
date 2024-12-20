@@ -1,10 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum LogoSize {
-  SMALL = 'SMALL',
-  MEDIUM = 'MEDIUM',
-  LARGE = 'LARGE',
-}
+import type { _36_Enums_LogoSize } from './_36_Enums_LogoSize';
+export type LogoSize = _36_Enums_LogoSize;

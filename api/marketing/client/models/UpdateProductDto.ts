@@ -1,14 +1,12 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CampaignDto } from './CampaignDto';
 import type { DiscountDto } from './DiscountDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 import type { UpdateVariantsForSellerInDependenceDto } from './UpdateVariantsForSellerInDependenceDto';
-
 export type UpdateProductDto = {
   name?: string;
   description?: string;

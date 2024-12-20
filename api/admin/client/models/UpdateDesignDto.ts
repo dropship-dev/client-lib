@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { FileUpdateDesign } from './FileUpdateDesign';
 import type { UpdateDesignVariant } from './UpdateDesignVariant';
 import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
-
 export type UpdateDesignDto = {
   name: string;
   description?: string;

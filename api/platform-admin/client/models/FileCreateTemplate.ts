@@ -1,11 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { FileType } from './FileType';
+import type { _36_Enums_FileType } from './_36_Enums_FileType';
 import type { PrismaJson_PodFileProperties } from './PrismaJson_PodFileProperties';
-
 export type FileCreateTemplate = {
   color?: Array<{
     value: string;
@@ -23,7 +21,7 @@ export type FileCreateTemplate = {
     name: string;
   }>;
   properties?: PrismaJson_PodFileProperties;
-  type: FileType;
+  type: _36_Enums_FileType;
   size?: string;
   url?: string;
   fileName?: string;

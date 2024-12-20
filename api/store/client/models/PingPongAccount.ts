@@ -1,22 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { CurrencyType } from './CurrencyType';
-
+import type { DefaultSelection_Prisma__36_PingPongAccountPayload_ } from './DefaultSelection_Prisma__36_PingPongAccountPayload_';
 /**
  * Model PingPongAccount
  */
-export type PingPongAccount = {
-  updatedAt: string;
-  createdAt: string;
-  walletId: string | null;
-  isDeleted: boolean;
-  isBlock: boolean;
-  isDefault: boolean;
-  currency: CurrencyType;
-  email: string;
-  id: string;
-};
-
+export type PingPongAccount = DefaultSelection_Prisma__36_PingPongAccountPayload_;

@@ -1,14 +1,12 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { VariantOptionValues } from './VariantOptionValues';
-
+import type { DesignVariantOptionValues } from './DesignVariantOptionValues';
 export type DesignVariant = {
   isActive: boolean;
   minSellingPrice: number;
-  variantOption: VariantOptionValues;
+  variantOption: DesignVariantOptionValues;
   comparePrice: number;
   price: number;
   sku: string;

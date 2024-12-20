@@ -1,23 +1,20 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BatchPayload } from '../models/BatchPayload';
 import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
-import type { PlatformVariant } from '../models/PlatformVariant';
+import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
 import type { UpdatePlatformVariantsDto } from '../models/UpdatePlatformVariantsDto';
 import type { UpdatePlatformVariantStatusDto } from '../models/UpdatePlatformVariantStatusDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PlatformVariantService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns BatchPayload Ok
+   * @returns Prisma_BatchPayload Ok
    * @throws ApiError
    */
   public createPlatformVariants({
@@ -28,7 +25,7 @@ export class PlatformVariantService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: CreatePlatformVariantsDto,
-  }): CancelablePromise<BatchPayload> {
+  }): CancelablePromise<Prisma_BatchPayload> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/variant',
@@ -49,7 +46,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -83,7 +79,6 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -116,9 +111,8 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getPlatformVariant({
@@ -129,7 +123,23 @@ export class PlatformVariantService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<{
+    groupPlatformVariantId: number;
+    cost: PrismaJson_PlatformCostInfo;
+    supplierPrice: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    variantOption: PrismaJson_VariantOptionValues;
+    SKU: string;
+    deleted: boolean;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -149,9 +159,8 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformVariant({
@@ -164,7 +173,23 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantDto,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<{
+    groupPlatformVariantId: number;
+    cost: PrismaJson_PlatformCostInfo;
+    supplierPrice: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    variantOption: PrismaJson_VariantOptionValues;
+    SKU: string;
+    deleted: boolean;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -186,9 +211,8 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deletePlatformVariant({
@@ -199,7 +223,23 @@ export class PlatformVariantService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     id: number,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<{
+    groupPlatformVariantId: number;
+    cost: PrismaJson_PlatformCostInfo;
+    supplierPrice: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    variantOption: PrismaJson_VariantOptionValues;
+    SKU: string;
+    deleted: boolean;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/platform-product/{platformProductId}/variant/{id}',
@@ -219,9 +259,8 @@ export class PlatformVariantService {
       },
     });
   }
-
   /**
-   * @returns PlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePlatformVariantStatus({
@@ -234,7 +273,23 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
     requestBody: UpdatePlatformVariantStatusDto,
-  }): CancelablePromise<PlatformVariant> {
+  }): CancelablePromise<{
+    groupPlatformVariantId: number;
+    cost: PrismaJson_PlatformCostInfo;
+    supplierPrice: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    variantOption: PrismaJson_VariantOptionValues;
+    SKU: string;
+    deleted: boolean;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/variant/{id}/status',
@@ -256,5 +311,4 @@ export class PlatformVariantService {
       },
     });
   }
-
 }

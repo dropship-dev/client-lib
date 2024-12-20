@@ -1,15 +1,13 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
+import type { _36_Enums_StoreStatus } from './_36_Enums_StoreStatus';
 import type { FraudStatusType } from './FraudStatusType';
-import type { StoreStatus } from './StoreStatus';
-
 export type GetAllStoresDto = {
   fulfillmentAgencyId?: number;
   pageSize?: number;
-  status?: Array<StoreStatus>;
+  status?: Array<_36_Enums_StoreStatus>;
   periodFrom?: string;
   nextPageIndex?: string;
   name?: string;

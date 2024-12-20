@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -6,25 +6,27 @@ import type { CreateCategoryDto } from '../models/CreateCategoryDto';
 import type { GetListCategoryByCatalog } from '../models/GetListCategoryByCatalog';
 import type { GetListCategoryByCategory } from '../models/GetListCategoryByCategory';
 import type { LayoutCategory } from '../models/LayoutCategory';
-import type { PodCategory } from '../models/PodCategory';
 import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PodCategoryService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns PodCategory Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createCategory({
     requestBody,
   }: {
     requestBody: CreateCategoryDto,
-  }): CancelablePromise<PodCategory> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/category',
@@ -39,7 +41,6 @@ export class PodCategoryService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -79,9 +80,8 @@ export class PodCategoryService {
       },
     });
   }
-
   /**
-   * @returns PodCategory Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateCategory({
@@ -90,7 +90,14 @@ export class PodCategoryService {
   }: {
     id: number,
     requestBody: UpdateCategoryDto,
-  }): CancelablePromise<PodCategory> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/pod/category/{id}',
@@ -108,16 +115,22 @@ export class PodCategoryService {
       },
     });
   }
-
   /**
-   * @returns PodCategory Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteCategory({
     id,
   }: {
     id: number,
-  }): CancelablePromise<PodCategory> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/pod/category/{id}',
@@ -133,16 +146,22 @@ export class PodCategoryService {
       },
     });
   }
-
   /**
-   * @returns PodCategory Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public listAllCategory({
     fulfillmentAgencyId,
   }: {
     fulfillmentAgencyId: number,
-  }): CancelablePromise<Array<PodCategory>> {
+  }): CancelablePromise<Array<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    fulfillmentAgencyId: number;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/pod/category/list',
@@ -158,5 +177,4 @@ export class PodCategoryService {
       },
     });
   }
-
 }

@@ -1,29 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { FraudDetectionStatusType } from './FraudDetectionStatusType';
-import type { FraudDetectionType } from './FraudDetectionType';
-import type { PrismaJson_TypeOfFraudService } from './PrismaJson_TypeOfFraudService';
-
+import type { DefaultSelection_Prisma__36_FraudDetectionPayload_ } from './DefaultSelection_Prisma__36_FraudDetectionPayload_';
 /**
  * Model FraudDetection
  */
-export type FraudDetection = {
-  updatedAt: string;
-  createdAt: string;
-  storeId: string | null;
-  isDeleted: boolean;
-  /**
-   * [TypeOfFraudService]
-   */
-  labels: PrismaJson_TypeOfFraudService | null;
-  idempotencyKey: string | null;
-  humanFraudDetect: FraudDetectionStatusType;
-  systemFraudDetect: FraudDetectionStatusType;
-  orderId: string | null;
-  type: FraudDetectionType;
-  id: string;
-};
-
+export type FraudDetection = DefaultSelection_Prisma__36_FraudDetectionPayload_;

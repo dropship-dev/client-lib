@@ -1,26 +1,26 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTechniqueDto } from '../models/CreateTechniqueDto';
-import type { PodTechnique } from '../models/PodTechnique';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PodTechniqueService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns PodTechnique Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createTechnique({
     requestBody,
   }: {
     requestBody: CreateTechniqueDto,
-  }): CancelablePromise<PodTechnique> {
+  }): CancelablePromise<{
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/pod/technique',
@@ -35,7 +35,6 @@ export class PodTechniqueService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -56,5 +55,4 @@ export class PodTechniqueService {
       },
     });
   }
-
 }

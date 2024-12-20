@@ -1,10 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum PaymentType {
-  PAYPAL = 'PAYPAL',
-  STRIPE = 'STRIPE',
-  CLOVER = 'CLOVER',
-}
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
+export type PaymentType = _36_Enums_PaymentType;

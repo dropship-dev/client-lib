@@ -1,27 +1,25 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionStatus';
+import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { BoostSale } from '../models/BoostSale';
 import type { Collection } from '../models/Collection';
-import type { CollectionStatus } from '../models/CollectionStatus';
-import type { CollectionType } from '../models/CollectionType';
 import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
-import type { Photos } from '../models/Photos';
-import type { Product } from '../models/Product';
+import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
+import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
 import type { UpdateCollectionStatusDto } from '../models/UpdateCollectionStatusDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class CollectionService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Collection Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createCollection({
@@ -30,7 +28,19 @@ export class CollectionService {
   }: {
     storeId: string,
     requestBody: CreateCollectionDto,
-  }): CancelablePromise<Collection> {
+  }): CancelablePromise<{
+    SEO: any;
+    condition: PrismaJson_ConditionCollection;
+    description: string;
+    photos: PrismaJson_Photos;
+    type: _36_Enums_CollectionType;
+    status: _36_Enums_CollectionStatus;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/collection',
@@ -48,7 +58,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -69,27 +78,39 @@ export class CollectionService {
     startDate?: string,
     endDate?: string,
     search?: string,
-    collectionType?: CollectionType,
-    collectionStatus?: CollectionStatus,
+    collectionType?: _36_Enums_CollectionType,
+    collectionStatus?: _36_Enums_CollectionStatus,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<(Collection & {
+    data: Array<({
       Product: Array<{
-        permalink: string;
-        deleted: boolean;
-        isEnable: boolean;
-        isActive: boolean;
-        photos: Photos;
-        name: string;
         ProductVariant: Array<{
           compareAtPrice: number;
           price: number;
         }>;
+        isEnable: boolean;
+        isActive: boolean;
+        permalink: string;
+        deleted: boolean;
+        photos: PrismaJson_Photos;
+        name: string;
         id: number;
       }>;
+    } & {
+      SEO: any;
+      condition: PrismaJson_ConditionCollection;
+      description: string;
+      photos: PrismaJson_Photos;
+      type: _36_Enums_CollectionType;
+      status: _36_Enums_CollectionStatus;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
     })>;
   }> {
     return this.httpRequest.request({
@@ -116,7 +137,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -135,16 +155,16 @@ export class CollectionService {
     deletedProduct?: boolean,
   }): CancelablePromise<(Collection & {
     Product: Array<{
-      permalink: string;
-      deleted: boolean;
-      isEnable: boolean;
-      isActive: boolean;
-      photos: Photos;
-      name: string;
       ProductVariant: Array<{
         compareAtPrice: number;
         price: number;
       }>;
+      deleted: boolean;
+      isEnable: boolean;
+      isActive: boolean;
+      permalink: string;
+      photos: Array<string>;
+      name: string;
       id: number;
     }>;
     BoostSale: Array<BoostSale>;
@@ -170,7 +190,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -198,7 +217,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -230,9 +248,8 @@ export class CollectionService {
       },
     });
   }
-
   /**
-   * @returns Product Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getProductByConditions({
@@ -241,7 +258,29 @@ export class CollectionService {
   }: {
     storeId: string,
     requestBody: operatorCondition,
-  }): CancelablePromise<Array<Product>> {
+  }): CancelablePromise<Array<{
+    podTemplateId: number;
+    campaignId: string;
+    isEnable: boolean;
+    isActive: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    permalink: string;
+    deleted: boolean;
+    platformProductId: number;
+    description: string;
+    photos: PrismaJson_Photos;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/collection/get-products-by-conditions-collection',
@@ -259,7 +298,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -289,7 +327,6 @@ export class CollectionService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -318,5 +355,4 @@ export class CollectionService {
       },
     });
   }
-
 }

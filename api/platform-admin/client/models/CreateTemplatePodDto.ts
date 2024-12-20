@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { FileCreateTemplate } from './FileCreateTemplate';
 import type { PodTemplateVariantData } from './PodTemplateVariantData';
 import type { PrintAreaItem } from './PrintAreaItem';
-import type { VariantOptionsPayLoad } from './VariantOptionsPayLoad';
-
+import type { TemplateVariantOptionsPayLoad } from './TemplateVariantOptionsPayLoad';
 export type CreateTemplatePodDto = {
   name: string;
   podProductTypeId: number;
@@ -21,7 +19,7 @@ export type CreateTemplatePodDto = {
   isStock: boolean;
   isActive: boolean;
   podPrintArea: Array<PrintAreaItem>;
-  variantOption: Array<VariantOptionsPayLoad>;
+  variantOption: Array<TemplateVariantOptionsPayLoad>;
   variants: Array<PodTemplateVariantData>;
   files: Array<FileCreateTemplate>;
 };

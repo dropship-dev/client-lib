@@ -1,17 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Setting } from '../models/Setting';
+import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
-
+import type { UpsertRevenueLimitDto } from '../models/UpsertRevenueLimitDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class SettingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -22,7 +19,18 @@ export class SettingService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<(Setting | {
+  }): CancelablePromise<({
+    percentageCostPlatformFee: number;
+    hold: PrismaJson_HoldSetting;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  } | {
     shippingPolicy: string;
     termsOfService: string;
     refundPolicy: string;
@@ -43,9 +51,57 @@ export class SettingService {
       },
     });
   }
-
   /**
-   * @returns Setting Ok
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getPlatformRevenueLimit(): CancelablePromise<{
+    revenueLimit: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/setting/revenue-limit',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public updatePlatformRevenueLimit({
+    requestBody,
+  }: {
+    requestBody: UpsertRevenueLimitDto,
+  }): CancelablePromise<{
+    numberValue: number;
+    key: string;
+    type: 'REVENUE_LIMIT';
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/setting/revenue-limit',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
    * @throws ApiError
    */
   public updateSetting({
@@ -54,7 +110,18 @@ export class SettingService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: UpdateSettingDto,
-  }): CancelablePromise<Setting> {
+  }): CancelablePromise<{
+    percentageCostPlatformFee: number;
+    hold: PrismaJson_HoldSetting;
+    shippingPolicy: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    refundPolicy: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/setting/{id}',
@@ -72,5 +139,4 @@ export class SettingService {
       },
     });
   }
-
 }

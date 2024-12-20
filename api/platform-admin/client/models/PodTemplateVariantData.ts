@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { VariantOptionValues } from './VariantOptionValues';
-
+import type { TemplateVariantOptionValues } from './TemplateVariantOptionValues';
 export type PodTemplateVariantData = {
   isActive: boolean;
-  variantOption: VariantOptionValues;
+  variantOption: TemplateVariantOptionValues;
   faPrice?: number;
   supplierCost?: number;
   sku?: string;

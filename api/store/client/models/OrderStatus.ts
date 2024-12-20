@@ -1,13 +1,6 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-export enum OrderStatus {
-  FAILED = 'FAILED',
-  REFUNDED = 'REFUNDED',
-  UNPAID = 'UNPAID',
-  COMPLETED = 'COMPLETED',
-  CREATED = 'CREATED',
-  DISPUTED = 'DISPUTED',
-}
+import type { _36_Enums_OrderStatus } from './_36_Enums_OrderStatus';
+export type OrderStatus = _36_Enums_OrderStatus;
