@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_SubscriptionInterval } from '../models/_36_Enums_SubscriptionInterval';
+import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_SubscriptionStatus';
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -100,6 +101,7 @@ export class SubscriptionService {
     stripeSubscriptionId: string;
     upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
     subscriptionPlanId: number;
+    failedPTFCaptureTimes: number;
     lastPlatformFeeChargeAt: string;
     currentPlatformTransactionFee: number;
     nextChargeDate: string;
@@ -107,6 +109,7 @@ export class SubscriptionService {
     freeTrialDays: number;
     interval: _36_Enums_SubscriptionInterval;
     type: _36_Enums_SubscriptionType;
+    status: _36_Enums_SubscriptionStatus;
     updatedAt: string;
     createdAt: string;
     storeId: string;
