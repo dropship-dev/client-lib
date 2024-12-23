@@ -106,6 +106,7 @@ export declare class StoreService {
             salt: string;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
+            BNcode: string;
             publishableKey: string;
             isShowCompanyAddress: boolean;
             companyAddress: string;
