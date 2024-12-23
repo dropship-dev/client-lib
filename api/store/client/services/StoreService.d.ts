@@ -108,6 +108,7 @@ export declare class StoreService {
             UIVersion: number;
             BNcode: string;
             publishableKey: string;
+            isPlatform: boolean;
             isShowCompanyAddress: boolean;
             companyAddress: string;
             companyPhone: string;
