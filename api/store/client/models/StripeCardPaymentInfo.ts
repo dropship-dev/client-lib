@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type PaymentInfo = {
+export type StripeCardPaymentInfo = {
   id: string;
   last4: string;
   brand: string;

@@ -2,8 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { PaymentInfo } from './PaymentInfo';
 import type { PrismaJson_DomainContactInfo } from './PrismaJson_DomainContactInfo';
+import type { StripeCardPaymentInfo } from './StripeCardPaymentInfo';
 export type BuyDomainDto = {
   domainName: string;
   contactInfo: PrismaJson_DomainContactInfo;
@@ -11,6 +11,6 @@ export type BuyDomainDto = {
   renewalPrice: number;
   purchaseType: string;
   autoRenew: boolean;
-  paymentMethod: PaymentInfo;
+  paymentMethod: StripeCardPaymentInfo;
 };
 

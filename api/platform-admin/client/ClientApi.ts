@@ -12,6 +12,7 @@ import { MarketingService } from './services/MarketingService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
+import { SettingService } from './services/SettingService';
 import { StatisticsService } from './services/StatisticsService';
 import { SubscriptionService } from './services/SubscriptionService';
 import { UploadService } from './services/UploadService';
@@ -25,6 +26,7 @@ export class ClientApi {
   public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly performance: PerformanceService;
+  public readonly setting: SettingService;
   public readonly statistics: StatisticsService;
   public readonly subscription: SubscriptionService;
   public readonly upload: UploadService;
@@ -49,6 +51,7 @@ export class ClientApi {
     this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.performance = new PerformanceService(this.request);
+    this.setting = new SettingService(this.request);
     this.statistics = new StatisticsService(this.request);
     this.subscription = new SubscriptionService(this.request);
     this.upload = new UploadService(this.request);
