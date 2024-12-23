@@ -1,3 +1,3 @@
 export type UpsertRevenueLimitDto = {
-    limit: number;
+    amount: number;
 };

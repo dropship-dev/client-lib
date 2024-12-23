@@ -1,6 +1,7 @@
 import type { _36_Enums_SubscriptionInterval } from '../models/_36_Enums_SubscriptionInterval';
 import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_SubscriptionStatus';
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
+import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -33,6 +34,7 @@ export declare class SubscriptionService {
     getCurrentStoreSubscription({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        needToPayPFT: boolean;
         upgradeSubscriptionPlan: {
             startDate: string;
             interval: _36_Enums_SubscriptionInterval;
@@ -53,6 +55,7 @@ export declare class SubscriptionService {
             startDate: string;
             freeTrialDaysLeft: number;
         };
+        status: _36_Enums_SubscriptionStatus;
         type: _36_Enums_SubscriptionType;
     }>;
     /**
@@ -80,5 +83,35 @@ export declare class SubscriptionService {
         createdAt: string;
         storeId: string;
         id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePlatformTransactionFee({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        currentPlatformTransactionFee: number;
+        platformFee: number;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    paySubscriptionAndPlatformTransactionFees({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: PayPlatformTransactionFeeDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCurrentStoreRevenueAndPtf({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        currentPlatformTransactionFee: number;
+        platformRevenueCeiling: number;
+        platformFee: number;
+        storeRevenue: number;
     }>;
 }
