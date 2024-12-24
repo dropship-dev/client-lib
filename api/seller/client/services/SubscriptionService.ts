@@ -50,7 +50,7 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    needToPayPFT: boolean;
+    needToPayPTF: boolean;
     upgradeSubscriptionPlan: {
       startDate: string;
       interval: _36_Enums_SubscriptionInterval;
@@ -144,8 +144,8 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    currentPlatformTransactionFee: number;
-    platformFee: number;
+    currentPlanTransactionFeePercent: number;
+    totalPlatformFee: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -199,9 +199,9 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    currentPlatformTransactionFee: number;
+    currentPlanTransactionFeePercent: number;
     platformRevenueCeiling: number;
-    platformFee: number;
+    totalPlatformFee: number;
     storeRevenue: number;
   }> {
     return this.httpRequest.request({
