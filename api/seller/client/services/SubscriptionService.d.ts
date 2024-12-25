@@ -52,7 +52,7 @@ export declare class SubscriptionService {
             name: string;
         };
         freeTrial: {
-            startDate: string;
+            endDate: string;
             freeTrialDaysLeft: number;
         };
         status: _36_Enums_SubscriptionStatus;
