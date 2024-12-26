@@ -12,6 +12,7 @@ import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { GoogleTagManagerService } from './services/GoogleTagManagerService';
+import { KlaviyoService } from './services/KlaviyoService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -53,6 +54,7 @@ export declare class ClientApi {
     readonly fulfillmentAgency: FulfillmentAgencyService;
     readonly googleAnalytic: GoogleAnalyticService;
     readonly googleTagManager: GoogleTagManagerService;
+    readonly klaviyo: KlaviyoService;
     readonly marketingEmail: MarketingEmailService;
     readonly notification: NotificationService;
     readonly order: OrderService;
