@@ -71,6 +71,9 @@ export class StoreService {
     createdAt: string;
     fulfillmentAgencyId: number;
     id: string;
+    Klaviyo: {
+      publishableKey: string;
+    };
     Theme: ({
       ThemeTemplate: {
         link: string;

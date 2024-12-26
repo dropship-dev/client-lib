@@ -221,6 +221,7 @@ export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
+export type { KlaviyoDto } from './models/KlaviyoDto';
 export type { ListAbandonmentOrdersDto } from './models/ListAbandonmentOrdersDto';
 export type { LiveCoordinates } from './models/LiveCoordinates';
 export type { LocationResult } from './models/LocationResult';
