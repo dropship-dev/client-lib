@@ -1,8 +1,10 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -206,4 +208,36 @@ export declare class FulfillmentAgencyService {
         }>;
         id: string;
     }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentPlatformIntegration({ id, platform, }: {
+        id: number;
+        platform: _36_Enums_FulfillmentPlatform;
+    }): CancelablePromise<{
+        platform: 'BETTA_SUP';
+        isLinked: boolean;
+        apiKey: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    integrateWithFulfillmentPlatform({ id, requestBody, }: {
+        id: number;
+        requestBody: IntegrationWithFulfillmentPlatformDto;
+    }): CancelablePromise<{
+        platform: 'BETTA_SUP';
+        isLinked: boolean;
+        apiKey: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
 }
