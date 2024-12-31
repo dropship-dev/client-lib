@@ -80,6 +80,7 @@ export class OrderRefundsService {
         });
         ProductVariant: ({
           PlatformVariant: {
+            fulfillmentPlatformVariantId: string;
             groupPlatformVariantId: number;
             cost: PrismaJson_PlatformCostInfo;
             supplierPrice: number;

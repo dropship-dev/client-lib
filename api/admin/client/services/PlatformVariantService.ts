@@ -124,6 +124,7 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
   }): CancelablePromise<{
+    fulfillmentPlatformVariantId: string;
     groupPlatformVariantId: number;
     cost: PrismaJson_PlatformCostInfo;
     supplierPrice: number;
@@ -174,6 +175,7 @@ export class PlatformVariantService {
     id: number,
     requestBody: UpdatePlatformVariantDto,
   }): CancelablePromise<{
+    fulfillmentPlatformVariantId: string;
     groupPlatformVariantId: number;
     cost: PrismaJson_PlatformCostInfo;
     supplierPrice: number;
@@ -224,6 +226,7 @@ export class PlatformVariantService {
     platformProductId: number,
     id: number,
   }): CancelablePromise<{
+    fulfillmentPlatformVariantId: string;
     groupPlatformVariantId: number;
     cost: PrismaJson_PlatformCostInfo;
     supplierPrice: number;
@@ -274,6 +277,7 @@ export class PlatformVariantService {
     id: number,
     requestBody: UpdatePlatformVariantStatusDto,
   }): CancelablePromise<{
+    fulfillmentPlatformVariantId: string;
     groupPlatformVariantId: number;
     cost: PrismaJson_PlatformCostInfo;
     supplierPrice: number;

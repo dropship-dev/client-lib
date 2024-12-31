@@ -161,7 +161,7 @@ export type { DefaultSelection_Prisma__36_OrderPayload_ } from './models/Default
 export type { DefaultSelection_Prisma__36_OrderRefundPayload_ } from './models/DefaultSelection_Prisma__36_OrderRefundPayload_';
 export type { DefaultSelection_Prisma__36_PaymentOnboardingPayload_ } from './models/DefaultSelection_Prisma__36_PaymentOnboardingPayload_';
 export type { DefaultSelection_Prisma__36_PingPongAccountPayload_ } from './models/DefaultSelection_Prisma__36_PingPongAccountPayload_';
-export type { DefaultSelection_Prisma__36_PlatformProductPayload_ } from './models/DefaultSelection_Prisma__36_PlatformProductPayload_';
+export { DefaultSelection_Prisma__36_PlatformProductPayload_ } from './models/DefaultSelection_Prisma__36_PlatformProductPayload_';
 export type { DefaultSelection_Prisma__36_PlatformVariantPayload_ } from './models/DefaultSelection_Prisma__36_PlatformVariantPayload_';
 export type { DefaultSelection_Prisma__36_ProductPayload_ } from './models/DefaultSelection_Prisma__36_ProductPayload_';
 export type { DefaultSelection_Prisma__36_ProductVariantPayload_ } from './models/DefaultSelection_Prisma__36_ProductVariantPayload_';
