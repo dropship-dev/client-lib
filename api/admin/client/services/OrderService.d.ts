@@ -265,6 +265,7 @@ export declare class OrderService {
             });
             ProductVariant: ({
                 PlatformVariant: {
+                    fulfillmentPlatformVariantId: string;
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
                     supplierPrice: number;
@@ -540,6 +541,7 @@ export declare class OrderService {
             });
             ProductVariant: ({
                 PlatformVariant: {
+                    fulfillmentPlatformVariantId: string;
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
                     supplierPrice: number;

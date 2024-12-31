@@ -36,6 +36,7 @@ export declare class VariantService {
         total: number;
         data: Array<({
             PlatformVariant: {
+                fulfillmentPlatformVariantId: string;
                 groupPlatformVariantId: number;
                 cost: PrismaJson_PlatformCostInfo;
                 supplierPrice: number;
@@ -102,6 +103,7 @@ export declare class VariantService {
         id: number;
     }): CancelablePromise<({
         PlatformVariant: {
+            fulfillmentPlatformVariantId: string;
             groupPlatformVariantId: number;
             cost: PrismaJson_PlatformCostInfo;
             supplierPrice: number;
