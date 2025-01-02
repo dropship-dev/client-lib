@@ -250,6 +250,7 @@ export type { OrderRefund } from './models/OrderRefund';
 export type { OrderStatus } from './models/OrderStatus';
 export { OrderTrackingEmailStatusDto } from './models/OrderTrackingEmailStatusDto';
 export { OrderTrackingRecoveredStatusDto } from './models/OrderTrackingRecoveredStatusDto';
+export { PageNameType } from './models/PageNameType';
 export type { Partial_CreateSubscriptionFeatureDto_ } from './models/Partial_CreateSubscriptionFeatureDto_';
 export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
 export type { PaymentMethodType } from './models/PaymentMethodType';

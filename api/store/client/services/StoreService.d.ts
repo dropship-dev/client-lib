@@ -4,6 +4,7 @@ import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentT
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { ContactFormDto } from '../models/ContactFormDto';
+import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
@@ -18,8 +19,10 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveTheme({ storeId, }: {
+    getStoreActiveTheme({ storeId, pageName, getFont, }: {
         storeId: string;
+        pageName?: PageNameType;
+        getFont?: boolean;
     }): CancelablePromise<{
         CustomDomain: Array<{
             isPrimary: boolean;
@@ -66,6 +69,7 @@ export declare class StoreService {
         createdAt: string;
         fulfillmentAgencyId: number;
         id: string;
+        fontPage: Array<any>;
         Klaviyo: {
             publishableKey: string;
         };

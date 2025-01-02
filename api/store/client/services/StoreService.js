@@ -10,12 +10,16 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveTheme({ storeId, }) {
+    getStoreActiveTheme({ storeId, pageName, getFont, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/active-theme',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'pageName': pageName,
+                'getFont': getFont,
             },
             errors: {
                 400: `Bad request`,
