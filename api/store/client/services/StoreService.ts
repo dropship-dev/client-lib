@@ -8,6 +8,7 @@ import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentT
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { ContactFormDto } from '../models/ContactFormDto';
+import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
@@ -23,8 +24,12 @@ export class StoreService {
    */
   public getStoreActiveTheme({
     storeId,
+    pageName,
+    getFont,
   }: {
     storeId: string,
+    pageName?: PageNameType,
+    getFont?: boolean,
   }): CancelablePromise<{
     CustomDomain: Array<{
       isPrimary: boolean;
@@ -71,6 +76,7 @@ export class StoreService {
     createdAt: string;
     fulfillmentAgencyId: number;
     id: string;
+    fontPage: Array<any>;
     Klaviyo: {
       publishableKey: string;
     };
@@ -134,6 +140,10 @@ export class StoreService {
       url: '/store/{storeId}/active-theme',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'pageName': pageName,
+        'getFont': getFont,
       },
       errors: {
         400: `Bad request`,
