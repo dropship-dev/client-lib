@@ -80,7 +80,23 @@ export class StoreService {
     Klaviyo: {
       publishableKey: string;
     };
-    Theme: ({
+    Theme: {
+      themeTemplateId: number;
+      isActivated: boolean;
+      components: any;
+      colors: any;
+      font: string;
+      heroBanner: string;
+      logoSize: _36_Enums_LogoSize;
+      logo: string;
+      nodes: PrismaJson_ThemeNodes;
+      setting: PrismaJson_ThemeSetting;
+      style: PrismaJson_ThemeStyle;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
       ThemeTemplate: {
         link: string;
         image: string;
@@ -98,24 +114,7 @@ export class StoreService {
         createdAt: string;
         id: number;
       }>;
-    } & {
-      themeTemplateId: number;
-      isActivated: boolean;
-      components: any;
-      colors: any;
-      font: string;
-      heroBanner: string;
-      logoSize: _36_Enums_LogoSize;
-      logo: string;
-      nodes: PrismaJson_ThemeNodes;
-      setting: PrismaJson_ThemeSetting;
-      style: PrismaJson_ThemeStyle;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      id: number;
-    });
+    };
     Payment: Array<{
       salt: string;
       environment: _36_Enums_EnvironmentType;
