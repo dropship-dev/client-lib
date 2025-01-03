@@ -216,11 +216,11 @@ export class OrderService {
    * @throws ApiError
    */
   public updateFulfillmentStatus({
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId,
   }: {
-    fulfillmentAgencyId: number,
     requestBody: UpdateOrderStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<UpdateFulFillmentStatusResp> {
     return this.httpRequest.request({
       method: 'PATCH',
