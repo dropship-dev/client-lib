@@ -67,6 +67,7 @@ export type { ApproveStoreDto } from './models/ApproveStoreDto';
 export type { AsyncTask } from './models/AsyncTask';
 export type { AsyncTaskError } from './models/AsyncTaskError';
 export type { AuthData } from './models/AuthData';
+export type { AuthFulfillmentPlatformData } from './models/AuthFulfillmentPlatformData';
 export type { AuthStoreData } from './models/AuthStoreData';
 export type { BankAccount } from './models/BankAccount';
 export type { bankInfo } from './models/bankInfo';
