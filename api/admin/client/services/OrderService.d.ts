@@ -132,9 +132,9 @@ export declare class OrderService {
      * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId, }: {
         requestBody: UpdateOrderStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<UpdateFulFillmentStatusResp>;
     /**
      * @returns GetOrderResult Ok

@@ -74,7 +74,7 @@ class OrderService {
      * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }) {
+    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/order/fulfillmentStatus',
