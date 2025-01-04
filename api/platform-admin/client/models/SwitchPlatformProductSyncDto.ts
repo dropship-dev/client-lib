@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type SwitchPlatformProductSyncDto = {
-  quoteId: string;
+  platformProductId: number;
   status: boolean;
 };
 
