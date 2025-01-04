@@ -1,4 +1,4 @@
 export type SwitchPlatformProductSyncDto = {
-    quoteId: string;
+    platformProductId: number;
     status: boolean;
 };
