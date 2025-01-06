@@ -334,6 +334,7 @@ export class FulfillmentAgencyService {
     id: number,
     platform: _36_Enums_FulfillmentPlatform,
   }): CancelablePromise<{
+    fulfillmentPlatformAPIKey: string;
     platform: 'BETTA_SUP';
     isLinked: boolean;
     apiKey: string;
@@ -371,6 +372,7 @@ export class FulfillmentAgencyService {
     id: number,
     requestBody: IntegrationWithFulfillmentPlatformDto,
   }): CancelablePromise<{
+    fulfillmentPlatformAPIKey: string;
     platform: 'BETTA_SUP';
     isLinked: boolean;
     apiKey: string;
