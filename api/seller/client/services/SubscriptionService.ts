@@ -3,7 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_SubscriptionInterval } from '../models/_36_Enums_SubscriptionInterval';
+import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_SubscriptionStatus';
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
+import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -48,6 +50,7 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    needToPayPTF: boolean;
     upgradeSubscriptionPlan: {
       startDate: string;
       interval: _36_Enums_SubscriptionInterval;
@@ -65,9 +68,10 @@ export class SubscriptionService {
       name: string;
     };
     freeTrial: {
-      startDate: string;
+      endDate: string;
       freeTrialDaysLeft: number;
     };
+    status: _36_Enums_SubscriptionStatus;
     type: _36_Enums_SubscriptionType;
   }> {
     return this.httpRequest.request({
@@ -100,6 +104,7 @@ export class SubscriptionService {
     stripeSubscriptionId: string;
     upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
     subscriptionPlanId: number;
+    failedPTFCaptureTimes: number;
     lastPlatformFeeChargeAt: string;
     currentPlatformTransactionFee: number;
     nextChargeDate: string;
@@ -107,6 +112,7 @@ export class SubscriptionService {
     freeTrialDays: number;
     interval: _36_Enums_SubscriptionInterval;
     type: _36_Enums_SubscriptionType;
+    status: _36_Enums_SubscriptionStatus;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -120,6 +126,90 @@ export class SubscriptionService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStorePlatformTransactionFee({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    currentPlanTransactionFeePercent: number;
+    totalPlatformFee: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/subscription/platform-transaction-fee',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public paySubscriptionAndPlatformTransactionFees({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PayPlatformTransactionFeeDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/platform-transaction-fee',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCurrentStoreRevenueAndPtf({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    currentPlanTransactionFeePercent: number;
+    platformRevenueCeiling: number;
+    totalPlatformFee: number;
+    storeRevenue: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/subscription/revenue',
+      path: {
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

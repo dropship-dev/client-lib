@@ -216,11 +216,11 @@ export class OrderService {
    * @throws ApiError
    */
   public updateFulfillmentStatus({
-    fulfillmentAgencyId,
     requestBody,
+    fulfillmentAgencyId,
   }: {
-    fulfillmentAgencyId: number,
     requestBody: UpdateOrderStatusDto,
+    fulfillmentAgencyId?: number,
   }): CancelablePromise<UpdateFulFillmentStatusResp> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -436,6 +436,7 @@ export class OrderService {
       });
       ProductVariant: ({
         PlatformVariant: {
+          fulfillmentPlatformVariantId: string;
           groupPlatformVariantId: number;
           cost: PrismaJson_PlatformCostInfo;
           supplierPrice: number;
@@ -729,6 +730,7 @@ export class OrderService {
       });
       ProductVariant: ({
         PlatformVariant: {
+          fulfillmentPlatformVariantId: string;
           groupPlatformVariantId: number;
           cost: PrismaJson_PlatformCostInfo;
           supplierPrice: number;

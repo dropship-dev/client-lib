@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type PaymentInfo = {
-  id: string;
-  last4: string;
-  brand: string;
-};
-
+export enum _36_Enums_SubscriptionStatus {
+  EXPIRED = 'EXPIRED',
+  ACTIVE = 'ACTIVE',
+}

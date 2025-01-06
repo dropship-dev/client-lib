@@ -32,6 +32,9 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     requestBody: CreatePlatformProductDto,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;
@@ -93,6 +96,9 @@ export class PlatformProductService {
     prePageIndex: number;
     total: number;
     data: Array<{
+      isInSyncWithFulfillmentPlatform: boolean;
+      fulfillmentPlatform: 'BETTA_SUP';
+      fulfillmentPlatformQuoteId: string;
       isEnable: boolean;
       isActive: boolean;
       supplierContact: string;
@@ -124,6 +130,7 @@ export class PlatformProductService {
         id: number;
       })>;
       PlatformVariant: Array<{
+        fulfillmentPlatformVariantId: string;
         groupPlatformVariantId: number;
         cost: PrismaJson_PlatformCostInfo;
         supplierPrice: number;
@@ -288,6 +295,9 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;
@@ -335,6 +345,9 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;
@@ -382,6 +395,9 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;
@@ -431,6 +447,9 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;
@@ -480,6 +499,9 @@ export class PlatformProductService {
     platformProductId: number,
     tagId: string,
   }): CancelablePromise<{
+    isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatform: 'BETTA_SUP';
+    fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
     isActive: boolean;
     supplierContact: string;

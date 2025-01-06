@@ -5,8 +5,10 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
@@ -48,6 +50,9 @@ export class FulfillmentAgencyService {
       id: number;
       PaymentOnboarding: Array<{
         paypalPartnerReferralId: string;
+        oAuthIntegration: boolean;
+        paymentReceivable: boolean;
+        primaryEmailConfirmed: boolean;
         onboardingStatus: _36_Enums_OnboardingStatus;
         onboardingUrl: string;
         onboardingId: string;
@@ -108,6 +113,9 @@ export class FulfillmentAgencyService {
   }): CancelablePromise<({
     PaymentOnboarding: Array<{
       paypalPartnerReferralId: string;
+      oAuthIntegration: boolean;
+      paymentReceivable: boolean;
+      primaryEmailConfirmed: boolean;
       onboardingStatus: _36_Enums_OnboardingStatus;
       onboardingUrl: string;
       onboardingId: string;
@@ -254,6 +262,9 @@ export class FulfillmentAgencyService {
     paymentType: _36_Enums_PaymentType,
   }): CancelablePromise<{
     paypalPartnerReferralId: string;
+    oAuthIntegration: boolean;
+    paymentReceivable: boolean;
+    primaryEmailConfirmed: boolean;
     onboardingStatus: _36_Enums_OnboardingStatus;
     onboardingUrl: string;
     onboardingId: string;
@@ -303,6 +314,79 @@ export class FulfillmentAgencyService {
       path: {
         'id': id,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getFulfillmentPlatformIntegration({
+    id,
+    platform,
+  }: {
+    id: number,
+    platform: _36_Enums_FulfillmentPlatform,
+  }): CancelablePromise<{
+    platform: 'BETTA_SUP';
+    isLinked: boolean;
+    apiKey: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+      path: {
+        'id': id,
+      },
+      query: {
+        'platform': platform,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public integrateWithFulfillmentPlatform({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: IntegrationWithFulfillmentPlatformDto,
+  }): CancelablePromise<{
+    platform: 'BETTA_SUP';
+    isLinked: boolean;
+    apiKey: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

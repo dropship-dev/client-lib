@@ -5,6 +5,7 @@
 import type { PrismaJson_PlatformCostInfo } from './PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from './PrismaJson_VariantOptionValues';
 export type DefaultSelection_Prisma__36_PlatformVariantPayload_ = {
+  fulfillmentPlatformVariantId: string;
   groupPlatformVariantId: number;
   cost: PrismaJson_PlatformCostInfo;
   supplierPrice: number;
