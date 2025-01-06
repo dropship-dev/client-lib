@@ -1,5 +1,7 @@
 import type { _36_Enums_SubscriptionInterval } from '../models/_36_Enums_SubscriptionInterval';
+import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_SubscriptionStatus';
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
+import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -32,6 +34,7 @@ export declare class SubscriptionService {
     getCurrentStoreSubscription({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        needToPayPTF: boolean;
         upgradeSubscriptionPlan: {
             startDate: string;
             interval: _36_Enums_SubscriptionInterval;
@@ -49,9 +52,10 @@ export declare class SubscriptionService {
             name: string;
         };
         freeTrial: {
-            startDate: string;
+            endDate: string;
             freeTrialDaysLeft: number;
         };
+        status: _36_Enums_SubscriptionStatus;
         type: _36_Enums_SubscriptionType;
     }>;
     /**
@@ -66,6 +70,7 @@ export declare class SubscriptionService {
         stripeSubscriptionId: string;
         upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
         subscriptionPlanId: number;
+        failedPTFCaptureTimes: number;
         lastPlatformFeeChargeAt: string;
         currentPlatformTransactionFee: number;
         nextChargeDate: string;
@@ -73,9 +78,40 @@ export declare class SubscriptionService {
         freeTrialDays: number;
         interval: _36_Enums_SubscriptionInterval;
         type: _36_Enums_SubscriptionType;
+        status: _36_Enums_SubscriptionStatus;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStorePlatformTransactionFee({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        currentPlanTransactionFeePercent: number;
+        totalPlatformFee: number;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    paySubscriptionAndPlatformTransactionFees({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: PayPlatformTransactionFeeDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCurrentStoreRevenueAndPtf({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        currentPlanTransactionFeePercent: number;
+        platformRevenueCeiling: number;
+        totalPlatformFee: number;
+        storeRevenue: number;
     }>;
 }

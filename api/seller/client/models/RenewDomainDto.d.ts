@@ -1,5 +1,5 @@
-import type { PaymentInfo } from './PaymentInfo';
+import type { StripeCardPaymentInfo } from './StripeCardPaymentInfo';
 export type RenewDomainDto = {
     autoRenew?: boolean;
-    paymentMethod?: PaymentInfo;
+    paymentMethod?: StripeCardPaymentInfo;
 };

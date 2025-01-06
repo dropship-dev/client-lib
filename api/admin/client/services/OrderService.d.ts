@@ -132,9 +132,9 @@ export declare class OrderService {
      * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
      */
-    updateFulfillmentStatus({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
+    updateFulfillmentStatus({ requestBody, fulfillmentAgencyId, }: {
         requestBody: UpdateOrderStatusDto;
+        fulfillmentAgencyId?: number;
     }): CancelablePromise<UpdateFulFillmentStatusResp>;
     /**
      * @returns GetOrderResult Ok
@@ -265,6 +265,7 @@ export declare class OrderService {
             });
             ProductVariant: ({
                 PlatformVariant: {
+                    fulfillmentPlatformVariantId: string;
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
                     supplierPrice: number;
@@ -540,6 +541,7 @@ export declare class OrderService {
             });
             ProductVariant: ({
                 PlatformVariant: {
+                    fulfillmentPlatformVariantId: string;
                     groupPlatformVariantId: number;
                     cost: PrismaJson_PlatformCostInfo;
                     supplierPrice: number;

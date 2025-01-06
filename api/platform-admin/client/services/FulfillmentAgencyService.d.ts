@@ -91,6 +91,9 @@ export declare class FulfillmentAgencyService {
             id: number;
             PaymentOnboarding: Array<{
                 paypalPartnerReferralId: string;
+                oAuthIntegration: boolean;
+                paymentReceivable: boolean;
+                primaryEmailConfirmed: boolean;
                 onboardingStatus: _36_Enums_OnboardingStatus;
                 onboardingUrl: string;
                 onboardingId: string;
@@ -131,6 +134,9 @@ export declare class FulfillmentAgencyService {
     }): CancelablePromise<({
         PaymentOnboarding: Array<{
             paypalPartnerReferralId: string;
+            oAuthIntegration: boolean;
+            paymentReceivable: boolean;
+            primaryEmailConfirmed: boolean;
             onboardingStatus: _36_Enums_OnboardingStatus;
             onboardingUrl: string;
             onboardingId: string;

@@ -1,3 +1,6 @@
 export type UpsertRevenueLimitDto = {
-    limit: number;
+    /**
+     * Platform revenue ceiling
+     */
+    amount: number;
 };

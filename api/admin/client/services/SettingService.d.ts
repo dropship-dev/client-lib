@@ -1,6 +1,5 @@
 import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
-import type { UpsertRevenueLimitDto } from '../models/UpsertRevenueLimitDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class SettingService {
@@ -30,27 +29,6 @@ export declare class SettingService {
         refundPolicy: string;
         privacyPolicy: string;
     })>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getPlatformRevenueLimit(): CancelablePromise<{
-        revenueLimit: number;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    updatePlatformRevenueLimit({ requestBody, }: {
-        requestBody: UpsertRevenueLimitDto;
-    }): CancelablePromise<{
-        numberValue: number;
-        key: string;
-        type: 'REVENUE_LIMIT';
-        updatedAt: string;
-        createdAt: string;
-        id: number;
-    }>;
     /**
      * @returns any Ok
      * @throws ApiError

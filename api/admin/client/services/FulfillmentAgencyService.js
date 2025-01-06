@@ -131,5 +131,50 @@ class FulfillmentAgencyService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentPlatformIntegration({ id, platform, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+            path: {
+                'id': id,
+            },
+            query: {
+                'platform': platform,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    integrateWithFulfillmentPlatform({ id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.FulfillmentAgencyService = FulfillmentAgencyService;
