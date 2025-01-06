@@ -84,6 +84,7 @@ export type { Campaign } from './models/Campaign';
 export type { CampaignDto } from './models/CampaignDto';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
+export type { CheckIntegrationDto } from './models/CheckIntegrationDto';
 export type { ClickToOrderDto } from './models/ClickToOrderDto';
 export type { CloneProductDto } from './models/CloneProductDto';
 export type { Collection } from './models/Collection';
