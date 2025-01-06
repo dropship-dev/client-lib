@@ -137,6 +137,13 @@ export declare class OrderService {
         fulfillmentAgencyId?: number;
     }): CancelablePromise<UpdateFulFillmentStatusResp>;
     /**
+     * @returns UpdateFulFillmentStatusResp Ok
+     * @throws ApiError
+     */
+    updateFulfillmentStatusForSup({ requestBody, }: {
+        requestBody: UpdateOrderStatusDto;
+    }): CancelablePromise<UpdateFulFillmentStatusResp>;
+    /**
      * @returns GetOrderResult Ok
      * @throws ApiError
      */
