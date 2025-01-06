@@ -240,6 +240,29 @@ export class OrderService {
     });
   }
   /**
+   * @returns UpdateFulFillmentStatusResp Ok
+   * @throws ApiError
+   */
+  public updateFulfillmentStatusForSup({
+    requestBody,
+  }: {
+    requestBody: UpdateOrderStatusDto,
+  }): CancelablePromise<UpdateFulFillmentStatusResp> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/order/fulfillmentStatusForSup',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns GetOrderResult Ok
    * @throws ApiError
    */
