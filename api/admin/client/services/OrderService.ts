@@ -585,6 +585,17 @@ export class OrderService {
       id: number;
     };
   } | {
+    agencyName?: any;
+    dayLeftToDeleted: number;
+    status: 'CLOSED';
+    id: string;
+  } | {
+    dayLeftToDeleted?: any;
+    id?: any;
+    agencyName: string;
+    status: 'SUSPENDED';
+  } | {
+    agencyName?: any;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
