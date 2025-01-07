@@ -61,20 +61,7 @@ export class StoreService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<({
-      agencyName?: any;
-      createdAt: string;
-      dayLeftToDeleted: number;
-      status: 'CLOSED';
-      id: string;
-    } | {
-      dayLeftToDeleted?: any;
-      id?: any;
-      createdAt: string;
-      agencyName: string;
-      status: 'SUSPENDED';
-    } | {
-      agencyName?: any;
+    data: Array<{
       FraudDetection: Array<{
         labels: PrismaJson_TypeOfFraudService;
         idempotencyKey: string;
@@ -130,7 +117,7 @@ export class StoreService {
       id: string;
       userRole: _36_Enums_StoreRole;
       fraudStatus: FraudStatusType;
-    })>;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
