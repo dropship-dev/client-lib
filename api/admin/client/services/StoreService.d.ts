@@ -149,7 +149,7 @@ export declare class StoreService {
      */
     getStore({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<(Store & {
+    }): CancelablePromise<((Store & {
         FulfillmentAgency: FulfillmentAgency | null;
     } & {
         StoreUser: Array<StoreUser>;
@@ -161,6 +161,13 @@ export declare class StoreService {
         fraudStatus?: FraudStatusType;
     } & {
         Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_>;
+    }) | {
+        dayLeftToDeleted?: number;
+        status: _36_Enums_StoreStatus;
+        id: string;
+    } | {
+        agencyName?: string;
+        status: _36_Enums_StoreStatus;
     })>;
     /**
      * @returns any Ok

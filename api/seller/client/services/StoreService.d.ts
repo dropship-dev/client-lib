@@ -150,7 +150,7 @@ export declare class StoreService {
      */
     getStore({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<(Store & {
+    }): CancelablePromise<((Store & {
         FulfillmentAgency: FulfillmentAgency | null;
     } & {
         StoreUser: Array<StoreUser>;
@@ -162,6 +162,13 @@ export declare class StoreService {
         fraudStatus?: FraudStatusType;
     } & {
         Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_>;
+    }) | {
+        dayLeftToDeleted?: number;
+        status: _36_Enums_StoreStatus;
+        id: string;
+    } | {
+        agencyName?: string;
+        status: _36_Enums_StoreStatus;
     })>;
     /**
      * @returns any Ok
@@ -257,6 +264,49 @@ export declare class StoreService {
     updateStoreStatus({ storeId, requestBody, }: {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
+    }): CancelablePromise<{
+        stripeDefaultPaymentMethodId: string;
+        stripeCustomerId: string;
+        warning: boolean;
+        currencyId: number;
+        maxUsers: number;
+        balance: number;
+        referralCode: string;
+        defaultBankAccount: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        privacyPolicy: string;
+        refundPolicy: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        primaryDomain: string;
+        subDomain: string;
+        pageName: string;
+        dayLeftToDeleted: number;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        avatar: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    reactivateStore({ storeId, }: {
+        storeId: string;
     }): CancelablePromise<{
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
