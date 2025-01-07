@@ -415,6 +415,7 @@ export declare class OrderService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -429,6 +430,7 @@ export declare class OrderService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
         FraudDetection: Array<{
@@ -650,6 +652,7 @@ export declare class OrderService {
             primaryDomain: string;
             subDomain: string;
             pageName: string;
+            dayLeftToDeleted: number;
             country: string;
             zipCode: string;
             city: string;
@@ -664,6 +667,7 @@ export declare class OrderService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            isDeleted: boolean;
             fulfillmentAgencyId: number;
             id: string;
         };

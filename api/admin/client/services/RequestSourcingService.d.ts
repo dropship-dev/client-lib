@@ -48,6 +48,7 @@ export declare class RequestSourcingService {
                 primaryDomain: string;
                 subDomain: string;
                 pageName: string;
+                dayLeftToDeleted: number;
                 country: string;
                 zipCode: string;
                 city: string;
@@ -62,6 +63,7 @@ export declare class RequestSourcingService {
                 name: string;
                 updatedAt: string;
                 createdAt: string;
+                isDeleted: boolean;
                 fulfillmentAgencyId: number;
                 id: string;
             };
@@ -112,6 +114,7 @@ export declare class RequestSourcingService {
             primaryDomain: string;
             subDomain: string;
             pageName: string;
+            dayLeftToDeleted: number;
             country: string;
             zipCode: string;
             city: string;
@@ -126,6 +129,7 @@ export declare class RequestSourcingService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            isDeleted: boolean;
             fulfillmentAgencyId: number;
             id: string;
         };

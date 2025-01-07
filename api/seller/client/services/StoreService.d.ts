@@ -47,6 +47,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -61,6 +62,7 @@ export declare class StoreService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
     }>;
@@ -186,6 +188,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -200,6 +203,7 @@ export declare class StoreService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
     }>;
@@ -227,6 +231,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -241,6 +246,7 @@ export declare class StoreService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
     }>;
@@ -269,6 +275,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -283,6 +290,7 @@ export declare class StoreService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
     }>;
