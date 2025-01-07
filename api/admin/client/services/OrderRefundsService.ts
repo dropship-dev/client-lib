@@ -182,6 +182,7 @@ export class OrderRefundsService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
+        dayLeftToDeleted: number;
         country: string;
         zipCode: string;
         city: string;
@@ -196,6 +197,7 @@ export class OrderRefundsService {
         name: string;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
       };

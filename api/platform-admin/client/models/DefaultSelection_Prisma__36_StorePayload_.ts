@@ -23,6 +23,7 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
   primaryDomain: string;
   subDomain: string;
   pageName: string;
+  dayLeftToDeleted: number;
   country: string;
   zipCode: string;
   city: string;
@@ -37,6 +38,7 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
   name: string;
   updatedAt: string;
   createdAt: string;
+  isDeleted: boolean;
   fulfillmentAgencyId: number;
   id: string;
 };
