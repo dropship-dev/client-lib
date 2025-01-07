@@ -118,7 +118,20 @@ export class StoreService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<{
+    data: Array<({
+      agencyName?: any;
+      createdAt: string;
+      dayLeftToDeleted: number;
+      status: 'CLOSED';
+      id: string;
+    } | {
+      dayLeftToDeleted?: any;
+      id?: any;
+      createdAt: string;
+      agencyName: string;
+      status: 'SUSPENDED';
+    } | {
+      agencyName?: any;
       FraudDetection: Array<{
         labels: PrismaJson_TypeOfFraudService;
         idempotencyKey: string;
@@ -138,6 +151,7 @@ export class StoreService {
       referralCode: string;
       primaryDomain: string;
       subDomain: string;
+      dayLeftToDeleted: number;
       avatar: string;
       Payment: Array<{
         type: _36_Enums_PaymentType;
@@ -173,7 +187,7 @@ export class StoreService {
       id: string;
       userRole: _36_Enums_StoreRole;
       fraudStatus: FraudStatusType;
-    }>;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -208,7 +222,7 @@ export class StoreService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<((Store & {
+  }): CancelablePromise<(Store & {
     FulfillmentAgency: FulfillmentAgency | null;
   } & {
     StoreUser: Array<StoreUser>;
@@ -220,13 +234,6 @@ export class StoreService {
     fraudStatus?: FraudStatusType;
   } & {
     Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_>;
-  }) | {
-    dayLeftToDeleted?: number;
-    status: _36_Enums_StoreStatus;
-    id: string;
-  } | {
-    agencyName?: string;
-    status: _36_Enums_StoreStatus;
   })> {
     return this.httpRequest.request({
       method: 'GET',
