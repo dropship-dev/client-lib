@@ -114,4 +114,14 @@ export declare class SubscriptionService {
         totalPlatformFee: number;
         storeRevenue: number;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getSubscriptionAndPlatformTransactionFeeDebt({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        totalPlatformFee: number;
+        subscriptionFee: number;
+    }>;
 }
