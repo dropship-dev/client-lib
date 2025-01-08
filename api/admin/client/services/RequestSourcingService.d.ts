@@ -48,7 +48,7 @@ export declare class RequestSourcingService {
                 primaryDomain: string;
                 subDomain: string;
                 pageName: string;
-                dayLeftToDeleted: number;
+                closedAt: string;
                 country: string;
                 zipCode: string;
                 city: string;
@@ -114,7 +114,7 @@ export declare class RequestSourcingService {
             primaryDomain: string;
             subDomain: string;
             pageName: string;
-            dayLeftToDeleted: number;
+            closedAt: string;
             country: string;
             zipCode: string;
             city: string;

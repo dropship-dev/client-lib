@@ -66,7 +66,7 @@ export declare class StoreService {
             referralCode: string;
             primaryDomain: string;
             subDomain: string;
-            dayLeftToDeleted: number;
+            closedAt: string;
             avatar: string;
             Payment: Array<{
                 type: _36_Enums_PaymentType;
@@ -188,7 +188,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
-        dayLeftToDeleted: number;
+        closedAt: string;
         country: string;
         zipCode: string;
         city: string;
@@ -233,7 +233,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
-        dayLeftToDeleted: number;
+        closedAt: string;
         country: string;
         zipCode: string;
         city: string;
@@ -278,7 +278,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
-        dayLeftToDeleted: number;
+        closedAt: string;
         country: string;
         zipCode: string;
         city: string;
@@ -323,7 +323,7 @@ export declare class StoreService {
         primaryDomain: string;
         subDomain: string;
         pageName: string;
-        dayLeftToDeleted: number;
+        closedAt: string;
         country: string;
         zipCode: string;
         city: string;

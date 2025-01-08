@@ -432,7 +432,7 @@ export declare class OrderService {
             primaryDomain: string;
             subDomain: string;
             pageName: string;
-            dayLeftToDeleted: number;
+            closedAt: string;
             country: string;
             zipCode: string;
             city: string;
