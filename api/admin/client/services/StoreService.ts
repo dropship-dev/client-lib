@@ -81,7 +81,7 @@ export class StoreService {
       referralCode: string;
       primaryDomain: string;
       subDomain: string;
-      dayLeftToDeleted: number;
+      closedAt: string;
       avatar: string;
       Payment: Array<{
         type: _36_Enums_PaymentType;
@@ -308,7 +308,7 @@ export class StoreService {
     primaryDomain: string;
     subDomain: string;
     pageName: string;
-    dayLeftToDeleted: number;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
@@ -374,7 +374,7 @@ export class StoreService {
     primaryDomain: string;
     subDomain: string;
     pageName: string;
-    dayLeftToDeleted: number;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
@@ -443,7 +443,7 @@ export class StoreService {
     primaryDomain: string;
     subDomain: string;
     pageName: string;
-    dayLeftToDeleted: number;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
@@ -512,7 +512,7 @@ export class StoreService {
     primaryDomain: string;
     subDomain: string;
     pageName: string;
-    dayLeftToDeleted: number;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
