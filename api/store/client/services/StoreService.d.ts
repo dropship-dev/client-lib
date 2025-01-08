@@ -119,6 +119,7 @@ export declare class StoreService {
             companyAddress: string;
             companyPhone: string;
             companyName: string;
+            merchantId: string;
             type: _36_Enums_PaymentType;
             email: string;
             updatedAt: string;
