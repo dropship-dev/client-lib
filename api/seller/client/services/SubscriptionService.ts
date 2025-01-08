@@ -219,4 +219,31 @@ export class SubscriptionService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSubscriptionAndPlatformTransactionFeeDebt({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    totalPlatformFee: number;
+    subscriptionFee: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/subscription/debt-before-closing',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
