@@ -262,6 +262,7 @@ export type { PaymentMethodIdDto } from './models/PaymentMethodIdDto';
 export type { PaymentMethodType } from './models/PaymentMethodType';
 export type { PaymentOnboarding } from './models/PaymentOnboarding';
 export type { PaymentType } from './models/PaymentType';
+export type { PayPlatformTransactionFeeDebtDto } from './models/PayPlatformTransactionFeeDebtDto';
 export type { PayPlatformTransactionFeeDto } from './models/PayPlatformTransactionFeeDto';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
