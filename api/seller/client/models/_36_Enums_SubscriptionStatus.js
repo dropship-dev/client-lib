@@ -7,6 +7,6 @@ exports._36_Enums_SubscriptionStatus = void 0;
 /* eslint-disable */
 var _36_Enums_SubscriptionStatus;
 (function (_36_Enums_SubscriptionStatus) {
-    _36_Enums_SubscriptionStatus["EXPIRED"] = "EXPIRED";
     _36_Enums_SubscriptionStatus["ACTIVE"] = "ACTIVE";
+    _36_Enums_SubscriptionStatus["EXPIRED"] = "EXPIRED";
 })(_36_Enums_SubscriptionStatus || (exports._36_Enums_SubscriptionStatus = _36_Enums_SubscriptionStatus = {}));
