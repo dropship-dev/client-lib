@@ -3,6 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_SubscriptionStatus {
-  EXPIRED = 'EXPIRED',
   ACTIVE = 'ACTIVE',
+  EXPIRED = 'EXPIRED',
 }

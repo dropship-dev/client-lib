@@ -2,10 +2,15 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CapabilityStatus } from './_36_Enums_CapabilityStatus';
 import type { _36_Enums_OnboardingStatus } from './_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
+import type { _36_Enums_PPCPVettingStatus } from './_36_Enums_PPCPVettingStatus';
 export type DefaultSelection_Prisma__36_PaymentOnboardingPayload_ = {
   paypalPartnerReferralId: string;
+  vettingRejectedAt: string;
+  customCardProcessingStatus: _36_Enums_CapabilityStatus;
+  PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
   oAuthIntegration: boolean;
   paymentReceivable: boolean;
   primaryEmailConfirmed: boolean;
@@ -17,6 +22,7 @@ export type DefaultSelection_Prisma__36_PaymentOnboardingPayload_ = {
   paymentType: _36_Enums_PaymentType;
   updatedAt: string;
   createdAt: string;
+  isDeleted: boolean;
   storeId: string;
   fulfillmentAgencyId: number;
   id: number;

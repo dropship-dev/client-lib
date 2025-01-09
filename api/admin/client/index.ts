@@ -14,6 +14,7 @@ export { _36_Enums_AsyncTaskStatus } from './models/_36_Enums_AsyncTaskStatus';
 export { _36_Enums_AsyncTaskType } from './models/_36_Enums_AsyncTaskType';
 export { _36_Enums_BoostSaleTriggerType } from './models/_36_Enums_BoostSaleTriggerType';
 export { _36_Enums_BoostSaleType } from './models/_36_Enums_BoostSaleType';
+export { _36_Enums_CapabilityStatus } from './models/_36_Enums_CapabilityStatus';
 export { _36_Enums_CollectionStatus } from './models/_36_Enums_CollectionStatus';
 export { _36_Enums_CollectionType } from './models/_36_Enums_CollectionType';
 export { _36_Enums_CostCalculationMethod } from './models/_36_Enums_CostCalculationMethod';
@@ -39,6 +40,7 @@ export { _36_Enums_OrderTrackingEmailStatus } from './models/_36_Enums_OrderTrac
 export { _36_Enums_OrderTrackingRecoveredStatus } from './models/_36_Enums_OrderTrackingRecoveredStatus';
 export { _36_Enums_PaymentMethodType } from './models/_36_Enums_PaymentMethodType';
 export { _36_Enums_PaymentType } from './models/_36_Enums_PaymentType';
+export { _36_Enums_PPCPVettingStatus } from './models/_36_Enums_PPCPVettingStatus';
 export { _36_Enums_RequestPayoutStatus } from './models/_36_Enums_RequestPayoutStatus';
 export { _36_Enums_RequestSourcingStatus } from './models/_36_Enums_RequestSourcingStatus';
 export { _36_Enums_StoreEmailLogStatus } from './models/_36_Enums_StoreEmailLogStatus';

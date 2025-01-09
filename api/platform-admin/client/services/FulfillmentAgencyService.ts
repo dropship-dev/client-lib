@@ -2,12 +2,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CapabilityStatus } from '../models/_36_Enums_CapabilityStatus';
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
@@ -115,6 +117,9 @@ export class FulfillmentAgencyService {
       id: number;
       PaymentOnboarding: Array<{
         paypalPartnerReferralId: string;
+        vettingRejectedAt: string;
+        customCardProcessingStatus: _36_Enums_CapabilityStatus;
+        PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
         oAuthIntegration: boolean;
         paymentReceivable: boolean;
         primaryEmailConfirmed: boolean;
@@ -126,6 +131,7 @@ export class FulfillmentAgencyService {
         paymentType: _36_Enums_PaymentType;
         updatedAt: string;
         createdAt: string;
+        isDeleted: boolean;
         storeId: string;
         fulfillmentAgencyId: number;
         id: number;
@@ -178,6 +184,9 @@ export class FulfillmentAgencyService {
   }): CancelablePromise<({
     PaymentOnboarding: Array<{
       paypalPartnerReferralId: string;
+      vettingRejectedAt: string;
+      customCardProcessingStatus: _36_Enums_CapabilityStatus;
+      PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
       oAuthIntegration: boolean;
       paymentReceivable: boolean;
       primaryEmailConfirmed: boolean;
@@ -189,6 +198,7 @@ export class FulfillmentAgencyService {
       paymentType: _36_Enums_PaymentType;
       updatedAt: string;
       createdAt: string;
+      isDeleted: boolean;
       storeId: string;
       fulfillmentAgencyId: number;
       id: number;
