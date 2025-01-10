@@ -6,9 +6,12 @@ import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_Fulfillm
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
+import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
+import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
+import type { ReconnectPaymentDto } from '../models/ReconnectPaymentDto';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -82,6 +85,49 @@ export declare class FulfillmentAgencyService {
             noStore: number;
         }>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    generatePartnerReferrals({ requestBody, }: {
+        requestBody: GeneratePartnerReferralsDto;
+    }): CancelablePromise<{
+        onboardingUrl: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getPaymentOnboarding({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<{
+        vettingRejectedAt: string;
+        customCardProcessingStatus: _36_Enums_CapabilityStatus;
+        PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+        oAuthIntegration: boolean;
+        paymentReceivable: boolean;
+        primaryEmailConfirmed: boolean;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+        paypalPartnerReferralId: string;
+        onboardingUrl: string;
+    }>;
+    /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    getPermissionDisconnect({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<boolean>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -253,6 +299,42 @@ export declare class FulfillmentAgencyService {
         apiKey: string;
         updatedAt: string;
         createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    disconnectPayment({ id, requestBody, }: {
+        id: number;
+        requestBody: DisconnectPaymentDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    reconnectPayment({ id, requestBody, }: {
+        id: number;
+        requestBody: ReconnectPaymentDto;
+    }): CancelablePromise<{
+        paypalPartnerReferralId: string;
+        vettingRejectedAt: string;
+        customCardProcessingStatus: _36_Enums_CapabilityStatus;
+        PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+        oAuthIntegration: boolean;
+        paymentReceivable: boolean;
+        primaryEmailConfirmed: boolean;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
         fulfillmentAgencyId: number;
         id: number;
     }>;

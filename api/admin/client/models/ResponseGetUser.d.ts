@@ -10,4 +10,6 @@ export type ResponseGetUser = (User & {
             Wallet: Array<Wallet>;
         });
     })>;
+} & {
+    supportedAdvanced: boolean;
 });

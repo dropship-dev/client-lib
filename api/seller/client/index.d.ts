@@ -179,6 +179,7 @@ export type { DefaultSelection_Prisma__36_TransactionPayload_ } from './models/D
 export type { DefaultSelection_Prisma__36_UserPayload_ } from './models/DefaultSelection_Prisma__36_UserPayload_';
 export type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './models/DefaultSelection_Prisma__36_VariantComboPayload_';
 export type { DefaultSelection_Prisma__36_WalletPayload_ } from './models/DefaultSelection_Prisma__36_WalletPayload_';
+export type { DisconnectPaymentDto } from './models/DisconnectPaymentDto';
 export type { Discount } from './models/Discount';
 export { DiscountBoostSaleType } from './models/DiscountBoostSaleType';
 export type { DiscountDto } from './models/DiscountDto';
@@ -202,6 +203,7 @@ export type { FulfillmentAgencyType } from './models/FulfillmentAgencyType';
 export type { FulfillmentPlatform } from './models/FulfillmentPlatform';
 export type { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
+export type { GeneratePartnerReferralsDto } from './models/GeneratePartnerReferralsDto';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GetAllOrderResult } from './models/GetAllOrderResult';
 export type { GetAllStoresDto } from './models/GetAllStoresDto';
@@ -316,6 +318,7 @@ export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_Variant
 export type { Product } from './models/Product';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
+export type { ReconnectPaymentDto } from './models/ReconnectPaymentDto';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
 export type { RegionalShippingFee } from './models/RegionalShippingFee';

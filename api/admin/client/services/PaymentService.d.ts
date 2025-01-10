@@ -81,6 +81,7 @@ export declare class PaymentService {
     getAllPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
+        vettingRejectedAt: string;
         merchantEmail: string;
         paymentType: _36_Enums_PaymentType;
     }>>;
