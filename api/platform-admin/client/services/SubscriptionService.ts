@@ -185,6 +185,7 @@ export class SubscriptionService {
       url: '/subscriptions/seeding',
       errors: {
         400: `Bad request`,
+        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
@@ -209,6 +210,7 @@ export class SubscriptionService {
       mediaType: 'application/json',
       errors: {
         400: `Bad request`,
+        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,

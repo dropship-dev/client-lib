@@ -272,6 +272,7 @@ export type { PaymentOnboarding } from './models/PaymentOnboarding';
 export type { PaymentType } from './models/PaymentType';
 export type { PayPlatformTransactionFeeDebtDto } from './models/PayPlatformTransactionFeeDebtDto';
 export type { PayPlatformTransactionFeeDto } from './models/PayPlatformTransactionFeeDto';
+export type { PaySubscriptionInvoiceDto } from './models/PaySubscriptionInvoiceDto';
 export type { PercentageCostInfo } from './models/PercentageCostInfo';
 export { Period } from './models/Period';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';

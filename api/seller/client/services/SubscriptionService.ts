@@ -7,6 +7,7 @@ import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_Subscript
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
 import type { PayPlatformTransactionFeeDebtDto } from '../models/PayPlatformTransactionFeeDebtDto';
 import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
+import type { PaySubscriptionInvoiceDto } from '../models/PaySubscriptionInvoiceDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -57,6 +58,7 @@ export class SubscriptionService {
       interval: _36_Enums_SubscriptionInterval;
       price: number;
       name: string;
+      id: number;
     };
     subscriptionPlan: {
       nextChargeDate: string;
@@ -67,6 +69,7 @@ export class SubscriptionService {
       price: number;
       status: string;
       name: string;
+      id: number;
     };
     freeTrial: {
       endDate: string;
@@ -264,6 +267,34 @@ export class SubscriptionService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/subscription/pay-debt-before-closing',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public paySubscriptionInvoice({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PaySubscriptionInvoiceDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/pay-subscription-invoice',
       path: {
         'storeId': storeId,
       },
