@@ -3,6 +3,7 @@ import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_Subscript
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
 import type { PayPlatformTransactionFeeDebtDto } from '../models/PayPlatformTransactionFeeDebtDto';
 import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
+import type { PaySubscriptionInvoiceDto } from '../models/PaySubscriptionInvoiceDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -41,6 +42,7 @@ export declare class SubscriptionService {
             interval: _36_Enums_SubscriptionInterval;
             price: number;
             name: string;
+            id: number;
         };
         subscriptionPlan: {
             nextChargeDate: string;
@@ -51,6 +53,7 @@ export declare class SubscriptionService {
             price: number;
             status: string;
             name: string;
+            id: number;
         };
         freeTrial: {
             endDate: string;
@@ -135,5 +138,13 @@ export declare class SubscriptionService {
     paySubscriptionAndPlatformTransactionFeesDebt({ storeId, requestBody, }: {
         storeId: string;
         requestBody: PayPlatformTransactionFeeDebtDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    paySubscriptionInvoice({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: PaySubscriptionInvoiceDto;
     }): CancelablePromise<string>;
 }

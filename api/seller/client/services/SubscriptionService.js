@@ -168,5 +168,27 @@ class SubscriptionService {
             },
         });
     }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    paySubscriptionInvoice({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/subscription/pay-subscription-invoice',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.SubscriptionService = SubscriptionService;
