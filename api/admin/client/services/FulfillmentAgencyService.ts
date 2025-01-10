@@ -10,9 +10,12 @@ import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_Fulfillm
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
+import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
+import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
+import type { ReconnectPaymentDto } from '../models/ReconnectPaymentDto';
 import type { UpdateFulfillmentAgencyDto } from '../models/UpdateFulfillmentAgencyDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -98,6 +101,99 @@ export class FulfillmentAgencyService {
         'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public generatePartnerReferrals({
+    requestBody,
+  }: {
+    requestBody: GeneratePartnerReferralsDto,
+  }): CancelablePromise<{
+    onboardingUrl: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/fulfillment-agency/partner-referrals',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getPaymentOnboarding({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<{
+    vettingRejectedAt: string;
+    customCardProcessingStatus: _36_Enums_CapabilityStatus;
+    PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+    oAuthIntegration: boolean;
+    paymentReceivable: boolean;
+    primaryEmailConfirmed: boolean;
+    onboardingStatus: _36_Enums_OnboardingStatus;
+    onboardingId: string;
+    merchantEmail: string;
+    merchantId: string;
+    paymentType: _36_Enums_PaymentType;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    fulfillmentAgencyId: number;
+    id: number;
+    paypalPartnerReferralId: string;
+    onboardingUrl: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/payment-onboarding',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns boolean Ok
+   * @throws ApiError
+   */
+  public getPermissionDisconnect({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<boolean> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/permission-disconnect',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
       },
       errors: {
         400: `Bad request`,
@@ -398,6 +494,82 @@ export class FulfillmentAgencyService {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public disconnectPayment({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: DisconnectPaymentDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/fulfillment-agency/{id}/disconnect-payment',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public reconnectPayment({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: ReconnectPaymentDto,
+  }): CancelablePromise<{
+    paypalPartnerReferralId: string;
+    vettingRejectedAt: string;
+    customCardProcessingStatus: _36_Enums_CapabilityStatus;
+    PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+    oAuthIntegration: boolean;
+    paymentReceivable: boolean;
+    primaryEmailConfirmed: boolean;
+    onboardingStatus: _36_Enums_OnboardingStatus;
+    onboardingUrl: string;
+    onboardingId: string;
+    merchantEmail: string;
+    merchantId: string;
+    paymentType: _36_Enums_PaymentType;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/fulfillment-agency/{id}/reconnect-payment',
       path: {
         'id': id,
       },

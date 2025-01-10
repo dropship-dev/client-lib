@@ -242,6 +242,7 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
+    vettingRejectedAt: string;
     merchantEmail: string;
     paymentType: _36_Enums_PaymentType;
   }>> {
