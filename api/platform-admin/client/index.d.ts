@@ -355,6 +355,7 @@ export type { SubscribeTopicDto } from './models/SubscribeTopicDto';
 export type { SubscriptionInterval } from './models/SubscriptionInterval';
 export type { SuggestionResponseDto } from './models/SuggestionResponseDto';
 export type { SwitchPlatformProductSyncDto } from './models/SwitchPlatformProductSyncDto';
+export type { SyncStatusRequestProductDto } from './models/SyncStatusRequestProductDto';
 export type { Tag } from './models/Tag';
 export type { TagConditionDto } from './models/TagConditionDto';
 export type { Theme } from './models/Theme';
