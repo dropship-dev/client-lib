@@ -46,13 +46,15 @@ export declare class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }: {
+    getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }: {
         storeId: string;
         pageSize?: number;
         nextPageIndex?: number;
         name?: string;
         tags?: Array<string>;
         isActive?: boolean;
+        isInactive?: boolean;
+        haveDiscount?: boolean;
         startPrice?: number;
         endPrice?: number;
         isCheckRootProductCrossSell?: boolean;
