@@ -245,6 +245,7 @@ export type { Notification } from './models/Notification';
 export type { NotificationData } from './models/NotificationData';
 export type { NotificationType } from './models/NotificationType';
 export type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_ } from './models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_';
+export { OnboardingProduct } from './models/OnboardingProduct';
 export { OperatorCollection_CONTAIN } from './models/OperatorCollection_CONTAIN';
 export { OperatorCollection_ENDS_WITH } from './models/OperatorCollection_ENDS_WITH';
 export { OperatorCollection_EQUAL_TO } from './models/OperatorCollection_EQUAL_TO';
