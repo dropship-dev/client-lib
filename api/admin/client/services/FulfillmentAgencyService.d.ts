@@ -47,7 +47,7 @@ export declare class FulfillmentAgencyService {
             createdAt: string;
             id: number;
             PaymentOnboarding: Array<{
-                OnboardingProducts: PrismaJson_OnboardingProducts;
+                onboardingProducts: PrismaJson_OnboardingProducts;
                 paypalPartnerReferralId: string;
                 vettingRejectedAt: string;
                 customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -103,7 +103,7 @@ export declare class FulfillmentAgencyService {
     getPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
-        OnboardingProducts: PrismaJson_OnboardingProducts;
+        onboardingProducts: PrismaJson_OnboardingProducts;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
         PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
@@ -139,7 +139,7 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<({
         PaymentOnboarding: Array<{
-            OnboardingProducts: PrismaJson_OnboardingProducts;
+            onboardingProducts: PrismaJson_OnboardingProducts;
             paypalPartnerReferralId: string;
             vettingRejectedAt: string;
             customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -238,7 +238,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         paymentType: _36_Enums_PaymentType;
     }): CancelablePromise<{
-        OnboardingProducts: PrismaJson_OnboardingProducts;
+        onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -323,7 +323,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         requestBody: ReconnectPaymentDto;
     }): CancelablePromise<{
-        OnboardingProducts: PrismaJson_OnboardingProducts;
+        onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
