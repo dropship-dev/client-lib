@@ -1,23 +1,18 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { AddPlatformVariantToGroupDto } from '../models/AddPlatformVariantToGroupDto';
 import type { CreateGroupPlatformVariantsDto } from '../models/CreateGroupPlatformVariantsDto';
-import type { GroupPlatformVariant } from '../models/GroupPlatformVariant';
-import type { PlatformCostInfo } from '../models/PlatformCostInfo';
+import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdateGroupPlatformVariantsDto } from '../models/UpdateGroupPlatformVariantsDto';
-import type { VariantOptionValues } from '../models/VariantOptionValues';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class GroupPlatformVariantService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns GroupPlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createGroupPlatformVariant({
@@ -28,7 +23,14 @@ export class GroupPlatformVariantService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: CreateGroupPlatformVariantsDto,
-  }): CancelablePromise<GroupPlatformVariant> {
+  }): CancelablePromise<{
+    cost: PrismaJson_PlatformCostInfo;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/group',
@@ -49,7 +51,6 @@ export class GroupPlatformVariantService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -63,16 +64,16 @@ export class GroupPlatformVariantService {
     platformProductId: number,
     groupPlatformVariantId: number,
   }): CancelablePromise<{
-    cost: PlatformCostInfo;
-    platformProductId: number;
-    name: string;
+    cost: PrismaJson_PlatformCostInfo;
     PlatformVariant: Array<{
       photo: string;
-      variantOption: VariantOptionValues;
+      variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       name: string;
       id: number;
     }>;
+    platformProductId: number;
+    name: string;
     id: number;
   }> {
     return this.httpRequest.request({
@@ -94,7 +95,6 @@ export class GroupPlatformVariantService {
       },
     });
   }
-
   /**
    * @returns void
    * @throws ApiError
@@ -127,9 +127,8 @@ export class GroupPlatformVariantService {
       },
     });
   }
-
   /**
-   * @returns GroupPlatformVariant Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateGroupPlatformVariant({
@@ -142,7 +141,14 @@ export class GroupPlatformVariantService {
     platformProductId: number,
     groupPlatformVariantId: number,
     requestBody: UpdateGroupPlatformVariantsDto,
-  }): CancelablePromise<GroupPlatformVariant> {
+  }): CancelablePromise<{
+    cost: PrismaJson_PlatformCostInfo;
+    platformProductId: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/platform-product/{platformProductId}/group/{groupPlatformVariantId}',
@@ -164,7 +170,6 @@ export class GroupPlatformVariantService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -201,5 +206,4 @@ export class GroupPlatformVariantService {
       },
     });
   }
-
 }

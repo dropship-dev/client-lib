@@ -1,32 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_ThemeNodes } from './PrismaJson_ThemeNodes';
-import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
-import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
-
+import type { DefaultSelection_Prisma__36_ThemeLibraryPayload_ } from './DefaultSelection_Prisma__36_ThemeLibraryPayload_';
 /**
  * Model ThemeLibrary
  */
-export type ThemeLibrary = {
-  updatedAt: string;
-  createdAt: string;
-  /**
-   * [ThemeNodes]
-   */
-  nodes: PrismaJson_ThemeNodes | null;
-  /**
-   * [ThemeSetting]
-   */
-  setting: PrismaJson_ThemeSetting | null;
-  /**
-   * [ThemeStyle]
-   */
-  style: PrismaJson_ThemeStyle | null;
-  image: string | null;
-  name: string;
-  id: number;
-};
-
+export type ThemeLibrary = DefaultSelection_Prisma__36_ThemeLibraryPayload_;

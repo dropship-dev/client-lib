@@ -1,27 +1,23 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Coordinates } from '../models/Coordinates';
+import type { LiveCoordinates } from '../models/LiveCoordinates';
+import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
-import type { Response } from '../models/Response';
 import type { StorePerformance } from '../models/StorePerformance';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
 import type { TopStoreByRevenue } from '../models/TopStoreByRevenue';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PerformanceService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Response Ok
+   * @returns LocationResult Ok
    * @throws ApiError
    */
   public getProductByLocation({
@@ -34,7 +30,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<Array<Response>> {
+  }): CancelablePromise<Array<LocationResult>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-locations',
@@ -53,7 +49,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -69,7 +64,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
   }): CancelablePromise<{
-    coordinates: Coordinates;
+    coordinates: LiveCoordinates;
     viewer: number;
   }> {
     return this.httpRequest.request({
@@ -90,7 +85,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -130,7 +124,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -173,7 +166,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns TopProductByOrder Ok
    * @throws ApiError
@@ -210,7 +202,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns TopStoreByRevenue Ok
    * @throws ApiError
@@ -244,7 +235,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -295,7 +285,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -341,7 +330,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -387,7 +375,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns StoreProductProfit Ok
    * @throws ApiError
@@ -424,7 +411,6 @@ export class PerformanceService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -473,5 +459,4 @@ export class PerformanceService {
       },
     });
   }
-
 }

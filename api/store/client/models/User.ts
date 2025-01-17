@@ -1,32 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_FirebaseDeviceToken } from './PrismaJson_FirebaseDeviceToken';
-import type { UserRole } from './UserRole';
-
+import type { DefaultSelection_Prisma__36_UserPayload_ } from './DefaultSelection_Prisma__36_UserPayload_';
 /**
  * Model User
  */
-export type User = {
-  updatedAt: string;
-  createdAt: string;
-  subscriptionId: string | null;
-  /**
-   * [FirebaseDeviceToken]
-   */
-  firebaseDeviceToken: PrismaJson_FirebaseDeviceToken | null;
-  firstLogin: boolean;
-  maxStaffStores: number;
-  maxOwnedStores: number;
-  shortId: string;
-  role: UserRole;
-  avatar: string | null;
-  phone: string | null;
-  country: string | null;
-  name: string;
-  email: string;
-  id: string;
-};
-
+export type User = DefaultSelection_Prisma__36_UserPayload_;

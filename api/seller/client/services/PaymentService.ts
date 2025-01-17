@@ -1,24 +1,135 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
+import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
-import type { Payment } from '../models/Payment';
-import type { PaymentType } from '../models/PaymentType';
-import type { StoreStatus } from '../models/StoreStatus';
+import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
-import type { UserRole } from '../models/UserRole';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class PaymentService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns Payment Ok
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public listStorePaymentMethods({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<Array<{
+    isPrimary: boolean;
+    cardHolderName: string;
+    cvcCheck: string;
+    expireYear: number;
+    expireMonth: number;
+    last4: string;
+    brand: string;
+    id: string;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/payments',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public retrieveClientSecret({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    clientSecret: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/payments/secret',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public setStoreDefaultPaymentMethod({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PaymentMethodIdDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/payments/set-primary',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteStoreCard({
+    storeId,
+    paymentMethodId,
+  }: {
+    storeId: string,
+    paymentMethodId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/payments/{paymentMethodId}',
+      path: {
+        'storeId': storeId,
+        'paymentMethodId': paymentMethodId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
    * @throws ApiError
    */
   public createPayment({
@@ -29,7 +140,33 @@ export class PaymentService {
     requestBody: CreatePaymentDto,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Payment> {
+  }): CancelablePromise<{
+    salt: string;
+    environment: _36_Enums_EnvironmentType;
+    UIVersion: number;
+    deleted: boolean;
+    BNcode: string;
+    partnerId: string;
+    gatewayUrl: string;
+    tokenExpiredAt: string;
+    token: string;
+    secretKey: string;
+    publishableKey: string;
+    isPlatform: boolean;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    merchantId: string;
+    userId: string;
+    type: _36_Enums_PaymentType;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
@@ -48,7 +185,6 @@ export class PaymentService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -60,13 +196,8 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<Array<{
-    publishableKey: string;
-    isShowCompanyAddress: boolean;
-    companyAddress: string;
-    companyPhone: string;
-    companyName: string;
     creator: {
-      role: UserRole;
+      role: _36_Enums_UserRole;
       avatar: string;
       email: string;
       name: string;
@@ -74,11 +205,16 @@ export class PaymentService {
       createdAt: string;
       id: string;
     };
+    publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    type: _36_Enums_PaymentType;
     email: string;
     name: string;
     updatedAt: string;
     createdAt: string;
-    type: PaymentType;
     id: number;
   }>> {
     return this.httpRequest.request({
@@ -97,7 +233,34 @@ export class PaymentService {
       },
     });
   }
-
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllPaymentOnboarding({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<Array<{
+    vettingRejectedAt: string;
+    merchantEmail: string;
+    paymentType: _36_Enums_PaymentType;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/payment/onboarding',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns any Ok
    * @throws ApiError
@@ -111,13 +274,8 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
-    publishableKey: string;
-    isShowCompanyAddress: boolean;
-    companyAddress: string;
-    companyPhone: string;
-    companyName: string;
     creator: {
-      role: UserRole;
+      role: _36_Enums_UserRole;
       avatar: string;
       email: string;
       name: string;
@@ -125,11 +283,16 @@ export class PaymentService {
       createdAt: string;
       id: string;
     };
+    publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    type: _36_Enums_PaymentType;
     email: string;
     name: string;
     updatedAt: string;
     createdAt: string;
-    type: PaymentType;
     id: number;
   }> {
     return this.httpRequest.request({
@@ -151,9 +314,8 @@ export class PaymentService {
       },
     });
   }
-
   /**
-   * @returns Payment Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updatePayment({
@@ -166,7 +328,33 @@ export class PaymentService {
     requestBody: UpdatePaymentDto,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Payment> {
+  }): CancelablePromise<{
+    salt: string;
+    environment: _36_Enums_EnvironmentType;
+    UIVersion: number;
+    deleted: boolean;
+    BNcode: string;
+    partnerId: string;
+    gatewayUrl: string;
+    tokenExpiredAt: string;
+    token: string;
+    secretKey: string;
+    publishableKey: string;
+    isPlatform: boolean;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    merchantId: string;
+    userId: string;
+    type: _36_Enums_PaymentType;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/payment/{id}',
@@ -188,7 +376,6 @@ export class PaymentService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -221,7 +408,6 @@ export class PaymentService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -236,9 +422,9 @@ export class PaymentService {
     Store: Array<{
       primaryDomain: string;
       avatar: string;
+      status: _36_Enums_StoreStatus;
       email: string;
       name: string;
-      status: StoreStatus;
       id: string;
     }>;
   }> {
@@ -260,7 +446,6 @@ export class PaymentService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -294,5 +479,4 @@ export class PaymentService {
       },
     });
   }
-
 }

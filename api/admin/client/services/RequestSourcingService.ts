@@ -1,20 +1,19 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_RequestSourcingStatus } from '../models/_36_Enums_RequestSourcingStatus';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcingDto';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_RequestSourcingHistory } from '../models/PrismaJson_RequestSourcingHistory';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
-import type { RequestSourcing } from '../models/RequestSourcing';
-import type { RequestSourcingStatus } from '../models/RequestSourcingStatus';
-import type { Store } from '../models/Store';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class RequestSourcingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -31,7 +30,7 @@ export class RequestSourcingService {
   }: {
     storeId?: string,
     fulfillmentAgencyId?: number,
-    statusRequest?: Array<RequestSourcingStatus>,
+    statusRequest?: Array<_36_Enums_RequestSourcingStatus>,
     search?: string,
     startDate?: string,
     endDate?: string,
@@ -42,8 +41,62 @@ export class RequestSourcingService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<(RequestSourcing & {
-      Store: Store;
+    data: Array<({
+      Store: {
+        stripeDefaultPaymentMethodId: string;
+        stripeCustomerId: string;
+        warning: boolean;
+        currencyId: number;
+        maxUsers: number;
+        balance: number;
+        referralCode: string;
+        defaultBankAccount: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        privacyPolicy: string;
+        refundPolicy: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        primaryDomain: string;
+        subDomain: string;
+        pageName: string;
+        closedAt: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        avatar: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+      };
+    } & {
+      historyRequestSourcing: PrismaJson_RequestSourcingHistory;
+      acceptByAdmin: boolean;
+      acceptBySeller: boolean;
+      rejectReasonByAdmin: string;
+      rejectReasonBySeller: string;
+      productId: number;
+      platformProductId: number;
+      description: string;
+      link: string;
+      photos: PrismaJson_Photos;
+      status: _36_Enums_RequestSourcingStatus;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      id: number;
     })>;
   }> {
     return this.httpRequest.request({
@@ -68,7 +121,6 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -81,8 +133,62 @@ export class RequestSourcingService {
     id: number,
     storeId?: string,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<(RequestSourcing & {
-    Store: Store;
+  }): CancelablePromise<({
+    Store: {
+      stripeDefaultPaymentMethodId: string;
+      stripeCustomerId: string;
+      warning: boolean;
+      currencyId: number;
+      maxUsers: number;
+      balance: number;
+      referralCode: string;
+      defaultBankAccount: string;
+      shippingPolicy: string;
+      termsOfService: string;
+      privacyPolicy: string;
+      refundPolicy: string;
+      shippingFeeAdditional: number;
+      shippingFee: number;
+      primaryDomain: string;
+      subDomain: string;
+      pageName: string;
+      closedAt: string;
+      country: string;
+      zipCode: string;
+      city: string;
+      apartmentAddress: string;
+      address: string;
+      avatar: string;
+      timezone: PrismaJson_Timezone;
+      type: _36_Enums_StoreType;
+      status: _36_Enums_StoreStatus;
+      phone: string;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      fulfillmentAgencyId: number;
+      id: string;
+    };
+  } & {
+    historyRequestSourcing: PrismaJson_RequestSourcingHistory;
+    acceptByAdmin: boolean;
+    acceptBySeller: boolean;
+    rejectReasonByAdmin: string;
+    rejectReasonBySeller: string;
+    productId: number;
+    platformProductId: number;
+    description: string;
+    link: string;
+    photos: PrismaJson_Photos;
+    status: _36_Enums_RequestSourcingStatus;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -103,9 +209,58 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public setProcessingRequestSourcing({
+    id,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    id: number,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<{
+    historyRequestSourcing: PrismaJson_RequestSourcingHistory;
+    acceptByAdmin: boolean;
+    acceptBySeller: boolean;
+    rejectReasonByAdmin: string;
+    rejectReasonBySeller: string;
+    productId: number;
+    platformProductId: number;
+    description: string;
+    link: string;
+    photos: PrismaJson_Photos;
+    status: _36_Enums_RequestSourcingStatus;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/request-sourcing/{id}/processing',
+      path: {
+        'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
    * @throws ApiError
    */
   public approveRequestSourcing({
@@ -118,7 +273,25 @@ export class RequestSourcingService {
     requestBody: ApproveRequestSourcingDto,
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<{
+    historyRequestSourcing: PrismaJson_RequestSourcingHistory;
+    acceptByAdmin: boolean;
+    acceptBySeller: boolean;
+    rejectReasonByAdmin: string;
+    rejectReasonBySeller: string;
+    productId: number;
+    platformProductId: number;
+    description: string;
+    link: string;
+    photos: PrismaJson_Photos;
+    status: _36_Enums_RequestSourcingStatus;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/request-sourcing/{id}/approve',
@@ -140,9 +313,8 @@ export class RequestSourcingService {
       },
     });
   }
-
   /**
-   * @returns RequestSourcing Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public rejectRequestSourcing({
@@ -155,7 +327,25 @@ export class RequestSourcingService {
     requestBody: RejectRequestSourcingDto,
     storeId?: string,
     fulfillmentAgencyId?: number,
-  }): CancelablePromise<RequestSourcing> {
+  }): CancelablePromise<{
+    historyRequestSourcing: PrismaJson_RequestSourcingHistory;
+    acceptByAdmin: boolean;
+    acceptBySeller: boolean;
+    rejectReasonByAdmin: string;
+    rejectReasonBySeller: string;
+    productId: number;
+    platformProductId: number;
+    description: string;
+    link: string;
+    photos: PrismaJson_Photos;
+    status: _36_Enums_RequestSourcingStatus;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/request-sourcing/{id}/reject',
@@ -177,5 +367,4 @@ export class RequestSourcingService {
       },
     });
   }
-
 }

@@ -1,36 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_Photos } from './PrismaJson_Photos';
-import type { TransactionStatus } from './TransactionStatus';
-import type { TransactionType } from './TransactionType';
-
+import type { DefaultSelection_Prisma__36_TransactionPayload_ } from './DefaultSelection_Prisma__36_TransactionPayload_';
 /**
  * Model Transaction
  */
-export type Transaction = {
-  updatedAt: string;
-  createdAt: string;
-  isRollback: boolean;
-  refundIdGateway: string | null;
-  notes: string | null;
-  /**
-   * [Photos]
-   */
-  photos: PrismaJson_Photos | null;
-  walletId: string | null;
-  requestPayoutId: string | null;
-  orderId: string | null;
-  storeId: string | null;
-  status: TransactionStatus;
-  type: TransactionType;
-  disputeFee: number;
-  lastBalance: number;
-  fee: number;
-  amount: number;
-  idTransaction: string | null;
-  id: number;
-};
-
+export type Transaction = DefaultSelection_Prisma__36_TransactionPayload_;

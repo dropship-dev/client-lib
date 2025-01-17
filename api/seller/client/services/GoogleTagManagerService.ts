@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateGTMDto } from '../models/CreateGTMDto';
 import type { GoogleTagManager } from '../models/GoogleTagManager';
 import type { UpdateGTMDto } from '../models/UpdateGTMDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class GoogleTagManagerService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -23,10 +19,16 @@ export class GoogleTagManagerService {
   }: {
     storeId: string,
     requestBody: CreateGTMDto,
-  }): CancelablePromise<(GoogleTagManager & {
+  }): CancelablePromise<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    tag: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -45,7 +47,6 @@ export class GoogleTagManagerService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -54,10 +55,16 @@ export class GoogleTagManagerService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<(GoogleTagManager & {
+  }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
+  } & {
+    tag: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -74,7 +81,6 @@ export class GoogleTagManagerService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -89,7 +95,7 @@ export class GoogleTagManagerService {
     Product: Array<{
       id: number;
     }>;
-  })> {
+  }) | null> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/google-tag-manager/{tag}',
@@ -106,9 +112,8 @@ export class GoogleTagManagerService {
       },
     });
   }
-
   /**
-   * @returns GoogleTagManager Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateGoogleTagManager({
@@ -119,7 +124,13 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
     requestBody: UpdateGTMDto,
-  }): CancelablePromise<GoogleTagManager> {
+  }): CancelablePromise<{
+    tag: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/google-tag-manager/{tag}',
@@ -138,9 +149,8 @@ export class GoogleTagManagerService {
       },
     });
   }
-
   /**
-   * @returns GoogleTagManager Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteGoogleTagManager({
@@ -149,7 +159,13 @@ export class GoogleTagManagerService {
   }: {
     storeId: string,
     tag: string,
-  }): CancelablePromise<GoogleTagManager> {
+  }): CancelablePromise<{
+    tag: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/google-tag-manager/{tag}',
@@ -166,5 +182,4 @@ export class GoogleTagManagerService {
       },
     });
   }
-
 }

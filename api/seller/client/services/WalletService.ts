@@ -1,19 +1,18 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BankAccount } from '../models/BankAccount';
-import type { RequestPayout } from '../models/RequestPayout';
+import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
+import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
+import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class WalletService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -27,16 +26,56 @@ export class WalletService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
-    bankAccount: Array<BankAccount>;
+    bankAccount: Array<{
+      walletId: string;
+      isBlock: boolean;
+      isDefault: boolean;
+      bank: PrismaJson_bankInfo;
+      currency: _36_Enums_CurrencyType;
+      accountHolder: string;
+      accountNumber: string;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      id: string;
+    }>;
     remainingBalance: number;
     payableBalance: number;
     totalBalance: number;
   } | {
-    requestPayout: RequestPayout;
+    balanceDebt: number;
+    requestPayout: {
+      photos: PrismaJson_Photos;
+      noteByAdmin: string;
+      noteBySeller: string;
+      convertCurrencyCode: string;
+      pingPongAccountId: string;
+      bankAccountId: string;
+      paymentMethod: _36_Enums_PaymentMethodType;
+      convertCurrencyAmount: number;
+      requestCurrencyAmount: number;
+      status: _36_Enums_RequestPayoutStatus;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: string;
+    };
     payoutAmount: number;
     holdAmount: number;
     unavailableBalance: {
-      bankAccount: Array<BankAccount>;
+      bankAccount: Array<{
+        walletId: string;
+        isBlock: boolean;
+        isDefault: boolean;
+        bank: PrismaJson_bankInfo;
+        currency: _36_Enums_CurrencyType;
+        accountHolder: string;
+        accountNumber: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: string;
+      }>;
       availableSoon: number;
       hold: number;
     };
@@ -63,7 +102,6 @@ export class WalletService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -97,7 +135,6 @@ export class WalletService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -131,5 +168,4 @@ export class WalletService {
       },
     });
   }
-
 }

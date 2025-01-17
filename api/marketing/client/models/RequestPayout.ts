@@ -1,32 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PaymentMethodType } from './PaymentMethodType';
-import type { PrismaJson_Photos } from './PrismaJson_Photos';
-import type { RequestPayoutStatus } from './RequestPayoutStatus';
-
+import type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './DefaultSelection_Prisma__36_RequestPayoutPayload_';
 /**
  * Model RequestPayout
  */
-export type RequestPayout = {
-  updatedAt: string;
-  createdAt: string;
-  storeId: string | null;
-  /**
-   * [Photos]
-   */
-  photos: PrismaJson_Photos | null;
-  noteByAdmin: string | null;
-  noteBySeller: string | null;
-  convertCurrencyCode: string;
-  pingPongAccountId: string | null;
-  bankAccountId: string | null;
-  status: RequestPayoutStatus;
-  paymentMethod: PaymentMethodType;
-  convertCurrencyAmount: number;
-  requestCurrencyAmount: number;
-  id: string;
-};
-
+export type RequestPayout = DefaultSelection_Prisma__36_RequestPayoutPayload_;

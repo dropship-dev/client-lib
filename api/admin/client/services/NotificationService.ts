@@ -1,19 +1,15 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_NotificationType } from '../models/_36_Enums_NotificationType';
 import type { NotificationData } from '../models/NotificationData';
-import type { NotificationType } from '../models/NotificationType';
 import type { SubscribeTopicDto } from '../models/SubscribeTopicDto';
 import type { UnsubscribeTopicDto } from '../models/UnsubscribeTopicDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class NotificationService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -37,7 +33,6 @@ export class NotificationService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -61,7 +56,6 @@ export class NotificationService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -75,7 +69,7 @@ export class NotificationService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-    type?: Array<NotificationType>,
+    type?: Array<_36_Enums_NotificationType>,
     pageSize?: number,
     nextPageIndex?: number,
   }): CancelablePromise<{
@@ -104,7 +98,6 @@ export class NotificationService {
       },
     });
   }
-
   /**
    * @returns NotificationData Ok
    * @throws ApiError
@@ -129,7 +122,6 @@ export class NotificationService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -154,7 +146,6 @@ export class NotificationService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -182,5 +173,4 @@ export class NotificationService {
       },
     });
   }
-
 }

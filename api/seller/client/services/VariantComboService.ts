@@ -1,23 +1,19 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BatchPayload } from '../models/BatchPayload';
 import type { CreateComboDto } from '../models/CreateComboDto';
+import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
 import type { UpdateComboStatusDto } from '../models/UpdateComboStatusDto';
-import type { VariantCombo } from '../models/VariantCombo';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class VariantComboService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
-   * @returns VariantCombo Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public createCombo({
@@ -28,7 +24,23 @@ export class VariantComboService {
     storeId: string,
     productId: number,
     requestBody: CreateComboDto,
-  }): CancelablePromise<VariantCombo> {
+  }): CancelablePromise<{
+    items: PrismaJson_VariantComboItems;
+    minSellingPrice: number;
+    compareAtPrice: number;
+    productId: number;
+    supplierCost: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    SKU: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo',
@@ -47,7 +59,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -67,7 +78,23 @@ export class VariantComboService {
     nextPageIndex: number;
     prePageIndex: number;
     total: number;
-    data: Array<VariantCombo>;
+    data: Array<{
+      items: PrismaJson_VariantComboItems;
+      minSellingPrice: number;
+      compareAtPrice: number;
+      productId: number;
+      supplierCost: number;
+      price: number;
+      photo: string;
+      isEnable: boolean;
+      isActive: boolean;
+      SKU: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      id: number;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -89,7 +116,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -121,7 +147,6 @@ export class VariantComboService {
       },
     });
   }
-
   /**
    * @returns string Ok
    * @throws ApiError
@@ -154,9 +179,8 @@ export class VariantComboService {
       },
     });
   }
-
   /**
-   * @returns BatchPayload Ok
+   * @returns Prisma_BatchPayload Ok
    * @throws ApiError
    */
   public createCombos({
@@ -167,7 +191,7 @@ export class VariantComboService {
     storeId: string,
     productId: number,
     requestBody: Array<CreateComboDto>,
-  }): CancelablePromise<BatchPayload> {
+  }): CancelablePromise<Prisma_BatchPayload> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo/createCombos',
@@ -186,9 +210,8 @@ export class VariantComboService {
       },
     });
   }
-
   /**
-   * @returns VariantCombo Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getCombo({
@@ -199,7 +222,23 @@ export class VariantComboService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<VariantCombo> {
+  }): CancelablePromise<{
+    items: PrismaJson_VariantComboItems;
+    minSellingPrice: number;
+    compareAtPrice: number;
+    productId: number;
+    supplierCost: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    SKU: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -217,9 +256,8 @@ export class VariantComboService {
       },
     });
   }
-
   /**
-   * @returns VariantCombo Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateCombo({
@@ -232,7 +270,23 @@ export class VariantComboService {
     productId: number,
     id: number,
     requestBody: UpdateComboDto,
-  }): CancelablePromise<VariantCombo> {
+  }): CancelablePromise<{
+    items: PrismaJson_VariantComboItems;
+    minSellingPrice: number;
+    compareAtPrice: number;
+    productId: number;
+    supplierCost: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    SKU: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -252,9 +306,8 @@ export class VariantComboService {
       },
     });
   }
-
   /**
-   * @returns VariantCombo Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public deleteCombo({
@@ -265,7 +318,23 @@ export class VariantComboService {
     storeId: string,
     productId: number,
     id: number,
-  }): CancelablePromise<VariantCombo> {
+  }): CancelablePromise<{
+    items: PrismaJson_VariantComboItems;
+    minSellingPrice: number;
+    compareAtPrice: number;
+    productId: number;
+    supplierCost: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    SKU: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}/combo/{id}',
@@ -283,9 +352,8 @@ export class VariantComboService {
       },
     });
   }
-
   /**
-   * @returns VariantCombo Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public updateComboStatus({
@@ -298,7 +366,23 @@ export class VariantComboService {
     productId: number,
     id: number,
     requestBody: UpdateComboStatusDto,
-  }): CancelablePromise<VariantCombo> {
+  }): CancelablePromise<{
+    items: PrismaJson_VariantComboItems;
+    minSellingPrice: number;
+    compareAtPrice: number;
+    productId: number;
+    supplierCost: number;
+    price: number;
+    photo: string;
+    isEnable: boolean;
+    isActive: boolean;
+    SKU: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo/{id}/status',
@@ -318,5 +402,4 @@ export class VariantComboService {
       },
     });
   }
-
 }

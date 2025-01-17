@@ -1,12 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { StoreRole } from './StoreRole';
-
+import type { _36_Enums_StoreRole } from './_36_Enums_StoreRole';
 export type CreateStaffDto = {
   userId: string;
-  role?: StoreRole;
+  role?: _36_Enums_StoreRole;
 };
 

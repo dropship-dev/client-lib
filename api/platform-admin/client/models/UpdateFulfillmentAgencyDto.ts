@@ -1,14 +1,12 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { CostCalculationMethod } from './CostCalculationMethod';
-
+import type { _36_Enums_CostCalculationMethod } from './_36_Enums_CostCalculationMethod';
 export type UpdateFulfillmentAgencyDto = {
   name?: string;
   phone?: string;
-  costCalculationMethod?: CostCalculationMethod;
+  costCalculationMethod?: _36_Enums_CostCalculationMethod;
   percentageCostPlatformFee?: number;
 };
 

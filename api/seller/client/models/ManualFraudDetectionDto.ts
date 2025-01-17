@@ -1,13 +1,11 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
+import type { _36_Enums_FraudDetectionStatusType } from './_36_Enums_FraudDetectionStatusType';
 import type { ActiveDetection } from './ActiveDetection';
-import type { FraudDetectionStatusType } from './FraudDetectionStatusType';
-
 export type ManualFraudDetectionDto = {
-  fraudDetectionStatus: FraudDetectionStatusType;
+  fraudDetectionStatus: _36_Enums_FraudDetectionStatusType;
   orderId?: string;
   storeId: string;
   action: ActiveDetection;

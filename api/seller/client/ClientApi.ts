@@ -1,11 +1,10 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
-
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
@@ -18,6 +17,7 @@ import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { GoogleTagManagerService } from './services/GoogleTagManagerService';
+import { KlaviyoService } from './services/KlaviyoService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -35,6 +35,7 @@ import { StaffService } from './services/StaffService';
 import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
+import { SubscriptionService } from './services/SubscriptionService';
 import { ThemeService } from './services/ThemeService';
 import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TiktokPixelService } from './services/TiktokPixelService';
@@ -44,11 +45,8 @@ import { UserService } from './services/UserService';
 import { VariantService } from './services/VariantService';
 import { VariantComboService } from './services/VariantComboService';
 import { WalletService } from './services/WalletService';
-
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
-
 export class ClientApi {
-
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly bankAccount: BankAccountService;
@@ -61,6 +59,7 @@ export class ClientApi {
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly googleAnalytic: GoogleAnalyticService;
   public readonly googleTagManager: GoogleTagManagerService;
+  public readonly klaviyo: KlaviyoService;
   public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
@@ -78,6 +77,7 @@ export class ClientApi {
   public readonly statistics: StatisticsService;
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
+  public readonly subscription: SubscriptionService;
   public readonly theme: ThemeService;
   public readonly themeLibrary: ThemeLibraryService;
   public readonly tiktokPixel: TiktokPixelService;
@@ -87,9 +87,7 @@ export class ClientApi {
   public readonly variant: VariantService;
   public readonly variantCombo: VariantComboService;
   public readonly wallet: WalletService;
-
   public readonly request: BaseHttpRequest;
-
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? '',
@@ -102,7 +100,6 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
-
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.bankAccount = new BankAccountService(this.request);
@@ -115,6 +112,7 @@ export class ClientApi {
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.googleAnalytic = new GoogleAnalyticService(this.request);
     this.googleTagManager = new GoogleTagManagerService(this.request);
+    this.klaviyo = new KlaviyoService(this.request);
     this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);
@@ -132,6 +130,7 @@ export class ClientApi {
     this.statistics = new StatisticsService(this.request);
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
+    this.subscription = new SubscriptionService(this.request);
     this.theme = new ThemeService(this.request);
     this.themeLibrary = new ThemeLibraryService(this.request);
     this.tiktokPixel = new TiktokPixelService(this.request);

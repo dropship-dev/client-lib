@@ -1,45 +1,9 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
-import type { PrismaJson_AvailableSet } from './PrismaJson_AvailableSet';
-import type { PrismaJson_Photos } from './PrismaJson_Photos';
-import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
-
+import type { DefaultSelection_Prisma__36_ProductPayload_ } from './DefaultSelection_Prisma__36_ProductPayload_';
 /**
  * Model Product
  */
-export type Product = {
-  updatedAt: string;
-  createdAt: string;
-  podTemplateId: number | null;
-  campaignId: string | null;
-  storeId: string;
-  platformProductId: number | null;
-  deleted: boolean;
-  isEnable: boolean;
-  isActive: boolean;
-  supplierContact: string | null;
-  shippingFeeAdditional: number;
-  shippingFee: number;
-  /**
-   * [VariantOptions]
-   */
-  variantOption: PrismaJson_VariantOptions | null;
-  /**
-   * [AvailableSet]
-   */
-  availableSet: PrismaJson_AvailableSet | null;
-  SKU: string;
-  /**
-   * [Photos]
-   */
-  photos: PrismaJson_Photos;
-  details: string;
-  description: string;
-  permalink: string;
-  name: string;
-  id: number;
-};
-
+export type Product = DefaultSelection_Prisma__36_ProductPayload_;

@@ -1,18 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateOrderTrackingDto } from '../models/CreateOrderTrackingDto';
-import type { NullableDateTimeFieldUpdateOperationsInput } from '../models/NullableDateTimeFieldUpdateOperationsInput';
+import type { Prisma_NullableDateTimeFieldUpdateOperationsInput } from '../models/Prisma_NullableDateTimeFieldUpdateOperationsInput';
 import type { UpdateOrderTrackingDto } from '../models/UpdateOrderTrackingDto';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class OrderTrackingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -39,7 +35,6 @@ export class OrderTrackingService {
       },
     });
   }
-
   /**
    * @returns any Ok
    * @throws ApiError
@@ -51,7 +46,7 @@ export class OrderTrackingService {
     trackingId: number,
     requestBody: UpdateOrderTrackingDto,
   }): CancelablePromise<{
-    expiredAt: (string | NullableDateTimeFieldUpdateOperationsInput);
+    expiredAt: (string | Prisma_NullableDateTimeFieldUpdateOperationsInput);
     token: string;
     id: number;
   }> {
@@ -71,5 +66,4 @@ export class OrderTrackingService {
       },
     });
   }
-
 }
