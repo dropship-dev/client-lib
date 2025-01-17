@@ -302,6 +302,7 @@ export type { PrismaJson_DomainContactInfo } from './models/PrismaJson_DomainCon
 export type { PrismaJson_FirebaseDeviceToken } from './models/PrismaJson_FirebaseDeviceToken';
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
+export type { PrismaJson_OnboardingProducts } from './models/PrismaJson_OnboardingProducts';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_PlacementBoostSaleType } from './models/PrismaJson_PlacementBoostSaleType';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
