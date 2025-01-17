@@ -379,4 +379,104 @@ export class PerformanceService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCustomerTracking({
+    storeId,
+    startDate,
+    endDate,
+  }: {
+    storeId: string,
+    startDate: string,
+    endDate: string,
+  }): CancelablePromise<{
+    data: Array<{
+      date: string;
+      returningRevenue: number;
+      returningPurchased: number;
+      firstRevenue: number;
+      firstPurchased: number;
+    }>;
+    totalReturningRevenue: {
+      growth: number;
+      value: number;
+    };
+    totalFirstRevenue: {
+      growth: number;
+      value: number;
+    };
+    totalReturningPurchased: {
+      growth: number;
+      value: number;
+    };
+    totalFirstPurchased: {
+      growth: number;
+      value: number;
+    };
+    period: Period;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/customer-tracking',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCustomerTrackingRate({
+    storeId,
+    startDate,
+    endDate,
+  }: {
+    storeId: string,
+    startDate: string,
+    endDate: string,
+  }): CancelablePromise<{
+    data: Array<{
+      date: string;
+      returningCustomer: number;
+      firstCustomer: number;
+    }>;
+    totalReturningCustomer: {
+      growth: number;
+      value: number;
+    };
+    totalFirstCustomer: {
+      growth: number;
+      value: number;
+    };
+    period: Period;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/customer-tracking-rate',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
