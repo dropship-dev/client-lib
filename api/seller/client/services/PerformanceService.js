@@ -221,49 +221,5 @@ class PerformanceService {
             },
         });
     }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getCustomerTracking({ storeId, startDate, endDate, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/performance/customer-tracking',
-            query: {
-                'storeId': storeId,
-                'startDate': startDate,
-                'endDate': endDate,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getCustomerTrackingRate({ storeId, startDate, endDate, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/performance/customer-tracking-rate',
-            query: {
-                'storeId': storeId,
-                'startDate': startDate,
-                'endDate': endDate,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
 }
 exports.PerformanceService = PerformanceService;
