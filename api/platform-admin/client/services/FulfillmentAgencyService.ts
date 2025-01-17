@@ -117,7 +117,7 @@ export class FulfillmentAgencyService {
       createdAt: string;
       id: number;
       PaymentOnboarding: Array<{
-        OnboardingProducts: PrismaJson_OnboardingProducts;
+        onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -185,7 +185,7 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<({
     PaymentOnboarding: Array<{
-      OnboardingProducts: PrismaJson_OnboardingProducts;
+      onboardingProducts: PrismaJson_OnboardingProducts;
       paypalPartnerReferralId: string;
       vettingRejectedAt: string;
       customCardProcessingStatus: _36_Enums_CapabilityStatus;
