@@ -9,6 +9,7 @@ import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettin
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
+import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { ReconnectPaymentDto } from '../models/ReconnectPaymentDto';
@@ -46,6 +47,7 @@ export declare class FulfillmentAgencyService {
             createdAt: string;
             id: number;
             PaymentOnboarding: Array<{
+                OnboardingProducts: PrismaJson_OnboardingProducts;
                 paypalPartnerReferralId: string;
                 vettingRejectedAt: string;
                 customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -101,6 +103,7 @@ export declare class FulfillmentAgencyService {
     getPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
+        OnboardingProducts: PrismaJson_OnboardingProducts;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
         PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
@@ -136,6 +139,7 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<({
         PaymentOnboarding: Array<{
+            OnboardingProducts: PrismaJson_OnboardingProducts;
             paypalPartnerReferralId: string;
             vettingRejectedAt: string;
             customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -234,6 +238,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         paymentType: _36_Enums_PaymentType;
     }): CancelablePromise<{
+        OnboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -318,6 +323,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         requestBody: ReconnectPaymentDto;
     }): CancelablePromise<{
+        OnboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
         customCardProcessingStatus: _36_Enums_CapabilityStatus;
