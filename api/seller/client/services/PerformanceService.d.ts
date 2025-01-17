@@ -153,4 +153,62 @@ export declare class PerformanceService {
         total: number;
         data: Array<StoreProductPerformanceResp>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCustomerTracking({ storeId, startDate, endDate, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        data: Array<{
+            date: string;
+            returningRevenue: number;
+            returningPurchased: number;
+            firstRevenue: number;
+            firstPurchased: number;
+        }>;
+        totalReturningRevenue: {
+            growth: number;
+            value: number;
+        };
+        totalFirstRevenue: {
+            growth: number;
+            value: number;
+        };
+        totalReturningPurchased: {
+            growth: number;
+            value: number;
+        };
+        totalFirstPurchased: {
+            growth: number;
+            value: number;
+        };
+        period: Period;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCustomerTrackingRate({ storeId, startDate, endDate, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        data: Array<{
+            date: string;
+            returningCustomer: number;
+            firstCustomer: number;
+        }>;
+        totalReturningCustomer: {
+            growth: number;
+            value: number;
+        };
+        totalFirstCustomer: {
+            growth: number;
+            value: number;
+        };
+        period: Period;
+    }>;
 }
