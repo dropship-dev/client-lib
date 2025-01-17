@@ -11,5 +11,6 @@ export type ResponseGetUser = (User & {
         });
     })>;
 } & {
+    countryCode?: string;
     supportedAdvanced: boolean;
 });
