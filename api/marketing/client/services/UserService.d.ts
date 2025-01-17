@@ -1,21 +1,12 @@
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { FulfillmentUser } from '../models/FulfillmentUser';
-import type { User } from '../models/User';
-import type { Wallet } from '../models/Wallet';
+import type { ResponseGetUser } from '../models/ResponseGetUser';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class UserService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns any Ok
+     * @returns ResponseGetUser Ok
      * @throws ApiError
      */
-    getUser(): CancelablePromise<(User & {
-        FulfillmentUser: Array<(FulfillmentUser & {
-            FulfillmentAgency: (FulfillmentAgency & {
-                Wallet: Array<Wallet>;
-            });
-        })>;
-    })>;
+    getUser(): CancelablePromise<ResponseGetUser>;
 }

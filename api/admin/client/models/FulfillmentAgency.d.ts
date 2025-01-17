@@ -1,21 +1,5 @@
-import type { CostCalculationMethod } from './CostCalculationMethod';
-import type { FulfillmentAgencyStatus } from './FulfillmentAgencyStatus';
-import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
+import type { DefaultSelection_Prisma__36_FulfillmentAgencyPayload_ } from './DefaultSelection_Prisma__36_FulfillmentAgencyPayload_';
 /**
  * Model FulfillmentAgency
  */
-export type FulfillmentAgency = {
-    updatedAt: string;
-    createdAt: string;
-    /**
-     * [Timezone]
-     */
-    timezone: PrismaJson_Timezone | null;
-    costCalculationMethod: CostCalculationMethod | null;
-    executionTime: string;
-    status: FulfillmentAgencyStatus;
-    phone: string | null;
-    email: string;
-    name: string;
-    id: number;
-};
+export type FulfillmentAgency = DefaultSelection_Prisma__36_FulfillmentAgencyPayload_;

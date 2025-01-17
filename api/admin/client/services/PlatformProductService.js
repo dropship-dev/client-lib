@@ -7,7 +7,7 @@ class PlatformProductService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createPlatformProduct({ fulfillmentAgencyId, requestBody, }) {
@@ -123,7 +123,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformProduct({ fulfillmentAgencyId, platformProductId, requestBody, }) {
@@ -148,7 +148,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformProduct({ fulfillmentAgencyId, platformProductId, }) {
@@ -171,7 +171,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformProductStatus({ fulfillmentAgencyId, platformProductId, requestBody, }) {
@@ -196,7 +196,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addPlatformProductTag({ fulfillmentAgencyId, platformProductId, requestBody, }) {
@@ -221,7 +221,7 @@ class PlatformProductService {
         });
     }
     /**
-     * @returns PlatformProduct Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformProductTag({ fulfillmentAgencyId, platformProductId, tagId, }) {

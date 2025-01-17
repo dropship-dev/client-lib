@@ -1,5 +1,5 @@
+import type { _36_Enums_NotificationType } from '../models/_36_Enums_NotificationType';
 import type { NotificationData } from '../models/NotificationData';
-import type { NotificationType } from '../models/NotificationType';
 import type { SubscribeTopicDto } from '../models/SubscribeTopicDto';
 import type { UnsubscribeTopicDto } from '../models/UnsubscribeTopicDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -28,7 +28,7 @@ export declare class NotificationService {
     getAllNotification({ fulfillmentAgencyId, storeId, type, pageSize, nextPageIndex, }: {
         fulfillmentAgencyId?: number;
         storeId?: string;
-        type?: Array<NotificationType>;
+        type?: Array<_36_Enums_NotificationType>;
         pageSize?: number;
         nextPageIndex?: number;
     }): CancelablePromise<{

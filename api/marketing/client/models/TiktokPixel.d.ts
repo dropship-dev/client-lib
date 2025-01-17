@@ -1,10 +1,5 @@
+import type { DefaultSelection_Prisma__36_TiktokPixelPayload_ } from './DefaultSelection_Prisma__36_TiktokPixelPayload_';
 /**
  * Model TiktokPixel
  */
-export type TiktokPixel = {
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    pixelId: string;
-    id: number;
-};
+export type TiktokPixel = DefaultSelection_Prisma__36_TiktokPixelPayload_;

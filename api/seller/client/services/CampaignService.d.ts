@@ -12,6 +12,42 @@ export declare class CampaignService {
      * @returns string Ok
      * @throws ApiError
      */
+    updateCampaign({ storeId, campaignId, requestBody, }: {
+        storeId: string;
+        campaignId: string;
+        requestBody: UpdateCampaignDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCampaign({ storeId, campaignId, }: {
+        storeId: string;
+        campaignId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCampaignById({ storeId, campaignId, }: {
+        storeId: string;
+        campaignId: string;
+    }): CancelablePromise<(Campaign & {
+        listDiscount: Array<Discount>;
+    })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCampaignDeleted({ storeId, campaignId, productId, }: {
+        storeId: string;
+        campaignId: string;
+        productId: number;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
     deleteDiscount({ storeId, campaignId, discountId, productIds, }: {
         storeId: string;
         campaignId: string;
@@ -45,40 +81,4 @@ export declare class CampaignService {
         campaignId: string;
         requestBody: Array<UpdateDiscountDto>;
     }): CancelablePromise<'OK' | 'Nothing to update'>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    updateCampaign({ storeId, campaignId, requestBody, }: {
-        storeId: string;
-        campaignId: string;
-        requestBody: UpdateCampaignDto;
-    }): CancelablePromise<string>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCampaign({ storeId, campaignId, }: {
-        storeId: string;
-        campaignId: string;
-    }): CancelablePromise<string>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getCampaignById({ storeId, campaignId, }: {
-        storeId: string;
-        campaignId: string;
-    }): CancelablePromise<(Campaign & {
-        listDiscount: Array<Discount>;
-    })>;
-    /**
-     * @returns string Ok
-     * @throws ApiError
-     */
-    deleteCampaignDeleted({ storeId, campaignId, productId, }: {
-        storeId: string;
-        campaignId: string;
-        productId: number;
-    }): CancelablePromise<string>;
 }

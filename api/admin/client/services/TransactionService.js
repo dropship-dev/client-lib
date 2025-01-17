@@ -37,6 +37,27 @@ class TransactionService {
      * @returns any Ok
      * @throws ApiError
      */
+    exportTransactionInvoice({ storeId, id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/transaction/{id}/export-invoice',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStoreTransaction({ storeId, id, }) {
         return this.httpRequest.request({
             method: 'GET',

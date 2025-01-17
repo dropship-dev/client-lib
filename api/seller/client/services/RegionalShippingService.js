@@ -76,7 +76,7 @@ class RegionalShippingService {
         });
     }
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRegionalShippingFee({ storeId, id, }) {
@@ -97,7 +97,7 @@ class RegionalShippingService {
         });
     }
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteReasonShippingFee({ storeId, id, }) {
@@ -118,7 +118,7 @@ class RegionalShippingService {
         });
     }
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateReasonShippingFee({ storeId, id, requestBody, }) {

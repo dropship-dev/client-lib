@@ -1,3 +1,4 @@
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { RegionalShippingFee } from '../models/RegionalShippingFee';
 import type { RegionalShippingFeeDto } from '../models/RegionalShippingFeeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -29,7 +30,17 @@ export declare class RegionalShippingService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<RegionalShippingFee>;
+        data: Array<{
+            countries: PrismaJson_CountryInformation;
+            zoneName: string;
+            deleted: boolean;
+            shippingFeeAdditional: number;
+            shippingFee: number;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: string;
+        }>;
     }>;
     /**
      * @returns string Ok
@@ -39,30 +50,60 @@ export declare class RegionalShippingService {
         storeId: string;
     }): CancelablePromise<Array<string>>;
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getRegionalShippingFee({ storeId, id, }: {
         storeId: string;
         id: string;
-    }): CancelablePromise<RegionalShippingFee>;
+    }): CancelablePromise<{
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+    }>;
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteReasonShippingFee({ storeId, id, }: {
         storeId: string;
         id: string;
-    }): CancelablePromise<RegionalShippingFee>;
+    }): CancelablePromise<{
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+    }>;
     /**
-     * @returns RegionalShippingFee Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateReasonShippingFee({ storeId, id, requestBody, }: {
         storeId: string;
         id: string;
         requestBody: RegionalShippingFeeDto;
-    }): CancelablePromise<RegionalShippingFee>;
+    }): CancelablePromise<{
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+    }>;
     /**
      * @returns string Ok
      * @throws ApiError

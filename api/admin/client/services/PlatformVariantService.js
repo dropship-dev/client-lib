@@ -7,7 +7,7 @@ class PlatformVariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }) {
@@ -81,7 +81,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getPlatformVariant({ fulfillmentAgencyId, platformProductId, id, }) {
@@ -105,7 +105,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariant({ fulfillmentAgencyId, platformProductId, id, requestBody, }) {
@@ -131,7 +131,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deletePlatformVariant({ fulfillmentAgencyId, platformProductId, id, }) {
@@ -155,7 +155,7 @@ class PlatformVariantService {
         });
     }
     /**
-     * @returns PlatformVariant Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updatePlatformVariantStatus({ fulfillmentAgencyId, platformProductId, id, requestBody, }) {

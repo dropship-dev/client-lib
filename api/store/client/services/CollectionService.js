@@ -7,7 +7,7 @@ class CollectionService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Collection Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createCollection({ storeId, requestBody, }) {
@@ -128,7 +128,7 @@ class CollectionService {
         });
     }
     /**
-     * @returns Product Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getProductByConditions({ storeId, requestBody, }) {

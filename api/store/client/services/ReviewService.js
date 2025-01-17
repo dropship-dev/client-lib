@@ -30,7 +30,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllReview({ storeId, productId, }) {
@@ -51,7 +51,7 @@ class ReviewService {
         });
     }
     /**
-     * @returns Review Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getReview({ storeId, productId, id, }) {

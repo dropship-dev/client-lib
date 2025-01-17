@@ -1,0 +1,6 @@
+export declare enum _36_Enums_AsyncTaskType {
+    EXPORT_ORDER = "EXPORT_ORDER",
+    EXPORT_ACCOUNTANCY = "EXPORT_ACCOUNTANCY",
+    GENERATE_PNG = "GENERATE_PNG",
+    SEND_MAIL = "SEND_MAIL"
+}

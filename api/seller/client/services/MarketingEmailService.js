@@ -7,30 +7,6 @@ class MarketingEmailService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getStatisticsStoreAbandonmentCheckout({ storeId, startTime = '2023-01-02T00:00:00.000Z', endTime, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/marketing/statistics/abandonments-checkout/store/{storeId}',
-            path: {
-                'storeId': storeId,
-            },
-            query: {
-                'startTime': startTime,
-                'endTime': endTime,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
      * @returns void
      * @throws ApiError
      */
@@ -98,7 +74,7 @@ class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    listAbandonmentOrders({ storeId, pageSize, nextPageIndex, emailStatus, recoveryStatus, id, startDate, endDate, }) {
+    listAbandonmentOrders({ storeId, nextPageIndex, pageSize = 20, emailStatus, recoveryStatus, id, startDate, endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/marketing/email/abandonment/store/{storeId}/orders',
@@ -176,6 +152,30 @@ class MarketingEmailService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStatisticsStoreAbandonmentCheckout({ storeId, startTime = '2023-01-02T00:00:00.000Z', endTime, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/marketing/statistics/abandonments-checkout/store/{storeId}',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'startTime': startTime,
+                'endTime': endTime,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

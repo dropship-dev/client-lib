@@ -1,5 +1,2 @@
-export declare enum OrderDisputeStatus {
-    WIN = "WIN",
-    LOSE = "LOSE",
-    IN_PROGRESS = "IN_PROGRESS"
-}
+import type { _36_Enums_OrderDisputeStatus } from './_36_Enums_OrderDisputeStatus';
+export type OrderDisputeStatus = _36_Enums_OrderDisputeStatus;

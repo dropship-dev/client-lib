@@ -15,6 +15,7 @@ const OrderRefundsService_1 = require("./services/OrderRefundsService");
 const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
 const PingPongAccountService_1 = require("./services/PingPongAccountService");
+const PingPongAccountV2Service_1 = require("./services/PingPongAccountV2Service");
 const PlatformProductService_1 = require("./services/PlatformProductService");
 const PlatformVariantService_1 = require("./services/PlatformVariantService");
 const ProductService_1 = require("./services/ProductService");
@@ -45,6 +46,7 @@ class ClientApi {
     payment;
     performance;
     pingPongAccount;
+    pingPongAccountV2;
     platformProduct;
     platformVariant;
     product;
@@ -87,6 +89,7 @@ class ClientApi {
         this.payment = new PaymentService_1.PaymentService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
         this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
+        this.pingPongAccountV2 = new PingPongAccountV2Service_1.PingPongAccountV2Service(this.request);
         this.platformProduct = new PlatformProductService_1.PlatformProductService(this.request);
         this.platformVariant = new PlatformVariantService_1.PlatformVariantService(this.request);
         this.product = new ProductService_1.ProductService(this.request);

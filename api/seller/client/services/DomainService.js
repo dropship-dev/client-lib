@@ -29,7 +29,7 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllDomain({ storeId, }) {
@@ -49,16 +49,40 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns string Ok
      * @throws ApiError
      */
-    getDomain({ storeId, domain, }) {
+    buyDomain({ storeId, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/domain/{domain}',
+            method: 'POST',
+            url: '/store/{storeId}/domain/buy-domain',
             path: {
                 'storeId': storeId,
-                'domain': domain,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchDomain({ storeId, keyword, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/domain/search-domain',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'keyword': keyword,
             },
             errors: {
                 400: `Bad request`,
@@ -70,7 +94,93 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns string Ok
+     * @throws ApiError
+     */
+    switchAutoRenewDomain({ storeId, id, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/domain/switch-autorenew/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    renewDomainManually({ storeId, id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/domain/renew/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    disableDomainRenewal({ storeId, id, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/domain/disable-renewal/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDomain({ storeId, id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/domain/{id}',
+            path: {
+                'storeId': storeId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
      * @throws ApiError
      */
     verifyDomain({ storeId, domain, }) {
@@ -112,7 +222,7 @@ class DomainService {
         });
     }
     /**
-     * @returns CustomDomain Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteDomain({ storeId, domain, }) {

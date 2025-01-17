@@ -29,7 +29,7 @@ class StoreTagService {
         });
     }
     /**
-     * @returns Tag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStoreTags({ storeId, search, limit = 10, }) {
@@ -53,7 +53,7 @@ class StoreTagService {
         });
     }
     /**
-     * @returns Tag Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteStoreTag({ storeId, name, }) {

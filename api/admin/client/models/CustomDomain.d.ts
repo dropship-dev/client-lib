@@ -1,23 +1,5 @@
-import type { CustomDomainStatus } from './CustomDomainStatus';
-import type { DomainOrigin } from './DomainOrigin';
-import type { PrismaJson_DomainContactInfo } from './PrismaJson_DomainContactInfo';
+import type { DefaultSelection_Prisma__36_CustomDomainPayload_ } from './DefaultSelection_Prisma__36_CustomDomainPayload_';
 /**
  * Model CustomDomain
  */
-export type CustomDomain = {
-    updatedAt: string;
-    createdAt: string;
-    isPrimary: boolean | null;
-    storeId: string;
-    /**
-     * [DomainContactInfo]
-     */
-    contactInfo: PrismaJson_DomainContactInfo | null;
-    domainOrigin: DomainOrigin;
-    autoRenew: boolean | null;
-    expirationDate: string | null;
-    status: CustomDomainStatus;
-    target: string | null;
-    domain: string;
-    id: number;
-};
+export type CustomDomain = DefaultSelection_Prisma__36_CustomDomainPayload_;

@@ -1,12 +1,12 @@
-import type { FulfillmentStatus } from './FulfillmentStatus';
-import type { OrderDisputeStatus } from './OrderDisputeStatus';
-import type { TransactionStatus } from './TransactionStatus';
+import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus';
+import type { _36_Enums_OrderDisputeStatus } from './_36_Enums_OrderDisputeStatus';
+import type { _36_Enums_TransactionStatus } from './_36_Enums_TransactionStatus';
 export type ExportOrderDto = {
     exportedFilename: string;
     fulfillmentAgencyId?: number;
     storeId?: string;
-    paymentStatus?: Array<TransactionStatus>;
-    fulfillmentStatus?: Array<FulfillmentStatus>;
+    paymentStatus?: Array<_36_Enums_TransactionStatus>;
+    fulfillmentStatus?: Array<_36_Enums_FulfillmentStatus>;
     search?: string;
     productName?: string;
     startDate?: string;
@@ -14,6 +14,6 @@ export type ExportOrderDto = {
     startTotal?: number;
     endTotal?: number;
     gateway?: Array<number>;
-    disputeStatus?: Array<OrderDisputeStatus>;
+    disputeStatus?: Array<_36_Enums_OrderDisputeStatus>;
     latestStat?: boolean;
 };

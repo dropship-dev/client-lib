@@ -33,6 +33,65 @@ class FulfillmentAgencyService {
      * @returns any Ok
      * @throws ApiError
      */
+    generatePartnerReferrals({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/fulfillment-agency/partner-referrals',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getPaymentOnboarding({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/payment-onboarding',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    getPermissionDisconnect({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/permission-disconnect',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getFulfillmentAgency({ id, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -50,7 +109,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFulfillmentAgency({ id, requestBody, }) {
@@ -72,7 +131,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns FulfillmentAgency Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFulfillmentAgency({ id, }) {
@@ -82,6 +141,135 @@ class FulfillmentAgencyService {
             path: {
                 'id': id,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyJoinPlatform({ id, paymentType, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
+            path: {
+                'id': id,
+                'paymentType': paymentType,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreDebtPayment({ id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/store-debt-payment',
+            path: {
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFulfillmentPlatformIntegration({ id, platform, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+            path: {
+                'id': id,
+            },
+            query: {
+                'platform': platform,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    integrateWithFulfillmentPlatform({ id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    disconnectPayment({ id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/fulfillment-agency/{id}/disconnect-payment',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    reconnectPayment({ id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/fulfillment-agency/{id}/reconnect-payment',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

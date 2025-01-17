@@ -7,7 +7,7 @@ class BankAccountService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns BankAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createBankAccount({ requestBody, fulfillmentAgencyId, storeId, }) {
@@ -30,7 +30,7 @@ class BankAccountService {
         });
     }
     /**
-     * @returns BankAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getAllBankAccount({ fulfillmentAgencyId, storeId, }) {
@@ -51,7 +51,7 @@ class BankAccountService {
         });
     }
     /**
-     * @returns BankAccount Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getBankAccount({ id, fulfillmentAgencyId, storeId, }) {

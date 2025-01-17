@@ -1,21 +1,5 @@
-import type { PrismaJson_UnavailableBalance } from './PrismaJson_UnavailableBalance';
+import type { DefaultSelection_Prisma__36_WalletPayload_ } from './DefaultSelection_Prisma__36_WalletPayload_';
 /**
  * Model Wallet
  */
-export type Wallet = {
-    updatedAt: string;
-    createdAt: string;
-    isDeleted: boolean;
-    storeId: string | null;
-    fulfillmentAgencyId: number | null;
-    /**
-     * [UnavailableBalance]
-     */
-    balanceUnavailable: PrismaJson_UnavailableBalance | null;
-    payoutAmount: number;
-    holdAmount: number;
-    balanceAvailable: number;
-    balanceAmount: number;
-    walletName: string | null;
-    id: string;
-};
+export type Wallet = DefaultSelection_Prisma__36_WalletPayload_;

@@ -58,7 +58,31 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
+     * @throws ApiError
+     */
+    setProcessingRequestSourcing({ id, fulfillmentAgencyId, storeId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/request-sourcing/{id}/processing',
+            path: {
+                'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
      * @throws ApiError
      */
     approveRequestSourcing({ id, requestBody, fulfillmentAgencyId, storeId, }) {
@@ -84,7 +108,7 @@ class RequestSourcingService {
         });
     }
     /**
-     * @returns RequestSourcing Ok
+     * @returns any Ok
      * @throws ApiError
      */
     rejectRequestSourcing({ id, requestBody, storeId, fulfillmentAgencyId, }) {

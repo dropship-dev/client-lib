@@ -1,11 +1,11 @@
-import type { BoostSaleTriggerType } from './BoostSaleTriggerType';
+import type { _36_Enums_BoostSaleTriggerType } from './_36_Enums_BoostSaleTriggerType';
 import type { DiscountBoostSaleType } from './DiscountBoostSaleType';
 import type { NameDto } from './NameDto';
 import type { PlacementBoostSaleEnum } from './PlacementBoostSaleEnum';
 export type BoughtTogetherType = {
     kind: BoughtTogetherType.kind;
     title: NameDto;
-    type: BoostSaleTriggerType;
+    type: _36_Enums_BoostSaleTriggerType;
     rootProductId: number;
     childrenProductIds: Array<number>;
     discounts: Array<{
@@ -15,7 +15,7 @@ export type BoughtTogetherType = {
     }>;
     placementList: Array<PlacementBoostSaleEnum>;
     timeLife: {
-        endDate?: string;
+        endDate?: string | null;
         startDate: string;
     };
 };

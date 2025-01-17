@@ -13,10 +13,16 @@ export declare class FbPixelService {
     createFbPixel({ storeId, requestBody, }: {
         storeId: string;
         requestBody: CreateFbPixelDto;
-    }): CancelablePromise<(FbPixel & {
+    }): CancelablePromise<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>;
     /**
      * @returns any Ok
@@ -24,10 +30,16 @@ export declare class FbPixelService {
      */
     getAllFbPixel({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<(FbPixel & {
+    }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
+    } & {
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
     })>>;
     /**
      * @returns any Ok
@@ -42,20 +54,32 @@ export declare class FbPixelService {
         }>;
     })>;
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     updateFbPixel({ storeId, pixelId, requestBody, }: {
         storeId: string;
         pixelId: string;
         requestBody: UpdateFbPixelDto;
-    }): CancelablePromise<FbPixel>;
+    }): CancelablePromise<{
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
     /**
-     * @returns FbPixel Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteFbPixel({ storeId, pixelId, }: {
         storeId: string;
         pixelId: string;
-    }): CancelablePromise<FbPixel>;
+    }): CancelablePromise<{
+        pixelId: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    }>;
 }

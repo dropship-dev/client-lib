@@ -7,7 +7,7 @@ class PerformanceService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Response Ok
+     * @returns LocationResult Ok
      * @throws ApiError
      */
     getProductByLocation({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
@@ -266,7 +266,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns SQLResult Ok
+     * @returns AgencyStatisticResp Ok
      * @throws ApiError
      */
     getFulfillmentAgencyStatistic({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {

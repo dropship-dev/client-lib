@@ -7,7 +7,7 @@ class MarketingService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns User Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createMarketingAccount({ requestBody, }) {

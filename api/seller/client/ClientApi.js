@@ -14,6 +14,7 @@ const FbPixelService_1 = require("./services/FbPixelService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
 const GoogleTagManagerService_1 = require("./services/GoogleTagManagerService");
+const KlaviyoService_1 = require("./services/KlaviyoService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
@@ -31,6 +32,7 @@ const StaffService_1 = require("./services/StaffService");
 const StatisticsService_1 = require("./services/StatisticsService");
 const StoreService_1 = require("./services/StoreService");
 const StoreTagService_1 = require("./services/StoreTagService");
+const SubscriptionService_1 = require("./services/SubscriptionService");
 const ThemeService_1 = require("./services/ThemeService");
 const ThemeLibraryService_1 = require("./services/ThemeLibraryService");
 const TiktokPixelService_1 = require("./services/TiktokPixelService");
@@ -53,6 +55,7 @@ class ClientApi {
     fulfillmentAgency;
     googleAnalytic;
     googleTagManager;
+    klaviyo;
     marketingEmail;
     notification;
     order;
@@ -70,6 +73,7 @@ class ClientApi {
     statistics;
     store;
     storeTag;
+    subscription;
     theme;
     themeLibrary;
     tiktokPixel;
@@ -104,6 +108,7 @@ class ClientApi {
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);
         this.googleTagManager = new GoogleTagManagerService_1.GoogleTagManagerService(this.request);
+        this.klaviyo = new KlaviyoService_1.KlaviyoService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
@@ -121,6 +126,7 @@ class ClientApi {
         this.statistics = new StatisticsService_1.StatisticsService(this.request);
         this.store = new StoreService_1.StoreService(this.request);
         this.storeTag = new StoreTagService_1.StoreTagService(this.request);
+        this.subscription = new SubscriptionService_1.SubscriptionService(this.request);
         this.theme = new ThemeService_1.ThemeService(this.request);
         this.themeLibrary = new ThemeLibraryService_1.ThemeLibraryService(this.request);
         this.tiktokPixel = new TiktokPixelService_1.TiktokPixelService(this.request);

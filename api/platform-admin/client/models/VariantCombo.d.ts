@@ -1,24 +1,5 @@
-import type { PrismaJson_VariantComboItems } from './PrismaJson_VariantComboItems';
+import type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './DefaultSelection_Prisma__36_VariantComboPayload_';
 /**
  * Model VariantCombo
  */
-export type VariantCombo = {
-    updatedAt: string;
-    createdAt: string;
-    supplierCost: number | null;
-    productId: number;
-    isDeleted: boolean;
-    isEnable: boolean;
-    isActive: boolean;
-    /**
-     * [VariantComboItems]
-     */
-    items: PrismaJson_VariantComboItems;
-    minSellingPrice: number | null;
-    SKU: string;
-    compareAtPrice: number;
-    photo: string;
-    price: number;
-    name: string;
-    id: number;
-};
+export type VariantCombo = DefaultSelection_Prisma__36_VariantComboPayload_;

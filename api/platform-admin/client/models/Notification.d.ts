@@ -1,16 +1,5 @@
-import type { NotificationType } from './NotificationType';
-import type { Prisma_JsonValue } from './Prisma_JsonValue';
+import type { DefaultSelection_Prisma__36_NotificationPayload_ } from './DefaultSelection_Prisma__36_NotificationPayload_';
 /**
  * Model Notification
  */
-export type Notification = {
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number | null;
-    storeId: string | null;
-    data: Prisma_JsonValue | null;
-    type: NotificationType;
-    description: string | null;
-    title: string;
-    id: number;
-};
+export type Notification = DefaultSelection_Prisma__36_NotificationPayload_;

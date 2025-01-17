@@ -1,14 +1,5 @@
+import type { DefaultSelection_Prisma__36_CampaignPayload_ } from './DefaultSelection_Prisma__36_CampaignPayload_';
 /**
  * Model Campaign
  */
-export type Campaign = {
-    updatedAt: string;
-    createdAt: string;
-    userUpdated: string | null;
-    userCreated: string | null;
-    status: boolean;
-    endDate: string | null;
-    startDate: string;
-    label: string;
-    id: string;
-};
+export type Campaign = DefaultSelection_Prisma__36_CampaignPayload_;

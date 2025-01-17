@@ -1,19 +1,5 @@
-import type { PrismaJson_RefundOrderItems } from './PrismaJson_RefundOrderItems';
+import type { DefaultSelection_Prisma__36_OrderRefundPayload_ } from './DefaultSelection_Prisma__36_OrderRefundPayload_';
 /**
  * Model OrderRefund
  */
-export type OrderRefund = {
-    updatedAt: string;
-    createdAt: string;
-    isRollback: boolean;
-    orderId: string | null;
-    type: string;
-    /**
-     * [RefundOrderItems]
-     */
-    historyRefundOrder: PrismaJson_RefundOrderItems | null;
-    paymentGateId: number;
-    note: string | null;
-    total: number;
-    id: string;
-};
+export type OrderRefund = DefaultSelection_Prisma__36_OrderRefundPayload_;

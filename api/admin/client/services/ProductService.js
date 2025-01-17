@@ -55,7 +55,7 @@ class ProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }) {
+    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product',
@@ -68,6 +68,8 @@ class ProductService {
                 'name': name,
                 'tags': tags,
                 'isActive': isActive,
+                'isInactive': isInactive,
+                'haveDiscount': haveDiscount,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
                 'isCheckRootProductCrossSell': isCheckRootProductCrossSell,

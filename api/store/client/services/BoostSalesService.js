@@ -7,7 +7,7 @@ class BoostSalesService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns BoostSale Ok
+     * @returns any Ok
      * @throws ApiError
      */
     createBoostSale({ storeId, requestBody, }) {
@@ -146,7 +146,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns BoostSale Ok
+     * @returns any Ok
      * @throws ApiError
      */
     deleteBoostSales({ id, storeId, }) {
@@ -189,7 +189,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns BatchPayload Ok
+     * @returns Prisma_BatchPayload Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }) {
