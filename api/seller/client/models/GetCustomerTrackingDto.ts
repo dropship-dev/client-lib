@@ -4,7 +4,14 @@
 /* eslint-disable */
 export type GetCustomerTrackingDto = {
   storeId: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
+  filterBy?: GetCustomerTrackingDto.filterBy;
 };
+export namespace GetCustomerTrackingDto {
+  export enum filterBy {
+    ORDER = 'ORDER',
+    REVENUE = 'REVENUE',
+  }
+}
 

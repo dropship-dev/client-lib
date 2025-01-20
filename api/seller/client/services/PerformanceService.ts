@@ -387,31 +387,24 @@ export class PerformanceService {
     storeId,
     startDate,
     endDate,
+    filterBy,
   }: {
     storeId: string,
-    startDate: string,
-    endDate: string,
+    startDate?: string,
+    endDate?: string,
+    filterBy?: 'ORDER' | 'REVENUE',
   }): CancelablePromise<{
     data: Array<{
       date: string;
-      returningRevenue: number;
-      returningPurchased: number;
-      firstRevenue: number;
-      firstPurchased: number;
+      returning: number;
+      firstTime: number;
     }>;
-    totalReturningRevenue: {
+    aggregateTotal: number;
+    aggregateReturning: {
       growth: number;
       value: number;
     };
-    totalFirstRevenue: {
-      growth: number;
-      value: number;
-    };
-    totalReturningPurchased: {
-      growth: number;
-      value: number;
-    };
-    totalFirstPurchased: {
+    aggregateFirstTime: {
       growth: number;
       value: number;
     };
@@ -424,6 +417,7 @@ export class PerformanceService {
         'storeId': storeId,
         'startDate': startDate,
         'endDate': endDate,
+        'filterBy': filterBy,
       },
       errors: {
         400: `Bad request`,
@@ -442,10 +436,12 @@ export class PerformanceService {
     storeId,
     startDate,
     endDate,
+    filterBy,
   }: {
     storeId: string,
-    startDate: string,
-    endDate: string,
+    startDate?: string,
+    endDate?: string,
+    filterBy?: 'ORDER' | 'REVENUE',
   }): CancelablePromise<{
     data: Array<{
       date: string;
@@ -469,6 +465,7 @@ export class PerformanceService {
         'storeId': storeId,
         'startDate': startDate,
         'endDate': endDate,
+        'filterBy': filterBy,
       },
       errors: {
         400: `Bad request`,
