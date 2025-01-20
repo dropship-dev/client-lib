@@ -210,7 +210,7 @@ export type { GetAllStoresDto } from './models/GetAllStoresDto';
 export type { GetAutomationMetricStatisticsDto } from './models/GetAutomationMetricStatisticsDto';
 export type { getBoostSalesDto } from './models/getBoostSalesDto';
 export type { getCrossSellByProductDto } from './models/getCrossSellByProductDto';
-export type { GetCustomerTrackingDto } from './models/GetCustomerTrackingDto';
+export { GetCustomerTrackingDto } from './models/GetCustomerTrackingDto';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetListStoreMarketingDto } from './models/GetListStoreMarketingDto';
 export type { GetOrderResult } from './models/GetOrderResult';

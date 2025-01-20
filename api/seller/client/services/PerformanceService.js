@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTracking({ storeId, startDate, endDate, }) {
+    getCustomerTracking({ storeId, startDate, endDate, filterBy, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/customer-tracking',
@@ -233,6 +233,7 @@ class PerformanceService {
                 'storeId': storeId,
                 'startDate': startDate,
                 'endDate': endDate,
+                'filterBy': filterBy,
             },
             errors: {
                 400: `Bad request`,
@@ -247,7 +248,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTrackingRate({ storeId, startDate, endDate, }) {
+    getCustomerTrackingRate({ storeId, startDate, endDate, filterBy, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/customer-tracking-rate',
@@ -255,6 +256,7 @@ class PerformanceService {
                 'storeId': storeId,
                 'startDate': startDate,
                 'endDate': endDate,
+                'filterBy': filterBy,
             },
             errors: {
                 400: `Bad request`,

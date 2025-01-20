@@ -157,31 +157,23 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTracking({ storeId, startDate, endDate, }: {
+    getCustomerTracking({ storeId, startDate, endDate, filterBy, }: {
         storeId: string;
-        startDate: string;
-        endDate: string;
+        startDate?: string;
+        endDate?: string;
+        filterBy?: 'ORDER' | 'REVENUE';
     }): CancelablePromise<{
         data: Array<{
             date: string;
-            returningRevenue: number;
-            returningPurchased: number;
-            firstRevenue: number;
-            firstPurchased: number;
+            returning: number;
+            firstTime: number;
         }>;
-        totalReturningRevenue: {
+        aggregateTotal: number;
+        aggregateReturning: {
             growth: number;
             value: number;
         };
-        totalFirstRevenue: {
-            growth: number;
-            value: number;
-        };
-        totalReturningPurchased: {
-            growth: number;
-            value: number;
-        };
-        totalFirstPurchased: {
+        aggregateFirstTime: {
             growth: number;
             value: number;
         };
@@ -191,10 +183,11 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTrackingRate({ storeId, startDate, endDate, }: {
+    getCustomerTrackingRate({ storeId, startDate, endDate, filterBy, }: {
         storeId: string;
-        startDate: string;
-        endDate: string;
+        startDate?: string;
+        endDate?: string;
+        filterBy?: 'ORDER' | 'REVENUE';
     }): CancelablePromise<{
         data: Array<{
             date: string;
