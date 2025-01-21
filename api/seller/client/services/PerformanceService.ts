@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
+import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
@@ -380,7 +382,7 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns GetCustomerTrackingResultDto Ok
    * @throws ApiError
    */
   public getCustomerTracking({
@@ -393,23 +395,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     filterBy?: 'ORDER' | 'REVENUE',
-  }): CancelablePromise<{
-    data: Array<{
-      date: string;
-      returning: number;
-      firstTime: number;
-    }>;
-    aggregateTotal: number;
-    aggregateReturning: {
-      growth: number;
-      value: number;
-    };
-    aggregateFirstTime: {
-      growth: number;
-      value: number;
-    };
-    period: Period;
-  }> {
+  }): CancelablePromise<GetCustomerTrackingResultDto> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/customer-tracking',
@@ -429,7 +415,7 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns GetTrackingRetentionRateResultDto Ok
    * @throws ApiError
    */
   public getTrackingRetentionRate({
@@ -442,22 +428,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     filterBy?: 'ORDER' | 'REVENUE',
-  }): CancelablePromise<{
-    data: Array<{
-      date: string;
-      returning: number;
-      firstTime: number;
-    }>;
-    totalReturning: {
-      growth: number;
-      value: number;
-    };
-    totalFirstTime: {
-      growth: number;
-      value: number;
-    };
-    period: Period;
-  }> {
+  }): CancelablePromise<GetTrackingRetentionRateResultDto> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/tracking-retention-rate',
