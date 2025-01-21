@@ -432,7 +432,7 @@ export class PerformanceService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getCustomerTrackingRate({
+  public getTrackingRetentionRate({
     storeId,
     startDate,
     endDate,
@@ -445,14 +445,14 @@ export class PerformanceService {
   }): CancelablePromise<{
     data: Array<{
       date: string;
-      returningCustomer: number;
-      firstCustomer: number;
+      returning: number;
+      firstTime: number;
     }>;
-    totalReturningCustomer: {
+    totalReturning: {
       growth: number;
       value: number;
     };
-    totalFirstCustomer: {
+    totalFirstTime: {
       growth: number;
       value: number;
     };
@@ -460,7 +460,7 @@ export class PerformanceService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/performance/customer-tracking-rate',
+      url: '/performance/tracking-retention-rate',
       query: {
         'storeId': storeId,
         'startDate': startDate,
