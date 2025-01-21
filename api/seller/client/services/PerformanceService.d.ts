@@ -1,3 +1,5 @@
+import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
+import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
@@ -154,7 +156,7 @@ export declare class PerformanceService {
         data: Array<StoreProductPerformanceResp>;
     }>;
     /**
-     * @returns any Ok
+     * @returns GetCustomerTrackingResultDto Ok
      * @throws ApiError
      */
     getCustomerTracking({ storeId, startDate, endDate, filterBy, }: {
@@ -162,25 +164,9 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         filterBy?: 'ORDER' | 'REVENUE';
-    }): CancelablePromise<{
-        data: Array<{
-            date: string;
-            returning: number;
-            firstTime: number;
-        }>;
-        aggregateTotal: number;
-        aggregateReturning: {
-            growth: number;
-            value: number;
-        };
-        aggregateFirstTime: {
-            growth: number;
-            value: number;
-        };
-        period: Period;
-    }>;
+    }): CancelablePromise<GetCustomerTrackingResultDto>;
     /**
-     * @returns any Ok
+     * @returns GetTrackingRetentionRateResultDto Ok
      * @throws ApiError
      */
     getTrackingRetentionRate({ storeId, startDate, endDate, filterBy, }: {
@@ -188,20 +174,5 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         filterBy?: 'ORDER' | 'REVENUE';
-    }): CancelablePromise<{
-        data: Array<{
-            date: string;
-            returning: number;
-            firstTime: number;
-        }>;
-        totalReturning: {
-            growth: number;
-            value: number;
-        };
-        totalFirstTime: {
-            growth: number;
-            value: number;
-        };
-        period: Period;
-    }>;
+    }): CancelablePromise<GetTrackingRetentionRateResultDto>;
 }

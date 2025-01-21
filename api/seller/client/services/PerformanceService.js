@@ -222,7 +222,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GetCustomerTrackingResultDto Ok
      * @throws ApiError
      */
     getCustomerTracking({ storeId, startDate, endDate, filterBy, }) {
@@ -245,7 +245,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GetTrackingRetentionRateResultDto Ok
      * @throws ApiError
      */
     getTrackingRetentionRate({ storeId, startDate, endDate, filterBy, }) {
