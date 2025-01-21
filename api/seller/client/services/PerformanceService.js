@@ -248,10 +248,10 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTrackingRate({ storeId, startDate, endDate, filterBy, }) {
+    getTrackingRetentionRate({ storeId, startDate, endDate, filterBy, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/performance/customer-tracking-rate',
+            url: '/performance/tracking-retention-rate',
             query: {
                 'storeId': storeId,
                 'startDate': startDate,

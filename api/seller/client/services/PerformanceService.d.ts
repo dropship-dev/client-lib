@@ -183,7 +183,7 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerTrackingRate({ storeId, startDate, endDate, filterBy, }: {
+    getTrackingRetentionRate({ storeId, startDate, endDate, filterBy, }: {
         storeId: string;
         startDate?: string;
         endDate?: string;
@@ -191,14 +191,14 @@ export declare class PerformanceService {
     }): CancelablePromise<{
         data: Array<{
             date: string;
-            returningCustomer: number;
-            firstCustomer: number;
+            returning: number;
+            firstTime: number;
         }>;
-        totalReturningCustomer: {
+        totalReturning: {
             growth: number;
             value: number;
         };
-        totalFirstCustomer: {
+        totalFirstTime: {
             growth: number;
             value: number;
         };
