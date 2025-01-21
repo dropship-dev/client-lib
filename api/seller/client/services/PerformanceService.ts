@@ -382,6 +382,120 @@ export class PerformanceService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getTopCountry({
+    storeId,
+    startDate,
+    endDate,
+    select,
+  }: {
+    storeId: string,
+    startDate: string,
+    endDate: string,
+    select?: number,
+  }): CancelablePromise<{
+    data: Array<{
+      total: number;
+      growth: number;
+      country: string;
+    }>;
+    totalSession: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/top-country',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'select': select,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public statsDevice({
+    storeId,
+    startDate,
+    endDate,
+  }: {
+    storeId: string,
+    startDate: string,
+    endDate: string,
+  }): CancelablePromise<{
+    data: Array<{
+      total: number;
+      growth: number;
+      device: string;
+    }>;
+    total: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/stats-device',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public statsReferer({
+    storeId,
+    startDate,
+    endDate,
+  }: {
+    storeId: string,
+    startDate: string,
+    endDate: string,
+  }): CancelablePromise<{
+    data: Array<{
+      totalSession: number;
+      growth: number;
+      label: string;
+    }>;
+    totalSession: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/stats-referer',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns GetCustomerTrackingResultDto Ok
    * @throws ApiError
    */
