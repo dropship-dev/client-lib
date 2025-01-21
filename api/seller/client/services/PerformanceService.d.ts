@@ -156,6 +156,55 @@ export declare class PerformanceService {
         data: Array<StoreProductPerformanceResp>;
     }>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTopCountry({ storeId, startDate, endDate, select, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+        select?: number;
+    }): CancelablePromise<{
+        data: Array<{
+            total: number;
+            growth: number;
+            country: string;
+        }>;
+        totalSession: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    statsDevice({ storeId, startDate, endDate, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        data: Array<{
+            total: number;
+            growth: number;
+            device: string;
+        }>;
+        total: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    statsReferer({ storeId, startDate, endDate, }: {
+        storeId: string;
+        startDate: string;
+        endDate: string;
+    }): CancelablePromise<{
+        data: Array<{
+            totalSession: number;
+            growth: number;
+            label: string;
+        }>;
+        totalSession: number;
+    }>;
+    /**
      * @returns GetCustomerTrackingResultDto Ok
      * @throws ApiError
      */

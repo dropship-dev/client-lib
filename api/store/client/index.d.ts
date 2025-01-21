@@ -217,9 +217,12 @@ export type { GetListStoreMarketingDto } from './models/GetListStoreMarketingDto
 export type { GetOrderResult } from './models/GetOrderResult';
 export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto';
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
+export type { GetStatsDeviceDto } from './models/GetStatsDeviceDto';
+export type { GetStatsRefererDto } from './models/GetStatsRefererDto';
 export type { getStatusCombosType } from './models/getStatusCombosType';
 export type { GetStoreAddPingpongDto } from './models/GetStoreAddPingpongDto';
 export type { GetStoreStatisticsAbandonmentDto } from './models/GetStoreStatisticsAbandonmentDto';
+export type { GetTopCountryDto } from './models/GetTopCountryDto';
 export type { GetTrackingOrderCheckoutDto } from './models/GetTrackingOrderCheckoutDto';
 export type { GetTrackingRetentionRateResultDto } from './models/GetTrackingRetentionRateResultDto';
 export type { getVariantsType } from './models/getVariantsType';

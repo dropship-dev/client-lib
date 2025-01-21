@@ -222,6 +222,73 @@ class PerformanceService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTopCountry({ storeId, startDate, endDate, select, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/top-country',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'select': select,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    statsDevice({ storeId, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/stats-device',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    statsReferer({ storeId, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/stats-referer',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns GetCustomerTrackingResultDto Ok
      * @throws ApiError
      */
