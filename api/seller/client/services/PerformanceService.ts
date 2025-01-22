@@ -8,6 +8,7 @@ import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { ResponseTrackingPie } from '../models/ResponseTrackingPie';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
@@ -382,7 +383,7 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns ResponseTrackingPie Ok
    * @throws ApiError
    */
   public getTopCountry({
@@ -395,14 +396,7 @@ export class PerformanceService {
     startDate: string,
     endDate: string,
     select?: number,
-  }): CancelablePromise<{
-    data: Array<{
-      total: number;
-      growth: number;
-      country: string;
-    }>;
-    totalSession: number;
-  }> {
+  }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-country',
@@ -422,7 +416,7 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns ResponseTrackingPie Ok
    * @throws ApiError
    */
   public statsDevice({
@@ -433,14 +427,7 @@ export class PerformanceService {
     storeId: string,
     startDate: string,
     endDate: string,
-  }): CancelablePromise<{
-    data: Array<{
-      total: number;
-      growth: number;
-      device: string;
-    }>;
-    total: number;
-  }> {
+  }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/stats-device',
@@ -459,10 +446,10 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns ResponseTrackingPie Ok
    * @throws ApiError
    */
-  public statsReferer({
+  public statsReferrer({
     storeId,
     startDate,
     endDate,
@@ -470,17 +457,10 @@ export class PerformanceService {
     storeId: string,
     startDate: string,
     endDate: string,
-  }): CancelablePromise<{
-    data: Array<{
-      totalSession: number;
-      growth: number;
-      label: string;
-    }>;
-    totalSession: number;
-  }> {
+  }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/performance/stats-referer',
+      url: '/performance/stats-referrer',
       query: {
         'storeId': storeId,
         'startDate': startDate,

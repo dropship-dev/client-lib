@@ -348,6 +348,7 @@ export type { RequestSourcingStatus } from './models/RequestSourcingStatus';
 export type { ResponseGetStoreByPingpong } from './models/ResponseGetStoreByPingpong';
 export type { ResponseGetUser } from './models/ResponseGetUser';
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
+export type { ResponseTrackingPie } from './models/ResponseTrackingPie';
 export type { Review } from './models/Review';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
 export { SendEmailToListStoreStatus } from './models/SendEmailToListStoreStatus';
