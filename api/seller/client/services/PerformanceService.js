@@ -222,7 +222,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
     getTopCountry({ storeId, startDate, endDate, select, }) {
@@ -245,7 +245,7 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
     statsDevice({ storeId, startDate, endDate, }) {
@@ -267,13 +267,13 @@ class PerformanceService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferer({ storeId, startDate, endDate, }) {
+    statsReferrer({ storeId, startDate, endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/performance/stats-referer',
+            url: '/performance/stats-referrer',
             query: {
                 'storeId': storeId,
                 'startDate': startDate,
