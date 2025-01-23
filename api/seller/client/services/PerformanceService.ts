@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
+import type { GetTopLandingPageResultDto } from '../models/GetTopLandingPageResultDto';
 import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
@@ -389,7 +390,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T09:07:20.337Z',
+    endDate = '2025-01-23T16:38:21.922Z',
     select,
   }: {
     storeId: string,
@@ -422,7 +423,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T09:07:20.337Z',
+    endDate = '2025-01-23T16:38:21.923Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -452,7 +453,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T09:07:20.338Z',
+    endDate = '2025-01-23T16:38:21.923Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -481,7 +482,7 @@ export class PerformanceService {
    */
   public getCustomerTracking({
     storeId,
-    startDate,
+    startDate = '2023-01-01T00:00:00.000Z',
     endDate,
     filterBy,
   }: {
@@ -514,14 +515,12 @@ export class PerformanceService {
    */
   public getTrackingRetentionRate({
     storeId,
-    startDate,
+    startDate = '2023-01-01T00:00:00.000Z',
     endDate,
-    filterBy,
   }: {
     storeId: string,
     startDate?: string,
     endDate?: string,
-    filterBy?: 'ORDER' | 'REVENUE',
   }): CancelablePromise<GetTrackingRetentionRateResultDto> {
     return this.httpRequest.request({
       method: 'GET',
@@ -530,7 +529,36 @@ export class PerformanceService {
         'storeId': storeId,
         'startDate': startDate,
         'endDate': endDate,
-        'filterBy': filterBy,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns GetTopLandingPageResultDto Ok
+   * @throws ApiError
+   */
+  public getTopLandingPage({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<Array<GetTopLandingPageResultDto>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/top-landing-page',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
       },
       errors: {
         400: `Bad request`,
