@@ -4,8 +4,8 @@
 /* eslint-disable */
 export type GetTopCountryDto = {
   storeId: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   select?: number;
 };
 

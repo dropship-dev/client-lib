@@ -388,13 +388,13 @@ export class PerformanceService {
    */
   public getTopCountry({
     storeId,
-    startDate,
-    endDate,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate = '2025-01-23T09:07:20.337Z',
     select,
   }: {
     storeId: string,
-    startDate: string,
-    endDate: string,
+    startDate?: string,
+    endDate?: string,
     select?: number,
   }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
@@ -421,12 +421,12 @@ export class PerformanceService {
    */
   public statsDevice({
     storeId,
-    startDate,
-    endDate,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate = '2025-01-23T09:07:20.337Z',
   }: {
     storeId: string,
-    startDate: string,
-    endDate: string,
+    startDate?: string,
+    endDate?: string,
   }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
       method: 'GET',
@@ -451,12 +451,12 @@ export class PerformanceService {
    */
   public statsReferrer({
     storeId,
-    startDate,
-    endDate,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate = '2025-01-23T09:07:20.338Z',
   }: {
     storeId: string,
-    startDate: string,
-    endDate: string,
+    startDate?: string,
+    endDate?: string,
   }): CancelablePromise<ResponseTrackingPie> {
     return this.httpRequest.request({
       method: 'GET',
