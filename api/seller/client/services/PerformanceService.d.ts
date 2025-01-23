@@ -162,8 +162,8 @@ export declare class PerformanceService {
      */
     getTopCountry({ storeId, startDate, endDate, select, }: {
         storeId: string;
-        startDate: string;
-        endDate: string;
+        startDate?: string;
+        endDate?: string;
         select?: number;
     }): CancelablePromise<ResponseTrackingPie>;
     /**
@@ -172,8 +172,8 @@ export declare class PerformanceService {
      */
     statsDevice({ storeId, startDate, endDate, }: {
         storeId: string;
-        startDate: string;
-        endDate: string;
+        startDate?: string;
+        endDate?: string;
     }): CancelablePromise<ResponseTrackingPie>;
     /**
      * @returns ResponseTrackingPie Ok
@@ -181,8 +181,8 @@ export declare class PerformanceService {
      */
     statsReferrer({ storeId, startDate, endDate, }: {
         storeId: string;
-        startDate: string;
-        endDate: string;
+        startDate?: string;
+        endDate?: string;
     }): CancelablePromise<ResponseTrackingPie>;
     /**
      * @returns GetCustomerTrackingResultDto Ok
