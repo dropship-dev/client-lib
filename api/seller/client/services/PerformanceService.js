@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T09:07:20.337Z', select, }) {
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.922Z', select, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-country',
@@ -248,7 +248,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T09:07:20.337Z', }) {
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.923Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-device',
@@ -270,7 +270,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T09:07:20.338Z', }) {
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.923Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-referrer',
@@ -292,7 +292,7 @@ class PerformanceService {
      * @returns GetCustomerTrackingResultDto Ok
      * @throws ApiError
      */
-    getCustomerTracking({ storeId, startDate, endDate, filterBy, }) {
+    getCustomerTracking({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, filterBy, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/customer-tracking',
@@ -315,7 +315,7 @@ class PerformanceService {
      * @returns GetTrackingRetentionRateResultDto Ok
      * @throws ApiError
      */
-    getTrackingRetentionRate({ storeId, startDate, endDate, filterBy, }) {
+    getTrackingRetentionRate({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/tracking-retention-rate',
@@ -323,7 +323,28 @@ class PerformanceService {
                 'storeId': storeId,
                 'startDate': startDate,
                 'endDate': endDate,
-                'filterBy': filterBy,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns GetTopLandingPageResultDto Ok
+     * @throws ApiError
+     */
+    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/top-landing-page',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
             },
             errors: {
                 400: `Bad request`,
