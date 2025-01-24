@@ -1,5 +1,5 @@
 import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
-import type { GetTopLandingPageResultDto } from '../models/GetTopLandingPageResultDto';
+import type { GetPaginateTopLandingPageResultDto } from '../models/GetPaginateTopLandingPageResultDto';
 import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
@@ -205,12 +205,14 @@ export declare class PerformanceService {
         endDate?: string;
     }): CancelablePromise<GetTrackingRetentionRateResultDto>;
     /**
-     * @returns GetTopLandingPageResultDto Ok
+     * @returns GetPaginateTopLandingPageResultDto Ok
      * @throws ApiError
      */
-    getTopLandingPage({ storeId, startDate, endDate, }: {
+    getTopLandingPage({ storeId, startDate, endDate, pageSize, nextPageIndex, }: {
         storeId: string;
         startDate?: string;
         endDate?: string;
-    }): CancelablePromise<Array<GetTopLandingPageResultDto>>;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<GetPaginateTopLandingPageResultDto>;
 }

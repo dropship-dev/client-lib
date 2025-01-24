@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.922Z', select, }) {
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.034Z', select, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-country',
@@ -248,7 +248,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.923Z', }) {
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.035Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-device',
@@ -270,7 +270,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-23T16:38:21.923Z', }) {
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.035Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-referrer',
@@ -334,10 +334,10 @@ class PerformanceService {
         });
     }
     /**
-     * @returns GetTopLandingPageResultDto Ok
+     * @returns GetPaginateTopLandingPageResultDto Ok
      * @throws ApiError
      */
-    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, pageSize = 6, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-landing-page',
@@ -345,6 +345,8 @@ class PerformanceService {
                 'storeId': storeId,
                 'startDate': startDate,
                 'endDate': endDate,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
             },
             errors: {
                 400: `Bad request`,

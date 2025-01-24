@@ -216,6 +216,7 @@ export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetListStoreMarketingDto } from './models/GetListStoreMarketingDto';
 export type { GetOrderResult } from './models/GetOrderResult';
 export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto';
+export type { GetPaginateTopLandingPageResultDto } from './models/GetPaginateTopLandingPageResultDto';
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
 export type { GetStatsDeviceDto } from './models/GetStatsDeviceDto';
 export type { GetStatsRefererDto } from './models/GetStatsRefererDto';
