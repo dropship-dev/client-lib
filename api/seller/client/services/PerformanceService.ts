@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
-import type { GetTopLandingPageResultDto } from '../models/GetTopLandingPageResultDto';
+import type { GetPaginateTopLandingPageResultDto } from '../models/GetPaginateTopLandingPageResultDto';
 import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
@@ -390,7 +390,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T16:38:21.922Z',
+    endDate = '2025-01-24T04:24:21.034Z',
     select,
   }: {
     storeId: string,
@@ -423,7 +423,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T16:38:21.923Z',
+    endDate = '2025-01-24T04:24:21.035Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -453,7 +453,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-23T16:38:21.923Z',
+    endDate = '2025-01-24T04:24:21.035Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -540,18 +540,22 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns GetTopLandingPageResultDto Ok
+   * @returns GetPaginateTopLandingPageResultDto Ok
    * @throws ApiError
    */
   public getTopLandingPage({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
+    pageSize = 6,
+    nextPageIndex,
   }: {
     storeId: string,
     startDate?: string,
     endDate?: string,
-  }): CancelablePromise<Array<GetTopLandingPageResultDto>> {
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<GetPaginateTopLandingPageResultDto> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/top-landing-page',
@@ -559,6 +563,8 @@ export class PerformanceService {
         'storeId': storeId,
         'startDate': startDate,
         'endDate': endDate,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
       },
       errors: {
         400: `Bad request`,
