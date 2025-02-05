@@ -213,6 +213,6 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         pageSize?: number;
-        nextPageIndex?: number;
+        nextPageIndex?: string;
     }): CancelablePromise<GetPaginateTopLandingPageResultDto>;
 }

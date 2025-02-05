@@ -3,5 +3,5 @@ export type GetTopLandingPageDto = {
     startDate?: string;
     endDate?: string;
     pageSize?: number;
-    nextPageIndex?: number;
+    nextPageIndex?: string | null;
 };

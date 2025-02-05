@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.034Z', select, }) {
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.225Z', select, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-country',
@@ -248,7 +248,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.035Z', }) {
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.226Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-device',
@@ -270,7 +270,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-01-24T04:24:21.035Z', }) {
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.226Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-referrer',
