@@ -14,6 +14,7 @@ import type { StoreProductPerformanceResp } from '../models/StoreProductPerforma
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
+import type { UTMSourceSchema } from '../models/UTMSourceSchema';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PerformanceService {
@@ -390,7 +391,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T02:02:29.225Z',
+    endDate = '2025-02-05T02:53:18.295Z',
     select,
   }: {
     storeId: string,
@@ -423,7 +424,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T02:02:29.226Z',
+    endDate = '2025-02-05T02:53:18.295Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -453,7 +454,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T02:02:29.226Z',
+    endDate = '2025-02-05T02:53:18.296Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -565,6 +566,58 @@ export class PerformanceService {
         'endDate': endDate,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getTrafficSource({
+    storeId,
+    source,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate = '2025-02-05T02:53:18.300Z',
+    cursor,
+    limit,
+  }: {
+    storeId: string,
+    source: UTMSourceSchema,
+    startDate?: string,
+    endDate?: string,
+    cursor?: string,
+    limit?: number,
+  }): CancelablePromise<{
+    preCursor: boolean;
+    nextCursor: string;
+    data: Array<{
+      viewed: number;
+      purchased: number;
+      subTotal: number;
+      AOI: number;
+      AOV: number;
+      checkedOut: number;
+      addedToCart: number;
+      name: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/traffic-source',
+      query: {
+        'storeId': storeId,
+        'source': source,
+        'startDate': startDate,
+        'endDate': endDate,
+        'cursor': cursor,
+        'limit': limit,
       },
       errors: {
         400: `Bad request`,

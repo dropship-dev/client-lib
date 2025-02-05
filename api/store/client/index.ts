@@ -235,6 +235,7 @@ export type { GetTopLandingPageResultDto } from './models/GetTopLandingPageResul
 export type { GetTrackingOrderCheckoutDto } from './models/GetTrackingOrderCheckoutDto';
 export type { GetTrackingRetentionRateDto } from './models/GetTrackingRetentionRateDto';
 export type { GetTrackingRetentionRateResultDto } from './models/GetTrackingRetentionRateResultDto';
+export type { GetTrafficSourceDto } from './models/GetTrafficSourceDto';
 export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GoogleTagManager } from './models/GoogleTagManager';
@@ -454,6 +455,7 @@ export type { UpsertRevenueLimitDto } from './models/UpsertRevenueLimitDto';
 export type { URLDto } from './models/URLDto';
 export type { User } from './models/User';
 export type { UserRole } from './models/UserRole';
+export { UTMSourceSchema } from './models/UTMSourceSchema';
 export type { VariantCombo } from './models/VariantCombo';
 export type { VariantDto } from './models/VariantDto';
 export type { VariantOption } from './models/VariantOption';
