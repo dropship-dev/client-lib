@@ -214,6 +214,8 @@ export declare class OrderService {
         totalUSD: number;
         total: number;
         note: string;
+        historyTracking: any;
+        utmLink: string;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
         province: string;
@@ -700,6 +702,8 @@ export declare class OrderService {
         totalUSD: number;
         total: number;
         note: string;
+        historyTracking: any;
+        utmLink: string;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
         province: string;
