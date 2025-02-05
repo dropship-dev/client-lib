@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.225Z', select, }) {
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:53:18.295Z', select, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-country',
@@ -248,7 +248,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.226Z', }) {
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:53:18.295Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-device',
@@ -270,7 +270,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:02:29.226Z', }) {
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:53:18.296Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-referrer',
@@ -347,6 +347,31 @@ class PerformanceService {
                 'endDate': endDate,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTrafficSource({ storeId, source, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T02:53:18.300Z', cursor, limit, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/traffic-source',
+            query: {
+                'storeId': storeId,
+                'source': source,
+                'startDate': startDate,
+                'endDate': endDate,
+                'cursor': cursor,
+                'limit': limit,
             },
             errors: {
                 400: `Bad request`,

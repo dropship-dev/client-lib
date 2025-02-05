@@ -10,6 +10,7 @@ import type { StoreProductPerformanceResp } from '../models/StoreProductPerforma
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
+import type { UTMSourceSchema } from '../models/UTMSourceSchema';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PerformanceService {
@@ -215,4 +216,29 @@ export declare class PerformanceService {
         pageSize?: number;
         nextPageIndex?: string;
     }): CancelablePromise<GetPaginateTopLandingPageResultDto>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTrafficSource({ storeId, source, startDate, endDate, cursor, limit, }: {
+        storeId: string;
+        source: UTMSourceSchema;
+        startDate?: string;
+        endDate?: string;
+        cursor?: string;
+        limit?: number;
+    }): CancelablePromise<{
+        preCursor: boolean;
+        nextCursor: string;
+        data: Array<{
+            viewed: number;
+            purchased: number;
+            subTotal: number;
+            AOI: number;
+            AOV: number;
+            checkedOut: number;
+            addedToCart: number;
+            name: string;
+        }>;
+    }>;
 }
