@@ -390,7 +390,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-24T04:24:21.034Z',
+    endDate = '2025-02-05T02:02:29.225Z',
     select,
   }: {
     storeId: string,
@@ -423,7 +423,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-24T04:24:21.035Z',
+    endDate = '2025-02-05T02:02:29.226Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -453,7 +453,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-01-24T04:24:21.035Z',
+    endDate = '2025-02-05T02:02:29.226Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -554,7 +554,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     pageSize?: number,
-    nextPageIndex?: number,
+    nextPageIndex?: string,
   }): CancelablePromise<GetPaginateTopLandingPageResultDto> {
     return this.httpRequest.request({
       method: 'GET',
