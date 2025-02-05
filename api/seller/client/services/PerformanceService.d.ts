@@ -231,6 +231,7 @@ export declare class PerformanceService {
         preCursor: boolean;
         nextCursor: string;
         data: Array<{
+            CR: number;
             viewed: number;
             purchased: number;
             subTotal: number;
