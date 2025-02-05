@@ -209,12 +209,12 @@ export declare class PerformanceService {
      * @returns GetPaginateTopLandingPageResultDto Ok
      * @throws ApiError
      */
-    getTopLandingPage({ storeId, startDate, endDate, pageSize, nextPageIndex, }: {
+    getTopLandingPage({ storeId, startDate, endDate, limit, cursor, }: {
         storeId: string;
         startDate?: string;
         endDate?: string;
-        pageSize?: number;
-        nextPageIndex?: string;
+        limit?: number;
+        cursor?: string;
     }): CancelablePromise<GetPaginateTopLandingPageResultDto>;
     /**
      * @returns any Ok

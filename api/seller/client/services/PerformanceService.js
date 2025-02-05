@@ -225,7 +225,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:14:06.508Z', select, }) {
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:38:46.154Z', select, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-country',
@@ -248,7 +248,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:14:06.508Z', }) {
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:38:46.154Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-device',
@@ -270,7 +270,7 @@ class PerformanceService {
      * @returns ResponseTrackingPie Ok
      * @throws ApiError
      */
-    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:14:06.509Z', }) {
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:38:46.155Z', }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/stats-referrer',
@@ -337,7 +337,7 @@ class PerformanceService {
      * @returns GetPaginateTopLandingPageResultDto Ok
      * @throws ApiError
      */
-    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, pageSize = 6, nextPageIndex, }) {
+    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, limit = 6, cursor, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/top-landing-page',
@@ -345,8 +345,8 @@ class PerformanceService {
                 'storeId': storeId,
                 'startDate': startDate,
                 'endDate': endDate,
-                'pageSize': pageSize,
-                'nextPageIndex': nextPageIndex,
+                'limit': limit,
+                'cursor': cursor,
             },
             errors: {
                 400: `Bad request`,
@@ -361,7 +361,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getTrafficSource({ storeId, source, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:14:06.513Z', cursor, limit, }) {
+    getTrafficSource({ storeId, source, startDate = '2023-01-01T00:00:00.000Z', endDate = '2025-02-05T04:38:46.159Z', cursor, limit, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/traffic-source',
