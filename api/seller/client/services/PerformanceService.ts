@@ -391,7 +391,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T04:14:06.508Z',
+    endDate = '2025-02-05T04:38:46.154Z',
     select,
   }: {
     storeId: string,
@@ -424,7 +424,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T04:14:06.508Z',
+    endDate = '2025-02-05T04:38:46.154Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -454,7 +454,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T04:14:06.509Z',
+    endDate = '2025-02-05T04:38:46.155Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -548,14 +548,14 @@ export class PerformanceService {
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
-    pageSize = 6,
-    nextPageIndex,
+    limit = 6,
+    cursor,
   }: {
     storeId: string,
     startDate?: string,
     endDate?: string,
-    pageSize?: number,
-    nextPageIndex?: string,
+    limit?: number,
+    cursor?: string,
   }): CancelablePromise<GetPaginateTopLandingPageResultDto> {
     return this.httpRequest.request({
       method: 'GET',
@@ -564,8 +564,8 @@ export class PerformanceService {
         'storeId': storeId,
         'startDate': startDate,
         'endDate': endDate,
-        'pageSize': pageSize,
-        'nextPageIndex': nextPageIndex,
+        'limit': limit,
+        'cursor': cursor,
       },
       errors: {
         400: `Bad request`,
@@ -584,7 +584,7 @@ export class PerformanceService {
     storeId,
     source,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T04:14:06.513Z',
+    endDate = '2025-02-05T04:38:46.159Z',
     cursor,
     limit,
   }: {
