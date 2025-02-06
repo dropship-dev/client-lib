@@ -28,5 +28,6 @@ export type CreateOrderDto = {
     id: number;
   };
   abandonment?: CreateAbandonmentOrder;
+  utmLink?: string;
 };
 

@@ -245,6 +245,7 @@ export class PaymentService {
     vettingRejectedAt: string;
     merchantEmail: string;
     paymentType: _36_Enums_PaymentType;
+    isDisconnect: boolean;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
