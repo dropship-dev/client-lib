@@ -415,6 +415,7 @@ export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStat
 export type { UpdateGADto } from './models/UpdateGADto';
 export type { UpdateGroupPlatformVariantsDto } from './models/UpdateGroupPlatformVariantsDto';
 export type { UpdateGTMDto } from './models/UpdateGTMDto';
+export type { UpdateHistoryTrackingOrderDto } from './models/UpdateHistoryTrackingOrderDto';
 export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePaymentMethodDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';
 export type { UpdateOrderDto } from './models/UpdateOrderDto';
