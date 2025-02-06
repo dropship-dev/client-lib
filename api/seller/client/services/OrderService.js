@@ -109,5 +109,28 @@ class OrderService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/order/{orderId}/history-tracking',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.OrderService = OrderService;

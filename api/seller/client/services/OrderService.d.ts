@@ -24,6 +24,7 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -506,4 +507,65 @@ export declare class OrderService {
         storeId: string;
         id: string;
     })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: UpdateHistoryTrackingOrderDto;
+    }): CancelablePromise<{
+        disputeStatus: _36_Enums_OrderDisputeStatus;
+        paymentId: number;
+        isHandleEvents: boolean;
+        fingerPrint: string;
+        timezoneLocalBrowser: string;
+        fulfillmentCost: number;
+        fulfillmentStatus: _36_Enums_FulfillmentStatus;
+        isSyncBalance: PrismaJson_SyncBalanceAmount;
+        retentionRate: number;
+        payoutIn: string;
+        holdIn: string;
+        latestNoItems: number;
+        latestSubTotal: number;
+        latestTotal: number;
+        gatewayTransactionId: string;
+        gatewayOrderId: string;
+        supplierCost: number;
+        lastBalance: number;
+        discount: number;
+        discountShippingFee: number;
+        noItems: number;
+        tax: number;
+        profitFulfillAdmin: number;
+        profit: number;
+        subTotal: number;
+        totalUSD: number;
+        total: number;
+        note: string;
+        historyTracking: any;
+        utmLink: string;
+        additionalInfo: any;
+        billingInfo: PrismaJson_BillingInfo;
+        province: string;
+        address2: string;
+        address1: string;
+        domain: string;
+        merchantId: string;
+        currencyId: number;
+        shippingFee: number;
+        country: string;
+        zipCode: string;
+        city: string;
+        platformFee: number;
+        status: _36_Enums_OrderStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+    }>;
 }
