@@ -391,7 +391,7 @@ export class PerformanceService {
   public getTopCountry({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T09:58:03.688Z',
+    endDate = '2025-02-06T07:04:28.423Z',
     select,
   }: {
     storeId: string,
@@ -424,7 +424,7 @@ export class PerformanceService {
   public statsDevice({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T09:58:03.688Z',
+    endDate = '2025-02-06T07:04:28.423Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -454,7 +454,7 @@ export class PerformanceService {
   public statsReferrer({
     storeId,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T09:58:03.689Z',
+    endDate = '2025-02-06T07:04:28.424Z',
   }: {
     storeId: string,
     startDate?: string,
@@ -584,7 +584,7 @@ export class PerformanceService {
     storeId,
     source,
     startDate = '2023-01-01T00:00:00.000Z',
-    endDate = '2025-02-05T09:58:03.692Z',
+    endDate = '2025-02-06T07:04:28.427Z',
     cursor,
     limit,
   }: {
