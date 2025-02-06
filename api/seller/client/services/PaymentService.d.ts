@@ -126,6 +126,7 @@ export declare class PaymentService {
         vettingRejectedAt: string;
         merchantEmail: string;
         paymentType: _36_Enums_PaymentType;
+        isDisconnect: boolean;
     }>>;
     /**
      * @returns any Ok
