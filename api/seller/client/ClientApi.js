@@ -8,6 +8,7 @@ const BankAccountService_1 = require("./services/BankAccountService");
 const BoostSalesService_1 = require("./services/BoostSalesService");
 const CampaignService_1 = require("./services/CampaignService");
 const CollectionService_1 = require("./services/CollectionService");
+const CouponService_1 = require("./services/CouponService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const DomainService_1 = require("./services/DomainService");
 const FbPixelService_1 = require("./services/FbPixelService");
@@ -49,6 +50,7 @@ class ClientApi {
     boostSales;
     campaign;
     collection;
+    coupon;
     currency;
     domain;
     fbPixel;
@@ -102,6 +104,7 @@ class ClientApi {
         this.boostSales = new BoostSalesService_1.BoostSalesService(this.request);
         this.campaign = new CampaignService_1.CampaignService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
+        this.coupon = new CouponService_1.CouponService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.domain = new DomainService_1.DomainService(this.request);
         this.fbPixel = new FbPixelService_1.FbPixelService(this.request);

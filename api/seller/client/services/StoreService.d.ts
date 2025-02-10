@@ -1,20 +1,31 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
+import type { _36_Enums_CouponApplyingMethod } from '../models/_36_Enums_CouponApplyingMethod';
+import type { _36_Enums_CouponStatus } from '../models/_36_Enums_CouponStatus';
+import type { _36_Enums_CouponType } from '../models/_36_Enums_CouponType';
 import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
 import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDetectionType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
+import type { CreateCouponDto } from '../models/CreateCouponDto';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
+import type { DeleteCouponsDto } from '../models/DeleteCouponsDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
 import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_';
+import type { PrismaJson_CouponCombination } from '../models/PrismaJson_CouponCombination';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
+import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { Store } from '../models/Store';
 import type { StoreUser } from '../models/StoreUser';
+import type { UpdateCouponDto } from '../models/UpdateCouponDto';
+import type { UpdateCouponStatusDto } from '../models/UpdateCouponStatusDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
 import type { Wallet } from '../models/Wallet';
@@ -380,5 +391,138 @@ export declare class StoreService {
      */
     toggleWarningStore({ storeId, }: {
         storeId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listCoupons({ storeId, searchTitle, type, status, applyingMethod, pageSize, nextPageIndex, }: {
+        storeId: string;
+        searchTitle?: string;
+        type?: _36_Enums_CouponType;
+        status?: _36_Enums_CouponStatus;
+        applyingMethod?: _36_Enums_CouponApplyingMethod;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            applyingMethod: _36_Enums_CouponApplyingMethod;
+            title: string;
+            endDate: string;
+            startDate: string;
+            type: _36_Enums_CouponType;
+            status: _36_Enums_CouponStatus;
+            createdAt: string;
+            id: string;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createCoupon({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateCouponDto;
+    }): CancelablePromise<{
+        discountValue: PrismaJson_ProductDiscountItems;
+        combination: PrismaJson_CouponCombination;
+        maximumDiscountUses: PrismaJson_ProductRequirementItems;
+        minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
+        applyingMethod: _36_Enums_CouponApplyingMethod;
+        discountCode: string;
+        title: string;
+        userUpdated: string;
+        userCreated: string;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_CouponType;
+        status: _36_Enums_CouponStatus;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: string;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCoupons({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: DeleteCouponsDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateCoupon({ storeId, couponId, requestBody, }: {
+        storeId: string;
+        couponId: string;
+        requestBody: UpdateCouponDto;
+    }): CancelablePromise<{
+        discountValue: PrismaJson_ProductDiscountItems;
+        combination: PrismaJson_CouponCombination;
+        maximumDiscountUses: PrismaJson_ProductRequirementItems;
+        minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
+        applyingMethod: _36_Enums_CouponApplyingMethod;
+        discountCode: string;
+        title: string;
+        userUpdated: string;
+        userCreated: string;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_CouponType;
+        status: _36_Enums_CouponStatus;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCoupon({ storeId, couponId, }: {
+        storeId: string;
+        couponId: string;
+    }): CancelablePromise<({
+        Products: Array<{
+            isActive: boolean;
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
+        }>;
+    } & {
+        discountValue: PrismaJson_ProductDiscountItems;
+        combination: PrismaJson_CouponCombination;
+        maximumDiscountUses: PrismaJson_ProductRequirementItems;
+        minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
+        applyingMethod: _36_Enums_CouponApplyingMethod;
+        discountCode: string;
+        title: string;
+        userUpdated: string;
+        userCreated: string;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_CouponType;
+        status: _36_Enums_CouponStatus;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: string;
+    })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateCouponStatus({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateCouponStatusDto;
     }): CancelablePromise<string>;
 }
