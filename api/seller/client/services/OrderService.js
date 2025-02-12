@@ -42,7 +42,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns DetailOrderDto Ok
      * @throws ApiError
      */
     getStoreOrder({ storeId, orderId, }) {
