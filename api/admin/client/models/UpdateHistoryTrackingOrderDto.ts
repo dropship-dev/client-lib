@@ -4,9 +4,9 @@
 /* eslint-disable */
 export type UpdateHistoryTrackingOrderDto = {
   value?: string;
-  files?: Array<{
+  file?: {
     url: string;
     name: string;
-  }>;
+  };
 };
 

@@ -26,6 +26,7 @@ import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto'
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -401,7 +402,7 @@ export class OrderService {
     totalUSD: number;
     total: number;
     note: string;
-    historyTracking: any;
+    historyTracking: PrismaJson_OrderHistoryTracking;
     utmLink: string;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;
@@ -907,7 +908,7 @@ export class OrderService {
     totalUSD: number;
     total: number;
     note: string;
-    historyTracking: any;
+    historyTracking: PrismaJson_OrderHistoryTracking;
     utmLink: string;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;

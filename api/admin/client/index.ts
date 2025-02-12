@@ -194,6 +194,7 @@ export type { DefaultSelection_Prisma__36_UserPayload_ } from './models/DefaultS
 export type { DefaultSelection_Prisma__36_VariantComboPayload_ } from './models/DefaultSelection_Prisma__36_VariantComboPayload_';
 export type { DefaultSelection_Prisma__36_WalletPayload_ } from './models/DefaultSelection_Prisma__36_WalletPayload_';
 export type { DeleteCouponsDto } from './models/DeleteCouponsDto';
+export type { DetailOrderDto } from './models/DetailOrderDto';
 export type { DisconnectPaymentDto } from './models/DisconnectPaymentDto';
 export type { Discount } from './models/Discount';
 export { DiscountBoostSaleType } from './models/DiscountBoostSaleType';
@@ -252,6 +253,7 @@ export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
+export { HistoryTrackingType } from './models/HistoryTrackingType';
 export type { ImportPlatformProductDto } from './models/ImportPlatformProductDto';
 export type { ImportPlatformVariantDto } from './models/ImportPlatformVariantDto';
 export type { IntegrationWithFulfillmentPlatformDto } from './models/IntegrationWithFulfillmentPlatformDto';
@@ -329,6 +331,7 @@ export type { PrismaJson_FirebaseDeviceToken } from './models/PrismaJson_Firebas
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
 export type { PrismaJson_OnboardingProducts } from './models/PrismaJson_OnboardingProducts';
+export type { PrismaJson_OrderHistoryTracking } from './models/PrismaJson_OrderHistoryTracking';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_PlacementBoostSaleType } from './models/PrismaJson_PlacementBoostSaleType';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
