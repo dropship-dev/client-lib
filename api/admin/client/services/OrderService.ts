@@ -40,6 +40,7 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -151,6 +152,64 @@ export class OrderService {
         'endTotal': endTotal,
         'gateway': gateway,
         'fraudStatus': fraudStatus,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateHistoryTrackingOrder({
+    storeId,
+    orderId,
+    requestBody,
+  }: {
+    storeId: string,
+    orderId: string,
+    requestBody: UpdateHistoryTrackingOrderDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/order/{orderId}/history-tracking',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public resendEmailConfirmOrder({
+    storeId,
+    orderId,
+  }: {
+    storeId: string,
+    orderId: string,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
       },
       errors: {
         400: `Bad request`,

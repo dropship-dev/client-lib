@@ -5,14 +5,15 @@
 import type { HistoryTrackingType } from './HistoryTrackingType';
 export type PrismaJson_OrderHistoryTracking = Array<{
   createAt: string;
-  detail: ({
-    file: string;
-    value: string;
-  } | {
-    quantity: number;
+  detail: {
+    quantity?: number;
     productVariant?: string;
-    productName: string;
-    value: string;
-  } | string);
+    productName?: string;
+    file?: {
+      name: string;
+      url: string;
+    };
+    value?: string;
+  };
   type: HistoryTrackingType;
 }>;
