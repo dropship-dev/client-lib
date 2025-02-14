@@ -14,6 +14,7 @@ var HistoryTrackingType;
     HistoryTrackingType["FULFILLMENT"] = "FULFILLMENT";
     HistoryTrackingType["EMAIL_SHIPPING_CONFIRM"] = "EMAIL_SHIPPING_CONFIRM";
     HistoryTrackingType["REFUND_ORDER"] = "REFUND_ORDER";
+    HistoryTrackingType["DISPUTE_ORDER"] = "DISPUTE_ORDER";
     HistoryTrackingType["DISPUTE_ORDER_IN_PROCESSING"] = "DISPUTE_ORDER_IN_PROCESSING";
     HistoryTrackingType["DISPUTE_ORDER_WIN"] = "DISPUTE_ORDER_WIN";
     HistoryTrackingType["DISPUTE_ORDER_LOSE"] = "DISPUTE_ORDER_LOSE";

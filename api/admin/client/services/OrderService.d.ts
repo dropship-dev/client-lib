@@ -36,6 +36,7 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -113,6 +114,23 @@ export declare class OrderService {
             };
         }>;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: UpdateHistoryTrackingOrderDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }: {
+        storeId: string;
+        orderId: string;
+    }): CancelablePromise<void>;
     /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError

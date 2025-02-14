@@ -110,7 +110,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateHistoryTrackingOrder({ storeId, orderId, requestBody, }) {
@@ -123,6 +123,27 @@ class OrderService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

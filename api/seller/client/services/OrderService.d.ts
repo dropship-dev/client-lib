@@ -339,64 +339,20 @@ export declare class OrderService {
         id: string;
     })>;
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     updateHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
         storeId: string;
         orderId: string;
         requestBody: UpdateHistoryTrackingOrderDto;
-    }): CancelablePromise<{
-        disputeStatus: _36_Enums_OrderDisputeStatus;
-        paymentId: number;
-        isHandleEvents: boolean;
-        fingerPrint: string;
-        timezoneLocalBrowser: string;
-        fulfillmentCost: number;
-        fulfillmentStatus: _36_Enums_FulfillmentStatus;
-        isSyncBalance: PrismaJson_SyncBalanceAmount;
-        retentionRate: number;
-        payoutIn: string;
-        holdIn: string;
-        latestNoItems: number;
-        latestSubTotal: number;
-        latestTotal: number;
-        gatewayTransactionId: string;
-        gatewayOrderId: string;
-        supplierCost: number;
-        lastBalance: number;
-        discount: number;
-        discountShippingFee: number;
-        noItems: number;
-        tax: number;
-        profitFulfillAdmin: number;
-        profit: number;
-        subTotal: number;
-        totalUSD: number;
-        total: number;
-        note: string;
-        historyTracking: PrismaJson_OrderHistoryTracking;
-        utmLink: string;
-        additionalInfo: any;
-        billingInfo: PrismaJson_BillingInfo;
-        province: string;
-        address2: string;
-        address1: string;
-        domain: string;
-        merchantId: string;
-        currencyId: number;
-        shippingFee: number;
-        country: string;
-        zipCode: string;
-        city: string;
-        platformFee: number;
-        status: _36_Enums_OrderStatus;
-        phone: string;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }: {
         storeId: string;
-        id: string;
-    }>;
+        orderId: string;
+    }): CancelablePromise<void>;
 }
