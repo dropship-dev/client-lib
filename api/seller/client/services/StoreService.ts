@@ -677,6 +677,7 @@ export class StoreService {
     storeId: string,
     requestBody: CreateCouponDto,
   }): CancelablePromise<{
+    availableDiscountUse: number;
     discountValue: PrismaJson_ProductDiscountItems;
     combination: PrismaJson_CouponCombination;
     maximumDiscountUses: PrismaJson_ProductRequirementItems;
@@ -754,6 +755,7 @@ export class StoreService {
     couponId: string,
     requestBody: UpdateCouponDto,
   }): CancelablePromise<{
+    availableDiscountUse: number;
     discountValue: PrismaJson_ProductDiscountItems;
     combination: PrismaJson_CouponCombination;
     maximumDiscountUses: PrismaJson_ProductRequirementItems;
@@ -809,6 +811,7 @@ export class StoreService {
       id: number;
     }>;
   } & {
+    availableDiscountUse: number;
     discountValue: PrismaJson_ProductDiscountItems;
     combination: PrismaJson_CouponCombination;
     maximumDiscountUses: PrismaJson_ProductRequirementItems;
