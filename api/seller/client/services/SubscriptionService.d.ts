@@ -74,6 +74,7 @@ export declare class SubscriptionService {
         stripeSubscriptionId: string;
         upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
         subscriptionPlanId: number;
+        passRevenueCeiling: boolean;
         failedPTFCaptureTimes: number;
         lastPlatformFeeChargeAt: string;
         currentPlatformTransactionFee: number;
