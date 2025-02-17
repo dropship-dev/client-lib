@@ -52,6 +52,7 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    startedAt: string;
     needToPayPTF: boolean;
     upgradeSubscriptionPlan: {
       startDate: string;
