@@ -1,3 +1,4 @@
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 import type { HistoryTrackingType } from './HistoryTrackingType';
 export type PrismaJson_OrderHistoryTracking = Array<{
     createAt: string;
@@ -9,6 +10,11 @@ export type PrismaJson_OrderHistoryTracking = Array<{
             name: string;
             url: string;
         };
+        reasonRefund?: string;
+        amount?: number;
+        paymentType?: _36_Enums_PaymentType;
+        email?: string;
+        customerName?: string;
         value?: string;
     };
     type: HistoryTrackingType;
