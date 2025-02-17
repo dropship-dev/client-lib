@@ -36,6 +36,7 @@ export declare class SubscriptionService {
     getCurrentStoreSubscription({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        startedAt: string;
         needToPayPTF: boolean;
         upgradeSubscriptionPlan: {
             startDate: string;
