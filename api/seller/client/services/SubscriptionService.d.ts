@@ -5,6 +5,7 @@ import type { PayPlatformTransactionFeeDebtDto } from '../models/PayPlatformTran
 import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
 import type { PaySubscriptionInvoiceDto } from '../models/PaySubscriptionInvoiceDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
+import type { SubscribeToNewSubscriptionPlanDto } from '../models/SubscribeToNewSubscriptionPlanDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class SubscriptionService {
@@ -148,5 +149,13 @@ export declare class SubscriptionService {
     paySubscriptionInvoice({ storeId, requestBody, }: {
         storeId: string;
         requestBody: PaySubscriptionInvoiceDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    subscribeToANewSubscriptionPlan({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: SubscribeToNewSubscriptionPlanDto;
     }): CancelablePromise<string>;
 }
