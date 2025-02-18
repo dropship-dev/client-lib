@@ -10,7 +10,7 @@ class CouponService {
      * @returns any Ok
      * @throws ApiError
      */
-    listCoupons({ storeId, searchTitle, type, status, applyingMethod, pageSize = 20, nextPageIndex, }) {
+    listCoupons({ storeId, searchTitle, types, statuses, applyingMethods, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/coupons',
@@ -19,9 +19,9 @@ class CouponService {
             },
             query: {
                 'searchTitle': searchTitle,
-                'type': type,
-                'status': status,
-                'applyingMethod': applyingMethod,
+                'types': types,
+                'statuses': statuses,
+                'applyingMethods': applyingMethods,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
             },

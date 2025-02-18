@@ -396,12 +396,12 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    listCoupons({ storeId, searchTitle, type, status, applyingMethod, pageSize, nextPageIndex, }: {
+    listCoupons({ storeId, searchTitle, types, statuses, applyingMethods, pageSize, nextPageIndex, }: {
         storeId: string;
         searchTitle?: string;
-        type?: _36_Enums_CouponType;
-        status?: _36_Enums_CouponStatus;
-        applyingMethod?: _36_Enums_CouponApplyingMethod;
+        types?: Array<_36_Enums_CouponType>;
+        statuses?: Array<_36_Enums_CouponStatus>;
+        applyingMethods?: Array<_36_Enums_CouponApplyingMethod>;
         pageSize?: number;
         nextPageIndex?: string;
     }): CancelablePromise<{
