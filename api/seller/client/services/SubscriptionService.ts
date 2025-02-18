@@ -9,6 +9,7 @@ import type { PayPlatformTransactionFeeDebtDto } from '../models/PayPlatformTran
 import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
 import type { PaySubscriptionInvoiceDto } from '../models/PaySubscriptionInvoiceDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
+import type { SubscribeToNewSubscriptionPlanDto } from '../models/SubscribeToNewSubscriptionPlanDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class SubscriptionService {
@@ -297,6 +298,34 @@ export class SubscriptionService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/subscription/pay-subscription-invoice',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public subscribeToANewSubscriptionPlan({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: SubscribeToNewSubscriptionPlanDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/subscribe-to-a-new-plan',
       path: {
         'storeId': storeId,
       },

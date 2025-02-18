@@ -388,6 +388,7 @@ export type { StoreStatus } from './models/StoreStatus';
 export type { StoreType } from './models/StoreType';
 export type { StoreUser } from './models/StoreUser';
 export type { StripeCardPaymentInfo } from './models/StripeCardPaymentInfo';
+export type { SubscribeToNewSubscriptionPlanDto } from './models/SubscribeToNewSubscriptionPlanDto';
 export type { SubscribeTopicDto } from './models/SubscribeTopicDto';
 export type { SubscriptionInterval } from './models/SubscriptionInterval';
 export type { SuggestionResponseDto } from './models/SuggestionResponseDto';
