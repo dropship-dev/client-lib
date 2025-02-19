@@ -44,6 +44,7 @@ export class CouponService {
     total: number;
     data: Array<{
       applyingMethod: _36_Enums_CouponApplyingMethod;
+      discountCode: string;
       title: string;
       endDate: string;
       startDate: string;
