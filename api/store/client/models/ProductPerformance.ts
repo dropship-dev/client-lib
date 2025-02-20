@@ -11,6 +11,7 @@ export type ProductPerformance = {
   platformProductId?: number;
   productId?: number;
   CR: number;
+  AOI: number;
   AOV: number;
   revenue: number;
   name: string;
