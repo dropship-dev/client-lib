@@ -55,6 +55,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        customerSupportMailFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -197,6 +198,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        customerSupportMailFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -240,6 +242,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        customerSupportMailFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -284,6 +287,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        customerSupportMailFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -327,6 +331,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        customerSupportMailFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;

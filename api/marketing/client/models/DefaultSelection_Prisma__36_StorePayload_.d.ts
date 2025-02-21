@@ -16,6 +16,7 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
+    customerSupportMailFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;

@@ -44,6 +44,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     merchantId: string;
     currencyId: number;
     shippingFee: number;
+    customerSupportMailFee: number;
     country: string;
     zipCode: string;
     city: string;

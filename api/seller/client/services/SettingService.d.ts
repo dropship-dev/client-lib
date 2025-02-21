@@ -18,6 +18,7 @@ export declare class SettingService {
         termsOfService: string;
         privacyPolicy: string;
         refundPolicy: string;
+        customerSupportMailFee: number;
         updatedAt: string;
         createdAt: string;
         fulfillmentAgencyId: number;
