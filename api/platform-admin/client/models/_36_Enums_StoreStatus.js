@@ -10,5 +10,6 @@ var _36_Enums_StoreStatus;
     _36_Enums_StoreStatus["REQUESTING"] = "REQUESTING";
     _36_Enums_StoreStatus["ONLINE"] = "ONLINE";
     _36_Enums_StoreStatus["SUSPENDED"] = "SUSPENDED";
+    _36_Enums_StoreStatus["FROZEN"] = "FROZEN";
     _36_Enums_StoreStatus["CLOSED"] = "CLOSED";
 })(_36_Enums_StoreStatus || (exports._36_Enums_StoreStatus = _36_Enums_StoreStatus = {}));
