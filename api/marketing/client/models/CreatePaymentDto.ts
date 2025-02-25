@@ -15,5 +15,6 @@ export type CreatePaymentDto = {
   companyPhone?: string;
   companyAddress?: string;
   isShowCompanyAddress?: boolean;
+  merchantId?: string;
 };
 

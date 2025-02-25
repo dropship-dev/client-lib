@@ -6,6 +6,7 @@ import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentT
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { AddNewPaymentOnboardingDto } from '../models/AddNewPaymentOnboardingDto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
@@ -119,6 +120,34 @@ export class PaymentService {
         'storeId': storeId,
         'paymentMethodId': paymentMethodId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public addNewPaymentOnboarding({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: AddNewPaymentOnboardingDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/payment/add-new-payment-onboarding',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

@@ -61,6 +61,7 @@ export { _36_Enums_UserRole } from './models/_36_Enums_UserRole';
 export type { AbandonmentStatisticsDto } from './models/AbandonmentStatisticsDto';
 export { ActionOrderFraud } from './models/ActionOrderFraud';
 export { ActiveDetection } from './models/ActiveDetection';
+export type { AddNewPaymentOnboardingDto } from './models/AddNewPaymentOnboardingDto';
 export type { AddPaymentToStores } from './models/AddPaymentToStores';
 export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';
 export type { AddPlatformProductTagDto } from './models/AddPlatformProductTagDto';
@@ -325,6 +326,7 @@ export type { PrismaJson_CountryInformation } from './models/PrismaJson_CountryI
 export type { PrismaJson_CouponCombination } from './models/PrismaJson_CouponCombination';
 export type { PrismaJson_CreateComboItems } from './models/PrismaJson_CreateComboItems';
 export type { PrismaJson_CreateOrderItems } from './models/PrismaJson_CreateOrderItems';
+export type { PrismaJson_DataInformationsOnboarding } from './models/PrismaJson_DataInformationsOnboarding';
 export type { PrismaJson_DiscountBoostSale } from './models/PrismaJson_DiscountBoostSale';
 export type { PrismaJson_DomainContactInfo } from './models/PrismaJson_DomainContactInfo';
 export type { PrismaJson_FirebaseDeviceToken } from './models/PrismaJson_FirebaseDeviceToken';
