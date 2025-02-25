@@ -205,7 +205,6 @@ export class OrderRefundsService {
       };
     } & {
       disputeStatus: _36_Enums_OrderDisputeStatus;
-      paymentId: number;
       isHandleEvents: boolean;
       fingerPrint: string;
       timezoneLocalBrowser: string;
@@ -240,6 +239,7 @@ export class OrderRefundsService {
       address2: string;
       address1: string;
       domain: string;
+      paymentId: number;
       merchantId: string;
       currencyId: number;
       shippingFee: number;

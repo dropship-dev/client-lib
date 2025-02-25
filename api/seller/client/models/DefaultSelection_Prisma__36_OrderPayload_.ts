@@ -10,7 +10,6 @@ import type { PrismaJson_OrderHistoryTracking } from './PrismaJson_OrderHistoryT
 import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmount';
 export type DefaultSelection_Prisma__36_OrderPayload_ = {
   disputeStatus: _36_Enums_OrderDisputeStatus;
-  paymentId: number;
   isHandleEvents: boolean;
   fingerPrint: string;
   timezoneLocalBrowser: string;
@@ -45,6 +44,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   address2: string;
   address1: string;
   domain: string;
+  paymentId: number;
   merchantId: string;
   currencyId: number;
   shippingFee: number;
