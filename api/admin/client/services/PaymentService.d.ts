@@ -2,6 +2,7 @@ import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentT
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { AddNewPaymentOnboardingDto } from '../models/AddNewPaymentOnboardingDto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
@@ -10,6 +11,14 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
+        requestBody: AddNewPaymentOnboardingDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
