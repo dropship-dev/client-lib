@@ -300,9 +300,16 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
+    payment: {
+      type: _36_Enums_PaymentType;
+    };
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     vettingRejectedAt: string;
+    onboardingStatus: _36_Enums_OnboardingStatus;
     merchantEmail: string;
     paymentType: _36_Enums_PaymentType;
+    fulfillmentAgencyId: number;
     isDisconnect: boolean;
   }>> {
     return this.httpRequest.request({
