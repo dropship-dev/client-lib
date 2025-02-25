@@ -197,7 +197,6 @@ export declare class OrderRefundsService {
             };
         } & {
             disputeStatus: _36_Enums_OrderDisputeStatus;
-            paymentId: number;
             isHandleEvents: boolean;
             fingerPrint: string;
             timezoneLocalBrowser: string;
@@ -232,6 +231,7 @@ export declare class OrderRefundsService {
             address2: string;
             address1: string;
             domain: string;
+            paymentId: number;
             merchantId: string;
             currencyId: number;
             shippingFee: number;

@@ -48,6 +48,7 @@ export declare class FulfillmentAgencyService {
             createdAt: string;
             id: number;
             PaymentOnboarding: Array<{
+                paymentId: number;
                 dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
                 onboardingProducts: PrismaJson_OnboardingProducts;
                 paypalPartnerReferralId: string;
@@ -105,6 +106,7 @@ export declare class FulfillmentAgencyService {
     getPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
+        paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
         vettingRejectedAt: string;
@@ -142,6 +144,7 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<({
         PaymentOnboarding: Array<{
+            paymentId: number;
             dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
             onboardingProducts: PrismaJson_OnboardingProducts;
             paypalPartnerReferralId: string;
@@ -242,6 +245,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         paymentType: _36_Enums_PaymentType;
     }): CancelablePromise<{
+        paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
@@ -328,6 +332,7 @@ export declare class FulfillmentAgencyService {
         id: number;
         requestBody: ReconnectPaymentDto;
     }): CancelablePromise<{
+        paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
