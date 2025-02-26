@@ -310,6 +310,7 @@ export class PaymentService {
     merchantEmail: string;
     paymentType: _36_Enums_PaymentType;
     fulfillmentAgencyId: number;
+    id: number;
     isDisconnect: boolean;
   }>> {
     return this.httpRequest.request({
