@@ -177,6 +177,26 @@ export declare class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
+    getPaymentOnboarding({ fulfillmentAgencyId, onBoardingId, }: {
+        fulfillmentAgencyId: number;
+        onBoardingId: number;
+    }): CancelablePromise<Array<{
+        payment: {
+            type: _36_Enums_PaymentType;
+        };
+        paymentId: number;
+        dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+        vettingRejectedAt: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        merchantEmail: string;
+        paymentType: _36_Enums_PaymentType;
+        fulfillmentAgencyId: number;
+        isDisconnect: boolean;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getPayment({ id, fulfillmentAgencyId, storeId, }: {
         id: number;
         fulfillmentAgencyId?: number;
