@@ -216,6 +216,47 @@ export class PaymentService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getPaymentOnboarding({
+    fulfillmentAgencyId,
+    onBoardingId,
+  }: {
+    fulfillmentAgencyId: number,
+    onBoardingId: number,
+  }): CancelablePromise<Array<{
+    payment: {
+      type: _36_Enums_PaymentType;
+    };
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+    vettingRejectedAt: string;
+    onboardingStatus: _36_Enums_OnboardingStatus;
+    merchantEmail: string;
+    paymentType: _36_Enums_PaymentType;
+    fulfillmentAgencyId: number;
+    isDisconnect: boolean;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/payment/onboarding/{onBoardingId}',
+      path: {
+        'onBoardingId': onBoardingId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getPayment({
     id,
     fulfillmentAgencyId,
