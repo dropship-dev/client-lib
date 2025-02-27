@@ -370,6 +370,38 @@ export class PaymentService {
     });
   }
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deletePaymentOnboarding({
+    onBoardingId,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    onBoardingId: number,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/payment/onboarding/{onBoardingId}',
+      path: {
+        'onBoardingId': onBoardingId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns any Ok
    * @throws ApiError
    */
