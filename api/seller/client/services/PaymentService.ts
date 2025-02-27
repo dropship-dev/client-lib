@@ -350,6 +350,7 @@ export class PaymentService {
     paymentType: _36_Enums_PaymentType;
     fulfillmentAgencyId: number;
     isDisconnect: boolean;
+    onboardingUrl: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
