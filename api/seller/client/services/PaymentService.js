@@ -199,6 +199,30 @@ class PaymentService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePaymentOnboarding({ onBoardingId, fulfillmentAgencyId, storeId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/payment/onboarding/{onBoardingId}',
+            path: {
+                'onBoardingId': onBoardingId,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

@@ -153,6 +153,15 @@ export declare class PaymentService {
         isDisconnect: boolean;
     }>>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePaymentOnboarding({ onBoardingId, fulfillmentAgencyId, storeId, }: {
+        onBoardingId: number;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<string>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
