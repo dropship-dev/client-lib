@@ -193,6 +193,7 @@ export declare class PaymentService {
         paymentType: _36_Enums_PaymentType;
         fulfillmentAgencyId: number;
         isDisconnect: boolean;
+        onboardingUrl: string;
     }>>;
     /**
      * @returns string Ok
