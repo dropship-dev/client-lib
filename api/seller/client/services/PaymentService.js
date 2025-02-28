@@ -90,7 +90,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }) {

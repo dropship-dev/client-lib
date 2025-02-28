@@ -17,13 +17,16 @@ export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: AddNewPaymentOnboardingDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<{
+        onboardingId: string;
+        url: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

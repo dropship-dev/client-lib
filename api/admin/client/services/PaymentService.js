@@ -7,7 +7,7 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }) {

@@ -59,13 +59,16 @@ export declare class PaymentService {
         paymentMethodId: string;
     }): CancelablePromise<string>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
         requestBody: AddNewPaymentOnboardingDto;
-    }): CancelablePromise<string>;
+    }): CancelablePromise<{
+        onboardingId: string;
+        url: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

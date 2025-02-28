@@ -97,7 +97,7 @@ export declare class FulfillmentAgencyService {
     generatePartnerReferrals({ requestBody, }: {
         requestBody: GeneratePartnerReferralsDto;
     }): CancelablePromise<{
-        onboardingId: string;
+        onboardingId: number;
         onboardingUrl: string;
     }>;
     /**
