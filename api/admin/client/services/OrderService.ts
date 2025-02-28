@@ -739,7 +739,11 @@ export class OrderService {
       walletName: string;
       id: string;
     }>;
-    FulfillmentAgency: {
+    FulfillmentAgency: ({
+      Setting: {
+        percentageCostPlatformFee: number;
+      };
+    } & {
       timezone: PrismaJson_Timezone;
       platformFee: number;
       type: _36_Enums_FulfillmentAgencyType;
@@ -752,7 +756,7 @@ export class OrderService {
       updatedAt: string;
       createdAt: string;
       id: number;
-    };
+    });
     fraudStatus: FraudStatusType;
   })> {
     return this.httpRequest.request({
