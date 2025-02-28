@@ -125,6 +125,7 @@ export class FulfillmentAgencyService {
   }: {
     requestBody: GeneratePartnerReferralsDto,
   }): CancelablePromise<{
+    onboardingId: string;
     onboardingUrl: string;
   }> {
     return this.httpRequest.request({
