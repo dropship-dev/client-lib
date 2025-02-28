@@ -312,7 +312,7 @@ export class StoreService {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    customerSupportMailFee: number;
+    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
@@ -379,7 +379,7 @@ export class StoreService {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    customerSupportMailFee: number;
+    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
@@ -449,7 +449,7 @@ export class StoreService {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    customerSupportMailFee: number;
+    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
@@ -519,7 +519,7 @@ export class StoreService {
     refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    customerSupportMailFee: number;
+    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;

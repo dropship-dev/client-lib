@@ -180,7 +180,7 @@ export class OrderRefundsService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        customerSupportMailFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -243,7 +243,7 @@ export class OrderRefundsService {
       merchantId: string;
       currencyId: number;
       shippingFee: number;
-      customerSupportMailFee: number;
+      othersFee: number;
       country: string;
       zipCode: string;
       city: string;

@@ -8,6 +8,6 @@ export type UpdateFulfillmentAgencyDto = {
   phone?: string;
   costCalculationMethod?: _36_Enums_CostCalculationMethod;
   percentageCostPlatformFee?: number;
-  customerSupportMailFee?: number;
+  othersFee?: number;
 };
 
