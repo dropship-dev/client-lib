@@ -241,9 +241,10 @@ export declare class FulfillmentAgencyService {
      * @returns any Ok
      * @throws ApiError
      */
-    verifyJoinPlatform({ id, paymentType, }: {
+    verifyJoinPlatform({ id, paymentType, onBoardingPaymentId, }: {
         id: number;
         paymentType: _36_Enums_PaymentType;
+        onBoardingPaymentId: number;
     }): CancelablePromise<{
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
