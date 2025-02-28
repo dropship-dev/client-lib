@@ -374,9 +374,11 @@ export class FulfillmentAgencyService {
   public verifyJoinPlatform({
     id,
     paymentType,
+    onBoardingPaymentId,
   }: {
     id: number,
     paymentType: _36_Enums_PaymentType,
+    onBoardingPaymentId: number,
   }): CancelablePromise<{
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -403,10 +405,11 @@ export class FulfillmentAgencyService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
+      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}/onBoardingPayment/{onBoardingPaymentId}',
       path: {
         'id': id,
         'paymentType': paymentType,
+        'onBoardingPaymentId': onBoardingPaymentId,
       },
       errors: {
         400: `Bad request`,
