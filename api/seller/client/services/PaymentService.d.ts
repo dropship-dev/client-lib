@@ -66,7 +66,7 @@ export declare class PaymentService {
         fulfillmentAgencyId: number;
         requestBody: AddNewPaymentOnboardingDto;
     }): CancelablePromise<{
-        onboardingId: string;
+        onboardingId: number;
         url: string;
     }>;
     /**
