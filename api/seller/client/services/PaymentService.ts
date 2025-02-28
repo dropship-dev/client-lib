@@ -145,7 +145,7 @@ export class PaymentService {
     fulfillmentAgencyId: number,
     requestBody: AddNewPaymentOnboardingDto,
   }): CancelablePromise<{
-    onboardingId: string;
+    onboardingId: number;
     url: string;
   }> {
     return this.httpRequest.request({
