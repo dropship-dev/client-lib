@@ -20,7 +20,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PaymentService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public addNewPaymentOnboarding({
@@ -29,7 +29,10 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId: number,
     requestBody: AddNewPaymentOnboardingDto,
-  }): CancelablePromise<string> {
+  }): CancelablePromise<{
+    onboardingId: string;
+    url: string;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment/add-new-payment-onboarding',
