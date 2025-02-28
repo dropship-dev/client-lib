@@ -244,7 +244,7 @@ export declare class OrderService {
         merchantId: string;
         currencyId: number;
         shippingFee: number;
-        customerSupportMailFee: number;
+        othersFee: number;
         country: string;
         zipCode: string;
         city: string;
@@ -434,7 +434,7 @@ export declare class OrderService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        customerSupportMailFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -676,7 +676,7 @@ export declare class OrderService {
             refundPolicy: string;
             shippingFeeAdditional: number;
             shippingFee: number;
-            customerSupportMailFee: number;
+            othersFee: number;
             primaryDomain: string;
             subDomain: string;
             pageName: string;
@@ -739,7 +739,7 @@ export declare class OrderService {
         merchantId: string;
         currencyId: number;
         shippingFee: number;
-        customerSupportMailFee: number;
+        othersFee: number;
         country: string;
         zipCode: string;
         city: string;

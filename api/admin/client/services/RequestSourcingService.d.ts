@@ -45,7 +45,7 @@ export declare class RequestSourcingService {
                 refundPolicy: string;
                 shippingFeeAdditional: number;
                 shippingFee: number;
-                customerSupportMailFee: number;
+                othersFee: number;
                 primaryDomain: string;
                 subDomain: string;
                 pageName: string;
@@ -112,7 +112,7 @@ export declare class RequestSourcingService {
             refundPolicy: string;
             shippingFeeAdditional: number;
             shippingFee: number;
-            customerSupportMailFee: number;
+            othersFee: number;
             primaryDomain: string;
             subDomain: string;
             pageName: string;
