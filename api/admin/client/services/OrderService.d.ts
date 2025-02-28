@@ -511,7 +511,11 @@ export declare class OrderService {
             walletName: string;
             id: string;
         }>;
-        FulfillmentAgency: {
+        FulfillmentAgency: ({
+            Setting: {
+                percentageCostPlatformFee: number;
+            };
+        } & {
             timezone: PrismaJson_Timezone;
             platformFee: number;
             type: _36_Enums_FulfillmentAgencyType;
@@ -524,7 +528,7 @@ export declare class OrderService {
             updatedAt: string;
             createdAt: string;
             id: number;
-        };
+        });
         fraudStatus: FraudStatusType;
     })>;
     /**

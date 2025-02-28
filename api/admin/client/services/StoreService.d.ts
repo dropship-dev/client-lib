@@ -94,6 +94,9 @@ export declare class StoreService {
                 id: string;
             }>;
             FulfillmentAgency: {
+                Setting: {
+                    percentageCostPlatformFee: number;
+                };
                 costCalculationMethod: _36_Enums_CostCalculationMethod;
                 name: string;
             };
@@ -151,7 +154,11 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
-        FulfillmentAgency: FulfillmentAgency | null;
+        FulfillmentAgency: (FulfillmentAgency & {
+            Setting: {
+                percentageCostPlatformFee: number | null;
+            } | null;
+        }) | null;
     } & {
         StoreUser: Array<StoreUser>;
     } & {
