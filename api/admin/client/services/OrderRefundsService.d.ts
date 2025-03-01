@@ -231,6 +231,7 @@ export declare class OrderRefundsService {
             address2: string;
             address1: string;
             domain: string;
+            serviceFee: number;
             paymentId: number;
             merchantId: string;
             currencyId: number;

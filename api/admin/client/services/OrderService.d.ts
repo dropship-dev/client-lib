@@ -240,6 +240,7 @@ export declare class OrderService {
         address2: string;
         address1: string;
         domain: string;
+        serviceFee: number;
         paymentId: number;
         merchantId: string;
         currencyId: number;
@@ -513,7 +514,9 @@ export declare class OrderService {
         }>;
         FulfillmentAgency: ({
             Setting: {
+                serviceFee: number;
                 percentageCostPlatformFee: number;
+                othersFee: number;
             };
         } & {
             timezone: PrismaJson_Timezone;
@@ -735,6 +738,7 @@ export declare class OrderService {
         address2: string;
         address1: string;
         domain: string;
+        serviceFee: number;
         paymentId: number;
         merchantId: string;
         currencyId: number;

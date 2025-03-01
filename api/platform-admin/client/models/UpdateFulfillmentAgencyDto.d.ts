@@ -5,4 +5,5 @@ export type UpdateFulfillmentAgencyDto = {
     costCalculationMethod?: _36_Enums_CostCalculationMethod;
     percentageCostPlatformFee?: number;
     othersFee?: number;
+    serviceFee?: number;
 };
