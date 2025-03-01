@@ -9,6 +9,7 @@ import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -855,6 +856,19 @@ export declare class ProductService {
                 createdAt: string;
                 fulfillmentAgencyId: number;
                 id: number;
+            }>;
+        };
+        Store: {
+            RegionalShippingFee: Array<{
+                countries: PrismaJson_CountryInformation;
+                zoneName: string;
+                deleted: boolean;
+                shippingFeeAdditional: number;
+                shippingFee: number;
+                updatedAt: string;
+                createdAt: string;
+                storeId: string;
+                id: string;
             }>;
         };
     } & {
