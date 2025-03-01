@@ -227,7 +227,9 @@ export class StoreService {
   }): CancelablePromise<(Store & {
     FulfillmentAgency: (FulfillmentAgency & {
       Setting: {
+        serviceFee: number | null;
         percentageCostPlatformFee: number | null;
+        othersFee: number | null;
       } | null;
     }) | null;
   } & {
