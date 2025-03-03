@@ -10,6 +10,7 @@ export type UpdateOrderDto = {
   shippingInfo?: PrismaJson_BillingInfo;
   clientId?: string;
   payment: _36_Enums_PaymentType;
+  merchantId?: string;
   transactionId: string;
   orderItems?: Array<OrderItemDto>;
   comboItems?: Array<ComboItemDto>;

@@ -2,14 +2,19 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { GetCustomerTrackingResultDto } from '../models/GetCustomerTrackingResultDto';
+import type { GetPaginateTopLandingPageResultDto } from '../models/GetPaginateTopLandingPageResultDto';
+import type { GetTrackingRetentionRateResultDto } from '../models/GetTrackingRetentionRateResultDto';
 import type { LiveCoordinates } from '../models/LiveCoordinates';
 import type { LocationResult } from '../models/LocationResult';
 import type { Period } from '../models/Period';
 import type { ProductPerformance } from '../models/ProductPerformance';
+import type { ResponseTrackingPie } from '../models/ResponseTrackingPie';
 import type { StoreProductPerformanceResp } from '../models/StoreProductPerformanceResp';
 import type { StoreProductProfit } from '../models/StoreProductProfit';
 import type { StoreRevenueOverTime } from '../models/StoreRevenueOverTime';
 import type { TopProductByOrder } from '../models/TopProductByOrder';
+import type { UTMSourceSchema } from '../models/UTMSourceSchema';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PerformanceService {
@@ -369,6 +374,251 @@ export class PerformanceService {
         'search': search,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponseTrackingPie Ok
+   * @throws ApiError
+   */
+  public getTopCountry({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    select,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+    select?: number,
+  }): CancelablePromise<ResponseTrackingPie> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/top-country',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'select': select,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponseTrackingPie Ok
+   * @throws ApiError
+   */
+  public statsDevice({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<ResponseTrackingPie> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/stats-device',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponseTrackingPie Ok
+   * @throws ApiError
+   */
+  public statsReferrer({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<ResponseTrackingPie> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/stats-referrer',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns GetCustomerTrackingResultDto Ok
+   * @throws ApiError
+   */
+  public getCustomerTracking({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    filterBy,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+    filterBy?: 'ORDER' | 'REVENUE',
+  }): CancelablePromise<GetCustomerTrackingResultDto> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/customer-tracking',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'filterBy': filterBy,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns GetTrackingRetentionRateResultDto Ok
+   * @throws ApiError
+   */
+  public getTrackingRetentionRate({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<GetTrackingRetentionRateResultDto> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/tracking-retention-rate',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns GetPaginateTopLandingPageResultDto Ok
+   * @throws ApiError
+   */
+  public getTopLandingPage({
+    storeId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    limit = 6,
+    cursor,
+  }: {
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+    limit?: number,
+    cursor?: string,
+  }): CancelablePromise<GetPaginateTopLandingPageResultDto> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/top-landing-page',
+      query: {
+        'storeId': storeId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'limit': limit,
+        'cursor': cursor,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getTrafficSource({
+    storeId,
+    source,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    cursor,
+    limit,
+  }: {
+    storeId: string,
+    source: UTMSourceSchema,
+    startDate?: string,
+    endDate?: string,
+    cursor?: string,
+    limit?: number,
+  }): CancelablePromise<{
+    preCursor: boolean;
+    nextCursor: string;
+    data: Array<{
+      CR: number;
+      viewed: number;
+      purchased: number;
+      subTotal: number;
+      AOI: number;
+      AOV: number;
+      checkedOut: number;
+      addedToCart: number;
+      name: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/traffic-source',
+      query: {
+        'storeId': storeId,
+        'source': source,
+        'startDate': startDate,
+        'endDate': endDate,
+        'cursor': cursor,
+        'limit': limit,
       },
       errors: {
         400: `Bad request`,

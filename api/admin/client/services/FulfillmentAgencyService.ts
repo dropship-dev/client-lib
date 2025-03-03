@@ -13,6 +13,7 @@ import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettin
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
+import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
@@ -55,6 +56,8 @@ export class FulfillmentAgencyService {
       createdAt: string;
       id: number;
       PaymentOnboarding: Array<{
+        paymentId: number;
+        dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
         paypalPartnerReferralId: string;
         vettingRejectedAt: string;
@@ -122,6 +125,7 @@ export class FulfillmentAgencyService {
   }: {
     requestBody: GeneratePartnerReferralsDto,
   }): CancelablePromise<{
+    onboardingId: number;
     onboardingUrl: string;
   }> {
     return this.httpRequest.request({
@@ -147,6 +151,8 @@ export class FulfillmentAgencyService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<{
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
     vettingRejectedAt: string;
     customCardProcessingStatus: _36_Enums_CapabilityStatus;
@@ -217,6 +223,8 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<({
     PaymentOnboarding: Array<{
+      paymentId: number;
+      dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
       paypalPartnerReferralId: string;
       vettingRejectedAt: string;
@@ -367,10 +375,14 @@ export class FulfillmentAgencyService {
   public verifyJoinPlatform({
     id,
     paymentType,
+    onBoardingPaymentId,
   }: {
     id: number,
     paymentType: _36_Enums_PaymentType,
+    onBoardingPaymentId: number,
   }): CancelablePromise<{
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
     paypalPartnerReferralId: string;
     vettingRejectedAt: string;
@@ -394,10 +406,11 @@ export class FulfillmentAgencyService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}',
+      url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}/onBoardingPayment/{onBoardingPaymentId}',
       path: {
         'id': id,
         'paymentType': paymentType,
+        'onBoardingPaymentId': onBoardingPaymentId,
       },
       errors: {
         400: `Bad request`,
@@ -552,6 +565,8 @@ export class FulfillmentAgencyService {
     id: number,
     requestBody: ReconnectPaymentDto,
   }): CancelablePromise<{
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
     paypalPartnerReferralId: string;
     vettingRejectedAt: string;

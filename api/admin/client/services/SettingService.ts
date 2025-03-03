@@ -19,12 +19,14 @@ export class SettingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
+    serviceFee: number;
     percentageCostPlatformFee: number;
     hold: PrismaJson_HoldSetting;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
     refundPolicy: string;
+    othersFee: number;
     updatedAt: string;
     createdAt: string;
     fulfillmentAgencyId: number;
@@ -61,12 +63,14 @@ export class SettingService {
     fulfillmentAgencyId: number,
     requestBody: UpdateSettingDto,
   }): CancelablePromise<{
+    serviceFee: number;
     percentageCostPlatformFee: number;
     hold: PrismaJson_HoldSetting;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
     refundPolicy: string;
+    othersFee: number;
     updatedAt: string;
     createdAt: string;
     fulfillmentAgencyId: number;

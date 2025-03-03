@@ -13,6 +13,7 @@ import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionT
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -179,6 +180,7 @@ export class OrderRefundsService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -203,7 +205,6 @@ export class OrderRefundsService {
       };
     } & {
       disputeStatus: _36_Enums_OrderDisputeStatus;
-      paymentId: number;
       isHandleEvents: boolean;
       fingerPrint: string;
       timezoneLocalBrowser: string;
@@ -230,15 +231,20 @@ export class OrderRefundsService {
       totalUSD: number;
       total: number;
       note: string;
+      historyTracking: PrismaJson_OrderHistoryTracking;
+      utmLink: string;
       additionalInfo: any;
       billingInfo: PrismaJson_BillingInfo;
       province: string;
       address2: string;
       address1: string;
       domain: string;
+      serviceFee: number;
+      paymentId: number;
       merchantId: string;
       currencyId: number;
       shippingFee: number;
+      othersFee: number;
       country: string;
       zipCode: string;
       city: string;

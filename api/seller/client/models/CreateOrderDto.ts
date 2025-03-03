@@ -13,6 +13,7 @@ export type CreateOrderDto = {
   note?: string;
   domain?: string;
   clientId?: string;
+  merchantId?: string;
   payment: _36_Enums_PaymentType;
   orderItems?: Array<OrderItemDto>;
   comboItems?: Array<ComboItemDto>;
@@ -28,5 +29,6 @@ export type CreateOrderDto = {
     id: number;
   };
   abandonment?: CreateAbandonmentOrder;
+  utmLink?: string;
 };
 
