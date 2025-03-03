@@ -94,6 +94,9 @@ export declare class StoreService {
                 id: string;
             }>;
             FulfillmentAgency: {
+                Setting: {
+                    percentageCostPlatformFee: number;
+                };
                 costCalculationMethod: _36_Enums_CostCalculationMethod;
                 name: string;
             };
@@ -151,7 +154,13 @@ export declare class StoreService {
     getStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<(Store & {
-        FulfillmentAgency: FulfillmentAgency | null;
+        FulfillmentAgency: (FulfillmentAgency & {
+            Setting: {
+                serviceFee: number | null;
+                percentageCostPlatformFee: number | null;
+                othersFee: number | null;
+            } | null;
+        }) | null;
     } & {
         StoreUser: Array<StoreUser>;
     } & {
@@ -185,6 +194,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -230,6 +240,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -275,6 +286,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -320,6 +332,7 @@ export declare class StoreService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;

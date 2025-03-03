@@ -1,10 +1,16 @@
+import type { _36_Enums_CapabilityStatus } from '../models/_36_Enums_CapabilityStatus';
 import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { AddNewPaymentOnboardingDto } from '../models/AddNewPaymentOnboardingDto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
+import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
+import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -52,6 +58,17 @@ export declare class PaymentService {
         storeId: string;
         paymentMethodId: string;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
+        requestBody: AddNewPaymentOnboardingDto;
+    }): CancelablePromise<{
+        onboardingId: number;
+        url: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -109,6 +126,30 @@ export declare class PaymentService {
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        PaymentOnboarding: {
+            paymentId: number;
+            dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+            onboardingProducts: PrismaJson_OnboardingProducts;
+            paypalPartnerReferralId: string;
+            vettingRejectedAt: string;
+            customCardProcessingStatus: _36_Enums_CapabilityStatus;
+            PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+            oAuthIntegration: boolean;
+            paymentReceivable: boolean;
+            primaryEmailConfirmed: boolean;
+            onboardingStatus: _36_Enums_OnboardingStatus;
+            onboardingUrl: string;
+            onboardingId: string;
+            merchantEmail: string;
+            merchantId: string;
+            paymentType: _36_Enums_PaymentType;
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            storeId: string;
+            fulfillmentAgencyId: number;
+            id: number;
+        };
         type: _36_Enums_PaymentType;
         email: string;
         name: string;
@@ -123,10 +164,49 @@ export declare class PaymentService {
     getAllPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
+        payment: {
+            type: _36_Enums_PaymentType;
+        };
+        paymentId: number;
+        dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         vettingRejectedAt: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
         merchantEmail: string;
         paymentType: _36_Enums_PaymentType;
+        fulfillmentAgencyId: number;
+        id: number;
+        isDisconnect: boolean;
     }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getPaymentOnboarding({ fulfillmentAgencyId, onBoardingId, }: {
+        fulfillmentAgencyId: number;
+        onBoardingId: number;
+    }): CancelablePromise<Array<{
+        payment: {
+            type: _36_Enums_PaymentType;
+        };
+        paymentId: number;
+        dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+        vettingRejectedAt: string;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        merchantEmail: string;
+        paymentType: _36_Enums_PaymentType;
+        fulfillmentAgencyId: number;
+        isDisconnect: boolean;
+        onboardingUrl: string;
+    }>>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deletePaymentOnboarding({ onBoardingId, fulfillmentAgencyId, storeId, }: {
+        onBoardingId: number;
+        fulfillmentAgencyId?: number;
+        storeId?: string;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

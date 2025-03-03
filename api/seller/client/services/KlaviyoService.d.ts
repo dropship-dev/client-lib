@@ -16,44 +16,26 @@ export declare class KlaviyoService {
      * @returns any Ok
      * @throws ApiError
      */
-    getKlaviyo({ storeId, klaviyoId, }: {
+    getKlaviyo({ storeId, }: {
         storeId: string;
-        klaviyoId: string;
-    }): CancelablePromise<Array<{
-        salt: string;
-        secretKey: string;
-        publishableKey: string;
-        status: boolean;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: string;
-    }>>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    updateKlaviyo({ storeId, klaviyoId, requestBody, }: {
-        storeId: string;
-        klaviyoId: string;
-        requestBody: KlaviyoDto;
     }): CancelablePromise<{
-        salt: string;
-        secretKey: string;
-        publishableKey: string;
-        status: boolean;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: string;
+        secretKey: any;
+        publishableKey: any;
     }>;
     /**
+     * @returns KlaviyoDto Ok
+     * @throws ApiError
+     */
+    updateKlaviyo({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: KlaviyoDto;
+    }): CancelablePromise<KlaviyoDto>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
-    deleteKlaviyo({ storeId, klaviyoId, }: {
+    deleteKlaviyo({ storeId, }: {
         storeId: string;
-        klaviyoId: string;
     }): CancelablePromise<{
         salt: string;
         secretKey: string;

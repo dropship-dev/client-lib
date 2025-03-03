@@ -35,4 +35,5 @@ var _36_Enums_NotificationType;
     _36_Enums_NotificationType["PLATFORM_FEE_CHARGED_SUCCESSFUL"] = "PLATFORM_FEE_CHARGED_SUCCESSFUL";
     _36_Enums_NotificationType["PLATFORM_FEE_CHARGED_FAILED"] = "PLATFORM_FEE_CHARGED_FAILED";
     _36_Enums_NotificationType["PAYMENT_ONBOARDING"] = "PAYMENT_ONBOARDING";
+    _36_Enums_NotificationType["CS_MAIL_FEE_CHARGED_SUCCESSFUL"] = "CS_MAIL_FEE_CHARGED_SUCCESSFUL";
 })(_36_Enums_NotificationType || (exports._36_Enums_NotificationType = _36_Enums_NotificationType = {}));

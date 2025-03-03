@@ -4,6 +4,6 @@ export type PayPlatformTransactionFeeDto = {
     subscriptionPlan?: {
         interval: _36_Enums_SubscriptionInterval;
         id: number;
-    } | null;
+    };
     paymentMethodId: string;
 };

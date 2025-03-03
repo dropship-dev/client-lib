@@ -6,6 +6,7 @@ import { BankAccountService } from './services/BankAccountService';
 import { BoostSalesService } from './services/BoostSalesService';
 import { CampaignService } from './services/CampaignService';
 import { CollectionService } from './services/CollectionService';
+import { CouponService } from './services/CouponService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
 import { FbPixelService } from './services/FbPixelService';
@@ -48,6 +49,7 @@ export declare class ClientApi {
     readonly boostSales: BoostSalesService;
     readonly campaign: CampaignService;
     readonly collection: CollectionService;
+    readonly coupon: CouponService;
     readonly currency: CurrencyService;
     readonly domain: DomainService;
     readonly fbPixel: FbPixelService;

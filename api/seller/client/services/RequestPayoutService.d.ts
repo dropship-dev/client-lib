@@ -97,6 +97,7 @@ export declare class RequestPayoutService {
                 refundPolicy: string;
                 shippingFeeAdditional: number;
                 shippingFee: number;
+                othersFee: number;
                 primaryDomain: string;
                 subDomain: string;
                 pageName: string;

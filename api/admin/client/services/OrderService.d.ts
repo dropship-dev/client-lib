@@ -22,6 +22,7 @@ import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto'
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -35,6 +36,7 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
+import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -113,6 +115,23 @@ export declare class OrderService {
         }>;
     }>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: UpdateHistoryTrackingOrderDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }: {
+        storeId: string;
+        orderId: string;
+    }): CancelablePromise<void>;
+    /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
      */
@@ -187,7 +206,6 @@ export declare class OrderService {
         requestBody: ManualFraudDetectionDto;
     }): CancelablePromise<({
         disputeStatus: _36_Enums_OrderDisputeStatus;
-        paymentId: number;
         isHandleEvents: boolean;
         fingerPrint: string;
         timezoneLocalBrowser: string;
@@ -214,15 +232,20 @@ export declare class OrderService {
         totalUSD: number;
         total: number;
         note: string;
+        historyTracking: PrismaJson_OrderHistoryTracking;
+        utmLink: string;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
         province: string;
         address2: string;
         address1: string;
         domain: string;
+        serviceFee: number;
+        paymentId: number;
         merchantId: string;
         currencyId: number;
         shippingFee: number;
+        othersFee: number;
         country: string;
         zipCode: string;
         city: string;
@@ -412,6 +435,7 @@ export declare class OrderService {
         refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
+        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -488,7 +512,13 @@ export declare class OrderService {
             walletName: string;
             id: string;
         }>;
-        FulfillmentAgency: {
+        FulfillmentAgency: ({
+            Setting: {
+                serviceFee: number;
+                percentageCostPlatformFee: number;
+                othersFee: number;
+            };
+        } & {
             timezone: PrismaJson_Timezone;
             platformFee: number;
             type: _36_Enums_FulfillmentAgencyType;
@@ -501,7 +531,7 @@ export declare class OrderService {
             updatedAt: string;
             createdAt: string;
             id: number;
-        };
+        });
         fraudStatus: FraudStatusType;
     })>;
     /**
@@ -649,6 +679,7 @@ export declare class OrderService {
             refundPolicy: string;
             shippingFeeAdditional: number;
             shippingFee: number;
+            othersFee: number;
             primaryDomain: string;
             subDomain: string;
             pageName: string;
@@ -673,7 +704,6 @@ export declare class OrderService {
         };
     } & {
         disputeStatus: _36_Enums_OrderDisputeStatus;
-        paymentId: number;
         isHandleEvents: boolean;
         fingerPrint: string;
         timezoneLocalBrowser: string;
@@ -700,15 +730,20 @@ export declare class OrderService {
         totalUSD: number;
         total: number;
         note: string;
+        historyTracking: PrismaJson_OrderHistoryTracking;
+        utmLink: string;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
         province: string;
         address2: string;
         address1: string;
         domain: string;
+        serviceFee: number;
+        paymentId: number;
         merchantId: string;
         currencyId: number;
         shippingFee: number;
+        othersFee: number;
         country: string;
         zipCode: string;
         city: string;
