@@ -14,6 +14,7 @@ export type PrismaJson_OrderHistoryTracking = Array<{
         amount?: number;
         paymentType?: _36_Enums_PaymentType;
         email?: string;
+        fulfillmentAgencyName?: string;
         customerName?: string;
         value?: string;
     };
