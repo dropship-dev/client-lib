@@ -237,6 +237,8 @@ export type { GetStatsRefererDto } from './models/GetStatsRefererDto';
 export type { getStatusCombosType } from './models/getStatusCombosType';
 export type { GetStoreAddPingpongDto } from './models/GetStoreAddPingpongDto';
 export type { GetStoreStatisticsAbandonmentDto } from './models/GetStoreStatisticsAbandonmentDto';
+export type { GetSummaryReferralDto } from './models/GetSummaryReferralDto';
+export type { GetSummaryReferralResult } from './models/GetSummaryReferralResult';
 export type { GetTopCountryDto } from './models/GetTopCountryDto';
 export type { GetTopLandingPageDto } from './models/GetTopLandingPageDto';
 export type { GetTopLandingPageResultDto } from './models/GetTopLandingPageResultDto';
