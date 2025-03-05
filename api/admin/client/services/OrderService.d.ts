@@ -209,7 +209,6 @@ export declare class OrderService {
         isHandleEvents: boolean;
         fingerPrint: string;
         timezoneLocalBrowser: string;
-        fulfillmentCost: number;
         fulfillmentStatus: _36_Enums_FulfillmentStatus;
         isSyncBalance: PrismaJson_SyncBalanceAmount;
         retentionRate: number;
@@ -420,6 +419,7 @@ export declare class OrderService {
             name: string;
             id: number;
         };
+        fulfillmentCost: number;
     } | {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
