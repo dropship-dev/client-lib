@@ -13,6 +13,7 @@ export declare class MarketingService {
     createMarketingAccount({ requestBody, }: {
         requestBody: CreateMarketingAccount;
     }): CancelablePromise<{
+        emailVerified: boolean;
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
         firstLogin: boolean;

@@ -50,6 +50,7 @@ export declare class UserService {
             id: number;
         })>;
     } & {
+        emailVerified: boolean;
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
         firstLogin: boolean;
@@ -72,6 +73,7 @@ export declare class UserService {
      * @throws ApiError
      */
     deleteUser(): CancelablePromise<{
+        emailVerified: boolean;
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
         firstLogin: boolean;
@@ -96,6 +98,7 @@ export declare class UserService {
     changeUserPassword({ requestBody, }: {
         requestBody: ChangeUserPasswordDto;
     }): CancelablePromise<{
+        emailVerified: boolean;
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
         firstLogin: boolean;
