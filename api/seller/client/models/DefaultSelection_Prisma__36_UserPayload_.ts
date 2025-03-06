@@ -12,6 +12,7 @@ export type DefaultSelection_Prisma__36_UserPayload_ = {
   maxOwnedStores: number;
   shortId: string;
   role: _36_Enums_UserRole;
+  invitedById: string;
   country: string;
   avatar: string;
   phone: string;

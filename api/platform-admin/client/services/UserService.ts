@@ -74,6 +74,7 @@ export class UserService {
     maxOwnedStores: number;
     shortId: string;
     role: _36_Enums_UserRole;
+    invitedById: string;
     country: string;
     avatar: string;
     phone: string;
@@ -109,6 +110,7 @@ export class UserService {
     maxOwnedStores: number;
     shortId: string;
     role: _36_Enums_UserRole;
+    invitedById: string;
     country: string;
     avatar: string;
     phone: string;
@@ -146,6 +148,7 @@ export class UserService {
     maxOwnedStores: number;
     shortId: string;
     role: _36_Enums_UserRole;
+    invitedById: string;
     country: string;
     avatar: string;
     phone: string;
@@ -210,6 +213,7 @@ export class UserService {
     maxOwnedStores: number;
     shortId: string;
     role: _36_Enums_UserRole;
+    invitedById: string;
     country: string;
     avatar: string;
     phone: string;
@@ -277,6 +281,7 @@ export class UserService {
     maxOwnedStores: number;
     shortId: string;
     role: _36_Enums_UserRole;
+    invitedById: string;
     country: string;
     avatar: string;
     phone: string;

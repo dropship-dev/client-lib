@@ -652,6 +652,7 @@ export class OrderService {
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;
@@ -914,6 +915,7 @@ export class OrderService {
       stripeDefaultPaymentMethodId: string;
       stripeCustomerId: string;
       warning: boolean;
+      invitedById: number;
       currencyId: number;
       maxUsers: number;
       balance: number;
