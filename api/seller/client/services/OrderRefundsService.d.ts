@@ -200,6 +200,7 @@ export declare class OrderRefundsService {
             disputeStatus: _36_Enums_OrderDisputeStatus;
             isHandleEvents: boolean;
             fingerPrint: string;
+            paymentSource: string;
             timezoneLocalBrowser: string;
             fulfillmentCost: number;
             fulfillmentStatus: _36_Enums_FulfillmentStatus;
