@@ -86,6 +86,7 @@ export declare class RequestPayoutService {
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;
+                invitedById: number;
                 currencyId: number;
                 maxUsers: number;
                 balance: number;

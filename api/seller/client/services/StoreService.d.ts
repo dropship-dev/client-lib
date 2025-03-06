@@ -44,6 +44,7 @@ export declare class StoreService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -196,6 +197,7 @@ export declare class StoreService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -240,6 +242,7 @@ export declare class StoreService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -285,6 +288,7 @@ export declare class StoreService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -329,6 +333,7 @@ export declare class StoreService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
