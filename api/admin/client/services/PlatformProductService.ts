@@ -32,6 +32,7 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     requestBody: CreatePlatformProductDto,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
@@ -96,6 +97,7 @@ export class PlatformProductService {
     prePageIndex: number;
     total: number;
     data: Array<{
+      collectionDefaultId: number;
       isInSyncWithFulfillmentPlatform: boolean;
       fulfillmentPlatform: 'BETTA_SUP';
       fulfillmentPlatformQuoteId: string;
@@ -295,6 +297,7 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: UpdatePlatformProductDto,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
@@ -345,6 +348,7 @@ export class PlatformProductService {
     fulfillmentAgencyId: number,
     platformProductId: number,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
@@ -395,6 +399,7 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: UpdatePlatformProductStatusDto,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
@@ -447,6 +452,7 @@ export class PlatformProductService {
     platformProductId: number,
     requestBody: AddPlatformProductTagDto,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
@@ -499,6 +505,7 @@ export class PlatformProductService {
     platformProductId: number,
     tagId: string,
   }): CancelablePromise<{
+    collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
