@@ -1,6 +1,6 @@
-import type { CombineOperatorCollectionDefault } from './CombineOperatorCollectionDefault';
-import type { ConditionOperationCollectionDefault } from './ConditionOperationCollectionDefault';
+import type { CombineOperator } from './CombineOperator';
+import type { ConditionOperation } from './ConditionOperation';
 export type operatorConditionDefaultCollection = {
-    conditionOperator: Array<ConditionOperationCollectionDefault>;
-    combineOperator: CombineOperatorCollectionDefault;
+    conditionOperator: Array<ConditionOperation>;
+    combineOperator: CombineOperator;
 };
