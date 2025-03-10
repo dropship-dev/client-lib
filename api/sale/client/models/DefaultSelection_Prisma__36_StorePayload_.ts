@@ -1,0 +1,47 @@
+/* generated using openapi-typescript-codegen -- do not edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { _36_Enums_StoreStatus } from './_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from './_36_Enums_StoreType';
+import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
+export type DefaultSelection_Prisma__36_StorePayload_ = {
+  stripeDefaultPaymentMethodId: string;
+  stripeCustomerId: string;
+  warning: boolean;
+  invitedById: number;
+  currencyId: number;
+  maxUsers: number;
+  balance: number;
+  referralCode: string;
+  defaultBankAccount: string;
+  shippingPolicy: string;
+  termsOfService: string;
+  privacyPolicy: string;
+  refundPolicy: string;
+  shippingFeeAdditional: number;
+  shippingFee: number;
+  othersFee: number;
+  primaryDomain: string;
+  subDomain: string;
+  pageName: string;
+  closedAt: string;
+  country: string;
+  zipCode: string;
+  city: string;
+  apartmentAddress: string;
+  address: string;
+  avatar: string;
+  timezone: PrismaJson_Timezone;
+  type: _36_Enums_StoreType;
+  status: _36_Enums_StoreStatus;
+  phone: string;
+  email: string;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+  isDeleted: boolean;
+  fulfillmentAgencyId: number;
+  id: string;
+};
+
