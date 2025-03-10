@@ -294,39 +294,6 @@ export class PerformanceService {
     });
   }
   /**
-   * @returns any Ok
-   * @throws ApiError
-   */
-  public getGmvPerFulfillmentAgency({
-    startDate = '2023-01-01T00:00:00.000Z',
-    endDate,
-  }: {
-    startDate?: string,
-    endDate?: string,
-  }): CancelablePromise<Array<{
-    percentOfTotal: number;
-    growth: number;
-    gmv: number;
-    name: string;
-    id: number;
-  }>> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/performance/gmv',
-      query: {
-        'startDate': startDate,
-        'endDate': endDate,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
    * @returns StoreProductProfit Ok
    * @throws ApiError
    */

@@ -99,4 +99,75 @@ export class ReferralService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getGmvPerFulfillmentAgency({
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    total: number;
+    data: Array<{
+      percentOfTotal: number;
+      growth: number;
+      gmv: number;
+      name: string;
+      id: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/gmv-per-fulfillment',
+      query: {
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getGmvByStore({
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+  }: {
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    total: number;
+    data: Array<{
+      percentOfTotal: number;
+      growth: number;
+      gmv: number;
+      name: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/gmv-by-store',
+      query: {
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }

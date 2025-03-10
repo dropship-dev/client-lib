@@ -8,11 +8,13 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AuthService } from './services/AuthService';
 import { SaleService } from './services/SaleService';
 import { UploadService } from './services/UploadService';
+import { UserService } from './services/UserService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class ClientApi {
   public readonly auth: AuthService;
   public readonly sale: SaleService;
   public readonly upload: UploadService;
+  public readonly user: UserService;
   public readonly request: BaseHttpRequest;
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
@@ -29,6 +31,7 @@ export class ClientApi {
     this.auth = new AuthService(this.request);
     this.sale = new SaleService(this.request);
     this.upload = new UploadService(this.request);
+    this.user = new UserService(this.request);
   }
 }
 
