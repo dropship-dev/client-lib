@@ -5,10 +5,12 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
+import { AuthService } from './services/AuthService';
 import { SaleService } from './services/SaleService';
 import { UploadService } from './services/UploadService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class ClientApi {
+  public readonly auth: AuthService;
   public readonly sale: SaleService;
   public readonly upload: UploadService;
   public readonly request: BaseHttpRequest;
@@ -24,6 +26,7 @@ export class ClientApi {
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
     });
+    this.auth = new AuthService(this.request);
     this.sale = new SaleService(this.request);
     this.upload = new UploadService(this.request);
   }
