@@ -6,9 +6,11 @@ import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { SaleService } from './services/SaleService';
+import { UploadService } from './services/UploadService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class ClientApi {
   public readonly sale: SaleService;
+  public readonly upload: UploadService;
   public readonly request: BaseHttpRequest;
   constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
@@ -23,6 +25,7 @@ export class ClientApi {
       ENCODE_PATH: config?.ENCODE_PATH,
     });
     this.sale = new SaleService(this.request);
+    this.upload = new UploadService(this.request);
   }
 }
 

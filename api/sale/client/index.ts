@@ -502,3 +502,4 @@ export { Week } from './models/Week';
 export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 
 export { SaleService } from './services/SaleService';
+export { UploadService } from './services/UploadService';
