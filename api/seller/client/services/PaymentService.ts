@@ -5,6 +5,7 @@
 import type { _36_Enums_CapabilityStatus } from '../models/_36_Enums_CapabilityStatus';
 import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentIntegrationType } from '../models/_36_Enums_PaymentIntegrationType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
@@ -178,6 +179,7 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -473,6 +475,7 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;

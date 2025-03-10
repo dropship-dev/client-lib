@@ -41,6 +41,7 @@ export { _36_Enums_OrderDisputeStatus } from './models/_36_Enums_OrderDisputeSta
 export { _36_Enums_OrderStatus } from './models/_36_Enums_OrderStatus';
 export { _36_Enums_OrderTrackingEmailStatus } from './models/_36_Enums_OrderTrackingEmailStatus';
 export { _36_Enums_OrderTrackingRecoveredStatus } from './models/_36_Enums_OrderTrackingRecoveredStatus';
+export { _36_Enums_PaymentIntegrationType } from './models/_36_Enums_PaymentIntegrationType';
 export { _36_Enums_PaymentMethodType } from './models/_36_Enums_PaymentMethodType';
 export { _36_Enums_PaymentType } from './models/_36_Enums_PaymentType';
 export { _36_Enums_PPCPVettingStatus } from './models/_36_Enums_PPCPVettingStatus';
