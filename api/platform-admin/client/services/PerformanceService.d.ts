@@ -122,6 +122,20 @@ export declare class PerformanceService {
         data: Array<ProductPerformance>;
     }>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getGmvPerFulfillmentAgency({ startDate, endDate, }: {
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<Array<{
+        percentOfTotal: number;
+        growth: number;
+        gmv: number;
+        name: string;
+        id: number;
+    }>>;
+    /**
      * @returns StoreProductProfit Ok
      * @throws ApiError
      */
