@@ -4,6 +4,7 @@ import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentT
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
+import type { _36_Enums_PaymentIntegrationType } from '../models/_36_Enums_PaymentIntegrationType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { CreateFulfillmentAgencyDto } from '../models/CreateFulfillmentAgencyDto';
@@ -26,6 +27,7 @@ export declare class FulfillmentAgencyService {
         requestBody: CreateFulfillmentAgencyDto;
     }): CancelablePromise<({
         Payment: Array<{
+            PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
             salt: string;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
