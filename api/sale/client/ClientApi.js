@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ClientApi = void 0;
+const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const SaleService_1 = require("./services/SaleService");
+const UploadService_1 = require("./services/UploadService");
+class ClientApi {
+    sale;
+    upload;
+    request;
+    constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
+        this.request = new HttpRequest({
+            BASE: config?.BASE ?? '',
+            VERSION: config?.VERSION ?? '1.0.0',
+            WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
+            CREDENTIALS: config?.CREDENTIALS ?? 'include',
+            TOKEN: config?.TOKEN,
+            USERNAME: config?.USERNAME,
+            PASSWORD: config?.PASSWORD,
+            HEADERS: config?.HEADERS,
+            ENCODE_PATH: config?.ENCODE_PATH,
+        });
+        this.sale = new SaleService_1.SaleService(this.request);
+        this.upload = new UploadService_1.UploadService(this.request);
+    }
+}
+exports.ClientApi = ClientApi;
