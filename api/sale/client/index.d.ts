@@ -498,3 +498,4 @@ export type { WithdrawWalletDto } from './models/WithdrawWalletDto';
 export { AuthService } from './services/AuthService';
 export { SaleService } from './services/SaleService';
 export { UploadService } from './services/UploadService';
+export { UserService } from './services/UserService';

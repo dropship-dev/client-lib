@@ -5,10 +5,12 @@ const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AuthService_1 = require("./services/AuthService");
 const SaleService_1 = require("./services/SaleService");
 const UploadService_1 = require("./services/UploadService");
+const UserService_1 = require("./services/UserService");
 class ClientApi {
     auth;
     sale;
     upload;
+    user;
     request;
     constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
         this.request = new HttpRequest({
@@ -25,6 +27,7 @@ class ClientApi {
         this.auth = new AuthService_1.AuthService(this.request);
         this.sale = new SaleService_1.SaleService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);
+        this.user = new UserService_1.UserService(this.request);
     }
 }
 exports.ClientApi = ClientApi;

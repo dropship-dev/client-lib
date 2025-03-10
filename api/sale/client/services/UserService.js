@@ -1,24 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReferralService = void 0;
-class ReferralService {
+exports.UserService = void 0;
+class UserService {
     httpRequest;
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns GetSummaryReferralResult Ok
+     * @returns ResponseGetUser Ok
      * @throws ApiError
      */
-    getSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, }) {
+    getUser() {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/referral/summary',
-            query: {
-                'startDate': startDate,
-                'endDate': endDate,
-                'search': search,
-            },
+            url: '/user',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -29,17 +24,15 @@ class ReferralService {
         });
     }
     /**
-     * @returns GetRevenueStoreByFulfillmentResult Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getRevenueStoreByFulfillment({ fulfillmentAgencyId, search, }) {
+    updateUser({ requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/referral/revenue-store-by-fulfillment',
-            query: {
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-                'search': search,
-            },
+            method: 'PATCH',
+            url: '/user',
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -50,18 +43,51 @@ class ReferralService {
         });
     }
     /**
-     * @returns GetTopRevenueStore Ok
+     * @returns any Ok
      * @throws ApiError
      */
-    getTopRevenueStore({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, topK = 10, }) {
+    deleteUser() {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/user',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    changeUserPassword({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/user/password',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getUserById({ id, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/referral/top-revenue-store',
-            query: {
-                'startDate': startDate,
-                'endDate': endDate,
-                'search': search,
-                'topK': topK,
+            url: '/user/{id}',
+            path: {
+                'id': id,
             },
             errors: {
                 400: `Bad request`,
@@ -76,35 +102,15 @@ class ReferralService {
      * @returns any Ok
      * @throws ApiError
      */
-    getGmvPerFulfillmentAgency({ startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+    updateUserById({ id, requestBody, }) {
         return this.httpRequest.request({
-            method: 'GET',
-            url: '/referral/gmv-per-fulfillment',
-            query: {
-                'startDate': startDate,
-                'endDate': endDate,
+            method: 'PATCH',
+            url: '/user/{id}',
+            path: {
+                'id': id,
             },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getGmvByStore({ startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/referral/gmv-by-store',
-            query: {
-                'startDate': startDate,
-                'endDate': endDate,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
@@ -115,4 +121,4 @@ class ReferralService {
         });
     }
 }
-exports.ReferralService = ReferralService;
+exports.UserService = UserService;

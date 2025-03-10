@@ -33,4 +33,37 @@ export declare class ReferralService {
         search?: string;
         topK?: number;
     }): CancelablePromise<GetTopRevenueStore>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getGmvPerFulfillmentAgency({ startDate, endDate, }: {
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        total: number;
+        data: Array<{
+            percentOfTotal: number;
+            growth: number;
+            gmv: number;
+            name: string;
+            id: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getGmvByStore({ startDate, endDate, }: {
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        total: number;
+        data: Array<{
+            percentOfTotal: number;
+            growth: number;
+            gmv: number;
+            name: string;
+        }>;
+    }>;
 }
