@@ -12,6 +12,8 @@ export declare class SaleService {
     requestStatus({ userId, }: {
         userId: string;
     }): CancelablePromise<{
+        email: string;
+        name: string;
         status: _36_Enums_SaleStatus;
     }>;
     /**
