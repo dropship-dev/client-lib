@@ -205,22 +205,8 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
-  }): CancelablePromise<Array<{
-    creator: {
-      role: _36_Enums_UserRole;
-      avatar: string;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: string;
-    };
-    publishableKey: string;
-    isShowCompanyAddress: boolean;
-    companyAddress: string;
-    companyPhone: string;
-    companyName: string;
-    PaymentOnboarding: {
+  }): CancelablePromise<{
+    paymentOnboarding: Array<{
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -243,14 +229,30 @@ export class PaymentService {
       storeId: string;
       fulfillmentAgencyId: number;
       id: number;
-    };
-    type: _36_Enums_PaymentType;
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    id: number;
-  }>> {
+    }>;
+    payment: Array<{
+      creator: {
+        role: _36_Enums_UserRole;
+        avatar: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+      };
+      publishableKey: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    }>;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/payment',
