@@ -67,7 +67,6 @@ export class UserService {
       id: number;
     })>;
   } & {
-    emailVerified: boolean;
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
     firstLogin: boolean;
@@ -104,7 +103,6 @@ export class UserService {
    * @throws ApiError
    */
   public deleteUser(): CancelablePromise<{
-    emailVerified: boolean;
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
     firstLogin: boolean;
@@ -143,7 +141,6 @@ export class UserService {
   }: {
     requestBody: ChangeUserPasswordDto,
   }): CancelablePromise<{
-    emailVerified: boolean;
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
     firstLogin: boolean;
