@@ -17,14 +17,44 @@ export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }: {
         requestBody: CreatePaymentDto;
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<({
+        PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+        salt: string;
+        environment: _36_Enums_EnvironmentType;
+        UIVersion: number;
+        deleted: boolean;
+        BNcode: string;
+        partnerId: string;
+        gatewayUrl: string;
+        tokenExpiredAt: string;
+        token: string;
+        secretKey: string;
+        publishableKey: string;
+        isPlatform: boolean;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        merchantId: string;
+        userId: string;
+        type: _36_Enums_PaymentType;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    } | {
+        onboardingId: number;
+        url: string;
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError

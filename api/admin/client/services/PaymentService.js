@@ -7,7 +7,7 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }) {

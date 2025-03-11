@@ -90,7 +90,7 @@ class PaymentService {
         });
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }) {
