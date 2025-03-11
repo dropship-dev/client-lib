@@ -4,10 +4,10 @@
 /* eslint-disable */
 import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 import type { OnboardingProduct } from './OnboardingProduct';
-export type AddNewPaymentOnboardingDto = {
-  paymentType: _36_Enums_PaymentType;
+import type { paymentIntegrationTypeEnum_ONBOARDING } from './paymentIntegrationTypeEnum_ONBOARDING';
+export type PaymentOnboardingDto = {
   onboardingProduct: OnboardingProduct;
-  paymentGateName: string;
-  emailCS: string;
+  paymentType: _36_Enums_PaymentType;
+  type: paymentIntegrationTypeEnum_ONBOARDING;
 };
 
