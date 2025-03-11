@@ -10,6 +10,23 @@ class SaleService {
      * @returns any Ok
      * @throws ApiError
      */
+    getSaleInfo() {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     requestStatus({ userId, }) {
         return this.httpRequest.request({
             method: 'GET',

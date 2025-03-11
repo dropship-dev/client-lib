@@ -9,6 +9,16 @@ export declare class SaleService {
      * @returns any Ok
      * @throws ApiError
      */
+    getSaleInfo(): CancelablePromise<{
+        name: string;
+        referralLink: string;
+        code: string;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     requestStatus({ userId, }: {
         userId: string;
     }): CancelablePromise<{

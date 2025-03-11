@@ -1,3 +1,5 @@
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
@@ -48,6 +50,28 @@ export declare class ReferralService {
             gmv: number;
             name: string;
             id: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    detailGmvPerFulfillmentAgency({ fulfillmentId, status, search, cursor, limit, }: {
+        fulfillmentId: number;
+        status: FilterStoreStatus;
+        search?: string;
+        cursor?: string;
+        limit?: number;
+    }): CancelablePromise<{
+        preCursor: boolean;
+        nextCursor: string;
+        data: Array<{
+            createdAt: string;
+            onboarding?: boolean;
+            status: _36_Enums_StoreStatus;
+            name: string;
+            id: string;
+            revenue: number;
         }>;
     }>;
     /**

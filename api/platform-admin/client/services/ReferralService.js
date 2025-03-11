@@ -97,6 +97,32 @@ class ReferralService {
      * @returns any Ok
      * @throws ApiError
      */
+    detailGmvPerFulfillmentAgency({ fulfillmentId, status, search, cursor, limit, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/gmv-per-fulfillment/{fulfillmentId}',
+            path: {
+                'fulfillmentId': fulfillmentId,
+            },
+            query: {
+                'search': search,
+                'cursor': cursor,
+                'limit': limit,
+                'status': status,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getGmvByStore({ startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
         return this.httpRequest.request({
             method: 'GET',
