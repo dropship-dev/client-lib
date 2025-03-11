@@ -12,6 +12,28 @@ export class SaleService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getSaleInfo(): CancelablePromise<{
+    name: string;
+    referralLink: string;
+    code: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/sale',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public requestStatus({
     userId,
   }: {

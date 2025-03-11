@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
@@ -125,6 +127,55 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public detailGmvPerFulfillmentAgency({
+    fulfillmentId,
+    status,
+    search,
+    cursor,
+    limit,
+  }: {
+    fulfillmentId: number,
+    status: FilterStoreStatus,
+    search?: string,
+    cursor?: string,
+    limit?: number,
+  }): CancelablePromise<{
+    preCursor: boolean;
+    nextCursor: string;
+    data: Array<{
+      createdAt: string;
+      onboarding?: boolean;
+      status: _36_Enums_StoreStatus;
+      name: string;
+      id: string;
+      revenue: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/gmv-per-fulfillment/{fulfillmentId}',
+      path: {
+        'fulfillmentId': fulfillmentId,
+      },
+      query: {
+        'search': search,
+        'cursor': cursor,
+        'limit': limit,
+        'status': status,
       },
       errors: {
         400: `Bad request`,
