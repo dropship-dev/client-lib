@@ -6,7 +6,6 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
-import type { AddNewPaymentOnboardingDto } from '../models/AddNewPaymentOnboardingDto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
 import type { PaymentMethodIdDto } from '../models/PaymentMethodIdDto';
@@ -60,52 +59,14 @@ export declare class PaymentService {
         paymentMethodId: string;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
-        fulfillmentAgencyId: number;
-        requestBody: AddNewPaymentOnboardingDto;
-    }): CancelablePromise<{
-        onboardingId: number;
-        url: string;
-    }>;
-    /**
-     * @returns any Ok
+     * @returns void
      * @throws ApiError
      */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }: {
         requestBody: CreatePaymentDto;
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<{
-        PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-        salt: string;
-        environment: _36_Enums_EnvironmentType;
-        UIVersion: number;
-        deleted: boolean;
-        BNcode: string;
-        partnerId: string;
-        gatewayUrl: string;
-        tokenExpiredAt: string;
-        token: string;
-        secretKey: string;
-        publishableKey: string;
-        isPlatform: boolean;
-        isShowCompanyAddress: boolean;
-        companyAddress: string;
-        companyPhone: string;
-        companyName: string;
-        merchantId: string;
-        userId: string;
-        type: _36_Enums_PaymentType;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: number;
-    }>;
+    }): CancelablePromise<void>;
     /**
      * @returns any Ok
      * @throws ApiError
