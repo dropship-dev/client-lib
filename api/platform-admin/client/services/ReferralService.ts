@@ -148,6 +148,7 @@ export class ReferralService {
   }): CancelablePromise<{
     total: number;
     data: Array<{
+      totalStore: number;
       percentOfTotal: number;
       growth: number;
       gmv: number;
