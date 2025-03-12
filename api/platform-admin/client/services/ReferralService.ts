@@ -143,17 +143,18 @@ export class ReferralService {
    */
   public detailGmvPerFulfillmentAgency({
     fulfillmentId,
-    status,
     search,
     cursor,
     limit,
+    status,
   }: {
     fulfillmentId: number,
-    status: FilterStoreStatus,
     search?: string,
     cursor?: string,
     limit?: number,
+    status?: FilterStoreStatus,
   }): CancelablePromise<{
+    total: number;
     preCursor: boolean;
     nextCursor: string;
     data: Array<{
