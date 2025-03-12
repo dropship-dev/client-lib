@@ -97,7 +97,7 @@ class ReferralService {
      * @returns any Ok
      * @throws ApiError
      */
-    detailGmvPerFulfillmentAgency({ fulfillmentId, status, search, cursor, limit, }) {
+    detailGmvPerFulfillmentAgency({ fulfillmentId, search, cursor, limit, status, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/referral/gmv-per-fulfillment/{fulfillmentId}',

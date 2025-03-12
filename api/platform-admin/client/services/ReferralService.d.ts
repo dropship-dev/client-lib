@@ -56,13 +56,14 @@ export declare class ReferralService {
      * @returns any Ok
      * @throws ApiError
      */
-    detailGmvPerFulfillmentAgency({ fulfillmentId, status, search, cursor, limit, }: {
+    detailGmvPerFulfillmentAgency({ fulfillmentId, search, cursor, limit, status, }: {
         fulfillmentId: number;
-        status: FilterStoreStatus;
         search?: string;
         cursor?: string;
         limit?: number;
+        status?: FilterStoreStatus;
     }): CancelablePromise<{
+        total: number;
         preCursor: boolean;
         nextCursor: string;
         data: Array<{
