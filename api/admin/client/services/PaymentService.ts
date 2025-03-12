@@ -66,6 +66,7 @@ export class PaymentService {
     storeId?: string,
   }): CancelablePromise<({
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    isConnectPSSFF: boolean;
     salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -127,6 +128,7 @@ export class PaymentService {
     storeId?: string,
   }): CancelablePromise<{
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    isConnectPSSFF: boolean;
     salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -497,6 +499,7 @@ export class PaymentService {
     storeId?: string,
   }): CancelablePromise<{
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    isConnectPSSFF: boolean;
     salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;

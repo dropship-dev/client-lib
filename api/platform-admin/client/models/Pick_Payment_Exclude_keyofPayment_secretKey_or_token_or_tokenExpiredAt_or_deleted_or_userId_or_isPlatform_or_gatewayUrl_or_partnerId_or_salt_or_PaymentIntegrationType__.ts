@@ -24,5 +24,6 @@ export type Pick_Payment_Exclude_keyofPayment_secretKey_or_token_or_tokenExpired
   BNcode: string;
   UIVersion: number;
   environment: _36_Enums_EnvironmentType;
+  isConnectPSSFF: boolean;
 };
 
