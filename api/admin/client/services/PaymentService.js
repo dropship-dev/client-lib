@@ -10,6 +10,51 @@ class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
+    addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/payment/add-new-payment-onboarding',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createPaymentV2({ requestBody, fulfillmentAgencyId, storeId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/payment/create-payment-v2',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     createPayment({ requestBody, fulfillmentAgencyId, storeId, }) {
         return this.httpRequest.request({
             method: 'POST',
