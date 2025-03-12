@@ -153,6 +153,59 @@ export declare class PaymentService {
     getAllPayment({ fulfillmentAgencyId, storeId, }: {
         fulfillmentAgencyId?: number;
         storeId?: string;
+    }): CancelablePromise<Array<{
+        creator: {
+            role: _36_Enums_UserRole;
+            avatar: string;
+            email: string;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: string;
+        };
+        publishableKey: string;
+        isShowCompanyAddress: boolean;
+        companyAddress: string;
+        companyPhone: string;
+        companyName: string;
+        PaymentOnboarding: {
+            paymentId: number;
+            dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+            onboardingProducts: PrismaJson_OnboardingProducts;
+            paypalPartnerReferralId: string;
+            vettingRejectedAt: string;
+            customCardProcessingStatus: _36_Enums_CapabilityStatus;
+            PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+            oAuthIntegration: boolean;
+            paymentReceivable: boolean;
+            primaryEmailConfirmed: boolean;
+            onboardingStatus: _36_Enums_OnboardingStatus;
+            onboardingUrl: string;
+            onboardingId: string;
+            merchantEmail: string;
+            merchantId: string;
+            paymentType: _36_Enums_PaymentType;
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            storeId: string;
+            fulfillmentAgencyId: number;
+            id: number;
+        };
+        type: _36_Enums_PaymentType;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllPaymentV2({ fulfillmentAgencyId, storeId, }: {
+        fulfillmentAgencyId?: number;
+        storeId?: string;
     }): CancelablePromise<{
         paymentOnboarding: Array<{
             paymentId: number;
