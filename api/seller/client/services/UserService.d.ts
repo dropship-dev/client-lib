@@ -52,6 +52,7 @@ export declare class UserService {
     } & {
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+        isActive: boolean;
         firstLogin: boolean;
         maxStaffStores: number;
         maxOwnedStores: number;
@@ -74,6 +75,7 @@ export declare class UserService {
     deleteUser(): CancelablePromise<{
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+        isActive: boolean;
         firstLogin: boolean;
         maxStaffStores: number;
         maxOwnedStores: number;
@@ -98,6 +100,7 @@ export declare class UserService {
     }): CancelablePromise<{
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+        isActive: boolean;
         firstLogin: boolean;
         maxStaffStores: number;
         maxOwnedStores: number;

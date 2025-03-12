@@ -60,9 +60,9 @@ export declare class CollectionService {
                     price: number;
                 }>;
                 isEnable: boolean;
-                isActive: boolean;
                 permalink: string;
                 deleted: boolean;
+                isActive: boolean;
                 photos: PrismaJson_Photos;
                 name: string;
                 id: number;
@@ -135,7 +135,6 @@ export declare class CollectionService {
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
@@ -145,6 +144,7 @@ export declare class CollectionService {
         deleted: boolean;
         platformProductId: number;
         description: string;
+        isActive: boolean;
         photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;

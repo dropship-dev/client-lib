@@ -7,7 +7,6 @@ export type DefaultSelection_Prisma__36_PlatformProductPayload_ = {
     fulfillmentPlatform: DefaultSelection_Prisma__36_PlatformProductPayload_.fulfillmentPlatform;
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -15,6 +14,7 @@ export type DefaultSelection_Prisma__36_PlatformProductPayload_ = {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;

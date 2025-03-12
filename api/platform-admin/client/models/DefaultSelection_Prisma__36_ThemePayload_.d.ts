@@ -12,8 +12,8 @@ export type DefaultSelection_Prisma__36_ThemePayload_ = {
     logoSize: _36_Enums_LogoSize;
     logo: string;
     nodes: PrismaJson_ThemeNodes;
-    setting: PrismaJson_ThemeSetting;
     style: PrismaJson_ThemeStyle;
+    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;

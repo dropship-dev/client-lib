@@ -9,6 +9,7 @@ const MarketingService_1 = require("./services/MarketingService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const PerformanceService_1 = require("./services/PerformanceService");
+const PermissionService_1 = require("./services/PermissionService");
 const ReferralService_1 = require("./services/ReferralService");
 const SettingService_1 = require("./services/SettingService");
 const StatisticsService_1 = require("./services/StatisticsService");
@@ -23,6 +24,7 @@ class ClientApi {
     marketingEmail;
     notification;
     performance;
+    permission;
     referral;
     setting;
     statistics;
@@ -49,6 +51,7 @@ class ClientApi {
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
+        this.permission = new PermissionService_1.PermissionService(this.request);
         this.referral = new ReferralService_1.ReferralService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
         this.statistics = new StatisticsService_1.StatisticsService(this.request);

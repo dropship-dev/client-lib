@@ -86,16 +86,16 @@ export declare class StoreService {
             logoSize: _36_Enums_LogoSize;
             logo: string;
             nodes: PrismaJson_ThemeNodes;
-            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
+            setting: PrismaJson_ThemeSetting;
             name: string;
             updatedAt: string;
             createdAt: string;
             storeId: string;
             id: number;
             ThemeTemplate: {
-                link: string;
                 image: string;
+                link: string;
                 name: string;
                 updatedAt: string;
                 createdAt: string;

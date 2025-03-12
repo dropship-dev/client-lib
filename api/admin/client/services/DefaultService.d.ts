@@ -56,8 +56,8 @@ export declare class DefaultService {
                     price: number;
                 }>;
                 isEnable: boolean;
-                isActive: boolean;
                 deleted: boolean;
+                isActive: boolean;
                 photos: PrismaJson_Photos;
                 name: string;
                 id: number;
@@ -93,8 +93,8 @@ export declare class DefaultService {
                 price: number;
             }>;
             isEnable: boolean;
-            isActive: boolean;
             deleted: boolean;
+            isActive: boolean;
             photos: PrismaJson_Photos;
             name: string;
             id: number;
