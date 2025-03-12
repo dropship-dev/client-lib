@@ -69,6 +69,7 @@ export class UserService {
   } & {
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
@@ -105,6 +106,7 @@ export class UserService {
   public deleteUser(): CancelablePromise<{
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
@@ -143,6 +145,7 @@ export class UserService {
   }): CancelablePromise<{
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
@@ -208,6 +211,7 @@ export class UserService {
   } & {
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
@@ -276,6 +280,7 @@ export class UserService {
   } & {
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;

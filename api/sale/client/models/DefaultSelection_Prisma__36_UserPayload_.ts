@@ -7,6 +7,7 @@ import type { PrismaJson_FirebaseDeviceToken } from './PrismaJson_FirebaseDevice
 export type DefaultSelection_Prisma__36_UserPayload_ = {
   subscriptionId: string;
   firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+  isActive: boolean;
   firstLogin: boolean;
   maxStaffStores: number;
   maxOwnedStores: number;

@@ -50,10 +50,10 @@ export class BoostSalesService {
           price: number;
           photo: string;
           isEnable: boolean;
-          isActive: boolean;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;
+          isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
@@ -63,7 +63,6 @@ export class BoostSalesService {
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
@@ -73,6 +72,7 @@ export class BoostSalesService {
         deleted: boolean;
         platformProductId: number;
         description: string;
+        isActive: boolean;
         photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;
@@ -101,10 +101,10 @@ export class BoostSalesService {
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -114,7 +114,6 @@ export class BoostSalesService {
           podTemplateId: number;
           campaignId: string;
           isEnable: boolean;
-          isActive: boolean;
           supplierContact: string;
           variantOption: PrismaJson_VariantOptions;
           availableSet: PrismaJson_AvailableSet;
@@ -124,6 +123,7 @@ export class BoostSalesService {
           deleted: boolean;
           platformProductId: number;
           description: string;
+          isActive: boolean;
           photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
@@ -170,10 +170,10 @@ export class BoostSalesService {
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -183,7 +183,6 @@ export class BoostSalesService {
           podTemplateId: number;
           campaignId: string;
           isEnable: boolean;
-          isActive: boolean;
           supplierContact: string;
           variantOption: PrismaJson_VariantOptions;
           availableSet: PrismaJson_AvailableSet;
@@ -193,6 +192,7 @@ export class BoostSalesService {
           deleted: boolean;
           platformProductId: number;
           description: string;
+          isActive: boolean;
           photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
@@ -221,10 +221,10 @@ export class BoostSalesService {
               price: number;
               photo: string;
               isEnable: boolean;
-              isActive: boolean;
               variantOption: PrismaJson_VariantOptionValues;
               SKU: string;
               deleted: boolean;
+              isActive: boolean;
               name: string;
               updatedAt: string;
               createdAt: string;
@@ -234,7 +234,6 @@ export class BoostSalesService {
             podTemplateId: number;
             campaignId: string;
             isEnable: boolean;
-            isActive: boolean;
             supplierContact: string;
             variantOption: PrismaJson_VariantOptions;
             availableSet: PrismaJson_AvailableSet;
@@ -244,6 +243,7 @@ export class BoostSalesService {
             deleted: boolean;
             platformProductId: number;
             description: string;
+            isActive: boolean;
             photos: PrismaJson_Photos;
             shippingFeeAdditional: number;
             shippingFee: number;

@@ -37,7 +37,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -45,6 +44,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
@@ -102,7 +102,6 @@ export class PlatformProductService {
       fulfillmentPlatform: 'BETTA_SUP';
       fulfillmentPlatformQuoteId: string;
       isEnable: boolean;
-      isActive: boolean;
       supplierContact: string;
       variantOption: PrismaJson_VariantOptions;
       availableSet: PrismaJson_AvailableSet;
@@ -110,6 +109,7 @@ export class PlatformProductService {
       details: string;
       deleted: boolean;
       description: string;
+      isActive: boolean;
       photos: PrismaJson_Photos;
       name: string;
       updatedAt: string;
@@ -139,11 +139,11 @@ export class PlatformProductService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
         platformProductId: number;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -302,7 +302,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -310,6 +309,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
@@ -353,7 +353,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -361,6 +360,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
@@ -404,7 +404,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -412,6 +411,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
@@ -457,7 +457,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -465,6 +464,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
@@ -510,7 +510,6 @@ export class PlatformProductService {
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -518,6 +517,7 @@ export class PlatformProductService {
     details: string;
     deleted: boolean;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;

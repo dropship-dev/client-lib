@@ -20,6 +20,7 @@ export class MarketingService {
   }): CancelablePromise<{
     subscriptionId: string;
     firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+    isActive: boolean;
     firstLogin: boolean;
     maxStaffStores: number;
     maxOwnedStores: number;
