@@ -10,8 +10,10 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { AddNewPaymentOnboardingV1Dto } from '../models/AddNewPaymentOnboardingV1Dto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
+import type { CreatePaymentV1Dto } from '../models/CreatePaymentV1Dto';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { UpdatePaymentDto } from '../models/UpdatePaymentDto';
@@ -23,7 +25,38 @@ export class PaymentService {
    * @returns any Ok
    * @throws ApiError
    */
-  public createPayment({
+  public addNewPaymentOnboarding({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: AddNewPaymentOnboardingV1Dto,
+  }): CancelablePromise<{
+    onboardingId: number;
+    url: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/payment/add-new-payment-onboarding',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createPaymentV2({
     requestBody,
     fulfillmentAgencyId,
     storeId,
@@ -62,6 +95,64 @@ export class PaymentService {
     onboardingId: number;
     url: string;
   })> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/payment/create-payment-v2',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createPayment({
+    requestBody,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    requestBody: CreatePaymentV1Dto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<{
+    PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    salt: string;
+    environment: _36_Enums_EnvironmentType;
+    UIVersion: number;
+    deleted: boolean;
+    BNcode: string;
+    partnerId: string;
+    gatewayUrl: string;
+    tokenExpiredAt: string;
+    token: string;
+    secretKey: string;
+    publishableKey: string;
+    isPlatform: boolean;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    merchantId: string;
+    userId: string;
+    type: _36_Enums_PaymentType;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/payment',
