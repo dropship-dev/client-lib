@@ -303,7 +303,30 @@ export declare class PaymentService {
         requestBody: UpdatePaymentDto;
         fulfillmentAgencyId?: number;
         storeId?: string;
-    }): CancelablePromise<{
+    }): CancelablePromise<({
+        paymentId: number;
+        dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+        onboardingProducts: PrismaJson_OnboardingProducts;
+        paypalPartnerReferralId: string;
+        vettingRejectedAt: string;
+        customCardProcessingStatus: _36_Enums_CapabilityStatus;
+        PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+        oAuthIntegration: boolean;
+        paymentReceivable: boolean;
+        primaryEmailConfirmed: boolean;
+        onboardingStatus: _36_Enums_OnboardingStatus;
+        onboardingUrl: string;
+        onboardingId: string;
+        merchantEmail: string;
+        merchantId: string;
+        paymentType: _36_Enums_PaymentType;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        id: number;
+    } | {
         PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
         isConnectPSSFF: boolean;
         salt: string;
@@ -331,7 +354,7 @@ export declare class PaymentService {
         createdAt: string;
         fulfillmentAgencyId: number;
         id: number;
-    }>;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
