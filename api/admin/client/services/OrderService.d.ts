@@ -415,6 +415,9 @@ export declare class OrderService {
             fraudStatus: FraudStatusType;
         };
         Payment: {
+            PaymentOnboarding: {
+                id: number;
+            };
             type: _36_Enums_PaymentType;
             email: string;
             name: string;
