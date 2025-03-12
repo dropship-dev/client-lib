@@ -252,6 +252,7 @@ export declare class OrderService {
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
+            invitedDate: string;
             invitedById: number;
             currencyId: number;
             maxUsers: number;
