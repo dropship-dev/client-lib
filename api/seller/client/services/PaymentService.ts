@@ -296,6 +296,78 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId?: number,
     storeId?: string,
+  }): CancelablePromise<Array<{
+    creator: {
+      role: _36_Enums_UserRole;
+      avatar: string;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: string;
+    };
+    publishableKey: string;
+    isShowCompanyAddress: boolean;
+    companyAddress: string;
+    companyPhone: string;
+    companyName: string;
+    PaymentOnboarding: {
+      paymentId: number;
+      dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+      onboardingProducts: PrismaJson_OnboardingProducts;
+      paypalPartnerReferralId: string;
+      vettingRejectedAt: string;
+      customCardProcessingStatus: _36_Enums_CapabilityStatus;
+      PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+      oAuthIntegration: boolean;
+      paymentReceivable: boolean;
+      primaryEmailConfirmed: boolean;
+      onboardingStatus: _36_Enums_OnboardingStatus;
+      onboardingUrl: string;
+      onboardingId: string;
+      merchantEmail: string;
+      merchantId: string;
+      paymentType: _36_Enums_PaymentType;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      id: number;
+    };
+    type: _36_Enums_PaymentType;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/payment',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllPaymentV2({
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    storeId?: string,
   }): CancelablePromise<{
     paymentOnboarding: Array<{
       paymentId: number;
@@ -346,7 +418,7 @@ export class PaymentService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/payment',
+      url: '/payment/get-all-payment-v2',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
