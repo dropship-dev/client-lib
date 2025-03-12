@@ -1,7 +1,10 @@
+import type { _36_Enums_CapabilityStatus } from '../models/_36_Enums_CapabilityStatus';
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
 import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDetectionType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
@@ -10,7 +13,9 @@ import type { ApproveStoreDto } from '../models/ApproveStoreDto';
 import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_';
+import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_';
+import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
+import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
@@ -69,6 +74,30 @@ export declare class StoreService {
             closedAt: string;
             avatar: string;
             Payment: Array<{
+                PaymentOnboarding: {
+                    paymentId: number;
+                    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+                    onboardingProducts: PrismaJson_OnboardingProducts;
+                    paypalPartnerReferralId: string;
+                    vettingRejectedAt: string;
+                    customCardProcessingStatus: _36_Enums_CapabilityStatus;
+                    PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+                    oAuthIntegration: boolean;
+                    paymentReceivable: boolean;
+                    primaryEmailConfirmed: boolean;
+                    onboardingStatus: _36_Enums_OnboardingStatus;
+                    onboardingUrl: string;
+                    onboardingId: string;
+                    merchantEmail: string;
+                    merchantId: string;
+                    paymentType: _36_Enums_PaymentType;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    storeId: string;
+                    fulfillmentAgencyId: number;
+                    id: number;
+                };
                 type: _36_Enums_PaymentType;
                 name: string;
                 id: number;
@@ -170,7 +199,7 @@ export declare class StoreService {
     } & {
         fraudStatus?: FraudStatusType;
     } & {
-        Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_>;
+        Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_>;
     })>;
     /**
      * @returns any Ok
