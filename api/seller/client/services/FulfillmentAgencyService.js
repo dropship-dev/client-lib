@@ -26,5 +26,26 @@ class FulfillmentAgencyService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyJoinPlatform({ id, paymentType, onBoardingPaymentId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/verify-join-platform/payment/{paymentType}/onBoardingPayment/{onBoardingPaymentId}',
+            path: {
+                'id': id,
+                'paymentType': paymentType,
+                'onBoardingPaymentId': onBoardingPaymentId,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.FulfillmentAgencyService = FulfillmentAgencyService;
