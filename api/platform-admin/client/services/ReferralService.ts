@@ -241,6 +241,7 @@ export class ReferralService {
     limit?: number,
     cursor?: string,
   }): CancelablePromise<{
+    total: number;
     preCursor: boolean;
     nextCursor: string;
     data: Array<{
