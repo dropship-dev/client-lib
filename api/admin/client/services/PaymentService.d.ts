@@ -202,6 +202,7 @@ export declare class PaymentService {
                 createdAt: string;
                 id: string;
             };
+            isConnectPSSFF: boolean;
             publishableKey: string;
             isShowCompanyAddress: boolean;
             companyAddress: string;
