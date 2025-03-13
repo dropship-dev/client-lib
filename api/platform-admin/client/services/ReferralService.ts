@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { AddRefCodeDto } from '../models/AddRefCodeDto';
+import type { FilterStoreReferral } from '../models/FilterStoreReferral';
 import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
@@ -245,6 +246,7 @@ export class ReferralService {
     preCursor: boolean;
     nextCursor: string;
     data: Array<{
+      name: string;
       code: string;
       purchased: number;
       totalStore: number;
@@ -262,6 +264,58 @@ export class ReferralService {
         'endDate': endDate,
         'limit': limit,
         'cursor': cursor,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreManagement({
+    search,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    limit,
+    cursor,
+    type,
+  }: {
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    limit?: number,
+    cursor?: string,
+    type?: FilterStoreReferral,
+  }): CancelablePromise<{
+    total: number;
+    preCursor: boolean;
+    nextCursor: string;
+    data: Array<{
+      purchased: number;
+      id: string;
+      gmvSharePerSale: number;
+      gmv: number;
+      refCode: string;
+      fulfillmentAgencyName: string;
+      name: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/store-management',
+      query: {
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'limit': limit,
+        'cursor': cursor,
+        'type': type,
       },
       errors: {
         400: `Bad request`,
