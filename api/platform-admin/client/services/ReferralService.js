@@ -165,6 +165,31 @@ class ReferralService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreManagement({ search, startDate = '2023-01-01T00:00:00.000Z', endDate, limit, cursor, type, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/store-management',
+            query: {
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
+                'limit': limit,
+                'cursor': cursor,
+                'type': type,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns string Ok
      * @throws ApiError
      */

@@ -1,5 +1,6 @@
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { AddRefCodeDto } from '../models/AddRefCodeDto';
+import type { FilterStoreReferral } from '../models/FilterStoreReferral';
 import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
@@ -108,12 +109,38 @@ export declare class ReferralService {
         preCursor: boolean;
         nextCursor: string;
         data: Array<{
+            name: string;
             code: string;
             purchased: number;
             totalStore: number;
             id: number;
             gmvSharePerSale: number;
             gmv: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreManagement({ search, startDate, endDate, limit, cursor, type, }: {
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        cursor?: string;
+        type?: FilterStoreReferral;
+    }): CancelablePromise<{
+        total: number;
+        preCursor: boolean;
+        nextCursor: string;
+        data: Array<{
+            purchased: number;
+            id: string;
+            gmvSharePerSale: number;
+            gmv: number;
+            refCode: string;
+            fulfillmentAgencyName: string;
+            name: string;
         }>;
     }>;
     /**
