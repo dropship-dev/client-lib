@@ -10,6 +10,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { ActivePaymentSSFFDto } from '../models/ActivePaymentSSFFDto';
 import type { AddNewPaymentOnboardingV1Dto } from '../models/AddNewPaymentOnboardingV1Dto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
@@ -708,6 +709,34 @@ export class PaymentService {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public activePaymentSsff({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: ActivePaymentSSFFDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/payment/{id}/active-payment-ssff',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
