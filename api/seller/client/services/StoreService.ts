@@ -18,10 +18,7 @@ import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { CreateCouponDto } from '../models/CreateCouponDto';
 import type { CreateStoreDto } from '../models/CreateStoreDto';
 import type { DeleteCouponsDto } from '../models/DeleteCouponsDto';
-import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_';
 import type { PrismaJson_CouponCombination } from '../models/PrismaJson_CouponCombination';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
@@ -31,13 +28,11 @@ import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_Pr
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
-import type { Store } from '../models/Store';
-import type { StoreUser } from '../models/StoreUser';
+import type { StoreData } from '../models/StoreData';
 import type { UpdateCouponDto } from '../models/UpdateCouponDto';
 import type { UpdateCouponStatusDto } from '../models/UpdateCouponStatusDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreService {
@@ -248,32 +243,14 @@ export class StoreService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns StoreData Ok
    * @throws ApiError
    */
   public getStore({
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<(Store & {
-    FulfillmentAgency: (FulfillmentAgency & {
-      Setting: {
-        serviceFee: number | null;
-        percentageCostPlatformFee: number | null;
-        othersFee: number | null;
-      } | null;
-    }) | null;
-  } & {
-    StoreUser: Array<StoreUser>;
-  } & {
-    FraudDetection: Array<FraudDetection>;
-  } & {
-    Wallet: Array<Wallet>;
-  } & {
-    fraudStatus?: FraudStatusType;
-  } & {
-    Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_>;
-  })> {
+  }): CancelablePromise<StoreData> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}',
