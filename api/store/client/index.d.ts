@@ -57,6 +57,7 @@ export { _36_Enums_UserRole } from './models/_36_Enums_UserRole';
 export type { AbandonmentStatisticsDto } from './models/AbandonmentStatisticsDto';
 export { ActionOrderFraud } from './models/ActionOrderFraud';
 export { ActiveDetection } from './models/ActiveDetection';
+export type { ActivePaymentSSFFDto } from './models/ActivePaymentSSFFDto';
 export type { AddNewPaymentOnboardingV1Dto } from './models/AddNewPaymentOnboardingV1Dto';
 export type { AddPaymentToStores } from './models/AddPaymentToStores';
 export type { AddPlatformProductStoresDto } from './models/AddPlatformProductStoresDto';

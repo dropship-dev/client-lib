@@ -6,6 +6,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
+import type { ActivePaymentSSFFDto } from '../models/ActivePaymentSSFFDto';
 import type { AddNewPaymentOnboardingV1Dto } from '../models/AddNewPaymentOnboardingV1Dto';
 import type { AddPaymentToStores } from '../models/AddPaymentToStores';
 import type { CreatePaymentDto } from '../models/CreatePaymentDto';
@@ -405,6 +406,14 @@ export declare class PaymentService {
         id: number;
         fulfillmentAgencyId?: number;
         storeId?: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    activePaymentSsff({ id, requestBody, }: {
+        id: number;
+        requestBody: ActivePaymentSSFFDto;
     }): CancelablePromise<string>;
     /**
      * @returns any Ok
