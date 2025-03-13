@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { AddRefCodeDto } from '../models/AddRefCodeDto';
 import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
@@ -214,6 +215,76 @@ export class ReferralService {
         'startDate': startDate,
         'endDate': endDate,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public topReferralSale({
+    search,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    limit,
+    cursor,
+  }: {
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    limit?: number,
+    cursor?: string,
+  }): CancelablePromise<{
+    preCursor: boolean;
+    nextCursor: string;
+    data: Array<{
+      code: string;
+      purchased: number;
+      totalStore: number;
+      id: number;
+      gmvSharePerSale: number;
+      gmv: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/top-referral-sale',
+      query: {
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'limit': limit,
+        'cursor': cursor,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public addRefCode({
+    requestBody,
+  }: {
+    requestBody: AddRefCodeDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/referral/add-ref-code',
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
