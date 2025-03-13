@@ -1,6 +1,6 @@
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
-import type { FilterStoreStatus } from '../models/FilterStoreStatus';
+import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
 import type { UpdateRequestStatusDto } from '../models/UpdateRequestStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -37,7 +37,7 @@ export declare class SaleService {
         requestBody: UpdateRequestStatusDto;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns ResponsePaginateCursor_StoreTrackingPerformance_ Ok
      * @throws ApiError
      */
     getTrackingPerformance({ startDate, endDate, cursor, limit, search, status, sort, }: {
@@ -46,23 +46,7 @@ export declare class SaleService {
         cursor?: string;
         limit?: number;
         search?: string;
-        status?: FilterStoreStatus;
+        status?: Array<_36_Enums_StoreStatus>;
         sort?: sortTrackingPerformance;
-    }): CancelablePromise<({
-        nextCursor?: any;
-        preCursor: boolean;
-        cursor: any;
-        data: Array<any>;
-    } | {
-        cursor?: any;
-        preCursor: boolean;
-        nextCursor: string;
-        data: Array<{
-            status: _36_Enums_StoreStatus;
-            createdAt: string;
-            name: string;
-            id: string;
-            revenue: number;
-        }>;
-    })>;
+    }): CancelablePromise<ResponsePaginateCursor_StoreTrackingPerformance_>;
 }
