@@ -92,4 +92,53 @@ export class FulfillmentAgencyService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public verifyJoinPlatformV2({
+    paymentType,
+    onBoardingPaymentId,
+  }: {
+    paymentType: _36_Enums_PaymentType,
+    onBoardingPaymentId: number,
+  }): CancelablePromise<{
+    paymentId: number;
+    dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+    onboardingProducts: PrismaJson_OnboardingProducts;
+    paypalPartnerReferralId: string;
+    vettingRejectedAt: string;
+    customCardProcessingStatus: _36_Enums_CapabilityStatus;
+    PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+    oAuthIntegration: boolean;
+    paymentReceivable: boolean;
+    primaryEmailConfirmed: boolean;
+    onboardingStatus: _36_Enums_OnboardingStatus;
+    onboardingUrl: string;
+    onboardingId: string;
+    merchantEmail: string;
+    merchantId: string;
+    paymentType: _36_Enums_PaymentType;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    storeId: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/verify-join-platformV2/payment/{paymentType}/onBoardingPayment/{onBoardingPaymentId}',
+      path: {
+        'paymentType': paymentType,
+        'onBoardingPaymentId': onBoardingPaymentId,
+      },
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
