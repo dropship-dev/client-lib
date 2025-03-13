@@ -10,21 +10,16 @@ import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
-import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
-import type { Store } from '../models/Store';
-import type { StoreUser } from '../models/StoreUser';
+import type { StoreData } from '../models/StoreData';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class StoreService {
@@ -177,30 +172,12 @@ export declare class StoreService {
         id: string;
     }>>;
     /**
-     * @returns any Ok
+     * @returns StoreData Ok
      * @throws ApiError
      */
     getStore({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<(Store & {
-        FulfillmentAgency: (FulfillmentAgency & {
-            Setting: {
-                serviceFee: number | null;
-                percentageCostPlatformFee: number | null;
-                othersFee: number | null;
-            } | null;
-        }) | null;
-    } & {
-        StoreUser: Array<StoreUser>;
-    } & {
-        FraudDetection: Array<FraudDetection>;
-    } & {
-        Wallet: Array<Wallet>;
-    } & {
-        fraudStatus?: FraudStatusType;
-    } & {
-        Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding_>;
-    })>;
+    }): CancelablePromise<StoreData>;
     /**
      * @returns any Ok
      * @throws ApiError
