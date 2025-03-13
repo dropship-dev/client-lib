@@ -94,8 +94,8 @@ export declare class StoreService {
             storeId: string;
             id: number;
             ThemeTemplate: {
-                image: string;
                 link: string;
+                image: string;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
