@@ -21,6 +21,15 @@ export declare class PaymentService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    verifyJoinPlatformWithoutPayment({ storeId, merchantId, merchantIdInPayPal, }: {
+        storeId: string;
+        merchantId: string;
+        merchantIdInPayPal: string;
+    }): CancelablePromise<void>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -67,6 +76,17 @@ export declare class PaymentService {
      */
     addNewPaymentOnboarding({ fulfillmentAgencyId, requestBody, }: {
         fulfillmentAgencyId: number;
+        requestBody: AddNewPaymentOnboardingV1Dto;
+    }): CancelablePromise<{
+        onboardingId: number;
+        url: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    addNewPaymentOnboardingSsff({ storeId, requestBody, }: {
+        storeId: string;
         requestBody: AddNewPaymentOnboardingV1Dto;
     }): CancelablePromise<{
         onboardingId: number;

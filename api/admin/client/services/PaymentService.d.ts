@@ -34,6 +34,17 @@ export declare class PaymentService {
      * @returns any Ok
      * @throws ApiError
      */
+    addNewPaymentOnboardingSsff({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: AddNewPaymentOnboardingV1Dto;
+    }): CancelablePromise<{
+        onboardingId: number;
+        url: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     createPaymentV2({ requestBody, fulfillmentAgencyId, storeId, }: {
         requestBody: CreatePaymentDto;
         fulfillmentAgencyId?: number;

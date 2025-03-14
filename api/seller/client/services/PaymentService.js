@@ -7,6 +7,30 @@ class PaymentService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    verifyJoinPlatformWithoutPayment({ storeId, merchantId, merchantIdInPayPal, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/payments/verify-join-platform',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'merchantId': merchantId,
+                'merchantIdInPayPal': merchantIdInPayPal,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
@@ -99,6 +123,28 @@ class PaymentService {
             url: '/payment/add-new-payment-onboarding',
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    addNewPaymentOnboardingSsff({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/payment/add-new-payment-onboarding-seller-self-fulfillment',
+            query: {
+                'storeId': storeId,
             },
             body: requestBody,
             mediaType: 'application/json',
