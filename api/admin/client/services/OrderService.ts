@@ -436,6 +436,7 @@ export class OrderService {
     disputeStatus: _36_Enums_OrderDisputeStatus;
     isHandleEvents: boolean;
     fingerPrint: string;
+    paymentFee: number;
     paymentSource: string;
     timezoneLocalBrowser: string;
     fulfillmentStatus: _36_Enums_FulfillmentStatus;
@@ -963,6 +964,7 @@ export class OrderService {
     disputeStatus: _36_Enums_OrderDisputeStatus;
     isHandleEvents: boolean;
     fingerPrint: string;
+    paymentFee: number;
     paymentSource: string;
     timezoneLocalBrowser: string;
     fulfillmentCost: number;
