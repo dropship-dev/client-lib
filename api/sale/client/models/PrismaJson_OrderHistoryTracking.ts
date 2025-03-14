@@ -7,6 +7,8 @@ import type { HistoryTrackingType } from './HistoryTrackingType';
 export type PrismaJson_OrderHistoryTracking = Array<{
   createAt: string;
   detail: {
+    tracking?: string;
+    orderItemId?: string;
     quantity?: number;
     productVariant?: string;
     productName?: string;
