@@ -136,6 +136,7 @@ export declare class ReferralService {
         data: Array<{
             purchased: number;
             id: string;
+            aov: number;
             gmvSharePerSale: number;
             gmv: number;
             refCode: string;
