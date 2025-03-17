@@ -247,6 +247,36 @@ export class PermissionService {
     });
   }
   /**
+   * @returns void
+   * @throws ApiError
+   */
+  public updateUserStatus({
+    userId,
+    requestBody,
+  }: {
+    userId: string,
+    requestBody: {
+      isActive: boolean;
+    },
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/user/super-admin/account/{userId}/status',
+      path: {
+        'userId': userId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns CreateRoleRes Ok
    * @throws ApiError
    */
@@ -350,6 +380,35 @@ export class PermissionService {
   }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'DELETE',
+      url: '/super-admin/permission/role/{roleId}',
+      path: {
+        'roleId': roleId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getRoleById({
+    roleId,
+  }: {
+    roleId: number,
+  }): CancelablePromise<{
+    canDeleteRole: boolean;
+    permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+    name: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
       url: '/super-admin/permission/role/{roleId}',
       path: {
         'roleId': roleId,
