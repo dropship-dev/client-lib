@@ -110,6 +110,16 @@ export declare class PermissionService {
         requestBody: ChangePasswordDto;
     }): CancelablePromise<void>;
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateUserStatus({ userId, requestBody, }: {
+        userId: string;
+        requestBody: {
+            isActive: boolean;
+        };
+    }): CancelablePromise<void>;
+    /**
      * @returns CreateRoleRes Ok
      * @throws ApiError
      */
@@ -152,6 +162,18 @@ export declare class PermissionService {
     deleteRole({ roleId, }: {
         roleId: number;
     }): CancelablePromise<void>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRoleById({ roleId, }: {
+        roleId: number;
+    }): CancelablePromise<{
+        canDeleteRole: boolean;
+        permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+        name: string;
+        id: number;
+    }>;
     /**
      * @returns GetPermissionsRes Ok
      * @throws ApiError

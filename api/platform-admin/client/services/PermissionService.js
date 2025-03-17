@@ -154,6 +154,28 @@ class PermissionService {
         });
     }
     /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateUserStatus({ userId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PUT',
+            url: '/user/super-admin/account/{userId}/status',
+            path: {
+                'userId': userId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns CreateRoleRes Ok
      * @throws ApiError
      */
@@ -223,6 +245,26 @@ class PermissionService {
     deleteRole({ roleId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
+            url: '/super-admin/permission/role/{roleId}',
+            path: {
+                'roleId': roleId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRoleById({ roleId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
             url: '/super-admin/permission/role/{roleId}',
             path: {
                 'roleId': roleId,
