@@ -10,6 +10,7 @@ import { AuthService } from './services/AuthService';
 import { BankAccountService } from './services/BankAccountService';
 import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
+import { DefaultService } from './services/DefaultService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
@@ -42,6 +43,7 @@ export class ClientApi {
   public readonly bankAccount: BankAccountService;
   public readonly boostSales: BoostSalesService;
   public readonly currency: CurrencyService;
+  public readonly default: DefaultService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
   public readonly notification: NotificationService;
@@ -85,6 +87,7 @@ export class ClientApi {
     this.bankAccount = new BankAccountService(this.request);
     this.boostSales = new BoostSalesService(this.request);
     this.currency = new CurrencyService(this.request);
+    this.default = new DefaultService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
     this.notification = new NotificationService(this.request);
