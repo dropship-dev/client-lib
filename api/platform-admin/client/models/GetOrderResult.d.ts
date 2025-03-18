@@ -37,6 +37,9 @@ export type GetOrderResult = (Order & {
     })>;
     Transaction: Array<Transaction>;
     Payment: {
+        PaymentOnboarding: {
+            id?: number;
+        } | null;
         type: _36_Enums_PaymentType;
         email: string;
         name: string;

@@ -43,8 +43,8 @@ export declare class ThemeService {
             logoSize: _36_Enums_LogoSize;
             logo: string;
             nodes: PrismaJson_ThemeNodes;
-            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
+            setting: PrismaJson_ThemeSetting;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -78,8 +78,8 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
+        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -111,8 +111,8 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
+        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -157,8 +157,8 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
+        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -182,8 +182,8 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
+        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;

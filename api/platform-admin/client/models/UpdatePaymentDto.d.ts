@@ -7,4 +7,5 @@ export type UpdatePaymentDto = {
     companyPhone?: string;
     companyAddress?: string;
     isShowCompanyAddress?: boolean;
+    isConnectPayPalOnboarding?: boolean;
 };

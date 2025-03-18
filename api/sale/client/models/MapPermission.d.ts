@@ -1,0 +1,2 @@
+import type { Record_Permission_or_SuperAdminPermission_boolean_or_undefined_ } from './Record_Permission_or_SuperAdminPermission_boolean_or_undefined_';
+export type MapPermission = Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
