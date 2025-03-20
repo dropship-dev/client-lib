@@ -97,9 +97,6 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
-    onboardingId: number;
-    url: string;
-  } | {
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     isConnectPSSFF: boolean;
     salt: string;
@@ -127,6 +124,9 @@ export class PaymentService {
     createdAt: string;
     fulfillmentAgencyId: number;
     id: number;
+  } | {
+    onboardingId: number;
+    url: string;
   })> {
     return this.httpRequest.request({
       method: 'POST',
