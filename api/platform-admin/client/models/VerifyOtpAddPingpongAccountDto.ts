@@ -3,8 +3,13 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from './_36_Enums_CurrencyType';
-export type CreatePingPongAccountDto = {
+import type { OtpType } from './OtpType';
+export type VerifyOtpAddPingpongAccountDto = {
   email: string;
-  currency: _36_Enums_CurrencyType;
+  type: OtpType;
+  otp: string;
+  storeId: string;
+  currency?: _36_Enums_CurrencyType;
+  isDefault?: boolean;
 };
 
