@@ -50,9 +50,6 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<({
-        onboardingId: number;
-        url: string;
-    } | {
         PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
         isConnectPSSFF: boolean;
         salt: string;
@@ -80,6 +77,9 @@ export declare class PaymentService {
         createdAt: string;
         fulfillmentAgencyId: number;
         id: number;
+    } | {
+        onboardingId: number;
+        url: string;
     })>;
     /**
      * @returns any Ok
