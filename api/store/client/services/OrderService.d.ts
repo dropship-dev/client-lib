@@ -164,4 +164,14 @@ export declare class OrderService {
     }): CancelablePromise<{
         status: string;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRevenueOrder({ orderId, storeId, }: {
+        orderId: string;
+        storeId: string;
+    }): CancelablePromise<{
+        total: number;
+    }>;
 }
