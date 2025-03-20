@@ -1,6 +1,8 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
+import type { SendOtpAddPingpongAccountDto } from '../models/SendOtpAddPingpongAccountDto';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
+import type { VerifyOtpAddPingpongAccountDto } from '../models/VerifyOtpAddPingpongAccountDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PingPongAccountService {
@@ -43,6 +45,30 @@ export declare class PingPongAccountService {
         isDeleted: boolean;
         id: string;
     }>>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    sentOtpAddPingpongAccount({ requestBody, }: {
+        requestBody: SendOtpAddPingpongAccountDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyOtpAddPingpongAccount({ requestBody, }: {
+        requestBody: VerifyOtpAddPingpongAccountDto;
+    }): CancelablePromise<{
+        walletId: string;
+        isBlock: boolean;
+        isDefault: boolean;
+        currency: _36_Enums_CurrencyType;
+        email: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
