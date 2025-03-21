@@ -47,7 +47,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -57,6 +56,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
@@ -168,8 +168,8 @@ export class ProductService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         SKU: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -181,9 +181,9 @@ export class ProductService {
           price: number;
           photo: string;
           isEnable: boolean;
-          isActive: boolean;
           variantOption: PrismaJson_VariantOptionValues;
           platformProductId: number;
+          isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
@@ -201,10 +201,10 @@ export class ProductService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -231,7 +231,6 @@ export class ProductService {
       podTemplateId: number;
       campaignId: string;
       isEnable: boolean;
-      isActive: boolean;
       supplierContact: string;
       variantOption: PrismaJson_VariantOptions;
       availableSet: PrismaJson_AvailableSet;
@@ -241,6 +240,7 @@ export class ProductService {
       deleted: boolean;
       platformProductId: number;
       description: string;
+      isActive: boolean;
       photos: PrismaJson_Photos;
       shippingFeeAdditional: number;
       shippingFee: number;
@@ -321,7 +321,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -331,6 +330,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
@@ -373,7 +373,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -383,6 +382,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
@@ -429,8 +429,8 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       SKU: string;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -446,11 +446,11 @@ export class ProductService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
         platformProductId: number;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -472,10 +472,10 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -511,10 +511,10 @@ export class ProductService {
           price: number;
           photo: string;
           isEnable: boolean;
-          isActive: boolean;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;
+          isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
@@ -524,7 +524,6 @@ export class ProductService {
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
@@ -534,6 +533,7 @@ export class ProductService {
         deleted: boolean;
         platformProductId: number;
         description: string;
+        isActive: boolean;
         photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;
@@ -562,10 +562,10 @@ export class ProductService {
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -575,7 +575,6 @@ export class ProductService {
           podTemplateId: number;
           campaignId: string;
           isEnable: boolean;
-          isActive: boolean;
           supplierContact: string;
           variantOption: PrismaJson_VariantOptions;
           availableSet: PrismaJson_AvailableSet;
@@ -585,6 +584,7 @@ export class ProductService {
           deleted: boolean;
           platformProductId: number;
           description: string;
+          isActive: boolean;
           photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
@@ -650,10 +650,10 @@ export class ProductService {
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -663,7 +663,6 @@ export class ProductService {
           podTemplateId: number;
           campaignId: string;
           isEnable: boolean;
-          isActive: boolean;
           supplierContact: string;
           variantOption: PrismaJson_VariantOptions;
           availableSet: PrismaJson_AvailableSet;
@@ -673,6 +672,7 @@ export class ProductService {
           deleted: boolean;
           platformProductId: number;
           description: string;
+          isActive: boolean;
           photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
@@ -701,10 +701,10 @@ export class ProductService {
               price: number;
               photo: string;
               isEnable: boolean;
-              isActive: boolean;
               variantOption: PrismaJson_VariantOptionValues;
               SKU: string;
               deleted: boolean;
+              isActive: boolean;
               name: string;
               updatedAt: string;
               createdAt: string;
@@ -714,7 +714,6 @@ export class ProductService {
             podTemplateId: number;
             campaignId: string;
             isEnable: boolean;
-            isActive: boolean;
             supplierContact: string;
             variantOption: PrismaJson_VariantOptions;
             availableSet: PrismaJson_AvailableSet;
@@ -724,6 +723,7 @@ export class ProductService {
             deleted: boolean;
             platformProductId: number;
             description: string;
+            isActive: boolean;
             photos: PrismaJson_Photos;
             shippingFeeAdditional: number;
             shippingFee: number;
@@ -797,28 +797,7 @@ export class ProductService {
   }: {
     storeId: string,
     permalink: string,
-  }): CancelablePromise<{
-    podTemplateId: number;
-    campaignId: string;
-    isEnable: boolean;
-    isActive: boolean;
-    supplierContact: string;
-    variantOption: PrismaJson_VariantOptions;
-    availableSet: PrismaJson_AvailableSet;
-    SKU: string;
-    details: string;
-    permalink: string;
-    deleted: boolean;
-    platformProductId: number;
-    description: string;
-    photos: PrismaJson_Photos;
-    shippingFeeAdditional: number;
-    shippingFee: number;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
+  }): CancelablePromise<({
     Campaign: ({
       listDiscount: Array<{
         requirementDiscount: PrismaJson_ProductRequirementItems;
@@ -857,8 +836,8 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       SKU: string;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -874,11 +853,11 @@ export class ProductService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
         platformProductId: number;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -900,10 +879,10 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -943,7 +922,29 @@ export class ProductService {
       variantOption: PrismaJson_VariantOptions;
       id: number;
     };
-  }> {
+  } & {
+    podTemplateId: number;
+    campaignId: string;
+    isEnable: boolean;
+    supplierContact: string;
+    variantOption: PrismaJson_VariantOptions;
+    availableSet: PrismaJson_AvailableSet;
+    SKU: string;
+    details: string;
+    permalink: string;
+    deleted: boolean;
+    platformProductId: number;
+    description: string;
+    isActive: boolean;
+    photos: PrismaJson_Photos;
+    shippingFeeAdditional: number;
+    shippingFee: number;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product/permalink-side-store',
@@ -1108,8 +1109,8 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       SKU: string;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -1134,10 +1135,10 @@ export class ProductService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -1177,7 +1178,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -1187,6 +1187,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
@@ -1231,7 +1232,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -1241,6 +1241,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
@@ -1348,7 +1349,6 @@ export class ProductService {
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
-    isActive: boolean;
     supplierContact: string;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
@@ -1358,6 +1358,7 @@ export class ProductService {
     deleted: boolean;
     platformProductId: number;
     description: string;
+    isActive: boolean;
     photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;

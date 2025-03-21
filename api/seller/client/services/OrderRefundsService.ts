@@ -71,8 +71,8 @@ export class OrderRefundsService {
           price: number;
           photo: string;
           isEnable: boolean;
-          isActive: boolean;
           SKU: string;
+          isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
@@ -88,11 +88,11 @@ export class OrderRefundsService {
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
             platformProductId: number;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -114,10 +114,10 @@ export class OrderRefundsService {
           price: number;
           photo: string;
           isEnable: boolean;
-          isActive: boolean;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;
+          isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
@@ -169,6 +169,8 @@ export class OrderRefundsService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedDate: string;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;
@@ -207,6 +209,8 @@ export class OrderRefundsService {
       disputeStatus: _36_Enums_OrderDisputeStatus;
       isHandleEvents: boolean;
       fingerPrint: string;
+      paymentFee: number;
+      paymentSource: string;
       timezoneLocalBrowser: string;
       fulfillmentCost: number;
       fulfillmentStatus: _36_Enums_FulfillmentStatus;
@@ -221,7 +225,6 @@ export class OrderRefundsService {
       gatewayOrderId: string;
       supplierCost: number;
       lastBalance: number;
-      discount: number;
       discountShippingFee: number;
       noItems: number;
       tax: number;
@@ -240,6 +243,7 @@ export class OrderRefundsService {
       address1: string;
       domain: string;
       serviceFee: number;
+      discount: number;
       paymentId: number;
       merchantId: string;
       currencyId: number;

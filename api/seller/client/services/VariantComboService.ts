@@ -33,8 +33,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -87,8 +87,8 @@ export class VariantComboService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       SKU: string;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -231,8 +231,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -279,8 +279,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -327,8 +327,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -375,8 +375,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;

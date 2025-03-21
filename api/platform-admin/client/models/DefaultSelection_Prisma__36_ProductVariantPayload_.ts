@@ -17,10 +17,10 @@ export type DefaultSelection_Prisma__36_ProductVariantPayload_ = {
   price: number;
   photo: string;
   isEnable: boolean;
-  isActive: boolean;
   variantOption: PrismaJson_VariantOptionValues;
   SKU: string;
   deleted: boolean;
+  isActive: boolean;
   name: string;
   updatedAt: string;
   createdAt: string;

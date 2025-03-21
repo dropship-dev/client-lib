@@ -114,6 +114,8 @@ export class RequestPayoutService {
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
+        invitedDate: string;
+        invitedById: number;
         currencyId: number;
         maxUsers: number;
         balance: number;

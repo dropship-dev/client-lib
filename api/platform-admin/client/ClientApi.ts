@@ -12,6 +12,8 @@ import { MarketingService } from './services/MarketingService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
+import { PermissionService } from './services/PermissionService';
+import { ReferralService } from './services/ReferralService';
 import { SettingService } from './services/SettingService';
 import { StatisticsService } from './services/StatisticsService';
 import { SubscriptionService } from './services/SubscriptionService';
@@ -26,6 +28,8 @@ export class ClientApi {
   public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
   public readonly performance: PerformanceService;
+  public readonly permission: PermissionService;
+  public readonly referral: ReferralService;
   public readonly setting: SettingService;
   public readonly statistics: StatisticsService;
   public readonly subscription: SubscriptionService;
@@ -51,6 +55,8 @@ export class ClientApi {
     this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
     this.performance = new PerformanceService(this.request);
+    this.permission = new PermissionService(this.request);
+    this.referral = new ReferralService(this.request);
     this.setting = new SettingService(this.request);
     this.statistics = new StatisticsService(this.request);
     this.subscription = new SubscriptionService(this.request);
