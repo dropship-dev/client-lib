@@ -7,10 +7,10 @@ import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCa
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
-import type { _36_Enums_FulfillmentPlatformIntegrationStatus } from '../models/_36_Enums_FulfillmentPlatformIntegrationStatus';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
+import type { ChangeFulfillmentPlatformSellerDto } from '../models/ChangeFulfillmentPlatformSellerDto';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
@@ -512,17 +512,9 @@ export class FulfillmentAgencyService {
     id: number,
     platform: _36_Enums_FulfillmentPlatform,
   }): CancelablePromise<{
-    lastRequestedAt: string;
-    isLinked: boolean;
-    apiKey: string;
-    fulfillmentPlatformAPIKey: string;
-    platform: 'BETTA_SUP';
-    fulfillmentPlatformSupplierId: number;
-    status: _36_Enums_FulfillmentPlatformIntegrationStatus;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
+    lastRequestedAt: any;
+    supplierEmail: any;
+    status: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -543,7 +535,7 @@ export class FulfillmentAgencyService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public integrateWithFulfillmentPlatform({
@@ -552,22 +544,69 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
     requestBody: IntegrationWithFulfillmentPlatformDto,
-  }): CancelablePromise<{
-    lastRequestedAt: string;
-    isLinked: boolean;
-    apiKey: string;
-    fulfillmentPlatformAPIKey: string;
-    platform: 'BETTA_SUP';
-    fulfillmentPlatformSupplierId: number;
-    status: _36_Enums_FulfillmentPlatformIntegrationStatus;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
-  }> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public checkUnfulfilledOrdersFromFulfillmentPlatform({
+    id,
+    platform,
+  }: {
+    id: number,
+    platform: _36_Enums_FulfillmentPlatform,
+  }): CancelablePromise<{
+    unfulfilledOrders: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/check-unfulfilled-orders-from-fulfillment-platform',
+      path: {
+        'id': id,
+      },
+      query: {
+        'platform': platform,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public changeFulfillmentPlatformSeller({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: ChangeFulfillmentPlatformSellerDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/fulfillment-agency/{id}/change-fulfillment-platform-seller',
       path: {
         'id': id,
       },

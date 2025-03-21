@@ -2,7 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type CheckIntegrationDto = {
-  apiKey?: string | null;
+export type SearchBettaSupSellersParams = {
+  cursor?: string | null;
+  pageSize?: number;
+  email?: string;
 };
 

@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_FulfillmentPlatform } from './_36_Enums_FulfillmentPlatform';
-export type IntegrationWithFulfillmentPlatformDto = {
+export type ChangeFulfillmentPlatformSellerDto = {
   platform: _36_Enums_FulfillmentPlatform;
-  email?: string;
-  sellerUserId?: number;
+  email: string;
+  sellerUserId: number;
 };
 

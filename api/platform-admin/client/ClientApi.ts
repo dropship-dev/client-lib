@@ -8,6 +8,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { FulfillmentPlatformIntegrationService } from './services/FulfillmentPlatformIntegrationService';
 import { MarketingService } from './services/MarketingService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
@@ -24,6 +25,7 @@ export class ClientApi {
   public readonly asyncTask: AsyncTaskService;
   public readonly auth: AuthService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly fulfillmentPlatformIntegration: FulfillmentPlatformIntegrationService;
   public readonly marketing: MarketingService;
   public readonly marketingEmail: MarketingEmailService;
   public readonly notification: NotificationService;
@@ -51,6 +53,7 @@ export class ClientApi {
     this.asyncTask = new AsyncTaskService(this.request);
     this.auth = new AuthService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.fulfillmentPlatformIntegration = new FulfillmentPlatformIntegrationService(this.request);
     this.marketing = new MarketingService(this.request);
     this.marketingEmail = new MarketingEmailService(this.request);
     this.notification = new NotificationService(this.request);
