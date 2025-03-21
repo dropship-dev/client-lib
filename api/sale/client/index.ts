@@ -32,6 +32,7 @@ export { _36_Enums_FulfillmentAgencyRole } from './models/_36_Enums_FulfillmentA
 export { _36_Enums_FulfillmentAgencyStatus } from './models/_36_Enums_FulfillmentAgencyStatus';
 export { _36_Enums_FulfillmentAgencyType } from './models/_36_Enums_FulfillmentAgencyType';
 export { _36_Enums_FulfillmentPlatform } from './models/_36_Enums_FulfillmentPlatform';
+export { _36_Enums_FulfillmentPlatformIntegrationStatus } from './models/_36_Enums_FulfillmentPlatformIntegrationStatus';
 export { _36_Enums_FulfillmentStatus } from './models/_36_Enums_FulfillmentStatus';
 export { _36_Enums_LogoSize } from './models/_36_Enums_LogoSize';
 export { _36_Enums_MarketingType } from './models/_36_Enums_MarketingType';
