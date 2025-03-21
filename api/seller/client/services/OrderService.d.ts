@@ -154,8 +154,8 @@ export declare class OrderService {
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                SKU: string;
                 isActive: boolean;
+                SKU: string;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
@@ -171,11 +171,11 @@ export declare class OrderService {
                     price: number;
                     photo: string;
                     isEnable: boolean;
+                    isActive: boolean;
                     variantOption: PrismaJson_VariantOptionValues;
                     SKU: string;
                     deleted: boolean;
                     platformProductId: number;
-                    isActive: boolean;
                     name: string;
                     updatedAt: string;
                     createdAt: string;
@@ -197,10 +197,10 @@ export declare class OrderService {
                 price: number;
                 photo: string;
                 isEnable: boolean;
+                isActive: boolean;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
-                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
@@ -252,8 +252,6 @@ export declare class OrderService {
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
-            invitedDate: string;
-            invitedById: number;
             currencyId: number;
             maxUsers: number;
             balance: number;
@@ -292,8 +290,6 @@ export declare class OrderService {
         disputeStatus: _36_Enums_OrderDisputeStatus;
         isHandleEvents: boolean;
         fingerPrint: string;
-        paymentFee: number;
-        paymentSource: string;
         timezoneLocalBrowser: string;
         fulfillmentCost: number;
         fulfillmentStatus: _36_Enums_FulfillmentStatus;
@@ -308,6 +304,7 @@ export declare class OrderService {
         gatewayOrderId: string;
         supplierCost: number;
         lastBalance: number;
+        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
@@ -326,7 +323,6 @@ export declare class OrderService {
         address1: string;
         domain: string;
         serviceFee: number;
-        discount: number;
         paymentId: number;
         merchantId: string;
         currencyId: number;

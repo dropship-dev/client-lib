@@ -66,6 +66,7 @@ export declare class StoreTagService {
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
+        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
@@ -75,7 +76,6 @@ export declare class StoreTagService {
         deleted: boolean;
         platformProductId: number;
         description: string;
-        isActive: boolean;
         photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;

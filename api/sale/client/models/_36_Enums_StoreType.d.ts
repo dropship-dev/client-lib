@@ -1,4 +1,0 @@
-export declare enum _36_Enums_StoreType {
-    DEPENDENT_STORE = "DEPENDENT_STORE",
-    SELF_FULFILLING_STORE = "SELF_FULFILLING_STORE"
-}

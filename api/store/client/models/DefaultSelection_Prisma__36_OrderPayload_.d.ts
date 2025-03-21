@@ -8,8 +8,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     disputeStatus: _36_Enums_OrderDisputeStatus;
     isHandleEvents: boolean;
     fingerPrint: string;
-    paymentFee: number;
-    paymentSource: string;
     timezoneLocalBrowser: string;
     fulfillmentCost: number;
     fulfillmentStatus: _36_Enums_FulfillmentStatus;
@@ -24,6 +22,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     gatewayOrderId: string;
     supplierCost: number;
     lastBalance: number;
+    discount: number;
     discountShippingFee: number;
     noItems: number;
     tax: number;
@@ -42,7 +41,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     address1: string;
     domain: string;
     serviceFee: number;
-    discount: number;
     paymentId: number;
     merchantId: string;
     currencyId: number;

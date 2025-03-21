@@ -3,9 +3,9 @@ import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
 export type DefaultSelection_Prisma__36_ThemeLibraryPayload_ = {
     nodes: PrismaJson_ThemeNodes;
+    setting: PrismaJson_ThemeSetting;
     style: PrismaJson_ThemeStyle;
     image: string;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;

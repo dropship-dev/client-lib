@@ -56,7 +56,7 @@ class StoreService {
         });
     }
     /**
-     * @returns StoreData Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getStore({ storeId, }) {

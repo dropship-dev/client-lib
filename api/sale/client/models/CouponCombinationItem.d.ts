@@ -1,5 +1,0 @@
-export declare enum CouponCombinationItem {
-    CROSS_SELL_AND_UPSELL = "CROSS_SELL_AND_UPSELL",
-    ORDER_DISCOUNT = "ORDER_DISCOUNT",
-    SHIPPING_DISCOUNT = "SHIPPING_DISCOUNT"
-}
