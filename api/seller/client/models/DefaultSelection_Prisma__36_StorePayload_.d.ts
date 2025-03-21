@@ -5,6 +5,8 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedDate: string;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;

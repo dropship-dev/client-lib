@@ -45,6 +45,8 @@ export declare class RequestSourcingService {
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;
+                invitedDate: string;
+                invitedById: number;
                 currencyId: number;
                 maxUsers: number;
                 balance: number;
@@ -112,6 +114,8 @@ export declare class RequestSourcingService {
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
+            invitedDate: string;
+            invitedById: number;
             currencyId: number;
             maxUsers: number;
             balance: number;
