@@ -7,5 +7,4 @@ export enum _36_Enums_UserRole {
   ADMIN = 'ADMIN',
   SELLER = 'SELLER',
   MARKETING = 'MARKETING',
-  SALE = 'SALE',
 }

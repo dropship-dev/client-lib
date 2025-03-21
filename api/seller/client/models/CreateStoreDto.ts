@@ -13,6 +13,5 @@ export type CreateStoreDto = {
   storeType?: _36_Enums_StoreType;
   phone?: PhoneWithCountryCode;
   address?: string;
-  referralCode?: string;
 };
 

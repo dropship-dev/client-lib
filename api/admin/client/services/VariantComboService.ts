@@ -35,8 +35,8 @@ export class VariantComboService {
       price: number;
       photo: string;
       isEnable: boolean;
-      SKU: string;
       isActive: boolean;
+      SKU: string;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -85,8 +85,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    SKU: string;
     isActive: boolean;
+    SKU: string;
     name: string;
     updatedAt: string;
     createdAt: string;
