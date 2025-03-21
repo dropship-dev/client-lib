@@ -5,6 +5,7 @@ const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
 const AsyncTaskService_1 = require("./services/AsyncTaskService");
 const AuthService_1 = require("./services/AuthService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+const FulfillmentPlatformIntegrationService_1 = require("./services/FulfillmentPlatformIntegrationService");
 const MarketingService_1 = require("./services/MarketingService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
@@ -20,6 +21,7 @@ class ClientApi {
     asyncTask;
     auth;
     fulfillmentAgency;
+    fulfillmentPlatformIntegration;
     marketing;
     marketingEmail;
     notification;
@@ -47,6 +49,7 @@ class ClientApi {
         this.asyncTask = new AsyncTaskService_1.AsyncTaskService(this.request);
         this.auth = new AuthService_1.AuthService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
+        this.fulfillmentPlatformIntegration = new FulfillmentPlatformIntegrationService_1.FulfillmentPlatformIntegrationService(this.request);
         this.marketing = new MarketingService_1.MarketingService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
