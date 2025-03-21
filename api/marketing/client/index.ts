@@ -344,7 +344,6 @@ export { Period } from './models/Period';
 export { Permission } from './models/Permission';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
 export type { PhotoDto } from './models/PhotoDto';
-export type { Pick_Payment_Exclude_keyofPayment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding__ } from './models/Pick_Payment_Exclude_keyofPayment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_or_PaymentIntegrationType_or_isConnectPSSFF_or_PaymentOnboarding__';
 export type { PingPongAccount } from './models/PingPongAccount';
 export { PlacementBoostSaleEnum } from './models/PlacementBoostSaleEnum';
 export type { PlatformProduct } from './models/PlatformProduct';
