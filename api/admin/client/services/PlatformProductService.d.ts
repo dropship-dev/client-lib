@@ -28,6 +28,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -67,6 +68,7 @@ export declare class PlatformProductService {
         data: Array<{
             collectionDefaultId: number;
             isInSyncWithFulfillmentPlatform: boolean;
+            fulfillmentPlatformSupplierId: number;
             fulfillmentPlatform: 'BETTA_SUP';
             fulfillmentPlatformQuoteId: string;
             isEnable: boolean;
@@ -179,6 +181,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -207,6 +210,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -236,6 +240,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -265,6 +270,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -294,6 +300,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;

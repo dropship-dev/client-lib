@@ -3,6 +3,7 @@ import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCa
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
+import type { _36_Enums_FulfillmentPlatformIntegrationStatus } from '../models/_36_Enums_FulfillmentPlatformIntegrationStatus';
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
@@ -323,10 +324,13 @@ export declare class FulfillmentAgencyService {
         id: number;
         platform: _36_Enums_FulfillmentPlatform;
     }): CancelablePromise<{
-        fulfillmentPlatformAPIKey: string;
-        platform: 'BETTA_SUP';
+        lastRequestedAt: string;
         isLinked: boolean;
         apiKey: string;
+        fulfillmentPlatformAPIKey: string;
+        platform: 'BETTA_SUP';
+        fulfillmentPlatformSupplierId: number;
+        status: _36_Enums_FulfillmentPlatformIntegrationStatus;
         updatedAt: string;
         createdAt: string;
         fulfillmentAgencyId: number;
@@ -340,10 +344,13 @@ export declare class FulfillmentAgencyService {
         id: number;
         requestBody: IntegrationWithFulfillmentPlatformDto;
     }): CancelablePromise<{
-        fulfillmentPlatformAPIKey: string;
-        platform: 'BETTA_SUP';
+        lastRequestedAt: string;
         isLinked: boolean;
         apiKey: string;
+        fulfillmentPlatformAPIKey: string;
+        platform: 'BETTA_SUP';
+        fulfillmentPlatformSupplierId: number;
+        status: _36_Enums_FulfillmentPlatformIntegrationStatus;
         updatedAt: string;
         createdAt: string;
         fulfillmentAgencyId: number;
