@@ -83,6 +83,7 @@ export class PlatformProductService {
     isActive,
     startPrice,
     endPrice,
+    fulfillmentPlatform,
   }: {
     fulfillmentAgencyId: number,
     pageSize?: number,
@@ -92,6 +93,7 @@ export class PlatformProductService {
     isActive?: boolean,
     startPrice?: number,
     endPrice?: number,
+    fulfillmentPlatform?: any,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -118,6 +120,9 @@ export class PlatformProductService {
       createdAt: string;
       fulfillmentAgencyId: number;
       id: number;
+      FulfillmentPlatformSupplier: {
+        platform: 'BETTA_SUP';
+      };
       GroupPlatformVariant: Array<({
         PlatformVariant: Array<{
           photo: string;
@@ -178,6 +183,7 @@ export class PlatformProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
+        'fulfillmentPlatform': fulfillmentPlatform,
       },
       errors: {
         400: `Bad request`,

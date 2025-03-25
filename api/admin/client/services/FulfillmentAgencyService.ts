@@ -10,7 +10,6 @@ import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_Fulfillm
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
-import type { ChangeFulfillmentPlatformSellerDto } from '../models/ChangeFulfillmentPlatformSellerDto';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
@@ -602,7 +601,7 @@ export class FulfillmentAgencyService {
     requestBody,
   }: {
     id: number,
-    requestBody: ChangeFulfillmentPlatformSellerDto,
+    requestBody: IntegrationWithFulfillmentPlatformDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
