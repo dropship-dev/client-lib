@@ -102,6 +102,7 @@ export declare class OrderService {
                 status: _36_Enums_TransactionStatus;
             }>;
             Payment: {
+                deleted: boolean;
                 type: _36_Enums_PaymentType;
                 email: string;
                 name: string;
