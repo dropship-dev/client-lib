@@ -21,6 +21,7 @@ export type DetailOrderDto = (Order & {
   };
   Transaction: Array<Transaction>;
   Payment: {
+    deleted: boolean;
     email: string;
     type: _36_Enums_PaymentType;
     name: string;
