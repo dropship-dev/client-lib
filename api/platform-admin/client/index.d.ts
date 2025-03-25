@@ -88,7 +88,6 @@ export type { BuyDomainDto } from './models/BuyDomainDto';
 export type { Campaign } from './models/Campaign';
 export type { CampaignDto } from './models/CampaignDto';
 export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
-export type { ChangeFulfillmentPlatformSellerDto } from './models/ChangeFulfillmentPlatformSellerDto';
 export type { ChangeIntegrationStatusDto } from './models/ChangeIntegrationStatusDto';
 export type { ChangePasswordDto } from './models/ChangePasswordDto';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';

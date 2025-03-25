@@ -51,7 +51,7 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: number;
@@ -60,6 +60,7 @@ export declare class PlatformProductService {
         isActive?: boolean;
         startPrice?: number;
         endPrice?: number;
+        fulfillmentPlatform?: any;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -86,6 +87,9 @@ export declare class PlatformProductService {
             createdAt: string;
             fulfillmentAgencyId: number;
             id: number;
+            FulfillmentPlatformSupplier: {
+                platform: 'BETTA_SUP';
+            };
             GroupPlatformVariant: Array<({
                 PlatformVariant: Array<{
                     photo: string;
