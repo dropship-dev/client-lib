@@ -315,6 +315,7 @@ export declare class OrderService {
                     id: number;
                 };
                 Product: {
+                    platformProductId: number;
                     name: string;
                     id: number;
                 };
@@ -392,6 +393,12 @@ export declare class OrderService {
             updatedAt: string;
             createdAt: string;
             storeId: string;
+            id: number;
+        }>;
+        fulfillmentPlatformSuppliers: Array<{
+            FulfillmentPlatformSupplier: {
+                platform: 'BETTA_SUP';
+            };
             id: number;
         }>;
         fraudStatus: FraudStatusType;
