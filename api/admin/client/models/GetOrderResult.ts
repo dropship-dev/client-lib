@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_FulfillmentPlatform } from './_36_Enums_FulfillmentPlatform';
 import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 import type { FraudDetection } from './FraudDetection';
 import type { FraudStatusType } from './FraudStatusType';
@@ -13,6 +14,12 @@ import type { ProductVariant } from './ProductVariant';
 import type { Transaction } from './Transaction';
 import type { VariantCombo } from './VariantCombo';
 export type GetOrderResult = (Order & {
+  fulfillmentPlatformSuppliers: Array<{
+    FulfillmentPlatformSupplier: {
+      platform: _36_Enums_FulfillmentPlatform;
+    } | null;
+    id: number;
+  }>;
   fraudStatus?: FraudStatusType;
   OrderRefund: Array<OrderRefund>;
   Store: {
@@ -34,6 +41,7 @@ export type GetOrderResult = (Order & {
     ProductVariant: (ProductVariant & {
       PlatformVariant: PlatformVariant | null;
       Product: {
+        platformProductId: number | null;
         name: string;
         id: number;
       };
