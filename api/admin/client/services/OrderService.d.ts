@@ -518,6 +518,7 @@ export declare class OrderService {
         noItems: number;
         tax: number;
         profitFulfillAdmin: number;
+        profitWithoutDeducted: number;
         profit: number;
         subTotal: number;
         totalUSD: number;
