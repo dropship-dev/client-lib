@@ -12,6 +12,7 @@ import type { ProductVariant } from './ProductVariant';
 import type { Transaction } from './Transaction';
 import type { VariantCombo } from './VariantCombo';
 export type DetailOrderDto = (Order & {
+  isDeductedProfit?: boolean | null;
   Store: {
     email: string;
     avatar: string | null;
