@@ -84,6 +84,7 @@ export class PlatformProductService {
     startPrice,
     endPrice,
     fulfillmentPlatform,
+    haveCollection,
   }: {
     fulfillmentAgencyId: number,
     pageSize?: number,
@@ -94,6 +95,7 @@ export class PlatformProductService {
     startPrice?: number,
     endPrice?: number,
     fulfillmentPlatform?: any,
+    haveCollection?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -184,6 +186,7 @@ export class PlatformProductService {
         'startPrice': startPrice,
         'endPrice': endPrice,
         'fulfillmentPlatform': fulfillmentPlatform,
+        'haveCollection': haveCollection,
       },
       errors: {
         400: `Bad request`,
