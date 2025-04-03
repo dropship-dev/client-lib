@@ -51,7 +51,7 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, }: {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: number;
@@ -61,6 +61,7 @@ export declare class PlatformProductService {
         startPrice?: number;
         endPrice?: number;
         fulfillmentPlatform?: any;
+        haveCollection?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
