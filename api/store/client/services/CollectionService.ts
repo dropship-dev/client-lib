@@ -159,6 +159,17 @@ export class CollectionService {
         compareAtPrice: number;
         price: number;
       }>;
+      Review: Array<{
+        comment: string;
+        rating: number;
+        productId: number;
+        photos: PrismaJson_Photos;
+        email: string | null;
+        name: string | null;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
       deleted: boolean;
       isEnable: boolean;
       isActive: boolean;
