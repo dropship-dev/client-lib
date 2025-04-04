@@ -7,6 +7,7 @@ import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
 import { DefaultService } from './services/DefaultService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { FulfillmentPlatformIntegrationService } from './services/FulfillmentPlatformIntegrationService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -40,6 +41,7 @@ export declare class ClientApi {
     readonly currency: CurrencyService;
     readonly default: DefaultService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
+    readonly fulfillmentPlatformIntegration: FulfillmentPlatformIntegrationService;
     readonly groupPlatformVariant: GroupPlatformVariantService;
     readonly notification: NotificationService;
     readonly order: OrderService;

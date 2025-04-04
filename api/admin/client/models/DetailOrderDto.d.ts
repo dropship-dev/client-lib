@@ -8,6 +8,7 @@ import type { ProductVariant } from './ProductVariant';
 import type { Transaction } from './Transaction';
 import type { VariantCombo } from './VariantCombo';
 export type DetailOrderDto = (Order & {
+    isDeductedProfit?: boolean | null;
     Store: {
         email: string;
         avatar: string | null;
@@ -17,6 +18,7 @@ export type DetailOrderDto = (Order & {
     };
     Transaction: Array<Transaction>;
     Payment: {
+        deleted: boolean;
         email: string;
         type: _36_Enums_PaymentType;
         name: string;

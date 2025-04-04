@@ -28,6 +28,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -50,7 +51,7 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: number;
@@ -59,6 +60,8 @@ export declare class PlatformProductService {
         isActive?: boolean;
         startPrice?: number;
         endPrice?: number;
+        fulfillmentPlatform?: any;
+        haveCollection?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
@@ -67,6 +70,7 @@ export declare class PlatformProductService {
         data: Array<{
             collectionDefaultId: number;
             isInSyncWithFulfillmentPlatform: boolean;
+            fulfillmentPlatformSupplierId: number;
             fulfillmentPlatform: 'BETTA_SUP';
             fulfillmentPlatformQuoteId: string;
             isEnable: boolean;
@@ -84,6 +88,9 @@ export declare class PlatformProductService {
             createdAt: string;
             fulfillmentAgencyId: number;
             id: number;
+            FulfillmentPlatformSupplier: {
+                platform: 'BETTA_SUP';
+            };
             GroupPlatformVariant: Array<({
                 PlatformVariant: Array<{
                     photo: string;
@@ -179,6 +186,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -207,6 +215,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -236,6 +245,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -265,6 +275,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
@@ -294,6 +305,7 @@ export declare class PlatformProductService {
     }): CancelablePromise<{
         collectionDefaultId: number;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;

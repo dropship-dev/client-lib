@@ -32,7 +32,7 @@ class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, }) {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/platform-product',
@@ -45,6 +45,8 @@ class PlatformProductService {
                 'isActive': isActive,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
+                'fulfillmentPlatform': fulfillmentPlatform,
+                'haveCollection': haveCollection,
             },
             errors: {
                 400: `Bad request`,

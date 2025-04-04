@@ -9,6 +9,7 @@ const BoostSalesService_1 = require("./services/BoostSalesService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const DefaultService_1 = require("./services/DefaultService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+const FulfillmentPlatformIntegrationService_1 = require("./services/FulfillmentPlatformIntegrationService");
 const GroupPlatformVariantService_1 = require("./services/GroupPlatformVariantService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
@@ -41,6 +42,7 @@ class ClientApi {
     currency;
     default;
     fulfillmentAgency;
+    fulfillmentPlatformIntegration;
     groupPlatformVariant;
     notification;
     order;
@@ -85,6 +87,7 @@ class ClientApi {
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.default = new DefaultService_1.DefaultService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
+        this.fulfillmentPlatformIntegration = new FulfillmentPlatformIntegrationService_1.FulfillmentPlatformIntegrationService(this.request);
         this.groupPlatformVariant = new GroupPlatformVariantService_1.GroupPlatformVariantService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);

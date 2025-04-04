@@ -51,6 +51,44 @@ class PingPongAccountService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    sentOtpAddPingpongAccount({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/pingpong-account/send-otp',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    verifyOtpAddPingpongAccount({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/pingpong-account/verify-otp',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

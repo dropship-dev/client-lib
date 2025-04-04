@@ -90,6 +90,7 @@ export declare class OrderService {
                 status: _36_Enums_TransactionStatus;
             }>;
             Payment: {
+                deleted: boolean;
                 type: _36_Enums_PaymentType;
                 email: string;
                 name: string;
@@ -312,6 +313,7 @@ export declare class OrderService {
         noItems: number;
         tax: number;
         profitFulfillAdmin: number;
+        profitWithoutDeducted: number;
         profit: number;
         subTotal: number;
         totalUSD: number;

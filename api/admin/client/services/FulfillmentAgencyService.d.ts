@@ -323,32 +323,36 @@ export declare class FulfillmentAgencyService {
         id: number;
         platform: _36_Enums_FulfillmentPlatform;
     }): CancelablePromise<{
-        fulfillmentPlatformAPIKey: string;
-        platform: 'BETTA_SUP';
-        isLinked: boolean;
-        apiKey: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: number;
+        lastRequestedAt: any;
+        supplierEmail: any;
+        status: any;
     }>;
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     integrateWithFulfillmentPlatform({ id, requestBody, }: {
         id: number;
         requestBody: IntegrationWithFulfillmentPlatformDto;
-    }): CancelablePromise<{
-        fulfillmentPlatformAPIKey: string;
-        platform: 'BETTA_SUP';
-        isLinked: boolean;
-        apiKey: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    checkUnfulfilledOrdersFromFulfillmentPlatform({ id, platform, }: {
         id: number;
+        platform: _36_Enums_FulfillmentPlatform;
+    }): CancelablePromise<{
+        unfulfilledOrders: number;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    changeFulfillmentPlatformSeller({ id, requestBody, }: {
+        id: number;
+        requestBody: IntegrationWithFulfillmentPlatformDto;
+    }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError

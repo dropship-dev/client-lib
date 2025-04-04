@@ -3,6 +3,7 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { AsyncTaskService } from './services/AsyncTaskService';
 import { AuthService } from './services/AuthService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { FulfillmentPlatformIntegrationService } from './services/FulfillmentPlatformIntegrationService';
 import { MarketingService } from './services/MarketingService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
@@ -19,6 +20,7 @@ export declare class ClientApi {
     readonly asyncTask: AsyncTaskService;
     readonly auth: AuthService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
+    readonly fulfillmentPlatformIntegration: FulfillmentPlatformIntegrationService;
     readonly marketing: MarketingService;
     readonly marketingEmail: MarketingEmailService;
     readonly notification: NotificationService;
