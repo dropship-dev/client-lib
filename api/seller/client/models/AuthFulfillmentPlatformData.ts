@@ -2,10 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_FulfillmentPlatformIntegrationStatus } from './_36_Enums_FulfillmentPlatformIntegrationStatus';
 export type AuthFulfillmentPlatformData = {
   id: number;
-  platform: string;
   fulfillmentAgencyId: number;
-  isLinked: boolean;
+  status: _36_Enums_FulfillmentPlatformIntegrationStatus;
+  fulfillmentPlatformSupplierId: number;
 };
 

@@ -511,14 +511,9 @@ export class FulfillmentAgencyService {
     id: number,
     platform: _36_Enums_FulfillmentPlatform,
   }): CancelablePromise<{
-    fulfillmentPlatformAPIKey: string;
-    platform: 'BETTA_SUP';
-    isLinked: boolean;
-    apiKey: string;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
+    lastRequestedAt: any;
+    supplierEmail: any;
+    status: any;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -539,7 +534,7 @@ export class FulfillmentAgencyService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public integrateWithFulfillmentPlatform({
@@ -548,19 +543,69 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
     requestBody: IntegrationWithFulfillmentPlatformDto,
-  }): CancelablePromise<{
-    fulfillmentPlatformAPIKey: string;
-    platform: 'BETTA_SUP';
-    isLinked: boolean;
-    apiKey: string;
-    updatedAt: string;
-    createdAt: string;
-    fulfillmentAgencyId: number;
-    id: number;
-  }> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/fulfillment-agency/{id}/fulfillment-platform-integration',
+      path: {
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public checkUnfulfilledOrdersFromFulfillmentPlatform({
+    id,
+    platform,
+  }: {
+    id: number,
+    platform: _36_Enums_FulfillmentPlatform,
+  }): CancelablePromise<{
+    unfulfilledOrders: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/check-unfulfilled-orders-from-fulfillment-platform',
+      path: {
+        'id': id,
+      },
+      query: {
+        'platform': platform,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public changeFulfillmentPlatformSeller({
+    id,
+    requestBody,
+  }: {
+    id: number,
+    requestBody: IntegrationWithFulfillmentPlatformDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/fulfillment-agency/{id}/change-fulfillment-platform-seller',
       path: {
         'id': id,
       },

@@ -12,6 +12,7 @@ import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
 import { DefaultService } from './services/DefaultService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { FulfillmentPlatformIntegrationService } from './services/FulfillmentPlatformIntegrationService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -45,6 +46,7 @@ export class ClientApi {
   public readonly currency: CurrencyService;
   public readonly default: DefaultService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly fulfillmentPlatformIntegration: FulfillmentPlatformIntegrationService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
   public readonly notification: NotificationService;
   public readonly order: OrderService;
@@ -89,6 +91,7 @@ export class ClientApi {
     this.currency = new CurrencyService(this.request);
     this.default = new DefaultService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.fulfillmentPlatformIntegration = new FulfillmentPlatformIntegrationService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);
     this.notification = new NotificationService(this.request);
     this.order = new OrderService(this.request);

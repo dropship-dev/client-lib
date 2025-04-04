@@ -34,6 +34,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
@@ -82,6 +83,8 @@ export class PlatformProductService {
     isActive,
     startPrice,
     endPrice,
+    fulfillmentPlatform,
+    haveCollection,
   }: {
     fulfillmentAgencyId: number,
     pageSize?: number,
@@ -91,6 +94,8 @@ export class PlatformProductService {
     isActive?: boolean,
     startPrice?: number,
     endPrice?: number,
+    fulfillmentPlatform?: any,
+    haveCollection?: boolean,
   }): CancelablePromise<{
     orderBy: string;
     nextPageIndex: number;
@@ -99,6 +104,7 @@ export class PlatformProductService {
     data: Array<{
       collectionDefaultId: number;
       isInSyncWithFulfillmentPlatform: boolean;
+      fulfillmentPlatformSupplierId: number;
       fulfillmentPlatform: 'BETTA_SUP';
       fulfillmentPlatformQuoteId: string;
       isEnable: boolean;
@@ -116,6 +122,9 @@ export class PlatformProductService {
       createdAt: string;
       fulfillmentAgencyId: number;
       id: number;
+      FulfillmentPlatformSupplier: {
+        platform: 'BETTA_SUP';
+      };
       GroupPlatformVariant: Array<({
         PlatformVariant: Array<{
           photo: string;
@@ -176,6 +185,8 @@ export class PlatformProductService {
         'isActive': isActive,
         'startPrice': startPrice,
         'endPrice': endPrice,
+        'fulfillmentPlatform': fulfillmentPlatform,
+        'haveCollection': haveCollection,
       },
       errors: {
         400: `Bad request`,
@@ -299,6 +310,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
@@ -350,6 +362,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
@@ -401,6 +414,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
@@ -454,6 +468,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;
@@ -507,6 +522,7 @@ export class PlatformProductService {
   }): CancelablePromise<{
     collectionDefaultId: number;
     isInSyncWithFulfillmentPlatform: boolean;
+    fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
     fulfillmentPlatformQuoteId: string;
     isEnable: boolean;

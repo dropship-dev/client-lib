@@ -18,6 +18,7 @@ export class SettingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
+    isDeductedProfit: boolean;
     serviceFee: number;
     percentageCostPlatformFee: number;
     hold: PrismaJson_HoldSetting;
