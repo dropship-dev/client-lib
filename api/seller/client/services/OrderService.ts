@@ -384,6 +384,7 @@ export class OrderService {
     disputeStatus: _36_Enums_OrderDisputeStatus;
     isHandleEvents: boolean;
     fingerPrint: string;
+    fullfillmentShippingCost: number;
     paymentFee: number;
     paymentSource: string;
     timezoneLocalBrowser: string;
