@@ -12,7 +12,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   disputeStatus: _36_Enums_OrderDisputeStatus;
   isHandleEvents: boolean;
   fingerPrint: string;
-  fullfillmentShippingCost: number;
   paymentFee: number;
   paymentSource: string;
   timezoneLocalBrowser: string;
@@ -48,6 +47,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   address1: string;
   domain: string;
   serviceFee: number;
+  fulfillmentShippingCost: number;
   discount: number;
   paymentId: number;
   merchantId: string;
