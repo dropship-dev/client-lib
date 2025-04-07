@@ -231,6 +231,7 @@ export type { FulfillmentAgencyStatus } from './models/FulfillmentAgencyStatus';
 export type { FulfillmentAgencyType } from './models/FulfillmentAgencyType';
 export type { FulfillmentPlatform } from './models/FulfillmentPlatform';
 export type { FulfillmentPlatformIntegrationStatus } from './models/FulfillmentPlatformIntegrationStatus';
+export type { FulfillmentShippingCostDto } from './models/FulfillmentShippingCostDto';
 export type { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GeneratePartnerReferralsDto } from './models/GeneratePartnerReferralsDto';
