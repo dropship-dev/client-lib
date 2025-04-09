@@ -250,6 +250,7 @@ export declare class OrderService {
             id: number;
         }>;
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;

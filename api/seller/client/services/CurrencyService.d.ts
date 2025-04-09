@@ -1,11 +1,23 @@
 import type { CreateCurrencyDto } from '../models/CreateCurrencyDto';
 import type { Currency } from '../models/Currency';
 import type { UpdateCurrencyDto } from '../models/UpdateCurrencyDto';
+import type { UpdateStoreConversionRateDto } from '../models/UpdateStoreConversionRateDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class CurrencyService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateStoreConversionRate({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateStoreConversionRateDto;
+    }): CancelablePromise<{
+        isConversionRate: boolean | null;
+        id: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

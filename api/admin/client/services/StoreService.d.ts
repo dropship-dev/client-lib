@@ -186,6 +186,7 @@ export declare class StoreService {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -234,6 +235,7 @@ export declare class StoreService {
         storeId: string;
         requestBody: ApproveStoreDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -282,6 +284,7 @@ export declare class StoreService {
         storeId: string;
         requestBody: UpdateStorePaymentMethodDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -330,6 +333,7 @@ export declare class StoreService {
         storeId: string;
         paymentId: number;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;

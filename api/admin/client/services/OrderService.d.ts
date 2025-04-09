@@ -207,6 +207,7 @@ export declare class OrderService {
     manualFraudDetection({ requestBody, }: {
         requestBody: ManualFraudDetectionDto;
     }): CancelablePromise<(GetOrderResult | {
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -466,6 +467,7 @@ export declare class OrderService {
             id: number;
         }>;
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;

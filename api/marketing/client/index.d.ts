@@ -510,6 +510,7 @@ export type { UpdateRequestStatusDto } from './models/UpdateRequestStatusDto';
 export type { UpdateReviewDto } from './models/UpdateReviewDto';
 export type { UpdateSettingDto } from './models/UpdateSettingDto';
 export type { UpdateStaffDto } from './models/UpdateStaffDto';
+export type { UpdateStoreConversionRateDto } from './models/UpdateStoreConversionRateDto';
 export type { UpdateStoreDto } from './models/UpdateStoreDto';
 export type { UpdateStorePaymentMethodDto } from './models/UpdateStorePaymentMethodDto';
 export type { UpdateStoreStatusDto } from './models/UpdateStoreStatusDto';
