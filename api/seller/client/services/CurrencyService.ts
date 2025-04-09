@@ -5,10 +5,42 @@
 import type { CreateCurrencyDto } from '../models/CreateCurrencyDto';
 import type { Currency } from '../models/Currency';
 import type { UpdateCurrencyDto } from '../models/UpdateCurrencyDto';
+import type { UpdateStoreConversionRateDto } from '../models/UpdateStoreConversionRateDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class CurrencyService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public updateStoreConversionRate({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateStoreConversionRateDto,
+  }): CancelablePromise<{
+    isConversionRate: boolean | null;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/currency',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns any Ok
    * @throws ApiError

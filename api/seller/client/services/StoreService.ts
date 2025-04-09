@@ -46,6 +46,7 @@ export class StoreService {
   }: {
     requestBody: CreateStoreDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
@@ -277,6 +278,7 @@ export class StoreService {
     storeId: string,
     requestBody: UpdateStoreDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
@@ -342,6 +344,7 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
@@ -407,6 +410,7 @@ export class StoreService {
     storeId: string,
     requestBody: UpdateStoreStatusDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
@@ -472,6 +476,7 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;

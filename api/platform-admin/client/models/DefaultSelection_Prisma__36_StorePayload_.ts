@@ -6,6 +6,7 @@ import type { _36_Enums_StoreStatus } from './_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from './_36_Enums_StoreType';
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 export type DefaultSelection_Prisma__36_StorePayload_ = {
+  isConversionRate: boolean;
   stripeDefaultPaymentMethodId: string;
   stripeCustomerId: string;
   warning: boolean;
