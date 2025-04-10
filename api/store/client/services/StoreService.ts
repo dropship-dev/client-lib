@@ -50,6 +50,7 @@ export class StoreService {
       storeId: string;
       id: number;
     }>;
+    isConversionRate: boolean;
     shippingPolicy: string;
     termsOfService: string;
     privacyPolicy: string;
