@@ -573,7 +573,28 @@ export declare class ProductService {
     getProductByPermalinkSideStore({ storeId, permalink, }: {
         storeId: string;
         permalink: string;
-    }): CancelablePromise<({
+    }): CancelablePromise<{
+        podTemplateId: number;
+        campaignId: string;
+        isEnable: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        availableSet: PrismaJson_AvailableSet;
+        SKU: string;
+        details: string;
+        permalink: string;
+        deleted: boolean;
+        platformProductId: number;
+        description: string;
+        isActive: boolean;
+        photos: PrismaJson_Photos;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
         Campaign: ({
             listDiscount: Array<{
                 requirementDiscount: PrismaJson_ProductRequirementItems;
@@ -698,29 +719,8 @@ export declare class ProductService {
             variantOption: PrismaJson_VariantOptions;
             id: number;
         };
-    } & {
-        podTemplateId: number;
-        campaignId: string;
-        isEnable: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        permalink: string;
-        deleted: boolean;
-        platformProductId: number;
-        description: string;
-        isActive: boolean;
-        photos: PrismaJson_Photos;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-    })>;
+        currencyCode: any;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
