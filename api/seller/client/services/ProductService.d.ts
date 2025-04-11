@@ -793,7 +793,7 @@ export declare class ProductService {
             variantOption: PrismaJson_VariantOptions;
             id: number;
         };
-        currencyCode: any;
+        currencyCode: string;
     }>;
     /**
      * @returns any Ok
