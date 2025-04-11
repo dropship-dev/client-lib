@@ -10,7 +10,6 @@ import type { ProductVariant } from './ProductVariant';
 import type { Transaction } from './Transaction';
 import type { VariantCombo } from './VariantCombo';
 export type GetOrderResult = (Order & {
-    isDeductedProfit: boolean | null;
     fulfillmentPlatformSuppliers: Array<{
         FulfillmentPlatformSupplier: {
             platform: _36_Enums_FulfillmentPlatform;

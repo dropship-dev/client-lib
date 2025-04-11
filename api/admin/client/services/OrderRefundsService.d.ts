@@ -222,7 +222,7 @@ export declare class OrderRefundsService {
             noItems: number;
             tax: number;
             profitFulfillAdmin: number;
-            profitWithoutDeducted: number;
+            deductedProfit: number;
             profit: number;
             subTotal: number;
             totalUSD: number;
@@ -236,6 +236,7 @@ export declare class OrderRefundsService {
             address2: string;
             address1: string;
             domain: string;
+            isDeductedProfit: boolean;
             serviceFee: number;
             fulfillmentShippingCost: number;
             discount: number;
