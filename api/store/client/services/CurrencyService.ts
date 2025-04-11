@@ -24,7 +24,7 @@ export class CurrencyService {
   }>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/currency',
+      url: '/store/{storeId}/currency/popular',
       path: {
         'storeId': storeId,
       },

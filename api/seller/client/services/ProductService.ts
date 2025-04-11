@@ -943,7 +943,7 @@ export class ProductService {
       variantOption: PrismaJson_VariantOptions;
       id: number;
     };
-    currencyCode: any;
+    currencyCode: string;
   }> {
     return this.httpRequest.request({
       method: 'GET',
