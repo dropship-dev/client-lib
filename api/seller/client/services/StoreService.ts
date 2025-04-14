@@ -721,10 +721,10 @@ export class StoreService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    userUpdated: string;
-    userCreated: string;
     endDate: string;
     startDate: string;
+    userUpdated: string;
+    userCreated: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;
@@ -799,10 +799,10 @@ export class StoreService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    userUpdated: string;
-    userCreated: string;
     endDate: string;
     startDate: string;
+    userUpdated: string;
+    userCreated: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;
@@ -855,10 +855,10 @@ export class StoreService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    userUpdated: string;
-    userCreated: string;
     endDate: string;
     startDate: string;
+    userUpdated: string;
+    userCreated: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;
