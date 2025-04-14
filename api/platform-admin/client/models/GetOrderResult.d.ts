@@ -46,8 +46,10 @@ export type GetOrderResult = (Order & {
     Transaction: Array<Transaction>;
     Payment: {
         PaymentOnboarding: {
-            id?: number;
+            isDeleted: boolean;
+            id: number;
         } | null;
+        deleted: boolean;
         type: _36_Enums_PaymentType;
         email: string;
         name: string;
