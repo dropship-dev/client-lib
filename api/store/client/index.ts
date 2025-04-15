@@ -97,6 +97,7 @@ export type { ChangeActiveTheme } from './models/ChangeActiveTheme';
 export type { ChangeIntegrationStatusDto } from './models/ChangeIntegrationStatusDto';
 export type { ChangePasswordDto } from './models/ChangePasswordDto';
 export type { ChangeUserPasswordDto } from './models/ChangeUserPasswordDto';
+export type { CheckVerifyEmailDto } from './models/CheckVerifyEmailDto';
 export type { ClickToOrderDto } from './models/ClickToOrderDto';
 export type { CloneProductDto } from './models/CloneProductDto';
 export type { Collection } from './models/Collection';
