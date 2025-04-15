@@ -29,6 +29,7 @@ import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { StoreData } from '../models/StoreData';
+import type { StoreResourceAccess } from '../models/StoreResourceAccess';
 import type { UpdateCouponDto } from '../models/UpdateCouponDto';
 import type { UpdateCouponStatusDto } from '../models/UpdateCouponStatusDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
@@ -632,6 +633,38 @@ export class StoreService {
       url: '/store/{storeId}/warning',
       path: {
         'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public checkStoreResourceAccess({
+    storeId,
+    resourceName,
+  }: {
+    storeId: string,
+    resourceName: StoreResourceAccess,
+  }): CancelablePromise<{
+    description: string;
+    hasAccess: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/resource-access',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'resourceName': resourceName,
       },
       errors: {
         400: `Bad request`,
