@@ -82,6 +82,7 @@ export class StoreService {
     isDeleted: boolean;
     fulfillmentAgencyId: number;
     id: string;
+    currencyCode: string;
     fontPage: Array<any>;
     Klaviyo: {
       publishableKey: string;
