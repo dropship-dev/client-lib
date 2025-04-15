@@ -45,34 +45,6 @@ export class CurrencyService {
    * @returns any Ok
    * @throws ApiError
    */
-  public getPopularStoreConversionRate({
-    storeId,
-  }: {
-    storeId: string,
-  }): CancelablePromise<Array<{
-    rate: number;
-    toCurrency: string;
-    fromCurrency: string;
-  }>> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/store/{storeId}/currency/popular',
-      path: {
-        'storeId': storeId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public getCurrency({
     id,
   }: {
