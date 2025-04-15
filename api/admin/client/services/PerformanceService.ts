@@ -167,6 +167,48 @@ export class PerformanceService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCrOverTimeV2({
+    fulfillmentAgencyId,
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    storeId,
+  }: {
+    fulfillmentAgencyId?: number,
+    startDate?: string,
+    endDate?: string,
+    storeId?: string,
+  }): CancelablePromise<{
+    CR: {
+      growth: number;
+      value: number;
+    };
+    purchased: number;
+    checkedOut: number;
+    addedToCart: number;
+    viewedProduct: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/cr-over-time-v2',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns TopProductByOrder Ok
    * @throws ApiError
    */
