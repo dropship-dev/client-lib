@@ -426,6 +426,7 @@ export type { StoreData } from './models/StoreData';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
 export type { StoreProductProfit } from './models/StoreProductProfit';
+export { StoreResourceAccess } from './models/StoreResourceAccess';
 export type { StoreRevenueOverTime } from './models/StoreRevenueOverTime';
 export type { StoreRole } from './models/StoreRole';
 export type { StoreStatus } from './models/StoreStatus';

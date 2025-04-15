@@ -25,6 +25,7 @@ import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { StoreData } from '../models/StoreData';
+import type { StoreResourceAccess } from '../models/StoreResourceAccess';
 import type { UpdateCouponDto } from '../models/UpdateCouponDto';
 import type { UpdateCouponStatusDto } from '../models/UpdateCouponStatusDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
@@ -427,6 +428,17 @@ export declare class StoreService {
     toggleWarningStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    checkStoreResourceAccess({ storeId, resourceName, }: {
+        storeId: string;
+        resourceName: StoreResourceAccess;
+    }): CancelablePromise<{
+        description: string;
+        hasAccess: boolean;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
