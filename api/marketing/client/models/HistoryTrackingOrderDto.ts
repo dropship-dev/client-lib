@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type UpdateHistoryTrackingOrderDto = {
+export type HistoryTrackingOrderDto = {
   value?: string;
   file?: {
     url: string;

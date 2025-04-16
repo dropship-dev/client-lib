@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
+import type { _36_Enums_HistoryTrackingType } from '../models/_36_Enums_HistoryTrackingType';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from '../models/_36_Enums_OrderStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
@@ -13,8 +14,10 @@ import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_Transactio
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { DetailOrderDto } from '../models/DetailOrderDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_HistoryTrackingDetail } from '../models/PrismaJson_HistoryTrackingDetail';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -28,7 +31,6 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
-import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -465,17 +467,44 @@ export class OrderService {
    * @returns string Ok
    * @throws ApiError
    */
-  public updateHistoryTrackingOrder({
+  public resendEmailConfirmOrder({
+    storeId,
+    orderId,
+  }: {
+    storeId: string,
+    orderId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public createHistoryTrackingOrder({
     storeId,
     orderId,
     requestBody,
   }: {
     storeId: string,
     orderId: string,
-    requestBody: UpdateHistoryTrackingOrderDto,
+    requestBody: HistoryTrackingOrderDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
-      method: 'PATCH',
+      method: 'POST',
       url: '/store/{storeId}/order/{orderId}/history-tracking',
       path: {
         'storeId': storeId,
@@ -493,22 +522,29 @@ export class OrderService {
     });
   }
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
-  public resendEmailConfirmOrder({
-    storeId,
+  public getHistoriesTracking({
     orderId,
+    storeId,
   }: {
-    storeId: string,
     orderId: string,
-  }): CancelablePromise<void> {
+    storeId: string,
+  }): CancelablePromise<Array<{
+    detail: PrismaJson_HistoryTrackingDetail;
+    orderId: string;
+    type: _36_Enums_HistoryTrackingType;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+      url: '/store/{storeId}/order/{orderId}/history-tracking',
       path: {
-        'storeId': storeId,
         'orderId': orderId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
