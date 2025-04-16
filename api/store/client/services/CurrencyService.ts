@@ -17,11 +17,14 @@ export class CurrencyService {
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<Array<{
-    rate: number;
-    toCurrency: string;
-    fromCurrency: string;
-  }>> {
+  }): CancelablePromise<{
+    conversionsRate: Array<{
+      rate: number;
+      toCurrency: string;
+      fromCurrency: string;
+    }>;
+    currentCurrencyCode: string;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/currency/popular',
