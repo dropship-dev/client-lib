@@ -12,11 +12,14 @@ export declare class CurrencyService {
      */
     getPopularStoreConversionRate({ storeId, }: {
         storeId: string;
-    }): CancelablePromise<Array<{
-        rate: number;
-        toCurrency: string;
-        fromCurrency: string;
-    }>>;
+    }): CancelablePromise<{
+        conversionsRate: Array<{
+            rate: number;
+            toCurrency: string;
+            fromCurrency: string;
+        }>;
+        currentCurrencyCode: string;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
