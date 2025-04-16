@@ -10,6 +10,160 @@ class DefaultService {
      * @returns any Ok
      * @throws ApiError
      */
+    createFulfillmentShippingFee({ fulfillmentAgencyId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllRegionalShippingFee({ fulfillmentAgencyId, search, startDate, endDate, pageSize = 20, nextPageIndex, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            query: {
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getCountriesExistOnStore({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/get-countries-exist-on-fulfillment',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRegionalShippingFee({ fulfillmentAgencyId, id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    deleteReasonShippingFee({ fulfillmentAgencyId, id, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateReasonShippingFee({ fulfillmentAgencyId, id, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    resetSetting({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/reset-setting',
+            path: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     createCollectionDefault({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',

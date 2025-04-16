@@ -31,6 +31,7 @@ export declare class RequestSourcingService {
         total: number;
         data: Array<({
             Store: {
+                isConversionRate: boolean;
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;
@@ -100,6 +101,7 @@ export declare class RequestSourcingService {
         fulfillmentAgencyId?: number;
     }): CancelablePromise<({
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;

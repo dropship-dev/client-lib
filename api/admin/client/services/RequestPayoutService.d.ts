@@ -83,6 +83,7 @@ export declare class RequestPayoutService {
                 id: string;
             };
             Store: {
+                isConversionRate: boolean;
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;

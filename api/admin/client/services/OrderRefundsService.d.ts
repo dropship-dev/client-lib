@@ -158,6 +158,7 @@ export declare class OrderRefundsService {
                 id: number;
             }>;
             Store: {
+                isConversionRate: boolean;
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;
@@ -221,7 +222,7 @@ export declare class OrderRefundsService {
             noItems: number;
             tax: number;
             profitFulfillAdmin: number;
-            profitWithoutDeducted: number;
+            deductedProfit: number;
             profit: number;
             subTotal: number;
             totalUSD: number;
@@ -235,7 +236,9 @@ export declare class OrderRefundsService {
             address2: string;
             address1: string;
             domain: string;
+            isDeductedProfit: boolean;
             serviceFee: number;
+            fulfillmentShippingCost: number;
             discount: number;
             paymentId: number;
             merchantId: string;

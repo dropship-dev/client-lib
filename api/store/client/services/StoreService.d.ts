@@ -43,6 +43,7 @@ export declare class StoreService {
             storeId: string;
             id: number;
         }>;
+        isConversionRate: boolean;
         shippingPolicy: string;
         termsOfService: string;
         privacyPolicy: string;
@@ -74,6 +75,7 @@ export declare class StoreService {
         isDeleted: boolean;
         fulfillmentAgencyId: number;
         id: string;
+        currencyCode: string;
         fontPage: Array<any>;
         Klaviyo: {
             publishableKey: string;

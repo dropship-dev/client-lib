@@ -13,6 +13,20 @@ export type StoreData = (Store & {
     StoreUser: Array<StoreUser>;
     FulfillmentAgency: (FulfillmentAgency & {
         Setting: {
+            FulfillmentShippingCost?: Array<{
+                settingId: number | null;
+                countries: Array<{
+                    countryCode: string;
+                    countrySymbol?: string;
+                    countryName: string;
+                }>;
+                zoneName: string;
+                deleted: boolean;
+                updatedAt: string;
+                createdAt: string;
+                shippingFee: number;
+                id: string;
+            }>;
             serviceFee: number | null;
             percentageCostPlatformFee: number | null;
             othersFee: number | null;

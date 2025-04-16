@@ -250,6 +250,7 @@ export declare class OrderService {
             id: number;
         }>;
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
@@ -313,7 +314,7 @@ export declare class OrderService {
         noItems: number;
         tax: number;
         profitFulfillAdmin: number;
-        profitWithoutDeducted: number;
+        deductedProfit: number;
         profit: number;
         subTotal: number;
         totalUSD: number;
@@ -327,7 +328,9 @@ export declare class OrderService {
         address2: string;
         address1: string;
         domain: string;
+        isDeductedProfit: boolean;
         serviceFee: number;
+        fulfillmentShippingCost: number;
         discount: number;
         paymentId: number;
         merchantId: string;

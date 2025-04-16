@@ -70,6 +70,25 @@ export declare class PerformanceService {
         viewedProduct: number;
     }>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCrOverTimeV2({ fulfillmentAgencyId, startDate, endDate, storeId, }: {
+        fulfillmentAgencyId?: number;
+        startDate?: string;
+        endDate?: string;
+        storeId?: string;
+    }): CancelablePromise<{
+        CR: {
+            growth: number;
+            value: number;
+        };
+        purchased: number;
+        checkedOut: number;
+        addedToCart: number;
+        viewedProduct: number;
+    }>;
+    /**
      * @returns TopProductByOrder Ok
      * @throws ApiError
      */

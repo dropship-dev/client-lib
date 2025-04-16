@@ -25,6 +25,7 @@ import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
 import type { StoreData } from '../models/StoreData';
+import type { StoreResourceAccess } from '../models/StoreResourceAccess';
 import type { UpdateCouponDto } from '../models/UpdateCouponDto';
 import type { UpdateCouponStatusDto } from '../models/UpdateCouponStatusDto';
 import type { UpdateStoreDto } from '../models/UpdateStoreDto';
@@ -41,6 +42,7 @@ export declare class StoreService {
     createStore({ requestBody, }: {
         requestBody: CreateStoreDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -201,6 +203,7 @@ export declare class StoreService {
         storeId: string;
         requestBody: UpdateStoreDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -247,6 +250,7 @@ export declare class StoreService {
     deleteStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -294,6 +298,7 @@ export declare class StoreService {
         storeId: string;
         requestBody: UpdateStoreStatusDto;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -340,6 +345,7 @@ export declare class StoreService {
     reactivateStore({ storeId, }: {
         storeId: string;
     }): CancelablePromise<{
+        isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
         stripeCustomerId: string;
         warning: boolean;
@@ -426,6 +432,17 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
+    checkStoreResourceAccess({ storeId, resourceName, }: {
+        storeId: string;
+        resourceName: StoreResourceAccess;
+    }): CancelablePromise<{
+        description: string;
+        hasAccess: boolean;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     listCoupons({ storeId, searchTitle, types, statuses, applyingMethods, pageSize, nextPageIndex, }: {
         storeId: string;
         searchTitle?: string;
@@ -467,10 +484,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        userUpdated: string;
-        userCreated: string;
         endDate: string;
         startDate: string;
+        userUpdated: string;
+        userCreated: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;
@@ -504,10 +521,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        userUpdated: string;
-        userCreated: string;
         endDate: string;
         startDate: string;
+        userUpdated: string;
+        userCreated: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;
@@ -539,10 +556,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        userUpdated: string;
-        userCreated: string;
         endDate: string;
         startDate: string;
+        userUpdated: string;
+        userCreated: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;

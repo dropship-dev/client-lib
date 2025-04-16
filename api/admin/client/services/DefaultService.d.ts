@@ -1,7 +1,9 @@
 import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionStatus';
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { CreateCollectionDefaultDto } from '../models/CreateCollectionDefaultDto';
+import type { FulfillmentShippingCostDto } from '../models/FulfillmentShippingCostDto';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { UpdateCollectionDefaultDto } from '../models/UpdateCollectionDefaultDto';
@@ -11,6 +13,116 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class DefaultService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createFulfillmentShippingFee({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
+        requestBody: FulfillmentShippingCostDto;
+    }): CancelablePromise<{
+        settingId: number;
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAllRegionalShippingFee({ fulfillmentAgencyId, search, startDate, endDate, pageSize, nextPageIndex, }: {
+        fulfillmentAgencyId: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            settingId: number;
+            countries: PrismaJson_CountryInformation;
+            zoneName: string;
+            deleted: boolean;
+            shippingFee: number;
+            updatedAt: string;
+            createdAt: string;
+            id: string;
+        }>;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getCountriesExistOnStore({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<Array<string>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRegionalShippingFee({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
+        id: string;
+    }): CancelablePromise<{
+        settingId: number;
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    deleteReasonShippingFee({ fulfillmentAgencyId, id, }: {
+        fulfillmentAgencyId: number;
+        id: string;
+    }): CancelablePromise<{
+        settingId: number;
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateReasonShippingFee({ fulfillmentAgencyId, id, requestBody, }: {
+        fulfillmentAgencyId: number;
+        id: string;
+        requestBody: FulfillmentShippingCostDto;
+    }): CancelablePromise<{
+        settingId: number;
+        countries: PrismaJson_CountryInformation;
+        zoneName: string;
+        deleted: boolean;
+        shippingFee: number;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    resetSetting({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

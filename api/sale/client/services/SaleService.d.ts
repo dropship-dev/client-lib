@@ -1,5 +1,6 @@
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
 import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
 import type { UpdateRequestStatusDto } from '../models/UpdateRequestStatusDto';
@@ -49,4 +50,11 @@ export declare class SaleService {
         status?: Array<_36_Enums_StoreStatus>;
         sort?: sortTrackingPerformance;
     }): CancelablePromise<ResponsePaginateCursor_StoreTrackingPerformance_>;
+    /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    checkVerifyEmail({ requestBody, }: {
+        requestBody: CheckVerifyEmailDto;
+    }): CancelablePromise<boolean>;
 }
