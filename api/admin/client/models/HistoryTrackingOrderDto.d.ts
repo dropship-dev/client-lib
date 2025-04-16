@@ -1,4 +1,4 @@
-export type UpdateHistoryTrackingOrderDto = {
+export type HistoryTrackingOrderDto = {
     value?: string;
     file?: {
         url: string;

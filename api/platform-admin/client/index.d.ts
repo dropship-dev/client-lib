@@ -28,6 +28,7 @@ export { _36_Enums_FulfillmentAgencyType } from './models/_36_Enums_FulfillmentA
 export { _36_Enums_FulfillmentPlatform } from './models/_36_Enums_FulfillmentPlatform';
 export { _36_Enums_FulfillmentPlatformIntegrationStatus } from './models/_36_Enums_FulfillmentPlatformIntegrationStatus';
 export { _36_Enums_FulfillmentStatus } from './models/_36_Enums_FulfillmentStatus';
+export { _36_Enums_HistoryTrackingType } from './models/_36_Enums_HistoryTrackingType';
 export { _36_Enums_LogoSize } from './models/_36_Enums_LogoSize';
 export { _36_Enums_MarketingType } from './models/_36_Enums_MarketingType';
 export { _36_Enums_NotificationType } from './models/_36_Enums_NotificationType';
@@ -279,6 +280,7 @@ export type { getVariantsType } from './models/getVariantsType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
+export type { HistoryTrackingOrderDto } from './models/HistoryTrackingOrderDto';
 export { HistoryTrackingType } from './models/HistoryTrackingType';
 export type { ImportPlatformProductDto } from './models/ImportPlatformProductDto';
 export type { ImportPlatformVariantDto } from './models/ImportPlatformVariantDto';
@@ -363,6 +365,7 @@ export type { PrismaJson_DataInformationsOnboarding } from './models/PrismaJson_
 export type { PrismaJson_DiscountBoostSale } from './models/PrismaJson_DiscountBoostSale';
 export type { PrismaJson_DomainContactInfo } from './models/PrismaJson_DomainContactInfo';
 export type { PrismaJson_FirebaseDeviceToken } from './models/PrismaJson_FirebaseDeviceToken';
+export type { PrismaJson_HistoryTrackingDetail } from './models/PrismaJson_HistoryTrackingDetail';
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
 export type { PrismaJson_OnboardingProducts } from './models/PrismaJson_OnboardingProducts';
@@ -485,7 +488,6 @@ export type { UpdateFulFillmentStatusResp } from './models/UpdateFulFillmentStat
 export type { UpdateGADto } from './models/UpdateGADto';
 export type { UpdateGroupPlatformVariantsDto } from './models/UpdateGroupPlatformVariantsDto';
 export type { UpdateGTMDto } from './models/UpdateGTMDto';
-export type { UpdateHistoryTrackingOrderDto } from './models/UpdateHistoryTrackingOrderDto';
 export type { UpdateImportedPlatformProductDto } from './models/UpdateImportedPlatformProductDto';
 export type { UpdateManyStorePaymentMethodDto } from './models/UpdateManyStorePaymentMethodDto';
 export type { UpdateNotificationDto } from './models/UpdateNotificationDto';

@@ -5,6 +5,7 @@ import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDete
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
+import type { _36_Enums_HistoryTrackingType } from '../models/_36_Enums_HistoryTrackingType';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from '../models/_36_Enums_OrderStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
@@ -18,10 +19,12 @@ import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { GetAllOrderResult } from '../models/GetAllOrderResult';
 import type { GetOrderResult } from '../models/GetOrderResult';
+import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { PrismaJson_HistoryTrackingDetail } from '../models/PrismaJson_HistoryTrackingDetail';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -37,7 +40,6 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
-import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -120,19 +122,34 @@ export declare class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
-        storeId: string;
-        orderId: string;
-        requestBody: UpdateHistoryTrackingOrderDto;
-    }): CancelablePromise<string>;
-    /**
-     * @returns void
-     * @throws ApiError
-     */
     resendEmailConfirmOrder({ storeId, orderId, }: {
         storeId: string;
         orderId: string;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    createHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: HistoryTrackingOrderDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getHistoriesTracking({ orderId, storeId, }: {
+        orderId: string;
+        storeId: string;
+    }): CancelablePromise<Array<{
+        detail: PrismaJson_HistoryTrackingDetail;
+        orderId: string;
+        type: _36_Enums_HistoryTrackingType;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>>;
     /**
      * @returns ExportOrderResponseDto Ok
      * @throws ApiError
@@ -567,4 +584,19 @@ export declare class OrderService {
         storeId: string;
         id: string;
     })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getHistoriesTracking1({ orderId, fulfillmentAgencyId, }: {
+        orderId: string;
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<Array<{
+        detail: PrismaJson_HistoryTrackingDetail;
+        orderId: string;
+        type: _36_Enums_HistoryTrackingType;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>>;
 }
