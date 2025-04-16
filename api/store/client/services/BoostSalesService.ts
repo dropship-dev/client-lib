@@ -36,11 +36,11 @@ export class BoostSalesService {
     requestBody: BoostSaleDto,
   }): CancelablePromise<{
     rootProductId: number;
+    endDate: string;
+    startDate: string;
     triggerBy: _36_Enums_BoostSaleTriggerType;
     marketingType: _36_Enums_MarketingType;
     placement: PrismaJson_PlacementBoostSaleType;
-    endDate: string;
-    startDate: string;
     discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
@@ -96,11 +96,11 @@ export class BoostSalesService {
     total: number;
     data: Array<{
       rootProductId: number;
+      endDate: string;
+      startDate: string;
       triggerBy: _36_Enums_BoostSaleTriggerType;
       marketingType: _36_Enums_MarketingType;
       placement: PrismaJson_PlacementBoostSaleType;
-      endDate: string;
-      startDate: string;
       discount: PrismaJson_DiscountBoostSale;
       type: _36_Enums_BoostSaleType;
       status: boolean;
@@ -291,11 +291,11 @@ export class BoostSalesService {
       }>;
     } & {
       rootProductId: number;
+      endDate: string;
+      startDate: string;
       triggerBy: _36_Enums_BoostSaleTriggerType;
       marketingType: _36_Enums_MarketingType;
       placement: PrismaJson_PlacementBoostSaleType;
-      endDate: string;
-      startDate: string;
       discount: PrismaJson_DiscountBoostSale;
       type: _36_Enums_BoostSaleType;
       status: boolean;
@@ -411,11 +411,11 @@ export class BoostSalesService {
         }>;
       } & {
         rootProductId: number;
+        endDate: string;
+        startDate: string;
         triggerBy: _36_Enums_BoostSaleTriggerType;
         marketingType: _36_Enums_MarketingType;
         placement: PrismaJson_PlacementBoostSaleType;
-        endDate: string;
-        startDate: string;
         discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
@@ -552,11 +552,11 @@ export class BoostSalesService {
     })>;
   } & {
     rootProductId: number;
+    endDate: string;
+    startDate: string;
     triggerBy: _36_Enums_BoostSaleTriggerType;
     marketingType: _36_Enums_MarketingType;
     placement: PrismaJson_PlacementBoostSaleType;
-    endDate: string;
-    startDate: string;
     discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
@@ -625,11 +625,11 @@ export class BoostSalesService {
     storeId: string,
   }): CancelablePromise<{
     rootProductId: number;
+    endDate: string;
+    startDate: string;
     triggerBy: _36_Enums_BoostSaleTriggerType;
     marketingType: _36_Enums_MarketingType;
     placement: PrismaJson_PlacementBoostSaleType;
-    endDate: string;
-    startDate: string;
     discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;

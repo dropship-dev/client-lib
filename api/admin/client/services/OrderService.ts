@@ -25,6 +25,7 @@ import type { GetOrderResult } from '../models/GetOrderResult';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -434,6 +435,7 @@ export class OrderService {
   }: {
     requestBody: ManualFraudDetectionDto,
   }): CancelablePromise<(GetOrderResult | {
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
@@ -532,6 +534,16 @@ export class OrderService {
     }>;
     FulfillmentAgency: ({
       Setting: {
+        FulfillmentShippingCost: Array<{
+          settingId: number;
+          countries: PrismaJson_CountryInformation;
+          zoneName: string;
+          deleted: boolean;
+          shippingFee: number;
+          updatedAt: string;
+          createdAt: string;
+          id: string;
+        }>;
         serviceFee: number;
         percentageCostPlatformFee: number;
         othersFee: number;
@@ -701,6 +713,7 @@ export class OrderService {
       id: number;
     }>;
     Store: {
+      isConversionRate: boolean;
       stripeDefaultPaymentMethodId: string;
       stripeCustomerId: string;
       warning: boolean;
@@ -764,7 +777,7 @@ export class OrderService {
     noItems: number;
     tax: number;
     profitFulfillAdmin: number;
-    profitWithoutDeducted: number;
+    deductedProfit: number;
     profit: number;
     subTotal: number;
     totalUSD: number;
@@ -778,7 +791,9 @@ export class OrderService {
     address2: string;
     address1: string;
     domain: string;
+    isDeductedProfit: boolean;
     serviceFee: number;
+    fulfillmentShippingCost: number;
     discount: number;
     paymentId: number;
     merchantId: string;

@@ -5,7 +5,9 @@
 import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionStatus';
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { CreateCollectionDefaultDto } from '../models/CreateCollectionDefaultDto';
+import type { FulfillmentShippingCostDto } from '../models/FulfillmentShippingCostDto';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { UpdateCollectionDefaultDto } from '../models/UpdateCollectionDefaultDto';
@@ -14,6 +16,259 @@ import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class DefaultService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createFulfillmentShippingFee({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: FulfillmentShippingCostDto,
+  }): CancelablePromise<{
+    settingId: number;
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAllRegionalShippingFee({
+    fulfillmentAgencyId,
+    search,
+    startDate,
+    endDate,
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    fulfillmentAgencyId: number,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    pageSize?: number,
+    nextPageIndex?: string,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      settingId: number;
+      countries: PrismaJson_CountryInformation;
+      zoneName: string;
+      deleted: boolean;
+      shippingFee: number;
+      updatedAt: string;
+      createdAt: string;
+      id: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      query: {
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public getCountriesExistOnStore({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<Array<string>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/get-countries-exist-on-fulfillment',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getRegionalShippingFee({
+    fulfillmentAgencyId,
+    id,
+  }: {
+    fulfillmentAgencyId: number,
+    id: string,
+  }): CancelablePromise<{
+    settingId: number;
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public deleteReasonShippingFee({
+    fulfillmentAgencyId,
+    id,
+  }: {
+    fulfillmentAgencyId: number,
+    id: string,
+  }): CancelablePromise<{
+    settingId: number;
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public updateReasonShippingFee({
+    fulfillmentAgencyId,
+    id,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    id: string,
+    requestBody: FulfillmentShippingCostDto,
+  }): CancelablePromise<{
+    settingId: number;
+    countries: PrismaJson_CountryInformation;
+    zoneName: string;
+    deleted: boolean;
+    shippingFee: number;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/{id}',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public resetSetting({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/fulfillmentAgency/{fulfillmentAgencyId}/fulfillment-shipping-cost/reset-setting',
+      path: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
   /**
    * @returns any Ok
    * @throws ApiError

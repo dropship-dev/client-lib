@@ -14,7 +14,6 @@ import type { ProductVariant } from './ProductVariant';
 import type { Transaction } from './Transaction';
 import type { VariantCombo } from './VariantCombo';
 export type GetOrderResult = (Order & {
-  isDeductedProfit: boolean | null;
   fulfillmentPlatformSuppliers: Array<{
     FulfillmentPlatformSupplier: {
       platform: _36_Enums_FulfillmentPlatform;
@@ -51,8 +50,10 @@ export type GetOrderResult = (Order & {
   Transaction: Array<Transaction>;
   Payment: {
     PaymentOnboarding: {
-      id?: number;
+      isDeleted: boolean;
+      id: number;
     } | null;
+    deleted: boolean;
     type: _36_Enums_PaymentType;
     email: string;
     name: string;
