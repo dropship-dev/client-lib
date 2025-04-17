@@ -821,6 +821,7 @@ export declare class ProductService {
                 fulfillmentAgencyId: number;
                 id: number;
             }>;
+            name: string;
         };
         Store: {
             RegionalShippingFee: Array<{
