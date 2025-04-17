@@ -1019,6 +1019,7 @@ export class ProductService {
       PlatformVariant: {
         cost: PrismaJson_PlatformCostInfo;
         price: number;
+        photo: string;
         id: number;
       };
     } & {
@@ -1051,6 +1052,7 @@ export class ProductService {
     }>;
     PlatformProduct: {
       variantOption: PrismaJson_VariantOptions;
+      photos: PrismaJson_Photos;
       Tag: Array<{
         name: string;
         updatedAt: string;
