@@ -9,6 +9,7 @@ import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -662,6 +663,139 @@ export declare class ProductService {
         upSellId: number;
         productId: number;
     }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getProduct({ storeId, productId, isGetAllPlatformProductStore, }: {
+        storeId: string;
+        productId: number;
+        isGetAllPlatformProductStore?: boolean;
+    }): CancelablePromise<({
+        Campaign: ({
+            listDiscount: Array<{
+                userUpdated: string;
+                userCreated: string;
+                requirementDiscount: PrismaJson_ProductRequirementItems;
+                typeDiscount: PrismaJson_ProductDiscountItems;
+                label: string;
+                position: number;
+                campaignId: string;
+                updatedAt: string;
+                createdAt: string;
+                id: string;
+            }>;
+        } & {
+            endDate: string;
+            startDate: string;
+            userUpdated: string;
+            userCreated: string;
+            label: string;
+            status: boolean;
+            updatedAt: string;
+            createdAt: string;
+            id: string;
+        });
+        VariantCombo: Array<{
+            items: PrismaJson_VariantComboItems;
+            minSellingPrice: number;
+            compareAtPrice: number;
+            productId: number;
+            supplierCost: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            SKU: string;
+            isActive: boolean;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            isDeleted: boolean;
+            id: number;
+        }>;
+        ProductVariant: Array<({
+            PlatformVariant: {
+                cost: PrismaJson_PlatformCostInfo;
+                price: number;
+                photo: string;
+                id: number;
+            };
+        } & {
+            podDesignVariantId: number;
+            platformVariantId: number;
+            margin: PrismaJson_MarginInfo;
+            minSellingPrice: number;
+            compareAtPrice: number;
+            productId: number;
+            cost: PrismaJson_CostInfo;
+            supplierPrice: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            variantOption: PrismaJson_VariantOptionValues;
+            SKU: string;
+            deleted: boolean;
+            isActive: boolean;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        })>;
+        Tag: Array<{
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+        }>;
+        PlatformProduct: {
+            variantOption: PrismaJson_VariantOptions;
+            photos: PrismaJson_Photos;
+            Tag: Array<{
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                fulfillmentAgencyId: number;
+                id: number;
+            }>;
+            name: string;
+        };
+        Store: {
+            RegionalShippingFee: Array<{
+                countries: PrismaJson_CountryInformation;
+                zoneName: string;
+                deleted: boolean;
+                shippingFeeAdditional: number;
+                shippingFee: number;
+                updatedAt: string;
+                createdAt: string;
+                storeId: string;
+                id: string;
+            }>;
+        };
+    } & {
+        podTemplateId: number;
+        campaignId: string;
+        isEnable: boolean;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        availableSet: PrismaJson_AvailableSet;
+        SKU: string;
+        details: string;
+        permalink: string;
+        deleted: boolean;
+        platformProductId: number;
+        description: string;
+        isActive: boolean;
+        photos: PrismaJson_Photos;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
