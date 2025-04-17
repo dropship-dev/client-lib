@@ -196,7 +196,26 @@ class ReferralService {
     addRefCode({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/referral/add-ref-code',
+            url: '/referral/ref-code',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateRefCode({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/referral/ref-code',
             body: requestBody,
             mediaType: 'application/json',
             errors: {

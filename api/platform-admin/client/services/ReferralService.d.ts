@@ -151,4 +151,11 @@ export declare class ReferralService {
     addRefCode({ requestBody, }: {
         requestBody: AddRefCodeDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateRefCode({ requestBody, }: {
+        requestBody: AddRefCodeDto;
+    }): CancelablePromise<string>;
 }
