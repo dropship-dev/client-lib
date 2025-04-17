@@ -92,7 +92,7 @@ class SaleService {
      * @returns boolean Ok
      * @throws ApiError
      */
-    checkVerifyEmail({ requestBody, }) {
+    checkVerifyEmailSale({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/sale/verify-email',

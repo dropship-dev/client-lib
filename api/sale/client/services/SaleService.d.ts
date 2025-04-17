@@ -54,7 +54,7 @@ export declare class SaleService {
      * @returns boolean Ok
      * @throws ApiError
      */
-    checkVerifyEmail({ requestBody, }: {
+    checkVerifyEmailSale({ requestBody, }: {
         requestBody: CheckVerifyEmailDto;
     }): CancelablePromise<boolean>;
 }
