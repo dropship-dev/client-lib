@@ -131,7 +131,7 @@ export class SaleService {
    * @returns boolean Ok
    * @throws ApiError
    */
-  public checkVerifyEmail({
+  public checkVerifyEmailSale({
     requestBody,
   }: {
     requestBody: CheckVerifyEmailDto,
