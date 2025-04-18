@@ -29,6 +29,8 @@ export class RequestPayoutService {
   }: {
     requestBody: CreateRequestPayoutDto,
   }): CancelablePromise<{
+    payoutInToDate: string;
+    payoutInFromDate: string;
     photos: PrismaJson_Photos;
     noteByAdmin: string;
     noteBySeller: string;
@@ -152,6 +154,8 @@ export class RequestPayoutService {
         id: string;
       };
     } & {
+      payoutInToDate: string;
+      payoutInFromDate: string;
       photos: PrismaJson_Photos;
       noteByAdmin: string;
       noteBySeller: string;
@@ -284,6 +288,8 @@ export class RequestPayoutService {
     fulfillmentAgencyId: number,
     requestBody: UpdateRequestPayoutDto,
   }): CancelablePromise<{
+    payoutInToDate: string;
+    payoutInFromDate: string;
     photos: PrismaJson_Photos;
     noteByAdmin: string;
     noteBySeller: string;
