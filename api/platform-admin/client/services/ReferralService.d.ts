@@ -14,18 +14,16 @@ export declare class ReferralService {
      * @returns GetSummaryReferralResult Ok
      * @throws ApiError
      */
-    getSummary({ startDate, endDate, search, }: {
+    getSummary({ startDate, endDate, }: {
         startDate?: string;
         endDate?: string;
-        search?: string;
     }): CancelablePromise<GetSummaryReferralResult>;
     /**
      * @returns GetRevenueStoreByFulfillmentResult Ok
      * @throws ApiError
      */
-    getRevenueStoreByFulfillment({ fulfillmentAgencyId, search, }: {
+    getRevenueStoreByFulfillment({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-        search?: string;
     }): CancelablePromise<GetRevenueStoreByFulfillmentResult>;
     /**
      * @returns GetTopRevenueStore Ok
