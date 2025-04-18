@@ -118,6 +118,8 @@ export declare class TransactionService {
         id: number;
     }): CancelablePromise<({
         RequestPayout: {
+            payoutInToDate: string;
+            payoutInFromDate: string;
             photos: PrismaJson_Photos;
             noteByAdmin: string;
             noteBySeller: string;

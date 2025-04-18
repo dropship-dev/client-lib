@@ -38,6 +38,8 @@ export declare class WalletService {
     } | {
         balanceDebt: number;
         requestPayout: {
+            payoutInToDate: string;
+            payoutInFromDate: string;
             photos: PrismaJson_Photos;
             noteByAdmin: string;
             noteBySeller: string;
