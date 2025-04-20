@@ -25,8 +25,8 @@ export declare class CollectionService {
     }): CancelablePromise<{
         SEO: any;
         condition: PrismaJson_ConditionCollection;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
         type: _36_Enums_CollectionType;
         status: _36_Enums_CollectionStatus;
         name: string;
@@ -55,23 +55,23 @@ export declare class CollectionService {
         total: number;
         data: Array<({
             Product: Array<{
+                isEnable: boolean;
+                permalink: string;
+                deleted: boolean;
+                photos: PrismaJson_Photos;
+                isActive: boolean;
+                name: string;
+                id: number;
                 ProductVariant: Array<{
                     compareAtPrice: number;
                     price: number;
                 }>;
-                isEnable: boolean;
-                permalink: string;
-                deleted: boolean;
-                isActive: boolean;
-                photos: PrismaJson_Photos;
-                name: string;
-                id: number;
             }>;
         } & {
             SEO: any;
             condition: PrismaJson_ConditionCollection;
-            description: string;
             photos: PrismaJson_Photos;
+            description: string;
             type: _36_Enums_CollectionType;
             status: _36_Enums_CollectionStatus;
             name: string;
@@ -152,11 +152,11 @@ export declare class CollectionService {
         SKU: string;
         details: string;
         permalink: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;
         name: string;

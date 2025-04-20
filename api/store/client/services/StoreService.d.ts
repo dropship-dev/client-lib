@@ -26,6 +26,38 @@ export declare class StoreService {
         pageName?: PageNameType;
         getFont?: boolean;
     }): CancelablePromise<{
+        isConversionRate: boolean;
+        subDomain: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+        Currency: {
+            isSupported: boolean;
+            rateToUSD: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+            symbol: string;
+        };
         CustomDomain: Array<{
             isPrimary: boolean;
             contactInfo: PrismaJson_DomainContactInfo;
@@ -43,38 +75,6 @@ export declare class StoreService {
             storeId: string;
             id: number;
         }>;
-        isConversionRate: boolean;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
-        subDomain: string;
-        country: string;
-        zipCode: string;
-        city: string;
-        apartmentAddress: string;
-        address: string;
-        Currency: {
-            isSupported: boolean;
-            rateToUSD: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: number;
-            symbol: string;
-        };
-        timezone: PrismaJson_Timezone;
-        type: _36_Enums_StoreType;
-        status: _36_Enums_StoreStatus;
-        phone: string;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        isDeleted: boolean;
-        fulfillmentAgencyId: number;
-        id: string;
         fontPage: Array<any>;
         Klaviyo: {
             publishableKey: string;
@@ -90,19 +90,19 @@ export declare class StoreService {
             logo: string;
             nodes: PrismaJson_ThemeNodes;
             style: PrismaJson_ThemeStyle;
-            setting: PrismaJson_ThemeSetting;
             name: string;
             updatedAt: string;
             createdAt: string;
             storeId: string;
             id: number;
+            setting: PrismaJson_ThemeSetting;
             ThemeTemplate: {
-                link: string;
                 image: string;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+                link: string;
             };
             ThemePage: Array<{
                 themeId: number;
@@ -116,17 +116,17 @@ export declare class StoreService {
         };
         Payment: Array<{
             isConnectPSSFF: boolean;
-            salt: string;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
             BNcode: string;
-            publishableKey: string;
             isPlatform: boolean;
             isShowCompanyAddress: boolean;
             companyAddress: string;
             companyPhone: string;
             companyName: string;
             merchantId: string;
+            salt: string;
+            publishableKey: string;
             type: _36_Enums_PaymentType;
             email: string;
             updatedAt: string;
@@ -142,11 +142,11 @@ export declare class StoreService {
     getStorePaymentMethod({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<{
-        publishableKey: string;
         isShowCompanyAddress: boolean;
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        publishableKey: string;
         type: _36_Enums_PaymentType;
         email: string;
         updatedAt: string;
@@ -180,6 +180,7 @@ export declare class StoreService {
         email: string;
         orderId?: string;
     }): CancelablePromise<Array<{
+        id: string;
         OrderItem: Array<{
             carrier: string;
             tracking: string;
@@ -198,7 +199,6 @@ export declare class StoreService {
                 id: number;
             };
         }>;
-        id: string;
     }>>;
     /**
      * @returns any Ok

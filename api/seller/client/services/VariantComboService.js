@@ -102,7 +102,7 @@ class VariantComboService {
         });
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createCombos({ storeId, productId, requestBody, }) {

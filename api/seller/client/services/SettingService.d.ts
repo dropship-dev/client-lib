@@ -14,13 +14,13 @@ export declare class SettingService {
     }): CancelablePromise<({
         isDeductedProfit: boolean;
         serviceFee: number;
+        othersFee: number;
         percentageCostPlatformFee: number;
         hold: PrismaJson_HoldSetting;
         shippingPolicy: string;
         termsOfService: string;
-        privacyPolicy: string;
         refundPolicy: string;
-        othersFee: number;
+        privacyPolicy: string;
         updatedAt: string;
         createdAt: string;
         fulfillmentAgencyId: number;

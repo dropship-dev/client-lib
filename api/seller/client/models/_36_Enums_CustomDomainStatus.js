@@ -9,6 +9,6 @@ var _36_Enums_CustomDomainStatus;
 (function (_36_Enums_CustomDomainStatus) {
     _36_Enums_CustomDomainStatus["PENDING"] = "PENDING";
     _36_Enums_CustomDomainStatus["FAILED"] = "FAILED";
-    _36_Enums_CustomDomainStatus["SUCCESS"] = "SUCCESS";
     _36_Enums_CustomDomainStatus["EXPIRED"] = "EXPIRED";
+    _36_Enums_CustomDomainStatus["SUCCESS"] = "SUCCESS";
 })(_36_Enums_CustomDomainStatus || (exports._36_Enums_CustomDomainStatus = _36_Enums_CustomDomainStatus = {}));

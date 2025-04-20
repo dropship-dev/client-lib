@@ -5,12 +5,11 @@ import type { PrismaJson_DiscountBoostSale } from './PrismaJson_DiscountBoostSal
 import type { PrismaJson_PlacementBoostSaleType } from './PrismaJson_PlacementBoostSaleType';
 export type DefaultSelection_Prisma__36_BoostSalePayload_ = {
     rootProductId: number;
-    endDate: string;
-    startDate: string;
     triggerBy: _36_Enums_BoostSaleTriggerType;
     marketingType: _36_Enums_MarketingType;
     placement: PrismaJson_PlacementBoostSaleType;
-    discount: PrismaJson_DiscountBoostSale;
+    endDate: string;
+    startDate: string;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -18,4 +17,5 @@ export type DefaultSelection_Prisma__36_BoostSalePayload_ = {
     createdAt: string;
     storeId: string;
     id: number;
+    discount: PrismaJson_DiscountBoostSale;
 };

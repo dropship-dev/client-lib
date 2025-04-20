@@ -57,12 +57,12 @@ export declare class MarketingService {
         userId: string;
     }): CancelablePromise<Array<{
         emailId: string;
-        EmailMarketingTemplate: {
-            name: string;
-        };
         status: _36_Enums_StoreEmailLogStatus;
         createdAt: string;
         id: number;
+        EmailMarketingTemplate: {
+            name: string;
+        };
     }>>;
     /**
      * @returns string Ok

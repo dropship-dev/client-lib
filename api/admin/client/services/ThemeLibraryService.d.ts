@@ -32,11 +32,11 @@ export declare class ThemeLibraryService {
             nodes: PrismaJson_ThemeNodes;
             style: PrismaJson_ThemeStyle;
             image: string;
-            setting: PrismaJson_ThemeSetting;
             name: string;
             updatedAt: string;
             createdAt: string;
             id: number;
+            setting: PrismaJson_ThemeSetting;
         }>;
     }>;
     /**
@@ -59,11 +59,11 @@ export declare class ThemeLibraryService {
         nodes: PrismaJson_ThemeNodes;
         style: PrismaJson_ThemeStyle;
         image: string;
-        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     })>;
     /**
      * @returns any Ok
@@ -76,11 +76,11 @@ export declare class ThemeLibraryService {
         nodes: PrismaJson_ThemeNodes;
         style: PrismaJson_ThemeStyle;
         image: string;
-        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     }>;
     /**
      * @returns any Ok
@@ -92,10 +92,10 @@ export declare class ThemeLibraryService {
         nodes: PrismaJson_ThemeNodes;
         style: PrismaJson_ThemeStyle;
         image: string;
-        setting: PrismaJson_ThemeSetting;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     }>;
 }

@@ -18,11 +18,11 @@ export declare class GoogleTagManagerService {
             id: number;
         }>;
     } & {
-        tag: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        tag: string;
     })>;
     /**
      * @returns any Ok
@@ -35,11 +35,11 @@ export declare class GoogleTagManagerService {
             id: number;
         }>;
     } & {
-        tag: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        tag: string;
     })>>;
     /**
      * @returns any Ok
@@ -62,11 +62,11 @@ export declare class GoogleTagManagerService {
         tag: string;
         requestBody: UpdateGTMDto;
     }): CancelablePromise<{
-        tag: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        tag: string;
     }>;
     /**
      * @returns any Ok
@@ -76,10 +76,10 @@ export declare class GoogleTagManagerService {
         storeId: string;
         tag: string;
     }): CancelablePromise<{
-        tag: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        tag: string;
     }>;
 }

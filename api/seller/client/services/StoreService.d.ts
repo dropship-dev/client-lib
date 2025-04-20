@@ -53,13 +53,8 @@ export declare class StoreService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -70,6 +65,11 @@ export declare class StoreService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -104,6 +104,19 @@ export declare class StoreService {
         prePageIndex: string;
         total: number;
         data: Array<{
+            referralCode: string;
+            primaryDomain: string;
+            subDomain: string;
+            closedAt: string;
+            avatar: string;
+            timezone: PrismaJson_Timezone;
+            status: _36_Enums_StoreStatus;
+            phone: string;
+            email: string;
+            name: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: string;
             FraudDetection: Array<{
                 labels: PrismaJson_TypeOfFraudService;
                 idempotencyKey: string;
@@ -117,15 +130,32 @@ export declare class StoreService {
                 storeId: string;
                 id: string;
             }>;
-            StoreUser: Array<{
-                role: _36_Enums_StoreRole;
+            Wallet: Array<{
+                updatedAt: string;
+                createdAt: string;
+                isDeleted: boolean;
+                storeId: string;
+                fulfillmentAgencyId: number;
+                balanceUnavailable: PrismaJson_UnavailableBalance;
+                payoutAmount: number;
+                holdAmount: number;
+                balanceDebt: number;
+                balanceAvailable: number;
+                balanceAmount: number;
+                walletName: string;
+                id: string;
             }>;
-            referralCode: string;
-            primaryDomain: string;
-            subDomain: string;
-            closedAt: string;
-            avatar: string;
+            FulfillmentAgency: {
+                costCalculationMethod: _36_Enums_CostCalculationMethod;
+                name: string;
+                Setting: {
+                    percentageCostPlatformFee: number;
+                };
+            };
             Payment: Array<{
+                type: _36_Enums_PaymentType;
+                name: string;
+                id: number;
                 PaymentOnboarding: {
                     paymentId: number;
                     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -150,40 +180,10 @@ export declare class StoreService {
                     fulfillmentAgencyId: number;
                     id: number;
                 };
-                type: _36_Enums_PaymentType;
-                name: string;
-                id: number;
             }>;
-            timezone: PrismaJson_Timezone;
-            status: _36_Enums_StoreStatus;
-            phone: string;
-            email: string;
-            name: string;
-            Wallet: Array<{
-                updatedAt: string;
-                createdAt: string;
-                isDeleted: boolean;
-                storeId: string;
-                fulfillmentAgencyId: number;
-                balanceUnavailable: PrismaJson_UnavailableBalance;
-                payoutAmount: number;
-                holdAmount: number;
-                balanceDebt: number;
-                balanceAvailable: number;
-                balanceAmount: number;
-                walletName: string;
-                id: string;
+            StoreUser: Array<{
+                role: _36_Enums_StoreRole;
             }>;
-            FulfillmentAgency: {
-                Setting: {
-                    percentageCostPlatformFee: number;
-                };
-                costCalculationMethod: _36_Enums_CostCalculationMethod;
-                name: string;
-            };
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: string;
             userRole: _36_Enums_StoreRole;
             fraudStatus: FraudStatusType;
         }>;
@@ -214,13 +214,8 @@ export declare class StoreService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -231,6 +226,11 @@ export declare class StoreService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -261,13 +261,8 @@ export declare class StoreService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -278,6 +273,11 @@ export declare class StoreService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -309,13 +309,8 @@ export declare class StoreService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -326,6 +321,11 @@ export declare class StoreService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -356,13 +356,8 @@ export declare class StoreService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -373,6 +368,11 @@ export declare class StoreService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -392,11 +392,11 @@ export declare class StoreService {
     getStorePaymentMethod({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<{
-        publishableKey: string;
         isShowCompanyAddress: boolean;
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        publishableKey: string;
         type: _36_Enums_PaymentType;
         email: string;
         updatedAt: string;
@@ -484,10 +484,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        endDate: string;
-        startDate: string;
         userUpdated: string;
         userCreated: string;
+        endDate: string;
+        startDate: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;
@@ -521,10 +521,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        endDate: string;
-        startDate: string;
         userUpdated: string;
         userCreated: string;
+        endDate: string;
+        startDate: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;
@@ -542,8 +542,8 @@ export declare class StoreService {
         couponId: string;
     }): CancelablePromise<({
         Products: Array<{
-            isActive: boolean;
             photos: PrismaJson_Photos;
+            isActive: boolean;
             name: string;
             id: number;
         }>;
@@ -556,10 +556,10 @@ export declare class StoreService {
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
         title: string;
-        endDate: string;
-        startDate: string;
         userUpdated: string;
         userCreated: string;
+        endDate: string;
+        startDate: string;
         type: _36_Enums_CouponType;
         status: _36_Enums_CouponStatus;
         updatedAt: string;

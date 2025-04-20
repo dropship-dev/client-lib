@@ -5,9 +5,9 @@ export type DefaultSelection_Prisma__36_ThemeLibraryPayload_ = {
     nodes: PrismaJson_ThemeNodes;
     style: PrismaJson_ThemeStyle;
     image: string;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;
     id: number;
+    setting: PrismaJson_ThemeSetting;
 };
