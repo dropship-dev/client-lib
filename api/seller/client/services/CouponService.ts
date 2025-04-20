@@ -96,10 +96,10 @@ export class CouponService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    endDate: string;
-    startDate: string;
     userUpdated: string;
     userCreated: string;
+    endDate: string;
+    startDate: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;
@@ -174,10 +174,10 @@ export class CouponService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    endDate: string;
-    startDate: string;
     userUpdated: string;
     userCreated: string;
+    endDate: string;
+    startDate: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;
@@ -216,8 +216,8 @@ export class CouponService {
     couponId: string,
   }): CancelablePromise<({
     Products: Array<{
-      isActive: boolean;
       photos: PrismaJson_Photos;
+      isActive: boolean;
       name: string;
       id: number;
     }>;
@@ -230,10 +230,10 @@ export class CouponService {
     applyingMethod: _36_Enums_CouponApplyingMethod;
     discountCode: string;
     title: string;
-    endDate: string;
-    startDate: string;
     userUpdated: string;
     userCreated: string;
+    endDate: string;
+    startDate: string;
     type: _36_Enums_CouponType;
     status: _36_Enums_CouponStatus;
     updatedAt: string;

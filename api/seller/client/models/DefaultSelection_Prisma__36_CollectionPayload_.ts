@@ -9,8 +9,8 @@ import type { PrismaJson_Photos } from './PrismaJson_Photos';
 export type DefaultSelection_Prisma__36_CollectionPayload_ = {
   SEO: any;
   condition: PrismaJson_ConditionCollection;
-  description: string;
   photos: PrismaJson_Photos;
+  description: string;
   type: _36_Enums_CollectionType;
   status: _36_Enums_CollectionStatus;
   name: string;

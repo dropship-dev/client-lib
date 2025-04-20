@@ -54,13 +54,8 @@ export class RequestSourcingService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -71,6 +66,11 @@ export class RequestSourcingService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;
@@ -84,16 +84,15 @@ export class RequestSourcingService {
         id: string;
       };
     } & {
+      productId: number;
       historyRequestSourcing: PrismaJson_RequestSourcingHistory;
       acceptByAdmin: boolean;
       acceptBySeller: boolean;
       rejectReasonByAdmin: string;
       rejectReasonBySeller: string;
-      productId: number;
       platformProductId: number;
-      description: string;
-      link: string;
       photos: PrismaJson_Photos;
+      description: string;
       status: _36_Enums_RequestSourcingStatus;
       name: string;
       updatedAt: string;
@@ -101,6 +100,7 @@ export class RequestSourcingService {
       isDeleted: boolean;
       storeId: string;
       id: number;
+      link: string;
     })>;
   }> {
     return this.httpRequest.request({
@@ -150,13 +150,8 @@ export class RequestSourcingService {
       balance: number;
       referralCode: string;
       defaultBankAccount: string;
-      shippingPolicy: string;
-      termsOfService: string;
-      privacyPolicy: string;
-      refundPolicy: string;
       shippingFeeAdditional: number;
       shippingFee: number;
-      othersFee: number;
       primaryDomain: string;
       subDomain: string;
       pageName: string;
@@ -167,6 +162,11 @@ export class RequestSourcingService {
       apartmentAddress: string;
       address: string;
       avatar: string;
+      othersFee: number;
+      shippingPolicy: string;
+      termsOfService: string;
+      refundPolicy: string;
+      privacyPolicy: string;
       timezone: PrismaJson_Timezone;
       type: _36_Enums_StoreType;
       status: _36_Enums_StoreStatus;
@@ -180,16 +180,15 @@ export class RequestSourcingService {
       id: string;
     };
   } & {
+    productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
-    productId: number;
     platformProductId: number;
-    description: string;
-    link: string;
     photos: PrismaJson_Photos;
+    description: string;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
     updatedAt: string;
@@ -197,6 +196,7 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
+    link: string;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -230,16 +230,15 @@ export class RequestSourcingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
-    productId: number;
     platformProductId: number;
-    description: string;
-    link: string;
     photos: PrismaJson_Photos;
+    description: string;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
     updatedAt: string;
@@ -247,6 +246,7 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
+    link: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -282,16 +282,15 @@ export class RequestSourcingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
-    productId: number;
     platformProductId: number;
-    description: string;
-    link: string;
     photos: PrismaJson_Photos;
+    description: string;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
     updatedAt: string;
@@ -299,6 +298,7 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
+    link: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -336,16 +336,15 @@ export class RequestSourcingService {
     storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<{
+    productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
-    productId: number;
     platformProductId: number;
-    description: string;
-    link: string;
     photos: PrismaJson_Photos;
+    description: string;
     status: _36_Enums_RequestSourcingStatus;
     name: string;
     updatedAt: string;
@@ -353,6 +352,7 @@ export class RequestSourcingService {
     isDeleted: boolean;
     storeId: string;
     id: number;
+    link: string;
   }> {
     return this.httpRequest.request({
       method: 'POST',

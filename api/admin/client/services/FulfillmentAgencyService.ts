@@ -55,6 +55,21 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      Wallet: Array<{
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        balanceUnavailable: PrismaJson_UnavailableBalance;
+        payoutAmount: number;
+        holdAmount: number;
+        balanceDebt: number;
+        balanceAvailable: number;
+        balanceAmount: number;
+        walletName: string;
+        id: string;
+      }>;
       PaymentOnboarding: Array<{
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -78,21 +93,6 @@ export class FulfillmentAgencyService {
         storeId: string;
         fulfillmentAgencyId: number;
         id: number;
-      }>;
-      Wallet: Array<{
-        updatedAt: string;
-        createdAt: string;
-        isDeleted: boolean;
-        storeId: string;
-        fulfillmentAgencyId: number;
-        balanceUnavailable: PrismaJson_UnavailableBalance;
-        payoutAmount: number;
-        holdAmount: number;
-        balanceDebt: number;
-        balanceAvailable: number;
-        balanceAmount: number;
-        walletName: string;
-        id: string;
       }>;
       noProduct: number;
       noStore: number;
@@ -222,6 +222,21 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
   }): CancelablePromise<({
+    Wallet: Array<{
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      balanceUnavailable: PrismaJson_UnavailableBalance;
+      payoutAmount: number;
+      holdAmount: number;
+      balanceDebt: number;
+      balanceAvailable: number;
+      balanceAmount: number;
+      walletName: string;
+      id: string;
+    }>;
     PaymentOnboarding: Array<{
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -245,21 +260,6 @@ export class FulfillmentAgencyService {
       storeId: string;
       fulfillmentAgencyId: number;
       id: number;
-    }>;
-    Wallet: Array<{
-      updatedAt: string;
-      createdAt: string;
-      isDeleted: boolean;
-      storeId: string;
-      fulfillmentAgencyId: number;
-      balanceUnavailable: PrismaJson_UnavailableBalance;
-      payoutAmount: number;
-      holdAmount: number;
-      balanceDebt: number;
-      balanceAvailable: number;
-      balanceAmount: number;
-      walletName: string;
-      id: string;
     }>;
   } & {
     timezone: PrismaJson_Timezone;
@@ -479,11 +479,11 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<Array<{
     name: string;
+    id: string;
     Wallet: Array<{
       balanceDebt: number;
       id: string;
     }>;
-    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'GET',

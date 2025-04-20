@@ -68,8 +68,8 @@ export class NotificationService {
     requestBody: CreateNotificationDto,
   }): CancelablePromise<{
     title: string;
-    description: string;
     data: any;
+    description: string;
     type: _36_Enums_NotificationType;
     updatedAt: string;
     createdAt: string;
@@ -169,8 +169,8 @@ export class NotificationService {
     requestBody: UpdateNotificationDto,
   }): CancelablePromise<{
     title: string;
-    description: string;
     data: any;
+    description: string;
     type: _36_Enums_NotificationType;
     updatedAt: string;
     createdAt: string;
@@ -205,8 +205,8 @@ export class NotificationService {
     id: number,
   }): CancelablePromise<{
     title: string;
-    description: string;
     data: any;
+    description: string;
     type: _36_Enums_NotificationType;
     updatedAt: string;
     createdAt: string;

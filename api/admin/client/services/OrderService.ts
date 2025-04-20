@@ -446,13 +446,8 @@ export class OrderService {
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
@@ -463,6 +458,11 @@ export class OrderService {
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;
@@ -487,36 +487,6 @@ export class OrderService {
       storeId: string;
       id: string;
     }>;
-    StoreUser: Array<{
-      isOwner: boolean;
-      userId: string;
-      role: _36_Enums_StoreRole;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      id: number;
-    }>;
-    Payment: Array<{
-      environment: _36_Enums_EnvironmentType;
-      UIVersion: number;
-      BNcode: string;
-      publishableKey: string;
-      isShowCompanyAddress: boolean;
-      companyAddress: string;
-      companyPhone: string;
-      companyName: string;
-      merchantId: string;
-      PaymentOnboarding: {
-        id: number;
-      };
-      type: _36_Enums_PaymentType;
-      email: string;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      fulfillmentAgencyId: number;
-      id: number;
-    }>;
     Wallet: Array<{
       updatedAt: string;
       createdAt: string;
@@ -534,19 +504,19 @@ export class OrderService {
     }>;
     FulfillmentAgency: ({
       Setting: {
+        serviceFee: number;
+        othersFee: number;
+        percentageCostPlatformFee: number;
         FulfillmentShippingCost: Array<{
-          settingId: number;
           countries: PrismaJson_CountryInformation;
           zoneName: string;
+          settingId: number;
           deleted: boolean;
           shippingFee: number;
           updatedAt: string;
           createdAt: string;
           id: string;
         }>;
-        serviceFee: number;
-        percentageCostPlatformFee: number;
-        othersFee: number;
       };
     } & {
       timezone: PrismaJson_Timezone;
@@ -562,6 +532,36 @@ export class OrderService {
       createdAt: string;
       id: number;
     });
+    Payment: Array<{
+      environment: _36_Enums_EnvironmentType;
+      UIVersion: number;
+      BNcode: string;
+      isShowCompanyAddress: boolean;
+      companyAddress: string;
+      companyPhone: string;
+      companyName: string;
+      merchantId: string;
+      publishableKey: string;
+      type: _36_Enums_PaymentType;
+      email: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: number;
+      PaymentOnboarding: {
+        id: number;
+      };
+    }>;
+    StoreUser: Array<{
+      isOwner: boolean;
+      role: _36_Enums_StoreRole;
+      userId: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
+    }>;
     fraudStatus: FraudStatusType;
   })> {
     return this.httpRequest.request({
@@ -594,9 +594,9 @@ export class OrderService {
     OrderRefund: Array<{
       historyRefundOrder: PrismaJson_RefundOrderItems;
       paymentGateId: number;
-      isRollback: boolean;
       total: number;
       note: string;
+      isRollback: boolean;
       orderId: string;
       type: string;
       updatedAt: string;
@@ -627,6 +627,10 @@ export class OrderService {
         id: number;
       });
       ProductVariant: ({
+        Product: {
+          name: string;
+          id: number;
+        };
         PlatformVariant: {
           fulfillmentPlatformVariantId: string;
           groupPlatformVariantId: number;
@@ -637,16 +641,12 @@ export class OrderService {
           isEnable: boolean;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
-          deleted: boolean;
           platformProductId: number;
+          deleted: boolean;
           isActive: boolean;
           name: string;
           updatedAt: string;
           createdAt: string;
-          id: number;
-        };
-        Product: {
-          name: string;
           id: number;
         };
       } & {
@@ -674,14 +674,14 @@ export class OrderService {
       orderRefundId: string;
       variantComboId: number;
       productVariantId: number;
-      productId: number;
       syncTrackingStatus: _36_Enums_SyncTrackingStatus;
       carrier: string;
       tracking: string;
       latestQuantity: number;
       platformPrice: number;
-      quantity: number;
       priceUSD: number;
+      quantity: number;
+      productId: number;
       price: number;
       orderId: string;
       currencyId: number;
@@ -691,20 +691,20 @@ export class OrderService {
       id: string;
     })>;
     Transaction: Array<{
+      requestPayoutId: string;
       isRollback: boolean;
       refundIdGateway: string;
       transactionDetails: PrismaJson_TransactionDetails;
       notes: string;
-      requestPayoutId: string;
       disputeFee: number;
+      lastBalance: number;
       fee: number;
       amount: number;
       idTransaction: string;
-      lastBalance: number;
       orderId: string;
-      walletId: string;
       photos: PrismaJson_Photos;
       paymentMethod: PrismaJson_TransactionPaymentMethod;
+      walletId: string;
       type: _36_Enums_TransactionType;
       status: _36_Enums_TransactionStatus;
       updatedAt: string;
@@ -724,13 +724,8 @@ export class OrderService {
       balance: number;
       referralCode: string;
       defaultBankAccount: string;
-      shippingPolicy: string;
-      termsOfService: string;
-      privacyPolicy: string;
-      refundPolicy: string;
       shippingFeeAdditional: number;
       shippingFee: number;
-      othersFee: number;
       primaryDomain: string;
       subDomain: string;
       pageName: string;
@@ -741,6 +736,11 @@ export class OrderService {
       apartmentAddress: string;
       address: string;
       avatar: string;
+      othersFee: number;
+      shippingPolicy: string;
+      termsOfService: string;
+      refundPolicy: string;
+      privacyPolicy: string;
       timezone: PrismaJson_Timezone;
       type: _36_Enums_StoreType;
       status: _36_Enums_StoreStatus;
@@ -772,7 +772,6 @@ export class OrderService {
     gatewayTransactionId: string;
     gatewayOrderId: string;
     supplierCost: number;
-    lastBalance: number;
     discountShippingFee: number;
     noItems: number;
     tax: number;
@@ -790,19 +789,18 @@ export class OrderService {
     province: string;
     address2: string;
     address1: string;
+    lastBalance: number;
     domain: string;
-    isDeductedProfit: boolean;
-    serviceFee: number;
-    fulfillmentShippingCost: number;
-    discount: number;
     paymentId: number;
     merchantId: string;
     currencyId: number;
     shippingFee: number;
-    othersFee: number;
     country: string;
     zipCode: string;
     city: string;
+    isDeductedProfit: boolean;
+    serviceFee: number;
+    othersFee: number;
     platformFee: number;
     status: _36_Enums_OrderStatus;
     phone: string;
@@ -812,6 +810,8 @@ export class OrderService {
     createdAt: string;
     storeId: string;
     id: string;
+    fulfillmentShippingCost: number;
+    discount: number;
   })> {
     return this.httpRequest.request({
       method: 'POST',

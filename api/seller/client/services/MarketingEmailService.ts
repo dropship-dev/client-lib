@@ -186,6 +186,18 @@ export class MarketingEmailService {
     storeId: string,
     orderTrackingId: number,
   }): CancelablePromise<{
+    emailStatus: _36_Enums_OrderTrackingEmailStatus;
+    recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
+    phoneNumber: string;
+    comboItems: PrismaJson_CreateComboItems;
+    orderItems: PrismaJson_CreateOrderItems;
+    expiredAt: string;
+    discountShippingFee: number;
+    subTotal: number;
+    total: number;
+    email: string;
+    createdAt: string;
+    id: number;
     EmailTrackings: Array<{
       AbandonmentReminder: {
         AbandonmentSettings: {
@@ -195,18 +207,6 @@ export class MarketingEmailService {
       action: _36_Enums_EmailTrackingAction;
       createdAt: string;
     }>;
-    emailStatus: _36_Enums_OrderTrackingEmailStatus;
-    recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
-    phoneNumber: string;
-    comboItems: PrismaJson_CreateComboItems;
-    expiredAt: string;
-    orderItems: PrismaJson_CreateOrderItems;
-    discountShippingFee: number;
-    subTotal: number;
-    total: number;
-    email: string;
-    createdAt: string;
-    id: number;
     checkoutDetail: Array<{
       comboVariantName?: string;
       productVariantName?: string;

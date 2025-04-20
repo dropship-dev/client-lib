@@ -71,12 +71,12 @@ export class ThemeService {
       logo: string;
       nodes: PrismaJson_ThemeNodes;
       style: PrismaJson_ThemeStyle;
-      setting: PrismaJson_ThemeSetting;
       name: string;
       updatedAt: string;
       createdAt: string;
       storeId: string;
       id: number;
+      setting: PrismaJson_ThemeSetting;
     }>;
   }> {
     return this.httpRequest.request({
@@ -127,12 +127,12 @@ export class ThemeService {
     logo: string;
     nodes: PrismaJson_ThemeNodes;
     style: PrismaJson_ThemeStyle;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    setting: PrismaJson_ThemeSetting;
   })> {
     return this.httpRequest.request({
       method: 'GET',
@@ -198,12 +198,12 @@ export class ThemeService {
     logo: string;
     nodes: PrismaJson_ThemeNodes;
     style: PrismaJson_ThemeStyle;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    setting: PrismaJson_ThemeSetting;
   } & {
     ThemePage: {
       themeId: number;
@@ -283,12 +283,12 @@ export class ThemeService {
     logo: string;
     nodes: PrismaJson_ThemeNodes;
     style: PrismaJson_ThemeStyle;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    setting: PrismaJson_ThemeSetting;
   }> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -329,12 +329,12 @@ export class ThemeService {
     logo: string;
     nodes: PrismaJson_ThemeNodes;
     style: PrismaJson_ThemeStyle;
-    setting: PrismaJson_ThemeSetting;
     name: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    setting: PrismaJson_ThemeSetting;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',

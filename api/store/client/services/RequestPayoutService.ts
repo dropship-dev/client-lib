@@ -90,25 +90,25 @@ export class RequestPayoutService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        currency: _36_Enums_CurrencyType;
         email: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
+        currency: _36_Enums_CurrencyType;
       };
       BankAccount: {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
         bank: PrismaJson_bankInfo;
-        currency: _36_Enums_CurrencyType;
         accountHolder: string;
         accountNumber: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
+        currency: _36_Enums_CurrencyType;
       };
       Store: {
         isConversionRate: boolean;
@@ -122,13 +122,8 @@ export class RequestPayoutService {
         balance: number;
         referralCode: string;
         defaultBankAccount: string;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
         shippingFeeAdditional: number;
         shippingFee: number;
-        othersFee: number;
         primaryDomain: string;
         subDomain: string;
         pageName: string;
@@ -139,6 +134,11 @@ export class RequestPayoutService {
         apartmentAddress: string;
         address: string;
         avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
         timezone: PrismaJson_Timezone;
         type: _36_Enums_StoreType;
         status: _36_Enums_StoreStatus;

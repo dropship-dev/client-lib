@@ -102,7 +102,6 @@ export class PaymentService {
   } | {
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     isConnectPSSFF: boolean;
-    salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
@@ -111,14 +110,15 @@ export class PaymentService {
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
-    secretKey: string;
-    publishableKey: string;
     isPlatform: boolean;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
     merchantId: string;
+    salt: string;
+    secretKey: string;
+    publishableKey: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;
@@ -161,7 +161,6 @@ export class PaymentService {
   }): CancelablePromise<{
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     isConnectPSSFF: boolean;
-    salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
@@ -170,14 +169,15 @@ export class PaymentService {
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
-    secretKey: string;
-    publishableKey: string;
     isPlatform: boolean;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
     merchantId: string;
+    salt: string;
+    secretKey: string;
+    publishableKey: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;
@@ -225,11 +225,17 @@ export class PaymentService {
       createdAt: string;
       id: string;
     };
-    publishableKey: string;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    publishableKey: string;
+    type: _36_Enums_PaymentType;
+    email: string;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
     PaymentOnboarding: {
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -254,12 +260,6 @@ export class PaymentService {
       fulfillmentAgencyId: number;
       id: number;
     };
-    type: _36_Enums_PaymentType;
-    email: string;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    id: number;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -323,11 +323,11 @@ export class PaymentService {
         id: string;
       };
       isConnectPSSFF: boolean;
-      publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      publishableKey: string;
       type: _36_Enums_PaymentType;
       email: string;
       name: string;
@@ -361,9 +361,6 @@ export class PaymentService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<Array<{
-    payment: {
-      type: _36_Enums_PaymentType;
-    };
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     vettingRejectedAt: string;
@@ -372,6 +369,9 @@ export class PaymentService {
     paymentType: _36_Enums_PaymentType;
     fulfillmentAgencyId: number;
     id: number;
+    payment: {
+      type: _36_Enums_PaymentType;
+    };
     isDisconnect: boolean;
   }>> {
     return this.httpRequest.request({
@@ -400,9 +400,6 @@ export class PaymentService {
     fulfillmentAgencyId: number,
     onBoardingId: number,
   }): CancelablePromise<Array<{
-    payment: {
-      type: _36_Enums_PaymentType;
-    };
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     vettingRejectedAt: string;
@@ -410,6 +407,9 @@ export class PaymentService {
     merchantEmail: string;
     paymentType: _36_Enums_PaymentType;
     fulfillmentAgencyId: number;
+    payment: {
+      type: _36_Enums_PaymentType;
+    };
     isDisconnect: boolean;
     onboardingUrl: string;
   }>> {
@@ -485,11 +485,11 @@ export class PaymentService {
       createdAt: string;
       id: string;
     };
-    publishableKey: string;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    publishableKey: string;
     type: _36_Enums_PaymentType;
     email: string;
     name: string;
@@ -556,7 +556,6 @@ export class PaymentService {
   } | {
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
     isConnectPSSFF: boolean;
-    salt: string;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
@@ -565,14 +564,15 @@ export class PaymentService {
     gatewayUrl: string;
     tokenExpiredAt: string;
     token: string;
-    secretKey: string;
-    publishableKey: string;
     isPlatform: boolean;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
     merchantId: string;
+    salt: string;
+    secretKey: string;
+    publishableKey: string;
     userId: string;
     type: _36_Enums_PaymentType;
     email: string;

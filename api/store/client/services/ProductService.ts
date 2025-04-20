@@ -142,11 +142,11 @@ export class ProductService {
     SKU: string;
     details: string;
     permalink: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    photos: PrismaJson_Photos;
     description: string;
     isActive: boolean;
-    photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
     name: string;
@@ -156,22 +156,22 @@ export class ProductService {
     id: number;
     Campaign: ({
       listDiscount: Array<{
-        userUpdated: string;
-        userCreated: string;
         requirementDiscount: PrismaJson_ProductRequirementItems;
         typeDiscount: PrismaJson_ProductDiscountItems;
-        label: string;
         position: number;
+        userUpdated: string;
+        userCreated: string;
+        label: string;
         campaignId: string;
         updatedAt: string;
         createdAt: string;
         id: string;
       }>;
     } & {
-      endDate: string;
-      startDate: string;
       userUpdated: string;
       userCreated: string;
+      endDate: string;
+      startDate: string;
       label: string;
       status: boolean;
       updatedAt: string;
@@ -201,6 +201,10 @@ export class ProductService {
       id: number;
     })>;
     ProductVariant: Array<({
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
       PlatformVariant: {
         fulfillmentPlatformVariantId: string;
         groupPlatformVariantId: number;
@@ -211,17 +215,13 @@ export class ProductService {
         isEnable: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
         isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
-      };
-      Product: {
-        platformProductId: number;
-        name: string;
       };
     } & {
       podDesignVariantId: number;
@@ -255,6 +255,29 @@ export class ProductService {
       createdAt: string;
       id: number;
     }>;
+    GoogleTagManager: Array<{
+      tag: string;
+    }>;
+    GoogleAnalytic: Array<{
+      measurementId: string;
+    }>;
+    TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    FbPixel: Array<{
+      pixelId: string;
+    }>;
+    Tag: Array<{
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: number;
+    }>;
+    PlatformProduct: {
+      variantOption: PrismaJson_VariantOptions;
+      id: number;
+    };
     BoostSale: Array<({
       Product: Array<({
         ProductVariant: Array<({
@@ -293,11 +316,11 @@ export class ProductService {
         SKU: string;
         details: string;
         permalink: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         shippingFeeAdditional: number;
         shippingFee: number;
         name: string;
@@ -344,11 +367,11 @@ export class ProductService {
           SKU: string;
           details: string;
           permalink: string;
-          deleted: boolean;
           platformProductId: number;
+          deleted: boolean;
+          photos: PrismaJson_Photos;
           description: string;
           isActive: boolean;
-          photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
           name: string;
@@ -360,12 +383,11 @@ export class ProductService {
       }>;
     } & {
       rootProductId: number;
-      endDate: string;
-      startDate: string;
       triggerBy: _36_Enums_BoostSaleTriggerType;
       marketingType: _36_Enums_MarketingType;
       placement: PrismaJson_PlacementBoostSaleType;
-      discount: PrismaJson_DiscountBoostSale;
+      endDate: string;
+      startDate: string;
       type: _36_Enums_BoostSaleType;
       status: boolean;
       name: string;
@@ -373,26 +395,8 @@ export class ProductService {
       createdAt: string;
       storeId: string;
       id: number;
+      discount: PrismaJson_DiscountBoostSale;
     })>;
-    GoogleTagManager: Array<{
-      tag: string;
-    }>;
-    GoogleAnalytic: Array<{
-      measurementId: string;
-    }>;
-    TiktokPixel: Array<{
-      pixelId: string;
-    }>;
-    FbPixel: Array<{
-      pixelId: string;
-    }>;
-    Tag: Array<{
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      storeId: string;
-      id: number;
-    }>;
     Collection: Array<({
       BoostSale: Array<({
         Product: Array<({
@@ -432,11 +436,11 @@ export class ProductService {
           SKU: string;
           details: string;
           permalink: string;
-          deleted: boolean;
           platformProductId: number;
+          deleted: boolean;
+          photos: PrismaJson_Photos;
           description: string;
           isActive: boolean;
-          photos: PrismaJson_Photos;
           shippingFeeAdditional: number;
           shippingFee: number;
           name: string;
@@ -483,11 +487,11 @@ export class ProductService {
             SKU: string;
             details: string;
             permalink: string;
-            deleted: boolean;
             platformProductId: number;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
             description: string;
             isActive: boolean;
-            photos: PrismaJson_Photos;
             shippingFeeAdditional: number;
             shippingFee: number;
             name: string;
@@ -499,12 +503,11 @@ export class ProductService {
         }>;
       } & {
         rootProductId: number;
-        endDate: string;
-        startDate: string;
         triggerBy: _36_Enums_BoostSaleTriggerType;
         marketingType: _36_Enums_MarketingType;
         placement: PrismaJson_PlacementBoostSaleType;
-        discount: PrismaJson_DiscountBoostSale;
+        endDate: string;
+        startDate: string;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -512,12 +515,13 @@ export class ProductService {
         createdAt: string;
         storeId: string;
         id: number;
+        discount: PrismaJson_DiscountBoostSale;
       })>;
     } & {
       SEO: any;
       condition: PrismaJson_ConditionCollection;
-      description: string;
       photos: PrismaJson_Photos;
+      description: string;
       type: _36_Enums_CollectionType;
       status: _36_Enums_CollectionStatus;
       name: string;
@@ -526,10 +530,6 @@ export class ProductService {
       storeId: string;
       id: number;
     })>;
-    PlatformProduct: {
-      variantOption: PrismaJson_VariantOptions;
-      id: number;
-    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -563,22 +563,22 @@ export class ProductService {
   }): CancelablePromise<({
     Campaign: ({
       listDiscount: Array<{
-        userUpdated: string;
-        userCreated: string;
         requirementDiscount: PrismaJson_ProductRequirementItems;
         typeDiscount: PrismaJson_ProductDiscountItems;
-        label: string;
         position: number;
+        userUpdated: string;
+        userCreated: string;
+        label: string;
         campaignId: string;
         updatedAt: string;
         createdAt: string;
         id: string;
       }>;
     } & {
-      endDate: string;
-      startDate: string;
       userUpdated: string;
       userCreated: string;
+      endDate: string;
+      startDate: string;
       label: string;
       status: boolean;
       updatedAt: string;
@@ -608,6 +608,10 @@ export class ProductService {
       id: number;
     })>;
     ProductVariant: Array<({
+      Product: {
+        platformProductId: number;
+        name: string;
+      };
       PlatformVariant: {
         fulfillmentPlatformVariantId: string;
         groupPlatformVariantId: number;
@@ -618,17 +622,13 @@ export class ProductService {
         isEnable: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
         isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
-      };
-      Product: {
-        platformProductId: number;
-        name: string;
       };
     } & {
       podDesignVariantId: number;
@@ -695,11 +695,11 @@ export class ProductService {
     SKU: string;
     details: string;
     permalink: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    photos: PrismaJson_Photos;
     description: string;
     isActive: boolean;
-    photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
     name: string;
@@ -769,12 +769,12 @@ export class ProductService {
     storeId: string,
     boostSaleIds: Array<number>,
   }): CancelablePromise<Array<{
-    discount: PrismaJson_DiscountBoostSale;
+    status: boolean;
+    id: number;
     Product: Array<{
       id: number;
     }>;
-    status: boolean;
-    id: number;
+    discount: PrismaJson_DiscountBoostSale;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -841,22 +841,22 @@ export class ProductService {
   }): CancelablePromise<({
     Campaign: ({
       listDiscount: Array<{
-        userUpdated: string;
-        userCreated: string;
         requirementDiscount: PrismaJson_ProductRequirementItems;
         typeDiscount: PrismaJson_ProductDiscountItems;
-        label: string;
         position: number;
+        userUpdated: string;
+        userCreated: string;
+        label: string;
         campaignId: string;
         updatedAt: string;
         createdAt: string;
         id: string;
       }>;
     } & {
-      endDate: string;
-      startDate: string;
       userUpdated: string;
       userCreated: string;
+      endDate: string;
+      startDate: string;
       label: string;
       status: boolean;
       updatedAt: string;
@@ -947,11 +947,11 @@ export class ProductService {
     SKU: string;
     details: string;
     permalink: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    photos: PrismaJson_Photos;
     description: string;
     isActive: boolean;
-    photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
     name: string;

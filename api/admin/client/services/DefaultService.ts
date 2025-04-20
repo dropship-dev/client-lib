@@ -27,9 +27,9 @@ export class DefaultService {
     fulfillmentAgencyId: number,
     requestBody: FulfillmentShippingCostDto,
   }): CancelablePromise<{
-    settingId: number;
     countries: PrismaJson_CountryInformation;
     zoneName: string;
+    settingId: number;
     deleted: boolean;
     shippingFee: number;
     updatedAt: string;
@@ -77,9 +77,9 @@ export class DefaultService {
     prePageIndex: string;
     total: number;
     data: Array<{
-      settingId: number;
       countries: PrismaJson_CountryInformation;
       zoneName: string;
+      settingId: number;
       deleted: boolean;
       shippingFee: number;
       updatedAt: string;
@@ -144,9 +144,9 @@ export class DefaultService {
     fulfillmentAgencyId: number,
     id: string,
   }): CancelablePromise<{
-    settingId: number;
     countries: PrismaJson_CountryInformation;
     zoneName: string;
+    settingId: number;
     deleted: boolean;
     shippingFee: number;
     updatedAt: string;
@@ -180,9 +180,9 @@ export class DefaultService {
     fulfillmentAgencyId: number,
     id: string,
   }): CancelablePromise<{
-    settingId: number;
     countries: PrismaJson_CountryInformation;
     zoneName: string;
+    settingId: number;
     deleted: boolean;
     shippingFee: number;
     updatedAt: string;
@@ -218,9 +218,9 @@ export class DefaultService {
     id: string,
     requestBody: FulfillmentShippingCostDto,
   }): CancelablePromise<{
-    settingId: number;
     countries: PrismaJson_CountryInformation;
     zoneName: string;
+    settingId: number;
     deleted: boolean;
     shippingFee: number;
     updatedAt: string;
@@ -280,11 +280,11 @@ export class DefaultService {
     fulfillmentAgencyId: number,
     requestBody: CreateCollectionDefaultDto,
   }): CancelablePromise<{
-    settingId: number;
     SEO: any;
     condition: PrismaJson_ConditionCollection;
-    description: string;
+    settingId: number;
     photos: PrismaJson_Photos;
+    description: string;
     type: _36_Enums_CollectionType;
     status: _36_Enums_CollectionStatus;
     name: string;
@@ -338,23 +338,23 @@ export class DefaultService {
     total: number;
     data: Array<({
       PlatformProduct: Array<{
+        isEnable: boolean;
+        deleted: boolean;
+        photos: PrismaJson_Photos;
+        isActive: boolean;
+        name: string;
+        id: number;
         PlatformVariant: Array<{
           cost: PrismaJson_PlatformCostInfo;
           price: number;
         }>;
-        isEnable: boolean;
-        deleted: boolean;
-        isActive: boolean;
-        photos: PrismaJson_Photos;
-        name: string;
-        id: number;
       }>;
     } & {
-      settingId: number;
       SEO: any;
       condition: PrismaJson_ConditionCollection;
-      description: string;
+      settingId: number;
       photos: PrismaJson_Photos;
+      description: string;
       type: _36_Enums_CollectionType;
       status: _36_Enums_CollectionStatus;
       name: string;
@@ -405,23 +405,23 @@ export class DefaultService {
     deletedProduct?: boolean,
   }): CancelablePromise<({
     PlatformProduct: Array<{
+      isEnable: boolean;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      isActive: boolean;
+      name: string;
+      id: number;
       PlatformVariant: Array<{
         cost: PrismaJson_PlatformCostInfo;
         price: number;
       }>;
-      isEnable: boolean;
-      deleted: boolean;
-      isActive: boolean;
-      photos: PrismaJson_Photos;
-      name: string;
-      id: number;
     }>;
   } & {
-    settingId: number;
     SEO: any;
     condition: PrismaJson_ConditionCollection;
-    description: string;
+    settingId: number;
     photos: PrismaJson_Photos;
+    description: string;
     type: _36_Enums_CollectionType;
     status: _36_Enums_CollectionStatus;
     name: string;

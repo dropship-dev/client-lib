@@ -21,8 +21,8 @@ export class StaffService {
     requestBody: CreateStaffDto,
   }): CancelablePromise<{
     isOwner: boolean;
-    userId: string;
     role: _36_Enums_StoreRole;
+    userId: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -64,8 +64,8 @@ export class StaffService {
     };
   } & {
     isOwner: boolean;
-    userId: string;
     role: _36_Enums_StoreRole;
+    userId: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -100,8 +100,8 @@ export class StaffService {
     requestBody: UpdateStaffDto,
   }): CancelablePromise<{
     isOwner: boolean;
-    userId: string;
     role: _36_Enums_StoreRole;
+    userId: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -137,8 +137,8 @@ export class StaffService {
     userId: string,
   }): CancelablePromise<{
     isOwner: boolean;
-    userId: string;
     role: _36_Enums_StoreRole;
+    userId: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
