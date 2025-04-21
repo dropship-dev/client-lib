@@ -1,4 +1,5 @@
 import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
+import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -13,6 +14,8 @@ export declare class SettingService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<({
+        receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+        receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
         isDeductedProfit: boolean;
         serviceFee: number;
         othersFee: number;
@@ -40,6 +43,8 @@ export declare class SettingService {
         fulfillmentAgencyId: number;
         requestBody: UpdateSettingDto;
     }): CancelablePromise<{
+        receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+        receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
         isDeductedProfit: boolean;
         serviceFee: number;
         othersFee: number;
