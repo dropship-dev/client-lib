@@ -2,7 +2,6 @@ import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus'
 import type { _36_Enums_OrderDisputeStatus } from './_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from './_36_Enums_OrderStatus';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
-import type { PrismaJson_OrderHistoryTracking } from './PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmount';
 export type DefaultSelection_Prisma__36_OrderPayload_ = {
     disputeStatus: _36_Enums_OrderDisputeStatus;
@@ -34,7 +33,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     totalUSD: number;
     total: number;
     note: string;
-    historyTracking: PrismaJson_OrderHistoryTracking;
     utmLink: string;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;

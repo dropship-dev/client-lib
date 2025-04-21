@@ -26,7 +26,6 @@ import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_HistoryTrackingDetail } from '../models/PrismaJson_HistoryTrackingDetail';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -144,11 +143,8 @@ export declare class OrderService {
         storeId: string;
     }): CancelablePromise<Array<{
         detail: PrismaJson_HistoryTrackingDetail;
-        orderId: string;
         type: _36_Enums_HistoryTrackingType;
-        updatedAt: string;
         createdAt: string;
-        id: number;
     }>>;
     /**
      * @returns ExportOrderResponseDto Ok
@@ -554,7 +550,6 @@ export declare class OrderService {
         totalUSD: number;
         total: number;
         note: string;
-        historyTracking: PrismaJson_OrderHistoryTracking;
         utmLink: string;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
@@ -593,10 +588,7 @@ export declare class OrderService {
         fulfillmentAgencyId: number;
     }): CancelablePromise<Array<{
         detail: PrismaJson_HistoryTrackingDetail;
-        orderId: string;
         type: _36_Enums_HistoryTrackingType;
-        updatedAt: string;
         createdAt: string;
-        id: number;
     }>>;
 }
