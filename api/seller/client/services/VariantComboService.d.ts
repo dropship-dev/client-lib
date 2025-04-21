@@ -1,5 +1,5 @@
 import type { CreateComboDto } from '../models/CreateComboDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
@@ -85,14 +85,14 @@ export declare class VariantComboService {
         ids: Array<number>;
     }): CancelablePromise<string>;
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createCombos({ storeId, productId, requestBody, }: {
         storeId: string;
         productId: number;
         requestBody: Array<CreateComboDto>;
-    }): CancelablePromise<Prisma_BatchPayload>;
+    }): CancelablePromise<GetBatchResult>;
     /**
      * @returns any Ok
      * @throws ApiError

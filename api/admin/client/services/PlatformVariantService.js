@@ -7,7 +7,7 @@ class PlatformVariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }) {

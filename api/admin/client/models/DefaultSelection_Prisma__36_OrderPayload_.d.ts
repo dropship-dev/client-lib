@@ -22,7 +22,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     gatewayTransactionId: string;
     gatewayOrderId: string;
     supplierCost: number;
-    lastBalance: number;
     discountShippingFee: number;
     noItems: number;
     tax: number;
@@ -39,19 +38,18 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     province: string;
     address2: string;
     address1: string;
+    lastBalance: number;
     domain: string;
-    isDeductedProfit: boolean;
-    serviceFee: number;
-    fulfillmentShippingCost: number;
-    discount: number;
     paymentId: number;
     merchantId: string;
     currencyId: number;
     shippingFee: number;
-    othersFee: number;
     country: string;
     zipCode: string;
     city: string;
+    isDeductedProfit: boolean;
+    serviceFee: number;
+    othersFee: number;
     platformFee: number;
     status: _36_Enums_OrderStatus;
     phone: string;
@@ -61,4 +59,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     createdAt: string;
     storeId: string;
     id: string;
+    fulfillmentShippingCost: number;
+    discount: number;
 };

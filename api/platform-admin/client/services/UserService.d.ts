@@ -42,8 +42,8 @@ export declare class UserService {
             };
         } & {
             isOwner: boolean;
-            userId: string;
             role: _36_Enums_FulfillmentAgencyRole;
+            userId: string;
             updatedAt: string;
             createdAt: string;
             fulfillmentAgencyId: number;
@@ -140,8 +140,8 @@ export declare class UserService {
             };
         } & {
             isOwner: boolean;
-            userId: string;
             role: _36_Enums_FulfillmentAgencyRole;
+            userId: string;
             updatedAt: string;
             createdAt: string;
             fulfillmentAgencyId: number;
@@ -191,8 +191,8 @@ export declare class UserService {
             };
         } & {
             isOwner: boolean;
-            userId: string;
             role: _36_Enums_FulfillmentAgencyRole;
+            userId: string;
             updatedAt: string;
             createdAt: string;
             fulfillmentAgencyId: number;

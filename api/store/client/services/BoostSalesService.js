@@ -189,7 +189,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }) {

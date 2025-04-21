@@ -13,13 +13,8 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
-    othersFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
@@ -30,6 +25,11 @@ export type DefaultSelection_Prisma__36_StorePayload_ = {
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;

@@ -38,9 +38,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -80,9 +80,9 @@ export declare class PlatformProductService {
             SKU: string;
             details: string;
             deleted: boolean;
+            photos: PrismaJson_Photos;
             description: string;
             isActive: boolean;
-            photos: PrismaJson_Photos;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -91,6 +91,18 @@ export declare class PlatformProductService {
             FulfillmentPlatformSupplier: {
                 platform: 'BETTA_SUP';
             };
+            Product: Array<{
+                platformProductId: number;
+                storeId: string;
+                id: number;
+            }>;
+            Tag: Array<{
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                fulfillmentAgencyId: number;
+                id: number;
+            }>;
             GroupPlatformVariant: Array<({
                 PlatformVariant: Array<{
                     photo: string;
@@ -116,24 +128,12 @@ export declare class PlatformProductService {
                 isEnable: boolean;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
-                deleted: boolean;
                 platformProductId: number;
+                deleted: boolean;
                 isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
-                id: number;
-            }>;
-            Tag: Array<{
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                fulfillmentAgencyId: number;
-                id: number;
-            }>;
-            Product: Array<{
-                platformProductId: number;
-                storeId: string;
                 id: number;
             }>;
             noStores: number;
@@ -196,9 +196,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -225,9 +225,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -255,9 +255,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -285,9 +285,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -315,9 +315,9 @@ export declare class PlatformProductService {
         SKU: string;
         details: string;
         deleted: boolean;
+        photos: PrismaJson_Photos;
         description: string;
         isActive: boolean;
-        photos: PrismaJson_Photos;
         name: string;
         updatedAt: string;
         createdAt: string;

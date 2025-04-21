@@ -7,8 +7,8 @@ exports._36_Enums_CapabilityStatus = void 0;
 /* eslint-disable */
 var _36_Enums_CapabilityStatus;
 (function (_36_Enums_CapabilityStatus) {
-    _36_Enums_CapabilityStatus["APPROVED"] = "APPROVED";
     _36_Enums_CapabilityStatus["SUSPENDED"] = "SUSPENDED";
+    _36_Enums_CapabilityStatus["APPROVED"] = "APPROVED";
     _36_Enums_CapabilityStatus["PENDING"] = "PENDING";
     _36_Enums_CapabilityStatus["ACTIVE"] = "ACTIVE";
     _36_Enums_CapabilityStatus["REVOKED"] = "REVOKED";

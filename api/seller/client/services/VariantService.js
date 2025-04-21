@@ -7,7 +7,7 @@ class VariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createVariants({ storeId, requestBody, }) {

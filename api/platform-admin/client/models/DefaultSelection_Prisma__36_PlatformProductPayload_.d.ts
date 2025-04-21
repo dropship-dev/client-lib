@@ -14,9 +14,9 @@ export type DefaultSelection_Prisma__36_PlatformProductPayload_ = {
     SKU: string;
     details: string;
     deleted: boolean;
+    photos: PrismaJson_Photos;
     description: string;
     isActive: boolean;
-    photos: PrismaJson_Photos;
     name: string;
     updatedAt: string;
     createdAt: string;

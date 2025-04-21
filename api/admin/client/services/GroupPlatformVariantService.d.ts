@@ -34,6 +34,9 @@ export declare class GroupPlatformVariantService {
         groupPlatformVariantId: number;
     }): CancelablePromise<{
         cost: PrismaJson_PlatformCostInfo;
+        platformProductId: number;
+        name: string;
+        id: number;
         PlatformVariant: Array<{
             photo: string;
             variantOption: PrismaJson_VariantOptionValues;
@@ -41,9 +44,6 @@ export declare class GroupPlatformVariantService {
             name: string;
             id: number;
         }>;
-        platformProductId: number;
-        name: string;
-        id: number;
     }>;
     /**
      * @returns void
