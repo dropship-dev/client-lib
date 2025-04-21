@@ -382,6 +382,7 @@ export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_Produc
 export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_ProductRequirementItems';
 export type { PrismaJson_RefundOrderItems } from './models/PrismaJson_RefundOrderItems';
 export type { PrismaJson_RequestSourcingHistory } from './models/PrismaJson_RequestSourcingHistory';
+export type { PrismaJson_SettingPayoutRequestTime } from './models/PrismaJson_SettingPayoutRequestTime';
 export type { PrismaJson_SyncBalanceAmount } from './models/PrismaJson_SyncBalanceAmount';
 export type { PrismaJson_ThemeNodes } from './models/PrismaJson_ThemeNodes';
 export type { PrismaJson_ThemeSetting } from './models/PrismaJson_ThemeSetting';
