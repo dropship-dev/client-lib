@@ -143,6 +143,7 @@ export declare class RequestPayoutService {
             storeId: string;
             id: string;
         })>;
+        countStatusRequestPayout: number;
     }>;
     /**
      * @returns any Ok
@@ -250,6 +251,7 @@ export declare class RequestPayoutService {
                 storeId: string;
                 id: string;
             })>;
+            countStatusRequestPayout: number;
         };
     }>;
     /**
@@ -358,6 +360,7 @@ export declare class RequestPayoutService {
                 storeId: string;
                 id: string;
             })>;
+            countStatusRequestPayout: number;
         };
     }>;
     /**
