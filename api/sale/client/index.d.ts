@@ -257,6 +257,7 @@ export type { GetPaginateTopLandingPageResultDto } from './models/GetPaginateTop
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
 export type { GetPermissionsRes } from './models/GetPermissionsRes';
 export type { GetReferralSaleDto } from './models/GetReferralSaleDto';
+export type { GetRequestPayoutDto } from './models/GetRequestPayoutDto';
 export type { GetRevenueStoreByFulfillmentDto } from './models/GetRevenueStoreByFulfillmentDto';
 export type { GetRevenueStoreByFulfillmentResult } from './models/GetRevenueStoreByFulfillmentResult';
 export type { GetStatsDeviceDto } from './models/GetStatsDeviceDto';
@@ -419,6 +420,8 @@ export type { SearchSuperAdminDto } from './models/SearchSuperAdminDto';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
 export { SendEmailToListStoreStatus } from './models/SendEmailToListStoreStatus';
 export type { SendOtpAddPingpongAccountDto } from './models/SendOtpAddPingpongAccountDto';
+export type { SettingPayoutRequestDto } from './models/SettingPayoutRequestDto';
+export { SettingRequestDay } from './models/SettingRequestDay';
 export { sortTrackingPerformance } from './models/sortTrackingPerformance';
 export { StatisticsDisplayType } from './models/StatisticsDisplayType';
 export type { StatisticsOverviewAbandonedCheckout } from './models/StatisticsOverviewAbandonedCheckout';

@@ -29,10 +29,64 @@ class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize = 20, nextPageIndex, }) {
+    getAllRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/request-payout',
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
+                'statusRequest': statusRequest,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRequestPayoutV2({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/request-payout/v2',
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
+                'statusRequest': statusRequest,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRequestHistory({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/request-payout/request-history',
             query: {
                 'storeId': storeId,
                 'fulfillmentAgencyId': fulfillmentAgencyId,
@@ -135,6 +189,29 @@ class RequestPayoutService {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/request-payout/tool-sync-balance-amount-for-seller',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    changeToRequesting({ id, fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/request-payout/{id}/change-to-requesting',
+            path: {
+                'id': id,
+            },
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

@@ -1,14 +1,11 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
-import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
-import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
-import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Store } from '../models/Store';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
@@ -59,7 +56,20 @@ export declare class RequestPayoutService {
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
-        data: Array<({
+        data: Array<{
+            payoutInToDate: string;
+            payoutInFromDate: string;
+            photos: PrismaJson_Photos;
+            noteByAdmin: string;
+            noteBySeller: string;
+            convertCurrencyCode: string;
+            paymentMethod: _36_Enums_PaymentMethodType;
+            convertCurrencyAmount: number;
+            requestCurrencyAmount: number;
+            status: _36_Enums_RequestPayoutStatus;
+            createdAt: string;
+            storeId: string;
+            id: string;
             PingPongAccount: {
                 walletId: string;
                 isBlock: boolean;
@@ -85,65 +95,150 @@ export declare class RequestPayoutService {
                 currency: _36_Enums_CurrencyType;
             };
             Store: {
-                isConversionRate: boolean;
-                stripeDefaultPaymentMethodId: string;
-                stripeCustomerId: string;
-                warning: boolean;
-                invitedDate: string;
-                invitedById: number;
-                currencyId: number;
-                maxUsers: number;
-                balance: number;
-                referralCode: string;
-                defaultBankAccount: string;
-                shippingFeeAdditional: number;
-                shippingFee: number;
-                primaryDomain: string;
-                subDomain: string;
-                pageName: string;
-                closedAt: string;
-                country: string;
-                zipCode: string;
-                city: string;
-                apartmentAddress: string;
-                address: string;
-                avatar: string;
-                othersFee: number;
-                shippingPolicy: string;
-                termsOfService: string;
-                refundPolicy: string;
-                privacyPolicy: string;
-                timezone: PrismaJson_Timezone;
-                type: _36_Enums_StoreType;
-                status: _36_Enums_StoreStatus;
                 phone: string;
                 email: string;
                 name: string;
-                updatedAt: string;
-                createdAt: string;
-                isDeleted: boolean;
-                fulfillmentAgencyId: number;
                 id: string;
             };
-        } & {
-            payoutInToDate: string;
-            payoutInFromDate: string;
-            photos: PrismaJson_Photos;
-            noteByAdmin: string;
-            noteBySeller: string;
-            convertCurrencyCode: string;
-            pingPongAccountId: string;
-            bankAccountId: string;
-            paymentMethod: _36_Enums_PaymentMethodType;
-            convertCurrencyAmount: number;
-            requestCurrencyAmount: number;
-            status: _36_Enums_RequestPayoutStatus;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: string;
-        })>;
-        countStatusRequestPayout: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRequestPayoutV2({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        statusRequest?: Array<_36_Enums_RequestPayoutStatus>;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
+        total: {
+            countStatusRequestPayout: number;
+        };
+        data: {
+            orderBy: string;
+            nextPageIndex: string;
+            prePageIndex: string;
+            total: number;
+            data: Array<{
+                payoutInToDate: string;
+                payoutInFromDate: string;
+                photos: PrismaJson_Photos;
+                noteByAdmin: string;
+                noteBySeller: string;
+                convertCurrencyCode: string;
+                paymentMethod: _36_Enums_PaymentMethodType;
+                convertCurrencyAmount: number;
+                requestCurrencyAmount: number;
+                status: _36_Enums_RequestPayoutStatus;
+                createdAt: string;
+                storeId: string;
+                id: string;
+                PingPongAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    email: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
+                BankAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    bank: PrismaJson_bankInfo;
+                    accountHolder: string;
+                    accountNumber: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
+                Store: {
+                    phone: string;
+                    email: string;
+                    name: string;
+                    id: string;
+                };
+            }>;
+        };
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRequestHistory({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize, nextPageIndex, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        statusRequest?: Array<_36_Enums_RequestPayoutStatus>;
+        pageSize?: number;
+        nextPageIndex?: string;
+    }): CancelablePromise<{
+        total: {
+            countStatusRequestPayout: number;
+        };
+        data: {
+            orderBy: string;
+            nextPageIndex: string;
+            prePageIndex: string;
+            total: number;
+            data: Array<{
+                payoutInToDate: string;
+                payoutInFromDate: string;
+                photos: PrismaJson_Photos;
+                noteByAdmin: string;
+                noteBySeller: string;
+                convertCurrencyCode: string;
+                paymentMethod: _36_Enums_PaymentMethodType;
+                convertCurrencyAmount: number;
+                requestCurrencyAmount: number;
+                status: _36_Enums_RequestPayoutStatus;
+                createdAt: string;
+                storeId: string;
+                id: string;
+                PingPongAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    email: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
+                BankAccount: {
+                    walletId: string;
+                    isBlock: boolean;
+                    isDefault: boolean;
+                    bank: PrismaJson_bankInfo;
+                    accountHolder: string;
+                    accountNumber: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    isDeleted: boolean;
+                    id: string;
+                    currency: _36_Enums_CurrencyType;
+                };
+                Store: {
+                    phone: string;
+                    email: string;
+                    name: string;
+                    id: string;
+                };
+            }>;
+        };
     }>;
     /**
      * @returns any Ok
@@ -204,6 +299,14 @@ export declare class RequestPayoutService {
      * @throws ApiError
      */
     toolSyncBalanceAmountForSeller(): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    changeToRequesting({ id, fulfillmentAgencyId, }: {
+        id: string;
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<string>;
     /**
      * @returns number Ok
      * @throws ApiError
