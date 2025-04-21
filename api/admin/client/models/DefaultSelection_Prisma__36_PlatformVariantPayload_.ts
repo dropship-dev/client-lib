@@ -14,8 +14,8 @@ export type DefaultSelection_Prisma__36_PlatformVariantPayload_ = {
   isEnable: boolean;
   variantOption: PrismaJson_VariantOptionValues;
   SKU: string;
-  deleted: boolean;
   platformProductId: number;
+  deleted: boolean;
   isActive: boolean;
   name: string;
   updatedAt: string;

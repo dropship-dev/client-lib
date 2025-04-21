@@ -34,7 +34,6 @@ export class FulfillmentAgencyService {
     Payment: Array<{
       PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
       isConnectPSSFF: boolean;
-      salt: string;
       environment: _36_Enums_EnvironmentType;
       UIVersion: number;
       deleted: boolean;
@@ -43,14 +42,15 @@ export class FulfillmentAgencyService {
       gatewayUrl: string;
       tokenExpiredAt: string;
       token: string;
-      secretKey: string;
-      publishableKey: string;
       isPlatform: boolean;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
       merchantId: string;
+      salt: string;
+      secretKey: string;
+      publishableKey: string;
       userId: string;
       type: _36_Enums_PaymentType;
       email: string;
@@ -120,6 +120,21 @@ export class FulfillmentAgencyService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      Wallet: Array<{
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        fulfillmentAgencyId: number;
+        balanceUnavailable: PrismaJson_UnavailableBalance;
+        payoutAmount: number;
+        holdAmount: number;
+        balanceDebt: number;
+        balanceAvailable: number;
+        balanceAmount: number;
+        walletName: string;
+        id: string;
+      }>;
       PaymentOnboarding: Array<{
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -143,21 +158,6 @@ export class FulfillmentAgencyService {
         storeId: string;
         fulfillmentAgencyId: number;
         id: number;
-      }>;
-      Wallet: Array<{
-        updatedAt: string;
-        createdAt: string;
-        isDeleted: boolean;
-        storeId: string;
-        fulfillmentAgencyId: number;
-        balanceUnavailable: PrismaJson_UnavailableBalance;
-        payoutAmount: number;
-        holdAmount: number;
-        balanceDebt: number;
-        balanceAvailable: number;
-        balanceAmount: number;
-        walletName: string;
-        id: string;
       }>;
       noProduct: number;
       noStore: number;
@@ -190,6 +190,21 @@ export class FulfillmentAgencyService {
   }: {
     id: number,
   }): CancelablePromise<({
+    Wallet: Array<{
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      storeId: string;
+      fulfillmentAgencyId: number;
+      balanceUnavailable: PrismaJson_UnavailableBalance;
+      payoutAmount: number;
+      holdAmount: number;
+      balanceDebt: number;
+      balanceAvailable: number;
+      balanceAmount: number;
+      walletName: string;
+      id: string;
+    }>;
     PaymentOnboarding: Array<{
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
@@ -213,21 +228,6 @@ export class FulfillmentAgencyService {
       storeId: string;
       fulfillmentAgencyId: number;
       id: number;
-    }>;
-    Wallet: Array<{
-      updatedAt: string;
-      createdAt: string;
-      isDeleted: boolean;
-      storeId: string;
-      fulfillmentAgencyId: number;
-      balanceUnavailable: PrismaJson_UnavailableBalance;
-      payoutAmount: number;
-      holdAmount: number;
-      balanceDebt: number;
-      balanceAvailable: number;
-      balanceAmount: number;
-      walletName: string;
-      id: string;
     }>;
   } & {
     timezone: PrismaJson_Timezone;

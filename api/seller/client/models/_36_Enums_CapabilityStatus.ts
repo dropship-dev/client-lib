@@ -3,8 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_CapabilityStatus {
-  APPROVED = 'APPROVED',
   SUSPENDED = 'SUSPENDED',
+  APPROVED = 'APPROVED',
   PENDING = 'PENDING',
   ACTIVE = 'ACTIVE',
   REVOKED = 'REVOKED',

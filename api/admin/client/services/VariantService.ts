@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -31,22 +30,8 @@ export class VariantService {
     total: number;
     data: Array<({
       PlatformVariant: {
-        fulfillmentPlatformVariantId: string;
-        groupPlatformVariantId: number;
-        cost: PrismaJson_PlatformCostInfo;
-        supplierPrice: number;
         price: number;
-        photo: string;
-        isEnable: boolean;
         variantOption: PrismaJson_VariantOptionValues;
-        SKU: string;
-        deleted: boolean;
-        platformProductId: number;
-        isActive: boolean;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        id: number;
       };
     } & {
       podDesignVariantId: number;
@@ -104,22 +89,8 @@ export class VariantService {
     id: number,
   }): CancelablePromise<({
     PlatformVariant: {
-      fulfillmentPlatformVariantId: string;
-      groupPlatformVariantId: number;
-      cost: PrismaJson_PlatformCostInfo;
-      supplierPrice: number;
       price: number;
-      photo: string;
-      isEnable: boolean;
       variantOption: PrismaJson_VariantOptionValues;
-      SKU: string;
-      deleted: boolean;
-      platformProductId: number;
-      isActive: boolean;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: number;
     };
   } & {
     podDesignVariantId: number;

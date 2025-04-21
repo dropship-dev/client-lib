@@ -17,11 +17,11 @@ export type DefaultSelection_Prisma__36_ThemePayload_ = {
   logo: string;
   nodes: PrismaJson_ThemeNodes;
   style: PrismaJson_ThemeStyle;
-  setting: PrismaJson_ThemeSetting;
   name: string;
   updatedAt: string;
   createdAt: string;
   storeId: string;
   id: number;
+  setting: PrismaJson_ThemeSetting;
 };
 

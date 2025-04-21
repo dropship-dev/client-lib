@@ -5,6 +5,6 @@
 export enum _36_Enums_CustomDomainStatus {
   PENDING = 'PENDING',
   FAILED = 'FAILED',
-  SUCCESS = 'SUCCESS',
   EXPIRED = 'EXPIRED',
+  SUCCESS = 'SUCCESS',
 }

@@ -48,47 +48,47 @@ export class TransactionService {
         bankAccountId: string;
         paymentMethod: _36_Enums_PaymentMethodType;
         convertCurrencyAmount: number;
+        id: string;
         PingPongAccount: {
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
-          currency: _36_Enums_CurrencyType;
           email: string;
           updatedAt: string;
           createdAt: string;
           isDeleted: boolean;
           id: string;
+          currency: _36_Enums_CurrencyType;
         };
         BankAccount: {
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
           bank: PrismaJson_bankInfo;
-          currency: _36_Enums_CurrencyType;
           accountHolder: string;
           accountNumber: string;
           updatedAt: string;
           createdAt: string;
           isDeleted: boolean;
           id: string;
+          currency: _36_Enums_CurrencyType;
         };
-        id: string;
       };
     } & {
+      requestPayoutId: string;
       isRollback: boolean;
       refundIdGateway: string;
       transactionDetails: PrismaJson_TransactionDetails;
       notes: string;
-      requestPayoutId: string;
       disputeFee: number;
+      lastBalance: number;
       fee: number;
       amount: number;
       idTransaction: string;
-      lastBalance: number;
       orderId: string;
-      walletId: string;
       photos: PrismaJson_Photos;
       paymentMethod: PrismaJson_TransactionPaymentMethod;
+      walletId: string;
       type: _36_Enums_TransactionType;
       status: _36_Enums_TransactionStatus;
       updatedAt: string;
@@ -135,6 +135,8 @@ export class TransactionService {
     amount: number;
     idTransaction: string;
     status: _36_Enums_TransactionStatus;
+    createdAt: string;
+    storeId: string;
     Store: {
       country: string;
       zipCode: string;
@@ -143,8 +145,6 @@ export class TransactionService {
       address: string;
       name: string;
     };
-    createdAt: string;
-    storeId: string;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -192,20 +192,20 @@ export class TransactionService {
       id: string;
     };
   } & {
+    requestPayoutId: string;
     isRollback: boolean;
     refundIdGateway: string;
     transactionDetails: PrismaJson_TransactionDetails;
     notes: string;
-    requestPayoutId: string;
     disputeFee: number;
+    lastBalance: number;
     fee: number;
     amount: number;
     idTransaction: string;
-    lastBalance: number;
     orderId: string;
-    walletId: string;
     photos: PrismaJson_Photos;
     paymentMethod: PrismaJson_TransactionPaymentMethod;
+    walletId: string;
     type: _36_Enums_TransactionType;
     status: _36_Enums_TransactionStatus;
     updatedAt: string;

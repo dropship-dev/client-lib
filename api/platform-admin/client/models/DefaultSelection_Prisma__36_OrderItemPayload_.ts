@@ -8,14 +8,14 @@ export type DefaultSelection_Prisma__36_OrderItemPayload_ = {
   orderRefundId: string;
   variantComboId: number;
   productVariantId: number;
-  productId: number;
   syncTrackingStatus: _36_Enums_SyncTrackingStatus;
   carrier: string;
   tracking: string;
   latestQuantity: number;
   platformPrice: number;
-  quantity: number;
   priceUSD: number;
+  quantity: number;
+  productId: number;
   price: number;
   orderId: string;
   currencyId: number;

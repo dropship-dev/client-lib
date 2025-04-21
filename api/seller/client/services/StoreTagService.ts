@@ -162,11 +162,11 @@ export class StoreTagService {
     SKU: string;
     details: string;
     permalink: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    photos: PrismaJson_Photos;
     description: string;
     isActive: boolean;
-    photos: PrismaJson_Photos;
     shippingFeeAdditional: number;
     shippingFee: number;
     name: string;

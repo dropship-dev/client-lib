@@ -2,10 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-/**
- * Batch Payload for updateMany & deleteMany & createMany
- */
-export type Prisma_BatchPayload = {
+export type GetBatchResult = {
   count: number;
 };
 
