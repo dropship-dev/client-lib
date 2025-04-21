@@ -33,6 +33,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     total: number;
     note: string;
     utmLink: string;
+    historyTracking: any;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;
     province: string;
