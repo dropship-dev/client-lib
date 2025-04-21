@@ -5,11 +5,14 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Store } from '../models/Store';
 import type { UpdateRequestPayoutDto } from '../models/UpdateRequestPayoutDto';
@@ -84,20 +87,7 @@ export class RequestPayoutService {
     nextPageIndex: string;
     prePageIndex: string;
     total: number;
-    data: Array<{
-      payoutInToDate: string;
-      payoutInFromDate: string;
-      photos: PrismaJson_Photos;
-      noteByAdmin: string;
-      noteBySeller: string;
-      convertCurrencyCode: string;
-      paymentMethod: _36_Enums_PaymentMethodType;
-      convertCurrencyAmount: number;
-      requestCurrencyAmount: number;
-      status: _36_Enums_RequestPayoutStatus;
-      createdAt: string;
-      storeId: string;
-      id: string;
+    data: Array<({
       PingPongAccount: {
         walletId: string;
         isBlock: boolean;
@@ -123,12 +113,64 @@ export class RequestPayoutService {
         currency: _36_Enums_CurrencyType;
       };
       Store: {
+        isConversionRate: boolean;
+        stripeDefaultPaymentMethodId: string;
+        stripeCustomerId: string;
+        warning: boolean;
+        invitedDate: string;
+        invitedById: number;
+        currencyId: number;
+        maxUsers: number;
+        balance: number;
+        referralCode: string;
+        defaultBankAccount: string;
+        shippingFeeAdditional: number;
+        shippingFee: number;
+        primaryDomain: string;
+        subDomain: string;
+        pageName: string;
+        closedAt: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        avatar: string;
+        othersFee: number;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
         phone: string;
         email: string;
         name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
         id: string;
       };
-    }>;
+    } & {
+      payoutInToDate: string;
+      payoutInFromDate: string;
+      photos: PrismaJson_Photos;
+      noteByAdmin: string;
+      noteBySeller: string;
+      convertCurrencyCode: string;
+      pingPongAccountId: string;
+      bankAccountId: string;
+      paymentMethod: _36_Enums_PaymentMethodType;
+      convertCurrencyAmount: number;
+      requestCurrencyAmount: number;
+      status: _36_Enums_RequestPayoutStatus;
+      updatedAt: string;
+      createdAt: string;
+      storeId: string;
+      id: string;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -183,20 +225,7 @@ export class RequestPayoutService {
       nextPageIndex: string;
       prePageIndex: string;
       total: number;
-      data: Array<{
-        payoutInToDate: string;
-        payoutInFromDate: string;
-        photos: PrismaJson_Photos;
-        noteByAdmin: string;
-        noteBySeller: string;
-        convertCurrencyCode: string;
-        paymentMethod: _36_Enums_PaymentMethodType;
-        convertCurrencyAmount: number;
-        requestCurrencyAmount: number;
-        status: _36_Enums_RequestPayoutStatus;
-        createdAt: string;
-        storeId: string;
-        id: string;
+      data: Array<({
         PingPongAccount: {
           walletId: string;
           isBlock: boolean;
@@ -222,12 +251,64 @@ export class RequestPayoutService {
           currency: _36_Enums_CurrencyType;
         };
         Store: {
+          isConversionRate: boolean;
+          stripeDefaultPaymentMethodId: string;
+          stripeCustomerId: string;
+          warning: boolean;
+          invitedDate: string;
+          invitedById: number;
+          currencyId: number;
+          maxUsers: number;
+          balance: number;
+          referralCode: string;
+          defaultBankAccount: string;
+          shippingFeeAdditional: number;
+          shippingFee: number;
+          primaryDomain: string;
+          subDomain: string;
+          pageName: string;
+          closedAt: string;
+          country: string;
+          zipCode: string;
+          city: string;
+          apartmentAddress: string;
+          address: string;
+          avatar: string;
+          othersFee: number;
+          shippingPolicy: string;
+          termsOfService: string;
+          refundPolicy: string;
+          privacyPolicy: string;
+          timezone: PrismaJson_Timezone;
+          type: _36_Enums_StoreType;
+          status: _36_Enums_StoreStatus;
           phone: string;
           email: string;
           name: string;
+          updatedAt: string;
+          createdAt: string;
+          isDeleted: boolean;
+          fulfillmentAgencyId: number;
           id: string;
         };
-      }>;
+      } & {
+        payoutInToDate: string;
+        payoutInFromDate: string;
+        photos: PrismaJson_Photos;
+        noteByAdmin: string;
+        noteBySeller: string;
+        convertCurrencyCode: string;
+        pingPongAccountId: string;
+        bankAccountId: string;
+        paymentMethod: _36_Enums_PaymentMethodType;
+        convertCurrencyAmount: number;
+        requestCurrencyAmount: number;
+        status: _36_Enums_RequestPayoutStatus;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+      })>;
     };
   }> {
     return this.httpRequest.request({
@@ -283,20 +364,7 @@ export class RequestPayoutService {
       nextPageIndex: string;
       prePageIndex: string;
       total: number;
-      data: Array<{
-        payoutInToDate: string;
-        payoutInFromDate: string;
-        photos: PrismaJson_Photos;
-        noteByAdmin: string;
-        noteBySeller: string;
-        convertCurrencyCode: string;
-        paymentMethod: _36_Enums_PaymentMethodType;
-        convertCurrencyAmount: number;
-        requestCurrencyAmount: number;
-        status: _36_Enums_RequestPayoutStatus;
-        createdAt: string;
-        storeId: string;
-        id: string;
+      data: Array<({
         PingPongAccount: {
           walletId: string;
           isBlock: boolean;
@@ -322,12 +390,64 @@ export class RequestPayoutService {
           currency: _36_Enums_CurrencyType;
         };
         Store: {
+          isConversionRate: boolean;
+          stripeDefaultPaymentMethodId: string;
+          stripeCustomerId: string;
+          warning: boolean;
+          invitedDate: string;
+          invitedById: number;
+          currencyId: number;
+          maxUsers: number;
+          balance: number;
+          referralCode: string;
+          defaultBankAccount: string;
+          shippingFeeAdditional: number;
+          shippingFee: number;
+          primaryDomain: string;
+          subDomain: string;
+          pageName: string;
+          closedAt: string;
+          country: string;
+          zipCode: string;
+          city: string;
+          apartmentAddress: string;
+          address: string;
+          avatar: string;
+          othersFee: number;
+          shippingPolicy: string;
+          termsOfService: string;
+          refundPolicy: string;
+          privacyPolicy: string;
+          timezone: PrismaJson_Timezone;
+          type: _36_Enums_StoreType;
+          status: _36_Enums_StoreStatus;
           phone: string;
           email: string;
           name: string;
+          updatedAt: string;
+          createdAt: string;
+          isDeleted: boolean;
+          fulfillmentAgencyId: number;
           id: string;
         };
-      }>;
+      } & {
+        payoutInToDate: string;
+        payoutInFromDate: string;
+        photos: PrismaJson_Photos;
+        noteByAdmin: string;
+        noteBySeller: string;
+        convertCurrencyCode: string;
+        pingPongAccountId: string;
+        bankAccountId: string;
+        paymentMethod: _36_Enums_PaymentMethodType;
+        convertCurrencyAmount: number;
+        requestCurrencyAmount: number;
+        status: _36_Enums_RequestPayoutStatus;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: string;
+      })>;
     };
   }> {
     return this.httpRequest.request({
