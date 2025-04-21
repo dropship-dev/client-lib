@@ -10,6 +10,8 @@ import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_Condit
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
+import type { SettingPayoutRequestDto } from '../models/SettingPayoutRequestDto';
 import type { UpdateCollectionDefaultDto } from '../models/UpdateCollectionDefaultDto';
 import type { UpdateCollectionDefaultStatusDto } from '../models/UpdateCollectionDefaultStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -260,6 +262,66 @@ export class DefaultService {
       path: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSettingPayoutRequest({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<{
+    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/setting/payout-request',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public updateSettingPayoutRequest({
+    fulfillmentAgencyId,
+    requestBody,
+  }: {
+    fulfillmentAgencyId: number,
+    requestBody: SettingPayoutRequestDto,
+  }): CancelablePromise<{
+    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'PUT',
+      url: '/setting/payout-request',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
