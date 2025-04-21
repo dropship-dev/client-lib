@@ -171,6 +171,7 @@ export class RequestPayoutService {
       storeId: string;
       id: string;
     })>;
+    countStatusRequestPayout: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -309,6 +310,7 @@ export class RequestPayoutService {
         storeId: string;
         id: string;
       })>;
+      countStatusRequestPayout: number;
     };
   }> {
     return this.httpRequest.request({
@@ -448,6 +450,7 @@ export class RequestPayoutService {
         storeId: string;
         id: string;
       })>;
+      countStatusRequestPayout: number;
     };
   }> {
     return this.httpRequest.request({
