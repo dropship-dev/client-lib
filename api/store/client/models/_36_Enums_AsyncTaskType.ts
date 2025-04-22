@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_AsyncTaskType {
+  EXPORT_PAYOUT_REQUEST = 'EXPORT_PAYOUT_REQUEST',
   EXPORT_ORDER = 'EXPORT_ORDER',
   EXPORT_ACCOUNTANCY = 'EXPORT_ACCOUNTANCY',
   GENERATE_PNG = 'GENERATE_PNG',
