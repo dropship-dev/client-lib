@@ -393,6 +393,7 @@ export type { PrismaJson_UpgradeSubscriptionPlan } from './models/PrismaJson_Upg
 export type { PrismaJson_VariantComboItems } from './models/PrismaJson_VariantComboItems';
 export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptions';
 export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_VariantOptionValues';
+export type { PrismaJson_VariantPlatformSnapshot } from './models/PrismaJson_VariantPlatformSnapshot';
 export type { Product } from './models/Product';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
