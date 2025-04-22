@@ -9,6 +9,7 @@ import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcing
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_RequestSourcingHistory } from '../models/PrismaJson_RequestSourcingHistory';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_VariantPlatformSnapshot } from '../models/PrismaJson_VariantPlatformSnapshot';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -42,6 +43,17 @@ export class RequestSourcingService {
     prePageIndex: number;
     total: number;
     data: Array<({
+      RequestSourcingSnapshot: {
+        requestSourcingId: number;
+        variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+        snapshotAt: string;
+        details: string;
+        platformProductId: number;
+        photos: PrismaJson_Photos;
+        description: string;
+        name: string;
+        id: number;
+      };
       Store: {
         isConversionRate: boolean;
         stripeDefaultPaymentMethodId: string;
@@ -139,6 +151,17 @@ export class RequestSourcingService {
     storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<({
+    RequestSourcingSnapshot: {
+      requestSourcingId: number;
+      variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+      snapshotAt: string;
+      details: string;
+      platformProductId: number;
+      photos: PrismaJson_Photos;
+      description: string;
+      name: string;
+      id: number;
+    };
     Store: {
       isConversionRate: boolean;
       stripeDefaultPaymentMethodId: string;
