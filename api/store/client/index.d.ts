@@ -221,6 +221,7 @@ export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderDto } from './models/ExportOrderDto';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
 export type { ExportOrderResult } from './models/ExportOrderResult';
+export type { ExportPayoutRequestDto } from './models/ExportPayoutRequestDto';
 export type { FbPixel } from './models/FbPixel';
 export { FilterStoreReferral } from './models/FilterStoreReferral';
 export { FilterStoreStatus } from './models/FilterStoreStatus';
