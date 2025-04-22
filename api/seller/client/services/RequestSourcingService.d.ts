@@ -83,6 +83,7 @@ export declare class RequestSourcingService {
                 id: string;
             };
         } & {
+            requestSourcingSnapshotId: number;
             productId: number;
             historyRequestSourcing: PrismaJson_RequestSourcingHistory;
             acceptByAdmin: boolean;
@@ -153,6 +154,7 @@ export declare class RequestSourcingService {
             id: string;
         };
     } & {
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
@@ -180,6 +182,7 @@ export declare class RequestSourcingService {
         id: number;
         requestBody: UpdateRequestSourcingDto;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
@@ -206,6 +209,7 @@ export declare class RequestSourcingService {
         storeId: string;
         id: number;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
@@ -234,6 +238,7 @@ export declare class RequestSourcingService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
@@ -262,6 +267,7 @@ export declare class RequestSourcingService {
         storeId?: string;
         fulfillmentAgencyId?: number;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
