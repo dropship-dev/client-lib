@@ -84,6 +84,7 @@ export class RequestSourcingService {
         id: string;
       };
     } & {
+      requestSourcingSnapshotId: number;
       productId: number;
       historyRequestSourcing: PrismaJson_RequestSourcingHistory;
       acceptByAdmin: boolean;
@@ -180,6 +181,7 @@ export class RequestSourcingService {
       id: string;
     };
   } & {
+    requestSourcingSnapshotId: number;
     productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
@@ -230,6 +232,7 @@ export class RequestSourcingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    requestSourcingSnapshotId: number;
     productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
@@ -282,6 +285,7 @@ export class RequestSourcingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    requestSourcingSnapshotId: number;
     productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
@@ -336,6 +340,7 @@ export class RequestSourcingService {
     storeId?: string,
     fulfillmentAgencyId?: number,
   }): CancelablePromise<{
+    requestSourcingSnapshotId: number;
     productId: number;
     historyRequestSourcing: PrismaJson_RequestSourcingHistory;
     acceptByAdmin: boolean;
