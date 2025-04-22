@@ -110,6 +110,26 @@ class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
+    waringRequest({ storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/request-payout/warning-request',
+            query: {
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     countRequestPayout({ storeId, fulfillmentAgencyId, search, startDate, endDate, statusRequest, pageSize = 20, nextPageIndex, }) {
         return this.httpRequest.request({
             method: 'GET',
