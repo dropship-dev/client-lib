@@ -247,6 +247,8 @@ export type { getCrossSellByProductDto } from './models/getCrossSellByProductDto
 export { GetCustomerTrackingDto } from './models/GetCustomerTrackingDto';
 export type { GetCustomerTrackingResultDto } from './models/GetCustomerTrackingResultDto';
 export type { GetDetailFulfillmentDto } from './models/GetDetailFulfillmentDto';
+export type { GetGmvByStore } from './models/GetGmvByStore';
+export type { GetGmvPerFulfillmentAgency } from './models/GetGmvPerFulfillmentAgency';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
 export type { GetListRoleDto } from './models/GetListRoleDto';
 export type { GetListStoreMarketingDto } from './models/GetListStoreMarketingDto';
@@ -396,6 +398,7 @@ export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
 export type { ReconnectPaymentDto } from './models/ReconnectPaymentDto';
 export type { Record_Permission_or_SuperAdminPermission_boolean_or_undefined_ } from './models/Record_Permission_or_SuperAdminPermission_boolean_or_undefined_';
+export { ReferralStoreType } from './models/ReferralStoreType';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
 export type { RegionalShippingFee } from './models/RegionalShippingFee';
