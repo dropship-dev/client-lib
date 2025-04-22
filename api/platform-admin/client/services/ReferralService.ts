@@ -9,6 +9,7 @@ import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
+import type { ReferralStoreType } from '../models/ReferralStoreType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ReferralService {
@@ -200,7 +201,7 @@ export class ReferralService {
       percentOfTotal: number;
       growth: number;
       gmv: number;
-      name: string;
+      name: ReferralStoreType;
     }>;
   }> {
     return this.httpRequest.request({
