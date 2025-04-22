@@ -295,6 +295,7 @@ export class ProductService {
     }>;
     FbPixel: Array<{
       pixelId: string;
+      token: string;
     }>;
     Tag: Array<{
       name: string;
@@ -702,6 +703,7 @@ export class ProductService {
     }>;
     FbPixel: Array<{
       pixelId: string;
+      token: string;
     }>;
     Tag: Array<{
       name: string;
