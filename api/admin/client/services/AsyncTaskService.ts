@@ -6,6 +6,7 @@ import type { _36_Enums_AsyncTaskStatus } from '../models/_36_Enums_AsyncTaskSta
 import type { _36_Enums_AsyncTaskType } from '../models/_36_Enums_AsyncTaskType';
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
+import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { AsyncTask } from '../models/AsyncTask';
 import type { PrismaJson_AsyncTaskResult } from '../models/PrismaJson_AsyncTaskResult';
@@ -74,6 +75,50 @@ export class AsyncTaskService {
         'gateway': gateway,
         'disputeStatus': disputeStatus,
         'latestStat': latestStat,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createExportPayoutRequestTask({
+    fulfillmentAgencyId,
+    exportedFilename,
+    startDate,
+    endDate,
+    statuses,
+  }: {
+    fulfillmentAgencyId: number,
+    exportedFilename?: string,
+    startDate?: string,
+    endDate?: string,
+    statuses?: Array<_36_Enums_RequestPayoutStatus>,
+  }): CancelablePromise<{
+    input: any;
+    type: _36_Enums_AsyncTaskType;
+    status: _36_Enums_AsyncTaskStatus;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+    result: PrismaJson_AsyncTaskResult;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/async-task/export-payout-request',
+      query: {
+        'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'statuses': statuses,
       },
       errors: {
         400: `Bad request`,
