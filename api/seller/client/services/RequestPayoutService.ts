@@ -12,6 +12,7 @@ import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RequestPayout } from '../models/RequestPayout';
 import type { Store } from '../models/Store';
@@ -465,6 +466,33 @@ export class RequestPayoutService {
         'statusRequest': statusRequest,
         'pageSize': pageSize,
         'nextPageIndex': nextPageIndex,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public waringRequest({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/request-payout/warning-request',
+      query: {
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
