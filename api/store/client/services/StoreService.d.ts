@@ -132,7 +132,6 @@ export declare class StoreService {
             updatedAt: string;
             createdAt: string;
             id: number;
-            clientToken: string;
         }>;
     }>;
     /**
