@@ -30,8 +30,16 @@ export class BoostSalesService {
     BoostSale: Array<({
       Product: Array<{
         isActive: boolean;
+        name: string;
         id: number;
         ProductVariant: Array<{
+          compareAtPrice: number;
+          price: number;
+          photo: string;
+          isEnable: boolean;
+          deleted: boolean;
+          isActive: boolean;
+          id: number;
           Product: {
             name: string;
             id: number;
@@ -44,6 +52,13 @@ export class BoostSalesService {
           name: string;
           id: number;
           ProductVariant: Array<{
+            compareAtPrice: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            deleted: boolean;
+            isActive: boolean;
+            id: number;
             Product: {
               name: string;
               id: number;
@@ -74,6 +89,13 @@ export class BoostSalesService {
           name: string;
           id: number;
           ProductVariant: Array<{
+            compareAtPrice: number;
+            price: number;
+            photo: string;
+            isEnable: boolean;
+            deleted: boolean;
+            isActive: boolean;
+            id: number;
             Product: {
               name: string;
               id: number;
@@ -86,6 +108,13 @@ export class BoostSalesService {
             name: string;
             id: number;
             ProductVariant: Array<{
+              compareAtPrice: number;
+              price: number;
+              photo: string;
+              isEnable: boolean;
+              deleted: boolean;
+              isActive: boolean;
+              id: number;
               Product: {
                 name: string;
                 id: number;
