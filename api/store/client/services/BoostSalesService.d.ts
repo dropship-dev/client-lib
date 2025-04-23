@@ -121,6 +121,7 @@ export declare class BoostSalesService {
                     isEnable: boolean;
                     deleted: boolean;
                     isActive: boolean;
+                    name: string;
                     id: number;
                     Product: {
                         name: string;
@@ -140,6 +141,7 @@ export declare class BoostSalesService {
                         isEnable: boolean;
                         deleted: boolean;
                         isActive: boolean;
+                        name: string;
                         id: number;
                         Product: {
                             name: string;
@@ -177,6 +179,7 @@ export declare class BoostSalesService {
                         isEnable: boolean;
                         deleted: boolean;
                         isActive: boolean;
+                        name: string;
                         id: number;
                         Product: {
                             name: string;
@@ -196,6 +199,7 @@ export declare class BoostSalesService {
                             isEnable: boolean;
                             deleted: boolean;
                             isActive: boolean;
+                            name: string;
                             id: number;
                             Product: {
                                 name: string;
