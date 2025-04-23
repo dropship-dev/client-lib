@@ -86,7 +86,7 @@ export class SaleService {
     });
   }
   /**
-   * @returns ResponsePaginateCursor_StoreTrackingPerformance_ Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public getTrackingPerformance({
@@ -105,7 +105,9 @@ export class SaleService {
     search?: string,
     status?: Array<_36_Enums_StoreStatus>,
     sort?: sortTrackingPerformance,
-  }): CancelablePromise<ResponsePaginateCursor_StoreTrackingPerformance_> {
+  }): CancelablePromise<(ResponsePaginateCursor_StoreTrackingPerformance_ & {
+    total: number;
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/sale/tracking-performance',
