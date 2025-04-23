@@ -8,6 +8,7 @@ import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_Fulfil
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { LoginDto } from '../models/LoginDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { TrackingReferralDto } from '../models/TrackingReferralDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class AuthService {
@@ -46,6 +47,28 @@ export class AuthService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/auth/login',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns boolean Ok
+   * @throws ApiError
+   */
+  public referralTracking({
+    requestBody,
+  }: {
+    requestBody: TrackingReferralDto,
+  }): CancelablePromise<boolean> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/auth/referral-tracking',
       body: requestBody,
       mediaType: 'application/json',
       errors: {

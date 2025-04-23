@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { CheckRejectStatusDto } from '../models/CheckRejectStatusDto';
 import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
 import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
@@ -141,6 +142,31 @@ export class SaleService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/sale/verify-email',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public checkRejectStatus({
+    requestBody,
+  }: {
+    requestBody: CheckRejectStatusDto,
+  }): CancelablePromise<{
+    rejectedAt: string;
+    status: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/sale/reject-status',
       body: requestBody,
       mediaType: 'application/json',
       errors: {
