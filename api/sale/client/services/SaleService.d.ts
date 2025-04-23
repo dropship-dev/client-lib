@@ -1,5 +1,6 @@
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { CheckRejectStatusDto } from '../models/CheckRejectStatusDto';
 import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
 import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
@@ -59,4 +60,14 @@ export declare class SaleService {
     checkVerifyEmailSale({ requestBody, }: {
         requestBody: CheckVerifyEmailDto;
     }): CancelablePromise<boolean>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    checkRejectStatus({ requestBody, }: {
+        requestBody: CheckRejectStatusDto;
+    }): CancelablePromise<{
+        rejectedAt: string;
+        status: boolean;
+    }>;
 }

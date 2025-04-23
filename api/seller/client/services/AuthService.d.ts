@@ -4,6 +4,7 @@ import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_Fulfil
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { LoginDto } from '../models/LoginDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { TrackingReferralDto } from '../models/TrackingReferralDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class AuthService {
@@ -38,6 +39,13 @@ export declare class AuthService {
             };
         }>;
     }>;
+    /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    referralTracking({ requestBody, }: {
+        requestBody: TrackingReferralDto;
+    }): CancelablePromise<boolean>;
     /**
      * @returns any Ok
      * @throws ApiError

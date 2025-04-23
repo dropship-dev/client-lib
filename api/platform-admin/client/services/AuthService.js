@@ -25,6 +25,24 @@ class AuthService {
         });
     }
     /**
+     * @returns boolean Ok
+     * @throws ApiError
+     */
+    referralTracking({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/auth/referral-tracking',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */
