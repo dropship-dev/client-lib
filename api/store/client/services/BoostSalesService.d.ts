@@ -111,6 +111,7 @@ export declare class BoostSalesService {
         id: number;
         BoostSale: Array<({
             Product: Array<{
+                isActive: boolean;
                 id: number;
                 ProductVariant: Array<{
                     Product: {
@@ -121,6 +122,7 @@ export declare class BoostSalesService {
             }>;
             Collection: Array<{
                 Product: Array<{
+                    isActive: boolean;
                     name: string;
                     id: number;
                     ProductVariant: Array<{
@@ -150,6 +152,7 @@ export declare class BoostSalesService {
         Collection: Array<({
             BoostSale: Array<({
                 Product: Array<{
+                    isActive: boolean;
                     name: string;
                     id: number;
                     ProductVariant: Array<{
@@ -161,6 +164,7 @@ export declare class BoostSalesService {
                 }>;
                 Collection: Array<{
                     Product: Array<{
+                        isActive: boolean;
                         name: string;
                         id: number;
                         ProductVariant: Array<{
