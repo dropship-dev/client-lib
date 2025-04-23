@@ -139,7 +139,6 @@ export class StoreService {
       updatedAt: string;
       createdAt: string;
       id: number;
-      clientToken: string;
     }>;
   }> {
     return this.httpRequest.request({
