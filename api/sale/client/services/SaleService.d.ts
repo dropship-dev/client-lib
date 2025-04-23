@@ -38,7 +38,7 @@ export declare class SaleService {
         requestBody: UpdateRequestStatusDto;
     }): CancelablePromise<string>;
     /**
-     * @returns ResponsePaginateCursor_StoreTrackingPerformance_ Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTrackingPerformance({ startDate, endDate, cursor, limit, search, status, sort, }: {
@@ -49,7 +49,9 @@ export declare class SaleService {
         search?: string;
         status?: Array<_36_Enums_StoreStatus>;
         sort?: sortTrackingPerformance;
-    }): CancelablePromise<ResponsePaginateCursor_StoreTrackingPerformance_>;
+    }): CancelablePromise<(ResponsePaginateCursor_StoreTrackingPerformance_ & {
+        total: number;
+    })>;
     /**
      * @returns boolean Ok
      * @throws ApiError
