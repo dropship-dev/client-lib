@@ -39,6 +39,7 @@ export class BoostSalesService {
           isEnable: boolean;
           deleted: boolean;
           isActive: boolean;
+          name: string;
           id: number;
           Product: {
             name: string;
@@ -58,6 +59,7 @@ export class BoostSalesService {
             isEnable: boolean;
             deleted: boolean;
             isActive: boolean;
+            name: string;
             id: number;
             Product: {
               name: string;
@@ -95,6 +97,7 @@ export class BoostSalesService {
             isEnable: boolean;
             deleted: boolean;
             isActive: boolean;
+            name: string;
             id: number;
             Product: {
               name: string;
@@ -114,6 +117,7 @@ export class BoostSalesService {
               isEnable: boolean;
               deleted: boolean;
               isActive: boolean;
+              name: string;
               id: number;
               Product: {
                 name: string;
