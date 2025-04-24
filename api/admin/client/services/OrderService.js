@@ -86,7 +86,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns HistoryItem Ok
      * @throws ApiError
      */
     getHistoriesTracking({ orderId, storeId, }) {
@@ -278,7 +278,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns HistoryItem Ok
      * @throws ApiError
      */
     getHistoriesTracking1({ orderId, fulfillmentAgencyId, }) {
