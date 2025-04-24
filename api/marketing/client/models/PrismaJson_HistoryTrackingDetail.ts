@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 export type PrismaJson_HistoryTrackingDetail = {
+  identifyFulfillment?: string;
   tracking?: string;
   orderItemId?: string;
   quantity?: number;
