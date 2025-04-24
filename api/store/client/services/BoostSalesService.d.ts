@@ -114,40 +114,64 @@ export declare class BoostSalesService {
                 isActive: boolean;
                 name: string;
                 id: number;
-                ProductVariant: Array<{
-                    compareAtPrice: number;
-                    price: number;
-                    photo: string;
-                    isEnable: boolean;
-                    deleted: boolean;
-                    isActive: boolean;
-                    name: string;
-                    id: number;
+                ProductVariant: Array<({
                     Product: {
                         name: string;
                         id: number;
                     };
-                }>;
+                } & {
+                    podDesignVariantId: number;
+                    platformVariantId: number;
+                    margin: PrismaJson_MarginInfo;
+                    minSellingPrice: number;
+                    compareAtPrice: number;
+                    productId: number;
+                    cost: PrismaJson_CostInfo;
+                    supplierPrice: number;
+                    price: number;
+                    photo: string;
+                    isEnable: boolean;
+                    variantOption: PrismaJson_VariantOptionValues;
+                    SKU: string;
+                    deleted: boolean;
+                    isActive: boolean;
+                    name: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    id: number;
+                })>;
             }>;
             Collection: Array<{
                 Product: Array<{
                     isActive: boolean;
                     name: string;
                     id: number;
-                    ProductVariant: Array<{
-                        compareAtPrice: number;
-                        price: number;
-                        photo: string;
-                        isEnable: boolean;
-                        deleted: boolean;
-                        isActive: boolean;
-                        name: string;
-                        id: number;
+                    ProductVariant: Array<({
                         Product: {
                             name: string;
                             id: number;
                         };
-                    }>;
+                    } & {
+                        podDesignVariantId: number;
+                        platformVariantId: number;
+                        margin: PrismaJson_MarginInfo;
+                        minSellingPrice: number;
+                        compareAtPrice: number;
+                        productId: number;
+                        cost: PrismaJson_CostInfo;
+                        supplierPrice: number;
+                        price: number;
+                        photo: string;
+                        isEnable: boolean;
+                        variantOption: PrismaJson_VariantOptionValues;
+                        SKU: string;
+                        deleted: boolean;
+                        isActive: boolean;
+                        name: string;
+                        updatedAt: string;
+                        createdAt: string;
+                        id: number;
+                    })>;
                 }>;
             }>;
         } & {
@@ -172,40 +196,64 @@ export declare class BoostSalesService {
                     isActive: boolean;
                     name: string;
                     id: number;
-                    ProductVariant: Array<{
-                        compareAtPrice: number;
-                        price: number;
-                        photo: string;
-                        isEnable: boolean;
-                        deleted: boolean;
-                        isActive: boolean;
-                        name: string;
-                        id: number;
+                    ProductVariant: Array<({
                         Product: {
                             name: string;
                             id: number;
                         };
-                    }>;
+                    } & {
+                        podDesignVariantId: number;
+                        platformVariantId: number;
+                        margin: PrismaJson_MarginInfo;
+                        minSellingPrice: number;
+                        compareAtPrice: number;
+                        productId: number;
+                        cost: PrismaJson_CostInfo;
+                        supplierPrice: number;
+                        price: number;
+                        photo: string;
+                        isEnable: boolean;
+                        variantOption: PrismaJson_VariantOptionValues;
+                        SKU: string;
+                        deleted: boolean;
+                        isActive: boolean;
+                        name: string;
+                        updatedAt: string;
+                        createdAt: string;
+                        id: number;
+                    })>;
                 }>;
                 Collection: Array<{
                     Product: Array<{
                         isActive: boolean;
                         name: string;
                         id: number;
-                        ProductVariant: Array<{
-                            compareAtPrice: number;
-                            price: number;
-                            photo: string;
-                            isEnable: boolean;
-                            deleted: boolean;
-                            isActive: boolean;
-                            name: string;
-                            id: number;
+                        ProductVariant: Array<({
                             Product: {
                                 name: string;
                                 id: number;
                             };
-                        }>;
+                        } & {
+                            podDesignVariantId: number;
+                            platformVariantId: number;
+                            margin: PrismaJson_MarginInfo;
+                            minSellingPrice: number;
+                            compareAtPrice: number;
+                            productId: number;
+                            cost: PrismaJson_CostInfo;
+                            supplierPrice: number;
+                            price: number;
+                            photo: string;
+                            isEnable: boolean;
+                            variantOption: PrismaJson_VariantOptionValues;
+                            SKU: string;
+                            deleted: boolean;
+                            isActive: boolean;
+                            name: string;
+                            updatedAt: string;
+                            createdAt: string;
+                            id: number;
+                        })>;
                     }>;
                 }>;
             } & {

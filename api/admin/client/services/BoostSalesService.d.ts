@@ -4,9 +4,12 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
+import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
+import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
+import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class BoostSalesService {
@@ -26,40 +29,64 @@ export declare class BoostSalesService {
                 isActive: boolean;
                 name: string;
                 id: number;
-                ProductVariant: Array<{
-                    compareAtPrice: number;
-                    price: number;
-                    photo: string;
-                    isEnable: boolean;
-                    deleted: boolean;
-                    isActive: boolean;
-                    name: string;
-                    id: number;
+                ProductVariant: Array<({
                     Product: {
                         name: string;
                         id: number;
                     };
-                }>;
+                } & {
+                    podDesignVariantId: number;
+                    platformVariantId: number;
+                    margin: PrismaJson_MarginInfo;
+                    minSellingPrice: number;
+                    compareAtPrice: number;
+                    productId: number;
+                    cost: PrismaJson_CostInfo;
+                    supplierPrice: number;
+                    price: number;
+                    photo: string;
+                    isEnable: boolean;
+                    variantOption: PrismaJson_VariantOptionValues;
+                    SKU: string;
+                    deleted: boolean;
+                    isActive: boolean;
+                    name: string;
+                    updatedAt: string;
+                    createdAt: string;
+                    id: number;
+                })>;
             }>;
             Collection: Array<{
                 Product: Array<{
                     isActive: boolean;
                     name: string;
                     id: number;
-                    ProductVariant: Array<{
-                        compareAtPrice: number;
-                        price: number;
-                        photo: string;
-                        isEnable: boolean;
-                        deleted: boolean;
-                        isActive: boolean;
-                        name: string;
-                        id: number;
+                    ProductVariant: Array<({
                         Product: {
                             name: string;
                             id: number;
                         };
-                    }>;
+                    } & {
+                        podDesignVariantId: number;
+                        platformVariantId: number;
+                        margin: PrismaJson_MarginInfo;
+                        minSellingPrice: number;
+                        compareAtPrice: number;
+                        productId: number;
+                        cost: PrismaJson_CostInfo;
+                        supplierPrice: number;
+                        price: number;
+                        photo: string;
+                        isEnable: boolean;
+                        variantOption: PrismaJson_VariantOptionValues;
+                        SKU: string;
+                        deleted: boolean;
+                        isActive: boolean;
+                        name: string;
+                        updatedAt: string;
+                        createdAt: string;
+                        id: number;
+                    })>;
                 }>;
             }>;
         } & {
@@ -84,40 +111,64 @@ export declare class BoostSalesService {
                     isActive: boolean;
                     name: string;
                     id: number;
-                    ProductVariant: Array<{
-                        compareAtPrice: number;
-                        price: number;
-                        photo: string;
-                        isEnable: boolean;
-                        deleted: boolean;
-                        isActive: boolean;
-                        name: string;
-                        id: number;
+                    ProductVariant: Array<({
                         Product: {
                             name: string;
                             id: number;
                         };
-                    }>;
+                    } & {
+                        podDesignVariantId: number;
+                        platformVariantId: number;
+                        margin: PrismaJson_MarginInfo;
+                        minSellingPrice: number;
+                        compareAtPrice: number;
+                        productId: number;
+                        cost: PrismaJson_CostInfo;
+                        supplierPrice: number;
+                        price: number;
+                        photo: string;
+                        isEnable: boolean;
+                        variantOption: PrismaJson_VariantOptionValues;
+                        SKU: string;
+                        deleted: boolean;
+                        isActive: boolean;
+                        name: string;
+                        updatedAt: string;
+                        createdAt: string;
+                        id: number;
+                    })>;
                 }>;
                 Collection: Array<{
                     Product: Array<{
                         isActive: boolean;
                         name: string;
                         id: number;
-                        ProductVariant: Array<{
-                            compareAtPrice: number;
-                            price: number;
-                            photo: string;
-                            isEnable: boolean;
-                            deleted: boolean;
-                            isActive: boolean;
-                            name: string;
-                            id: number;
+                        ProductVariant: Array<({
                             Product: {
                                 name: string;
                                 id: number;
                             };
-                        }>;
+                        } & {
+                            podDesignVariantId: number;
+                            platformVariantId: number;
+                            margin: PrismaJson_MarginInfo;
+                            minSellingPrice: number;
+                            compareAtPrice: number;
+                            productId: number;
+                            cost: PrismaJson_CostInfo;
+                            supplierPrice: number;
+                            price: number;
+                            photo: string;
+                            isEnable: boolean;
+                            variantOption: PrismaJson_VariantOptionValues;
+                            SKU: string;
+                            deleted: boolean;
+                            isActive: boolean;
+                            name: string;
+                            updatedAt: string;
+                            createdAt: string;
+                            id: number;
+                        })>;
                     }>;
                 }>;
             } & {
