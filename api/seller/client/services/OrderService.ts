@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
-import type { _36_Enums_HistoryTrackingType } from '../models/_36_Enums_HistoryTrackingType';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from '../models/_36_Enums_OrderStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
@@ -14,10 +13,10 @@ import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_Transactio
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { DetailOrderDto } from '../models/DetailOrderDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { HistoryItem } from '../models/HistoryItem';
 import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
-import type { PrismaJson_HistoryTrackingDetail } from '../models/PrismaJson_HistoryTrackingDetail';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
@@ -521,7 +520,7 @@ export class OrderService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns HistoryItem Ok
    * @throws ApiError
    */
   public getHistoriesTracking({
@@ -530,11 +529,7 @@ export class OrderService {
   }: {
     orderId: string,
     storeId: string,
-  }): CancelablePromise<Array<{
-    detail: PrismaJson_HistoryTrackingDetail;
-    type: _36_Enums_HistoryTrackingType;
-    createdAt: string;
-  }>> {
+  }): CancelablePromise<Array<HistoryItem>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/order/{orderId}/history-tracking',

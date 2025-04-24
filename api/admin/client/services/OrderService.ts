@@ -9,7 +9,6 @@ import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDete
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
-import type { _36_Enums_HistoryTrackingType } from '../models/_36_Enums_HistoryTrackingType';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from '../models/_36_Enums_OrderStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
@@ -23,12 +22,12 @@ import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { GetAllOrderResult } from '../models/GetAllOrderResult';
 import type { GetOrderResult } from '../models/GetOrderResult';
+import type { HistoryItem } from '../models/HistoryItem';
 import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
-import type { PrismaJson_HistoryTrackingDetail } from '../models/PrismaJson_HistoryTrackingDetail';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
@@ -224,7 +223,7 @@ export class OrderService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns HistoryItem Ok
    * @throws ApiError
    */
   public getHistoriesTracking({
@@ -233,11 +232,7 @@ export class OrderService {
   }: {
     orderId: string,
     storeId: string,
-  }): CancelablePromise<Array<{
-    detail: PrismaJson_HistoryTrackingDetail;
-    type: _36_Enums_HistoryTrackingType;
-    createdAt: string;
-  }>> {
+  }): CancelablePromise<Array<HistoryItem>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/order/{orderId}/history-tracking',
@@ -866,7 +861,7 @@ export class OrderService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns HistoryItem Ok
    * @throws ApiError
    */
   public getHistoriesTracking1({
@@ -875,11 +870,7 @@ export class OrderService {
   }: {
     orderId: string,
     fulfillmentAgencyId: number,
-  }): CancelablePromise<Array<{
-    detail: PrismaJson_HistoryTrackingDetail;
-    type: _36_Enums_HistoryTrackingType;
-    createdAt: string;
-  }>> {
+  }): CancelablePromise<Array<HistoryItem>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/order/{orderId}/history-tracking',
