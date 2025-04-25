@@ -150,8 +150,8 @@ export declare class OrderService {
      */
     suggestionCrossSellV2({ storeId, productId, isRootProduct, }: {
         storeId: string;
-        productId: Array<number>;
-        isRootProduct: Array<boolean>;
+        productId?: Array<number>;
+        isRootProduct?: Array<boolean>;
     }): CancelablePromise<Array<{
         suggestionProduct: Array<{
             isEnable: boolean;
@@ -242,8 +242,8 @@ export declare class OrderService {
      */
     suggestionBoostSaleV2({ storeId, productId, boostSaleId, }: {
         storeId: string;
-        productId: Array<number>;
-        boostSaleId: Array<number>;
+        productId?: Array<number>;
+        boostSaleId?: Array<number>;
     }): CancelablePromise<Array<SuggestionResponseDto>>;
     /**
      * @returns any Ok
