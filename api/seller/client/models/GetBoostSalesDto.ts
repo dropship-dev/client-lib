@@ -2,9 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type getBoostSalesDto = {
+export type GetBoostSalesDto = {
   boostSaleId: number;
-  productVariantId: number;
   productId: number;
 };
 
