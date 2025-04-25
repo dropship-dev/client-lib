@@ -2,9 +2,9 @@ name: Build project
 
 on:
   push:
-    branches: ["main"]
+    branches: ["test_api"]
   pull_request:
-    branches: ["main"]
+    branches: ["test_api"]
 
 jobs:
   build:
@@ -27,6 +27,6 @@ jobs:
         uses: s0/git-publish-subdir-action@v2.6.0
         env:
           REPO: self
-          BRANCH: build
+          BRANCH: test_api_build
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
