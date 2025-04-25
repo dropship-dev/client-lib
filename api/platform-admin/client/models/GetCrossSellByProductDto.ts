@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type getCrossSellByProductDto = {
+export type GetCrossSellByProductDto = {
   isRootProduct?: boolean;
-  quantity?: number;
-  productVariantId: number;
   productId: number;
 };
 
