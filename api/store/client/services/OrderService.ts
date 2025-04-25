@@ -241,8 +241,8 @@ export class OrderService {
     isRootProduct,
   }: {
     storeId: string,
-    productId: Array<number>,
-    isRootProduct: Array<boolean>,
+    productId?: Array<number>,
+    isRootProduct?: Array<boolean>,
   }): CancelablePromise<Array<{
     suggestionProduct: Array<{
       isEnable: boolean;
@@ -376,8 +376,8 @@ export class OrderService {
     boostSaleId,
   }: {
     storeId: string,
-    productId: Array<number>,
-    boostSaleId: Array<number>,
+    productId?: Array<number>,
+    boostSaleId?: Array<number>,
   }): CancelablePromise<Array<SuggestionResponseDto>> {
     return this.httpRequest.request({
       method: 'GET',
