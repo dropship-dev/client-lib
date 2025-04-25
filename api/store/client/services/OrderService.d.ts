@@ -3,8 +3,8 @@ import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType'
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { getBoostSalesDto } from '../models/getBoostSalesDto';
-import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
+import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
+import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -67,7 +67,91 @@ export declare class OrderService {
      */
     suggestionCrossSell({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: Array<getCrossSellByProductDto>;
+        requestBody: Array<GetCrossSellByProductDto>;
+    }): CancelablePromise<Array<{
+        suggestionProduct: Array<{
+            isEnable: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
+            ProductVariant: Array<{
+                podDesignVariantId: number;
+                platformVariantId: number;
+                margin: PrismaJson_MarginInfo;
+                minSellingPrice: number;
+                compareAtPrice: number;
+                productId: number;
+                cost: PrismaJson_CostInfo;
+                supplierPrice: number;
+                price: number;
+                photo: string;
+                isEnable: boolean;
+                variantOption: PrismaJson_VariantOptionValues;
+                SKU: string;
+                deleted: boolean;
+                isActive: boolean;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+        }>;
+        rootProductId: number;
+        triggerBy: _36_Enums_BoostSaleTriggerType;
+        marketingType: _36_Enums_MarketingType;
+        placement: PrismaJson_PlacementBoostSaleType;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_BoostSaleType;
+        status: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        discount: PrismaJson_DiscountBoostSale;
+        Product: Array<{
+            isEnable: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
+            ProductVariant: Array<{
+                podDesignVariantId: number;
+                platformVariantId: number;
+                margin: PrismaJson_MarginInfo;
+                minSellingPrice: number;
+                compareAtPrice: number;
+                productId: number;
+                cost: PrismaJson_CostInfo;
+                supplierPrice: number;
+                price: number;
+                photo: string;
+                isEnable: boolean;
+                variantOption: PrismaJson_VariantOptionValues;
+                SKU: string;
+                deleted: boolean;
+                isActive: boolean;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+        }>;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    suggestionCrossSellV2({ storeId, productId, isRootProduct, }: {
+        storeId: string;
+        productId: Array<number>;
+        isRootProduct: Array<boolean>;
     }): CancelablePromise<Array<{
         suggestionProduct: Array<{
             isEnable: boolean;
@@ -150,7 +234,16 @@ export declare class OrderService {
      */
     suggestionBoostSale({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: Array<getBoostSalesDto>;
+        requestBody: Array<GetBoostSalesDto>;
+    }): CancelablePromise<Array<SuggestionResponseDto>>;
+    /**
+     * @returns SuggestionResponseDto Ok
+     * @throws ApiError
+     */
+    suggestionBoostSaleV2({ storeId, productId, boostSaleId, }: {
+        storeId: string;
+        productId: Array<number>;
+        boostSaleId: Array<number>;
     }): CancelablePromise<Array<SuggestionResponseDto>>;
     /**
      * @returns any Ok

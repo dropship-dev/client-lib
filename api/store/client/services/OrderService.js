@@ -98,6 +98,30 @@ class OrderService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    suggestionCrossSellV2({ storeId, productId, isRootProduct, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/suggestion-cross-sell',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'productId': productId,
+                'isRootProduct': isRootProduct,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns SuggestionResponseDto Ok
      * @throws ApiError
      */
@@ -110,6 +134,30 @@ class OrderService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns SuggestionResponseDto Ok
+     * @throws ApiError
+     */
+    suggestionBoostSaleV2({ storeId, productId, boostSaleId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/suggestion-boost-sales',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'productId': productId,
+                'boostSaleId': boostSaleId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
