@@ -148,8 +148,6 @@ export class BoostSalesService {
     id: number;
     BoostSale: Array<({
       Product: Array<{
-        permalink: string;
-        photos: PrismaJson_Photos;
         isActive: boolean;
         name: string;
         id: number;
@@ -182,8 +180,6 @@ export class BoostSalesService {
       }>;
       Collection: Array<{
         Product: Array<{
-          permalink: string;
-          photos: PrismaJson_Photos;
           isActive: boolean;
           name: string;
           id: number;
@@ -234,8 +230,6 @@ export class BoostSalesService {
     Collection: Array<({
       BoostSale: Array<({
         Product: Array<{
-          permalink: string;
-          photos: PrismaJson_Photos;
           isActive: boolean;
           name: string;
           id: number;
@@ -268,8 +262,6 @@ export class BoostSalesService {
         }>;
         Collection: Array<{
           Product: Array<{
-            permalink: string;
-            photos: PrismaJson_Photos;
             isActive: boolean;
             name: string;
             id: number;
@@ -515,20 +507,9 @@ export class BoostSalesService {
     id: number,
     storeId: string,
   }): CancelablePromise<{
-    rootProductId: number;
-    triggerBy: _36_Enums_BoostSaleTriggerType;
-    marketingType: _36_Enums_MarketingType;
-    placement: PrismaJson_PlacementBoostSaleType;
-    endDate: string;
-    startDate: string;
-    type: _36_Enums_BoostSaleType;
-    status: boolean;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-    discount: PrismaJson_DiscountBoostSale;
+    Product: Array<{
+      permalink: string;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',
