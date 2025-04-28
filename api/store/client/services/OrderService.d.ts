@@ -65,6 +65,26 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
+    firstTimePreviewInit({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateOrderDto;
+    }): CancelablePromise<{
+        freeShipInfo: {
+            value?: number;
+            status?: boolean;
+        };
+        total: number;
+        discountInfo: {
+            value?: number;
+            label?: string;
+        };
+        subTotal: number;
+        shippingFee: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     suggestionCrossSell({ storeId, requestBody, }: {
         storeId: string;
         requestBody: Array<GetCrossSellByProductDto>;
