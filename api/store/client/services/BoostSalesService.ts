@@ -189,6 +189,8 @@ export class BoostSalesService {
     id: number;
     BoostSale: Array<({
       Product: Array<{
+        permalink: string;
+        photos: PrismaJson_Photos;
         isActive: boolean;
         name: string;
         id: number;
@@ -221,6 +223,8 @@ export class BoostSalesService {
       }>;
       Collection: Array<{
         Product: Array<{
+          permalink: string;
+          photos: PrismaJson_Photos;
           isActive: boolean;
           name: string;
           id: number;
@@ -271,6 +275,8 @@ export class BoostSalesService {
     Collection: Array<({
       BoostSale: Array<({
         Product: Array<{
+          permalink: string;
+          photos: PrismaJson_Photos;
           isActive: boolean;
           name: string;
           id: number;
@@ -303,6 +309,8 @@ export class BoostSalesService {
         }>;
         Collection: Array<{
           Product: Array<{
+            permalink: string;
+            photos: PrismaJson_Photos;
             isActive: boolean;
             name: string;
             id: number;
