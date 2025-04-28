@@ -4,8 +4,10 @@ import type { CreateCollectionDefaultDto } from '../models/CreateCollectionDefau
 import type { FulfillmentShippingCostDto } from '../models/FulfillmentShippingCostDto';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { SettingPayoutRequestDto } from '../models/SettingPayoutRequestDto';
 import type { UpdateCollectionDefaultDto } from '../models/UpdateCollectionDefaultDto';
@@ -132,7 +134,7 @@ export declare class DefaultService {
     getSettingPayoutRequest({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
-        receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+        receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
         receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
         id: number;
     }>;
@@ -144,8 +146,20 @@ export declare class DefaultService {
         fulfillmentAgencyId: number;
         requestBody: SettingPayoutRequestDto;
     }): CancelablePromise<{
-        receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+        receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
         receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+        isDeductedProfit: boolean;
+        serviceFee: number;
+        othersFee: number;
+        percentageCostPlatformFee: number;
+        hold: PrismaJson_HoldSetting;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        updatedAt: string;
+        createdAt: string;
+        fulfillmentAgencyId: number;
         id: number;
     }>;
     /**
