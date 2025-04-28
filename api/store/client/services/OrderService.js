@@ -79,28 +79,6 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    firstTimePreviewInit({ storeId, requestBody, }) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/store/{storeId}/order/preview-v2',
-            path: {
-                'storeId': storeId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     suggestionCrossSell({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
