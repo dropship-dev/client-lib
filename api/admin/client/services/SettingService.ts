@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
+import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { UpdateSettingDto } from '../models/UpdateSettingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -20,7 +21,7 @@ export class SettingService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
-    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
     receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
     isDeductedProfit: boolean;
     serviceFee: number;
@@ -67,7 +68,7 @@ export class SettingService {
     fulfillmentAgencyId: number,
     requestBody: UpdateSettingDto,
   }): CancelablePromise<{
-    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
     receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
     isDeductedProfit: boolean;
     serviceFee: number;

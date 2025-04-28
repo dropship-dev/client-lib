@@ -2,9 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { SettingRequestDay } from './SettingRequestDay';
+import type { PrismaJson_SettingPayoutRequestDay } from './PrismaJson_SettingPayoutRequestDay';
 export type SettingPayoutRequestDto = {
   receiverRequestTime: Array<string>;
-  receiverRequestDay: Array<SettingRequestDay>;
+  receiverRequestDay: Array<PrismaJson_SettingPayoutRequestDay>;
 };
 

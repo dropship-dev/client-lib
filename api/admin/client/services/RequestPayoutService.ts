@@ -12,6 +12,7 @@ import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { RequestPayout } from '../models/RequestPayout';
@@ -485,7 +486,7 @@ export class RequestPayoutService {
   }: {
     storeId: string,
   }): CancelablePromise<{
-    receiverRequestDay: PrismaJson_SettingPayoutRequestTime;
+    receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
     receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
   }> {
     return this.httpRequest.request({
