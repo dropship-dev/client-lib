@@ -132,46 +132,6 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
-  public firstTimePreviewInit({
-    storeId,
-    requestBody,
-  }: {
-    storeId: string,
-    requestBody: CreateOrderDto,
-  }): CancelablePromise<{
-    freeShipInfo: {
-      value?: number;
-      status?: boolean;
-    };
-    total: number;
-    discountInfo: {
-      value?: number;
-      label?: string;
-    };
-    subTotal: number;
-    shippingFee: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/store/{storeId}/order/preview-v2',
-      path: {
-        'storeId': storeId,
-      },
-      body: requestBody,
-      mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public suggestionCrossSell({
     storeId,
     requestBody,
