@@ -263,6 +263,7 @@ export type { GetOverviewStatisticsDto } from './models/GetOverviewStatisticsDto
 export type { GetPaginateTopLandingPageResultDto } from './models/GetPaginateTopLandingPageResultDto';
 export type { GetPerformingStatisticsDto } from './models/GetPerformingStatisticsDto';
 export type { GetPermissionsRes } from './models/GetPermissionsRes';
+export type { GetPlatformProductDto } from './models/GetPlatformProductDto';
 export type { GetReferralSaleDto } from './models/GetReferralSaleDto';
 export type { GetRequestPayoutDto } from './models/GetRequestPayoutDto';
 export type { GetRevenueStoreByFulfillmentDto } from './models/GetRevenueStoreByFulfillmentDto';
