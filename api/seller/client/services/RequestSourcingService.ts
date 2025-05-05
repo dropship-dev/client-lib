@@ -134,6 +134,7 @@ export class RequestSourcingService {
       acceptBySeller: boolean;
       rejectReasonByAdmin: string;
       rejectReasonBySeller: string;
+      requestId: string;
       platformProductId: number;
       photos: PrismaJson_Photos;
       description: string;
@@ -242,6 +243,7 @@ export class RequestSourcingService {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;
@@ -293,6 +295,7 @@ export class RequestSourcingService {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;
@@ -343,6 +346,7 @@ export class RequestSourcingService {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;
@@ -395,6 +399,7 @@ export class RequestSourcingService {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;
@@ -450,6 +455,7 @@ export class RequestSourcingService {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;
