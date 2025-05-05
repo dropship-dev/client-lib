@@ -9,6 +9,7 @@ export type DefaultSelection_Prisma__36_RequestSourcingPayload_ = {
     acceptBySeller: boolean;
     rejectReasonByAdmin: string;
     rejectReasonBySeller: string;
+    requestId: string;
     platformProductId: number;
     photos: PrismaJson_Photos;
     description: string;

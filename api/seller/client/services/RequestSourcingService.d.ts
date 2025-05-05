@@ -102,6 +102,7 @@ export declare class RequestSourcingService {
             acceptBySeller: boolean;
             rejectReasonByAdmin: string;
             rejectReasonBySeller: string;
+            requestId: string;
             platformProductId: number;
             photos: PrismaJson_Photos;
             description: string;
@@ -184,6 +185,7 @@ export declare class RequestSourcingService {
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -212,6 +214,7 @@ export declare class RequestSourcingService {
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -239,6 +242,7 @@ export declare class RequestSourcingService {
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -268,6 +272,7 @@ export declare class RequestSourcingService {
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -297,6 +302,7 @@ export declare class RequestSourcingService {
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
