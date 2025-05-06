@@ -392,6 +392,14 @@ export declare class RequestPayoutService {
         countStatusRequestPayout: number;
     }>;
     /**
+     * @returns number Ok
+     * @throws ApiError
+     */
+    getAmountRequestByStatus({ statusRequestPayout, fulfillmentAgencyId, }: {
+        statusRequestPayout: Array<_36_Enums_RequestPayoutStatus>;
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<number>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */
