@@ -582,6 +582,32 @@ export class RequestPayoutService {
    * @returns any Ok
    * @throws ApiError
    */
+  public getStatusCreateRequestPayout({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    status: 'REQUESTING' | 'REVIEW';
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/request-payout/status-create-request',
+      query: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getRequestPayout({
     storeId,
     id,
