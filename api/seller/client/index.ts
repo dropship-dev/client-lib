@@ -581,7 +581,6 @@ export { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 export { GoogleAnalyticService } from './services/GoogleAnalyticService';
 export { GoogleTagManagerService } from './services/GoogleTagManagerService';
 export { KlaviyoService } from './services/KlaviyoService';
-export { LogService } from './services/LogService';
 export { MarketingEmailService } from './services/MarketingEmailService';
 export { NotificationService } from './services/NotificationService';
 export { OrderService } from './services/OrderService';
