@@ -564,6 +564,7 @@ export { BankAccountService } from './services/BankAccountService';
 export { BoostSalesService } from './services/BoostSalesService';
 export { CollectionService } from './services/CollectionService';
 export { CurrencyService } from './services/CurrencyService';
+export { LogService } from './services/LogService';
 export { MarketingEmailService } from './services/MarketingEmailService';
 export { OrderService } from './services/OrderService';
 export { OrderTrackingService } from './services/OrderTrackingService';

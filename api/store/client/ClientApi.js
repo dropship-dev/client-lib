@@ -6,6 +6,7 @@ const BankAccountService_1 = require("./services/BankAccountService");
 const BoostSalesService_1 = require("./services/BoostSalesService");
 const CollectionService_1 = require("./services/CollectionService");
 const CurrencyService_1 = require("./services/CurrencyService");
+const LogService_1 = require("./services/LogService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const OrderService_1 = require("./services/OrderService");
 const OrderTrackingService_1 = require("./services/OrderTrackingService");
@@ -25,6 +26,7 @@ class ClientApi {
     boostSales;
     collection;
     currency;
+    log;
     marketingEmail;
     order;
     orderTracking;
@@ -56,6 +58,7 @@ class ClientApi {
         this.boostSales = new BoostSalesService_1.BoostSalesService(this.request);
         this.collection = new CollectionService_1.CollectionService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
+        this.log = new LogService_1.LogService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.order = new OrderService_1.OrderService(this.request);
         this.orderTracking = new OrderTrackingService_1.OrderTrackingService(this.request);

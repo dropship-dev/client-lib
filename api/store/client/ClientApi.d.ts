@@ -4,6 +4,7 @@ import { BankAccountService } from './services/BankAccountService';
 import { BoostSalesService } from './services/BoostSalesService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
+import { LogService } from './services/LogService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { OrderService } from './services/OrderService';
 import { OrderTrackingService } from './services/OrderTrackingService';
@@ -24,6 +25,7 @@ export declare class ClientApi {
     readonly boostSales: BoostSalesService;
     readonly collection: CollectionService;
     readonly currency: CurrencyService;
+    readonly log: LogService;
     readonly marketingEmail: MarketingEmailService;
     readonly order: OrderService;
     readonly orderTracking: OrderTrackingService;
