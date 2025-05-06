@@ -44,6 +44,7 @@ export { _36_Enums_RequestPayoutStatus } from './models/_36_Enums_RequestPayoutS
 export { _36_Enums_RequestSourcingStatus } from './models/_36_Enums_RequestSourcingStatus';
 export { _36_Enums_SaleStatus } from './models/_36_Enums_SaleStatus';
 export { _36_Enums_StoreEmailLogStatus } from './models/_36_Enums_StoreEmailLogStatus';
+export { _36_Enums_StoreLogType } from './models/_36_Enums_StoreLogType';
 export { _36_Enums_StoreRole } from './models/_36_Enums_StoreRole';
 export { _36_Enums_StoreStatus } from './models/_36_Enums_StoreStatus';
 export { _36_Enums_StoreType } from './models/_36_Enums_StoreType';
@@ -125,6 +126,7 @@ export type { CreateFulfillmentAgencyDto } from './models/CreateFulfillmentAgenc
 export type { CreateGADto } from './models/CreateGADto';
 export type { CreateGroupPlatformVariantsDto } from './models/CreateGroupPlatformVariantsDto';
 export type { CreateGTMDto } from './models/CreateGTMDto';
+export type { CreateLogDto } from './models/CreateLogDto';
 export type { CreateMarketingAccount } from './models/CreateMarketingAccount';
 export type { CreateNotificationDto } from './models/CreateNotificationDto';
 export type { CreateOrderDto } from './models/CreateOrderDto';
@@ -393,6 +395,7 @@ export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
 export type { ReconnectPaymentDto } from './models/ReconnectPaymentDto';
 export type { Record_Permission_or_SuperAdminPermission_boolean_or_undefined_ } from './models/Record_Permission_or_SuperAdminPermission_boolean_or_undefined_';
+export type { Record_string_any_ } from './models/Record_string_any_';
 export type { RefundOrderDto } from './models/RefundOrderDto';
 export { RefundType } from './models/RefundType';
 export type { RegionalShippingFee } from './models/RegionalShippingFee';
@@ -424,6 +427,7 @@ export type { StatisticsOverviewConversionValue } from './models/StatisticsOverv
 export { statusRequestPayout } from './models/statusRequestPayout';
 export type { Store } from './models/Store';
 export type { StoreData } from './models/StoreData';
+export type { StoreLogType } from './models/StoreLogType';
 export type { StorePerformance } from './models/StorePerformance';
 export type { StoreProductPerformanceResp } from './models/StoreProductPerformanceResp';
 export type { StoreProductProfit } from './models/StoreProductProfit';
