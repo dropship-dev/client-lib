@@ -271,6 +271,7 @@ export type { GetPerformingStatisticsDto } from './models/GetPerformingStatistic
 export type { GetPermissionsRes } from './models/GetPermissionsRes';
 export type { GetPlatformProductDto } from './models/GetPlatformProductDto';
 export type { GetReferralSaleDto } from './models/GetReferralSaleDto';
+export type { GetRequestingAmountDto } from './models/GetRequestingAmountDto';
 export type { GetRequestPayoutDto } from './models/GetRequestPayoutDto';
 export type { GetRevenueStoreByFulfillmentDto } from './models/GetRevenueStoreByFulfillmentDto';
 export type { GetRevenueStoreByFulfillmentResult } from './models/GetRevenueStoreByFulfillmentResult';
