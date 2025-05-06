@@ -403,6 +403,15 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
+    getStatusCreateRequestPayout({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        status: 'REQUESTING' | 'REVIEW';
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getRequestPayout({ storeId, id, }: {
         storeId: string;
         id: string;
