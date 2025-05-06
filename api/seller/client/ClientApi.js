@@ -16,6 +16,7 @@ const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService"
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
 const GoogleTagManagerService_1 = require("./services/GoogleTagManagerService");
 const KlaviyoService_1 = require("./services/KlaviyoService");
+const LogService_1 = require("./services/LogService");
 const MarketingEmailService_1 = require("./services/MarketingEmailService");
 const NotificationService_1 = require("./services/NotificationService");
 const OrderService_1 = require("./services/OrderService");
@@ -58,6 +59,7 @@ class ClientApi {
     googleAnalytic;
     googleTagManager;
     klaviyo;
+    log;
     marketingEmail;
     notification;
     order;
@@ -112,6 +114,7 @@ class ClientApi {
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);
         this.googleTagManager = new GoogleTagManagerService_1.GoogleTagManagerService(this.request);
         this.klaviyo = new KlaviyoService_1.KlaviyoService(this.request);
+        this.log = new LogService_1.LogService(this.request);
         this.marketingEmail = new MarketingEmailService_1.MarketingEmailService(this.request);
         this.notification = new NotificationService_1.NotificationService(this.request);
         this.order = new OrderService_1.OrderService(this.request);

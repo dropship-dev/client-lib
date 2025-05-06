@@ -14,6 +14,7 @@ import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { GoogleTagManagerService } from './services/GoogleTagManagerService';
 import { KlaviyoService } from './services/KlaviyoService';
+import { LogService } from './services/LogService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { NotificationService } from './services/NotificationService';
 import { OrderService } from './services/OrderService';
@@ -57,6 +58,7 @@ export declare class ClientApi {
     readonly googleAnalytic: GoogleAnalyticService;
     readonly googleTagManager: GoogleTagManagerService;
     readonly klaviyo: KlaviyoService;
+    readonly log: LogService;
     readonly marketingEmail: MarketingEmailService;
     readonly notification: NotificationService;
     readonly order: OrderService;
