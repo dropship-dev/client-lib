@@ -6,6 +6,9 @@ import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_Condit
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
+import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
+import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
+import type { SettingPayoutRequestDto } from '../models/SettingPayoutRequestDto';
 import type { UpdateCollectionDefaultDto } from '../models/UpdateCollectionDefaultDto';
 import type { UpdateCollectionDefaultStatusDto } from '../models/UpdateCollectionDefaultStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -123,6 +126,29 @@ export declare class DefaultService {
     resetSetting({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getSettingPayoutRequest({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<{
+        receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
+        receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateSettingPayoutRequest({ fulfillmentAgencyId, requestBody, }: {
+        fulfillmentAgencyId: number;
+        requestBody: SettingPayoutRequestDto;
+    }): CancelablePromise<{
+        receiverRequestDay: PrismaJson_SettingPayoutRequestDay;
+        receiverRequestTime: PrismaJson_SettingPayoutRequestTime;
+        id: number;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError

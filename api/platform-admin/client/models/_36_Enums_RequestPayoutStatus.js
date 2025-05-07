@@ -8,6 +8,7 @@ exports._36_Enums_RequestPayoutStatus = void 0;
 var _36_Enums_RequestPayoutStatus;
 (function (_36_Enums_RequestPayoutStatus) {
     _36_Enums_RequestPayoutStatus["REQUESTING"] = "REQUESTING";
+    _36_Enums_RequestPayoutStatus["REVIEW"] = "REVIEW";
     _36_Enums_RequestPayoutStatus["REJECTED"] = "REJECTED";
     _36_Enums_RequestPayoutStatus["APPROVED"] = "APPROVED";
 })(_36_Enums_RequestPayoutStatus || (exports._36_Enums_RequestPayoutStatus = _36_Enums_RequestPayoutStatus = {}));

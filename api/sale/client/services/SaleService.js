@@ -63,7 +63,7 @@ class SaleService {
         });
     }
     /**
-     * @returns ResponsePaginateCursor_StoreTrackingPerformance_ Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getTrackingPerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, cursor, limit, search, status, sort, }) {
@@ -92,10 +92,28 @@ class SaleService {
      * @returns boolean Ok
      * @throws ApiError
      */
-    checkVerifyEmail({ requestBody, }) {
+    checkVerifyEmailSale({ requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/sale/verify-email',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    checkRejectStatus({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/sale/reject-status',
             body: requestBody,
             mediaType: 'application/json',
             errors: {

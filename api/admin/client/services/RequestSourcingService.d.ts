@@ -5,6 +5,7 @@ import type { ApproveRequestSourcingDto } from '../models/ApproveRequestSourcing
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_RequestSourcingHistory } from '../models/PrismaJson_RequestSourcingHistory';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_VariantPlatformSnapshot } from '../models/PrismaJson_VariantPlatformSnapshot';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -30,6 +31,17 @@ export declare class RequestSourcingService {
         prePageIndex: number;
         total: number;
         data: Array<({
+            RequestSourcingSnapshot: {
+                requestSourcingId: number;
+                variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+                snapshotAt: string;
+                details: string;
+                platformProductId: number;
+                photos: PrismaJson_Photos;
+                description: string;
+                name: string;
+                id: number;
+            };
             Store: {
                 isConversionRate: boolean;
                 stripeDefaultPaymentMethodId: string;
@@ -72,12 +84,14 @@ export declare class RequestSourcingService {
                 id: string;
             };
         } & {
+            requestSourcingSnapshotId: number;
             productId: number;
             historyRequestSourcing: PrismaJson_RequestSourcingHistory;
             acceptByAdmin: boolean;
             acceptBySeller: boolean;
             rejectReasonByAdmin: string;
             rejectReasonBySeller: string;
+            requestId: string;
             platformProductId: number;
             photos: PrismaJson_Photos;
             description: string;
@@ -100,6 +114,17 @@ export declare class RequestSourcingService {
         storeId?: string;
         fulfillmentAgencyId?: number;
     }): CancelablePromise<({
+        RequestSourcingSnapshot: {
+            requestSourcingId: number;
+            variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+            snapshotAt: string;
+            details: string;
+            platformProductId: number;
+            photos: PrismaJson_Photos;
+            description: string;
+            name: string;
+            id: number;
+        };
         Store: {
             isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
@@ -142,12 +167,14 @@ export declare class RequestSourcingService {
             id: string;
         };
     } & {
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -169,12 +196,14 @@ export declare class RequestSourcingService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -197,12 +226,14 @@ export declare class RequestSourcingService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;
@@ -225,12 +256,14 @@ export declare class RequestSourcingService {
         storeId?: string;
         fulfillmentAgencyId?: number;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
         productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
+        requestId: string;
         platformProductId: number;
         photos: PrismaJson_Photos;
         description: string;

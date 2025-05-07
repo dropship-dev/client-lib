@@ -5,6 +5,7 @@ import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
+import type { ReferralStoreType } from '../models/ReferralStoreType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ReferralService {
@@ -14,18 +15,16 @@ export declare class ReferralService {
      * @returns GetSummaryReferralResult Ok
      * @throws ApiError
      */
-    getSummary({ startDate, endDate, search, }: {
+    getSummary({ startDate, endDate, }: {
         startDate?: string;
         endDate?: string;
-        search?: string;
     }): CancelablePromise<GetSummaryReferralResult>;
     /**
      * @returns GetRevenueStoreByFulfillmentResult Ok
      * @throws ApiError
      */
-    getRevenueStoreByFulfillment({ fulfillmentAgencyId, search, }: {
+    getRevenueStoreByFulfillment({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-        search?: string;
     }): CancelablePromise<GetRevenueStoreByFulfillmentResult>;
     /**
      * @returns GetTopRevenueStore Ok
@@ -91,7 +90,7 @@ export declare class ReferralService {
             percentOfTotal: number;
             growth: number;
             gmv: number;
-            name: string;
+            name: ReferralStoreType;
         }>;
     }>;
     /**
@@ -149,6 +148,13 @@ export declare class ReferralService {
      * @throws ApiError
      */
     addRefCode({ requestBody, }: {
+        requestBody: AddRefCodeDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateRefCode({ requestBody, }: {
         requestBody: AddRefCodeDto;
     }): CancelablePromise<string>;
 }

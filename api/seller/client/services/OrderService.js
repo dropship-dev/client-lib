@@ -113,9 +113,30 @@ class OrderService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateHistoryTrackingOrder({ storeId, orderId, requestBody, }) {
+    resendEmailConfirmOrder({ storeId, orderId, }) {
         return this.httpRequest.request({
-            method: 'PATCH',
+            method: 'GET',
+            url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    createHistoryTrackingOrder({ storeId, orderId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
             url: '/store/{storeId}/order/{orderId}/history-tracking',
             path: {
                 'storeId': storeId,
@@ -133,16 +154,16 @@ class OrderService {
         });
     }
     /**
-     * @returns void
+     * @returns HistoryItem Ok
      * @throws ApiError
      */
-    resendEmailConfirmOrder({ storeId, orderId, }) {
+    getHistoriesTracking({ orderId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+            url: '/store/{storeId}/order/{orderId}/history-tracking',
             path: {
-                'storeId': storeId,
                 'orderId': orderId,
+                'storeId': storeId,
             },
             errors: {
                 400: `Bad request`,

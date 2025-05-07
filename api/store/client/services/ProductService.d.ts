@@ -8,7 +8,6 @@ import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
-import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -199,6 +198,7 @@ export declare class ProductService {
         }>;
         FbPixel: Array<{
             pixelId: string;
+            token: string;
         }>;
         Tag: Array<{
             name: string;
@@ -212,7 +212,9 @@ export declare class ProductService {
             id: number;
         };
         BoostSale: Array<({
-            Product: Array<({
+            Product: Array<{
+                name: string;
+                id: number;
                 ProductVariant: Array<({
                     Product: {
                         name: string;
@@ -239,31 +241,11 @@ export declare class ProductService {
                     createdAt: string;
                     id: number;
                 })>;
-            } & {
-                podTemplateId: number;
-                campaignId: string;
-                isEnable: boolean;
-                supplierContact: string;
-                variantOption: PrismaJson_VariantOptions;
-                availableSet: PrismaJson_AvailableSet;
-                SKU: string;
-                details: string;
-                permalink: string;
-                platformProductId: number;
-                deleted: boolean;
-                photos: PrismaJson_Photos;
-                description: string;
-                isActive: boolean;
-                shippingFeeAdditional: number;
-                shippingFee: number;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                storeId: string;
-                id: number;
-            })>;
+            }>;
             Collection: Array<{
-                Product: Array<({
+                Product: Array<{
+                    name: string;
+                    id: number;
                     ProductVariant: Array<({
                         Product: {
                             name: string;
@@ -290,29 +272,7 @@ export declare class ProductService {
                         createdAt: string;
                         id: number;
                     })>;
-                } & {
-                    podTemplateId: number;
-                    campaignId: string;
-                    isEnable: boolean;
-                    supplierContact: string;
-                    variantOption: PrismaJson_VariantOptions;
-                    availableSet: PrismaJson_AvailableSet;
-                    SKU: string;
-                    details: string;
-                    permalink: string;
-                    platformProductId: number;
-                    deleted: boolean;
-                    photos: PrismaJson_Photos;
-                    description: string;
-                    isActive: boolean;
-                    shippingFeeAdditional: number;
-                    shippingFee: number;
-                    name: string;
-                    updatedAt: string;
-                    createdAt: string;
-                    storeId: string;
-                    id: number;
-                })>;
+                }>;
             }>;
         } & {
             rootProductId: number;
@@ -332,7 +292,9 @@ export declare class ProductService {
         })>;
         Collection: Array<({
             BoostSale: Array<({
-                Product: Array<({
+                Product: Array<{
+                    name: string;
+                    id: number;
                     ProductVariant: Array<({
                         Product: {
                             name: string;
@@ -359,31 +321,11 @@ export declare class ProductService {
                         createdAt: string;
                         id: number;
                     })>;
-                } & {
-                    podTemplateId: number;
-                    campaignId: string;
-                    isEnable: boolean;
-                    supplierContact: string;
-                    variantOption: PrismaJson_VariantOptions;
-                    availableSet: PrismaJson_AvailableSet;
-                    SKU: string;
-                    details: string;
-                    permalink: string;
-                    platformProductId: number;
-                    deleted: boolean;
-                    photos: PrismaJson_Photos;
-                    description: string;
-                    isActive: boolean;
-                    shippingFeeAdditional: number;
-                    shippingFee: number;
-                    name: string;
-                    updatedAt: string;
-                    createdAt: string;
-                    storeId: string;
-                    id: number;
-                })>;
+                }>;
                 Collection: Array<{
-                    Product: Array<({
+                    Product: Array<{
+                        name: string;
+                        id: number;
                         ProductVariant: Array<({
                             Product: {
                                 name: string;
@@ -410,29 +352,7 @@ export declare class ProductService {
                             createdAt: string;
                             id: number;
                         })>;
-                    } & {
-                        podTemplateId: number;
-                        campaignId: string;
-                        isEnable: boolean;
-                        supplierContact: string;
-                        variantOption: PrismaJson_VariantOptions;
-                        availableSet: PrismaJson_AvailableSet;
-                        SKU: string;
-                        details: string;
-                        permalink: string;
-                        platformProductId: number;
-                        deleted: boolean;
-                        photos: PrismaJson_Photos;
-                        description: string;
-                        isActive: boolean;
-                        shippingFeeAdditional: number;
-                        shippingFee: number;
-                        name: string;
-                        updatedAt: string;
-                        createdAt: string;
-                        storeId: string;
-                        id: number;
-                    })>;
+                    }>;
                 }>;
             } & {
                 rootProductId: number;
@@ -584,6 +504,7 @@ export declare class ProductService {
         }>;
         FbPixel: Array<{
             pixelId: string;
+            token: string;
         }>;
         Tag: Array<{
             name: string;
@@ -654,134 +575,4 @@ export declare class ProductService {
         upSellId: number;
         productId: number;
     }>>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getProduct({ storeId, productId, isGetAllPlatformProductStore, }: {
-        storeId: string;
-        productId: number;
-        isGetAllPlatformProductStore?: boolean;
-    }): CancelablePromise<({
-        Campaign: ({
-            listDiscount: Array<{
-                requirementDiscount: PrismaJson_ProductRequirementItems;
-                typeDiscount: PrismaJson_ProductDiscountItems;
-                position: number;
-                userUpdated: string;
-                userCreated: string;
-                label: string;
-                campaignId: string;
-                updatedAt: string;
-                createdAt: string;
-                id: string;
-            }>;
-        } & {
-            userUpdated: string;
-            userCreated: string;
-            endDate: string;
-            startDate: string;
-            label: string;
-            status: boolean;
-            updatedAt: string;
-            createdAt: string;
-            id: string;
-        });
-        VariantCombo: Array<{
-            items: PrismaJson_VariantComboItems;
-            minSellingPrice: number;
-            compareAtPrice: number;
-            productId: number;
-            supplierCost: number;
-            price: number;
-            photo: string;
-            isEnable: boolean;
-            SKU: string;
-            isActive: boolean;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            isDeleted: boolean;
-            id: number;
-        }>;
-        ProductVariant: Array<({
-            PlatformVariant: {
-                cost: PrismaJson_PlatformCostInfo;
-                price: number;
-                id: number;
-            };
-        } & {
-            podDesignVariantId: number;
-            platformVariantId: number;
-            margin: PrismaJson_MarginInfo;
-            minSellingPrice: number;
-            compareAtPrice: number;
-            productId: number;
-            cost: PrismaJson_CostInfo;
-            supplierPrice: number;
-            price: number;
-            photo: string;
-            isEnable: boolean;
-            variantOption: PrismaJson_VariantOptionValues;
-            SKU: string;
-            deleted: boolean;
-            isActive: boolean;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
-        })>;
-        Tag: Array<{
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: number;
-        }>;
-        PlatformProduct: {
-            variantOption: PrismaJson_VariantOptions;
-            Tag: Array<{
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                fulfillmentAgencyId: number;
-                id: number;
-            }>;
-        };
-        Store: {
-            RegionalShippingFee: Array<{
-                countries: PrismaJson_CountryInformation;
-                zoneName: string;
-                deleted: boolean;
-                shippingFeeAdditional: number;
-                shippingFee: number;
-                updatedAt: string;
-                createdAt: string;
-                storeId: string;
-                id: string;
-            }>;
-        };
-    } & {
-        podTemplateId: number;
-        campaignId: string;
-        isEnable: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        permalink: string;
-        platformProductId: number;
-        deleted: boolean;
-        photos: PrismaJson_Photos;
-        description: string;
-        isActive: boolean;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-    })>;
 }

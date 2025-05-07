@@ -70,6 +70,11 @@ export declare class PermissionService {
             name: string;
             createdAt: string;
             id: string;
+            UserRolePermission: Array<{
+                RolePermission: {
+                    isSuperAdmin: boolean;
+                };
+            }>;
         }>;
     }>;
     /**

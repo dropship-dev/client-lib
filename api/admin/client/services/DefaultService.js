@@ -164,6 +164,48 @@ class DefaultService {
      * @returns any Ok
      * @throws ApiError
      */
+    getSettingPayoutRequest({ fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/setting/payout-request',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateSettingPayoutRequest({ fulfillmentAgencyId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PUT',
+            url: '/setting/payout-request',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     createCollectionDefault({ fulfillmentAgencyId, requestBody, }) {
         return this.httpRequest.request({
             method: 'POST',

@@ -51,11 +51,11 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }: {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, search, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: number;
-        name?: string;
+        search?: string;
         tags?: Array<string>;
         isActive?: boolean;
         startPrice?: number;
