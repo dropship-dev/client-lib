@@ -295,6 +295,7 @@ export class ProductService {
     }>;
     FbPixel: Array<{
       pixelId: string;
+      token: string;
     }>;
     Tag: Array<{
       name: string;
@@ -308,7 +309,9 @@ export class ProductService {
       id: number;
     };
     BoostSale: Array<({
-      Product: Array<({
+      Product: Array<{
+        name: string;
+        id: number;
         ProductVariant: Array<({
           Product: {
             name: string;
@@ -335,31 +338,11 @@ export class ProductService {
           createdAt: string;
           id: number;
         })>;
-      } & {
-        podTemplateId: number;
-        campaignId: string;
-        isEnable: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        availableSet: PrismaJson_AvailableSet;
-        SKU: string;
-        details: string;
-        permalink: string;
-        platformProductId: number;
-        deleted: boolean;
-        photos: PrismaJson_Photos;
-        description: string;
-        isActive: boolean;
-        shippingFeeAdditional: number;
-        shippingFee: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
-      })>;
+      }>;
       Collection: Array<{
-        Product: Array<({
+        Product: Array<{
+          name: string;
+          id: number;
           ProductVariant: Array<({
             Product: {
               name: string;
@@ -386,29 +369,7 @@ export class ProductService {
             createdAt: string;
             id: number;
           })>;
-        } & {
-          podTemplateId: number;
-          campaignId: string;
-          isEnable: boolean;
-          supplierContact: string;
-          variantOption: PrismaJson_VariantOptions;
-          availableSet: PrismaJson_AvailableSet;
-          SKU: string;
-          details: string;
-          permalink: string;
-          platformProductId: number;
-          deleted: boolean;
-          photos: PrismaJson_Photos;
-          description: string;
-          isActive: boolean;
-          shippingFeeAdditional: number;
-          shippingFee: number;
-          name: string;
-          updatedAt: string;
-          createdAt: string;
-          storeId: string;
-          id: number;
-        })>;
+        }>;
       }>;
     } & {
       rootProductId: number;
@@ -428,7 +389,9 @@ export class ProductService {
     })>;
     Collection: Array<({
       BoostSale: Array<({
-        Product: Array<({
+        Product: Array<{
+          name: string;
+          id: number;
           ProductVariant: Array<({
             Product: {
               name: string;
@@ -455,31 +418,11 @@ export class ProductService {
             createdAt: string;
             id: number;
           })>;
-        } & {
-          podTemplateId: number;
-          campaignId: string;
-          isEnable: boolean;
-          supplierContact: string;
-          variantOption: PrismaJson_VariantOptions;
-          availableSet: PrismaJson_AvailableSet;
-          SKU: string;
-          details: string;
-          permalink: string;
-          platformProductId: number;
-          deleted: boolean;
-          photos: PrismaJson_Photos;
-          description: string;
-          isActive: boolean;
-          shippingFeeAdditional: number;
-          shippingFee: number;
-          name: string;
-          updatedAt: string;
-          createdAt: string;
-          storeId: string;
-          id: number;
-        })>;
+        }>;
         Collection: Array<{
-          Product: Array<({
+          Product: Array<{
+            name: string;
+            id: number;
             ProductVariant: Array<({
               Product: {
                 name: string;
@@ -506,29 +449,7 @@ export class ProductService {
               createdAt: string;
               id: number;
             })>;
-          } & {
-            podTemplateId: number;
-            campaignId: string;
-            isEnable: boolean;
-            supplierContact: string;
-            variantOption: PrismaJson_VariantOptions;
-            availableSet: PrismaJson_AvailableSet;
-            SKU: string;
-            details: string;
-            permalink: string;
-            platformProductId: number;
-            deleted: boolean;
-            photos: PrismaJson_Photos;
-            description: string;
-            isActive: boolean;
-            shippingFeeAdditional: number;
-            shippingFee: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: number;
-          })>;
+          }>;
         }>;
       } & {
         rootProductId: number;
@@ -702,6 +623,7 @@ export class ProductService {
     }>;
     FbPixel: Array<{
       pixelId: string;
+      token: string;
     }>;
     Tag: Array<{
       name: string;
@@ -913,6 +835,7 @@ export class ProductService {
       PlatformVariant: {
         cost: PrismaJson_PlatformCostInfo;
         price: number;
+        photo: string;
         id: number;
       };
     } & {
@@ -945,6 +868,8 @@ export class ProductService {
     }>;
     PlatformProduct: {
       variantOption: PrismaJson_VariantOptions;
+      photos: PrismaJson_Photos;
+      name: string;
       Tag: Array<{
         name: string;
         updatedAt: string;

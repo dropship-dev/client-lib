@@ -9,6 +9,7 @@ import type { FilterStoreStatus } from '../models/FilterStoreStatus';
 import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueStoreByFulfillmentResult';
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
+import type { ReferralStoreType } from '../models/ReferralStoreType';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ReferralService {
@@ -20,11 +21,9 @@ export class ReferralService {
   public getSummary({
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
-    search,
   }: {
     startDate?: string,
     endDate?: string,
-    search?: string,
   }): CancelablePromise<GetSummaryReferralResult> {
     return this.httpRequest.request({
       method: 'GET',
@@ -32,7 +31,6 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
-        'search': search,
       },
       errors: {
         400: `Bad request`,
@@ -49,17 +47,14 @@ export class ReferralService {
    */
   public getRevenueStoreByFulfillment({
     fulfillmentAgencyId,
-    search,
   }: {
     fulfillmentAgencyId: number,
-    search?: string,
   }): CancelablePromise<GetRevenueStoreByFulfillmentResult> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/referral/revenue-store-by-fulfillment',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
-        'search': search,
       },
       errors: {
         400: `Bad request`,
@@ -206,7 +201,7 @@ export class ReferralService {
       percentOfTotal: number;
       growth: number;
       gmv: number;
-      name: string;
+      name: ReferralStoreType;
     }>;
   }> {
     return this.httpRequest.request({
@@ -338,7 +333,30 @@ export class ReferralService {
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/referral/add-ref-code',
+      url: '/referral/ref-code',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateRefCode({
+    requestBody,
+  }: {
+    requestBody: AddRefCodeDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/referral/ref-code',
       body: requestBody,
       mediaType: 'application/json',
       errors: {

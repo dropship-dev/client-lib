@@ -119,6 +119,11 @@ export class PermissionService {
       name: string;
       createdAt: string;
       id: string;
+      UserRolePermission: Array<{
+        RolePermission: {
+          isSuperAdmin: boolean;
+        };
+      }>;
     }>;
   }> {
     return this.httpRequest.request({

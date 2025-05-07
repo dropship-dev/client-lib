@@ -25,6 +25,7 @@ export class FbPixelService {
     }>;
   } & {
     pixelId: string;
+    token: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -61,6 +62,7 @@ export class FbPixelService {
     }>;
   } & {
     pixelId: string;
+    token: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -126,6 +128,7 @@ export class FbPixelService {
     requestBody: UpdateFbPixelDto,
   }): CancelablePromise<{
     pixelId: string;
+    token: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -161,6 +164,7 @@ export class FbPixelService {
     pixelId: string,
   }): CancelablePromise<{
     pixelId: string;
+    token: string;
     updatedAt: string;
     createdAt: string;
     storeId: string;

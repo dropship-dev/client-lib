@@ -4,6 +4,5 @@
 /* eslint-disable */
 export type GetRevenueStoreByFulfillmentDto = {
   fulfillmentAgencyId: number;
-  search?: string;
 };
 

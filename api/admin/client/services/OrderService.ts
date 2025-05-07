@@ -22,12 +22,13 @@ import type { ExportOrderResponseDto } from '../models/ExportOrderResponseDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
 import type { GetAllOrderResult } from '../models/GetAllOrderResult';
 import type { GetOrderResult } from '../models/GetOrderResult';
+import type { HistoryItem } from '../models/HistoryItem';
+import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_OrderHistoryTracking } from '../models/PrismaJson_OrderHistoryTracking';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -41,7 +42,6 @@ import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantC
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
-import type { UpdateHistoryTrackingOrderDto } from '../models/UpdateHistoryTrackingOrderDto';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -168,17 +168,44 @@ export class OrderService {
    * @returns string Ok
    * @throws ApiError
    */
-  public updateHistoryTrackingOrder({
+  public resendEmailConfirmOrder({
+    storeId,
+    orderId,
+  }: {
+    storeId: string,
+    orderId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public createHistoryTrackingOrder({
     storeId,
     orderId,
     requestBody,
   }: {
     storeId: string,
     orderId: string,
-    requestBody: UpdateHistoryTrackingOrderDto,
+    requestBody: HistoryTrackingOrderDto,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
-      method: 'PATCH',
+      method: 'POST',
       url: '/store/{storeId}/order/{orderId}/history-tracking',
       path: {
         'storeId': storeId,
@@ -196,22 +223,22 @@ export class OrderService {
     });
   }
   /**
-   * @returns void
+   * @returns HistoryItem Ok
    * @throws ApiError
    */
-  public resendEmailConfirmOrder({
-    storeId,
+  public getHistoriesTracking({
     orderId,
+    storeId,
   }: {
-    storeId: string,
     orderId: string,
-  }): CancelablePromise<void> {
+    storeId: string,
+  }): CancelablePromise<Array<HistoryItem>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+      url: '/store/{storeId}/order/{orderId}/history-tracking',
       path: {
-        'storeId': storeId,
         'orderId': orderId,
+        'storeId': storeId,
       },
       errors: {
         400: `Bad request`,
@@ -782,8 +809,8 @@ export class OrderService {
     totalUSD: number;
     total: number;
     note: string;
-    historyTracking: PrismaJson_OrderHistoryTracking;
     utmLink: string;
+    historyTracking: any;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;
     province: string;
@@ -824,6 +851,35 @@ export class OrderService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns HistoryItem Ok
+   * @throws ApiError
+   */
+  public getHistoriesTracking1({
+    orderId,
+    fulfillmentAgencyId,
+  }: {
+    orderId: string,
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<Array<HistoryItem>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/order/{orderId}/history-tracking',
+      path: {
+        'orderId': orderId,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
