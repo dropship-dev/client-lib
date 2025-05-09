@@ -93,6 +93,7 @@ export class MarketingEmailService {
     data: string,
     token: string,
   }): CancelablePromise<{
+    permalink: string;
     storeId: string;
     comboItems: PrismaJson_CreateComboItems;
     orderItems: Array<{
