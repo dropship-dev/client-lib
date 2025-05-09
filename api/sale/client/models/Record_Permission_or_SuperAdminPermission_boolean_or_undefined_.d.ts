@@ -9,6 +9,7 @@ export type Record_Permission_or_SuperAdminPermission_boolean_or_undefined_ = {
     SUPER_ADMIN_REVENUE_CEILING: boolean;
     SUPER_ADMIN_VIEW_REFERRAL_OVERVIEW: boolean;
     SUPER_ADMIN_VIEW_REFERRAL_SALES: boolean;
+    SUPER_ADMIN_EDIT_REFERRAL_SALES: boolean;
     SUPER_ADMIN_VIEW_STORE_IN_REFERRAL: boolean;
     SUPER_ADMIN_ADD_REFERRAL_CODE: boolean;
     SUPER_ADMIN_VIEW_ACCOUNT_IN_PERMISSION: boolean;
