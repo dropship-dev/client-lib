@@ -104,4 +104,23 @@ export declare class AsyncTaskService {
     getAsyncTask({ id, }: {
         id: string;
     }): CancelablePromise<AsyncTask>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createExportStoreReportTask({ exportedFilename, fulfillmentAgencyId, search, startDate, endDate, }: {
+        exportedFilename: string;
+        fulfillmentAgencyId?: number;
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        input: any;
+        type: _36_Enums_AsyncTaskType;
+        status: _36_Enums_AsyncTaskStatus;
+        updatedAt: string;
+        createdAt: string;
+        id: string;
+        result: PrismaJson_AsyncTaskResult;
+    }>;
 }

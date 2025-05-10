@@ -345,5 +345,32 @@ class FulfillmentAgencyService {
             },
         });
     }
+    /**
+     * @returns GetStoreReportResultDto Ok
+     * @throws ApiError
+     */
+    storeReport({ id, pageSize = 20, nextPageIndex, startDate, endDate, search, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-agency/{id}/store-report',
+            path: {
+                'id': id,
+            },
+            query: {
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+                'startDate': startDate,
+                'endDate': endDate,
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.FulfillmentAgencyService = FulfillmentAgencyService;

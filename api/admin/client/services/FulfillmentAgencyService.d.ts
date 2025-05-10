@@ -8,6 +8,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
+import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
@@ -392,4 +393,16 @@ export declare class FulfillmentAgencyService {
         fulfillmentAgencyId: number;
         id: number;
     }>;
+    /**
+     * @returns GetStoreReportResultDto Ok
+     * @throws ApiError
+     */
+    storeReport({ id, pageSize, nextPageIndex, startDate, endDate, search, }: {
+        id: number;
+        pageSize?: number;
+        nextPageIndex?: string;
+        startDate?: string;
+        endDate?: string;
+        search?: string;
+    }): CancelablePromise<GetStoreReportResultDto>;
 }
