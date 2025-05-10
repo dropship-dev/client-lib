@@ -12,6 +12,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
+import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
@@ -690,6 +691,47 @@ export class FulfillmentAgencyService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns GetStoreReportResultDto Ok
+   * @throws ApiError
+   */
+  public storeReport({
+    id,
+    pageSize = 20,
+    nextPageIndex,
+    startDate,
+    endDate,
+    search,
+  }: {
+    id: number,
+    pageSize?: number,
+    nextPageIndex?: string,
+    startDate?: string,
+    endDate?: string,
+    search?: string,
+  }): CancelablePromise<GetStoreReportResultDto> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/{id}/store-report',
+      path: {
+        'id': id,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+        'startDate': startDate,
+        'endDate': endDate,
+        'search': search,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
