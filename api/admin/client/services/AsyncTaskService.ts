@@ -242,4 +242,48 @@ export class AsyncTaskService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createExportStoreReportTask({
+    exportedFilename,
+    fulfillmentAgencyId,
+    search,
+    startDate,
+    endDate,
+  }: {
+    exportedFilename: string,
+    fulfillmentAgencyId?: number,
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    input: any;
+    type: _36_Enums_AsyncTaskType;
+    status: _36_Enums_AsyncTaskStatus;
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+    result: PrismaJson_AsyncTaskResult;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/async-task/export-store-report',
+      query: {
+        'exportedFilename': exportedFilename,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'search': search,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
