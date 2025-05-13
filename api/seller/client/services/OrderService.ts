@@ -404,6 +404,7 @@ export class OrderService {
     noItems: number;
     tax: number;
     profitFulfillAdmin: number;
+    originalProfit: number;
     deductedProfit: number;
     profit: number;
     subTotal: number;
