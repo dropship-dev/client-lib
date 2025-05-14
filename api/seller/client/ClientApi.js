@@ -29,6 +29,7 @@ const RequestPayoutService_1 = require("./services/RequestPayoutService");
 const RequestSourcingService_1 = require("./services/RequestSourcingService");
 const ReviewService_1 = require("./services/ReviewService");
 const SettingService_1 = require("./services/SettingService");
+const SnapChatPixelService_1 = require("./services/SnapChatPixelService");
 const StaffService_1 = require("./services/StaffService");
 const StatisticsService_1 = require("./services/StatisticsService");
 const StoreService_1 = require("./services/StoreService");
@@ -71,6 +72,7 @@ class ClientApi {
     requestSourcing;
     review;
     setting;
+    snapChatPixel;
     staff;
     statistics;
     store;
@@ -125,6 +127,7 @@ class ClientApi {
         this.requestSourcing = new RequestSourcingService_1.RequestSourcingService(this.request);
         this.review = new ReviewService_1.ReviewService(this.request);
         this.setting = new SettingService_1.SettingService(this.request);
+        this.snapChatPixel = new SnapChatPixelService_1.SnapChatPixelService(this.request);
         this.staff = new StaffService_1.StaffService(this.request);
         this.statistics = new StatisticsService_1.StatisticsService(this.request);
         this.store = new StoreService_1.StoreService(this.request);

@@ -3,6 +3,7 @@ export type CloneProductDto = {
     discount?: boolean;
     fbPixel?: boolean;
     tiktokPixel?: boolean;
+    snapChatPixel?: boolean;
     googleAnalytic?: boolean;
     googleTagManager?: boolean;
     shippingFee?: boolean;
