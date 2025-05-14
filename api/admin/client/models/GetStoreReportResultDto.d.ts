@@ -1,7 +1,7 @@
 export type GetStoreReportResultDto = {
     data: Array<{
         total: number;
-        profit: number;
+        originalProfit: number | null;
         createdAt: string;
         id: string;
         Store: {
