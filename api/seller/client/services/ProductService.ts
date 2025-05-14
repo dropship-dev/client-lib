@@ -399,6 +399,9 @@ export class ProductService {
     TiktokPixel: Array<{
       pixelId: string;
     }>;
+    SnapChatPixel: Array<{
+      pixelId: string;
+    }>;
     FbPixel: Array<{
       pixelId: string;
       token: string;
@@ -725,6 +728,9 @@ export class ProductService {
       measurementId: string;
     }>;
     TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    SnapChatPixel: Array<{
       pixelId: string;
     }>;
     FbPixel: Array<{

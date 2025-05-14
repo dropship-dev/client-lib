@@ -152,6 +152,7 @@ export type { CreateRequestSourcingDto } from './models/CreateRequestSourcingDto
 export type { CreateReviewDto } from './models/CreateReviewDto';
 export type { CreateRoleDto } from './models/CreateRoleDto';
 export type { CreateRoleRes } from './models/CreateRoleRes';
+export type { CreateSnapChatPixelDto } from './models/CreateSnapChatPixelDto';
 export type { CreateStaffDto } from './models/CreateStaffDto';
 export type { CreateStoreDto } from './models/CreateStoreDto';
 export type { CreateStoreTagDto } from './models/CreateStoreTagDto';
@@ -199,6 +200,7 @@ export type { DefaultSelection_Prisma__36_RegionalShippingFeePayload_ } from './
 export type { DefaultSelection_Prisma__36_RequestPayoutPayload_ } from './models/DefaultSelection_Prisma__36_RequestPayoutPayload_';
 export type { DefaultSelection_Prisma__36_RequestSourcingPayload_ } from './models/DefaultSelection_Prisma__36_RequestSourcingPayload_';
 export type { DefaultSelection_Prisma__36_ReviewPayload_ } from './models/DefaultSelection_Prisma__36_ReviewPayload_';
+export type { DefaultSelection_Prisma__36_SnapChatPixelPayload_ } from './models/DefaultSelection_Prisma__36_SnapChatPixelPayload_';
 export type { DefaultSelection_Prisma__36_StorePayload_ } from './models/DefaultSelection_Prisma__36_StorePayload_';
 export type { DefaultSelection_Prisma__36_StoreUserPayload_ } from './models/DefaultSelection_Prisma__36_StoreUserPayload_';
 export type { DefaultSelection_Prisma__36_TagPayload_ } from './models/DefaultSelection_Prisma__36_TagPayload_';
@@ -447,6 +449,7 @@ export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
 export { SendEmailToListStoreStatus } from './models/SendEmailToListStoreStatus';
 export type { SendOtpAddPingpongAccountDto } from './models/SendOtpAddPingpongAccountDto';
 export type { SettingPayoutRequestDto } from './models/SettingPayoutRequestDto';
+export type { SnapChatPixel } from './models/SnapChatPixel';
 export { sortTrackingPerformance } from './models/sortTrackingPerformance';
 export { StatisticsDisplayType } from './models/StatisticsDisplayType';
 export type { StatisticsOverviewAbandonedCheckout } from './models/StatisticsOverviewAbandonedCheckout';
@@ -542,6 +545,7 @@ export type { UpdateRequestSourcingDto } from './models/UpdateRequestSourcingDto
 export type { UpdateRequestStatusDto } from './models/UpdateRequestStatusDto';
 export type { UpdateReviewDto } from './models/UpdateReviewDto';
 export type { UpdateSettingDto } from './models/UpdateSettingDto';
+export type { UpdateSnapChatPixelDto } from './models/UpdateSnapChatPixelDto';
 export type { UpdateStaffDto } from './models/UpdateStaffDto';
 export type { UpdateStoreConversionRateDto } from './models/UpdateStoreConversionRateDto';
 export type { UpdateStoreDto } from './models/UpdateStoreDto';

@@ -32,6 +32,7 @@ import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
+import { SnapChatPixelService } from './services/SnapChatPixelService';
 import { StaffService } from './services/StaffService';
 import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
@@ -75,6 +76,7 @@ export class ClientApi {
   public readonly requestSourcing: RequestSourcingService;
   public readonly review: ReviewService;
   public readonly setting: SettingService;
+  public readonly snapChatPixel: SnapChatPixelService;
   public readonly staff: StaffService;
   public readonly statistics: StatisticsService;
   public readonly store: StoreService;
@@ -129,6 +131,7 @@ export class ClientApi {
     this.requestSourcing = new RequestSourcingService(this.request);
     this.review = new ReviewService(this.request);
     this.setting = new SettingService(this.request);
+    this.snapChatPixel = new SnapChatPixelService(this.request);
     this.staff = new StaffService(this.request);
     this.statistics = new StatisticsService(this.request);
     this.store = new StoreService(this.request);
