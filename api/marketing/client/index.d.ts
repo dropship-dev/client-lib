@@ -222,7 +222,6 @@ export type { EmailDto } from './models/EmailDto';
 export { ESendMailStatus } from './models/ESendMailStatus';
 export type { EventFraudType } from './models/EventFraudType';
 export { EventOrderFraud } from './models/EventOrderFraud';
-export { Exclude_RequestPayoutStatus_REVIEW_ } from './models/Exclude_RequestPayoutStatus_REVIEW_';
 export { Exclude_RequestSourcingStatus_SELLER_REJECTED_or_SELLER_ACCEPTED_ } from './models/Exclude_RequestSourcingStatus_SELLER_REJECTED_or_SELLER_ACCEPTED_';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderDto } from './models/ExportOrderDto';
