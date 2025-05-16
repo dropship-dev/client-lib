@@ -2,12 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Exclude_RequestPayoutStatus_REVIEW_ } from './Exclude_RequestPayoutStatus_REVIEW_';
+import type { _36_Enums_RequestPayoutStatus } from './_36_Enums_RequestPayoutStatus';
 export type ExportPayoutRequestFilterDto = {
   exportedFilename?: string;
   fulfillmentAgencyId: number;
   startDate?: string;
   endDate?: string;
-  statuses?: Array<Exclude_RequestPayoutStatus_REVIEW_>;
+  statuses?: Array<_36_Enums_RequestPayoutStatus>;
 };
 
