@@ -4,6 +4,7 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { CreateProductDto } from '../models/CreateProductDto';
+import type { GetAllProductType } from '../models/GetAllProductType';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
@@ -44,7 +45,7 @@ export declare class ProductService {
         count: number;
     }>;
     /**
-     * @returns any Ok
+     * @returns GetAllProductType Ok
      * @throws ApiError
      */
     getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }: {
@@ -59,13 +60,7 @@ export declare class ProductService {
         startPrice?: number;
         endPrice?: number;
         isCheckRootProductCrossSell?: boolean;
-    }): CancelablePromise<{
-        orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
-        total: number;
-        data: Array<any>;
-    }>;
+    }): CancelablePromise<GetAllProductType>;
     /**
      * @returns any Ok
      * @throws ApiError

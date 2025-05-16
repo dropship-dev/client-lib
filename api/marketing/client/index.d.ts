@@ -249,6 +249,7 @@ export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GeneratePartnerReferralsDto } from './models/GeneratePartnerReferralsDto';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GetAllOrderResult } from './models/GetAllOrderResult';
+export type { GetAllProductType } from './models/GetAllProductType';
 export type { GetAllStoresDto } from './models/GetAllStoresDto';
 export type { GetAutomationMetricStatisticsDto } from './models/GetAutomationMetricStatisticsDto';
 export type { GetBatchResult } from './models/GetBatchResult';
@@ -412,6 +413,7 @@ export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptio
 export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_VariantOptionValues';
 export type { PrismaJson_VariantPlatformSnapshot } from './models/PrismaJson_VariantPlatformSnapshot';
 export type { Product } from './models/Product';
+export type { ProductListType } from './models/ProductListType';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
 export type { ReconnectPaymentDto } from './models/ReconnectPaymentDto';
