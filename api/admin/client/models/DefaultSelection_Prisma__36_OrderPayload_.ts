@@ -30,7 +30,6 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   noItems: number;
   tax: number;
   profitFulfillAdmin: number;
-  originalProfit: number;
   deductedProfit: number;
   profit: number;
   subTotal: number;
