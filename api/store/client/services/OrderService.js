@@ -219,11 +219,12 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getCustomerInfoForThankYouPage({ orderId, }) {
+    getCustomerInfoForThankYouPage({ storeId, orderId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/order/{orderId}/info',
             path: {
+                'storeId': storeId,
                 'orderId': orderId,
             },
             errors: {
