@@ -9,7 +9,6 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
-import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -454,8 +453,6 @@ export class OrderService {
     paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
-    billingInfo: PrismaJson_BillingInfo;
-    shippingInfo: PrismaJson_BillingInfo;
     status: string;
   }> {
     return this.httpRequest.request({
@@ -470,6 +467,43 @@ export class OrderService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCustomerInfoForThankYouPage({
+    orderId,
+  }: {
+    orderId: string,
+  }): CancelablePromise<{
+    billingInfo: any;
+    shippingInfo: {
+      phone: any;
+      country: any;
+      zipCode: any;
+      province: any;
+      city: any;
+      address2: any;
+      address1: any;
+      name: any;
+      email: any;
+    };
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/info',
+      path: {
+        'orderId': orderId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
