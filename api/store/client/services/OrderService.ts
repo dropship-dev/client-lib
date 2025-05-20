@@ -9,6 +9,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
+import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -481,27 +482,30 @@ export class OrderService {
    * @throws ApiError
    */
   public getCustomerInfoForThankYouPage({
+    storeId,
     orderId,
   }: {
+    storeId: string,
     orderId: string,
   }): CancelablePromise<{
-    billingInfo: any;
+    billingInfo: PrismaJson_BillingInfo;
     shippingInfo: {
-      phone: any;
-      country: any;
-      zipCode: any;
-      province: any;
-      city: any;
-      address2: any;
-      address1: any;
-      name: any;
-      email: any;
+      phone: string;
+      country: string;
+      zipCode: string;
+      province: string;
+      city: string;
+      address2: string;
+      address1: string;
+      name: string;
+      email: string;
     };
   }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/order/{orderId}/info',
       path: {
+        'storeId': storeId,
         'orderId': orderId,
       },
       errors: {
