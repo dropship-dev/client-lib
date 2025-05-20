@@ -5,7 +5,6 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
-import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
@@ -276,9 +275,27 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
-        billingInfo: PrismaJson_BillingInfo;
-        shippingInfo: PrismaJson_BillingInfo;
         status: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCustomerInfoForThankYouPage({ orderId, }: {
+        orderId: string;
+    }): CancelablePromise<{
+        billingInfo: any;
+        shippingInfo: {
+            phone: any;
+            country: any;
+            zipCode: any;
+            province: any;
+            city: any;
+            address2: any;
+            address1: any;
+            name: any;
+            email: any;
+        };
     }>;
     /**
      * @returns any Ok
