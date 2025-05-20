@@ -220,7 +220,6 @@ export declare class OrderRefundsService {
             noItems: number;
             tax: number;
             profitFulfillAdmin: number;
-            originalProfit: number;
             deductedProfit: number;
             profit: number;
             subTotal: number;
