@@ -36,6 +36,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     historyTracking: any;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;
+    taxId: string;
     province: string;
     address2: string;
     address1: string;
