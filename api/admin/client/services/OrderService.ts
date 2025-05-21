@@ -813,6 +813,7 @@ export class OrderService {
     historyTracking: any;
     additionalInfo: any;
     billingInfo: PrismaJson_BillingInfo;
+    taxId: string;
     province: string;
     address2: string;
     address1: string;
