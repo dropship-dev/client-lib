@@ -704,7 +704,7 @@ export class FulfillmentAgencyService {
    * @returns GetStoreReportResultDto Ok
    * @throws ApiError
    */
-  public storeReport({
+  public getStoreReport({
     id,
     pageSize = 20,
     nextPageIndex,

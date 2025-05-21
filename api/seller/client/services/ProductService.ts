@@ -9,6 +9,7 @@ import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionTyp
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
+import type { GetAllProductType } from '../models/GetAllProductType';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
@@ -115,7 +116,7 @@ export class ProductService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns GetAllProductType Ok
    * @throws ApiError
    */
   public getAllProduct({
@@ -142,13 +143,7 @@ export class ProductService {
     startPrice?: number,
     endPrice?: number,
     isCheckRootProductCrossSell?: boolean,
-  }): CancelablePromise<{
-    orderBy: string;
-    nextPageIndex: number;
-    prePageIndex: number;
-    total: number;
-    data: Array<any>;
-  }> {
+  }): CancelablePromise<GetAllProductType> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/product',
@@ -397,6 +392,9 @@ export class ProductService {
       measurementId: string;
     }>;
     TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    SnapChatPixel: Array<{
       pixelId: string;
     }>;
     FbPixel: Array<{
@@ -725,6 +723,9 @@ export class ProductService {
       measurementId: string;
     }>;
     TiktokPixel: Array<{
+      pixelId: string;
+    }>;
+    SnapChatPixel: Array<{
       pixelId: string;
     }>;
     FbPixel: Array<{
