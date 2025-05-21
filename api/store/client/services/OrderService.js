@@ -219,6 +219,27 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
+    getCustomerInfoForThankYouPage({ storeId, orderId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/{orderId}/info',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getRevenueOrder({ orderId, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',

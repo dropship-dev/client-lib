@@ -5,6 +5,7 @@ import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionTyp
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { CloneProductDto } from '../models/CloneProductDto';
 import type { CreateProductFromSellerInDependenceDto } from '../models/CreateProductFromSellerInDependenceDto';
+import type { GetAllProductType } from '../models/GetAllProductType';
 import type { getStatusCombosType } from '../models/getStatusCombosType';
 import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
@@ -71,7 +72,7 @@ export declare class ProductService {
         count: number;
     }>;
     /**
-     * @returns any Ok
+     * @returns GetAllProductType Ok
      * @throws ApiError
      */
     getAllProduct({ storeId, pageSize, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }: {
@@ -86,13 +87,7 @@ export declare class ProductService {
         startPrice?: number;
         endPrice?: number;
         isCheckRootProductCrossSell?: boolean;
-    }): CancelablePromise<{
-        orderBy: string;
-        nextPageIndex: number;
-        prePageIndex: number;
-        total: number;
-        data: Array<any>;
-    }>;
+    }): CancelablePromise<GetAllProductType>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -269,6 +264,9 @@ export declare class ProductService {
             measurementId: string;
         }>;
         TiktokPixel: Array<{
+            pixelId: string;
+        }>;
+        SnapChatPixel: Array<{
             pixelId: string;
         }>;
         FbPixel: Array<{
@@ -575,6 +573,9 @@ export declare class ProductService {
             measurementId: string;
         }>;
         TiktokPixel: Array<{
+            pixelId: string;
+        }>;
+        SnapChatPixel: Array<{
             pixelId: string;
         }>;
         FbPixel: Array<{

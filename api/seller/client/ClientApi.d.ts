@@ -27,6 +27,7 @@ import { RequestPayoutService } from './services/RequestPayoutService';
 import { RequestSourcingService } from './services/RequestSourcingService';
 import { ReviewService } from './services/ReviewService';
 import { SettingService } from './services/SettingService';
+import { SnapChatPixelService } from './services/SnapChatPixelService';
 import { StaffService } from './services/StaffService';
 import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
@@ -70,6 +71,7 @@ export declare class ClientApi {
     readonly requestSourcing: RequestSourcingService;
     readonly review: ReviewService;
     readonly setting: SettingService;
+    readonly snapChatPixel: SnapChatPixelService;
     readonly staff: StaffService;
     readonly statistics: StatisticsService;
     readonly store: StoreService;

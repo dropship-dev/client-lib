@@ -349,7 +349,7 @@ class FulfillmentAgencyService {
      * @returns GetStoreReportResultDto Ok
      * @throws ApiError
      */
-    storeReport({ id, pageSize = 20, nextPageIndex, startDate, endDate, search, }) {
+    getStoreReport({ id, pageSize = 20, nextPageIndex, startDate, endDate, search, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/fulfillment-agency/{id}/store-report',

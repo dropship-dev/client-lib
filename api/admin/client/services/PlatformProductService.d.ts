@@ -1,3 +1,4 @@
+import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
@@ -172,6 +173,9 @@ export declare class PlatformProductService {
                 id: number;
             }>;
         })>;
+        FulfillmentPlatformSupplier: {
+            platform: _36_Enums_FulfillmentPlatform;
+        } | null;
         PlatformVariant: Array<PlatformVariant>;
         Tag: Array<AdminTag>;
     })>;

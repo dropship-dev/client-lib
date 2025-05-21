@@ -52,7 +52,7 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GetAllProductType Ok
      * @throws ApiError
      */
     getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }) {

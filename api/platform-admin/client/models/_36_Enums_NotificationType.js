@@ -17,6 +17,7 @@ var _36_Enums_NotificationType;
     _36_Enums_NotificationType["PRODUCT_ADDED"] = "PRODUCT_ADDED";
     _36_Enums_NotificationType["PRODUCT_REQUEST_REJECTED"] = "PRODUCT_REQUEST_REJECTED";
     _36_Enums_NotificationType["PRODUCT_PRICE_UPDATED"] = "PRODUCT_PRICE_UPDATED";
+    _36_Enums_NotificationType["PRODUCT_PRICE_UPDATE_BY_FF_SETTING"] = "PRODUCT_PRICE_UPDATE_BY_FF_SETTING";
     _36_Enums_NotificationType["PRODUCT_REQUESTING"] = "PRODUCT_REQUESTING";
     _36_Enums_NotificationType["PRODUCT_REQUEST_PROCESSING"] = "PRODUCT_REQUEST_PROCESSING";
     _36_Enums_NotificationType["PAYOUT_REQUESTING"] = "PAYOUT_REQUESTING";

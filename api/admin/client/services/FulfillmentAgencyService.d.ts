@@ -397,7 +397,7 @@ export declare class FulfillmentAgencyService {
      * @returns GetStoreReportResultDto Ok
      * @throws ApiError
      */
-    storeReport({ id, pageSize, nextPageIndex, startDate, endDate, search, }: {
+    getStoreReport({ id, pageSize, nextPageIndex, startDate, endDate, search, }: {
         id: number;
         pageSize?: number;
         nextPageIndex?: string;
