@@ -276,6 +276,8 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        billingInfo: PrismaJson_BillingInfo;
+        shippingInfo: PrismaJson_BillingInfo;
         status: string;
     }>;
     /**
