@@ -489,17 +489,7 @@ export class OrderService {
     orderId: string,
   }): CancelablePromise<{
     billingInfo: PrismaJson_BillingInfo;
-    shippingInfo: {
-      phone: string;
-      country: string;
-      zipCode: string;
-      province: string;
-      city: string;
-      address2: string;
-      address1: string;
-      name: string;
-      email: string;
-    };
+    shippingInfo: PrismaJson_BillingInfo;
   }> {
     return this.httpRequest.request({
       method: 'GET',
