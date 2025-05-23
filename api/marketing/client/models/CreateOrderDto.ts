@@ -30,6 +30,5 @@ export type CreateOrderDto = {
   };
   abandonment?: CreateAbandonmentOrder;
   utmLink?: string;
-  taxId?: string;
 };
 
