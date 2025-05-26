@@ -385,6 +385,7 @@ export type { PrismaJson_DataInformationsOnboarding } from './models/PrismaJson_
 export type { PrismaJson_DiscountBoostSale } from './models/PrismaJson_DiscountBoostSale';
 export type { PrismaJson_DomainContactInfo } from './models/PrismaJson_DomainContactInfo';
 export type { PrismaJson_FirebaseDeviceToken } from './models/PrismaJson_FirebaseDeviceToken';
+export type { PrismaJson_HistoryRequestPayout } from './models/PrismaJson_HistoryRequestPayout';
 export type { PrismaJson_HistoryTrackingDetail } from './models/PrismaJson_HistoryTrackingDetail';
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
