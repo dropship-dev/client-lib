@@ -622,6 +622,9 @@ export class ProductService {
       variantOption: PrismaJson_VariantOptions;
       id: number;
     };
+    Collection: Array<{
+      name: string;
+    }>;
   } & {
     podTemplateId: number;
     campaignId: string;
