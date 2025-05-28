@@ -12,7 +12,6 @@ import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_Transactio
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
-import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
@@ -108,14 +107,12 @@ export class OrderRefundsService {
           margin: PrismaJson_MarginInfo;
           minSellingPrice: number;
           compareAtPrice: number;
-          displayName: string;
           productId: number;
           cost: PrismaJson_CostInfo;
           supplierPrice: number;
           price: number;
           photo: string;
           isEnable: boolean;
-          customVariantOption: PrismaJson_CustomVariantOptionValues;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;

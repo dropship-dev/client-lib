@@ -5,7 +5,6 @@
 import type { CreateVariantsDto } from '../models/CreateVariantsDto';
 import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
-import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
@@ -73,14 +72,12 @@ export class VariantService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
-      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
-      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -119,12 +116,10 @@ export class VariantService {
     storeId,
     productId,
     requestBody,
-    key,
   }: {
     storeId: string,
     productId: number,
     requestBody: UpdateVariantsDto,
-    key?: string,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -132,9 +127,6 @@ export class VariantService {
       path: {
         'storeId': storeId,
         'productId': productId,
-      },
-      query: {
-        'key': key,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -202,14 +194,12 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
-    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
@@ -256,14 +246,12 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
-    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
@@ -310,14 +298,12 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
-    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
