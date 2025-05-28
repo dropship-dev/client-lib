@@ -122,6 +122,9 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            Collection: Array<{
+                name: string;
+            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -167,6 +170,9 @@ export declare class OrderService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+            }>;
+            Collection: Array<{
+                name: string;
             }>;
         }>;
     }>>;
@@ -210,6 +216,9 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            Collection: Array<{
+                name: string;
+            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -255,6 +264,9 @@ export declare class OrderService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+            }>;
+            Collection: Array<{
+                name: string;
             }>;
         }>;
     }>>;
