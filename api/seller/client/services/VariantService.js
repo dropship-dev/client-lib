@@ -57,16 +57,13 @@ class VariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateVariants({ storeId, productId, requestBody, key, }) {
+    updateVariants({ storeId, productId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/store/{storeId}/product/{productId}/variant',
             path: {
                 'storeId': storeId,
                 'productId': productId,
-            },
-            query: {
-                'key': key,
             },
             body: requestBody,
             mediaType: 'application/json',

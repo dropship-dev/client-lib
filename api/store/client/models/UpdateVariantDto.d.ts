@@ -1,4 +1,3 @@
-import type { PrismaJson_CustomVariantOptionValues } from './PrismaJson_CustomVariantOptionValues';
 export type UpdateVariantDto = {
     name?: string;
     price?: number;
@@ -6,6 +5,4 @@ export type UpdateVariantDto = {
     SKU?: string;
     photo?: string;
     supplierPrice?: number;
-    customVariantOptions?: PrismaJson_CustomVariantOptionValues;
-    displayName?: string;
 };

@@ -3,7 +3,6 @@ import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type DefaultSelection_Prisma__36_PlatformProductPayload_ = {
     collectionDefaultId: number;
-    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: DefaultSelection_Prisma__36_PlatformProductPayload_.fulfillmentPlatform;

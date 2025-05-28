@@ -6,7 +6,6 @@ import type { CreateCollectionDto } from '../models/CreateCollectionDto';
 import type { operatorCondition } from '../models/operatorCondition';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
-import type { PrismaJson_CustomVariantOptions } from '../models/PrismaJson_CustomVariantOptions';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { UpdateCollectionDto } from '../models/UpdateCollectionDto';
@@ -148,7 +147,6 @@ export declare class CollectionService {
         campaignId: string;
         isEnable: boolean;
         supplierContact: string;
-        customVariantOption: PrismaJson_CustomVariantOptions;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
