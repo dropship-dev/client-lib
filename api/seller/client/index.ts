@@ -385,6 +385,8 @@ export type { PrismaJson_CountryInformation } from './models/PrismaJson_CountryI
 export type { PrismaJson_CouponCombination } from './models/PrismaJson_CouponCombination';
 export type { PrismaJson_CreateComboItems } from './models/PrismaJson_CreateComboItems';
 export type { PrismaJson_CreateOrderItems } from './models/PrismaJson_CreateOrderItems';
+export type { PrismaJson_CustomVariantOptions } from './models/PrismaJson_CustomVariantOptions';
+export type { PrismaJson_CustomVariantOptionValues } from './models/PrismaJson_CustomVariantOptionValues';
 export type { PrismaJson_DataInformationsOnboarding } from './models/PrismaJson_DataInformationsOnboarding';
 export type { PrismaJson_DiscountBoostSale } from './models/PrismaJson_DiscountBoostSale';
 export type { PrismaJson_DomainContactInfo } from './models/PrismaJson_DomainContactInfo';
@@ -560,7 +562,6 @@ export type { UpdateTiktokPixelDto } from './models/UpdateTiktokPixelDto';
 export type { UpdateUserDto } from './models/UpdateUserDto';
 export type { UpdateVariantDto } from './models/UpdateVariantDto';
 export type { UpdateVariantsDto } from './models/UpdateVariantsDto';
-export type { UpdateVariantsForSellerInDependenceDto } from './models/UpdateVariantsForSellerInDependenceDto';
 export type { UpdateVariantStatusDto } from './models/UpdateVariantStatusDto';
 export type { UpsertRevenueLimitDto } from './models/UpsertRevenueLimitDto';
 export type { URLDto } from './models/URLDto';

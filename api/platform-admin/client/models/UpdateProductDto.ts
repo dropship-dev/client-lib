@@ -5,8 +5,9 @@
 import type { CampaignDto } from './CampaignDto';
 import type { DiscountDto } from './DiscountDto';
 import type { PhotoDto } from './PhotoDto';
+import type { PrismaJson_CustomVariantOptions } from './PrismaJson_CustomVariantOptions';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
-import type { UpdateVariantsForSellerInDependenceDto } from './UpdateVariantsForSellerInDependenceDto';
+import type { UpdateVariantsDto } from './UpdateVariantsDto';
 export type UpdateProductDto = {
   name?: string;
   description?: string;
@@ -15,12 +16,13 @@ export type UpdateProductDto = {
   shippingFee?: number;
   shippingFeeAdditional?: number;
   variantOption?: PrismaJson_VariantOptions;
-  variants?: Array<UpdateVariantsForSellerInDependenceDto>;
+  variants?: UpdateVariantsDto;
   SKU?: string;
   permalink?: string;
   tags?: Array<string>;
   supplierContact?: string;
   campaign?: CampaignDto;
   discount?: Array<DiscountDto>;
+  customVariantOption?: PrismaJson_CustomVariantOptions;
 };
 
