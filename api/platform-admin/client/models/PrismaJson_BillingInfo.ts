@@ -6,6 +6,7 @@ import type { EmailDto } from './EmailDto';
 import type { NameDto } from './NameDto';
 import type { PhoneWithCountryCode } from './PhoneWithCountryCode';
 export type PrismaJson_BillingInfo = {
+  taxId?: string;
   country?: string;
   zipCode?: string;
   province?: string | null;

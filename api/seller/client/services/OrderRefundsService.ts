@@ -209,6 +209,8 @@ export class OrderRefundsService {
       disputeStatus: _36_Enums_OrderDisputeStatus;
       isHandleEvents: boolean;
       fingerPrint: string;
+      customerLocale: string;
+      currencyCustomerCode: string;
       paymentFee: number;
       paymentSource: string;
       timezoneLocalBrowser: string;
@@ -238,6 +240,7 @@ export class OrderRefundsService {
       historyTracking: any;
       additionalInfo: any;
       billingInfo: PrismaJson_BillingInfo;
+      taxId: string;
       province: string;
       address2: string;
       address1: string;

@@ -11,6 +11,7 @@ import type { BankAccount } from '../models/BankAccount';
 import type { CreateRequestPayoutDto } from '../models/CreateRequestPayoutDto';
 import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
@@ -33,6 +34,8 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    decidedAt: string;
+    historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
     noteByAdmin: string;
     noteBySeller: string;
@@ -158,6 +161,8 @@ export class RequestPayoutService {
     } & {
       payoutInToDate: string;
       payoutInFromDate: string;
+      decidedAt: string;
+      historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
       noteByAdmin: string;
       noteBySeller: string;
@@ -297,6 +302,8 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        decidedAt: string;
+        historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
         noteByAdmin: string;
         noteBySeller: string;
@@ -437,6 +444,8 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        decidedAt: string;
+        historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
         noteByAdmin: string;
         noteBySeller: string;
@@ -652,6 +661,8 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    decidedAt: string;
+    historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
     noteByAdmin: string;
     noteBySeller: string;

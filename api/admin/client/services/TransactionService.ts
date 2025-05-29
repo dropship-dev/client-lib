@@ -8,6 +8,7 @@ import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestP
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_TransactionDetails } from '../models/PrismaJson_TransactionDetails';
 import type { PrismaJson_TransactionPaymentMethod } from '../models/PrismaJson_TransactionPaymentMethod';
@@ -176,6 +177,8 @@ export class TransactionService {
     RequestPayout: {
       payoutInToDate: string;
       payoutInFromDate: string;
+      decidedAt: string;
+      historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
       noteByAdmin: string;
       noteBySeller: string;
