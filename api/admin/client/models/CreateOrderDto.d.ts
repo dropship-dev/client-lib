@@ -26,4 +26,6 @@ export type CreateOrderDto = {
     };
     abandonment?: CreateAbandonmentOrder;
     utmLink?: string;
+    customerCurrency?: string;
+    customerLocale?: string;
 };
