@@ -119,6 +119,9 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            Collection: Array<{
+                name: string;
+            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -162,6 +165,9 @@ export declare class OrderService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+            }>;
+            Collection: Array<{
+                name: string;
             }>;
         }>;
     }>>;
@@ -203,6 +209,9 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            Collection: Array<{
+                name: string;
+            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -247,6 +256,9 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
+            Collection: Array<{
+                name: string;
+            }>;
         }>;
     }>>;
     /**
@@ -276,6 +288,11 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        shippingFee: number;
+        discount: number;
+        total: number;
+        billingInfo: PrismaJson_BillingInfo;
+        shippingInfo: PrismaJson_BillingInfo;
         status: string;
     }>;
     /**
@@ -287,17 +304,7 @@ export declare class OrderService {
         orderId: string;
     }): CancelablePromise<{
         billingInfo: PrismaJson_BillingInfo;
-        shippingInfo: {
-            phone: string;
-            country: string;
-            zipCode: string;
-            province: string;
-            city: string;
-            address2: string;
-            address1: string;
-            name: string;
-            email: string;
-        };
+        shippingInfo: PrismaJson_BillingInfo;
     }>;
     /**
      * @returns any Ok
