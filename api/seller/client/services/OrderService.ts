@@ -28,6 +28,7 @@ import type { PrismaJson_TransactionDetails } from '../models/PrismaJson_Transac
 import type { PrismaJson_TransactionPaymentMethod } from '../models/PrismaJson_TransactionPaymentMethod';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
+import type { PrismaJson_VariantPlatformSnapshot } from '../models/PrismaJson_VariantPlatformSnapshot';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
 import type { UpdateFulFillmentStatusResp } from '../models/UpdateFulFillmentStatusResp';
 import type { UpdateOrderStatusDto } from '../models/UpdateOrderStatusDto';
@@ -302,6 +303,7 @@ export class OrderService {
         id: number;
       });
     } & {
+      information: PrismaJson_VariantPlatformSnapshot;
       orderRefundId: string;
       variantComboId: number;
       productVariantId: number;
