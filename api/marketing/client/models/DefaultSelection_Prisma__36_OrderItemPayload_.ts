@@ -4,9 +4,9 @@
 /* eslint-disable */
 import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus';
 import type { _36_Enums_SyncTrackingStatus } from './_36_Enums_SyncTrackingStatus';
-import type { PrismaJson_VariantPlatformSnapshot } from './PrismaJson_VariantPlatformSnapshot';
+import type { PrismaJson_OrderItemInformation } from './PrismaJson_OrderItemInformation';
 export type DefaultSelection_Prisma__36_OrderItemPayload_ = {
-  information: PrismaJson_VariantPlatformSnapshot;
+  information: PrismaJson_OrderItemInformation;
   orderRefundId: string;
   variantComboId: number;
   productVariantId: number;
