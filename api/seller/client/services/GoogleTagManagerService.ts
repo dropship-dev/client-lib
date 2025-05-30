@@ -24,6 +24,7 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -60,6 +61,7 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -125,6 +127,7 @@ export class GoogleTagManagerService {
     tag: string,
     requestBody: UpdateGTMDto,
   }): CancelablePromise<{
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -160,6 +163,7 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
   }): CancelablePromise<{
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
