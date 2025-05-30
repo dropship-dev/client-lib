@@ -1,6 +1,8 @@
 import type { _36_Enums_FulfillmentStatus } from './_36_Enums_FulfillmentStatus';
 import type { _36_Enums_SyncTrackingStatus } from './_36_Enums_SyncTrackingStatus';
+import type { PrismaJson_VariantPlatformSnapshot } from './PrismaJson_VariantPlatformSnapshot';
 export type DefaultSelection_Prisma__36_OrderItemPayload_ = {
+    information: PrismaJson_VariantPlatformSnapshot;
     orderRefundId: string;
     variantComboId: number;
     productVariantId: number;
