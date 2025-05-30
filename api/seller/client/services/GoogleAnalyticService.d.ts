@@ -18,6 +18,7 @@ export declare class GoogleAnalyticService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -35,6 +36,7 @@ export declare class GoogleAnalyticService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -53,6 +55,7 @@ export declare class GoogleAnalyticService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -76,6 +79,7 @@ export declare class GoogleAnalyticService {
         storeId: string;
         pixelId: string;
     }): CancelablePromise<{
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
