@@ -395,6 +395,7 @@ export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_PlacementBoostSaleType } from './models/PrismaJson_PlacementBoostSaleType';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
 export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_ProductDiscountItems';
+export type { PrismaJson_ProductHistoryVariants } from './models/PrismaJson_ProductHistoryVariants';
 export type { PrismaJson_ProductRequirementItems } from './models/PrismaJson_ProductRequirementItems';
 export type { PrismaJson_RefundOrderItems } from './models/PrismaJson_RefundOrderItems';
 export type { PrismaJson_RequestSourcingHistory } from './models/PrismaJson_RequestSourcingHistory';
