@@ -390,6 +390,7 @@ export type { PrismaJson_HistoryTrackingDetail } from './models/PrismaJson_Histo
 export type { PrismaJson_HoldSetting } from './models/PrismaJson_HoldSetting';
 export type { PrismaJson_MarginInfo } from './models/PrismaJson_MarginInfo';
 export type { PrismaJson_OnboardingProducts } from './models/PrismaJson_OnboardingProducts';
+export type { PrismaJson_OrderItemInformation } from './models/PrismaJson_OrderItemInformation';
 export type { PrismaJson_Permissions } from './models/PrismaJson_Permissions';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
 export type { PrismaJson_PlacementBoostSaleType } from './models/PrismaJson_PlacementBoostSaleType';
