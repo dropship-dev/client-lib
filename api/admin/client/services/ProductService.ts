@@ -23,6 +23,7 @@ import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
+import type { PrismaJson_ProductHistoryVariants } from '../models/PrismaJson_ProductHistoryVariants';
 import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
@@ -970,6 +971,103 @@ export class ProductService {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSnapshotByProduct({
+    storeId,
+    productId,
+    versionId,
+  }: {
+    storeId: string,
+    productId: number,
+    versionId?: number,
+  }): CancelablePromise<{
+    originalProduct: {
+      isOriginal: boolean;
+      variants: PrismaJson_ProductHistoryVariants;
+      versionHistory: string;
+      productId: number;
+      customVariantOption: PrismaJson_CustomVariantOptions;
+      variantOption: PrismaJson_VariantOptions;
+      SKU: string;
+      details: string;
+      photos: PrismaJson_Photos;
+      description: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+    versionProduct: {
+      isOriginal: boolean;
+      variants: PrismaJson_ProductHistoryVariants;
+      versionHistory: string;
+      productId: number;
+      customVariantOption: PrismaJson_CustomVariantOptions;
+      variantOption: PrismaJson_VariantOptions;
+      SKU: string;
+      details: string;
+      photos: PrismaJson_Photos;
+      description: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+    storeName: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/snapshot',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      query: {
+        'versionId': versionId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSnapshotHistoryByProduct({
+    storeId,
+    productId,
+  }: {
+    storeId: string,
+    productId: number,
+  }): CancelablePromise<Array<{
+    versionHistory: string;
+    createdAt: string;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/history',
       path: {
         'storeId': storeId,
         'productId': productId,
