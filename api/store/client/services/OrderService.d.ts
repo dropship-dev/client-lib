@@ -53,12 +53,12 @@ export declare class OrderService {
     }): CancelablePromise<{
         freeShipInfo: {
             value?: number;
-            status?: boolean;
+            status: boolean;
         };
         total: number;
         discountInfo: {
-            value?: number;
-            label?: string;
+            value: number;
+            label: string;
         };
         subTotal: number;
         shippingFee: number;
@@ -122,9 +122,6 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
-            Collection: Array<{
-                name: string;
-            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -170,9 +167,6 @@ export declare class OrderService {
                 updatedAt: string;
                 createdAt: string;
                 id: number;
-            }>;
-            Collection: Array<{
-                name: string;
             }>;
         }>;
     }>>;
@@ -216,9 +210,6 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
-            Collection: Array<{
-                name: string;
-            }>;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -265,9 +256,6 @@ export declare class OrderService {
                 createdAt: string;
                 id: number;
             }>;
-            Collection: Array<{
-                name: string;
-            }>;
         }>;
     }>>;
     /**
@@ -297,12 +285,6 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
-        shippingFee: number;
-        discount: number;
-        subTotal: number;
-        total: number;
-        billingInfo: PrismaJson_BillingInfo;
-        shippingInfo: PrismaJson_BillingInfo;
         status: string;
     }>;
     /**
