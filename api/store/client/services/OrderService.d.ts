@@ -290,6 +290,7 @@ export declare class OrderService {
     }): CancelablePromise<{
         shippingFee: number;
         discount: number;
+        subTotal: number;
         total: number;
         billingInfo: PrismaJson_BillingInfo;
         shippingInfo: PrismaJson_BillingInfo;
