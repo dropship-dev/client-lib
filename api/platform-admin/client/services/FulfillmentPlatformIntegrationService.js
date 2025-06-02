@@ -28,5 +28,27 @@ class FulfillmentPlatformIntegrationService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getProductDataFromProductUrl({ xBettamaxApiKey, url, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/fulfillment-platform-integration/product-data-by-permalink',
+            headers: {
+                'x-bettamax-api-key': xBettamaxApiKey,
+            },
+            query: {
+                'url': url,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.FulfillmentPlatformIntegrationService = FulfillmentPlatformIntegrationService;
