@@ -1,0 +1,25 @@
+/* generated using openapi-typescript-codegen -- do not edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { PrismaJson_CustomVariantOptions } from './PrismaJson_CustomVariantOptions';
+import type { PrismaJson_Photos } from './PrismaJson_Photos';
+import type { PrismaJson_ProductHistoryVariants } from './PrismaJson_ProductHistoryVariants';
+import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
+export type ProductHistoryResponse = {
+  isOriginal: boolean;
+  variants: PrismaJson_ProductHistoryVariants | null;
+  productId: number;
+  versionHistory: string;
+  customVariantOption: PrismaJson_CustomVariantOptions | null;
+  variantOption: PrismaJson_VariantOptions | null;
+  SKU: string;
+  photos: PrismaJson_Photos;
+  details: string | null;
+  description: string | null;
+  updatedAt: string;
+  createdAt: string;
+  name: string | null;
+  id: number;
+};
+

@@ -129,6 +129,7 @@ export class ProductService {
     permalink?: string,
     productId?: number,
   }): CancelablePromise<{
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -626,6 +627,7 @@ export class ProductService {
       name: string;
     }>;
   } & {
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
