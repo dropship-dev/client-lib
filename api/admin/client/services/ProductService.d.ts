@@ -24,6 +24,7 @@ import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_Pr
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
+import type { ProductHistoryResponse } from '../models/ProductHistoryResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ProductService {
@@ -73,6 +74,7 @@ export declare class ProductService {
         permalink?: string;
         productId?: number;
     }): CancelablePromise<{
+        snapshotAt: string;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
@@ -548,6 +550,7 @@ export declare class ProductService {
             name: string;
         }>;
     } & {
+        snapshotAt: string;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
@@ -719,6 +722,7 @@ export declare class ProductService {
             }>;
         };
     } & {
+        snapshotAt: string;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
@@ -773,24 +777,10 @@ export declare class ProductService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            isDeleted: boolean;
             id: number;
         };
-        versionProduct: {
-            isOriginal: boolean;
-            variants: PrismaJson_ProductHistoryVariants;
-            versionHistory: string;
-            productId: number;
-            customVariantOption: PrismaJson_CustomVariantOptions;
-            variantOption: PrismaJson_VariantOptions;
-            SKU: string;
-            details: string;
-            photos: PrismaJson_Photos;
-            description: string;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
-        };
+        versionProduct: ProductHistoryResponse;
         storeName: string;
     }>;
     /**

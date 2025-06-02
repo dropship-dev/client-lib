@@ -3,6 +3,7 @@ import type { PrismaJson_CustomVariantOptions } from './PrismaJson_CustomVariant
 import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type DefaultSelection_Prisma__36_ProductPayload_ = {
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;

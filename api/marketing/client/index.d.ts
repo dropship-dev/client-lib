@@ -417,6 +417,7 @@ export type { PrismaJson_VariantOptions } from './models/PrismaJson_VariantOptio
 export type { PrismaJson_VariantOptionValues } from './models/PrismaJson_VariantOptionValues';
 export type { PrismaJson_VariantPlatformSnapshot } from './models/PrismaJson_VariantPlatformSnapshot';
 export type { Product } from './models/Product';
+export type { ProductHistoryResponse } from './models/ProductHistoryResponse';
 export type { ProductListType } from './models/ProductListType';
 export type { ProductPerformance } from './models/ProductPerformance';
 export type { ProductVariant } from './models/ProductVariant';
