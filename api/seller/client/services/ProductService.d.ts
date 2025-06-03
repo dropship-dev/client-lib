@@ -20,6 +20,7 @@ import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
+import type { PrismaJson_ProductHistoryVariants } from '../models/PrismaJson_ProductHistoryVariants';
 import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
@@ -902,4 +903,28 @@ export declare class ProductService {
         storeId: string;
         id: number;
     })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getOriginalProduct({ storeId, productId, }: {
+        storeId: string;
+        productId: number;
+    }): CancelablePromise<{
+        isOriginal: boolean;
+        variants: PrismaJson_ProductHistoryVariants;
+        versionHistory: string;
+        productId: number;
+        customVariantOption: PrismaJson_CustomVariantOptions;
+        variantOption: PrismaJson_VariantOptions;
+        SKU: string;
+        details: string;
+        photos: PrismaJson_Photos;
+        description: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        id: number;
+    }>;
 }

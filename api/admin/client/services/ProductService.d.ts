@@ -781,7 +781,11 @@ export declare class ProductService {
             id: number;
         };
         versionProduct: ProductHistoryResponse;
-        storeName: string;
+        store: {
+            primaryDomain: string;
+            avatar: string;
+            name: string;
+        };
     }>;
     /**
      * @returns any Ok
