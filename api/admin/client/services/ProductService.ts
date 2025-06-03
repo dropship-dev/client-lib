@@ -1019,7 +1019,11 @@ export class ProductService {
       id: number;
     };
     versionProduct: ProductHistoryResponse;
-    storeName: string;
+    store: {
+      primaryDomain: string;
+      avatar: string;
+      name: string;
+    };
   }> {
     return this.httpRequest.request({
       method: 'GET',
