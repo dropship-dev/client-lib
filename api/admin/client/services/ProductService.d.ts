@@ -795,6 +795,7 @@ export declare class ProductService {
         storeId: string;
         productId: number;
     }): CancelablePromise<Array<{
+        isOriginal: boolean;
         versionHistory: string;
         createdAt: string;
         id: number;
