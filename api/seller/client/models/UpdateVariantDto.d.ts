@@ -6,6 +6,6 @@ export type UpdateVariantDto = {
     SKU?: string;
     photo?: string;
     supplierPrice?: number;
-    customVariantOptions?: PrismaJson_CustomVariantOptionValues;
+    customVariantOption?: PrismaJson_CustomVariantOptionValues;
     displayName?: string;
 };
