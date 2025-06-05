@@ -3,6 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type PrismaJson_CustomVariantOptions = Array<{
-  options: Array<Record<string, string>>;
+  options: Record<string, string>;
   name: string;
 }>;
