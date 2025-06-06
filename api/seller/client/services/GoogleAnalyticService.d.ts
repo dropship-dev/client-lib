@@ -29,8 +29,9 @@ export declare class GoogleAnalyticService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllGa({ storeId, }: {
+    getAllGa({ storeId, isAppliedToAllPages, }: {
         storeId: string;
+        isAppliedToAllPages?: boolean;
     }): CancelablePromise<Array<({
         Product: Array<{
             id: number;

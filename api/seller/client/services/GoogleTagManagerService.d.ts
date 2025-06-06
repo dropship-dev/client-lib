@@ -29,8 +29,9 @@ export declare class GoogleTagManagerService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllGoogleTagManager({ storeId, }: {
+    getAllGoogleTagManager({ storeId, isAppliedToAllPages, }: {
         storeId: string;
+        isAppliedToAllPages?: boolean;
     }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
