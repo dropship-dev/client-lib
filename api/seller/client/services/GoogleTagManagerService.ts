@@ -54,8 +54,10 @@ export class GoogleTagManagerService {
    */
   public getAllGoogleTagManager({
     storeId,
+    isAppliedToAllPages,
   }: {
     storeId: string,
+    isAppliedToAllPages?: boolean,
   }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
@@ -73,6 +75,9 @@ export class GoogleTagManagerService {
       url: '/store/{storeId}/google-tag-manager',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'isAppliedToAllPages': isAppliedToAllPages,
       },
       errors: {
         400: `Bad request`,
