@@ -28,7 +28,6 @@ import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_Pr
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
-import type { ProductHistoryResponse } from '../models/ProductHistoryResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ProductService {
@@ -1010,15 +1009,30 @@ export class ProductService {
       variantOption: PrismaJson_VariantOptions;
       SKU: string;
       details: string;
-      photos: PrismaJson_Photos;
       description: string;
       name: string;
       updatedAt: string;
       createdAt: string;
       isDeleted: boolean;
       id: number;
+      photos: PrismaJson_Photos;
     };
-    versionProduct: ProductHistoryResponse;
+    versionProduct: {
+      isOriginal: boolean;
+      variants: PrismaJson_ProductHistoryVariants;
+      productId: number;
+      versionHistory: string;
+      customVariantOption: PrismaJson_CustomVariantOptions;
+      variantOption: PrismaJson_VariantOptions;
+      SKU: string;
+      details: string;
+      description: string;
+      updatedAt: string;
+      createdAt: string;
+      name: string;
+      id: number;
+      photos: PrismaJson_Photos;
+    };
     store: {
       primaryDomain: string;
       avatar: string;
