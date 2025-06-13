@@ -32,12 +32,15 @@ class GoogleTagManagerService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllGoogleTagManager({ storeId, }) {
+    getAllGoogleTagManager({ storeId, isAppliedToAllPages, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/google-tag-manager',
             path: {
                 'storeId': storeId,
+            },
+            query: {
+                'isAppliedToAllPages': isAppliedToAllPages,
             },
             errors: {
                 400: `Bad request`,

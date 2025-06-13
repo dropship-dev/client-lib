@@ -18,6 +18,7 @@ export declare class GoogleTagManagerService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -28,13 +29,15 @@ export declare class GoogleTagManagerService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllGoogleTagManager({ storeId, }: {
+    getAllGoogleTagManager({ storeId, isAppliedToAllPages, }: {
         storeId: string;
+        isAppliedToAllPages?: boolean;
     }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -62,6 +65,7 @@ export declare class GoogleTagManagerService {
         tag: string;
         requestBody: UpdateGTMDto;
     }): CancelablePromise<{
+        isAppliedToAllPages: boolean;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -76,6 +80,7 @@ export declare class GoogleTagManagerService {
         storeId: string;
         tag: string;
     }): CancelablePromise<{
+        isAppliedToAllPages: boolean;
         updatedAt: string;
         createdAt: string;
         storeId: string;
