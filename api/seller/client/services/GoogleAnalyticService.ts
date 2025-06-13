@@ -24,6 +24,7 @@ export class GoogleAnalyticService {
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     measurementId: string;
     updatedAt: string;
     createdAt: string;
@@ -53,13 +54,16 @@ export class GoogleAnalyticService {
    */
   public getAllGa({
     storeId,
+    isAppliedToAllPages,
   }: {
     storeId: string,
+    isAppliedToAllPages?: boolean,
   }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     measurementId: string;
     updatedAt: string;
     createdAt: string;
@@ -71,6 +75,9 @@ export class GoogleAnalyticService {
       url: '/store/{storeId}/ga',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'isAppliedToAllPages': isAppliedToAllPages,
       },
       errors: {
         400: `Bad request`,
@@ -96,6 +103,7 @@ export class GoogleAnalyticService {
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     measurementId: string;
     updatedAt: string;
     createdAt: string;
@@ -160,6 +168,7 @@ export class GoogleAnalyticService {
     storeId: string,
     pixelId: string,
   }): CancelablePromise<{
+    isAppliedToAllPages: boolean;
     measurementId: string;
     updatedAt: string;
     createdAt: string;

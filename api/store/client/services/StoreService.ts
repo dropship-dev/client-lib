@@ -65,6 +65,12 @@ export class StoreService {
       id: number;
       symbol: string;
     };
+    GoogleTagManager: Array<{
+      tag: string;
+    }>;
+    GoogleAnalytic: Array<{
+      measurementId: string;
+    }>;
     CustomDomain: Array<{
       isPrimary: boolean;
       contactInfo: PrismaJson_DomainContactInfo;

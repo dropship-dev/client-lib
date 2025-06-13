@@ -24,6 +24,7 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -53,13 +54,16 @@ export class GoogleTagManagerService {
    */
   public getAllGoogleTagManager({
     storeId,
+    isAppliedToAllPages,
   }: {
     storeId: string,
+    isAppliedToAllPages?: boolean,
   }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
   } & {
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -71,6 +75,9 @@ export class GoogleTagManagerService {
       url: '/store/{storeId}/google-tag-manager',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'isAppliedToAllPages': isAppliedToAllPages,
       },
       errors: {
         400: `Bad request`,
@@ -125,6 +132,7 @@ export class GoogleTagManagerService {
     tag: string,
     requestBody: UpdateGTMDto,
   }): CancelablePromise<{
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
@@ -160,6 +168,7 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
   }): CancelablePromise<{
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
