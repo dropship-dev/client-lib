@@ -24,7 +24,9 @@ import type { ManualFraudDetectionDto } from '../models/ManualFraudDetectionDto'
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -417,12 +419,14 @@ export declare class OrderService {
                 margin: PrismaJson_MarginInfo;
                 minSellingPrice: number;
                 compareAtPrice: number;
+                displayName: string;
                 productId: number;
                 cost: PrismaJson_CostInfo;
                 supplierPrice: number;
                 price: number;
                 photo: string;
                 isEnable: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
@@ -433,6 +437,7 @@ export declare class OrderService {
                 id: number;
             });
         } & {
+            information: PrismaJson_OrderItemInformation;
             orderRefundId: string;
             variantComboId: number;
             productVariantId: number;
