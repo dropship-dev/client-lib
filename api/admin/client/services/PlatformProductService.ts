@@ -34,6 +34,7 @@ export class PlatformProductService {
     requestBody: CreatePlatformProductDto,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
@@ -104,6 +105,7 @@ export class PlatformProductService {
     total: number;
     data: Array<{
       collectionDefaultId: number;
+      priceUpdatedAt: string;
       isInSyncWithFulfillmentPlatform: boolean;
       fulfillmentPlatformSupplierId: number;
       fulfillmentPlatform: 'BETTA_SUP';
@@ -313,6 +315,7 @@ export class PlatformProductService {
     requestBody: UpdatePlatformProductDto,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
@@ -365,6 +368,7 @@ export class PlatformProductService {
     platformProductId: number,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
@@ -417,6 +421,7 @@ export class PlatformProductService {
     requestBody: UpdatePlatformProductStatusDto,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
@@ -471,6 +476,7 @@ export class PlatformProductService {
     requestBody: AddPlatformProductTagDto,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';
@@ -525,6 +531,7 @@ export class PlatformProductService {
     tagId: string,
   }): CancelablePromise<{
     collectionDefaultId: number;
+    priceUpdatedAt: string;
     isInSyncWithFulfillmentPlatform: boolean;
     fulfillmentPlatformSupplierId: number;
     fulfillmentPlatform: 'BETTA_SUP';

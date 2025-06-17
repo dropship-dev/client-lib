@@ -15,12 +15,15 @@ import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet'
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
 import type { PrismaJson_CountryInformation } from '../models/PrismaJson_CountryInformation';
+import type { PrismaJson_CustomVariantOptions } from '../models/PrismaJson_CustomVariantOptions';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlacementBoostSaleType } from '../models/PrismaJson_PlacementBoostSaleType';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_ProductDiscountItems } from '../models/PrismaJson_ProductDiscountItems';
+import type { PrismaJson_ProductHistoryVariants } from '../models/PrismaJson_ProductHistoryVariants';
 import type { PrismaJson_ProductRequirementItems } from '../models/PrismaJson_ProductRequirementItems';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptions } from '../models/PrismaJson_VariantOptions';
@@ -157,10 +160,12 @@ export class ProductService {
     permalink?: string,
     productId?: number,
   }): CancelablePromise<{
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
     supplierContact: string;
+    customVariantOption: PrismaJson_CustomVariantOptions;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
     SKU: string;
@@ -253,12 +258,14 @@ export class ProductService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -321,12 +328,14 @@ export class ProductService {
           margin: PrismaJson_MarginInfo;
           minSellingPrice: number;
           compareAtPrice: number;
+          displayName: string;
           productId: number;
           cost: PrismaJson_CostInfo;
           supplierPrice: number;
           price: number;
           photo: string;
           isEnable: boolean;
+          customVariantOption: PrismaJson_CustomVariantOptionValues;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;
@@ -352,12 +361,14 @@ export class ProductService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
@@ -401,12 +412,14 @@ export class ProductService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
@@ -432,12 +445,14 @@ export class ProductService {
               margin: PrismaJson_MarginInfo;
               minSellingPrice: number;
               compareAtPrice: number;
+              displayName: string;
               productId: number;
               cost: PrismaJson_CostInfo;
               supplierPrice: number;
               price: number;
               photo: string;
               isEnable: boolean;
+              customVariantOption: PrismaJson_CustomVariantOptionValues;
               variantOption: PrismaJson_VariantOptionValues;
               SKU: string;
               deleted: boolean;
@@ -584,12 +599,14 @@ export class ProductService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -641,10 +658,12 @@ export class ProductService {
       name: string;
     }>;
   } & {
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
     supplierContact: string;
+    customVariantOption: PrismaJson_CustomVariantOptions;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
     SKU: string;
@@ -848,12 +867,14 @@ export class ProductService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -896,10 +917,12 @@ export class ProductService {
       }>;
     };
   } & {
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
     supplierContact: string;
+    customVariantOption: PrismaJson_CustomVariantOptions;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
     SKU: string;
@@ -951,6 +974,109 @@ export class ProductService {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/product/{productId}',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSnapshotByProduct({
+    storeId,
+    productId,
+    versionId,
+  }: {
+    storeId: string,
+    productId: number,
+    versionId?: number,
+  }): CancelablePromise<{
+    originalProduct: {
+      isOriginal: boolean;
+      variants: PrismaJson_ProductHistoryVariants;
+      versionHistory: string;
+      productId: number;
+      customVariantOption: PrismaJson_CustomVariantOptions;
+      variantOption: PrismaJson_VariantOptions;
+      SKU: string;
+      details: string;
+      description: string;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      isDeleted: boolean;
+      id: number;
+      photos: PrismaJson_Photos;
+    };
+    versionProduct: {
+      isOriginal: boolean;
+      variants: PrismaJson_ProductHistoryVariants;
+      productId: number;
+      versionHistory: string;
+      customVariantOption: PrismaJson_CustomVariantOptions;
+      variantOption: PrismaJson_VariantOptions;
+      SKU: string;
+      details: string;
+      description: string;
+      updatedAt: string;
+      createdAt: string;
+      name: string;
+      id: number;
+      photos: PrismaJson_Photos;
+    };
+    store: {
+      primaryDomain: string;
+      avatar: string;
+      name: string;
+    };
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/snapshot',
+      path: {
+        'storeId': storeId,
+        'productId': productId,
+      },
+      query: {
+        'versionId': versionId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSnapshotHistoryByProduct({
+    storeId,
+    productId,
+  }: {
+    storeId: string,
+    productId: number,
+  }): CancelablePromise<Array<{
+    isOriginal: boolean;
+    versionHistory: string;
+    createdAt: string;
+    id: number;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/product/{productId}/history',
       path: {
         'storeId': storeId,
         'productId': productId,

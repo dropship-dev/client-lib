@@ -12,6 +12,7 @@ import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { ContactFormDto } from '../models/ContactFormDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
+import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
@@ -275,6 +276,7 @@ export class StoreService {
   }): CancelablePromise<Array<{
     id: string;
     OrderItem: Array<{
+      information: PrismaJson_OrderItemInformation;
       carrier: string;
       tracking: string;
       quantity: number;
@@ -284,6 +286,7 @@ export class StoreService {
         name: string;
       };
       ProductVariant: {
+        displayName: string;
         photo: string;
         name: string;
       };

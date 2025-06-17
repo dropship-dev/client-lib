@@ -13,6 +13,8 @@ import type { getVariantsType } from '../models/getVariantsType';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptions } from '../models/PrismaJson_CustomVariantOptions';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -127,10 +129,12 @@ export class ProductService {
     permalink?: string,
     productId?: number,
   }): CancelablePromise<{
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
     supplierContact: string;
+    customVariantOption: PrismaJson_CustomVariantOptions;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
     SKU: string;
@@ -223,12 +227,14 @@ export class ProductService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -291,12 +297,14 @@ export class ProductService {
           margin: PrismaJson_MarginInfo;
           minSellingPrice: number;
           compareAtPrice: number;
+          displayName: string;
           productId: number;
           cost: PrismaJson_CostInfo;
           supplierPrice: number;
           price: number;
           photo: string;
           isEnable: boolean;
+          customVariantOption: PrismaJson_CustomVariantOptionValues;
           variantOption: PrismaJson_VariantOptionValues;
           SKU: string;
           deleted: boolean;
@@ -322,12 +330,14 @@ export class ProductService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
@@ -371,12 +381,14 @@ export class ProductService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
@@ -402,12 +414,14 @@ export class ProductService {
               margin: PrismaJson_MarginInfo;
               minSellingPrice: number;
               compareAtPrice: number;
+              displayName: string;
               productId: number;
               cost: PrismaJson_CostInfo;
               supplierPrice: number;
               price: number;
               photo: string;
               isEnable: boolean;
+              customVariantOption: PrismaJson_CustomVariantOptionValues;
               variantOption: PrismaJson_VariantOptionValues;
               SKU: string;
               deleted: boolean;
@@ -554,12 +568,14 @@ export class ProductService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
@@ -611,10 +627,12 @@ export class ProductService {
       name: string;
     }>;
   } & {
+    snapshotAt: string;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
     supplierContact: string;
+    customVariantOption: PrismaJson_CustomVariantOptions;
     variantOption: PrismaJson_VariantOptions;
     availableSet: PrismaJson_AvailableSet;
     SKU: string;

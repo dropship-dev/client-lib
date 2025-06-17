@@ -11,6 +11,7 @@ import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -102,12 +103,12 @@ export class OrderService {
   }): CancelablePromise<{
     freeShipInfo: {
       value?: number;
-      status?: boolean;
+      status: boolean;
     };
     total: number;
     discountInfo: {
-      value?: number;
-      label?: string;
+      value: number;
+      label: string;
     };
     subTotal: number;
     shippingFee: number;
@@ -194,12 +195,14 @@ export class OrderService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
@@ -208,9 +211,6 @@ export class OrderService {
         updatedAt: string;
         createdAt: string;
         id: number;
-      }>;
-      Collection: Array<{
-        name: string;
       }>;
     }>;
     rootProductId: number;
@@ -241,12 +241,14 @@ export class OrderService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
@@ -255,9 +257,6 @@ export class OrderService {
         updatedAt: string;
         createdAt: string;
         id: number;
-      }>;
-      Collection: Array<{
-        name: string;
       }>;
     }>;
   }>> {
@@ -305,12 +304,14 @@ export class OrderService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
@@ -319,9 +320,6 @@ export class OrderService {
         updatedAt: string;
         createdAt: string;
         id: number;
-      }>;
-      Collection: Array<{
-        name: string;
       }>;
     }>;
     rootProductId: number;
@@ -352,12 +350,14 @@ export class OrderService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
@@ -366,9 +366,6 @@ export class OrderService {
         updatedAt: string;
         createdAt: string;
         id: number;
-      }>;
-      Collection: Array<{
-        name: string;
       }>;
     }>;
   }>> {
