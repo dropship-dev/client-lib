@@ -1,0 +1,37 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SellerPermission = void 0;
+/* generated using openapi-typescript-codegen -- do not edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+var SellerPermission;
+(function (SellerPermission) {
+    SellerPermission["SELLER_REQUEST_PRODUCT"] = "SELLER_REQUEST_PRODUCT";
+    SellerPermission["SELLER_EDIT_PRODUCT"] = "SELLER_EDIT_PRODUCT";
+    SellerPermission["SELLER_DUPLICATE_PRODUCT"] = "SELLER_DUPLICATE_PRODUCT";
+    SellerPermission["SELLER_CREATE_AND_DUPLICATE_PRODUCT"] = "SELLER_CREATE_AND_DUPLICATE_PRODUCT";
+    SellerPermission["SELLER_DELETE_PRODUCT"] = "SELLER_DELETE_PRODUCT";
+    SellerPermission["SELLER_VIEW_STORE_PERFORMANCE"] = "SELLER_VIEW_STORE_PERFORMANCE";
+    SellerPermission["SELLER_VIEW_LIVE_VIEW"] = "SELLER_VIEW_LIVE_VIEW";
+    SellerPermission["SELLER_EDIT_THEME"] = "SELLER_EDIT_THEME";
+    SellerPermission["SELLER_EDIT_DOMAIN"] = "SELLER_EDIT_DOMAIN";
+    SellerPermission["SELLER_VIEW_TRAFFIC_SOURCES"] = "SELLER_VIEW_TRAFFIC_SOURCES";
+    SellerPermission["SELLER_VIEW_PRODUCT_PERFORMANCE"] = "SELLER_VIEW_PRODUCT_PERFORMANCE";
+    SellerPermission["SELLER_TRACK_ORDER_STATUS"] = "SELLER_TRACK_ORDER_STATUS";
+    SellerPermission["SELLER_MANAGE_ABANDONED_CHECKOUT"] = "SELLER_MANAGE_ABANDONED_CHECKOUT";
+    SellerPermission["SELLER_REFUND_ORDER"] = "SELLER_REFUND_ORDER";
+    SellerPermission["SELLER_MANAGE_CROSS_SELLING"] = "SELLER_MANAGE_CROSS_SELLING";
+    SellerPermission["SELLER_MANAGE_UP_SELLING"] = "SELLER_MANAGE_UP_SELLING";
+    SellerPermission["SELLER_MANAGE_EMAIL_MARKETING"] = "SELLER_MANAGE_EMAIL_MARKETING";
+    SellerPermission["SELLER_REQUEST_PAYOUT"] = "SELLER_REQUEST_PAYOUT";
+    SellerPermission["SELLER_VIEW_TRANSACTION"] = "SELLER_VIEW_TRANSACTION";
+    SellerPermission["SELLER_SETUP_PAYMENT_METHODS"] = "SELLER_SETUP_PAYMENT_METHODS";
+    SellerPermission["SELLER_MANAGE_PAYMENT_PROVIDERS"] = "SELLER_MANAGE_PAYMENT_PROVIDERS";
+    SellerPermission["SELLER_MANAGE_PAYMENT_CARDS"] = "SELLER_MANAGE_PAYMENT_CARDS";
+    SellerPermission["SELLER_MANAGE_STORE_SETTINGS"] = "SELLER_MANAGE_STORE_SETTINGS";
+    SellerPermission["SELLER_MANAGE_SHIPPING"] = "SELLER_MANAGE_SHIPPING";
+    SellerPermission["SELLER_MANAGE_CURRENCY"] = "SELLER_MANAGE_CURRENCY";
+    SellerPermission["SELLER_MANAGE_POLICIES"] = "SELLER_MANAGE_POLICIES";
+    SellerPermission["SELLER_MANAGE_ANALYTICS_TOOLS"] = "SELLER_MANAGE_ANALYTICS_TOOLS";
+})(SellerPermission || (exports.SellerPermission = SellerPermission = {}));

@@ -22,6 +22,7 @@ const OrderService_1 = require("./services/OrderService");
 const OrderRefundsService_1 = require("./services/OrderRefundsService");
 const PaymentService_1 = require("./services/PaymentService");
 const PerformanceService_1 = require("./services/PerformanceService");
+const PermissionService_1 = require("./services/PermissionService");
 const PingPongAccountService_1 = require("./services/PingPongAccountService");
 const ProductService_1 = require("./services/ProductService");
 const RegionalShippingService_1 = require("./services/RegionalShippingService");
@@ -65,6 +66,7 @@ class ClientApi {
     orderRefunds;
     payment;
     performance;
+    permission;
     pingPongAccount;
     product;
     regionalShipping;
@@ -120,6 +122,7 @@ class ClientApi {
         this.orderRefunds = new OrderRefundsService_1.OrderRefundsService(this.request);
         this.payment = new PaymentService_1.PaymentService(this.request);
         this.performance = new PerformanceService_1.PerformanceService(this.request);
+        this.permission = new PermissionService_1.PermissionService(this.request);
         this.pingPongAccount = new PingPongAccountService_1.PingPongAccountService(this.request);
         this.product = new ProductService_1.ProductService(this.request);
         this.regionalShipping = new RegionalShippingService_1.RegionalShippingService(this.request);
