@@ -6,7 +6,7 @@ import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { AcceptStoreInviteDto } from '../models/AcceptStoreInviteDto';
 import type { InviteStoreStaffDto } from '../models/InviteStoreStaffDto';
 import type { PrismaJson_Permissions } from '../models/PrismaJson_Permissions';
-import type { Record_Permission_or_SuperAdminPermission_or_SellerPermission_boolean_or_undefined_ } from '../models/Record_Permission_or_SuperAdminPermission_or_SellerPermission_boolean_or_undefined_';
+import type { Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_ } from '../models/Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_';
 import type { UpdateStoreStaffDto } from '../models/UpdateStoreStaffDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -100,7 +100,7 @@ export class PermissionService {
     storeId: string,
     userId: string,
   }): CancelablePromise<{
-    permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_boolean_or_undefined_;
+    permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
     phone: string;
     email: string;
     name: string;
