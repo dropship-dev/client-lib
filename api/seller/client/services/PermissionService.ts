@@ -209,14 +209,16 @@ export class PermissionService {
     });
   }
   /**
-   * @returns string Ok
+   * @returns any Ok
    * @throws ApiError
    */
   public acceptStoreInvite({
     requestBody,
   }: {
     requestBody: AcceptStoreInviteDto,
-  }): CancelablePromise<'OK' | 'Token is valid'> {
+  }): CancelablePromise<({
+    storeId: string;
+  } | 'Token is valid')> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/user/store/account/accept-invite',
