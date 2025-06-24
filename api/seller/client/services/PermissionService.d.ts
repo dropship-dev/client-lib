@@ -64,13 +64,13 @@ export declare class PermissionService {
         requestBody: UpdateStoreStaffDto;
     }): CancelablePromise<void>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     deleteStoreUser({ storeId, userId, }: {
         storeId: string;
         userId: string;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -80,20 +80,20 @@ export declare class PermissionService {
         requestBody: InviteStoreStaffDto;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     acceptStoreInvite({ requestBody, }: {
         requestBody: AcceptStoreInviteDto;
-    }): CancelablePromise<({
-        userName: string;
-        permissions: PrismaJson_Permissions;
-        isOwner: boolean;
-        role: _36_Enums_StoreRole;
-        userId: string;
-        updatedAt: string;
-        createdAt: string;
+    }): CancelablePromise<'OK' | 'Token is valid'>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCurrentStoreUserPermissionDetail({ storeId, }: {
         storeId: string;
-        id: number;
-    } | 'Token is valid')>;
+    }): CancelablePromise<{
+        permissions: PrismaJson_Permissions;
+        role: _36_Enums_StoreRole;
+    }>;
 }

@@ -99,7 +99,7 @@ class PermissionService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     deleteStoreUser({ storeId, userId, }) {
@@ -142,7 +142,7 @@ class PermissionService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     acceptStoreInvite({ requestBody, }) {
@@ -153,6 +153,26 @@ class PermissionService {
             mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCurrentStoreUserPermissionDetail({ storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/seller/permission/{storeId}',
+            path: {
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,
