@@ -154,7 +154,7 @@ export class PermissionService {
     });
   }
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public deleteStoreUser({
@@ -163,7 +163,7 @@ export class PermissionService {
   }: {
     storeId: string,
     userId: string,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/user/store/{storeId}/account/{userId}',
@@ -209,24 +209,14 @@ export class PermissionService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public acceptStoreInvite({
     requestBody,
   }: {
     requestBody: AcceptStoreInviteDto,
-  }): CancelablePromise<({
-    userName: string;
-    permissions: PrismaJson_Permissions;
-    isOwner: boolean;
-    role: _36_Enums_StoreRole;
-    userId: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: number;
-  } | 'Token is valid')> {
+  }): CancelablePromise<'OK' | 'Token is valid'> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/user/store/account/accept-invite',
@@ -234,6 +224,33 @@ export class PermissionService {
       mediaType: 'application/json',
       errors: {
         400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCurrentStoreUserPermissionDetail({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    permissions: PrismaJson_Permissions;
+    role: _36_Enums_StoreRole;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/seller/permission/{storeId}',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,
