@@ -80,12 +80,14 @@ export declare class PermissionService {
         requestBody: InviteStoreStaffDto;
     }): CancelablePromise<string>;
     /**
-     * @returns string Ok
+     * @returns any Ok
      * @throws ApiError
      */
     acceptStoreInvite({ requestBody, }: {
         requestBody: AcceptStoreInviteDto;
-    }): CancelablePromise<'OK' | 'Token is valid'>;
+    }): CancelablePromise<({
+        storeId: string;
+    } | 'Token is valid')>;
     /**
      * @returns any Ok
      * @throws ApiError
