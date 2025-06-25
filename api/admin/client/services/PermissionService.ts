@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_RolePermissionType } from '../models/_36_Enums_RolePermissionType';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { CreateFulfillmentRoleDto } from '../models/CreateFulfillmentRoleDto';
 import type { CreateStaffFulfillmentAgencyDto } from '../models/CreateStaffFulfillmentAgencyDto';
@@ -391,14 +392,24 @@ export class PermissionService {
     });
   }
   /**
-   * @returns void
+   * @returns any Ok
    * @throws ApiError
    */
   public createRole({
     requestBody,
   }: {
     requestBody: CreateFulfillmentRoleDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<{
+    typeRolePermission: _36_Enums_RolePermissionType;
+    isSuperAdmin: boolean;
+    permissions: PrismaJson_Permissions;
+    isDefault: boolean;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    fulfillmentAgencyId: number;
+    id: number;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/permission/fulfillment-agency/role',
