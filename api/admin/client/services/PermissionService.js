@@ -230,7 +230,7 @@ class PermissionService {
         });
     }
     /**
-     * @returns void
+     * @returns any Ok
      * @throws ApiError
      */
     createRole({ requestBody, }) {
