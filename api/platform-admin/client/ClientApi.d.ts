@@ -10,6 +10,7 @@ import { NotificationService } from './services/NotificationService';
 import { PerformanceService } from './services/PerformanceService';
 import { PermissionService } from './services/PermissionService';
 import { ReferralService } from './services/ReferralService';
+import { SaleService } from './services/SaleService';
 import { SettingService } from './services/SettingService';
 import { StatisticsService } from './services/StatisticsService';
 import { SubscriptionService } from './services/SubscriptionService';
@@ -27,6 +28,7 @@ export declare class ClientApi {
     readonly performance: PerformanceService;
     readonly permission: PermissionService;
     readonly referral: ReferralService;
+    readonly sale: SaleService;
     readonly setting: SettingService;
     readonly statistics: StatisticsService;
     readonly subscription: SubscriptionService;

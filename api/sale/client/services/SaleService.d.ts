@@ -1,4 +1,5 @@
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
+import type { _36_Enums_SaleUserTrackingType } from '../models/_36_Enums_SaleUserTrackingType';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { CheckRejectStatusDto } from '../models/CheckRejectStatusDto';
 import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
@@ -54,6 +55,29 @@ export declare class SaleService {
         total: number;
     })>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerInvitedBySale({ nextPageIndex, pageSize, keyword, startDate, endDate, }: {
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<Array<{
+        totalStore: number;
+        stores: Array<{
+            gmv: number;
+            name: string;
+            storeId: string;
+        }>;
+        createdAt: string;
+        phone: string;
+        name: string;
+        email: string;
+        id: string;
+    }>>;
+    /**
      * @returns boolean Ok
      * @throws ApiError
      */
@@ -69,5 +93,68 @@ export declare class SaleService {
     }): CancelablePromise<{
         rejectedAt: string;
         status: boolean;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAccountRequest({ nextPageIndex, pageSize, keyword, }: {
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            email: string;
+            name: string;
+            createdAt: string;
+            id: string;
+            SaleUser: {
+                status: _36_Enums_SaleStatus;
+                id: number;
+            };
+        }>;
+    }>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    get1X1PixelImage({ data, token, }: {
+        data: string;
+        token: string;
+    }): CancelablePromise<void>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDetailSaleInfo({ id, }: {
+        id: number;
+    }): CancelablePromise<{
+        referralInfo: {
+            gmvPerSale: number;
+            gmv: number;
+            totalOrder: number;
+            totalStore: number;
+        };
+        sale: {
+            code: string;
+            id: number;
+            SaleUserTracking: Array<{
+                actionById: string;
+                saleId: number;
+                type: _36_Enums_SaleUserTrackingType;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+            User: {
+                email: string;
+                name: string;
+                id: string;
+            };
+        };
     }>;
 }

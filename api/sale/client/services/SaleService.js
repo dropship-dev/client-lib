@@ -89,6 +89,30 @@ class SaleService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerInvitedBySale({ nextPageIndex, pageSize = 20, keyword, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/seller-invited',
+            query: {
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+                'keyword': keyword,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns boolean Ok
      * @throws ApiError
      */
@@ -118,6 +142,68 @@ class SaleService {
             mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAccountRequest({ nextPageIndex, pageSize = 20, keyword, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/account-request',
+            query: {
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+                'keyword': keyword,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    get1X1PixelImage({ data, token, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/tracking-images',
+            query: {
+                'data': data,
+                'token': token,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDetailSaleInfo({ id, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/{id}',
+            path: {
+                'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
                 403: `Forbidden`,
                 404: `Not found`,
                 500: `Internal server error`,
