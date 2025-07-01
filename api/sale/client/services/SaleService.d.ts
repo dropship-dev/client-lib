@@ -1,9 +1,9 @@
 import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
-import type { _36_Enums_SaleUserTrackingType } from '../models/_36_Enums_SaleUserTrackingType';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { CheckRejectStatusDto } from '../models/CheckRejectStatusDto';
 import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
 import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
+import type { SaleInfoResponsive } from '../models/SaleInfoResponsive';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
 import type { UpdateRequestStatusDto } from '../models/UpdateRequestStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -127,34 +127,10 @@ export declare class SaleService {
         token: string;
     }): CancelablePromise<void>;
     /**
-     * @returns any Ok
+     * @returns SaleInfoResponsive Ok
      * @throws ApiError
      */
     getDetailSaleInfo({ id, }: {
         id: number;
-    }): CancelablePromise<{
-        referralInfo: {
-            gmvPerSale: number;
-            gmv: number;
-            totalOrder: number;
-            totalStore: number;
-        };
-        sale: {
-            code: string;
-            id: number;
-            SaleUserTracking: Array<{
-                actionById: string;
-                saleId: number;
-                type: _36_Enums_SaleUserTrackingType;
-                updatedAt: string;
-                createdAt: string;
-                id: number;
-            }>;
-            User: {
-                email: string;
-                name: string;
-                id: string;
-            };
-        };
-    }>;
+    }): CancelablePromise<SaleInfoResponsive>;
 }

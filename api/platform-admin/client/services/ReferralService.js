@@ -28,6 +28,28 @@ class ReferralService {
         });
     }
     /**
+     * @returns SalePerformanceResponsive Ok
+     * @throws ApiError
+     */
+    getSalePerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, referralId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/sale-performance',
+            query: {
+                'startDate': startDate,
+                'endDate': endDate,
+                'referralId': referralId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns GetRevenueStoreByFulfillmentResult Ok
      * @throws ApiError
      */

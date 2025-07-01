@@ -6,6 +6,7 @@ import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueSto
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
 import type { ReferralStoreType } from '../models/ReferralStoreType';
+import type { SalePerformanceResponsive } from '../models/SalePerformanceResponsive';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ReferralService {
@@ -19,6 +20,15 @@ export declare class ReferralService {
         startDate?: string;
         endDate?: string;
     }): CancelablePromise<GetSummaryReferralResult>;
+    /**
+     * @returns SalePerformanceResponsive Ok
+     * @throws ApiError
+     */
+    getSalePerformance({ startDate, endDate, referralId, }: {
+        startDate?: string;
+        endDate?: string;
+        referralId?: string;
+    }): CancelablePromise<SalePerformanceResponsive>;
     /**
      * @returns GetRevenueStoreByFulfillmentResult Ok
      * @throws ApiError
@@ -138,6 +148,7 @@ export declare class ReferralService {
             aov: number;
             gmvSharePerSale: number;
             gmv: number;
+            saleName: string;
             refCode: string;
             fulfillmentAgencyName: string;
             name: string;

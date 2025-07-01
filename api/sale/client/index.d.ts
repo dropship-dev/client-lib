@@ -286,6 +286,7 @@ export type { GetRequestingAmountDto } from './models/GetRequestingAmountDto';
 export type { GetRequestPayoutDto } from './models/GetRequestPayoutDto';
 export type { GetRevenueStoreByFulfillmentDto } from './models/GetRevenueStoreByFulfillmentDto';
 export type { GetRevenueStoreByFulfillmentResult } from './models/GetRevenueStoreByFulfillmentResult';
+export type { GetSalePerformanceDto } from './models/GetSalePerformanceDto';
 export type { GetStatsDeviceDto } from './models/GetStatsDeviceDto';
 export type { GetStatsRefererDto } from './models/GetStatsRefererDto';
 export type { getStatusCombosType } from './models/getStatusCombosType';
@@ -457,7 +458,10 @@ export type { ResponsePaginateCursor_StoreTrackingPerformance_ } from './models/
 export type { ResponseStoreAddPingpong } from './models/ResponseStoreAddPingpong';
 export type { ResponseTrackingPie } from './models/ResponseTrackingPie';
 export type { Review } from './models/Review';
+export type { SaleInfoResponsive } from './models/SaleInfoResponsive';
+export { SalePerformanceResponsive } from './models/SalePerformanceResponsive';
 export type { SaleStatus } from './models/SaleStatus';
+export type { SaleUserTrackingType } from './models/SaleUserTrackingType';
 export type { SearchBettaSupSellersParams } from './models/SearchBettaSupSellersParams';
 export type { SearchBettaSupSellersResponse } from './models/SearchBettaSupSellersResponse';
 export type { SearchFulfillmentDto } from './models/SearchFulfillmentDto';

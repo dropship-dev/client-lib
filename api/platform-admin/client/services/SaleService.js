@@ -29,7 +29,7 @@ class SaleService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns SaleInfoResponsive Ok
      * @throws ApiError
      */
     getDetailSaleInfo({ id, }) {
