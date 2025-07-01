@@ -10,6 +10,7 @@ import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueSto
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
 import type { ReferralStoreType } from '../models/ReferralStoreType';
+import type { SalePerformanceResponsive } from '../models/SalePerformanceResponsive';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ReferralService {
@@ -31,6 +32,36 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns SalePerformanceResponsive Ok
+   * @throws ApiError
+   */
+  public getSalePerformance({
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    referralId,
+  }: {
+    startDate?: string,
+    endDate?: string,
+    referralId?: string,
+  }): CancelablePromise<SalePerformanceResponsive> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/sale-performance',
+      query: {
+        'startDate': startDate,
+        'endDate': endDate,
+        'referralId': referralId,
       },
       errors: {
         400: `Bad request`,
@@ -297,6 +328,7 @@ export class ReferralService {
       aov: number;
       gmvSharePerSale: number;
       gmv: number;
+      saleName: string;
       refCode: string;
       fulfillmentAgencyName: string;
       name: string;
