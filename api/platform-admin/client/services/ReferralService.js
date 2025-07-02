@@ -10,13 +10,14 @@ class ReferralService {
      * @returns GetSummaryReferralResult Ok
      * @throws ApiError
      */
-    getSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+    getSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/referral/summary',
             query: {
                 'startDate': startDate,
                 'endDate': endDate,
+                'search': search,
             },
             errors: {
                 400: `Bad request`,
@@ -31,14 +32,14 @@ class ReferralService {
      * @returns SalePerformanceResponsive Ok
      * @throws ApiError
      */
-    getSalePerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, referralId, }) {
+    getSalePerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/referral/sale-performance',
             query: {
                 'startDate': startDate,
                 'endDate': endDate,
-                'referralId': referralId,
+                'search': search,
             },
             errors: {
                 400: `Bad request`,
