@@ -22,9 +22,11 @@ export class ReferralService {
   public getSummary({
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
+    search,
   }: {
     startDate?: string,
     endDate?: string,
+    search?: string,
   }): CancelablePromise<GetSummaryReferralResult> {
     return this.httpRequest.request({
       method: 'GET',
@@ -32,6 +34,7 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
+        'search': search,
       },
       errors: {
         400: `Bad request`,
@@ -49,11 +52,11 @@ export class ReferralService {
   public getSalePerformance({
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
-    referralId,
+    search,
   }: {
     startDate?: string,
     endDate?: string,
-    referralId?: string,
+    search?: string,
   }): CancelablePromise<SalePerformanceResponsive> {
     return this.httpRequest.request({
       method: 'GET',
@@ -61,7 +64,7 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
-        'referralId': referralId,
+        'search': search,
       },
       errors: {
         400: `Bad request`,
