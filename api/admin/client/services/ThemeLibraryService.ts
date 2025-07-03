@@ -87,6 +87,7 @@ export class ThemeLibraryService {
     id: number,
   }): CancelablePromise<({
     ThemePage: Array<{
+      parentThemePageId: number;
       themeId: number;
       themeLibraryId: number;
       content: string;

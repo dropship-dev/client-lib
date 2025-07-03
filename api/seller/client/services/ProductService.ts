@@ -49,6 +49,7 @@ export class ProductService {
     requestBody: CreateProductFromSellerInDependenceDto,
   }): CancelablePromise<{
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -217,6 +218,7 @@ export class ProductService {
     requestBody: UpdateProductStatusesDto,
   }): CancelablePromise<Array<{
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -271,6 +273,7 @@ export class ProductService {
     productId?: number,
   }): CancelablePromise<{
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -769,6 +772,7 @@ export class ProductService {
     }>;
   } & {
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -1028,6 +1032,7 @@ export class ProductService {
     };
   } & {
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -1084,6 +1089,7 @@ export class ProductService {
     requestBody: UpdateProductDto,
   }): CancelablePromise<{
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;
@@ -1203,6 +1209,7 @@ export class ProductService {
     }>;
   } & {
     snapshotAt: string;
+    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;

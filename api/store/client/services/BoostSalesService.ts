@@ -437,6 +437,7 @@ export class BoostSalesService {
       }>;
     } & {
       snapshotAt: string;
+      themePageId: number;
       podTemplateId: number;
       campaignId: string;
       isEnable: boolean;

@@ -119,6 +119,7 @@ export class StoreService {
         link: string;
       };
       ThemePage: Array<{
+        parentThemePageId: number;
         themeId: number;
         themeLibraryId: number;
         content: string;
