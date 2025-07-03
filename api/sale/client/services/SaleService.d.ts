@@ -83,26 +83,34 @@ export declare class SaleService {
      * @returns any Ok
      * @throws ApiError
      */
-    getDetailSellerInvited({ id, nextPageIndex, pageSize, }: {
+    getDetailSellerInvited({ id, }: {
+        id: string;
+    }): CancelablePromise<{
+        gmv: number;
+        createdAt: string;
+        email: string;
+        phone: string;
+        name: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoresOpenedBySellerViaSale({ id, nextPageIndex, pageSize, }: {
         id: string;
         nextPageIndex?: string;
         pageSize?: number;
     }): CancelablePromise<{
-        data: {
-            orderBy: string;
-            nextPageIndex: string;
-            prePageIndex: string;
-            total: number;
-            data: Array<any>;
-        };
-        sellerInfo: {
-            gmv: number;
-            createdAt: string;
-            email: string;
-            phone: string;
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        data: Array<{
             name: string;
+            createdAt: string;
             id: string;
-        };
+        }>;
+        total: number;
     }>;
     /**
      * @returns boolean Ok
