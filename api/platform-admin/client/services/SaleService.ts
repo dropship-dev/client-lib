@@ -54,6 +54,49 @@ export class SaleService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public searchSale({
+    nextPageIndex,
+    keyword,
+    pageSize = 20,
+  }: {
+    nextPageIndex?: string,
+    keyword?: string,
+    pageSize?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      name: string;
+      createdAt: string;
+      id: string;
+      SaleUser: {
+        code: string;
+      };
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/sale/search',
+      query: {
+        'nextPageIndex': nextPageIndex,
+        'keyword': keyword,
+        'pageSize': pageSize,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns SaleInfoResponsive Ok
    * @throws ApiError
    */
