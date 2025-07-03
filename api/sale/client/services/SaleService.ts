@@ -147,19 +147,21 @@ export class SaleService {
     keyword?: string,
     startDate?: string,
     endDate?: string,
-  }): CancelablePromise<Array<{
-    totalStore: number;
-    stores: Array<{
-      gmv: number;
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      totalStore: number;
+      revenue: number;
+      createdAt: string;
+      phone: string;
       name: string;
-      storeId: string;
+      email: string;
+      id: string;
     }>;
-    createdAt: string;
-    phone: string;
-    name: string;
-    email: string;
-    id: string;
-  }>> {
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/sale/seller-invited',
@@ -169,6 +171,54 @@ export class SaleService {
         'keyword': keyword,
         'startDate': startDate,
         'endDate': endDate,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getDetailSellerInvited({
+    id,
+    nextPageIndex,
+    pageSize = 20,
+  }: {
+    id: string,
+    nextPageIndex?: string,
+    pageSize?: number,
+  }): CancelablePromise<{
+    data: {
+      orderBy: string;
+      nextPageIndex: string;
+      prePageIndex: string;
+      total: number;
+      data: Array<any>;
+    };
+    sellerInfo: {
+      gmv: number;
+      createdAt: string;
+      email: string;
+      phone: string;
+      name: string;
+      id: string;
+    };
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/sale/seller-invited/{id}',
+      path: {
+        'id': id,
+      },
+      query: {
+        'nextPageIndex': nextPageIndex,
+        'pageSize': pageSize,
       },
       errors: {
         400: `Bad request`,
