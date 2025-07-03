@@ -187,6 +187,37 @@ export class SaleService {
    */
   public getDetailSellerInvited({
     id,
+  }: {
+    id: string,
+  }): CancelablePromise<{
+    gmv: number;
+    createdAt: string;
+    email: string;
+    phone: string;
+    name: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/sale/seller-invited/{id}',
+      path: {
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoresOpenedBySellerViaSale({
+    id,
     nextPageIndex,
     pageSize = 20,
   }: {
@@ -194,25 +225,19 @@ export class SaleService {
     nextPageIndex?: string,
     pageSize?: number,
   }): CancelablePromise<{
-    data: {
-      orderBy: string;
-      nextPageIndex: string;
-      prePageIndex: string;
-      total: number;
-      data: Array<any>;
-    };
-    sellerInfo: {
-      gmv: number;
-      createdAt: string;
-      email: string;
-      phone: string;
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    data: Array<{
       name: string;
+      createdAt: string;
       id: string;
-    };
+    }>;
+    total: number;
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/sale/seller-invited/{id}',
+      url: '/sale/seller-invited/{id}/store',
       path: {
         'id': id,
       },
