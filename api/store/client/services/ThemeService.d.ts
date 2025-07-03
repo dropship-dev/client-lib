@@ -17,6 +17,7 @@ export declare class ThemeService {
         storeId: string;
     }): CancelablePromise<({
         ThemePage: Array<{
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
@@ -69,6 +70,7 @@ export declare class ThemeService {
         setting: PrismaJson_ThemeSetting;
     } & {
         ThemePage: {
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;

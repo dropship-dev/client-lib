@@ -65,6 +65,7 @@ export declare class StoreTagService {
         name: string;
     }): CancelablePromise<{
         snapshotAt: string;
+        themePageId: number;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
