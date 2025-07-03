@@ -472,6 +472,7 @@ export type { SaleUserTrackingType } from './models/SaleUserTrackingType';
 export type { SearchBettaSupSellersParams } from './models/SearchBettaSupSellersParams';
 export type { SearchBettaSupSellersResponse } from './models/SearchBettaSupSellersResponse';
 export type { SearchFulfillmentDto } from './models/SearchFulfillmentDto';
+export type { SearchSaleDto } from './models/SearchSaleDto';
 export type { SearchSuperAdminDto } from './models/SearchSuperAdminDto';
 export { SellerPermission } from './models/SellerPermission';
 export type { SendEmailToListStoreDto } from './models/SendEmailToListStoreDto';
