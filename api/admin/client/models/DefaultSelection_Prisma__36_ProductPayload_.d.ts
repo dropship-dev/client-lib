@@ -4,7 +4,6 @@ import type { PrismaJson_Photos } from './PrismaJson_Photos';
 import type { PrismaJson_VariantOptions } from './PrismaJson_VariantOptions';
 export type DefaultSelection_Prisma__36_ProductPayload_ = {
     snapshotAt: string;
-    themePageId: number;
     podTemplateId: number;
     campaignId: string;
     isEnable: boolean;

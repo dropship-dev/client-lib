@@ -74,7 +74,6 @@ export declare class ProductService {
         productId?: number;
     }): CancelablePromise<{
         snapshotAt: string;
-        themePageId: number;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
@@ -551,7 +550,6 @@ export declare class ProductService {
         }>;
     } & {
         snapshotAt: string;
-        themePageId: number;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
@@ -724,7 +722,6 @@ export declare class ProductService {
         };
     } & {
         snapshotAt: string;
-        themePageId: number;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
