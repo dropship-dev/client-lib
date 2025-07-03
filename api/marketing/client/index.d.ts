@@ -266,6 +266,7 @@ export type { GetCrossSellByProductDto } from './models/GetCrossSellByProductDto
 export { GetCustomerTrackingDto } from './models/GetCustomerTrackingDto';
 export type { GetCustomerTrackingResultDto } from './models/GetCustomerTrackingResultDto';
 export type { GetDetailFulfillmentDto } from './models/GetDetailFulfillmentDto';
+export type { GetDetailSellerInvitedDto } from './models/GetDetailSellerInvitedDto';
 export type { GetGmvByStore } from './models/GetGmvByStore';
 export type { GetGmvPerFulfillmentAgency } from './models/GetGmvPerFulfillmentAgency';
 export type { GetImageTrackingDto } from './models/GetImageTrackingDto';
