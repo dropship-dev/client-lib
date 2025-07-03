@@ -154,6 +154,28 @@ export declare class SaleService {
         token: string;
     }): CancelablePromise<void>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchSale({ nextPageIndex, keyword, pageSize, }: {
+        nextPageIndex?: string;
+        keyword?: string;
+        pageSize?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            name: string;
+            createdAt: string;
+            id: string;
+            SaleUser: {
+                code: string;
+            };
+        }>;
+    }>;
+    /**
      * @returns SaleInfoResponsive Ok
      * @throws ApiError
      */
