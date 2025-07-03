@@ -29,6 +29,28 @@ class SaleService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchSale({ nextPageIndex, keyword, pageSize = 20, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/search',
+            query: {
+                'nextPageIndex': nextPageIndex,
+                'keyword': keyword,
+                'pageSize': pageSize,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns SaleInfoResponsive Ok
      * @throws ApiError
      */
