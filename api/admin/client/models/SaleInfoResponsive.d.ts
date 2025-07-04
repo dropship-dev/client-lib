@@ -17,6 +17,7 @@ export type SaleInfoResponsive = {
             type: _36_Enums_SaleUserTrackingType;
         }>;
         User: {
+            createdAt: string;
             name: string;
             email: string;
             id: string;

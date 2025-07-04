@@ -169,4 +169,30 @@ export declare class ReferralService {
     updateRefCode({ requestBody, }: {
         requestBody: AddRefCodeDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerBySale({ saleId, nextPageIndex, pageSize, keyword, startDate, endDate, }: {
+        saleId: number;
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            totalStore: number;
+            revenue: number;
+            createdAt: string;
+            phone: string;
+            name: string;
+            email: string;
+            id: string;
+        }>;
+    }>;
 }

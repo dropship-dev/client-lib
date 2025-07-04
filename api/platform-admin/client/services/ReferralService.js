@@ -248,5 +248,32 @@ class ReferralService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerBySale({ saleId, nextPageIndex, pageSize = 20, keyword, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/seller-by-sale/{saleId}',
+            path: {
+                'saleId': saleId,
+            },
+            query: {
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+                'keyword': keyword,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.ReferralService = ReferralService;
