@@ -279,9 +279,11 @@ export class ReferralService {
       code: string;
       purchased: number;
       totalStore: number;
+      userId: string;
       id: number;
       gmvSharePerSale: number;
       gmv: number;
+      totalSeller: number;
     }>;
   }> {
     return this.httpRequest.request({
