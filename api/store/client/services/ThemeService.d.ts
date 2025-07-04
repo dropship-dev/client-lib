@@ -88,6 +88,10 @@ export declare class ThemeService {
         storeId: string;
         id: number;
     }): CancelablePromise<(Theme & {
+        ProductThemes: Array<{
+            name: string;
+            id: number;
+        }>;
         ThemePage: Array<ThemePage>;
-    }) | null>;
+    })>;
 }
