@@ -4,6 +4,7 @@ export type StoreTrackingPerformance = {
     revenue: number;
     status: _36_Enums_StoreStatus;
     createdAt: string;
+    email: string;
     name: string;
     id: string;
 };
