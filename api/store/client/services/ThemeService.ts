@@ -130,8 +130,12 @@ export class ThemeService {
     storeId: string,
     id: number,
   }): CancelablePromise<(Theme & {
+    ProductThemes: Array<{
+      name: string;
+      id: number;
+    }>;
     ThemePage: Array<ThemePage>;
-  }) | null> {
+  })> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/theme/{id}',
