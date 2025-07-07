@@ -9,6 +9,9 @@ export type SaleInfoResponsive = {
     };
     sale: {
         SaleUserTracking: Array<{
+            ActionBy: {
+                email: string;
+            };
             actionById: string;
             saleId: number;
             updatedAt: string;

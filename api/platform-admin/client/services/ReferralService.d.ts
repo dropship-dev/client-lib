@@ -122,11 +122,11 @@ export declare class ReferralService {
             name: string;
             code: string;
             purchased: number;
-            totalStore: number;
             userId: string;
             id: number;
             gmvSharePerSale: number;
             gmv: number;
+            totalStore: number;
             totalSeller: number;
         }>;
     }>;
