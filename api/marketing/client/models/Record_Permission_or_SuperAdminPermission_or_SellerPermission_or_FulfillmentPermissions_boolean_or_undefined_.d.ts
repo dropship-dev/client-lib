@@ -24,6 +24,7 @@ export type Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_Ful
     SELLER_DUPLICATE_PRODUCT: boolean;
     SELLER_CREATE_AND_DUPLICATE_PRODUCT: boolean;
     SELLER_DELETE_PRODUCT: boolean;
+    SELLER_MANAGE_COLLECTION: boolean;
     SELLER_VIEW_STORE_PERFORMANCE: boolean;
     SELLER_VIEW_LIVE_VIEW: boolean;
     SELLER_EDIT_THEME: boolean;
