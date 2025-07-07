@@ -4,6 +4,7 @@
 /* eslint-disable */
 export enum _36_Enums_SaleUserTrackingType {
   REQUESTING = 'REQUESTING',
+  REJECTED = 'REJECTED',
   APPROVED = 'APPROVED',
   OPEN = 'OPEN',
 }
