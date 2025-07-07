@@ -8,6 +8,7 @@ export type SaleInfoResponsive = {
   referralInfo: {
     gmvPerSale: number;
     gmv: number;
+    totalSeller: number;
     totalOrder: number;
     totalStore: number;
   };
