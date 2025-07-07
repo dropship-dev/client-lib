@@ -292,6 +292,7 @@ export type { GetSalePerformanceDto } from './models/GetSalePerformanceDto';
 export type { GetStatsDeviceDto } from './models/GetStatsDeviceDto';
 export type { GetStatsRefererDto } from './models/GetStatsRefererDto';
 export type { getStatusCombosType } from './models/getStatusCombosType';
+export type { GetStoreActiveThemeV2QueryDto } from './models/GetStoreActiveThemeV2QueryDto';
 export type { GetStoreAddPingpongDto } from './models/GetStoreAddPingpongDto';
 export type { GetStoreManagementDto } from './models/GetStoreManagementDto';
 export type { GetStoreReportDto } from './models/GetStoreReportDto';

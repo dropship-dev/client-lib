@@ -146,6 +146,131 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
+    getStoreActiveThemeV2({ storeId, getFont, pageName, productPermalink, }: {
+        storeId: string;
+        getFont?: boolean;
+        pageName?: PageNameType;
+        productPermalink?: string;
+    }): CancelablePromise<{
+        isConversionRate: boolean;
+        subDomain: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+        Currency: {
+            isSupported: boolean;
+            rateToUSD: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+            symbol: string;
+        };
+        GoogleTagManager: Array<{
+            tag: string;
+        }>;
+        GoogleAnalytic: Array<{
+            measurementId: string;
+        }>;
+        CustomDomain: Array<{
+            isPrimary: boolean;
+            contactInfo: PrismaJson_DomainContactInfo;
+            renewable: boolean;
+            renewalPrice: number;
+            purchasePrice: number;
+            domainOrigin: _36_Enums_DomainOrigin;
+            autoRenew: boolean;
+            expirationDate: string;
+            target: string;
+            domain: string;
+            status: _36_Enums_CustomDomainStatus;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+        }>;
+        fontPage: Array<any>;
+        Klaviyo: {
+            publishableKey: string;
+        };
+        Theme: {
+            themeTemplateId: number;
+            isActivated: boolean;
+            components: any;
+            colors: any;
+            font: string;
+            heroBanner: string;
+            logoSize: _36_Enums_LogoSize;
+            logo: string;
+            nodes: PrismaJson_ThemeNodes;
+            style: PrismaJson_ThemeStyle;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+            setting: PrismaJson_ThemeSetting;
+            ThemeTemplate: {
+                image: string;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+                link: string;
+            };
+            ThemePage: Array<{
+                parentThemePageId: number;
+                themeId: number;
+                themeLibraryId: number;
+                content: string;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+        };
+        Payment: Array<{
+            isConnectPSSFF: boolean;
+            environment: _36_Enums_EnvironmentType;
+            UIVersion: number;
+            BNcode: string;
+            isPlatform: boolean;
+            isShowCompanyAddress: boolean;
+            companyAddress: string;
+            companyPhone: string;
+            companyName: string;
+            merchantId: string;
+            salt: string;
+            publishableKey: string;
+            type: _36_Enums_PaymentType;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStorePaymentMethod({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<{
