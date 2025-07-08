@@ -11,6 +11,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
+import type { _36_Enums_StoreUserInviteStatus } from '../models/_36_Enums_StoreUserInviteStatus';
 import type { _36_Enums_SyncTrackingStatus } from '../models/_36_Enums_SyncTrackingStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
@@ -337,6 +338,8 @@ export declare class OrderService {
             };
         }>;
         StoreUser: Array<{
+            inviteId: string;
+            inviteStatus: _36_Enums_StoreUserInviteStatus;
             userName: string;
             permissions: PrismaJson_Permissions;
             isOwner: boolean;
