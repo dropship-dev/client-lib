@@ -216,9 +216,10 @@ export class PermissionService {
     requestBody,
   }: {
     requestBody: AcceptStoreInviteDto,
-  }): CancelablePromise<({
-    storeId: string;
-  } | 'Token is valid')> {
+  }): CancelablePromise<{
+    storeId?: string;
+    valid: boolean;
+  }> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/user/store/account/accept-invite',
