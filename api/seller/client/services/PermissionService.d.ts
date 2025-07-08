@@ -85,9 +85,10 @@ export declare class PermissionService {
      */
     acceptStoreInvite({ requestBody, }: {
         requestBody: AcceptStoreInviteDto;
-    }): CancelablePromise<({
-        storeId: string;
-    } | 'Token is valid')>;
+    }): CancelablePromise<{
+        storeId?: string;
+        valid: boolean;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
