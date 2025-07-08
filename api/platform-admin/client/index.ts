@@ -57,6 +57,7 @@ export { _36_Enums_StoreLogType } from './models/_36_Enums_StoreLogType';
 export { _36_Enums_StoreRole } from './models/_36_Enums_StoreRole';
 export { _36_Enums_StoreStatus } from './models/_36_Enums_StoreStatus';
 export { _36_Enums_StoreType } from './models/_36_Enums_StoreType';
+export { _36_Enums_StoreUserInviteStatus } from './models/_36_Enums_StoreUserInviteStatus';
 export { _36_Enums_SubscriptionFeatureType } from './models/_36_Enums_SubscriptionFeatureType';
 export { _36_Enums_SubscriptionInterval } from './models/_36_Enums_SubscriptionInterval';
 export { _36_Enums_SubscriptionStatus } from './models/_36_Enums_SubscriptionStatus';
