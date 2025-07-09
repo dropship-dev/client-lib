@@ -131,6 +131,7 @@ export class ThemeService {
     id: number,
   }): CancelablePromise<(Theme & {
     ProductThemes: Array<{
+      assignedProducts: number;
       name: string;
       id: number;
     }>;
