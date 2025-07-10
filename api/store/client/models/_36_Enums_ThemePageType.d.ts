@@ -1,0 +1,6 @@
+export declare enum _36_Enums_ThemePageType {
+    PRODUCT_PAGE = "PRODUCT_PAGE",
+    HOME_PAGE = "HOME_PAGE",
+    COLLECTION = "COLLECTION",
+    COLLECTION_LIST = "COLLECTION_LIST"
+}

@@ -7,7 +7,7 @@ exports._36_Enums_BoostSaleTriggerType = void 0;
 /* eslint-disable */
 var _36_Enums_BoostSaleTriggerType;
 (function (_36_Enums_BoostSaleTriggerType) {
+    _36_Enums_BoostSaleTriggerType["COLLECTION"] = "COLLECTION";
     _36_Enums_BoostSaleTriggerType["ALL_PRODUCT"] = "ALL_PRODUCT";
     _36_Enums_BoostSaleTriggerType["SPECIFIC_PRODUCT"] = "SPECIFIC_PRODUCT";
-    _36_Enums_BoostSaleTriggerType["COLLECTION"] = "COLLECTION";
 })(_36_Enums_BoostSaleTriggerType || (exports._36_Enums_BoostSaleTriggerType = _36_Enums_BoostSaleTriggerType = {}));
