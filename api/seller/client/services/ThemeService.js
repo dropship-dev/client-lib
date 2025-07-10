@@ -188,7 +188,7 @@ class ThemeService {
         });
     }
     /**
-     * @returns ThemePage Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getThemePage({ storeId, id, }) {
@@ -253,7 +253,7 @@ class ThemeService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ThemeWithDetails Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }) {

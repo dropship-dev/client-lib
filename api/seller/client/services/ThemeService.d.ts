@@ -8,7 +8,7 @@ import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
 import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
+import type { ThemeWithDetails } from '../models/ThemeWithDetails';
 import type { UpdateAssignedProductsForThemePageDto } from '../models/UpdateAssignedProductsForThemePageDto';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -204,13 +204,27 @@ export declare class ThemeService {
         }>;
     }>;
     /**
-     * @returns ThemePage Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getThemePage({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<ThemePage>;
+    }): CancelablePromise<({
+        Product: Array<{
+            id: number;
+        }>;
+    } & {
+        parentThemePageId: number;
+        themeId: number;
+        themeLibraryId: number;
+        content: string;
+        type: _36_Enums_ThemePageType;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    })>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -229,20 +243,13 @@ export declare class ThemeService {
         requestBody: UpdateAssignedProductsForThemePageDto;
     }): CancelablePromise<void>;
     /**
-     * @returns any Ok
+     * @returns ThemeWithDetails Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Theme & {
-        ProductThemes: Array<{
-            assignedProducts: number;
-            name: string;
-            id: number;
-        }>;
-        ThemePage: Array<ThemePage>;
-    })>;
+    }): CancelablePromise<ThemeWithDetails>;
     /**
      * @returns any Ok
      * @throws ApiError
