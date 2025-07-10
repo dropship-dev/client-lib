@@ -9,6 +9,7 @@ import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ContactFormDto } from '../models/ContactFormDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
@@ -123,6 +124,7 @@ export class StoreService {
         themeId: number;
         themeLibraryId: number;
         content: string;
+        type: _36_Enums_ThemePageType;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -272,6 +274,7 @@ export class StoreService {
         themeId: number;
         themeLibraryId: number;
         content: string;
+        type: _36_Enums_ThemePageType;
         name: string;
         updatedAt: string;
         createdAt: string;

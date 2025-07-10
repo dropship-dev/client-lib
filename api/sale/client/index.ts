@@ -63,6 +63,7 @@ export { _36_Enums_SubscriptionInterval } from './models/_36_Enums_SubscriptionI
 export { _36_Enums_SubscriptionStatus } from './models/_36_Enums_SubscriptionStatus';
 export { _36_Enums_SubscriptionType } from './models/_36_Enums_SubscriptionType';
 export { _36_Enums_SyncTrackingStatus } from './models/_36_Enums_SyncTrackingStatus';
+export { _36_Enums_ThemePageType } from './models/_36_Enums_ThemePageType';
 export { _36_Enums_TransactionStatus } from './models/_36_Enums_TransactionStatus';
 export { _36_Enums_TransactionType } from './models/_36_Enums_TransactionType';
 export { _36_Enums_UserRole } from './models/_36_Enums_UserRole';

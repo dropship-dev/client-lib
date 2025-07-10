@@ -2,8 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export enum _36_Enums_BoostSaleTriggerType {
+export enum _36_Enums_ThemePageType {
+  PRODUCT_PAGE = 'PRODUCT_PAGE',
+  HOME_PAGE = 'HOME_PAGE',
   COLLECTION = 'COLLECTION',
-  ALL_PRODUCT = 'ALL_PRODUCT',
-  SPECIFIC_PRODUCT = 'SPECIFIC_PRODUCT',
+  COLLECTION_LIST = 'COLLECTION_LIST',
 }

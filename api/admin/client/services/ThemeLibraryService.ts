@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { CreateThemeLibraryDto } from '../models/CreateThemeLibraryDto';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
@@ -91,6 +92,7 @@ export class ThemeLibraryService {
       themeId: number;
       themeLibraryId: number;
       content: string;
+      type: _36_Enums_ThemePageType;
       name: string;
       updatedAt: string;
       createdAt: string;

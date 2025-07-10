@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CloneThemePageDto } from '../models/CloneThemePageDto';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
@@ -115,6 +116,7 @@ export class ThemeService {
       themeId: number;
       themeLibraryId: number;
       content: string;
+      type: _36_Enums_ThemePageType;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -214,6 +216,7 @@ export class ThemeService {
       themeId: number;
       themeLibraryId: number;
       content: string;
+      type: _36_Enums_ThemePageType;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -251,6 +254,7 @@ export class ThemeService {
     themeId: number;
     themeLibraryId: number;
     content: string;
+    type: _36_Enums_ThemePageType;
     name: string;
     updatedAt: string;
     createdAt: string;
