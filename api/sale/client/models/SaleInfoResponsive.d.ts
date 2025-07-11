@@ -1,5 +1,6 @@
 import type { _36_Enums_SaleStatus } from './_36_Enums_SaleStatus';
 import type { _36_Enums_SaleUserTrackingType } from './_36_Enums_SaleUserTrackingType';
+import type { _36_Enums_UserRole } from './_36_Enums_UserRole';
 export type SaleInfoResponsive = {
     referralInfo: {
         gmvPerSale: number;
@@ -11,6 +12,7 @@ export type SaleInfoResponsive = {
     sale: {
         SaleUserTracking: Array<{
             ActionBy: {
+                role: _36_Enums_UserRole;
                 email: string;
             };
             actionById: string;
