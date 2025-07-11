@@ -3,7 +3,7 @@ import type { _36_Enums_ThemePageType } from './_36_Enums_ThemePageType';
 import type { PrismaJson_ThemeNodes } from './PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from './PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from './PrismaJson_ThemeStyle';
-import type { ThemePage } from './ThemePage';
+import type { ThemePageWithDetails } from './ThemePageWithDetails';
 export type ThemeWithDetails = {
     themeTemplateId: number;
     isActivated: boolean;
@@ -21,7 +21,7 @@ export type ThemeWithDetails = {
     storeId: string;
     id: number;
     setting: PrismaJson_ThemeSetting;
-    ThemePage: Array<ThemePage>;
+    ThemePage: Array<ThemePageWithDetails>;
     ProductThemes: Array<{
         assignedProducts: number;
         type: _36_Enums_ThemePageType | null;

@@ -188,7 +188,7 @@ class ThemeService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns ThemePageWithDetails Ok
      * @throws ApiError
      */
     getThemePage({ storeId, id, }) {
