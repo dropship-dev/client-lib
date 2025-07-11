@@ -106,6 +106,32 @@ export class SaleService {
     });
   }
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public trackingOpenRequest({
+    data,
+    token,
+  }: {
+    data: string,
+    token: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/sale/tracking-open-request',
+      query: {
+        'data': data,
+        'token': token,
+      },
+      errors: {
+        400: `Bad request`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns any Ok
    * @throws ApiError
    */
