@@ -68,6 +68,26 @@ class SaleService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    trackingOpenRequest({ data, token, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/sale/tracking-open-request',
+            query: {
+                'data': data,
+                'token': token,
+            },
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

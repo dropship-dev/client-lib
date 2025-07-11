@@ -215,13 +215,13 @@ class SaleService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
-    get1X1PixelImage({ data, token, }) {
+    trackingOpenRequest({ data, token, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/sale/tracking-images',
+            url: '/sale/tracking-open-request',
             query: {
                 'data': data,
                 'token': token,

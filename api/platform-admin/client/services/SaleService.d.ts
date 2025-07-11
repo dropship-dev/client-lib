@@ -49,6 +49,14 @@ export declare class SaleService {
         }>;
     }>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    trackingOpenRequest({ data, token, }: {
+        data: string;
+        token: string;
+    }): CancelablePromise<string>;
+    /**
      * @returns any Ok
      * @throws ApiError
      */

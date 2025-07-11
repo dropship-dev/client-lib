@@ -154,13 +154,13 @@ export declare class SaleService {
         }>;
     }>;
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
-    get1X1PixelImage({ data, token, }: {
+    trackingOpenRequest({ data, token, }: {
         data: string;
         token: string;
-    }): CancelablePromise<void>;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
