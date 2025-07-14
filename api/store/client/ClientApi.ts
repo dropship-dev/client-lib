@@ -9,6 +9,7 @@ import { BankAccountService } from './services/BankAccountService';
 import { BoostSalesService } from './services/BoostSalesService';
 import { CollectionService } from './services/CollectionService';
 import { CurrencyService } from './services/CurrencyService';
+import { LogService } from './services/LogService';
 import { MarketingEmailService } from './services/MarketingEmailService';
 import { OrderService } from './services/OrderService';
 import { OrderTrackingService } from './services/OrderTrackingService';
@@ -30,6 +31,7 @@ export class ClientApi {
   public readonly boostSales: BoostSalesService;
   public readonly collection: CollectionService;
   public readonly currency: CurrencyService;
+  public readonly log: LogService;
   public readonly marketingEmail: MarketingEmailService;
   public readonly order: OrderService;
   public readonly orderTracking: OrderTrackingService;
@@ -62,6 +64,7 @@ export class ClientApi {
     this.boostSales = new BoostSalesService(this.request);
     this.collection = new CollectionService(this.request);
     this.currency = new CurrencyService(this.request);
+    this.log = new LogService(this.request);
     this.marketingEmail = new MarketingEmailService(this.request);
     this.order = new OrderService(this.request);
     this.orderTracking = new OrderTrackingService(this.request);

@@ -6,6 +6,7 @@ import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
+import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
@@ -31,13 +32,13 @@ export class WalletService {
       isBlock: boolean;
       isDefault: boolean;
       bank: PrismaJson_bankInfo;
-      currency: _36_Enums_CurrencyType;
       accountHolder: string;
       accountNumber: string;
       updatedAt: string;
       createdAt: string;
       isDeleted: boolean;
       id: string;
+      currency: _36_Enums_CurrencyType;
     }>;
     remainingBalance: number;
     payableBalance: number;
@@ -45,6 +46,10 @@ export class WalletService {
   } | {
     balanceDebt: number;
     requestPayout: {
+      payoutInToDate: string;
+      payoutInFromDate: string;
+      decidedAt: string;
+      historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
       noteByAdmin: string;
       noteBySeller: string;
@@ -68,13 +73,13 @@ export class WalletService {
         isBlock: boolean;
         isDefault: boolean;
         bank: PrismaJson_bankInfo;
-        currency: _36_Enums_CurrencyType;
         accountHolder: string;
         accountNumber: string;
         updatedAt: string;
         createdAt: string;
         isDeleted: boolean;
         id: string;
+        currency: _36_Enums_CurrencyType;
       }>;
       availableSoon: number;
       hold: number;

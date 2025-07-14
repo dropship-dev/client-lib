@@ -7,9 +7,11 @@ import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType'
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { getBoostSalesDto } from '../models/getBoostSalesDto';
-import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
+import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
+import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
+import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -101,12 +103,12 @@ export class OrderService {
   }): CancelablePromise<{
     freeShipInfo: {
       value?: number;
-      status?: boolean;
+      status: boolean;
     };
     total: number;
     discountInfo: {
-      value?: number;
-      label?: string;
+      value: number;
+      label: string;
     };
     subTotal: number;
     shippingFee: number;
@@ -132,42 +134,84 @@ export class OrderService {
    * @returns any Ok
    * @throws ApiError
    */
+  public firstTimePreviewInit({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: CreateOrderDto,
+  }): CancelablePromise<{
+    freeShipInfo: {
+      value?: number;
+      status?: boolean;
+    };
+    total: number;
+    discountInfo: {
+      value?: number;
+      label?: string;
+    };
+    subTotal: number;
+    shippingFee: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/preview-v2',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public suggestionCrossSell({
     storeId,
     requestBody,
   }: {
     storeId: string,
-    requestBody: Array<getCrossSellByProductDto>,
+    requestBody: Array<GetCrossSellByProductDto>,
   }): CancelablePromise<Array<{
     suggestionProduct: Array<{
+      isEnable: boolean;
+      permalink: string;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      isActive: boolean;
+      name: string;
+      id: number;
       ProductVariant: Array<{
         podDesignVariantId: number;
         platformVariantId: number;
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
       }>;
-      isEnable: boolean;
-      isActive: boolean;
-      permalink: string;
-      deleted: boolean;
-      photos: PrismaJson_Photos;
-      name: string;
-      id: number;
     }>;
     rootProductId: number;
     triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -175,7 +219,6 @@ export class OrderService {
     placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
-    discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -183,35 +226,38 @@ export class OrderService {
     createdAt: string;
     storeId: string;
     id: number;
+    discount: PrismaJson_DiscountBoostSale;
     Product: Array<{
+      isEnable: boolean;
+      permalink: string;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      isActive: boolean;
+      name: string;
+      id: number;
       ProductVariant: Array<{
         podDesignVariantId: number;
         platformVariantId: number;
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
       }>;
-      isEnable: boolean;
-      isActive: boolean;
-      permalink: string;
-      deleted: boolean;
-      photos: PrismaJson_Photos;
-      name: string;
-      id: number;
     }>;
   }>> {
     return this.httpRequest.request({
@@ -232,6 +278,117 @@ export class OrderService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public suggestionCrossSellV2({
+    storeId,
+    productId,
+    isRootProduct,
+  }: {
+    storeId: string,
+    productId?: Array<number>,
+    isRootProduct?: Array<boolean>,
+  }): CancelablePromise<Array<{
+    suggestionProduct: Array<{
+      isEnable: boolean;
+      permalink: string;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      isActive: boolean;
+      name: string;
+      id: number;
+      ProductVariant: Array<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        displayName: string;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        isActive: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
+    }>;
+    rootProductId: number;
+    triggerBy: _36_Enums_BoostSaleTriggerType;
+    marketingType: _36_Enums_MarketingType;
+    placement: PrismaJson_PlacementBoostSaleType;
+    endDate: string;
+    startDate: string;
+    type: _36_Enums_BoostSaleType;
+    status: boolean;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+    discount: PrismaJson_DiscountBoostSale;
+    Product: Array<{
+      isEnable: boolean;
+      permalink: string;
+      deleted: boolean;
+      photos: PrismaJson_Photos;
+      isActive: boolean;
+      name: string;
+      id: number;
+      ProductVariant: Array<{
+        podDesignVariantId: number;
+        platformVariantId: number;
+        margin: PrismaJson_MarginInfo;
+        minSellingPrice: number;
+        compareAtPrice: number;
+        displayName: string;
+        productId: number;
+        cost: PrismaJson_CostInfo;
+        supplierPrice: number;
+        price: number;
+        photo: string;
+        isEnable: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
+        variantOption: PrismaJson_VariantOptionValues;
+        SKU: string;
+        deleted: boolean;
+        isActive: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      }>;
+    }>;
+  }>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/suggestion-cross-sell',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'productId': productId,
+        'isRootProduct': isRootProduct,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns SuggestionResponseDto Ok
    * @throws ApiError
    */
@@ -240,7 +397,7 @@ export class OrderService {
     requestBody,
   }: {
     storeId: string,
-    requestBody: Array<getBoostSalesDto>,
+    requestBody: Array<GetBoostSalesDto>,
   }): CancelablePromise<Array<SuggestionResponseDto>> {
     return this.httpRequest.request({
       method: 'POST',
@@ -250,6 +407,38 @@ export class OrderService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns SuggestionResponseDto Ok
+   * @throws ApiError
+   */
+  public suggestionBoostSaleV2({
+    storeId,
+    productId,
+    boostSaleId,
+  }: {
+    storeId: string,
+    productId?: Array<number>,
+    boostSaleId?: Array<number>,
+  }): CancelablePromise<Array<SuggestionResponseDto>> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/suggestion-boost-sales',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'productId': productId,
+        'boostSaleId': boostSaleId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -274,6 +463,12 @@ export class OrderService {
     paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    shippingFee: number;
+    discount: number;
+    subTotal: number;
+    total: number;
+    billingInfo: PrismaJson_BillingInfo;
+    shippingInfo: PrismaJson_BillingInfo;
     status: string;
   }> {
     return this.httpRequest.request({
@@ -288,6 +483,65 @@ export class OrderService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getCustomerInfoForThankYouPage({
+    storeId,
+    orderId,
+  }: {
+    storeId: string,
+    orderId: string,
+  }): CancelablePromise<{
+    billingInfo: PrismaJson_BillingInfo;
+    shippingInfo: PrismaJson_BillingInfo;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/info',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getRevenueOrder({
+    orderId,
+    storeId,
+  }: {
+    orderId: string,
+    storeId: string,
+  }): CancelablePromise<{
+    total: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/order/{orderId}/revenue',
+      path: {
+        'orderId': orderId,
+        'storeId': storeId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

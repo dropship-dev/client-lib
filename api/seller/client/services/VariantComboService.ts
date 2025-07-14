@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateComboDto } from '../models/CreateComboDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { UpdateComboDto } from '../models/UpdateComboDto';
 import type { UpdateCombosDto } from '../models/UpdateCombosDto';
@@ -33,8 +33,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -87,8 +87,8 @@ export class VariantComboService {
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
       SKU: string;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -180,7 +180,7 @@ export class VariantComboService {
     });
   }
   /**
-   * @returns Prisma_BatchPayload Ok
+   * @returns GetBatchResult Ok
    * @throws ApiError
    */
   public createCombos({
@@ -191,7 +191,7 @@ export class VariantComboService {
     storeId: string,
     productId: number,
     requestBody: Array<CreateComboDto>,
-  }): CancelablePromise<Prisma_BatchPayload> {
+  }): CancelablePromise<GetBatchResult> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/combo/createCombos',
@@ -231,8 +231,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -279,8 +279,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -327,8 +327,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -375,8 +375,8 @@ export class VariantComboService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;

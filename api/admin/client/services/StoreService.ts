@@ -2,28 +2,28 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_CapabilityStatus } from '../models/_36_Enums_CapabilityStatus';
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
 import type { _36_Enums_FraudDetectionType } from '../models/_36_Enums_FraudDetectionType';
+import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { AddPlatformProductStoresDto } from '../models/AddPlatformProductStoresDto';
 import type { ApproveStoreDto } from '../models/ApproveStoreDto';
-import type { FraudDetection } from '../models/FraudDetection';
 import type { FraudStatusType } from '../models/FraudStatusType';
-import type { FulfillmentAgency } from '../models/FulfillmentAgency';
-import type { Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_ } from '../models/Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_';
+import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
+import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_UnavailableBalance } from '../models/PrismaJson_UnavailableBalance';
-import type { Store } from '../models/Store';
-import type { StoreUser } from '../models/StoreUser';
+import type { StoreData } from '../models/StoreData';
 import type { UpdateManyStorePaymentMethodDto } from '../models/UpdateManyStorePaymentMethodDto';
 import type { UpdateStorePaymentMethodDto } from '../models/UpdateStorePaymentMethodDto';
 import type { UpdateStoreStatusDto } from '../models/UpdateStoreStatusDto';
-import type { Wallet } from '../models/Wallet';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreService {
@@ -62,6 +62,19 @@ export class StoreService {
     prePageIndex: string;
     total: number;
     data: Array<{
+      referralCode: string;
+      primaryDomain: string;
+      subDomain: string;
+      closedAt: string;
+      avatar: string;
+      timezone: PrismaJson_Timezone;
+      status: _36_Enums_StoreStatus;
+      phone: string;
+      email: string;
+      name: string;
+      createdAt: string;
+      fulfillmentAgencyId: number;
+      id: string;
       FraudDetection: Array<{
         labels: PrismaJson_TypeOfFraudService;
         idempotencyKey: string;
@@ -75,23 +88,6 @@ export class StoreService {
         storeId: string;
         id: string;
       }>;
-      StoreUser: Array<{
-        role: _36_Enums_StoreRole;
-      }>;
-      referralCode: string;
-      primaryDomain: string;
-      subDomain: string;
-      avatar: string;
-      Payment: Array<{
-        type: _36_Enums_PaymentType;
-        name: string;
-        id: number;
-      }>;
-      timezone: PrismaJson_Timezone;
-      status: _36_Enums_StoreStatus;
-      phone: string;
-      email: string;
-      name: string;
       Wallet: Array<{
         updatedAt: string;
         createdAt: string;
@@ -110,10 +106,42 @@ export class StoreService {
       FulfillmentAgency: {
         costCalculationMethod: _36_Enums_CostCalculationMethod;
         name: string;
+        Setting: {
+          percentageCostPlatformFee: number;
+        };
       };
-      createdAt: string;
-      fulfillmentAgencyId: number;
-      id: string;
+      Payment: Array<{
+        type: _36_Enums_PaymentType;
+        name: string;
+        id: number;
+        PaymentOnboarding: {
+          paymentId: number;
+          dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
+          onboardingProducts: PrismaJson_OnboardingProducts;
+          paypalPartnerReferralId: string;
+          vettingRejectedAt: string;
+          customCardProcessingStatus: _36_Enums_CapabilityStatus;
+          PPCPCustomVettingStatus: _36_Enums_PPCPVettingStatus;
+          oAuthIntegration: boolean;
+          paymentReceivable: boolean;
+          primaryEmailConfirmed: boolean;
+          onboardingStatus: _36_Enums_OnboardingStatus;
+          onboardingUrl: string;
+          onboardingId: string;
+          merchantEmail: string;
+          merchantId: string;
+          paymentType: _36_Enums_PaymentType;
+          updatedAt: string;
+          createdAt: string;
+          isDeleted: boolean;
+          storeId: string;
+          fulfillmentAgencyId: number;
+          id: number;
+        };
+      }>;
+      StoreUser: Array<{
+        role: _36_Enums_StoreRole;
+      }>;
       userRole: _36_Enums_StoreRole;
       fraudStatus: FraudStatusType;
     }>;
@@ -212,19 +240,19 @@ export class StoreService {
     fulfillmentAgencyId: number,
     requestBody: UpdateManyStorePaymentMethodDto,
   }): CancelablePromise<Array<{
+    id: string;
     Payment: Array<{
-      publishableKey: string;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      publishableKey: string;
       type: _36_Enums_PaymentType;
       email: string;
       name: string;
       createdAt: string;
       id: number;
     }>;
-    id: string;
   }>> {
     return this.httpRequest.request({
       method: 'POST',
@@ -244,26 +272,14 @@ export class StoreService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns StoreData Ok
    * @throws ApiError
    */
   public getStore({
     storeId,
   }: {
     storeId: string,
-  }): CancelablePromise<(Store & {
-    FulfillmentAgency: FulfillmentAgency | null;
-  } & {
-    StoreUser: Array<StoreUser>;
-  } & {
-    FraudDetection: Array<FraudDetection>;
-  } & {
-    Wallet: Array<Wallet>;
-  } & {
-    fraudStatus?: FraudStatusType;
-  } & {
-    Payment: Array<Omit_Payment_secretKey_or_token_or_tokenExpiredAt_or_deleted_or_userId_or_isPlatform_or_gatewayUrl_or_partnerId_or_salt_>;
-  })> {
+  }): CancelablePromise<StoreData> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}',
@@ -290,29 +306,34 @@ export class StoreService {
     storeId: string,
     requestBody: UpdateStoreStatusDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedDate: string;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;
@@ -321,6 +342,7 @@ export class StoreService {
     name: string;
     updatedAt: string;
     createdAt: string;
+    isDeleted: boolean;
     fulfillmentAgencyId: number;
     id: string;
   }> {
@@ -354,29 +376,34 @@ export class StoreService {
     storeId: string,
     requestBody: ApproveStoreDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedDate: string;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;
@@ -385,6 +412,7 @@ export class StoreService {
     name: string;
     updatedAt: string;
     createdAt: string;
+    isDeleted: boolean;
     fulfillmentAgencyId: number;
     id: string;
   }> {
@@ -421,29 +449,34 @@ export class StoreService {
     storeId: string,
     requestBody: UpdateStorePaymentMethodDto,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedDate: string;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;
@@ -452,6 +485,7 @@ export class StoreService {
     name: string;
     updatedAt: string;
     createdAt: string;
+    isDeleted: boolean;
     fulfillmentAgencyId: number;
     id: string;
   }> {
@@ -488,29 +522,34 @@ export class StoreService {
     storeId: string,
     paymentId: number,
   }): CancelablePromise<{
+    isConversionRate: boolean;
     stripeDefaultPaymentMethodId: string;
     stripeCustomerId: string;
     warning: boolean;
+    invitedDate: string;
+    invitedById: number;
     currencyId: number;
     maxUsers: number;
     balance: number;
     referralCode: string;
     defaultBankAccount: string;
-    shippingPolicy: string;
-    termsOfService: string;
-    privacyPolicy: string;
-    refundPolicy: string;
     shippingFeeAdditional: number;
     shippingFee: number;
     primaryDomain: string;
     subDomain: string;
     pageName: string;
+    closedAt: string;
     country: string;
     zipCode: string;
     city: string;
     apartmentAddress: string;
     address: string;
     avatar: string;
+    othersFee: number;
+    shippingPolicy: string;
+    termsOfService: string;
+    refundPolicy: string;
+    privacyPolicy: string;
     timezone: PrismaJson_Timezone;
     type: _36_Enums_StoreType;
     status: _36_Enums_StoreStatus;
@@ -519,6 +558,7 @@ export class StoreService {
     name: string;
     updatedAt: string;
     createdAt: string;
+    isDeleted: boolean;
     fulfillmentAgencyId: number;
     id: string;
   }> {
@@ -550,11 +590,11 @@ export class StoreService {
   }: {
     storeId: string,
   }): CancelablePromise<Array<{
-    publishableKey: string;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    publishableKey: string;
     type: _36_Enums_PaymentType;
     email: string;
     updatedAt: string;

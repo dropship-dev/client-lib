@@ -46,13 +46,13 @@ export class PodElementService {
     limit?: number,
   }): CancelablePromise<{
     data: Array<{
+      name: string;
+      id: number;
       PodElement: Array<{
         url: string;
         name: string;
       }>;
       order: number;
-      name: string;
-      id: number;
     }>;
     pageDetail: IPageDetail;
   }> {

@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
@@ -14,7 +14,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PlatformVariantService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns Prisma_BatchPayload Ok
+   * @returns GetBatchResult Ok
    * @throws ApiError
    */
   public createPlatformVariants({
@@ -25,7 +25,7 @@ export class PlatformVariantService {
     fulfillmentAgencyId: number,
     platformProductId: number,
     requestBody: CreatePlatformVariantsDto,
-  }): CancelablePromise<Prisma_BatchPayload> {
+  }): CancelablePromise<GetBatchResult> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/platform-product/{platformProductId}/variant',
@@ -131,11 +131,11 @@ export class PlatformVariantService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -182,11 +182,11 @@ export class PlatformVariantService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -233,11 +233,11 @@ export class PlatformVariantService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -284,11 +284,11 @@ export class PlatformVariantService {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
-    deleted: boolean;
     platformProductId: number;
+    deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;

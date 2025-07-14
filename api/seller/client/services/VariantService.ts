@@ -3,10 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateVariantsDto } from '../models/CreateVariantsDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
@@ -16,7 +16,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class VariantService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
-   * @returns Prisma_BatchPayload Ok
+   * @returns GetBatchResult Ok
    * @throws ApiError
    */
   public createVariants({
@@ -25,7 +25,7 @@ export class VariantService {
   }: {
     storeId: string,
     requestBody: Array<CreateVariantsDto>,
-  }): CancelablePromise<Prisma_BatchPayload> {
+  }): CancelablePromise<GetBatchResult> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/store/{storeId}/product/{productId}/variant',
@@ -64,22 +64,8 @@ export class VariantService {
     total: number;
     data: Array<({
       PlatformVariant: {
-        fulfillmentPlatformVariantId: string;
-        groupPlatformVariantId: number;
-        cost: PrismaJson_PlatformCostInfo;
-        supplierPrice: number;
         price: number;
-        photo: string;
-        isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
-        SKU: string;
-        deleted: boolean;
-        platformProductId: number;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        id: number;
       };
     } & {
       podDesignVariantId: number;
@@ -87,16 +73,18 @@ export class VariantService {
       margin: PrismaJson_MarginInfo;
       minSellingPrice: number;
       compareAtPrice: number;
+      displayName: string;
       productId: number;
       cost: PrismaJson_CostInfo;
       supplierPrice: number;
       price: number;
       photo: string;
       isEnable: boolean;
-      isActive: boolean;
+      customVariantOption: PrismaJson_CustomVariantOptionValues;
       variantOption: PrismaJson_VariantOptionValues;
       SKU: string;
       deleted: boolean;
+      isActive: boolean;
       name: string;
       updatedAt: string;
       createdAt: string;
@@ -131,10 +119,12 @@ export class VariantService {
     storeId,
     productId,
     requestBody,
+    key,
   }: {
     storeId: string,
     productId: number,
     requestBody: UpdateVariantsDto,
+    key?: string,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -142,6 +132,9 @@ export class VariantService {
       path: {
         'storeId': storeId,
         'productId': productId,
+      },
+      query: {
+        'key': key,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -200,22 +193,8 @@ export class VariantService {
     id: number,
   }): CancelablePromise<({
     PlatformVariant: {
-      fulfillmentPlatformVariantId: string;
-      groupPlatformVariantId: number;
-      cost: PrismaJson_PlatformCostInfo;
-      supplierPrice: number;
       price: number;
-      photo: string;
-      isEnable: boolean;
-      isActive: boolean;
       variantOption: PrismaJson_VariantOptionValues;
-      SKU: string;
-      deleted: boolean;
-      platformProductId: number;
-      name: string;
-      updatedAt: string;
-      createdAt: string;
-      id: number;
     };
   } & {
     podDesignVariantId: number;
@@ -223,16 +202,18 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
+    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
+    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -275,16 +256,18 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
+    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
+    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
@@ -327,16 +310,18 @@ export class VariantService {
     margin: PrismaJson_MarginInfo;
     minSellingPrice: number;
     compareAtPrice: number;
+    displayName: string;
     productId: number;
     cost: PrismaJson_CostInfo;
     supplierPrice: number;
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
+    customVariantOption: PrismaJson_CustomVariantOptionValues;
     variantOption: PrismaJson_VariantOptionValues;
     SKU: string;
     deleted: boolean;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;

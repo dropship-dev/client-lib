@@ -4,7 +4,9 @@
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
+import type { SendOtpAddPingpongAccountDto } from '../models/SendOtpAddPingpongAccountDto';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
+import type { VerifyOtpAddPingpongAccountDto } from '../models/VerifyOtpAddPingpongAccountDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PingPongAccountService {
@@ -25,12 +27,12 @@ export class PingPongAccountService {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
-    currency: _36_Enums_CurrencyType;
     email: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
+    currency: _36_Enums_CurrencyType;
   }> {
     return this.httpRequest.request({
       method: 'POST',
@@ -64,12 +66,12 @@ export class PingPongAccountService {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
-    currency: _36_Enums_CurrencyType;
     email: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
+    currency: _36_Enums_CurrencyType;
   }>> {
     return this.httpRequest.request({
       method: 'GET',
@@ -78,6 +80,62 @@ export class PingPongAccountService {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'storeId': storeId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public sentOtpAddPingpongAccount({
+    requestBody,
+  }: {
+    requestBody: SendOtpAddPingpongAccountDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/pingpong-account/send-otp',
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public verifyOtpAddPingpongAccount({
+    requestBody,
+  }: {
+    requestBody: VerifyOtpAddPingpongAccountDto,
+  }): CancelablePromise<{
+    walletId: string;
+    isBlock: boolean;
+    isDefault: boolean;
+    email: string;
+    updatedAt: string;
+    createdAt: string;
+    isDeleted: boolean;
+    id: string;
+    currency: _36_Enums_CurrencyType;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/pingpong-account/verify-otp',
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
@@ -103,12 +161,12 @@ export class PingPongAccountService {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
-    currency: _36_Enums_CurrencyType;
     email: string;
     updatedAt: string;
     createdAt: string;
     isDeleted: boolean;
     id: string;
+    currency: _36_Enums_CurrencyType;
   }> {
     return this.httpRequest.request({
       method: 'GET',

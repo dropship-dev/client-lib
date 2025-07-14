@@ -24,11 +24,12 @@ export class GoogleTagManagerService {
       id: number;
     }>;
   } & {
-    tag: string;
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    tag: string;
   })> {
     return this.httpRequest.request({
       method: 'POST',
@@ -53,24 +54,30 @@ export class GoogleTagManagerService {
    */
   public getAllGoogleTagManager({
     storeId,
+    isAppliedToAllPages,
   }: {
     storeId: string,
+    isAppliedToAllPages?: boolean,
   }): CancelablePromise<Array<({
     Product: Array<{
       id: number;
     }>;
   } & {
-    tag: string;
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    tag: string;
   })>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/store/{storeId}/google-tag-manager',
       path: {
         'storeId': storeId,
+      },
+      query: {
+        'isAppliedToAllPages': isAppliedToAllPages,
       },
       errors: {
         400: `Bad request`,
@@ -125,11 +132,12 @@ export class GoogleTagManagerService {
     tag: string,
     requestBody: UpdateGTMDto,
   }): CancelablePromise<{
-    tag: string;
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    tag: string;
   }> {
     return this.httpRequest.request({
       method: 'PATCH',
@@ -160,11 +168,12 @@ export class GoogleTagManagerService {
     storeId: string,
     tag: string,
   }): CancelablePromise<{
-    tag: string;
+    isAppliedToAllPages: boolean;
     updatedAt: string;
     createdAt: string;
     storeId: string;
     id: number;
+    tag: string;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',

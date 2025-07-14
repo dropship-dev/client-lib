@@ -5,8 +5,11 @@
 import type { _36_Enums_SubscriptionInterval } from '../models/_36_Enums_SubscriptionInterval';
 import type { _36_Enums_SubscriptionStatus } from '../models/_36_Enums_SubscriptionStatus';
 import type { _36_Enums_SubscriptionType } from '../models/_36_Enums_SubscriptionType';
+import type { PayPlatformTransactionFeeDebtDto } from '../models/PayPlatformTransactionFeeDebtDto';
 import type { PayPlatformTransactionFeeDto } from '../models/PayPlatformTransactionFeeDto';
+import type { PaySubscriptionInvoiceDto } from '../models/PaySubscriptionInvoiceDto';
 import type { PrismaJson_UpgradeSubscriptionPlan } from '../models/PrismaJson_UpgradeSubscriptionPlan';
+import type { SubscribeToNewSubscriptionPlanDto } from '../models/SubscribeToNewSubscriptionPlanDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class SubscriptionService {
@@ -50,12 +53,15 @@ export class SubscriptionService {
   }: {
     storeId: string,
   }): CancelablePromise<{
+    startedAt: string;
+    failedPTFCaptureTimes: number;
     needToPayPTF: boolean;
     upgradeSubscriptionPlan: {
       startDate: string;
       interval: _36_Enums_SubscriptionInterval;
       price: number;
       name: string;
+      id: number;
     };
     subscriptionPlan: {
       nextChargeDate: string;
@@ -66,6 +72,7 @@ export class SubscriptionService {
       price: number;
       status: string;
       name: string;
+      id: number;
     };
     freeTrial: {
       endDate: string;
@@ -104,6 +111,7 @@ export class SubscriptionService {
     stripeSubscriptionId: string;
     upgradeSubscriptionPlan: PrismaJson_UpgradeSubscriptionPlan;
     subscriptionPlanId: number;
+    passRevenueCeiling: boolean;
     failedPTFCaptureTimes: number;
     lastPlatformFeeChargeAt: string;
     currentPlatformTransactionFee: number;
@@ -210,6 +218,120 @@ export class SubscriptionService {
       path: {
         'storeId': storeId,
       },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getSubscriptionAndPlatformTransactionFeeDebt({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    totalPlatformFee: number;
+    subscriptionPlan: {
+      name: string;
+    };
+    subscriptionFee: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/subscription/debt-before-closing',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public paySubscriptionAndPlatformTransactionFeesDebt({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PayPlatformTransactionFeeDebtDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/pay-debt-before-closing',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public paySubscriptionInvoice({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: PaySubscriptionInvoiceDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/pay-subscription-invoice',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public subscribeToANewSubscriptionPlan({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: SubscribeToNewSubscriptionPlanDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/subscription/subscribe-to-a-new-plan',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

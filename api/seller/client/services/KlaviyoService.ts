@@ -41,26 +41,17 @@ export class KlaviyoService {
    */
   public getKlaviyo({
     storeId,
-    klaviyoId,
   }: {
     storeId: string,
-    klaviyoId: string,
-  }): CancelablePromise<Array<{
-    salt: string;
-    secretKey: string;
-    publishableKey: string;
-    status: boolean;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: string;
-  }>> {
+  }): CancelablePromise<{
+    secretKey: any;
+    publishableKey: any;
+  }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/klaviyo/{klaviyoId}',
+      url: '/store/{storeId}/klaviyo',
       path: {
         'storeId': storeId,
-        'klaviyoId': klaviyoId,
       },
       errors: {
         400: `Bad request`,
@@ -72,33 +63,21 @@ export class KlaviyoService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns KlaviyoDto Ok
    * @throws ApiError
    */
   public updateKlaviyo({
     storeId,
-    klaviyoId,
     requestBody,
   }: {
     storeId: string,
-    klaviyoId: string,
     requestBody: KlaviyoDto,
-  }): CancelablePromise<{
-    salt: string;
-    secretKey: string;
-    publishableKey: string;
-    status: boolean;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
-    id: string;
-  }> {
+  }): CancelablePromise<KlaviyoDto> {
     return this.httpRequest.request({
       method: 'PATCH',
-      url: '/store/{storeId}/klaviyo/{klaviyoId}',
+      url: '/store/{storeId}/klaviyo',
       path: {
         'storeId': storeId,
-        'klaviyoId': klaviyoId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -117,10 +96,8 @@ export class KlaviyoService {
    */
   public deleteKlaviyo({
     storeId,
-    klaviyoId,
   }: {
     storeId: string,
-    klaviyoId: string,
   }): CancelablePromise<{
     salt: string;
     secretKey: string;
@@ -133,10 +110,9 @@ export class KlaviyoService {
   }> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/store/{storeId}/klaviyo/{klaviyoId}',
+      url: '/store/{storeId}/klaviyo',
       path: {
         'storeId': storeId,
-        'klaviyoId': klaviyoId,
       },
       errors: {
         400: `Bad request`,
