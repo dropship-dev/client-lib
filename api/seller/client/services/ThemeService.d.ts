@@ -160,21 +160,14 @@ export declare class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
-    listActiveThemePages({ storeId, pageSize, nextPageIndex, }: {
+    listActiveThemePages({ storeId, pageType, }: {
         storeId: string;
-        pageSize?: number;
-        nextPageIndex?: number;
+        pageType: _36_Enums_ThemePageType;
     }): CancelablePromise<{
-        themePages: {
-            orderBy: string;
-            nextPageIndex: number;
-            prePageIndex: number;
-            total: number;
-            data: Array<{
-                name: string;
-                id: number;
-            }>;
-        };
+        themePages: Array<{
+            name: string;
+            id: number;
+        }>;
         activeTheme: {
             name: string;
             id: number;

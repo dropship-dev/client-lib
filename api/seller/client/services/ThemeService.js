@@ -141,7 +141,7 @@ class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
-    listActiveThemePages({ storeId, pageSize = 20, nextPageIndex, }) {
+    listActiveThemePages({ storeId, pageType, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/theme/theme-pages/active',
@@ -149,8 +149,7 @@ class ThemeService {
                 'storeId': storeId,
             },
             query: {
-                'pageSize': pageSize,
-                'nextPageIndex': nextPageIndex,
+                'pageType': pageType,
             },
             errors: {
                 400: `Bad request`,
