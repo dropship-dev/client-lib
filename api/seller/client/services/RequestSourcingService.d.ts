@@ -6,6 +6,7 @@ import type { CreateRequestSourcingDto } from '../models/CreateRequestSourcingDt
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_RequestSourcingHistory } from '../models/PrismaJson_RequestSourcingHistory';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
+import type { PrismaJson_VariantPlatformSnapshot } from '../models/PrismaJson_VariantPlatformSnapshot';
 import type { RejectRequestSourcingDto } from '../models/RejectRequestSourcingDto';
 import type { RequestSourcing } from '../models/RequestSourcing';
 import type { UpdateRequestSourcingDto } from '../models/UpdateRequestSourcingDto';
@@ -41,30 +42,46 @@ export declare class RequestSourcingService {
         prePageIndex: number;
         total: number;
         data: Array<({
+            RequestSourcingSnapshot: {
+                requestSourcingId: number;
+                variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+                snapshotAt: string;
+                details: string;
+                platformProductId: number;
+                photos: PrismaJson_Photos;
+                description: string;
+                name: string;
+                id: number;
+            };
             Store: {
+                isConversionRate: boolean;
                 stripeDefaultPaymentMethodId: string;
                 stripeCustomerId: string;
                 warning: boolean;
+                invitedDate: string;
+                invitedById: number;
                 currencyId: number;
                 maxUsers: number;
                 balance: number;
                 referralCode: string;
                 defaultBankAccount: string;
-                shippingPolicy: string;
-                termsOfService: string;
-                privacyPolicy: string;
-                refundPolicy: string;
                 shippingFeeAdditional: number;
                 shippingFee: number;
                 primaryDomain: string;
                 subDomain: string;
                 pageName: string;
+                closedAt: string;
                 country: string;
                 zipCode: string;
                 city: string;
                 apartmentAddress: string;
                 address: string;
                 avatar: string;
+                othersFee: number;
+                shippingPolicy: string;
+                termsOfService: string;
+                refundPolicy: string;
+                privacyPolicy: string;
                 timezone: PrismaJson_Timezone;
                 type: _36_Enums_StoreType;
                 status: _36_Enums_StoreStatus;
@@ -73,20 +90,22 @@ export declare class RequestSourcingService {
                 name: string;
                 updatedAt: string;
                 createdAt: string;
+                isDeleted: boolean;
                 fulfillmentAgencyId: number;
                 id: string;
             };
         } & {
+            requestSourcingSnapshotId: number;
+            productId: number;
             historyRequestSourcing: PrismaJson_RequestSourcingHistory;
             acceptByAdmin: boolean;
             acceptBySeller: boolean;
             rejectReasonByAdmin: string;
             rejectReasonBySeller: string;
-            productId: number;
+            requestId: string;
             platformProductId: number;
-            description: string;
-            link: string;
             photos: PrismaJson_Photos;
+            description: string;
             status: _36_Enums_RequestSourcingStatus;
             name: string;
             updatedAt: string;
@@ -94,6 +113,7 @@ export declare class RequestSourcingService {
             isDeleted: boolean;
             storeId: string;
             id: number;
+            link: string;
         })>;
     }>;
     /**
@@ -105,30 +125,46 @@ export declare class RequestSourcingService {
         storeId?: string;
         fulfillmentAgencyId?: number;
     }): CancelablePromise<({
+        RequestSourcingSnapshot: {
+            requestSourcingId: number;
+            variantNamePlatform: PrismaJson_VariantPlatformSnapshot;
+            snapshotAt: string;
+            details: string;
+            platformProductId: number;
+            photos: PrismaJson_Photos;
+            description: string;
+            name: string;
+            id: number;
+        };
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
+            invitedDate: string;
+            invitedById: number;
             currencyId: number;
             maxUsers: number;
             balance: number;
             referralCode: string;
             defaultBankAccount: string;
-            shippingPolicy: string;
-            termsOfService: string;
-            privacyPolicy: string;
-            refundPolicy: string;
             shippingFeeAdditional: number;
             shippingFee: number;
             primaryDomain: string;
             subDomain: string;
             pageName: string;
+            closedAt: string;
             country: string;
             zipCode: string;
             city: string;
             apartmentAddress: string;
             address: string;
             avatar: string;
+            othersFee: number;
+            shippingPolicy: string;
+            termsOfService: string;
+            refundPolicy: string;
+            privacyPolicy: string;
             timezone: PrismaJson_Timezone;
             type: _36_Enums_StoreType;
             status: _36_Enums_StoreStatus;
@@ -137,20 +173,22 @@ export declare class RequestSourcingService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            isDeleted: boolean;
             fulfillmentAgencyId: number;
             id: string;
         };
     } & {
+        requestSourcingSnapshotId: number;
+        productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
-        productId: number;
+        requestId: string;
         platformProductId: number;
-        description: string;
-        link: string;
         photos: PrismaJson_Photos;
+        description: string;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
         updatedAt: string;
@@ -158,6 +196,7 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
+        link: string;
     })>;
     /**
      * @returns any Ok
@@ -168,16 +207,17 @@ export declare class RequestSourcingService {
         id: number;
         requestBody: UpdateRequestSourcingDto;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
+        productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
-        productId: number;
+        requestId: string;
         platformProductId: number;
-        description: string;
-        link: string;
         photos: PrismaJson_Photos;
+        description: string;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
         updatedAt: string;
@@ -185,6 +225,7 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
+        link: string;
     }>;
     /**
      * @returns any Ok
@@ -194,16 +235,17 @@ export declare class RequestSourcingService {
         storeId: string;
         id: number;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
+        productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
-        productId: number;
+        requestId: string;
         platformProductId: number;
-        description: string;
-        link: string;
         photos: PrismaJson_Photos;
+        description: string;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
         updatedAt: string;
@@ -211,6 +253,7 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
+        link: string;
     }>;
     /**
      * @returns any Ok
@@ -222,16 +265,17 @@ export declare class RequestSourcingService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
+        productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
-        productId: number;
+        requestId: string;
         platformProductId: number;
-        description: string;
-        link: string;
         photos: PrismaJson_Photos;
+        description: string;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
         updatedAt: string;
@@ -239,6 +283,7 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
+        link: string;
     }>;
     /**
      * @returns any Ok
@@ -250,16 +295,17 @@ export declare class RequestSourcingService {
         storeId?: string;
         fulfillmentAgencyId?: number;
     }): CancelablePromise<{
+        requestSourcingSnapshotId: number;
+        productId: number;
         historyRequestSourcing: PrismaJson_RequestSourcingHistory;
         acceptByAdmin: boolean;
         acceptBySeller: boolean;
         rejectReasonByAdmin: string;
         rejectReasonBySeller: string;
-        productId: number;
+        requestId: string;
         platformProductId: number;
-        description: string;
-        link: string;
         photos: PrismaJson_Photos;
+        description: string;
         status: _36_Enums_RequestSourcingStatus;
         name: string;
         updatedAt: string;
@@ -267,5 +313,6 @@ export declare class RequestSourcingService {
         isDeleted: boolean;
         storeId: string;
         id: number;
+        link: string;
     }>;
 }

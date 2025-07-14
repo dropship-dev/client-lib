@@ -56,7 +56,7 @@ class StoreService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns StoreData Ok
      * @throws ApiError
      */
     getStore({ storeId, }) {
@@ -143,6 +143,26 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
+    reactivateStore({ storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/status/reactivate',
+            path: {
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStorePaymentMethod({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -210,6 +230,167 @@ class StoreService {
             path: {
                 'storeId': storeId,
             },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    checkStoreResourceAccess({ storeId, resourceName, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/resource-access',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'resourceName': resourceName,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listCoupons({ storeId, searchTitle, types, statuses, applyingMethods, pageSize = 20, nextPageIndex, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/coupons',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'searchTitle': searchTitle,
+                'types': types,
+                'statuses': statuses,
+                'applyingMethods': applyingMethods,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createCoupon({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/coupons',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteCoupons({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/store/{storeId}/coupons',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    updateCoupon({ storeId, couponId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'PATCH',
+            url: '/store/{storeId}/coupons/{couponId}',
+            path: {
+                'storeId': storeId,
+                'couponId': couponId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCoupon({ storeId, couponId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/coupons/{couponId}',
+            path: {
+                'storeId': storeId,
+                'couponId': couponId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateCouponStatus({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/coupons/status',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

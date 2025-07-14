@@ -4,10 +4,12 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { BoostSaleDto } from '../models/BoostSaleDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptions } from '../models/PrismaJson_CustomVariantOptions';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -34,7 +36,6 @@ export declare class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
-        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -42,6 +43,7 @@ export declare class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
+        discount: PrismaJson_DiscountBoostSale;
     }>;
     /**
      * @returns any Ok
@@ -68,7 +70,6 @@ export declare class BoostSalesService {
             placement: PrismaJson_PlacementBoostSaleType;
             endDate: string;
             startDate: string;
-            discount: PrismaJson_DiscountBoostSale;
             type: _36_Enums_BoostSaleType;
             status: boolean;
             name: string;
@@ -76,6 +77,7 @@ export declare class BoostSalesService {
             createdAt: string;
             storeId: string;
             id: number;
+            discount: PrismaJson_DiscountBoostSale;
         }>;
     }>;
     /**
@@ -86,8 +88,14 @@ export declare class BoostSalesService {
         storeId: string;
         permalink: string;
     }): CancelablePromise<{
+        id: number;
         BoostSale: Array<({
-            Product: Array<({
+            Product: Array<{
+                permalink: string;
+                photos: PrismaJson_Photos;
+                isActive: boolean;
+                name: string;
+                id: number;
                 ProductVariant: Array<({
                     Product: {
                         name: string;
@@ -99,46 +107,31 @@ export declare class BoostSalesService {
                     margin: PrismaJson_MarginInfo;
                     minSellingPrice: number;
                     compareAtPrice: number;
+                    displayName: string;
                     productId: number;
                     cost: PrismaJson_CostInfo;
                     supplierPrice: number;
                     price: number;
                     photo: string;
                     isEnable: boolean;
-                    isActive: boolean;
+                    customVariantOption: PrismaJson_CustomVariantOptionValues;
                     variantOption: PrismaJson_VariantOptionValues;
                     SKU: string;
                     deleted: boolean;
+                    isActive: boolean;
                     name: string;
                     updatedAt: string;
                     createdAt: string;
                     id: number;
                 })>;
-            } & {
-                podTemplateId: number;
-                campaignId: string;
-                isEnable: boolean;
-                isActive: boolean;
-                supplierContact: string;
-                variantOption: PrismaJson_VariantOptions;
-                availableSet: PrismaJson_AvailableSet;
-                SKU: string;
-                details: string;
-                permalink: string;
-                deleted: boolean;
-                platformProductId: number;
-                description: string;
-                photos: PrismaJson_Photos;
-                shippingFeeAdditional: number;
-                shippingFee: number;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                storeId: string;
-                id: number;
-            })>;
+            }>;
             Collection: Array<{
-                Product: Array<({
+                Product: Array<{
+                    permalink: string;
+                    photos: PrismaJson_Photos;
+                    isActive: boolean;
+                    name: string;
+                    id: number;
                     ProductVariant: Array<({
                         Product: {
                             name: string;
@@ -150,44 +143,24 @@ export declare class BoostSalesService {
                         margin: PrismaJson_MarginInfo;
                         minSellingPrice: number;
                         compareAtPrice: number;
+                        displayName: string;
                         productId: number;
                         cost: PrismaJson_CostInfo;
                         supplierPrice: number;
                         price: number;
                         photo: string;
                         isEnable: boolean;
-                        isActive: boolean;
+                        customVariantOption: PrismaJson_CustomVariantOptionValues;
                         variantOption: PrismaJson_VariantOptionValues;
                         SKU: string;
                         deleted: boolean;
+                        isActive: boolean;
                         name: string;
                         updatedAt: string;
                         createdAt: string;
                         id: number;
                     })>;
-                } & {
-                    podTemplateId: number;
-                    campaignId: string;
-                    isEnable: boolean;
-                    isActive: boolean;
-                    supplierContact: string;
-                    variantOption: PrismaJson_VariantOptions;
-                    availableSet: PrismaJson_AvailableSet;
-                    SKU: string;
-                    details: string;
-                    permalink: string;
-                    deleted: boolean;
-                    platformProductId: number;
-                    description: string;
-                    photos: PrismaJson_Photos;
-                    shippingFeeAdditional: number;
-                    shippingFee: number;
-                    name: string;
-                    updatedAt: string;
-                    createdAt: string;
-                    storeId: string;
-                    id: number;
-                })>;
+                }>;
             }>;
         } & {
             rootProductId: number;
@@ -196,7 +169,6 @@ export declare class BoostSalesService {
             placement: PrismaJson_PlacementBoostSaleType;
             endDate: string;
             startDate: string;
-            discount: PrismaJson_DiscountBoostSale;
             type: _36_Enums_BoostSaleType;
             status: boolean;
             name: string;
@@ -204,10 +176,16 @@ export declare class BoostSalesService {
             createdAt: string;
             storeId: string;
             id: number;
+            discount: PrismaJson_DiscountBoostSale;
         })>;
         Collection: Array<({
             BoostSale: Array<({
-                Product: Array<({
+                Product: Array<{
+                    permalink: string;
+                    photos: PrismaJson_Photos;
+                    isActive: boolean;
+                    name: string;
+                    id: number;
                     ProductVariant: Array<({
                         Product: {
                             name: string;
@@ -219,46 +197,31 @@ export declare class BoostSalesService {
                         margin: PrismaJson_MarginInfo;
                         minSellingPrice: number;
                         compareAtPrice: number;
+                        displayName: string;
                         productId: number;
                         cost: PrismaJson_CostInfo;
                         supplierPrice: number;
                         price: number;
                         photo: string;
                         isEnable: boolean;
-                        isActive: boolean;
+                        customVariantOption: PrismaJson_CustomVariantOptionValues;
                         variantOption: PrismaJson_VariantOptionValues;
                         SKU: string;
                         deleted: boolean;
+                        isActive: boolean;
                         name: string;
                         updatedAt: string;
                         createdAt: string;
                         id: number;
                     })>;
-                } & {
-                    podTemplateId: number;
-                    campaignId: string;
-                    isEnable: boolean;
-                    isActive: boolean;
-                    supplierContact: string;
-                    variantOption: PrismaJson_VariantOptions;
-                    availableSet: PrismaJson_AvailableSet;
-                    SKU: string;
-                    details: string;
-                    permalink: string;
-                    deleted: boolean;
-                    platformProductId: number;
-                    description: string;
-                    photos: PrismaJson_Photos;
-                    shippingFeeAdditional: number;
-                    shippingFee: number;
-                    name: string;
-                    updatedAt: string;
-                    createdAt: string;
-                    storeId: string;
-                    id: number;
-                })>;
+                }>;
                 Collection: Array<{
-                    Product: Array<({
+                    Product: Array<{
+                        permalink: string;
+                        photos: PrismaJson_Photos;
+                        isActive: boolean;
+                        name: string;
+                        id: number;
                         ProductVariant: Array<({
                             Product: {
                                 name: string;
@@ -270,44 +233,24 @@ export declare class BoostSalesService {
                             margin: PrismaJson_MarginInfo;
                             minSellingPrice: number;
                             compareAtPrice: number;
+                            displayName: string;
                             productId: number;
                             cost: PrismaJson_CostInfo;
                             supplierPrice: number;
                             price: number;
                             photo: string;
                             isEnable: boolean;
-                            isActive: boolean;
+                            customVariantOption: PrismaJson_CustomVariantOptionValues;
                             variantOption: PrismaJson_VariantOptionValues;
                             SKU: string;
                             deleted: boolean;
+                            isActive: boolean;
                             name: string;
                             updatedAt: string;
                             createdAt: string;
                             id: number;
                         })>;
-                    } & {
-                        podTemplateId: number;
-                        campaignId: string;
-                        isEnable: boolean;
-                        isActive: boolean;
-                        supplierContact: string;
-                        variantOption: PrismaJson_VariantOptions;
-                        availableSet: PrismaJson_AvailableSet;
-                        SKU: string;
-                        details: string;
-                        permalink: string;
-                        deleted: boolean;
-                        platformProductId: number;
-                        description: string;
-                        photos: PrismaJson_Photos;
-                        shippingFeeAdditional: number;
-                        shippingFee: number;
-                        name: string;
-                        updatedAt: string;
-                        createdAt: string;
-                        storeId: string;
-                        id: number;
-                    })>;
+                    }>;
                 }>;
             } & {
                 rootProductId: number;
@@ -316,7 +259,6 @@ export declare class BoostSalesService {
                 placement: PrismaJson_PlacementBoostSaleType;
                 endDate: string;
                 startDate: string;
-                discount: PrismaJson_DiscountBoostSale;
                 type: _36_Enums_BoostSaleType;
                 status: boolean;
                 name: string;
@@ -324,12 +266,13 @@ export declare class BoostSalesService {
                 createdAt: string;
                 storeId: string;
                 id: number;
+                discount: PrismaJson_DiscountBoostSale;
             })>;
         } & {
             SEO: any;
             condition: PrismaJson_ConditionCollection;
-            description: string;
             photos: PrismaJson_Photos;
+            description: string;
             type: _36_Enums_CollectionType;
             status: _36_Enums_CollectionStatus;
             name: string;
@@ -338,7 +281,6 @@ export declare class BoostSalesService {
             storeId: string;
             id: number;
         })>;
-        id: number;
     }>;
     /**
      * @returns any Ok
@@ -355,36 +297,40 @@ export declare class BoostSalesService {
                 margin: PrismaJson_MarginInfo;
                 minSellingPrice: number;
                 compareAtPrice: number;
+                displayName: string;
                 productId: number;
                 cost: PrismaJson_CostInfo;
                 supplierPrice: number;
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
             }>;
         } & {
+            snapshotAt: string;
             podTemplateId: number;
             campaignId: string;
             isEnable: boolean;
-            isActive: boolean;
             supplierContact: string;
+            customVariantOption: PrismaJson_CustomVariantOptions;
             variantOption: PrismaJson_VariantOptions;
             availableSet: PrismaJson_AvailableSet;
             SKU: string;
             details: string;
             permalink: string;
-            deleted: boolean;
             platformProductId: number;
-            description: string;
+            deleted: boolean;
             photos: PrismaJson_Photos;
+            description: string;
+            isActive: boolean;
             shippingFeeAdditional: number;
             shippingFee: number;
             name: string;
@@ -394,33 +340,33 @@ export declare class BoostSalesService {
             id: number;
         });
         Product: Array<{
+            isEnable: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
             ProductVariant: Array<{
                 compareAtPrice: number;
                 price: number;
             }>;
-            isEnable: boolean;
-            isActive: boolean;
-            photos: PrismaJson_Photos;
-            name: string;
-            id: number;
         }>;
         Collection: Array<({
             Product: Array<{
+                isEnable: boolean;
+                photos: PrismaJson_Photos;
+                isActive: boolean;
+                name: string;
+                id: number;
                 ProductVariant: Array<{
                     compareAtPrice: number;
                     price: number;
                 }>;
-                isEnable: boolean;
-                isActive: boolean;
-                photos: PrismaJson_Photos;
-                name: string;
-                id: number;
             }>;
         } & {
             SEO: any;
             condition: PrismaJson_ConditionCollection;
-            description: string;
             photos: PrismaJson_Photos;
+            description: string;
             type: _36_Enums_CollectionType;
             status: _36_Enums_CollectionStatus;
             name: string;
@@ -436,7 +382,6 @@ export declare class BoostSalesService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
-        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -444,6 +389,7 @@ export declare class BoostSalesService {
         createdAt: string;
         storeId: string;
         id: number;
+        discount: PrismaJson_DiscountBoostSale;
     })>;
     /**
      * @returns string Ok
@@ -462,20 +408,9 @@ export declare class BoostSalesService {
         id: number;
         storeId: string;
     }): CancelablePromise<{
-        rootProductId: number;
-        triggerBy: _36_Enums_BoostSaleTriggerType;
-        marketingType: _36_Enums_MarketingType;
-        placement: PrismaJson_PlacementBoostSaleType;
-        endDate: string;
-        startDate: string;
-        discount: PrismaJson_DiscountBoostSale;
-        type: _36_Enums_BoostSaleType;
-        status: boolean;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: number;
+        Product: Array<{
+            permalink: string;
+        }>;
     }>;
     /**
      * @returns void
@@ -486,11 +421,11 @@ export declare class BoostSalesService {
         requestBody: UpdateCrossSellStatusDto;
     }): CancelablePromise<void>;
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }: {
         id: Array<number>;
         storeId: string;
-    }): CancelablePromise<Prisma_BatchPayload>;
+    }): CancelablePromise<GetBatchResult>;
 }

@@ -1,5 +1,7 @@
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
+import type { _36_Enums_StoreUserInviteStatus } from '../models/_36_Enums_StoreUserInviteStatus';
 import type { CreateStaffDto } from '../models/CreateStaffDto';
+import type { PrismaJson_Permissions } from '../models/PrismaJson_Permissions';
 import type { UpdateStaffDto } from '../models/UpdateStaffDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -14,9 +16,13 @@ export declare class StaffService {
         storeId: string;
         requestBody: CreateStaffDto;
     }): CancelablePromise<{
+        inviteId: string;
+        inviteStatus: _36_Enums_StoreUserInviteStatus;
+        userName: string;
+        permissions: PrismaJson_Permissions;
         isOwner: boolean;
-        userId: string;
         role: _36_Enums_StoreRole;
+        userId: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -38,9 +44,13 @@ export declare class StaffService {
             id: string;
         };
     } & {
+        inviteId: string;
+        inviteStatus: _36_Enums_StoreUserInviteStatus;
+        userName: string;
+        permissions: PrismaJson_Permissions;
         isOwner: boolean;
-        userId: string;
         role: _36_Enums_StoreRole;
+        userId: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -55,9 +65,13 @@ export declare class StaffService {
         userId: string;
         requestBody: UpdateStaffDto;
     }): CancelablePromise<{
+        inviteId: string;
+        inviteStatus: _36_Enums_StoreUserInviteStatus;
+        userName: string;
+        permissions: PrismaJson_Permissions;
         isOwner: boolean;
-        userId: string;
         role: _36_Enums_StoreRole;
+        userId: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
@@ -71,9 +85,13 @@ export declare class StaffService {
         storeId: string;
         userId: string;
     }): CancelablePromise<{
+        inviteId: string;
+        inviteStatus: _36_Enums_StoreUserInviteStatus;
+        userName: string;
+        permissions: PrismaJson_Permissions;
         isOwner: boolean;
-        userId: string;
         role: _36_Enums_StoreRole;
+        userId: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;

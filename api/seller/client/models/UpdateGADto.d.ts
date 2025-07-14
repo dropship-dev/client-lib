@@ -1,3 +1,11 @@
 export type UpdateGADto = {
-    productIds: Array<number>;
+    measurementId?: string;
+    /**
+     * @deprecated
+     */
+    productIds?: Array<number>;
+    /**
+     * @deprecated
+     */
+    isAppliedToAllPages?: boolean;
 };

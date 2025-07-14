@@ -3,9 +3,11 @@ import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType'
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
-import type { getBoostSalesDto } from '../models/getBoostSalesDto';
-import type { getCrossSellByProductDto } from '../models/getCrossSellByProductDto';
+import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
+import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
+import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_DiscountBoostSale } from '../models/PrismaJson_DiscountBoostSale';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
@@ -51,6 +53,26 @@ export declare class OrderService {
     }): CancelablePromise<{
         freeShipInfo: {
             value?: number;
+            status: boolean;
+        };
+        total: number;
+        discountInfo: {
+            value: number;
+            label: string;
+        };
+        subTotal: number;
+        shippingFee: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    firstTimePreviewInit({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateOrderDto;
+    }): CancelablePromise<{
+        freeShipInfo: {
+            value?: number;
             status?: boolean;
         };
         total: number;
@@ -67,37 +89,39 @@ export declare class OrderService {
      */
     suggestionCrossSell({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: Array<getCrossSellByProductDto>;
+        requestBody: Array<GetCrossSellByProductDto>;
     }): CancelablePromise<Array<{
         suggestionProduct: Array<{
+            isEnable: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
             ProductVariant: Array<{
                 podDesignVariantId: number;
                 platformVariantId: number;
                 margin: PrismaJson_MarginInfo;
                 minSellingPrice: number;
                 compareAtPrice: number;
+                displayName: string;
                 productId: number;
                 cost: PrismaJson_CostInfo;
                 supplierPrice: number;
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
             }>;
-            isEnable: boolean;
-            isActive: boolean;
-            permalink: string;
-            deleted: boolean;
-            photos: PrismaJson_Photos;
-            name: string;
-            id: number;
         }>;
         rootProductId: number;
         triggerBy: _36_Enums_BoostSaleTriggerType;
@@ -105,7 +129,6 @@ export declare class OrderService {
         placement: PrismaJson_PlacementBoostSaleType;
         endDate: string;
         startDate: string;
-        discount: PrismaJson_DiscountBoostSale;
         type: _36_Enums_BoostSaleType;
         status: boolean;
         name: string;
@@ -113,35 +136,126 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: number;
+        discount: PrismaJson_DiscountBoostSale;
         Product: Array<{
+            isEnable: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
             ProductVariant: Array<{
                 podDesignVariantId: number;
                 platformVariantId: number;
                 margin: PrismaJson_MarginInfo;
                 minSellingPrice: number;
                 compareAtPrice: number;
+                displayName: string;
                 productId: number;
                 cost: PrismaJson_CostInfo;
                 supplierPrice: number;
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
             }>;
+        }>;
+    }>>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    suggestionCrossSellV2({ storeId, productId, isRootProduct, }: {
+        storeId: string;
+        productId?: Array<number>;
+        isRootProduct?: Array<boolean>;
+    }): CancelablePromise<Array<{
+        suggestionProduct: Array<{
             isEnable: boolean;
-            isActive: boolean;
             permalink: string;
             deleted: boolean;
             photos: PrismaJson_Photos;
+            isActive: boolean;
             name: string;
             id: number;
+            ProductVariant: Array<{
+                podDesignVariantId: number;
+                platformVariantId: number;
+                margin: PrismaJson_MarginInfo;
+                minSellingPrice: number;
+                compareAtPrice: number;
+                displayName: string;
+                productId: number;
+                cost: PrismaJson_CostInfo;
+                supplierPrice: number;
+                price: number;
+                photo: string;
+                isEnable: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
+                variantOption: PrismaJson_VariantOptionValues;
+                SKU: string;
+                deleted: boolean;
+                isActive: boolean;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+        }>;
+        rootProductId: number;
+        triggerBy: _36_Enums_BoostSaleTriggerType;
+        marketingType: _36_Enums_MarketingType;
+        placement: PrismaJson_PlacementBoostSaleType;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_BoostSaleType;
+        status: boolean;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+        discount: PrismaJson_DiscountBoostSale;
+        Product: Array<{
+            isEnable: boolean;
+            permalink: string;
+            deleted: boolean;
+            photos: PrismaJson_Photos;
+            isActive: boolean;
+            name: string;
+            id: number;
+            ProductVariant: Array<{
+                podDesignVariantId: number;
+                platformVariantId: number;
+                margin: PrismaJson_MarginInfo;
+                minSellingPrice: number;
+                compareAtPrice: number;
+                displayName: string;
+                productId: number;
+                cost: PrismaJson_CostInfo;
+                supplierPrice: number;
+                price: number;
+                photo: string;
+                isEnable: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
+                variantOption: PrismaJson_VariantOptionValues;
+                SKU: string;
+                deleted: boolean;
+                isActive: boolean;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
         }>;
     }>>;
     /**
@@ -150,7 +264,16 @@ export declare class OrderService {
      */
     suggestionBoostSale({ storeId, requestBody, }: {
         storeId: string;
-        requestBody: Array<getBoostSalesDto>;
+        requestBody: Array<GetBoostSalesDto>;
+    }): CancelablePromise<Array<SuggestionResponseDto>>;
+    /**
+     * @returns SuggestionResponseDto Ok
+     * @throws ApiError
+     */
+    suggestionBoostSaleV2({ storeId, productId, boostSaleId, }: {
+        storeId: string;
+        productId?: Array<number>;
+        boostSaleId?: Array<number>;
     }): CancelablePromise<Array<SuggestionResponseDto>>;
     /**
      * @returns any Ok
@@ -162,6 +285,33 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        shippingFee: number;
+        discount: number;
+        subTotal: number;
+        total: number;
+        billingInfo: PrismaJson_BillingInfo;
+        shippingInfo: PrismaJson_BillingInfo;
         status: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCustomerInfoForThankYouPage({ storeId, orderId, }: {
+        storeId: string;
+        orderId: string;
+    }): CancelablePromise<{
+        billingInfo: PrismaJson_BillingInfo;
+        shippingInfo: PrismaJson_BillingInfo;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getRevenueOrder({ orderId, storeId, }: {
+        orderId: string;
+        storeId: string;
+    }): CancelablePromise<{
+        total: number;
     }>;
 }

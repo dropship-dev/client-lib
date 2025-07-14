@@ -30,10 +30,10 @@ class ProductService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns GetAllProductType Ok
      * @throws ApiError
      */
-    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, startPrice, endPrice, isCheckRootProductCrossSell, }) {
+    getAllProduct({ storeId, pageSize = 20, nextPageIndex, name, tags, isActive, isInactive, haveDiscount, startPrice, endPrice, isCheckRootProductCrossSell, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/product',
@@ -46,6 +46,8 @@ class ProductService {
                 'name': name,
                 'tags': tags,
                 'isActive': isActive,
+                'isInactive': isInactive,
+                'haveDiscount': haveDiscount,
                 'startPrice': startPrice,
                 'endPrice': endPrice,
                 'isCheckRootProductCrossSell': isCheckRootProductCrossSell,
@@ -166,30 +168,6 @@ class ProductService {
             },
             query: {
                 'productIds': productIds,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    getProduct({ storeId, productId, isGetAllPlatformProductStore, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/store/{storeId}/product/{productId}',
-            path: {
-                'storeId': storeId,
-                'productId': productId,
-            },
-            query: {
-                'isGetAllPlatformProductStore': isGetAllPlatformProductStore,
             },
             errors: {
                 400: `Bad request`,

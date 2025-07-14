@@ -1,9 +1,10 @@
 import type { _36_Enums_FileType } from '../models/_36_Enums_FileType';
 import type { CreateDesignDto } from '../models/CreateDesignDto';
 import type { DuplicateDesignDto } from '../models/DuplicateDesignDto';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { MultiplePublishToStoreDto } from '../models/MultiplePublishToStoreDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
+import type { PrismaJson_CustomVariantOptions } from '../models/PrismaJson_CustomVariantOptions';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PodFileGroupLayers } from '../models/PrismaJson_PodFileGroupLayers';
 import type { PrismaJson_PodFileProperties } from '../models/PrismaJson_PodFileProperties';
@@ -30,10 +31,10 @@ export declare class PodDesignService {
         sizeGuide: string;
         keyFeature: string;
         podTemplateId: number;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -74,12 +75,12 @@ export declare class PodDesignService {
         }>;
     } | boolean)>;
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     deleteMyDesign({ requestBody, }: {
         requestBody: Array<number>;
-    }): CancelablePromise<Prisma_BatchPayload>;
+    }): CancelablePromise<GetBatchResult>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -109,20 +110,22 @@ export declare class PodDesignService {
     publishToProduct({ requestBody, }: {
         requestBody: PublishToProductDto;
     }): CancelablePromise<{
+        snapshotAt: string;
         podTemplateId: number;
         campaignId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
+        customVariantOption: PrismaJson_CustomVariantOptions;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         permalink: string;
-        deleted: boolean;
         platformProductId: number;
-        description: string;
+        deleted: boolean;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         shippingFeeAdditional: number;
         shippingFee: number;
         name: string;
@@ -153,9 +156,9 @@ export declare class PodDesignService {
         };
         templateVariant: Array<{
             faPrice: number;
-            sku: string;
             minSellingPrice: number;
             supplierCost: number;
+            sku: string;
             podTemplateId: number;
             variantOption: PrismaJson_VariantOptionValues;
             name: string;
@@ -176,14 +179,6 @@ export declare class PodDesignService {
         }>;
         myDesign: {
             isDraft: boolean;
-            PodFile: Array<{
-                podPrintAreaId: number;
-                properties: PrismaJson_PodFileProperties;
-                groupLayers: PrismaJson_PodFileGroupLayers;
-                fileName: string;
-                type: _36_Enums_FileType;
-                id: number;
-            }>;
             sku: string;
             sizeGuide: string;
             keyFeature: string;
@@ -194,6 +189,14 @@ export declare class PodDesignService {
             name: string;
             storeId: string;
             id: number;
+            PodFile: Array<{
+                properties: PrismaJson_PodFileProperties;
+                podPrintAreaId: number;
+                groupLayers: PrismaJson_PodFileGroupLayers;
+                fileName: string;
+                type: _36_Enums_FileType;
+                id: number;
+            }>;
         };
         printArea: Array<{
             printAreaBounds: PrismaJson_PrintAreaBounds;
@@ -203,14 +206,14 @@ export declare class PodDesignService {
             name: string;
             id: number;
             PodFile: {
-                podDesignId: number;
-                podPrintAreaId: number;
                 properties: PrismaJson_PodFileProperties;
+                podPrintAreaId: number;
                 groupLayers: PrismaJson_PodFileGroupLayers;
                 size: string;
                 backgroundUrl: string;
                 url: string;
                 fileName: string;
+                podDesignId: number;
                 podTemplateId: number;
                 type: _36_Enums_FileType;
                 updatedAt: string;
@@ -238,10 +241,10 @@ export declare class PodDesignService {
         sizeGuide: string;
         keyFeature: string;
         podTemplateId: number;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;

@@ -1,3 +1,4 @@
+import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_FulfillmentPlatform';
 import type { AddPlatformProductTagDto } from '../models/AddPlatformProductTagDto';
 import type { AdminTag } from '../models/AdminTag';
 import type { CreatePlatformProductDto } from '../models/CreatePlatformProductDto';
@@ -26,19 +27,22 @@ export declare class PlatformProductService {
         fulfillmentAgencyId: number;
         requestBody: CreatePlatformProductDto;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -49,39 +53,59 @@ export declare class PlatformProductService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, name, tags, isActive, startPrice, endPrice, }: {
+    getAllPlatformProduct({ fulfillmentAgencyId, pageSize, nextPageIndex, search, tags, isActive, startPrice, endPrice, fulfillmentPlatform, haveCollection, }: {
         fulfillmentAgencyId: number;
         pageSize?: number;
         nextPageIndex?: number;
-        name?: string;
+        search?: string;
         tags?: Array<string>;
         isActive?: boolean;
         startPrice?: number;
         endPrice?: number;
+        fulfillmentPlatform?: any;
+        haveCollection?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: number;
         prePageIndex: number;
         total: number;
         data: Array<{
+            collectionDefaultId: number;
+            priceUpdatedAt: string;
             isInSyncWithFulfillmentPlatform: boolean;
+            fulfillmentPlatformSupplierId: number;
             fulfillmentPlatform: 'BETTA_SUP';
             fulfillmentPlatformQuoteId: string;
             isEnable: boolean;
-            isActive: boolean;
             supplierContact: string;
             variantOption: PrismaJson_VariantOptions;
             availableSet: PrismaJson_AvailableSet;
             SKU: string;
             details: string;
             deleted: boolean;
-            description: string;
             photos: PrismaJson_Photos;
+            description: string;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
             fulfillmentAgencyId: number;
             id: number;
+            FulfillmentPlatformSupplier: {
+                platform: 'BETTA_SUP';
+            };
+            Product: Array<{
+                platformProductId: number;
+                storeId: string;
+                id: number;
+            }>;
+            Tag: Array<{
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                fulfillmentAgencyId: number;
+                id: number;
+            }>;
             GroupPlatformVariant: Array<({
                 PlatformVariant: Array<{
                     photo: string;
@@ -105,26 +129,14 @@ export declare class PlatformProductService {
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
+                platformProductId: number;
                 deleted: boolean;
-                platformProductId: number;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
-                id: number;
-            }>;
-            Tag: Array<{
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                fulfillmentAgencyId: number;
-                id: number;
-            }>;
-            Product: Array<{
-                platformProductId: number;
-                storeId: string;
                 id: number;
             }>;
             noStores: number;
@@ -163,6 +175,9 @@ export declare class PlatformProductService {
                 id: number;
             }>;
         })>;
+        FulfillmentPlatformSupplier: {
+            platform: _36_Enums_FulfillmentPlatform;
+        } | null;
         PlatformVariant: Array<PlatformVariant>;
         Tag: Array<AdminTag>;
     })>;
@@ -175,19 +190,22 @@ export declare class PlatformProductService {
         platformProductId: number;
         requestBody: UpdatePlatformProductDto;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -202,19 +220,22 @@ export declare class PlatformProductService {
         fulfillmentAgencyId: number;
         platformProductId: number;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -230,19 +251,22 @@ export declare class PlatformProductService {
         platformProductId: number;
         requestBody: UpdatePlatformProductStatusDto;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -258,19 +282,22 @@ export declare class PlatformProductService {
         platformProductId: number;
         requestBody: AddPlatformProductTagDto;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -286,19 +313,22 @@ export declare class PlatformProductService {
         platformProductId: number;
         tagId: string;
     }): CancelablePromise<{
+        collectionDefaultId: number;
+        priceUpdatedAt: string;
         isInSyncWithFulfillmentPlatform: boolean;
+        fulfillmentPlatformSupplierId: number;
         fulfillmentPlatform: 'BETTA_SUP';
         fulfillmentPlatformQuoteId: string;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         availableSet: PrismaJson_AvailableSet;
         SKU: string;
         details: string;
         deleted: boolean;
-        description: string;
         photos: PrismaJson_Photos;
+        description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;

@@ -10,6 +10,20 @@ export declare class CurrencyService {
      * @returns any Ok
      * @throws ApiError
      */
+    getPopularStoreConversionRate({ storeId, }: {
+        storeId: string;
+    }): CancelablePromise<{
+        conversionsRate: Array<{
+            rate: number;
+            toCurrency: string;
+            fromCurrency: string;
+        }>;
+        currentCurrencyCode: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getCurrency({ id, }: {
         id: number;
     }): CancelablePromise<{

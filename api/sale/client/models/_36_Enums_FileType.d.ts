@@ -1,0 +1,7 @@
+export declare enum _36_Enums_FileType {
+    TEMPLATE = "TEMPLATE",
+    MOCKUP = "MOCKUP",
+    MOCKUP_BACKGROUND = "MOCKUP_BACKGROUND",
+    CUSTOM_MOCKUP = "CUSTOM_MOCKUP",
+    DESIGN = "DESIGN"
+}

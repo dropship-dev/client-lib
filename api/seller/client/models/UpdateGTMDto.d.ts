@@ -1,3 +1,11 @@
 export type UpdateGTMDto = {
-    productIds: Array<number>;
+    tag?: string;
+    /**
+     * @deprecated
+     */
+    productIds?: Array<number>;
+    /**
+     * @deprecated
+     */
+    isAppliedToAllPages?: boolean;
 };

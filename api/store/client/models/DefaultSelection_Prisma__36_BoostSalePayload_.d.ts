@@ -10,7 +10,6 @@ export type DefaultSelection_Prisma__36_BoostSalePayload_ = {
     placement: PrismaJson_PlacementBoostSaleType;
     endDate: string;
     startDate: string;
-    discount: PrismaJson_DiscountBoostSale;
     type: _36_Enums_BoostSaleType;
     status: boolean;
     name: string;
@@ -18,4 +17,5 @@ export type DefaultSelection_Prisma__36_BoostSalePayload_ = {
     createdAt: string;
     storeId: string;
     id: number;
+    discount: PrismaJson_DiscountBoostSale;
 };

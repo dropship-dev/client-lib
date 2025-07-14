@@ -7,7 +7,7 @@ class VariantService {
         this.httpRequest = httpRequest;
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createVariants({ storeId, requestBody, }) {
@@ -57,13 +57,16 @@ class VariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateVariants({ storeId, productId, requestBody, }) {
+    updateVariants({ storeId, productId, requestBody, key, }) {
         return this.httpRequest.request({
             method: 'PATCH',
             url: '/store/{storeId}/product/{productId}/variant',
             path: {
                 'storeId': storeId,
                 'productId': productId,
+            },
+            query: {
+                'key': key,
             },
             body: requestBody,
             mediaType: 'application/json',

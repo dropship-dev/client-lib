@@ -1,3 +1,4 @@
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
@@ -20,13 +21,13 @@ export declare class ThemeLibraryService {
         total: number;
         data: Array<{
             nodes: PrismaJson_ThemeNodes;
-            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
             image: string;
             name: string;
             updatedAt: string;
             createdAt: string;
             id: number;
+            setting: PrismaJson_ThemeSetting;
         }>;
     }>;
     /**
@@ -37,9 +38,11 @@ export declare class ThemeLibraryService {
         id: number;
     }): CancelablePromise<({
         ThemePage: Array<{
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
+            type: _36_Enums_ThemePageType;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -47,12 +50,12 @@ export declare class ThemeLibraryService {
         }>;
     } & {
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         image: string;
         name: string;
         updatedAt: string;
         createdAt: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     })>;
 }

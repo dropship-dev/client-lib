@@ -1,11 +1,15 @@
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
+import type { CloneThemePageDto } from '../models/CloneThemePageDto';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
+import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
 import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
+import type { ThemeWithDetails } from '../models/ThemeWithDetails';
+import type { UpdateAssignedProductsForThemePageDto } from '../models/UpdateAssignedProductsForThemePageDto';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -43,13 +47,13 @@ export declare class ThemeService {
             logoSize: _36_Enums_LogoSize;
             logo: string;
             nodes: PrismaJson_ThemeNodes;
-            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
             name: string;
             updatedAt: string;
             createdAt: string;
             storeId: string;
             id: number;
+            setting: PrismaJson_ThemeSetting;
         }>;
     }>;
     /**
@@ -60,9 +64,11 @@ export declare class ThemeService {
         storeId: string;
     }): CancelablePromise<({
         ThemePage: Array<{
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
+            type: _36_Enums_ThemePageType;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -78,13 +84,13 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     })>;
     /**
      * @returns string Ok
@@ -111,18 +117,20 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     } & {
         ThemePage: {
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
+            type: _36_Enums_ThemePageType;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -133,12 +141,115 @@ export declare class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
+    cloneThemePage({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CloneThemePageDto;
+    }): CancelablePromise<{
+        parentThemePageId: number;
+        themeId: number;
+        themeLibraryId: number;
+        content: string;
+        type: _36_Enums_ThemePageType;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listActiveThemePages({ storeId, pageSize, nextPageIndex, }: {
+        storeId: string;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<{
+        themePages: {
+            orderBy: string;
+            nextPageIndex: number;
+            prePageIndex: number;
+            total: number;
+            data: Array<{
+                name: string;
+                id: number;
+            }>;
+        };
+        activeTheme: {
+            name: string;
+            id: number;
+        };
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    listProductsForThemePage({ storeId, pageSize, nextPageIndex, name, themePageId, }: {
+        storeId: string;
+        pageSize?: number;
+        nextPageIndex?: number;
+        name?: string;
+        themePageId?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
+            ThemePage: Array<{
+                id: number;
+            }>;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getThemePage({ storeId, id, }: {
+        storeId: string;
+        id: number;
+    }): CancelablePromise<({
+        Product: Array<{
+            id: number;
+        }>;
+    } & {
+        parentThemePageId: number;
+        themeId: number;
+        themeLibraryId: number;
+        content: string;
+        type: _36_Enums_ThemePageType;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteThemePage({ storeId, id, }: {
+        storeId: string;
+        id: number;
+    }): CancelablePromise<string>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    updateAssignedProductsForThemePage({ storeId, id, requestBody, }: {
+        storeId: string;
+        id: number;
+        requestBody: UpdateAssignedProductsForThemePageDto;
+    }): CancelablePromise<void>;
+    /**
+     * @returns ThemeWithDetails Ok
+     * @throws ApiError
+     */
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
-    }) | null>;
+    }): CancelablePromise<ThemeWithDetails>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -157,13 +268,13 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     }>;
     /**
      * @returns any Ok
@@ -182,12 +293,12 @@ export declare class ThemeService {
         logoSize: _36_Enums_LogoSize;
         logo: string;
         nodes: PrismaJson_ThemeNodes;
-        setting: PrismaJson_ThemeSetting;
         style: PrismaJson_ThemeStyle;
         name: string;
         updatedAt: string;
         createdAt: string;
         storeId: string;
         id: number;
+        setting: PrismaJson_ThemeSetting;
     }>;
 }

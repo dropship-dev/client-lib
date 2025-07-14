@@ -43,6 +43,54 @@ class AsyncTaskService {
      * @returns any Ok
      * @throws ApiError
      */
+    createExportPayoutRequestTask({ fulfillmentAgencyId, exportedFilename, startDate, endDate, statuses, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/async-task/export-payout-request',
+            query: {
+                'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'statuses': statuses,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createExportProductRequestTask({ fulfillmentAgencyId, exportedFilename, startDate, endDate, statuses, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/async-task/export-product-request',
+            query: {
+                'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'statuses': statuses,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, }) {
         return this.httpRequest.request({
             method: 'POST',
@@ -73,6 +121,30 @@ class AsyncTaskService {
             url: '/async-task/{id}',
             path: {
                 'id': id,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createExportStoreReportTask({ exportedFilename, fulfillmentAgencyId, search, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/async-task/export-store-report',
+            query: {
+                'exportedFilename': exportedFilename,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'search': search,
+                'startDate': startDate,
+                'endDate': endDate,
             },
             errors: {
                 400: `Bad request`,

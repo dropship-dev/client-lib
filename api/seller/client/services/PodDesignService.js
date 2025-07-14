@@ -50,7 +50,7 @@ class PodDesignService {
         });
     }
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     deleteMyDesign({ requestBody, }) {

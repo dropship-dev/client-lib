@@ -18,6 +18,7 @@ export declare class GoogleAnalyticService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -28,13 +29,15 @@ export declare class GoogleAnalyticService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllGa({ storeId, }: {
+    getAllGa({ storeId, isAppliedToAllPages, }: {
         storeId: string;
+        isAppliedToAllPages?: boolean;
     }): CancelablePromise<Array<({
         Product: Array<{
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -53,6 +56,7 @@ export declare class GoogleAnalyticService {
             id: number;
         }>;
     } & {
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;
@@ -76,6 +80,7 @@ export declare class GoogleAnalyticService {
         storeId: string;
         pixelId: string;
     }): CancelablePromise<{
+        isAppliedToAllPages: boolean;
         measurementId: string;
         updatedAt: string;
         createdAt: string;

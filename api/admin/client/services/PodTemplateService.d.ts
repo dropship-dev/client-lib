@@ -30,10 +30,10 @@ export declare class PodTemplateService {
         podTechniqueId: number;
         podProductTypeId: number;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -76,10 +76,10 @@ export declare class PodTemplateService {
         podTechniqueId: number;
         podProductTypeId: number;
         isEnable: boolean;
-        isActive: boolean;
         supplierContact: string;
         variantOption: PrismaJson_VariantOptions;
         description: string;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -94,26 +94,39 @@ export declare class PodTemplateService {
         id: number;
         selectAllVariant?: boolean;
     }): CancelablePromise<{
-        PodTemplateVariant: Array<{
-            faPrice: number;
-            sku: string;
-            minSellingPrice: number;
-            supplierCost: number;
-            podTemplateId: number;
-            isEnable: boolean;
-            isActive: boolean;
-            variantOption: PrismaJson_VariantOptionValues;
-            name: string;
-            id: number;
-        }>;
+        isStock: boolean;
+        podCategoryId: number;
+        sku: string;
+        sizeGuide: string;
+        keyFeature: string;
+        podTechniqueId: number;
+        podProductTypeId: number;
+        supplierContact: string;
+        variantOption: PrismaJson_VariantOptions;
+        description: string;
+        isActive: boolean;
+        name: string;
+        id: number;
         PodFile: Array<{
-            podDesignId: number;
-            podPrintAreaId: number;
             properties: PrismaJson_PodFileProperties;
+            podPrintAreaId: number;
             groupLayers: PrismaJson_PodFileGroupLayers;
             fileName: string;
+            podDesignId: number;
             podTemplateId: number;
             type: _36_Enums_FileType;
+            id: number;
+        }>;
+        PodTemplateVariant: Array<{
+            faPrice: number;
+            minSellingPrice: number;
+            supplierCost: number;
+            sku: string;
+            podTemplateId: number;
+            isEnable: boolean;
+            variantOption: PrismaJson_VariantOptionValues;
+            isActive: boolean;
+            name: string;
             id: number;
         }>;
         PodPrintArea: Array<{
@@ -128,19 +141,6 @@ export declare class PodTemplateService {
             name: string;
             id: number;
         };
-        isStock: boolean;
-        podCategoryId: number;
-        sku: string;
-        sizeGuide: string;
-        keyFeature: string;
-        podTechniqueId: number;
-        podProductTypeId: number;
-        isActive: boolean;
-        supplierContact: string;
-        variantOption: PrismaJson_VariantOptions;
-        description: string;
-        name: string;
-        id: number;
         url: string;
         isFavorite: boolean;
     }>;

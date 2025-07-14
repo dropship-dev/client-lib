@@ -1,4 +1,3 @@
-import type { _36_Enums_FraudDetectionStatusType } from '../models/_36_Enums_FraudDetectionStatusType';
 import type { _36_Enums_FulfillmentStatus } from '../models/_36_Enums_FulfillmentStatus';
 import type { _36_Enums_OrderDisputeStatus } from '../models/_36_Enums_OrderDisputeStatus';
 import type { _36_Enums_OrderStatus } from '../models/_36_Enums_OrderStatus';
@@ -8,10 +7,15 @@ import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { _36_Enums_SyncTrackingStatus } from '../models/_36_Enums_SyncTrackingStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
+import type { DetailOrderDto } from '../models/DetailOrderDto';
 import type { FraudStatusType } from '../models/FraudStatusType';
+import type { HistoryItem } from '../models/HistoryItem';
+import type { HistoryTrackingOrderDto } from '../models/HistoryTrackingOrderDto';
 import type { PrismaJson_BillingInfo } from '../models/PrismaJson_BillingInfo';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
+import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -19,7 +23,6 @@ import type { PrismaJson_SyncBalanceAmount } from '../models/PrismaJson_SyncBala
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
 import type { PrismaJson_TransactionDetails } from '../models/PrismaJson_TransactionDetails';
 import type { PrismaJson_TransactionPaymentMethod } from '../models/PrismaJson_TransactionPaymentMethod';
-import type { PrismaJson_TypeOfFraudService } from '../models/PrismaJson_TypeOfFraudService';
 import type { PrismaJson_VariantComboItems } from '../models/PrismaJson_VariantComboItems';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { RefundOrderDto } from '../models/RefundOrderDto';
@@ -89,6 +92,7 @@ export declare class OrderService {
                 status: _36_Enums_TransactionStatus;
             }>;
             Payment: {
+                deleted: boolean;
                 type: _36_Enums_PaymentType;
                 email: string;
                 name: string;
@@ -102,180 +106,13 @@ export declare class OrderService {
         }>;
     }>;
     /**
-     * @returns any Ok
+     * @returns DetailOrderDto Ok
      * @throws ApiError
      */
     getStoreOrder({ storeId, orderId, }: {
         storeId: string;
         orderId: string;
-    }): CancelablePromise<({
-        OrderRefund: Array<{
-            historyRefundOrder: PrismaJson_RefundOrderItems;
-            paymentGateId: number;
-            isRollback: boolean;
-            total: number;
-            note: string;
-            orderId: string;
-            type: string;
-            updatedAt: string;
-            createdAt: string;
-            id: string;
-        }>;
-        OrderItem: Array<({
-            VariantCombo: {
-                items: PrismaJson_VariantComboItems;
-                minSellingPrice: number;
-                compareAtPrice: number;
-                productId: number;
-                supplierCost: number;
-                price: number;
-                photo: string;
-                isEnable: boolean;
-                isActive: boolean;
-                SKU: string;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                isDeleted: boolean;
-                id: number;
-            };
-            ProductVariant: ({
-                Product: {
-                    name: string;
-                    id: number;
-                };
-            } & {
-                podDesignVariantId: number;
-                platformVariantId: number;
-                margin: PrismaJson_MarginInfo;
-                minSellingPrice: number;
-                compareAtPrice: number;
-                productId: number;
-                cost: PrismaJson_CostInfo;
-                supplierPrice: number;
-                price: number;
-                photo: string;
-                isEnable: boolean;
-                isActive: boolean;
-                variantOption: PrismaJson_VariantOptionValues;
-                SKU: string;
-                deleted: boolean;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                id: number;
-            });
-        } & {
-            orderRefundId: string;
-            variantComboId: number;
-            productVariantId: number;
-            productId: number;
-            syncTrackingStatus: _36_Enums_SyncTrackingStatus;
-            carrier: string;
-            tracking: string;
-            latestQuantity: number;
-            platformPrice: number;
-            quantity: number;
-            priceUSD: number;
-            price: number;
-            orderId: string;
-            currencyId: number;
-            status: _36_Enums_FulfillmentStatus;
-            updatedAt: string;
-            createdAt: string;
-            id: string;
-        })>;
-        FraudDetection: Array<{
-            labels: PrismaJson_TypeOfFraudService;
-            systemFraudDetect: _36_Enums_FraudDetectionStatusType;
-            humanFraudDetect: _36_Enums_FraudDetectionStatusType;
-        }>;
-        Payment: {
-            type: _36_Enums_PaymentType;
-            email: string;
-            name: string;
-            id: number;
-        };
-        Transaction: Array<{
-            isRollback: boolean;
-            refundIdGateway: string;
-            transactionDetails: PrismaJson_TransactionDetails;
-            notes: string;
-            requestPayoutId: string;
-            disputeFee: number;
-            fee: number;
-            amount: number;
-            idTransaction: string;
-            lastBalance: number;
-            orderId: string;
-            walletId: string;
-            photos: PrismaJson_Photos;
-            paymentMethod: PrismaJson_TransactionPaymentMethod;
-            type: _36_Enums_TransactionType;
-            status: _36_Enums_TransactionStatus;
-            updatedAt: string;
-            createdAt: string;
-            storeId: string;
-            id: number;
-        }>;
-        Store: {
-            primaryDomain: string;
-            avatar: string;
-            email: string;
-            name: string;
-            id: string;
-        };
-    } & {
-        disputeStatus: _36_Enums_OrderDisputeStatus;
-        paymentId: number;
-        isHandleEvents: boolean;
-        fingerPrint: string;
-        timezoneLocalBrowser: string;
-        fulfillmentCost: number;
-        fulfillmentStatus: _36_Enums_FulfillmentStatus;
-        isSyncBalance: PrismaJson_SyncBalanceAmount;
-        retentionRate: number;
-        payoutIn: string;
-        holdIn: string;
-        latestNoItems: number;
-        latestSubTotal: number;
-        latestTotal: number;
-        gatewayTransactionId: string;
-        gatewayOrderId: string;
-        supplierCost: number;
-        lastBalance: number;
-        discount: number;
-        discountShippingFee: number;
-        noItems: number;
-        tax: number;
-        profitFulfillAdmin: number;
-        profit: number;
-        subTotal: number;
-        totalUSD: number;
-        total: number;
-        note: string;
-        additionalInfo: any;
-        billingInfo: PrismaJson_BillingInfo;
-        province: string;
-        address2: string;
-        address1: string;
-        domain: string;
-        merchantId: string;
-        currencyId: number;
-        shippingFee: number;
-        country: string;
-        zipCode: string;
-        city: string;
-        platformFee: number;
-        status: _36_Enums_OrderStatus;
-        phone: string;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        storeId: string;
-        id: string;
-    })>;
+    }): CancelablePromise<DetailOrderDto>;
     /**
      * @returns UpdateFulFillmentStatusResp Ok
      * @throws ApiError
@@ -296,9 +133,9 @@ export declare class OrderService {
         OrderRefund: Array<{
             historyRefundOrder: PrismaJson_RefundOrderItems;
             paymentGateId: number;
-            isRollback: boolean;
             total: number;
             note: string;
+            isRollback: boolean;
             orderId: string;
             type: string;
             updatedAt: string;
@@ -320,8 +157,8 @@ export declare class OrderService {
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
                 SKU: string;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
@@ -329,6 +166,10 @@ export declare class OrderService {
                 id: number;
             });
             ProductVariant: ({
+                Product: {
+                    name: string;
+                    id: number;
+                };
                 PlatformVariant: {
                     fulfillmentPlatformVariantId: string;
                     groupPlatformVariantId: number;
@@ -337,18 +178,14 @@ export declare class OrderService {
                     price: number;
                     photo: string;
                     isEnable: boolean;
-                    isActive: boolean;
                     variantOption: PrismaJson_VariantOptionValues;
                     SKU: string;
-                    deleted: boolean;
                     platformProductId: number;
+                    deleted: boolean;
+                    isActive: boolean;
                     name: string;
                     updatedAt: string;
                     createdAt: string;
-                    id: number;
-                };
-                Product: {
-                    name: string;
                     id: number;
                 };
             } & {
@@ -357,33 +194,36 @@ export declare class OrderService {
                 margin: PrismaJson_MarginInfo;
                 minSellingPrice: number;
                 compareAtPrice: number;
+                displayName: string;
                 productId: number;
                 cost: PrismaJson_CostInfo;
                 supplierPrice: number;
                 price: number;
                 photo: string;
                 isEnable: boolean;
-                isActive: boolean;
+                customVariantOption: PrismaJson_CustomVariantOptionValues;
                 variantOption: PrismaJson_VariantOptionValues;
                 SKU: string;
                 deleted: boolean;
+                isActive: boolean;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
             });
         } & {
+            information: PrismaJson_OrderItemInformation;
             orderRefundId: string;
             variantComboId: number;
             productVariantId: number;
-            productId: number;
             syncTrackingStatus: _36_Enums_SyncTrackingStatus;
             carrier: string;
             tracking: string;
             latestQuantity: number;
             platformPrice: number;
-            quantity: number;
             priceUSD: number;
+            quantity: number;
+            productId: number;
             price: number;
             orderId: string;
             currencyId: number;
@@ -393,20 +233,20 @@ export declare class OrderService {
             id: string;
         })>;
         Transaction: Array<{
+            requestPayoutId: string;
             isRollback: boolean;
             refundIdGateway: string;
             transactionDetails: PrismaJson_TransactionDetails;
             notes: string;
-            requestPayoutId: string;
             disputeFee: number;
+            lastBalance: number;
             fee: number;
             amount: number;
             idTransaction: string;
-            lastBalance: number;
             orderId: string;
-            walletId: string;
             photos: PrismaJson_Photos;
             paymentMethod: PrismaJson_TransactionPaymentMethod;
+            walletId: string;
             type: _36_Enums_TransactionType;
             status: _36_Enums_TransactionStatus;
             updatedAt: string;
@@ -415,29 +255,34 @@ export declare class OrderService {
             id: number;
         }>;
         Store: {
+            isConversionRate: boolean;
             stripeDefaultPaymentMethodId: string;
             stripeCustomerId: string;
             warning: boolean;
+            invitedDate: string;
+            invitedById: number;
             currencyId: number;
             maxUsers: number;
             balance: number;
             referralCode: string;
             defaultBankAccount: string;
-            shippingPolicy: string;
-            termsOfService: string;
-            privacyPolicy: string;
-            refundPolicy: string;
             shippingFeeAdditional: number;
             shippingFee: number;
             primaryDomain: string;
             subDomain: string;
             pageName: string;
+            closedAt: string;
             country: string;
             zipCode: string;
             city: string;
             apartmentAddress: string;
             address: string;
             avatar: string;
+            othersFee: number;
+            shippingPolicy: string;
+            termsOfService: string;
+            refundPolicy: string;
+            privacyPolicy: string;
             timezone: PrismaJson_Timezone;
             type: _36_Enums_StoreType;
             status: _36_Enums_StoreStatus;
@@ -446,14 +291,18 @@ export declare class OrderService {
             name: string;
             updatedAt: string;
             createdAt: string;
+            isDeleted: boolean;
             fulfillmentAgencyId: number;
             id: string;
         };
     } & {
         disputeStatus: _36_Enums_OrderDisputeStatus;
-        paymentId: number;
         isHandleEvents: boolean;
         fingerPrint: string;
+        customerLocale: string;
+        currencyCustomerCode: string;
+        paymentFee: number;
+        paymentSource: string;
         timezoneLocalBrowser: string;
         fulfillmentCost: number;
         fulfillmentStatus: _36_Enums_FulfillmentStatus;
@@ -467,29 +316,36 @@ export declare class OrderService {
         gatewayTransactionId: string;
         gatewayOrderId: string;
         supplierCost: number;
-        lastBalance: number;
-        discount: number;
         discountShippingFee: number;
         noItems: number;
         tax: number;
         profitFulfillAdmin: number;
+        deductedProfit: number;
         profit: number;
         subTotal: number;
         totalUSD: number;
         total: number;
         note: string;
+        utmLink: string;
+        historyTracking: any;
         additionalInfo: any;
         billingInfo: PrismaJson_BillingInfo;
+        taxId: string;
         province: string;
         address2: string;
         address1: string;
+        lastBalance: number;
         domain: string;
+        paymentId: number;
         merchantId: string;
         currencyId: number;
         shippingFee: number;
         country: string;
         zipCode: string;
         city: string;
+        isDeductedProfit: boolean;
+        serviceFee: number;
+        othersFee: number;
         platformFee: number;
         status: _36_Enums_OrderStatus;
         phone: string;
@@ -499,5 +355,32 @@ export declare class OrderService {
         createdAt: string;
         storeId: string;
         id: string;
+        fulfillmentShippingCost: number;
+        discount: number;
     })>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }: {
+        storeId: string;
+        orderId: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    createHistoryTrackingOrder({ storeId, orderId, requestBody, }: {
+        storeId: string;
+        orderId: string;
+        requestBody: HistoryTrackingOrderDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns HistoryItem Ok
+     * @throws ApiError
+     */
+    getHistoriesTracking({ orderId, storeId, }: {
+        orderId: string;
+        storeId: string;
+    }): CancelablePromise<Array<HistoryItem>>;
 }

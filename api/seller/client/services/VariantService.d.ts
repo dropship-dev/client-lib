@@ -1,8 +1,8 @@
 import type { CreateVariantsDto } from '../models/CreateVariantsDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdateVariantDto } from '../models/UpdateVariantDto';
 import type { UpdateVariantsDto } from '../models/UpdateVariantsDto';
@@ -13,13 +13,13 @@ export declare class VariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createVariants({ storeId, requestBody, }: {
         storeId: string;
         requestBody: Array<CreateVariantsDto>;
-    }): CancelablePromise<Prisma_BatchPayload>;
+    }): CancelablePromise<GetBatchResult>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -36,22 +36,8 @@ export declare class VariantService {
         total: number;
         data: Array<({
             PlatformVariant: {
-                fulfillmentPlatformVariantId: string;
-                groupPlatformVariantId: number;
-                cost: PrismaJson_PlatformCostInfo;
-                supplierPrice: number;
                 price: number;
-                photo: string;
-                isEnable: boolean;
-                isActive: boolean;
                 variantOption: PrismaJson_VariantOptionValues;
-                SKU: string;
-                deleted: boolean;
-                platformProductId: number;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                id: number;
             };
         } & {
             podDesignVariantId: number;
@@ -59,16 +45,18 @@ export declare class VariantService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -79,10 +67,11 @@ export declare class VariantService {
      * @returns string Ok
      * @throws ApiError
      */
-    updateVariants({ storeId, productId, requestBody, }: {
+    updateVariants({ storeId, productId, requestBody, key, }: {
         storeId: string;
         productId: number;
         requestBody: UpdateVariantsDto;
+        key?: string;
     }): CancelablePromise<string>;
     /**
      * @returns string Ok
@@ -103,22 +92,8 @@ export declare class VariantService {
         id: number;
     }): CancelablePromise<({
         PlatformVariant: {
-            fulfillmentPlatformVariantId: string;
-            groupPlatformVariantId: number;
-            cost: PrismaJson_PlatformCostInfo;
-            supplierPrice: number;
             price: number;
-            photo: string;
-            isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
-            SKU: string;
-            deleted: boolean;
-            platformProductId: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
         };
     } & {
         podDesignVariantId: number;
@@ -126,16 +101,18 @@ export declare class VariantService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -156,16 +133,18 @@ export declare class VariantService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -185,16 +164,18 @@ export declare class VariantService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;

@@ -32,13 +32,12 @@ class KlaviyoService {
      * @returns any Ok
      * @throws ApiError
      */
-    getKlaviyo({ storeId, klaviyoId, }) {
+    getKlaviyo({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/klaviyo/{klaviyoId}',
+            url: '/store/{storeId}/klaviyo',
             path: {
                 'storeId': storeId,
-                'klaviyoId': klaviyoId,
             },
             errors: {
                 400: `Bad request`,
@@ -50,16 +49,15 @@ class KlaviyoService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns KlaviyoDto Ok
      * @throws ApiError
      */
-    updateKlaviyo({ storeId, klaviyoId, requestBody, }) {
+    updateKlaviyo({ storeId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}/klaviyo/{klaviyoId}',
+            url: '/store/{storeId}/klaviyo',
             path: {
                 'storeId': storeId,
-                'klaviyoId': klaviyoId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -76,13 +74,12 @@ class KlaviyoService {
      * @returns any Ok
      * @throws ApiError
      */
-    deleteKlaviyo({ storeId, klaviyoId, }) {
+    deleteKlaviyo({ storeId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}/klaviyo/{klaviyoId}',
+            url: '/store/{storeId}/klaviyo',
             path: {
                 'storeId': storeId,
-                'klaviyoId': klaviyoId,
             },
             errors: {
                 400: `Bad request`,

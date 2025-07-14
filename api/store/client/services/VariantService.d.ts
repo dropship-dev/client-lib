@@ -1,6 +1,6 @@
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
+import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
-import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -23,22 +23,8 @@ export declare class VariantService {
         total: number;
         data: Array<({
             PlatformVariant: {
-                fulfillmentPlatformVariantId: string;
-                groupPlatformVariantId: number;
-                cost: PrismaJson_PlatformCostInfo;
-                supplierPrice: number;
                 price: number;
-                photo: string;
-                isEnable: boolean;
-                isActive: boolean;
                 variantOption: PrismaJson_VariantOptionValues;
-                SKU: string;
-                deleted: boolean;
-                platformProductId: number;
-                name: string;
-                updatedAt: string;
-                createdAt: string;
-                id: number;
             };
         } & {
             podDesignVariantId: number;
@@ -46,16 +32,18 @@ export declare class VariantService {
             margin: PrismaJson_MarginInfo;
             minSellingPrice: number;
             compareAtPrice: number;
+            displayName: string;
             productId: number;
             cost: PrismaJson_CostInfo;
             supplierPrice: number;
             price: number;
             photo: string;
             isEnable: boolean;
-            isActive: boolean;
+            customVariantOption: PrismaJson_CustomVariantOptionValues;
             variantOption: PrismaJson_VariantOptionValues;
             SKU: string;
             deleted: boolean;
+            isActive: boolean;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -72,22 +60,8 @@ export declare class VariantService {
         id: number;
     }): CancelablePromise<({
         PlatformVariant: {
-            fulfillmentPlatformVariantId: string;
-            groupPlatformVariantId: number;
-            cost: PrismaJson_PlatformCostInfo;
-            supplierPrice: number;
             price: number;
-            photo: string;
-            isEnable: boolean;
-            isActive: boolean;
             variantOption: PrismaJson_VariantOptionValues;
-            SKU: string;
-            deleted: boolean;
-            platformProductId: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            id: number;
         };
     } & {
         podDesignVariantId: number;
@@ -95,16 +69,18 @@ export declare class VariantService {
         margin: PrismaJson_MarginInfo;
         minSellingPrice: number;
         compareAtPrice: number;
+        displayName: string;
         productId: number;
         cost: PrismaJson_CostInfo;
         supplierPrice: number;
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
+        customVariantOption: PrismaJson_CustomVariantOptionValues;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
         deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;

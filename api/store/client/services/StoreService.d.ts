@@ -3,9 +3,13 @@ import type { _36_Enums_DomainOrigin } from '../models/_36_Enums_DomainOrigin';
 import type { _36_Enums_EnvironmentType } from '../models/_36_Enums_EnvironmentType';
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ContactFormDto } from '../models/ContactFormDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
+import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
@@ -24,6 +28,44 @@ export declare class StoreService {
         pageName?: PageNameType;
         getFont?: boolean;
     }): CancelablePromise<{
+        isConversionRate: boolean;
+        subDomain: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+        Currency: {
+            isSupported: boolean;
+            rateToUSD: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+            symbol: string;
+        };
+        GoogleTagManager: Array<{
+            tag: string;
+        }>;
+        GoogleAnalytic: Array<{
+            measurementId: string;
+        }>;
         CustomDomain: Array<{
             isPrimary: boolean;
             contactInfo: PrismaJson_DomainContactInfo;
@@ -41,34 +83,6 @@ export declare class StoreService {
             storeId: string;
             id: number;
         }>;
-        shippingPolicy: string;
-        termsOfService: string;
-        privacyPolicy: string;
-        refundPolicy: string;
-        subDomain: string;
-        country: string;
-        zipCode: string;
-        city: string;
-        apartmentAddress: string;
-        address: string;
-        Currency: {
-            isSupported: boolean;
-            rateToUSD: number;
-            name: string;
-            updatedAt: string;
-            createdAt: string;
-            fulfillmentAgencyId: number;
-            id: number;
-            symbol: string;
-        };
-        timezone: PrismaJson_Timezone;
-        phone: string;
-        email: string;
-        name: string;
-        updatedAt: string;
-        createdAt: string;
-        fulfillmentAgencyId: number;
-        id: string;
         fontPage: Array<any>;
         Klaviyo: {
             publishableKey: string;
@@ -83,25 +97,27 @@ export declare class StoreService {
             logoSize: _36_Enums_LogoSize;
             logo: string;
             nodes: PrismaJson_ThemeNodes;
-            setting: PrismaJson_ThemeSetting;
             style: PrismaJson_ThemeStyle;
             name: string;
             updatedAt: string;
             createdAt: string;
             storeId: string;
             id: number;
+            setting: PrismaJson_ThemeSetting;
             ThemeTemplate: {
-                link: string;
                 image: string;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
                 id: number;
+                link: string;
             };
             ThemePage: Array<{
+                parentThemePageId: number;
                 themeId: number;
                 themeLibraryId: number;
                 content: string;
+                type: _36_Enums_ThemePageType;
                 name: string;
                 updatedAt: string;
                 createdAt: string;
@@ -109,22 +125,149 @@ export declare class StoreService {
             }>;
         };
         Payment: Array<{
-            salt: string;
+            isConnectPSSFF: boolean;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
             BNcode: string;
-            publishableKey: string;
             isPlatform: boolean;
             isShowCompanyAddress: boolean;
             companyAddress: string;
             companyPhone: string;
             companyName: string;
+            merchantId: string;
+            salt: string;
+            publishableKey: string;
             type: _36_Enums_PaymentType;
             email: string;
             updatedAt: string;
             createdAt: string;
             id: number;
-            clientToken: string;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreActiveThemeV2({ storeId, getFont, pageName, productPermalink, }: {
+        storeId: string;
+        getFont?: boolean;
+        pageName?: PageNameType;
+        productPermalink?: string;
+    }): CancelablePromise<{
+        isConversionRate: boolean;
+        subDomain: string;
+        country: string;
+        zipCode: string;
+        city: string;
+        apartmentAddress: string;
+        address: string;
+        shippingPolicy: string;
+        termsOfService: string;
+        refundPolicy: string;
+        privacyPolicy: string;
+        timezone: PrismaJson_Timezone;
+        type: _36_Enums_StoreType;
+        status: _36_Enums_StoreStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        fulfillmentAgencyId: number;
+        id: string;
+        Currency: {
+            isSupported: boolean;
+            rateToUSD: number;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            fulfillmentAgencyId: number;
+            id: number;
+            symbol: string;
+        };
+        GoogleTagManager: Array<{
+            tag: string;
+        }>;
+        GoogleAnalytic: Array<{
+            measurementId: string;
+        }>;
+        CustomDomain: Array<{
+            isPrimary: boolean;
+            contactInfo: PrismaJson_DomainContactInfo;
+            renewable: boolean;
+            renewalPrice: number;
+            purchasePrice: number;
+            domainOrigin: _36_Enums_DomainOrigin;
+            autoRenew: boolean;
+            expirationDate: string;
+            target: string;
+            domain: string;
+            status: _36_Enums_CustomDomainStatus;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+        }>;
+        fontPage: Array<any>;
+        Klaviyo: {
+            publishableKey: string;
+        };
+        Theme: {
+            themeTemplateId: number;
+            isActivated: boolean;
+            components: any;
+            colors: any;
+            font: string;
+            heroBanner: string;
+            logoSize: _36_Enums_LogoSize;
+            logo: string;
+            nodes: PrismaJson_ThemeNodes;
+            style: PrismaJson_ThemeStyle;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            storeId: string;
+            id: number;
+            setting: PrismaJson_ThemeSetting;
+            ThemeTemplate: {
+                image: string;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+                link: string;
+            };
+            ThemePage: Array<{
+                parentThemePageId: number;
+                themeId: number;
+                themeLibraryId: number;
+                content: string;
+                type: _36_Enums_ThemePageType;
+                name: string;
+                updatedAt: string;
+                createdAt: string;
+                id: number;
+            }>;
+        };
+        Payment: Array<{
+            isConnectPSSFF: boolean;
+            environment: _36_Enums_EnvironmentType;
+            UIVersion: number;
+            BNcode: string;
+            isPlatform: boolean;
+            isShowCompanyAddress: boolean;
+            companyAddress: string;
+            companyPhone: string;
+            companyName: string;
+            merchantId: string;
+            salt: string;
+            publishableKey: string;
+            type: _36_Enums_PaymentType;
+            email: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
         }>;
     }>;
     /**
@@ -134,11 +277,11 @@ export declare class StoreService {
     getStorePaymentMethod({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<{
-        publishableKey: string;
         isShowCompanyAddress: boolean;
         companyAddress: string;
         companyPhone: string;
         companyName: string;
+        publishableKey: string;
         type: _36_Enums_PaymentType;
         email: string;
         updatedAt: string;
@@ -172,7 +315,9 @@ export declare class StoreService {
         email: string;
         orderId?: string;
     }): CancelablePromise<Array<{
+        id: string;
         OrderItem: Array<{
+            information: PrismaJson_OrderItemInformation;
             carrier: string;
             tracking: string;
             quantity: number;
@@ -182,6 +327,7 @@ export declare class StoreService {
                 name: string;
             };
             ProductVariant: {
+                displayName: string;
                 photo: string;
                 name: string;
             };
@@ -190,7 +336,6 @@ export declare class StoreService {
                 id: number;
             };
         }>;
-        id: string;
     }>>;
     /**
      * @returns any Ok

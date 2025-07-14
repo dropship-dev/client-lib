@@ -100,6 +100,29 @@ class PerformanceService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getCrOverTimeV2({ fulfillmentAgencyId, startDate = '2023-01-01T00:00:00.000Z', endDate, storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/cr-over-time-v2',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'storeId': storeId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns TopProductByOrder Ok
      * @throws ApiError
      */
@@ -211,6 +234,167 @@ class PerformanceService {
                 'search': search,
                 'pageSize': pageSize,
                 'nextPageIndex': nextPageIndex,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseTrackingPie Ok
+     * @throws ApiError
+     */
+    getTopCountry({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, select, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/top-country',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'select': select,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseTrackingPie Ok
+     * @throws ApiError
+     */
+    statsDevice({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/stats-device',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns ResponseTrackingPie Ok
+     * @throws ApiError
+     */
+    statsReferrer({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/stats-referrer',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns GetCustomerTrackingResultDto Ok
+     * @throws ApiError
+     */
+    getCustomerTracking({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, filterBy, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/customer-tracking',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'filterBy': filterBy,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns GetTrackingRetentionRateResultDto Ok
+     * @throws ApiError
+     */
+    getTrackingRetentionRate({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/tracking-retention-rate',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns GetPaginateTopLandingPageResultDto Ok
+     * @throws ApiError
+     */
+    getTopLandingPage({ storeId, startDate = '2023-01-01T00:00:00.000Z', endDate, limit = 6, cursor, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/top-landing-page',
+            query: {
+                'storeId': storeId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'limit': limit,
+                'cursor': cursor,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getTrafficSource({ storeId, source, startDate = '2023-01-01T00:00:00.000Z', endDate, cursor, limit, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/traffic-source',
+            query: {
+                'storeId': storeId,
+                'source': source,
+                'startDate': startDate,
+                'endDate': endDate,
+                'cursor': cursor,
+                'limit': limit,
             },
             errors: {
                 400: `Bad request`,

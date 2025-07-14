@@ -18,11 +18,13 @@ export declare class MarketingService {
     }): CancelablePromise<{
         subscriptionId: string;
         firebaseDeviceToken: PrismaJson_FirebaseDeviceToken;
+        isActive: boolean;
         firstLogin: boolean;
         maxStaffStores: number;
         maxOwnedStores: number;
         shortId: string;
         role: _36_Enums_UserRole;
+        invitedById: string;
         country: string;
         avatar: string;
         phone: string;
@@ -55,12 +57,12 @@ export declare class MarketingService {
         userId: string;
     }): CancelablePromise<Array<{
         emailId: string;
-        EmailMarketingTemplate: {
-            name: string;
-        };
         status: _36_Enums_StoreEmailLogStatus;
         createdAt: string;
         id: number;
+        EmailMarketingTemplate: {
+            name: string;
+        };
     }>>;
     /**
      * @returns string Ok

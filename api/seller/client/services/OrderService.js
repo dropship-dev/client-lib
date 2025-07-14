@@ -42,7 +42,7 @@ class OrderService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns DetailOrderDto Ok
      * @throws ApiError
      */
     getStoreOrder({ storeId, orderId, }) {
@@ -100,6 +100,71 @@ class OrderService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    resendEmailConfirmOrder({ storeId, orderId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/{orderId}/resend-email-confirm-order',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    createHistoryTrackingOrder({ storeId, orderId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/{orderId}/history-tracking',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns HistoryItem Ok
+     * @throws ApiError
+     */
+    getHistoriesTracking({ orderId, storeId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/order/{orderId}/history-tracking',
+            path: {
+                'orderId': orderId,
+                'storeId': storeId,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

@@ -1,5 +1,5 @@
 import type { CreatePlatformVariantsDto } from '../models/CreatePlatformVariantsDto';
-import type { Prisma_BatchPayload } from '../models/Prisma_BatchPayload';
+import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_VariantOptionValues } from '../models/PrismaJson_VariantOptionValues';
 import type { UpdatePlatformVariantDto } from '../models/UpdatePlatformVariantDto';
@@ -11,14 +11,14 @@ export declare class PlatformVariantService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @returns Prisma_BatchPayload Ok
+     * @returns GetBatchResult Ok
      * @throws ApiError
      */
     createPlatformVariants({ fulfillmentAgencyId, platformProductId, requestBody, }: {
         fulfillmentAgencyId: number;
         platformProductId: number;
         requestBody: CreatePlatformVariantsDto;
-    }): CancelablePromise<Prisma_BatchPayload>;
+    }): CancelablePromise<GetBatchResult>;
     /**
      * @returns string Ok
      * @throws ApiError
@@ -53,11 +53,11 @@ export declare class PlatformVariantService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -80,11 +80,11 @@ export declare class PlatformVariantService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -106,11 +106,11 @@ export declare class PlatformVariantService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;
@@ -133,11 +133,11 @@ export declare class PlatformVariantService {
         price: number;
         photo: string;
         isEnable: boolean;
-        isActive: boolean;
         variantOption: PrismaJson_VariantOptionValues;
         SKU: string;
-        deleted: boolean;
         platformProductId: number;
+        deleted: boolean;
+        isActive: boolean;
         name: string;
         updatedAt: string;
         createdAt: string;

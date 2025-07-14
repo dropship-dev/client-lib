@@ -8,8 +8,8 @@ export type DefaultSelection_Prisma__36_VariantComboPayload_ = {
     price: number;
     photo: string;
     isEnable: boolean;
-    isActive: boolean;
     SKU: string;
+    isActive: boolean;
     name: string;
     updatedAt: string;
     createdAt: string;
