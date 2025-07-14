@@ -284,23 +284,15 @@ export class ThemeService {
    */
   public listActiveThemePages({
     storeId,
-    pageSize = 20,
-    nextPageIndex,
+    pageType,
   }: {
     storeId: string,
-    pageSize?: number,
-    nextPageIndex?: number,
+    pageType: _36_Enums_ThemePageType,
   }): CancelablePromise<{
-    themePages: {
-      orderBy: string;
-      nextPageIndex: number;
-      prePageIndex: number;
-      total: number;
-      data: Array<{
-        name: string;
-        id: number;
-      }>;
-    };
+    themePages: Array<{
+      name: string;
+      id: number;
+    }>;
     activeTheme: {
       name: string;
       id: number;
@@ -313,8 +305,7 @@ export class ThemeService {
         'storeId': storeId,
       },
       query: {
-        'pageSize': pageSize,
-        'nextPageIndex': nextPageIndex,
+        'pageType': pageType,
       },
       errors: {
         400: `Bad request`,
