@@ -10,13 +10,36 @@ class ReferralService {
      * @returns GetSummaryReferralResult Ok
      * @throws ApiError
      */
-    getSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, }) {
+    getSummary({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/referral/summary',
             query: {
                 'startDate': startDate,
                 'endDate': endDate,
+                'search': search,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns SalePerformanceResponsive Ok
+     * @throws ApiError
+     */
+    getSalePerformance({ startDate = '2023-01-01T00:00:00.000Z', endDate, search, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/sale-performance',
+            query: {
+                'startDate': startDate,
+                'endDate': endDate,
+                'search': search,
             },
             errors: {
                 400: `Bad request`,
@@ -216,6 +239,33 @@ class ReferralService {
             url: '/referral/ref-code',
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerBySale({ saleId, nextPageIndex, pageSize = 20, keyword, startDate, endDate, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/referral/seller-by-sale/{saleId}',
+            path: {
+                'saleId': saleId,
+            },
+            query: {
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+                'keyword': keyword,
+                'startDate': startDate,
+                'endDate': endDate,
+            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

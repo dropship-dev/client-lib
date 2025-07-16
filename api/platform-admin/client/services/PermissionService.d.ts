@@ -6,7 +6,7 @@ import type { CreateSuperAdminDto } from '../models/CreateSuperAdminDto';
 import type { EditRoleDto } from '../models/EditRoleDto';
 import type { EditSuperAdminDto } from '../models/EditSuperAdminDto';
 import type { GetPermissionsRes } from '../models/GetPermissionsRes';
-import type { Record_Permission_or_SuperAdminPermission_boolean_or_undefined_ } from '../models/Record_Permission_or_SuperAdminPermission_boolean_or_undefined_';
+import type { Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_ } from '../models/Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class PermissionService {
@@ -147,7 +147,7 @@ export declare class PermissionService {
         data: Array<{
             updatedAt: string;
             createdAt: string;
-            permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+            permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
             name: string;
             id: number;
         }>;
@@ -175,7 +175,7 @@ export declare class PermissionService {
         roleId: number;
     }): CancelablePromise<{
         canDeleteRole: boolean;
-        permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+        permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
         name: string;
         id: number;
     }>;
@@ -192,11 +192,11 @@ export declare class PermissionService {
         userId: string;
     }): CancelablePromise<{
         rolesInfo: Array<{
-            permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+            permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
             name: string;
             id: number;
         }>;
-        permissions: Record_Permission_or_SuperAdminPermission_boolean_or_undefined_;
+        permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
         haveAllPermission: boolean;
     }>;
     /**
@@ -213,8 +213,9 @@ export declare class PermissionService {
         prePageIndex: string;
         total: number;
         data: Array<{
-            name: string;
             createdAt: string;
+            permissions: Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_FulfillmentPermissions_boolean_or_undefined_;
+            name: string;
             id: number;
         }>;
     }>;

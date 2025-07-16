@@ -6,6 +6,7 @@ import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueSto
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
 import type { ReferralStoreType } from '../models/ReferralStoreType';
+import type { SalePerformanceResponsive } from '../models/SalePerformanceResponsive';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ReferralService {
@@ -15,10 +16,20 @@ export declare class ReferralService {
      * @returns GetSummaryReferralResult Ok
      * @throws ApiError
      */
-    getSummary({ startDate, endDate, }: {
+    getSummary({ startDate, endDate, search, }: {
         startDate?: string;
         endDate?: string;
+        search?: string;
     }): CancelablePromise<GetSummaryReferralResult>;
+    /**
+     * @returns SalePerformanceResponsive Ok
+     * @throws ApiError
+     */
+    getSalePerformance({ startDate, endDate, search, }: {
+        startDate?: string;
+        endDate?: string;
+        search?: string;
+    }): CancelablePromise<SalePerformanceResponsive>;
     /**
      * @returns GetRevenueStoreByFulfillmentResult Ok
      * @throws ApiError
@@ -111,10 +122,12 @@ export declare class ReferralService {
             name: string;
             code: string;
             purchased: number;
-            totalStore: number;
+            userId: string;
             id: number;
             gmvSharePerSale: number;
             gmv: number;
+            totalStore: number;
+            totalSeller: number;
         }>;
     }>;
     /**
@@ -138,6 +151,7 @@ export declare class ReferralService {
             aov: number;
             gmvSharePerSale: number;
             gmv: number;
+            saleName: string;
             refCode: string;
             fulfillmentAgencyName: string;
             name: string;
@@ -157,4 +171,30 @@ export declare class ReferralService {
     updateRefCode({ requestBody, }: {
         requestBody: AddRefCodeDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerBySale({ saleId, nextPageIndex, pageSize, keyword, startDate, endDate, }: {
+        saleId: number;
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            totalStore: number;
+            revenue: number;
+            createdAt: string;
+            phone: string;
+            name: string;
+            email: string;
+            id: string;
+        }>;
+    }>;
 }

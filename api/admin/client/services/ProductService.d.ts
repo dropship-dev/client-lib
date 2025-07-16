@@ -707,6 +707,9 @@ export declare class ProductService {
                 id: number;
             }>;
         };
+        ThemePage: Array<{
+            id: number;
+        }>;
         Store: {
             RegionalShippingFee: Array<{
                 countries: PrismaJson_CountryInformation;

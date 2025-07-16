@@ -34,6 +34,31 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
+    getStoreActiveThemeV2({ storeId, getFont = true, pageName, productPermalink, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/active-theme-v2',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'getFont': getFont,
+                'pageName': pageName,
+                'productPermalink': productPermalink,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStorePaymentMethod({ storeId, }) {
         return this.httpRequest.request({
             method: 'GET',

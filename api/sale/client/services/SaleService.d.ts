@@ -3,6 +3,7 @@ import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { CheckRejectStatusDto } from '../models/CheckRejectStatusDto';
 import type { CheckVerifyEmailDto } from '../models/CheckVerifyEmailDto';
 import type { ResponsePaginateCursor_StoreTrackingPerformance_ } from '../models/ResponsePaginateCursor_StoreTrackingPerformance_';
+import type { SaleInfoResponsive } from '../models/SaleInfoResponsive';
 import type { sortTrackingPerformance } from '../models/sortTrackingPerformance';
 import type { UpdateRequestStatusDto } from '../models/UpdateRequestStatusDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -54,6 +55,64 @@ export declare class SaleService {
         total: number;
     })>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getListSellerInvitedBySale({ nextPageIndex, pageSize, keyword, startDate, endDate, }: {
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+        startDate?: string;
+        endDate?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            totalStore: number;
+            revenue: number;
+            createdAt: string;
+            phone: string;
+            name: string;
+            email: string;
+            id: string;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDetailSellerInvited({ id, }: {
+        id: string;
+    }): CancelablePromise<{
+        gmv: number;
+        createdAt: string;
+        email: string;
+        phone: string;
+        name: string;
+        id: string;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoresOpenedBySellerViaSale({ id, nextPageIndex, pageSize, }: {
+        id: string;
+        nextPageIndex?: string;
+        pageSize?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        data: Array<{
+            name: string;
+            createdAt: string;
+            id: string;
+        }>;
+        total: number;
+    }>;
+    /**
      * @returns boolean Ok
      * @throws ApiError
      */
@@ -70,4 +129,65 @@ export declare class SaleService {
         rejectedAt: string;
         status: boolean;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAccountRequest({ nextPageIndex, pageSize, keyword, }: {
+        nextPageIndex?: string;
+        pageSize?: number;
+        keyword?: string;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            email: string;
+            name: string;
+            createdAt: string;
+            id: string;
+            SaleUser: {
+                status: _36_Enums_SaleStatus;
+                id: number;
+            };
+        }>;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    trackingOpenRequest({ data, token, }: {
+        data: string;
+        token: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchSale({ nextPageIndex, keyword, pageSize, }: {
+        nextPageIndex?: string;
+        keyword?: string;
+        pageSize?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: string;
+        prePageIndex: string;
+        total: number;
+        data: Array<{
+            name: string;
+            createdAt: string;
+            id: string;
+            SaleUser: {
+                code: string;
+            };
+        }>;
+    }>;
+    /**
+     * @returns SaleInfoResponsive Ok
+     * @throws ApiError
+     */
+    getDetailSaleInfo({ id, }: {
+        id: number;
+    }): CancelablePromise<SaleInfoResponsive>;
 }

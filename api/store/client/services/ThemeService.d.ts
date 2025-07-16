@@ -1,9 +1,9 @@
 import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
-import type { Theme } from '../models/Theme';
-import type { ThemePage } from '../models/ThemePage';
+import type { ThemeWithDetails } from '../models/ThemeWithDetails';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export declare class ThemeService {
@@ -17,9 +17,11 @@ export declare class ThemeService {
         storeId: string;
     }): CancelablePromise<({
         ThemePage: Array<{
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
+            type: _36_Enums_ThemePageType;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -69,9 +71,11 @@ export declare class ThemeService {
         setting: PrismaJson_ThemeSetting;
     } & {
         ThemePage: {
+            parentThemePageId: number;
             themeId: number;
             themeLibraryId: number;
             content: string;
+            type: _36_Enums_ThemePageType;
             name: string;
             updatedAt: string;
             createdAt: string;
@@ -79,13 +83,11 @@ export declare class ThemeService {
         };
     })>;
     /**
-     * @returns any Ok
+     * @returns ThemeWithDetails Ok
      * @throws ApiError
      */
     getTheme({ storeId, id, }: {
         storeId: string;
         id: number;
-    }): CancelablePromise<(Theme & {
-        ThemePage: Array<ThemePage>;
-    }) | null>;
+    }): CancelablePromise<ThemeWithDetails>;
 }
