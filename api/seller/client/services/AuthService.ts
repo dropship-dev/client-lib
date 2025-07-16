@@ -5,6 +5,7 @@
 import type { _36_Enums_CostCalculationMethod } from '../models/_36_Enums_CostCalculationMethod';
 import type { _36_Enums_FulfillmentAgencyStatus } from '../models/_36_Enums_FulfillmentAgencyStatus';
 import type { _36_Enums_FulfillmentAgencyType } from '../models/_36_Enums_FulfillmentAgencyType';
+import type { _36_Enums_SaleStatus } from '../models/_36_Enums_SaleStatus';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { LoginDto } from '../models/LoginDto';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
@@ -21,7 +22,7 @@ export class AuthService {
     requestBody,
   }: {
     requestBody: LoginDto,
-  }): CancelablePromise<{
+  }): CancelablePromise<({
     maxOwnedStores: number;
     role: _36_Enums_UserRole;
     email: string;
@@ -43,7 +44,35 @@ export class AuthService {
         id: number;
       };
     }>;
-  }> {
+    SaleUser: {
+      status: _36_Enums_SaleStatus;
+    };
+  } | {
+    maxOwnedStores: number;
+    role: _36_Enums_UserRole;
+    email: string;
+    name: string;
+    id: string;
+    FulfillmentUser: Array<{
+      FulfillmentAgency: {
+        timezone: PrismaJson_Timezone;
+        platformFee: number;
+        type: _36_Enums_FulfillmentAgencyType;
+        costCalculationMethod: _36_Enums_CostCalculationMethod;
+        executionTime: string;
+        status: _36_Enums_FulfillmentAgencyStatus;
+        phone: string;
+        email: string;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+      };
+    }>;
+    SaleUser: {
+      id: number;
+    };
+  })> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/auth/login',

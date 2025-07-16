@@ -24,5 +24,9 @@ export type UpdateProductDto = {
   campaign?: CampaignDto;
   discount?: Array<DiscountDto>;
   customVariantOption?: PrismaJson_CustomVariantOptions;
+  theme?: {
+    themePageId: number | null;
+    id: number;
+  };
 };
 

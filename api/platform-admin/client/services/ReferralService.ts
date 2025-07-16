@@ -10,6 +10,7 @@ import type { GetRevenueStoreByFulfillmentResult } from '../models/GetRevenueSto
 import type { GetSummaryReferralResult } from '../models/GetSummaryReferralResult';
 import type { GetTopRevenueStore } from '../models/GetTopRevenueStore';
 import type { ReferralStoreType } from '../models/ReferralStoreType';
+import type { SalePerformanceResponsive } from '../models/SalePerformanceResponsive';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class ReferralService {
@@ -21,9 +22,11 @@ export class ReferralService {
   public getSummary({
     startDate = '2023-01-01T00:00:00.000Z',
     endDate,
+    search,
   }: {
     startDate?: string,
     endDate?: string,
+    search?: string,
   }): CancelablePromise<GetSummaryReferralResult> {
     return this.httpRequest.request({
       method: 'GET',
@@ -31,6 +34,37 @@ export class ReferralService {
       query: {
         'startDate': startDate,
         'endDate': endDate,
+        'search': search,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns SalePerformanceResponsive Ok
+   * @throws ApiError
+   */
+  public getSalePerformance({
+    startDate = '2023-01-01T00:00:00.000Z',
+    endDate,
+    search,
+  }: {
+    startDate?: string,
+    endDate?: string,
+    search?: string,
+  }): CancelablePromise<SalePerformanceResponsive> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/sale-performance',
+      query: {
+        'startDate': startDate,
+        'endDate': endDate,
+        'search': search,
       },
       errors: {
         400: `Bad request`,
@@ -244,10 +278,12 @@ export class ReferralService {
       name: string;
       code: string;
       purchased: number;
-      totalStore: number;
+      userId: string;
       id: number;
       gmvSharePerSale: number;
       gmv: number;
+      totalStore: number;
+      totalSeller: number;
     }>;
   }> {
     return this.httpRequest.request({
@@ -297,6 +333,7 @@ export class ReferralService {
       aov: number;
       gmvSharePerSale: number;
       gmv: number;
+      saleName: string;
       refCode: string;
       fulfillmentAgencyName: string;
       name: string;
@@ -359,6 +396,61 @@ export class ReferralService {
       url: '/referral/ref-code',
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getListSellerBySale({
+    saleId,
+    nextPageIndex,
+    pageSize = 20,
+    keyword,
+    startDate,
+    endDate,
+  }: {
+    saleId: number,
+    nextPageIndex?: string,
+    pageSize?: number,
+    keyword?: string,
+    startDate?: string,
+    endDate?: string,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: string;
+    prePageIndex: string;
+    total: number;
+    data: Array<{
+      totalStore: number;
+      revenue: number;
+      createdAt: string;
+      phone: string;
+      name: string;
+      email: string;
+      id: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/referral/seller-by-sale/{saleId}',
+      path: {
+        'saleId': saleId,
+      },
+      query: {
+        'nextPageIndex': nextPageIndex,
+        'pageSize': pageSize,
+        'keyword': keyword,
+        'startDate': startDate,
+        'endDate': endDate,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

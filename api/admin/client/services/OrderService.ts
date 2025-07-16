@@ -15,6 +15,7 @@ import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_StoreRole } from '../models/_36_Enums_StoreRole';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
+import type { _36_Enums_StoreUserInviteStatus } from '../models/_36_Enums_StoreUserInviteStatus';
 import type { _36_Enums_SyncTrackingStatus } from '../models/_36_Enums_SyncTrackingStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
@@ -31,6 +32,7 @@ import type { PrismaJson_CountryInformation } from '../models/PrismaJson_Country
 import type { PrismaJson_CustomVariantOptionValues } from '../models/PrismaJson_CustomVariantOptionValues';
 import type { PrismaJson_MarginInfo } from '../models/PrismaJson_MarginInfo';
 import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
+import type { PrismaJson_Permissions } from '../models/PrismaJson_Permissions';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_PlatformCostInfo } from '../models/PrismaJson_PlatformCostInfo';
 import type { PrismaJson_RefundOrderItems } from '../models/PrismaJson_RefundOrderItems';
@@ -583,6 +585,10 @@ export class OrderService {
       };
     }>;
     StoreUser: Array<{
+      inviteId: string;
+      inviteStatus: _36_Enums_StoreUserInviteStatus;
+      userName: string;
+      permissions: PrismaJson_Permissions;
       isOwner: boolean;
       role: _36_Enums_StoreRole;
       userId: string;

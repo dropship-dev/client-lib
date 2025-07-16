@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
@@ -61,9 +62,11 @@ export class ThemeLibraryService {
     id: number,
   }): CancelablePromise<({
     ThemePage: Array<{
+      parentThemePageId: number;
       themeId: number;
       themeLibraryId: number;
       content: string;
+      type: _36_Enums_ThemePageType;
       name: string;
       updatedAt: string;
       createdAt: string;
