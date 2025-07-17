@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_LogoSize } from './_36_Enums_LogoSize';
+import type { _36_Enums_ThemePageType } from './_36_Enums_ThemePageType';
 import type { NameDto } from './NameDto';
 import type { PhotoDto } from './PhotoDto';
 import type { PrismaJson_Colors } from './PrismaJson_Colors';
@@ -43,6 +44,7 @@ export type CreateThemeDto = {
   setting?: PrismaJson_ThemeSetting;
   nodes?: PrismaJson_ThemeNodes;
   ThemePage?: Array<{
+    type: _36_Enums_ThemePageType;
     content: string;
     name: NameDto;
   }>;
