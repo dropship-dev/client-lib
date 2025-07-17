@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
@@ -13,6 +14,8 @@ import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_PingPongTransaction } from '../models/PrismaJson_PingPongTransaction';
+import type { PrismaJson_PingPongTrialCalculation } from '../models/PrismaJson_PingPongTrialCalculation';
 import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
@@ -34,6 +37,8 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    pingPongTransaction: PrismaJson_PingPongTransaction;
+    pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
@@ -94,6 +99,8 @@ export class RequestPayoutService {
     total: number;
     data: Array<({
       PingPongAccount: {
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
@@ -161,6 +168,8 @@ export class RequestPayoutService {
     } & {
       payoutInToDate: string;
       payoutInFromDate: string;
+      pingPongTransaction: PrismaJson_PingPongTransaction;
+      pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
       decidedAt: string;
       historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
@@ -235,6 +244,8 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
+          authStatus: _36_Enums_PingPongAuthStatus;
+          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
@@ -302,6 +313,8 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        pingPongTransaction: PrismaJson_PingPongTransaction;
+        pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -377,6 +390,8 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
+          authStatus: _36_Enums_PingPongAuthStatus;
+          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
@@ -444,6 +459,8 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        pingPongTransaction: PrismaJson_PingPongTransaction;
+        pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -661,6 +678,8 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    pingPongTransaction: PrismaJson_PingPongTransaction;
+    pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;

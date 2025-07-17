@@ -46,6 +46,7 @@ export { _36_Enums_OrderTrackingRecoveredStatus } from './models/_36_Enums_Order
 export { _36_Enums_PaymentIntegrationType } from './models/_36_Enums_PaymentIntegrationType';
 export { _36_Enums_PaymentMethodType } from './models/_36_Enums_PaymentMethodType';
 export { _36_Enums_PaymentType } from './models/_36_Enums_PaymentType';
+export { _36_Enums_PingPongAuthStatus } from './models/_36_Enums_PingPongAuthStatus';
 export { _36_Enums_PPCPVettingStatus } from './models/_36_Enums_PPCPVettingStatus';
 export { _36_Enums_RequestPayoutStatus } from './models/_36_Enums_RequestPayoutStatus';
 export { _36_Enums_RequestSourcingStatus } from './models/_36_Enums_RequestSourcingStatus';
@@ -391,6 +392,9 @@ export { Permission } from './models/Permission';
 export type { PhoneWithCountryCode } from './models/PhoneWithCountryCode';
 export type { PhotoDto } from './models/PhotoDto';
 export type { PingPongAccount } from './models/PingPongAccount';
+export { PingPongFeePayer } from './models/PingPongFeePayer';
+export { PingPongTransactionStatus } from './models/PingPongTransactionStatus';
+export { PingPongTransactionType } from './models/PingPongTransactionType';
 export { PlacementBoostSaleEnum } from './models/PlacementBoostSaleEnum';
 export type { PlatformProduct } from './models/PlatformProduct';
 export type { PlatformProductStore } from './models/PlatformProductStore';
@@ -423,6 +427,10 @@ export type { PrismaJson_OnboardingProducts } from './models/PrismaJson_Onboardi
 export type { PrismaJson_OrderItemInformation } from './models/PrismaJson_OrderItemInformation';
 export type { PrismaJson_Permissions } from './models/PrismaJson_Permissions';
 export type { PrismaJson_Photos } from './models/PrismaJson_Photos';
+export type { PrismaJson_PingPongMoney } from './models/PrismaJson_PingPongMoney';
+export type { PrismaJson_PingPongServiceCharge } from './models/PrismaJson_PingPongServiceCharge';
+export type { PrismaJson_PingPongTransaction } from './models/PrismaJson_PingPongTransaction';
+export type { PrismaJson_PingPongTrialCalculation } from './models/PrismaJson_PingPongTrialCalculation';
 export type { PrismaJson_PlacementBoostSaleType } from './models/PrismaJson_PlacementBoostSaleType';
 export type { PrismaJson_PlatformCostInfo } from './models/PrismaJson_PlatformCostInfo';
 export type { PrismaJson_ProductDiscountItems } from './models/PrismaJson_ProductDiscountItems';
