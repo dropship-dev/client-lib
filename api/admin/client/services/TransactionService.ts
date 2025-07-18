@@ -59,6 +59,7 @@ export class TransactionService {
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
+          userId: string;
           email: string;
           updatedAt: string;
           createdAt: string;
@@ -182,6 +183,8 @@ export class TransactionService {
     RequestPayout: {
       payoutInToDate: string;
       payoutInFromDate: string;
+      fulfillmentAgencyPingPongAccountId: string;
+      approverId: string;
       pingPongTransaction: PrismaJson_PingPongTransaction;
       pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
       decidedAt: string;
