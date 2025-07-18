@@ -18,6 +18,7 @@ export declare class PingPongAccountService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -39,6 +40,7 @@ export declare class PingPongAccountService {
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;

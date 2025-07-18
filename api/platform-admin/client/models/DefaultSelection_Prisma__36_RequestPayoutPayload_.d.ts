@@ -7,6 +7,8 @@ import type { PrismaJson_PingPongTrialCalculation } from './PrismaJson_PingPongT
 export type DefaultSelection_Prisma__36_RequestPayoutPayload_ = {
     payoutInToDate: string;
     payoutInFromDate: string;
+    fulfillmentAgencyPingPongAccountId: string;
+    approverId: string;
     pingPongTransaction: PrismaJson_PingPongTransaction;
     pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
     decidedAt: string;

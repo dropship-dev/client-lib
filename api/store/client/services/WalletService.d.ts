@@ -43,6 +43,8 @@ export declare class WalletService {
         requestPayout: {
             payoutInToDate: string;
             payoutInFromDate: string;
+            fulfillmentAgencyPingPongAccountId: string;
+            approverId: string;
             pingPongTransaction: PrismaJson_PingPongTransaction;
             pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
             decidedAt: string;

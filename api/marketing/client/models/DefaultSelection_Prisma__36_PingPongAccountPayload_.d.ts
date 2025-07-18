@@ -6,6 +6,7 @@ export type DefaultSelection_Prisma__36_PingPongAccountPayload_ = {
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
+    userId: string;
     email: string;
     updatedAt: string;
     createdAt: string;

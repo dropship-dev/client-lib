@@ -32,6 +32,8 @@ export declare class RequestPayoutService {
     }): CancelablePromise<{
         payoutInToDate: string;
         payoutInFromDate: string;
+        fulfillmentAgencyPingPongAccountId: string;
+        approverId: string;
         pingPongTransaction: PrismaJson_PingPongTransaction;
         pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
@@ -76,6 +78,7 @@ export declare class RequestPayoutService {
                 walletId: string;
                 isBlock: boolean;
                 isDefault: boolean;
+                userId: string;
                 email: string;
                 updatedAt: string;
                 createdAt: string;
@@ -140,6 +143,8 @@ export declare class RequestPayoutService {
         } & {
             payoutInToDate: string;
             payoutInFromDate: string;
+            fulfillmentAgencyPingPongAccountId: string;
+            approverId: string;
             pingPongTransaction: PrismaJson_PingPongTransaction;
             pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
             decidedAt: string;
@@ -190,6 +195,7 @@ export declare class RequestPayoutService {
                     walletId: string;
                     isBlock: boolean;
                     isDefault: boolean;
+                    userId: string;
                     email: string;
                     updatedAt: string;
                     createdAt: string;
@@ -254,6 +260,8 @@ export declare class RequestPayoutService {
             } & {
                 payoutInToDate: string;
                 payoutInFromDate: string;
+                fulfillmentAgencyPingPongAccountId: string;
+                approverId: string;
                 pingPongTransaction: PrismaJson_PingPongTransaction;
                 pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
                 decidedAt: string;
@@ -305,6 +313,7 @@ export declare class RequestPayoutService {
                     walletId: string;
                     isBlock: boolean;
                     isDefault: boolean;
+                    userId: string;
                     email: string;
                     updatedAt: string;
                     createdAt: string;
@@ -369,6 +378,8 @@ export declare class RequestPayoutService {
             } & {
                 payoutInToDate: string;
                 payoutInFromDate: string;
+                fulfillmentAgencyPingPongAccountId: string;
+                approverId: string;
                 pingPongTransaction: PrismaJson_PingPongTransaction;
                 pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
                 decidedAt: string;
@@ -457,6 +468,8 @@ export declare class RequestPayoutService {
     }): CancelablePromise<{
         payoutInToDate: string;
         payoutInFromDate: string;
+        fulfillmentAgencyPingPongAccountId: string;
+        approverId: string;
         pingPongTransaction: PrismaJson_PingPongTransaction;
         pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
