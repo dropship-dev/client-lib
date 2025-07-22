@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
+import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PingPongAccountService {
@@ -18,9 +19,12 @@ export class PingPongAccountService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<Array<{
+    authStatus: _36_Enums_PingPongAuthStatus;
+    pingPongClientId: string;
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
+    userId: string;
     email: string;
     updatedAt: string;
     createdAt: string;
@@ -57,9 +61,12 @@ export class PingPongAccountService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    authStatus: _36_Enums_PingPongAuthStatus;
+    pingPongClientId: string;
     walletId: string;
     isBlock: boolean;
     isDefault: boolean;
+    userId: string;
     email: string;
     updatedAt: string;
     createdAt: string;

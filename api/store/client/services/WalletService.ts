@@ -8,6 +8,8 @@ import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestP
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
+import type { PrismaJson_PingPongTransaction } from '../models/PrismaJson_PingPongTransaction';
+import type { PrismaJson_PingPongTrialCalculation } from '../models/PrismaJson_PingPongTrialCalculation';
 import type { TopUpWalletDto } from '../models/TopUpWalletDto';
 import type { WithdrawWalletDto } from '../models/WithdrawWalletDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -48,6 +50,10 @@ export class WalletService {
     requestPayout: {
       payoutInToDate: string;
       payoutInFromDate: string;
+      fulfillmentAgencyPingPongAccountId: string;
+      approverId: string;
+      pingPongTransaction: PrismaJson_PingPongTransaction;
+      pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
       decidedAt: string;
       historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
