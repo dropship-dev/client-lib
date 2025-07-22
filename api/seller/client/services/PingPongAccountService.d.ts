@@ -1,4 +1,5 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
+import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
 import type { SendOtpAddPingpongAccountDto } from '../models/SendOtpAddPingpongAccountDto';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
@@ -17,9 +18,12 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -35,9 +39,12 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<Array<{
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -59,9 +66,12 @@ export declare class PingPongAccountService {
     verifyOtpAddPingpongAccount({ requestBody, }: {
         requestBody: VerifyOtpAddPingpongAccountDto;
     }): CancelablePromise<{
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -78,9 +88,12 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;

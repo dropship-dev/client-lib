@@ -195,6 +195,7 @@ export declare class ThemeService {
         prePageIndex: number;
         total: number;
         data: Array<{
+            permalink: string;
             photos: PrismaJson_Photos;
             name: string;
             id: number;
