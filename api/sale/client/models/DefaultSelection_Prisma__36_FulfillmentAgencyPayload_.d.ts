@@ -4,6 +4,7 @@ import type { _36_Enums_FulfillmentAgencyType } from './_36_Enums_FulfillmentAge
 import type { PrismaJson_Timezone } from './PrismaJson_Timezone';
 export type DefaultSelection_Prisma__36_FulfillmentAgencyPayload_ = {
     timezone: PrismaJson_Timezone;
+    taxFeatureEnabled: boolean;
     platformFee: number;
     type: _36_Enums_FulfillmentAgencyType;
     costCalculationMethod: _36_Enums_CostCalculationMethod;

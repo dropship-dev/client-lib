@@ -34,6 +34,7 @@ import { StatisticsService } from './services/StatisticsService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { SubscriptionService } from './services/SubscriptionService';
+import { TaxService } from './services/TaxService';
 import { ThemeService } from './services/ThemeService';
 import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TiktokPixelService } from './services/TiktokPixelService';
@@ -79,6 +80,7 @@ export declare class ClientApi {
     readonly store: StoreService;
     readonly storeTag: StoreTagService;
     readonly subscription: SubscriptionService;
+    readonly tax: TaxService;
     readonly theme: ThemeService;
     readonly themeLibrary: ThemeLibraryService;
     readonly tiktokPixel: TiktokPixelService;

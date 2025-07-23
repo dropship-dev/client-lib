@@ -129,6 +129,7 @@ export declare class RequestPayoutService {
                 refundPolicy: string;
                 privacyPolicy: string;
                 timezone: PrismaJson_Timezone;
+                taxFeatureEnabled: boolean;
                 type: _36_Enums_StoreType;
                 status: _36_Enums_StoreStatus;
                 phone: string;
@@ -246,6 +247,7 @@ export declare class RequestPayoutService {
                     refundPolicy: string;
                     privacyPolicy: string;
                     timezone: PrismaJson_Timezone;
+                    taxFeatureEnabled: boolean;
                     type: _36_Enums_StoreType;
                     status: _36_Enums_StoreStatus;
                     phone: string;
@@ -364,6 +366,7 @@ export declare class RequestPayoutService {
                     refundPolicy: string;
                     privacyPolicy: string;
                     timezone: PrismaJson_Timezone;
+                    taxFeatureEnabled: boolean;
                     type: _36_Enums_StoreType;
                     status: _36_Enums_StoreStatus;
                     phone: string;

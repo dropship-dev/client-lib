@@ -71,6 +71,11 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        taxable: boolean;
+        totalAfterTax: number;
+        taxNote: string;
+        taxRate: number;
+        tax: number;
         freeShipInfo: {
             value?: number;
             status?: boolean;

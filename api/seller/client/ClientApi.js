@@ -36,6 +36,7 @@ const StatisticsService_1 = require("./services/StatisticsService");
 const StoreService_1 = require("./services/StoreService");
 const StoreTagService_1 = require("./services/StoreTagService");
 const SubscriptionService_1 = require("./services/SubscriptionService");
+const TaxService_1 = require("./services/TaxService");
 const ThemeService_1 = require("./services/ThemeService");
 const ThemeLibraryService_1 = require("./services/ThemeLibraryService");
 const TiktokPixelService_1 = require("./services/TiktokPixelService");
@@ -80,6 +81,7 @@ class ClientApi {
     store;
     storeTag;
     subscription;
+    tax;
     theme;
     themeLibrary;
     tiktokPixel;
@@ -136,6 +138,7 @@ class ClientApi {
         this.store = new StoreService_1.StoreService(this.request);
         this.storeTag = new StoreTagService_1.StoreTagService(this.request);
         this.subscription = new SubscriptionService_1.SubscriptionService(this.request);
+        this.tax = new TaxService_1.TaxService(this.request);
         this.theme = new ThemeService_1.ThemeService(this.request);
         this.themeLibrary = new ThemeLibraryService_1.ThemeLibraryService(this.request);
         this.tiktokPixel = new TiktokPixelService_1.TiktokPixelService(this.request);
