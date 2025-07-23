@@ -7,5 +7,6 @@ exports.OtpType = void 0;
 /* eslint-disable */
 var OtpType;
 (function (OtpType) {
-    OtpType["ADD_PINGPONG_ACCOUNT"] = "add-pingpong-account";
+    OtpType["ADD_PINGPONG_ACCOUNT"] = "add_pingpong_account";
+    OtpType["PAYOUT_REQUEST"] = "payout_request";
 })(OtpType || (exports.OtpType = OtpType = {}));

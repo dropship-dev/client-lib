@@ -168,6 +168,16 @@ export declare class RequestPayoutService {
         countStatusRequestPayout: number;
     }>;
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    getOtpForPayoutRequest({ storeId, fulfillmentAgencyId, payoutRequestId, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        payoutRequestId?: string;
+    }): CancelablePromise<string>;
+    /**
+     * @deprecated
      * @returns any Ok
      * @throws ApiError
      */
@@ -447,6 +457,20 @@ export declare class RequestPayoutService {
         storeId: string;
     }): CancelablePromise<{
         status: 'REQUESTING' | 'REVIEW';
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    previewRequestPayout({ id, fulfillmentAgencyId, pingPongId, }: {
+        id: string;
+        fulfillmentAgencyId: number;
+        pingPongId: string;
+    }): CancelablePromise<{
+        balanceEnough: boolean;
+        trialExpireTime: number;
+        fee: number;
+        amount: number;
     }>;
     /**
      * @returns any Ok
