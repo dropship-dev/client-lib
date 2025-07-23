@@ -11,6 +11,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   disputeStatus: _36_Enums_OrderDisputeStatus;
   isHandleEvents: boolean;
   fingerPrint: string;
+  taxTransactionId: string;
   customerLocale: string;
   currencyCustomerCode: string;
   paymentFee: number;
@@ -18,6 +19,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   timezoneLocalBrowser: string;
   fulfillmentCost: number;
   fulfillmentStatus: _36_Enums_FulfillmentStatus;
+  isSyncTax: boolean;
   isSyncBalance: PrismaJson_SyncBalanceAmount;
   retentionRate: number;
   payoutIn: string;
@@ -30,6 +32,10 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   supplierCost: number;
   discountShippingFee: number;
   noItems: number;
+  totalAfterTax: number;
+  taxable: boolean;
+  taxNote: string;
+  taxRate: number;
   tax: number;
   profitFulfillAdmin: number;
   deductedProfit: number;

@@ -31,6 +31,7 @@ export class AuthService {
     FulfillmentUser: Array<{
       FulfillmentAgency: {
         timezone: PrismaJson_Timezone;
+        taxFeatureEnabled: boolean;
         platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -56,6 +57,7 @@ export class AuthService {
     FulfillmentUser: Array<{
       FulfillmentAgency: {
         timezone: PrismaJson_Timezone;
+        taxFeatureEnabled: boolean;
         platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;

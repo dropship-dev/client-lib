@@ -31,6 +31,7 @@ import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { TagService } from './services/TagService';
+import { TaxService } from './services/TaxService';
 import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
@@ -66,6 +67,7 @@ export class ClientApi {
   public readonly store: StoreService;
   public readonly storeTag: StoreTagService;
   public readonly tag: TagService;
+  public readonly tax: TaxService;
   public readonly themeLibrary: ThemeLibraryService;
   public readonly transaction: TransactionService;
   public readonly upload: UploadService;
@@ -112,6 +114,7 @@ export class ClientApi {
     this.store = new StoreService(this.request);
     this.storeTag = new StoreTagService(this.request);
     this.tag = new TagService(this.request);
+    this.tax = new TaxService(this.request);
     this.themeLibrary = new ThemeLibraryService(this.request);
     this.transaction = new TransactionService(this.request);
     this.upload = new UploadService(this.request);

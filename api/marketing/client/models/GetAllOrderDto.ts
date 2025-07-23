@@ -22,5 +22,6 @@ export type GetAllOrderDto = {
   endTotal?: number;
   gateway?: Array<number>;
   fraudStatus?: Array<FraudStatusType>;
+  taxable?: boolean;
 };
 
