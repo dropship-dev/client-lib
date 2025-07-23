@@ -218,6 +218,37 @@ export class RequestPayoutService {
     });
   }
   /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public getOtpForPayoutRequest({
+    storeId,
+    fulfillmentAgencyId,
+    payoutRequestId,
+  }: {
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    payoutRequestId?: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/request-payout/get-otp',
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'payoutRequestId': payoutRequestId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @deprecated
    * @returns any Ok
    * @throws ApiError
    */
@@ -634,6 +665,43 @@ export class RequestPayoutService {
       url: '/request-payout/status-create-request',
       query: {
         'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public previewRequestPayout({
+    id,
+    fulfillmentAgencyId,
+    pingPongId,
+  }: {
+    id: string,
+    fulfillmentAgencyId: number,
+    pingPongId: string,
+  }): CancelablePromise<{
+    balanceEnough: boolean;
+    trialExpireTime: number;
+    fee: number;
+    amount: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/request-payout/{id}/preview-transfer',
+      path: {
+        'id': id,
+      },
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'pingPongId': pingPongId,
       },
       errors: {
         400: `Bad request`,

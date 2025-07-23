@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
+import type { ConnectWithPingPongAccountDto } from '../models/ConnectWithPingPongAccountDto';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
 import type { SendOtpAddPingpongAccountDto } from '../models/SendOtpAddPingpongAccountDto';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
@@ -13,6 +14,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class PingPongAccountService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
+   * @deprecated
    * @returns any Ok
    * @throws ApiError
    */
@@ -97,6 +99,42 @@ export class PingPongAccountService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public connectWithPingPongAccount({
+    requestBody,
+    fulfillmentAgencyId,
+    storeId,
+  }: {
+    requestBody: ConnectWithPingPongAccountDto,
+    fulfillmentAgencyId?: number,
+    storeId?: string,
+  }): CancelablePromise<{
+    email: string;
+    loginURL: string;
+    id: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/pingpong-account/connect',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @deprecated
    * @returns string Ok
    * @throws ApiError
    */
@@ -120,6 +158,7 @@ export class PingPongAccountService {
     });
   }
   /**
+   * @deprecated
    * @returns any Ok
    * @throws ApiError
    */

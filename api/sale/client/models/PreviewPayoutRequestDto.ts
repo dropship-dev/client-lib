@@ -2,9 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CurrencyCode } from './CurrencyCode';
-export type PrismaJson_PingPongMoney = {
-  currency: CurrencyCode;
-  amount: number;
+export type PreviewPayoutRequestDto = {
+  fulfillmentAgencyId: number;
+  pingPongId: string;
 };
 

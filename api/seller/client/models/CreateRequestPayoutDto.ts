@@ -2,15 +2,16 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { _36_Enums_PaymentMethodType } from './_36_Enums_PaymentMethodType';
 import type { CurrencyCode } from './CurrencyCode';
+import type { Exclude_PaymentMethodType_CASH_or_BANK_TRANSFER_ } from './Exclude_PaymentMethodType_CASH_or_BANK_TRANSFER_';
 export type CreateRequestPayoutDto = {
+  otp: string;
   amount: number;
   currencyCode: CurrencyCode;
   amountConvert: number;
-  type: _36_Enums_PaymentMethodType;
+  type: Exclude_PaymentMethodType_CASH_or_BANK_TRANSFER_;
   bankId?: string;
-  pingPongId?: string;
+  pingPongId: string;
   notes?: string;
   storeId: string;
 };

@@ -8,5 +8,6 @@ export type UpdateRequestPayoutDto = {
   photos?: Array<PhotoDto>;
   notes?: string;
   status?: statusRequestPayout;
+  otp?: string;
 };
 

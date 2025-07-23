@@ -2,18 +2,19 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CurrencyCode } from './CurrencyCode';
 import type { PingPongTransactionType } from './PingPongTransactionType';
 import type { PrismaJson_PingPongMoney } from './PrismaJson_PingPongMoney';
 import type { PrismaJson_PingPongServiceCharge } from './PrismaJson_PingPongServiceCharge';
 export type PrismaJson_PingPongTrialCalculation = {
-  trailExpireTime: number;
-  trailTime: number;
+  preExpireTime: number;
+  preTime: number;
   serviceCharge: PrismaJson_PingPongServiceCharge;
   type: PingPongTransactionType;
   exchangeList: Array<{
     exchangeRate: number;
-    targetCurrency: string;
-    originCurrency: string;
+    targetCurrency: CurrencyCode;
+    originCurrency: CurrencyCode;
   }>;
   targetMoney: PrismaJson_PingPongMoney;
   originMoney: PrismaJson_PingPongMoney;
