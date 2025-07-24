@@ -459,7 +459,7 @@ export class PaymentService {
       fulfillmentAgencyId: number;
       id: number;
     }>;
-    payment: Array<{
+    payment: Array<({
       creator: {
         role: _36_Enums_UserRole;
         avatar: string;
@@ -481,7 +481,9 @@ export class PaymentService {
       updatedAt: string;
       createdAt: string;
       id: number;
-    }>;
+    } & {
+      taxCount: number;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
