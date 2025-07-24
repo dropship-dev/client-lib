@@ -255,7 +255,7 @@ export declare class PaymentService {
             fulfillmentAgencyId: number;
             id: number;
         }>;
-        payment: Array<{
+        payment: Array<({
             creator: {
                 role: _36_Enums_UserRole;
                 avatar: string;
@@ -277,7 +277,9 @@ export declare class PaymentService {
             updatedAt: string;
             createdAt: string;
             id: number;
-        }>;
+        } & {
+            taxCount: number;
+        })>;
     }>;
     /**
      * @returns any Ok
