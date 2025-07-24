@@ -92,6 +92,87 @@ export class TaxService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getDetailTaxProvider({
+    taxProviderId,
+    storeId,
+    fulfillmentAgencyId,
+  }: {
+    taxProviderId: number,
+    /**
+     * Store id (optional), but required when role is SELLER
+     */
+    storeId?: string,
+    /**
+     * Fulfillment agency id (optional), but required when role is ADMIN
+     */
+    fulfillmentAgencyId?: number,
+  }): CancelablePromise<{
+    name: string;
+    url: string;
+    publicKey: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/tax/{taxProviderId}',
+      path: {
+        'taxProviderId': taxProviderId,
+      },
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns void
+   * @throws ApiError
+   */
+  public removeTaxProviderCache({
+    taxProviderId,
+    storeId,
+    fulfillmentAgencyId,
+  }: {
+    taxProviderId: number,
+    /**
+     * Store id (optional), but required when role is SELLER
+     */
+    storeId?: string,
+    /**
+     * Fulfillment agency id (optional), but required when role is ADMIN
+     */
+    fulfillmentAgencyId?: number,
+  }): CancelablePromise<void> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/tax/{taxProviderId}',
+      path: {
+        'taxProviderId': taxProviderId,
+      },
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns void
    * @throws ApiError
    */
@@ -161,44 +242,6 @@ export class TaxService {
       },
       body: requestBody,
       mediaType: 'application/json',
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @returns void
-   * @throws ApiError
-   */
-  public removeTaxProviderCache({
-    taxProviderId,
-    storeId,
-    fulfillmentAgencyId,
-  }: {
-    taxProviderId: number,
-    /**
-     * Store id (optional), but required when role is SELLER
-     */
-    storeId?: string,
-    /**
-     * Fulfillment agency id (optional), but required when role is ADMIN
-     */
-    fulfillmentAgencyId?: number,
-  }): CancelablePromise<void> {
-    return this.httpRequest.request({
-      method: 'DELETE',
-      url: '/tax/{taxProviderId}',
-      path: {
-        'taxProviderId': taxProviderId,
-      },
-      query: {
-        'storeId': storeId,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
