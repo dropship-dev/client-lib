@@ -38,6 +38,41 @@ export declare class TaxService {
         fulfillmentAgencyId?: number;
     }): CancelablePromise<Array<TaxProviderItem>>;
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDetailTaxProvider({ taxProviderId, storeId, fulfillmentAgencyId, }: {
+        taxProviderId: number;
+        /**
+         * Store id (optional), but required when role is SELLER
+         */
+        storeId?: string;
+        /**
+         * Fulfillment agency id (optional), but required when role is ADMIN
+         */
+        fulfillmentAgencyId?: number;
+    }): CancelablePromise<{
+        name: string;
+        url: string;
+        publicKey: string;
+        id: number;
+    }>;
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    removeTaxProviderCache({ taxProviderId, storeId, fulfillmentAgencyId, }: {
+        taxProviderId: number;
+        /**
+         * Store id (optional), but required when role is SELLER
+         */
+        storeId?: string;
+        /**
+         * Fulfillment agency id (optional), but required when role is ADMIN
+         */
+        fulfillmentAgencyId?: number;
+    }): CancelablePromise<void>;
+    /**
      * @returns void
      * @throws ApiError
      */
@@ -59,20 +94,5 @@ export declare class TaxService {
     updateConfigTaxProvider({ taxProviderId, requestBody, }: {
         taxProviderId: number;
         requestBody: UpdateConfigTaxProviderDto;
-    }): CancelablePromise<void>;
-    /**
-     * @returns void
-     * @throws ApiError
-     */
-    removeTaxProviderCache({ taxProviderId, storeId, fulfillmentAgencyId, }: {
-        taxProviderId: number;
-        /**
-         * Store id (optional), but required when role is SELLER
-         */
-        storeId?: string;
-        /**
-         * Fulfillment agency id (optional), but required when role is ADMIN
-         */
-        fulfillmentAgencyId?: number;
     }): CancelablePromise<void>;
 }

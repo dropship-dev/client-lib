@@ -66,6 +66,54 @@ class TaxService {
         });
     }
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getDetailTaxProvider({ taxProviderId, storeId, fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/tax/{taxProviderId}',
+            path: {
+                'taxProviderId': taxProviderId,
+            },
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns void
+     * @throws ApiError
+     */
+    removeTaxProviderCache({ taxProviderId, storeId, fulfillmentAgencyId, }) {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/tax/{taxProviderId}',
+            path: {
+                'taxProviderId': taxProviderId,
+            },
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns void
      * @throws ApiError
      */
@@ -119,30 +167,6 @@ class TaxService {
             },
             body: requestBody,
             mediaType: 'application/json',
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns void
-     * @throws ApiError
-     */
-    removeTaxProviderCache({ taxProviderId, storeId, fulfillmentAgencyId, }) {
-        return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/tax/{taxProviderId}',
-            path: {
-                'taxProviderId': taxProviderId,
-            },
-            query: {
-                'storeId': storeId,
-                'fulfillmentAgencyId': fulfillmentAgencyId,
-            },
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,
