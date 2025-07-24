@@ -776,8 +776,8 @@ export declare class ProductService {
                 id: number;
             }>;
         };
-        ThemePage: Array<{
-            id: number;
+        ThemePagesOnProducts: Array<{
+            themePageId: number;
         }>;
         Store: {
             RegionalShippingFee: Array<{
