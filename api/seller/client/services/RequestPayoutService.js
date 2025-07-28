@@ -221,7 +221,7 @@ class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    previewRequestPayout({ id, fulfillmentAgencyId, pingPongId, }) {
+    previewRequestPayout({ id, fulfillmentAgencyId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/request-payout/{id}/preview-transfer',
@@ -230,7 +230,6 @@ class RequestPayoutService {
             },
             query: {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
-                'pingPongId': pingPongId,
             },
             errors: {
                 400: `Bad request`,

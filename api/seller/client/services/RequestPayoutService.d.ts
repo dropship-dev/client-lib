@@ -462,10 +462,9 @@ export declare class RequestPayoutService {
      * @returns any Ok
      * @throws ApiError
      */
-    previewRequestPayout({ id, fulfillmentAgencyId, pingPongId, }: {
+    previewRequestPayout({ id, fulfillmentAgencyId, }: {
         id: string;
         fulfillmentAgencyId: number;
-        pingPongId: string;
     }): CancelablePromise<{
         balanceEnough: boolean;
         trialExpireTime: number;
