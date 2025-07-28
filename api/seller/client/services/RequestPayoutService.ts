@@ -682,11 +682,9 @@ export class RequestPayoutService {
   public previewRequestPayout({
     id,
     fulfillmentAgencyId,
-    pingPongId,
   }: {
     id: string,
     fulfillmentAgencyId: number,
-    pingPongId: string,
   }): CancelablePromise<{
     balanceEnough: boolean;
     trialExpireTime: number;
@@ -701,7 +699,6 @@ export class RequestPayoutService {
       },
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
-        'pingPongId': pingPongId,
       },
       errors: {
         400: `Bad request`,
