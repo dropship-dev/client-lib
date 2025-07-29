@@ -285,9 +285,11 @@ export class ThemeService {
   public listActiveThemePages({
     storeId,
     pageType,
+    productId,
   }: {
     storeId: string,
     pageType: _36_Enums_ThemePageType,
+    productId?: number,
   }): CancelablePromise<{
     themePages: Array<{
       name: string;
@@ -306,6 +308,7 @@ export class ThemeService {
       },
       query: {
         'pageType': pageType,
+        'productId': productId,
       },
       errors: {
         400: `Bad request`,
@@ -342,8 +345,8 @@ export class ThemeService {
       photos: PrismaJson_Photos;
       name: string;
       id: number;
-      ThemePage: Array<{
-        id: number;
+      ThemePagesOnProducts: Array<{
+        themePageId: number;
       }>;
     }>;
   }> {
@@ -423,7 +426,7 @@ export class ThemeService {
     });
   }
   /**
-   * @returns void
+   * @returns string Ok
    * @throws ApiError
    */
   public updateAssignedProductsForThemePage({
@@ -434,7 +437,7 @@ export class ThemeService {
     storeId: string,
     id: number,
     requestBody: UpdateAssignedProductsForThemePageDto,
-  }): CancelablePromise<void> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/store/{storeId}/theme/theme-page/{id}/update-assigned-products',
