@@ -141,7 +141,7 @@ class ThemeService {
      * @returns any Ok
      * @throws ApiError
      */
-    listActiveThemePages({ storeId, pageType, }) {
+    listActiveThemePages({ storeId, pageType, productId, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/theme/theme-pages/active',
@@ -150,6 +150,7 @@ class ThemeService {
             },
             query: {
                 'pageType': pageType,
+                'productId': productId,
             },
             errors: {
                 400: `Bad request`,
@@ -229,7 +230,7 @@ class ThemeService {
         });
     }
     /**
-     * @returns void
+     * @returns string Ok
      * @throws ApiError
      */
     updateAssignedProductsForThemePage({ storeId, id, requestBody, }) {
