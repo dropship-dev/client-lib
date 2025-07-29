@@ -26,6 +26,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
   holdIn: string;
   latestNoItems: number;
   latestSubTotal: number;
+  latestTotalWithTax: number;
   latestTotal: number;
   gatewayTransactionId: string;
   gatewayOrderId: string;
