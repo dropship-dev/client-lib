@@ -16,7 +16,7 @@ export type GetAllOrderResult = ({
     name: string;
     total: number;
     platformFee?: number;
-    latestTotal: number;
+    latestTotalWithTax: number;
     createdAt: string;
     storeId: string;
     id: string;

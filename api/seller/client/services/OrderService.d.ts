@@ -85,6 +85,7 @@ export declare class OrderService {
             email: string;
             name: string;
             total: number;
+            latestTotalWithTax: number;
             latestTotal: number;
             createdAt: string;
             storeId: string;
@@ -321,6 +322,7 @@ export declare class OrderService {
         holdIn: string;
         latestNoItems: number;
         latestSubTotal: number;
+        latestTotalWithTax: number;
         latestTotal: number;
         gatewayTransactionId: string;
         gatewayOrderId: string;

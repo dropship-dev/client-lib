@@ -222,6 +222,7 @@ export declare class OrderRefundsService {
             holdIn: string;
             latestNoItems: number;
             latestSubTotal: number;
+            latestTotalWithTax: number;
             latestTotal: number;
             gatewayTransactionId: string;
             gatewayOrderId: string;
