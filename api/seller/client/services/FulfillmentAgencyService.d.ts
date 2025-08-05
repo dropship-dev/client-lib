@@ -16,6 +16,7 @@ export declare class FulfillmentAgencyService {
     getAgencyByEmail({ email, }: {
         email: string;
     }): CancelablePromise<{
+        sellerPolicy: string;
         avatar: string;
         nameAgency: string;
         email: string;

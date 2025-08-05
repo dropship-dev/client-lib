@@ -32,6 +32,7 @@ export declare class SettingService {
         fulfillmentAgencyId: number;
         id: number;
     } | {
+        sellerPolicy: any;
         shippingPolicy: string;
         termsOfService: string;
         refundPolicy: string;
@@ -61,5 +62,14 @@ export declare class SettingService {
         createdAt: string;
         fulfillmentAgencyId: number;
         id: number;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFaWarnings({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<{
+        sellerPolicyWarning: boolean;
     }>;
 }

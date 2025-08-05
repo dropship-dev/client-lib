@@ -153,6 +153,15 @@ export declare class FulfillmentAgencyService {
      * @returns any Ok
      * @throws ApiError
      */
+    getFaWarnings({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<{
+        sellerPolicyWarning: boolean;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getFulfillmentAgency({ id, }: {
         id: number;
     }): CancelablePromise<({
