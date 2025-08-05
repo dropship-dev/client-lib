@@ -290,6 +290,9 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        totalAfterTax: number;
+        taxable: boolean;
+        tax: number;
         shippingFee: number;
         discount: number;
         subTotal: number;
