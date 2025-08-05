@@ -261,24 +261,7 @@ export class PerformanceService {
     startDate?: string,
     endDate?: string,
     storeId?: string,
-  }): CancelablePromise<({
-    AOV: {
-      growth: number;
-      value: number;
-    };
-    orders: {
-      growth: number;
-      value: number;
-    };
-    profit: {
-      growth: number;
-      value: number;
-    };
-    revenue: {
-      growth: number;
-      value: number;
-    };
-  } | {
+  }): CancelablePromise<{
     AOV: {
       growth: number;
       value: number;
@@ -299,7 +282,7 @@ export class PerformanceService {
       growth: number;
       value: number;
     };
-  })> {
+  }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/performance/summary',
