@@ -21,6 +21,7 @@ export class FulfillmentAgencyService {
   }: {
     email: string,
   }): CancelablePromise<{
+    sellerPolicy: string;
     avatar: string;
     nameAgency: string;
     email: string;
