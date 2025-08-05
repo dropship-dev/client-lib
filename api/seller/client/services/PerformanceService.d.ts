@@ -111,24 +111,7 @@ export declare class PerformanceService {
         startDate?: string;
         endDate?: string;
         storeId?: string;
-    }): CancelablePromise<({
-        AOV: {
-            growth: number;
-            value: number;
-        };
-        orders: {
-            growth: number;
-            value: number;
-        };
-        profit: {
-            growth: number;
-            value: number;
-        };
-        revenue: {
-            growth: number;
-            value: number;
-        };
-    } | {
+    }): CancelablePromise<{
         AOV: {
             growth: number;
             value: number;
@@ -149,7 +132,7 @@ export declare class PerformanceService {
             growth: number;
             value: number;
         };
-    })>;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
