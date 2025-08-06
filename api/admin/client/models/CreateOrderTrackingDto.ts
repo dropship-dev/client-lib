@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_PaymentType } from './_36_Enums_PaymentType';
 import type { ComboItemTrackingDto } from './ComboItemTrackingDto';
 import type { OrderItemTrackingDto } from './OrderItemTrackingDto';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
@@ -17,5 +18,8 @@ export type CreateOrderTrackingDto = {
   lastName?: string;
   fullName?: string;
   shippingInfo?: PrismaJson_BillingInfo;
+  clientId?: string;
+  merchantId?: string;
+  payment: _36_Enums_PaymentType;
 };
 

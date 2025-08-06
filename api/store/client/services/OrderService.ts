@@ -101,6 +101,9 @@ export class OrderService {
     storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    totalAfterTax: number;
+    taxable: boolean;
+    tax: number;
     freeShipInfo: {
       value?: number;
       status: boolean;
