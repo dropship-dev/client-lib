@@ -105,7 +105,11 @@ export declare class PaymentService {
         onboardingId: number;
         url: string;
     } | {
+        isVerifySupportEmail: boolean;
         PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+        emailUsernameId: number;
+        fromName: string;
+        replyToEmail: string;
         isConnectPSSFF: boolean;
         environment: _36_Enums_EnvironmentType;
         UIVersion: number;
@@ -142,7 +146,11 @@ export declare class PaymentService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
+        isVerifySupportEmail: boolean;
         PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+        emailUsernameId: number;
+        fromName: string;
+        replyToEmail: string;
         isConnectPSSFF: boolean;
         environment: _36_Enums_EnvironmentType;
         UIVersion: number;
@@ -403,7 +411,11 @@ export declare class PaymentService {
         fulfillmentAgencyId: number;
         id: number;
     } | {
+        isVerifySupportEmail: boolean;
         PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+        emailUsernameId: number;
+        fromName: string;
+        replyToEmail: string;
         isConnectPSSFF: boolean;
         environment: _36_Enums_EnvironmentType;
         UIVersion: number;
