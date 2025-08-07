@@ -32,7 +32,11 @@ export class FulfillmentAgencyService {
     requestBody: CreateFulfillmentAgencyDto,
   }): CancelablePromise<({
     Payment: Array<{
+      isVerifySupportEmail: boolean;
       PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+      emailUsernameId: number;
+      fromName: string;
+      replyToEmail: string;
       isConnectPSSFF: boolean;
       environment: _36_Enums_EnvironmentType;
       UIVersion: number;

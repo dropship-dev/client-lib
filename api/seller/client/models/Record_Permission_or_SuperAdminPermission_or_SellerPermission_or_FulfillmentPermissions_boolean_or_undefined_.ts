@@ -73,5 +73,6 @@ export type Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_Ful
   FULFILLMENT_AGENCY_SETTING_DEFAULT_COLLECTION: boolean;
   FULFILLMENT_AGENCY_SETTING_ADDITIONAL_COST: boolean;
   FULFILLMENT_AGENCY_VIEW_INCLUSIVE_FEE: boolean;
+  FULFILLMENT_AGENCY_MANAGE_EMAIL_DOMAIN: boolean;
 };
 
