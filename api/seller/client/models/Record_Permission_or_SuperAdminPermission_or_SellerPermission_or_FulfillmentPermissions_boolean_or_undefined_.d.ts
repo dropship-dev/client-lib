@@ -47,6 +47,7 @@ export type Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_Ful
     SELLER_MANAGE_CURRENCY: boolean;
     SELLER_MANAGE_POLICIES: boolean;
     SELLER_MANAGE_ANALYTICS_TOOLS: boolean;
+    FULFILLMENT_AGENCY_MANAGE_EMAIL_DOMAIN: boolean;
     FULFILLMENT_AGENCY_VIEW_PLATFORM_PERFORMANCE: boolean;
     FULFILLMENT_AGENCY_VIEW_PRODUCT_PERFORMANCE: boolean;
     FULFILLMENT_AGENCY_VIEW_LIVE_VIEW: boolean;
@@ -69,5 +70,4 @@ export type Record_Permission_or_SuperAdminPermission_or_SellerPermission_or_Ful
     FULFILLMENT_AGENCY_SETTING_DEFAULT_COLLECTION: boolean;
     FULFILLMENT_AGENCY_SETTING_ADDITIONAL_COST: boolean;
     FULFILLMENT_AGENCY_VIEW_INCLUSIVE_FEE: boolean;
-    FULFILLMENT_AGENCY_MANAGE_EMAIL_DOMAIN: boolean;
 };
