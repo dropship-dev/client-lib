@@ -563,6 +563,7 @@ export declare class OrderService {
         supplierCost: number;
         discountShippingFee: number;
         noItems: number;
+        taxPart: number;
         totalAfterTax: number;
         taxable: boolean;
         taxNote: string;

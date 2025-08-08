@@ -29,6 +29,7 @@ export type DefaultSelection_Prisma__36_OrderPayload_ = {
     supplierCost: number;
     discountShippingFee: number;
     noItems: number;
+    taxPart: number;
     totalAfterTax: number;
     taxable: boolean;
     taxNote: string;

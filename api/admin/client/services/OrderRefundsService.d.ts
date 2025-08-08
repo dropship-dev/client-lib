@@ -229,6 +229,7 @@ export declare class OrderRefundsService {
             supplierCost: number;
             discountShippingFee: number;
             noItems: number;
+            taxPart: number;
             totalAfterTax: number;
             taxable: boolean;
             taxNote: string;
