@@ -420,6 +420,15 @@ export class PaymentService {
     fulfillmentAgencyId: number;
     payment: {
       type: _36_Enums_PaymentType;
+      TaxProviderPaymentGatewayConfig: Array<{
+        countryCode: string;
+        id: number;
+        TaxProvider: {
+          owner: _36_Enums_TaxProviderOwner;
+          name: string;
+          id: number;
+        };
+      }>;
     };
     isDisconnect: boolean;
     onboardingUrl: string;
