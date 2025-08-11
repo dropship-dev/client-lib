@@ -80,6 +80,7 @@ export class EmailDomainService {
     status: _36_Enums_EmailDomainStatus;
     id: number;
     EmailUsername: Array<{
+      username: string;
       email: string;
       id: number;
     }>;
