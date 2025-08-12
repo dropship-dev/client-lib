@@ -158,7 +158,8 @@ export declare class FulfillmentAgencyService {
     getFaWarnings({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
-        sellerPolicyWarning: boolean;
+        missingPayment: boolean;
+        missingEmailDomain: boolean;
     }>;
     /**
      * @returns any Ok

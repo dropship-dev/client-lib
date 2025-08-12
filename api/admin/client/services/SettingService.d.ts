@@ -70,6 +70,7 @@ export declare class SettingService {
     getFaWarnings({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
-        sellerPolicyWarning: boolean;
+        missingPayment: boolean;
+        missingEmailDomain: boolean;
     }>;
 }
