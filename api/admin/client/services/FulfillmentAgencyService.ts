@@ -236,7 +236,8 @@ export class FulfillmentAgencyService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<{
-    sellerPolicyWarning: boolean;
+    missingPayment: boolean;
+    missingEmailDomain: boolean;
   }> {
     return this.httpRequest.request({
       method: 'GET',

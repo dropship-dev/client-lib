@@ -120,6 +120,35 @@ export class MarketingEmailService {
    * @returns any Ok
    * @throws ApiError
    */
+  public emailAssignment({
+    storeId,
+  }: {
+    storeId: string,
+  }): CancelablePromise<{
+    email: string;
+    replyToEmail: string;
+    fromName: string;
+    emailUsernameId: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/marketing/email/abandonment/store/{storeId}/email-assignment',
+      path: {
+        'storeId': storeId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public listAbandonmentOrders({
     storeId,
     nextPageIndex,
