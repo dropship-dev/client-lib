@@ -58,10 +58,14 @@ export declare class EmailDomainService {
         status: _36_Enums_EmailDomainStatus;
         id: number;
         EmailUsername: Array<{
+            isPayment: boolean;
+            isAbandonmentSettings: boolean;
             username: string;
             email: string;
             id: number;
         }>;
+        isPayment: boolean;
+        isAbandonmentSettings: boolean;
     }>>;
     /**
      * @returns any Ok
