@@ -9,5 +9,7 @@ export type AddNewPaymentOnboardingV1Dto = {
   onboardingProduct: OnboardingProduct;
   paymentGateName: string;
   emailCS: string;
+  fromName: string;
+  replyToEmail: string;
 };
 

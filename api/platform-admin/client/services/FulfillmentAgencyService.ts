@@ -34,7 +34,6 @@ export class FulfillmentAgencyService {
     Payment: Array<{
       isVerifySupportEmail: boolean;
       PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-      emailUsernameId: number;
       fromName: string;
       replyToEmail: string;
       isConnectPSSFF: boolean;
@@ -51,6 +50,7 @@ export class FulfillmentAgencyService {
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      emailUsernameId: number;
       merchantId: string;
       salt: string;
       secretKey: string;
@@ -142,6 +142,7 @@ export class FulfillmentAgencyService {
         id: string;
       }>;
       PaymentOnboarding: Array<{
+        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
@@ -212,6 +213,7 @@ export class FulfillmentAgencyService {
       id: string;
     }>;
     PaymentOnboarding: Array<{
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;

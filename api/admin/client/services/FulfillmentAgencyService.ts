@@ -74,6 +74,7 @@ export class FulfillmentAgencyService {
         id: string;
       }>;
       PaymentOnboarding: Array<{
+        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
@@ -154,6 +155,7 @@ export class FulfillmentAgencyService {
   }: {
     fulfillmentAgencyId: number,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -276,6 +278,7 @@ export class FulfillmentAgencyService {
       id: string;
     }>;
     PaymentOnboarding: Array<{
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -422,6 +425,7 @@ export class FulfillmentAgencyService {
     paymentType: _36_Enums_PaymentType,
     onBoardingPaymentId: number,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -472,6 +476,7 @@ export class FulfillmentAgencyService {
     paymentType: _36_Enums_PaymentType,
     onBoardingPaymentId: number,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -700,6 +705,7 @@ export class FulfillmentAgencyService {
     id: number,
     requestBody: ReconnectPaymentDto,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;

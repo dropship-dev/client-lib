@@ -249,7 +249,6 @@ export class PaymentService {
   } | {
     isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-    emailUsernameId: number;
     fromName: string;
     replyToEmail: string;
     isConnectPSSFF: boolean;
@@ -266,6 +265,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
@@ -312,7 +312,6 @@ export class PaymentService {
   }): CancelablePromise<{
     isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-    emailUsernameId: number;
     fromName: string;
     replyToEmail: string;
     isConnectPSSFF: boolean;
@@ -329,6 +328,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
@@ -392,6 +392,7 @@ export class PaymentService {
     createdAt: string;
     id: number;
     PaymentOnboarding: {
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -444,6 +445,7 @@ export class PaymentService {
     storeId?: string,
   }): CancelablePromise<{
     paymentOnboarding: Array<{
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -706,6 +708,7 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -731,7 +734,6 @@ export class PaymentService {
   } | {
     isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-    emailUsernameId: number;
     fromName: string;
     replyToEmail: string;
     isConnectPSSFF: boolean;
@@ -748,6 +750,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
