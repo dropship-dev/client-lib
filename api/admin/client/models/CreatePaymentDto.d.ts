@@ -6,8 +6,8 @@ import type { PaymentOnboardingDto } from './PaymentOnboardingDto';
 export type CreatePaymentDto = {
     type: _36_Enums_PaymentType;
     email: EmailDto;
-    replyToEmail?: string;
-    fromName?: string;
+    replyToEmail: string;
+    fromName: string;
     name: NameDto;
     paymentIntegrationType: (PaymentDirectApiDto | PaymentOnboardingDto);
 };
