@@ -56,6 +56,28 @@ class RequestPayoutService {
      * @returns string Ok
      * @throws ApiError
      */
+    clearOtpForPayoutRequest({ storeId, fulfillmentAgencyId, payoutRequestId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/request-payout/clear-otp',
+            query: {
+                'storeId': storeId,
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'payoutRequestId': payoutRequestId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
     getOtpForPayoutRequest({ storeId, fulfillmentAgencyId, payoutRequestId, }) {
         return this.httpRequest.request({
             method: 'GET',

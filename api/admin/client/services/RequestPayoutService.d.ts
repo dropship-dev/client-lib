@@ -171,6 +171,15 @@ export declare class RequestPayoutService {
      * @returns string Ok
      * @throws ApiError
      */
+    clearOtpForPayoutRequest({ storeId, fulfillmentAgencyId, payoutRequestId, }: {
+        storeId?: string;
+        fulfillmentAgencyId?: number;
+        payoutRequestId?: string;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
     getOtpForPayoutRequest({ storeId, fulfillmentAgencyId, payoutRequestId, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
