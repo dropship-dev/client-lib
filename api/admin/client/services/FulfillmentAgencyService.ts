@@ -15,6 +15,7 @@ import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
+import type { PaymentAndEmailDomainSetupStatus } from '../models/PaymentAndEmailDomainSetupStatus';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
@@ -228,17 +229,14 @@ export class FulfillmentAgencyService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns PaymentAndEmailDomainSetupStatus Ok
    * @throws ApiError
    */
   public getFaWarnings({
     fulfillmentAgencyId,
   }: {
     fulfillmentAgencyId: number,
-  }): CancelablePromise<{
-    missingPayment: boolean;
-    missingEmailDomain: boolean;
-  }> {
+  }): CancelablePromise<PaymentAndEmailDomainSetupStatus> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/warnings',
