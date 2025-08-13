@@ -379,6 +379,7 @@ export { OrderTrackingRecoveredStatusDto } from './models/OrderTrackingRecovered
 export { OtpType } from './models/OtpType';
 export { PageNameType } from './models/PageNameType';
 export type { Partial_CreateSubscriptionFeatureDto_ } from './models/Partial_CreateSubscriptionFeatureDto_';
+export { PaymentAndEmailDomainSetupStatus } from './models/PaymentAndEmailDomainSetupStatus';
 export type { PaymentDirectApiDto } from './models/PaymentDirectApiDto';
 export { paymentIntegrationTypeEnum_DIRECT_API } from './models/paymentIntegrationTypeEnum_DIRECT_API';
 export { paymentIntegrationTypeEnum_ONBOARDING } from './models/paymentIntegrationTypeEnum_ONBOARDING';
