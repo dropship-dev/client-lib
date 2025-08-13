@@ -221,6 +221,36 @@ export class RequestPayoutService {
    * @returns string Ok
    * @throws ApiError
    */
+  public clearOtpForPayoutRequest({
+    storeId,
+    fulfillmentAgencyId,
+    payoutRequestId,
+  }: {
+    storeId?: string,
+    fulfillmentAgencyId?: number,
+    payoutRequestId?: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/request-payout/clear-otp',
+      query: {
+        'storeId': storeId,
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'payoutRequestId': payoutRequestId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
   public getOtpForPayoutRequest({
     storeId,
     fulfillmentAgencyId,
