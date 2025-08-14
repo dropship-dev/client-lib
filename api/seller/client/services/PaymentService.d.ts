@@ -368,6 +368,8 @@ export declare class PaymentService {
             createdAt: string;
             id: string;
         };
+        fromName: string;
+        replyToEmail: string;
         isShowCompanyAddress: boolean;
         companyAddress: string;
         companyPhone: string;
