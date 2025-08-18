@@ -9,6 +9,7 @@ import type { _36_Enums_PaymentIntegrationType } from '../models/_36_Enums_Payme
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
+import type { _36_Enums_TaxProviderOwner } from '../models/_36_Enums_TaxProviderOwner';
 import type { _36_Enums_UserRole } from '../models/_36_Enums_UserRole';
 import type { ActivePaymentSSFFDto } from '../models/ActivePaymentSSFFDto';
 import type { AddNewPaymentOnboardingV1Dto } from '../models/AddNewPaymentOnboardingV1Dto';
@@ -458,7 +459,7 @@ export class PaymentService {
       fulfillmentAgencyId: number;
       id: number;
     }>;
-    payment: Array<{
+    payment: Array<({
       creator: {
         role: _36_Enums_UserRole;
         avatar: string;
@@ -480,7 +481,9 @@ export class PaymentService {
       updatedAt: string;
       createdAt: string;
       id: number;
-    }>;
+    } & {
+      taxCount: number;
+    })>;
   }> {
     return this.httpRequest.request({
       method: 'GET',
@@ -555,6 +558,15 @@ export class PaymentService {
     fulfillmentAgencyId: number;
     payment: {
       type: _36_Enums_PaymentType;
+      TaxProviderPaymentGatewayConfig: Array<{
+        countryCode: string;
+        id: number;
+        TaxProvider: {
+          owner: _36_Enums_TaxProviderOwner;
+          name: string;
+          id: number;
+        };
+      }>;
     };
     isDisconnect: boolean;
     onboardingUrl: string;
@@ -642,6 +654,15 @@ export class PaymentService {
     updatedAt: string;
     createdAt: string;
     id: number;
+    taxProviderConnectConfig: Array<{
+      countryCode: string;
+      id: number;
+      TaxProvider: {
+        owner: _36_Enums_TaxProviderOwner;
+        name: string;
+        id: number;
+      };
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'GET',

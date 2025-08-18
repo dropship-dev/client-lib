@@ -28,6 +28,7 @@ export class SettingService {
     othersFee: number;
     percentageCostPlatformFee: number;
     hold: PrismaJson_HoldSetting;
+    sellerPolicy: string;
     shippingPolicy: string;
     termsOfService: string;
     refundPolicy: string;
@@ -37,6 +38,7 @@ export class SettingService {
     fulfillmentAgencyId: number;
     id: number;
   } | {
+    sellerPolicy: any;
     shippingPolicy: string;
     termsOfService: string;
     refundPolicy: string;
@@ -75,6 +77,7 @@ export class SettingService {
     othersFee: number;
     percentageCostPlatformFee: number;
     hold: PrismaJson_HoldSetting;
+    sellerPolicy: string;
     shippingPolicy: string;
     termsOfService: string;
     refundPolicy: string;
@@ -92,6 +95,32 @@ export class SettingService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getFaWarnings({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<{
+    sellerPolicyWarning: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/warnings',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

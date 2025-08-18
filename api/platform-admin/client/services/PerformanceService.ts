@@ -267,6 +267,10 @@ export class PerformanceService {
       growth: number;
       value: number;
     };
+    revenueWithTax: {
+      growth: number;
+      value: number;
+    };
     revenue: {
       growth: number;
       value: number;
@@ -441,6 +445,10 @@ export class PerformanceService {
       value: number;
     };
     profit: {
+      growth: number;
+      value: number;
+    };
+    revenueWithTax: {
       growth: number;
       value: number;
     };

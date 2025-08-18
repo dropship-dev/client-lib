@@ -7,6 +7,7 @@ export type UpdateSettingDto = {
   refundPolicy?: string;
   termsOfService?: string;
   shippingPolicy?: string;
+  sellerPolicy?: string;
   isDeductedProfit?: boolean;
   hold?: {
     payoutIn: number;

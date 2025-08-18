@@ -10,6 +10,7 @@ import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_Fulfillm
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
+import type { _36_Enums_TaxProviderOwner } from '../models/_36_Enums_TaxProviderOwner';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
@@ -45,6 +46,7 @@ export class FulfillmentAgencyService {
     total: number;
     data: Array<{
       timezone: PrismaJson_Timezone;
+      taxFeatureEnabled: boolean;
       platformFee: number;
       type: _36_Enums_FulfillmentAgencyType;
       costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -172,6 +174,15 @@ export class FulfillmentAgencyService {
     storeId: string;
     fulfillmentAgencyId: number;
     id: number;
+    taxProviderConnectConfig: Array<{
+      countryCode: string;
+      id: number;
+      TaxProvider: {
+        owner: _36_Enums_TaxProviderOwner;
+        name: string;
+        id: number;
+      };
+    }>;
     paypalPartnerReferralId: string;
     onboardingUrl: string;
   }> {
@@ -202,6 +213,32 @@ export class FulfillmentAgencyService {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/permission-disconnect',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getFaWarnings({
+    fulfillmentAgencyId,
+  }: {
+    fulfillmentAgencyId: number,
+  }): CancelablePromise<{
+    sellerPolicyWarning: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/fulfillment-agency/warnings',
       query: {
         'fulfillmentAgencyId': fulfillmentAgencyId,
       },
@@ -264,6 +301,7 @@ export class FulfillmentAgencyService {
     }>;
   } & {
     timezone: PrismaJson_Timezone;
+    taxFeatureEnabled: boolean;
     platformFee: number;
     type: _36_Enums_FulfillmentAgencyType;
     costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -303,6 +341,7 @@ export class FulfillmentAgencyService {
     requestBody: UpdateFulfillmentAgencyDto,
   }): CancelablePromise<{
     timezone: PrismaJson_Timezone;
+    taxFeatureEnabled: boolean;
     platformFee: number;
     type: _36_Enums_FulfillmentAgencyType;
     costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -342,6 +381,7 @@ export class FulfillmentAgencyService {
     id: number,
   }): CancelablePromise<{
     timezone: PrismaJson_Timezone;
+    taxFeatureEnabled: boolean;
     platformFee: number;
     type: _36_Enums_FulfillmentAgencyType;
     costCalculationMethod: _36_Enums_CostCalculationMethod;
