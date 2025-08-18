@@ -37,7 +37,7 @@ export declare class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }: {
+    getAllStoreOrder({ storeId, pageSize, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, taxable, }: {
         /**
          * filter by store ID
          */
@@ -64,12 +64,18 @@ export declare class OrderService {
         endTotal?: number;
         gateway?: Array<number>;
         fraudStatus?: Array<FraudStatusType>;
+        taxable?: boolean;
     }): CancelablePromise<{
         orderBy: string;
         nextPageIndex: string;
         prePageIndex: string;
         total: number;
         data: Array<{
+            tax: number;
+            totalAfterTax: number;
+            taxNote: string;
+            taxRate: number;
+            taxable: boolean;
             domain: string;
             paymentId: number;
             gatewayTransactionId: string;
@@ -79,6 +85,7 @@ export declare class OrderService {
             email: string;
             name: string;
             total: number;
+            latestTotalWithTax: number;
             latestTotal: number;
             createdAt: string;
             storeId: string;
@@ -284,6 +291,7 @@ export declare class OrderService {
             refundPolicy: string;
             privacyPolicy: string;
             timezone: PrismaJson_Timezone;
+            taxFeatureEnabled: boolean;
             type: _36_Enums_StoreType;
             status: _36_Enums_StoreStatus;
             phone: string;
@@ -299,6 +307,7 @@ export declare class OrderService {
         disputeStatus: _36_Enums_OrderDisputeStatus;
         isHandleEvents: boolean;
         fingerPrint: string;
+        taxTransactionId: string;
         customerLocale: string;
         currencyCustomerCode: string;
         paymentFee: number;
@@ -306,18 +315,25 @@ export declare class OrderService {
         timezoneLocalBrowser: string;
         fulfillmentCost: number;
         fulfillmentStatus: _36_Enums_FulfillmentStatus;
+        isSyncTax: boolean;
         isSyncBalance: PrismaJson_SyncBalanceAmount;
         retentionRate: number;
         payoutIn: string;
         holdIn: string;
         latestNoItems: number;
         latestSubTotal: number;
+        latestTotalWithTax: number;
         latestTotal: number;
         gatewayTransactionId: string;
         gatewayOrderId: string;
         supplierCost: number;
         discountShippingFee: number;
         noItems: number;
+        taxPart: number;
+        totalAfterTax: number;
+        taxable: boolean;
+        taxNote: string;
+        taxRate: number;
         tax: number;
         profitFulfillAdmin: number;
         deductedProfit: number;

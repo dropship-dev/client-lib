@@ -10,7 +10,7 @@ class OrderService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, }) {
+    getAllStoreOrder({ storeId, pageSize = 20, nextPageIndex, paymentStatus, fulfillmentStatus, disputeStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, fraudStatus, taxable, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeId}/order',
@@ -31,6 +31,7 @@ class OrderService {
                 'endTotal': endTotal,
                 'gateway': gateway,
                 'fraudStatus': fraudStatus,
+                'taxable': taxable,
             },
             errors: {
                 400: `Bad request`,

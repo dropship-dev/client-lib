@@ -28,6 +28,7 @@ const SettingService_1 = require("./services/SettingService");
 const StoreService_1 = require("./services/StoreService");
 const StoreTagService_1 = require("./services/StoreTagService");
 const TagService_1 = require("./services/TagService");
+const TaxService_1 = require("./services/TaxService");
 const ThemeLibraryService_1 = require("./services/ThemeLibraryService");
 const TransactionService_1 = require("./services/TransactionService");
 const UploadService_1 = require("./services/UploadService");
@@ -62,6 +63,7 @@ class ClientApi {
     store;
     storeTag;
     tag;
+    tax;
     themeLibrary;
     transaction;
     upload;
@@ -108,6 +110,7 @@ class ClientApi {
         this.store = new StoreService_1.StoreService(this.request);
         this.storeTag = new StoreTagService_1.StoreTagService(this.request);
         this.tag = new TagService_1.TagService(this.request);
+        this.tax = new TaxService_1.TaxService(this.request);
         this.themeLibrary = new ThemeLibraryService_1.ThemeLibraryService(this.request);
         this.transaction = new TransactionService_1.TransactionService(this.request);
         this.upload = new UploadService_1.UploadService(this.request);

@@ -7,11 +7,11 @@ exports._36_Enums_HistoryTrackingType = void 0;
 /* eslint-disable */
 var _36_Enums_HistoryTrackingType;
 (function (_36_Enums_HistoryTrackingType) {
+    _36_Enums_HistoryTrackingType["FULFILLMENT"] = "FULFILLMENT";
     _36_Enums_HistoryTrackingType["ORDER_PLACED"] = "ORDER_PLACED";
     _36_Enums_HistoryTrackingType["PAYMENT_AUTHORIZED"] = "PAYMENT_AUTHORIZED";
     _36_Enums_HistoryTrackingType["PAYMENT_CAPTURED"] = "PAYMENT_CAPTURED";
     _36_Enums_HistoryTrackingType["EMAIL_CONFIRM_ORDER"] = "EMAIL_CONFIRM_ORDER";
-    _36_Enums_HistoryTrackingType["FULFILLMENT"] = "FULFILLMENT";
     _36_Enums_HistoryTrackingType["EMAIL_SHIPPING_CONFIRM"] = "EMAIL_SHIPPING_CONFIRM";
     _36_Enums_HistoryTrackingType["REFUND"] = "REFUND";
     _36_Enums_HistoryTrackingType["DISPUTE_IN_PROCESSING"] = "DISPUTE_IN_PROCESSING";

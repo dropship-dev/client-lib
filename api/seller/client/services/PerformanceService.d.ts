@@ -124,6 +124,10 @@ export declare class PerformanceService {
             growth: number;
             value: number;
         };
+        revenueWithTax: {
+            growth: number;
+            value: number;
+        };
         revenue: {
             growth: number;
             value: number;

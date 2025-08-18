@@ -21,6 +21,7 @@ export declare class SettingService {
         othersFee: number;
         percentageCostPlatformFee: number;
         hold: PrismaJson_HoldSetting;
+        sellerPolicy: string;
         shippingPolicy: string;
         termsOfService: string;
         refundPolicy: string;
@@ -30,6 +31,7 @@ export declare class SettingService {
         fulfillmentAgencyId: number;
         id: number;
     } | {
+        sellerPolicy: any;
         shippingPolicy: string;
         termsOfService: string;
         refundPolicy: string;

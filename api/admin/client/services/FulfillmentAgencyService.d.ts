@@ -6,6 +6,7 @@ import type { _36_Enums_FulfillmentPlatform } from '../models/_36_Enums_Fulfillm
 import type { _36_Enums_OnboardingStatus } from '../models/_36_Enums_OnboardingStatus';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
 import type { _36_Enums_PPCPVettingStatus } from '../models/_36_Enums_PPCPVettingStatus';
+import type { _36_Enums_TaxProviderOwner } from '../models/_36_Enums_TaxProviderOwner';
 import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
@@ -37,6 +38,7 @@ export declare class FulfillmentAgencyService {
         total: number;
         data: Array<{
             timezone: PrismaJson_Timezone;
+            taxFeatureEnabled: boolean;
             platformFee: number;
             type: _36_Enums_FulfillmentAgencyType;
             costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -128,6 +130,15 @@ export declare class FulfillmentAgencyService {
         storeId: string;
         fulfillmentAgencyId: number;
         id: number;
+        taxProviderConnectConfig: Array<{
+            countryCode: string;
+            id: number;
+            TaxProvider: {
+                owner: _36_Enums_TaxProviderOwner;
+                name: string;
+                id: number;
+            };
+        }>;
         paypalPartnerReferralId: string;
         onboardingUrl: string;
     }>;
@@ -138,6 +149,15 @@ export declare class FulfillmentAgencyService {
     getPermissionDisconnect({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<boolean>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getFaWarnings({ fulfillmentAgencyId, }: {
+        fulfillmentAgencyId: number;
+    }): CancelablePromise<{
+        sellerPolicyWarning: boolean;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -186,6 +206,7 @@ export declare class FulfillmentAgencyService {
         }>;
     } & {
         timezone: PrismaJson_Timezone;
+        taxFeatureEnabled: boolean;
         platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -207,6 +228,7 @@ export declare class FulfillmentAgencyService {
         requestBody: UpdateFulfillmentAgencyDto;
     }): CancelablePromise<{
         timezone: PrismaJson_Timezone;
+        taxFeatureEnabled: boolean;
         platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;
@@ -227,6 +249,7 @@ export declare class FulfillmentAgencyService {
         id: number;
     }): CancelablePromise<{
         timezone: PrismaJson_Timezone;
+        taxFeatureEnabled: boolean;
         platformFee: number;
         type: _36_Enums_FulfillmentAgencyType;
         costCalculationMethod: _36_Enums_CostCalculationMethod;

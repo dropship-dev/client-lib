@@ -51,6 +51,10 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        taxPart: number;
+        totalAfterTax: number;
+        taxable: boolean;
+        tax: number;
         freeShipInfo: {
             value?: number;
             status: boolean;
@@ -71,6 +75,12 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        taxPart: number;
+        taxable: boolean;
+        totalAfterTax: number;
+        taxNote: string;
+        taxRate: number;
+        tax: number;
         freeShipInfo: {
             value?: number;
             status?: boolean;
@@ -285,6 +295,10 @@ export declare class OrderService {
         paymentType: _36_Enums_PaymentType;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        taxPart: number;
+        totalAfterTax: number;
+        taxable: boolean;
+        tax: number;
         shippingFee: number;
         discount: number;
         subTotal: number;

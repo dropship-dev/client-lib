@@ -26,6 +26,7 @@ import { SettingService } from './services/SettingService';
 import { StoreService } from './services/StoreService';
 import { StoreTagService } from './services/StoreTagService';
 import { TagService } from './services/TagService';
+import { TaxService } from './services/TaxService';
 import { ThemeLibraryService } from './services/ThemeLibraryService';
 import { TransactionService } from './services/TransactionService';
 import { UploadService } from './services/UploadService';
@@ -61,6 +62,7 @@ export declare class ClientApi {
     readonly store: StoreService;
     readonly storeTag: StoreTagService;
     readonly tag: TagService;
+    readonly tax: TaxService;
     readonly themeLibrary: ThemeLibraryService;
     readonly transaction: TransactionService;
     readonly upload: UploadService;
