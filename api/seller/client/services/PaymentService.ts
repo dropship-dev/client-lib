@@ -479,6 +479,8 @@ export class PaymentService {
         createdAt: string;
         id: string;
       };
+      fromName: string;
+      replyToEmail: string;
       isConnectPSSFF: boolean;
       isShowCompanyAddress: boolean;
       companyAddress: string;
