@@ -50,7 +50,7 @@ class EmailDomainService {
      * @returns any Ok
      * @throws ApiError
      */
-    getListEmailUsername({ storeId, fulfillmentAgencyId, keyword, isActiveEmailDomain, }) {
+    getListEmailUsername({ storeId, fulfillmentAgencyId, keyword, isActiveEmailDomain, isDefaultEmail, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/email-domain/username',
@@ -59,6 +59,7 @@ class EmailDomainService {
                 'fulfillmentAgencyId': fulfillmentAgencyId,
                 'keyword': keyword,
                 'isActiveEmailDomain': isActiveEmailDomain,
+                'isDefaultEmail': isDefaultEmail,
             },
             errors: {
                 400: `Bad request`,

@@ -71,11 +71,12 @@ export declare class EmailDomainService {
      * @returns any Ok
      * @throws ApiError
      */
-    getListEmailUsername({ storeId, fulfillmentAgencyId, keyword, isActiveEmailDomain, }: {
+    getListEmailUsername({ storeId, fulfillmentAgencyId, keyword, isActiveEmailDomain, isDefaultEmail, }: {
         storeId?: string;
         fulfillmentAgencyId?: number;
         keyword?: string;
         isActiveEmailDomain?: boolean;
+        isDefaultEmail?: boolean;
     }): CancelablePromise<Array<{
         emailDomainId: number;
         username: string;

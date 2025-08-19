@@ -3,4 +3,5 @@ export type GetListEmailUsernameDto = {
     fulfillmentAgencyId?: number;
     keyword?: string;
     isActiveEmailDomain?: boolean;
+    isDefaultEmail?: boolean;
 };
