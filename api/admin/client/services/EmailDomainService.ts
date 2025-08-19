@@ -114,11 +114,13 @@ export class EmailDomainService {
     fulfillmentAgencyId,
     keyword,
     isActiveEmailDomain,
+    isDefaultEmail,
   }: {
     storeId?: string,
     fulfillmentAgencyId?: number,
     keyword?: string,
     isActiveEmailDomain?: boolean,
+    isDefaultEmail?: boolean,
   }): CancelablePromise<Array<{
     emailDomainId: number;
     username: string;
@@ -138,6 +140,7 @@ export class EmailDomainService {
         'fulfillmentAgencyId': fulfillmentAgencyId,
         'keyword': keyword,
         'isActiveEmailDomain': isActiveEmailDomain,
+        'isDefaultEmail': isDefaultEmail,
       },
       errors: {
         400: `Bad request`,
