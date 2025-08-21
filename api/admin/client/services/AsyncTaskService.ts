@@ -34,6 +34,7 @@ export class AsyncTaskService {
     gateway,
     disputeStatus,
     latestStat = false,
+    taxable,
   }: {
     exportedFilename: string,
     fulfillmentAgencyId?: number,
@@ -49,6 +50,7 @@ export class AsyncTaskService {
     gateway?: Array<number>,
     disputeStatus?: Array<_36_Enums_OrderDisputeStatus>,
     latestStat?: boolean,
+    taxable?: boolean,
   }): CancelablePromise<{
     input: any;
     type: _36_Enums_AsyncTaskType;
@@ -76,6 +78,7 @@ export class AsyncTaskService {
         'gateway': gateway,
         'disputeStatus': disputeStatus,
         'latestStat': latestStat,
+        'taxable': taxable,
       },
       errors: {
         400: `Bad request`,
