@@ -14,7 +14,7 @@ export declare class AsyncTaskService {
      * @returns any Ok
      * @throws ApiError
      */
-    createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat, }: {
+    createExportOrderTask({ exportedFilename, fulfillmentAgencyId, storeId, paymentStatus, fulfillmentStatus, search, productName, startDate, endDate, startTotal, endTotal, gateway, disputeStatus, latestStat, taxable, }: {
         exportedFilename: string;
         fulfillmentAgencyId?: number;
         storeId?: string;
@@ -29,6 +29,7 @@ export declare class AsyncTaskService {
         gateway?: Array<number>;
         disputeStatus?: Array<_36_Enums_OrderDisputeStatus>;
         latestStat?: boolean;
+        taxable?: boolean;
     }): CancelablePromise<{
         input: any;
         type: _36_Enums_AsyncTaskType;

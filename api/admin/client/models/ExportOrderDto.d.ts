@@ -16,4 +16,5 @@ export type ExportOrderDto = {
     gateway?: Array<number>;
     disputeStatus?: Array<_36_Enums_OrderDisputeStatus>;
     latestStat?: boolean;
+    taxable?: boolean;
 };
