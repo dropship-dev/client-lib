@@ -60,5 +60,7 @@ export type GetOrderResult = (Order & {
     id: number;
   };
   FraudDetection: Array<FraudDetection>;
+  refundAmountExcludeTax: number;
+  refundAmountIncludeTax: number;
 });
 

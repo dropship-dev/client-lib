@@ -42,5 +42,7 @@ export type DetailOrderDto = (Order & {
     VariantCombo: VariantCombo | null;
   })>;
   OrderRefund: Array<OrderRefund>;
+  refundAmountExcludeTax: number;
+  refundAmountIncludeTax: number;
 });
 
