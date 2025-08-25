@@ -20,6 +20,7 @@ export declare class StoreService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
+     * @deprecated
      * @returns any Ok
      * @throws ApiError
      */
