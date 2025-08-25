@@ -23,6 +23,7 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
+   * @deprecated
    * @returns any Ok
    * @throws ApiError
    */
