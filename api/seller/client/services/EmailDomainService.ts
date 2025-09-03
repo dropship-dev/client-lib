@@ -336,6 +336,7 @@ export class EmailDomainService {
     fulfillmentAgencyId?: number,
   }): CancelablePromise<{
     txtVerification: PrismaJson_TxtVerification;
+    status: _36_Enums_EmailDomainStatus;
     id: number;
     records: Array<({
       priority?: number;
