@@ -101,7 +101,10 @@ export class PaymentService {
     onboardingId: number;
     url: string;
   } | {
+    isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    fromName: string;
+    replyToEmail: string;
     isConnectPSSFF: boolean;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -116,6 +119,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
@@ -160,7 +164,10 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<{
+    isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    fromName: string;
+    replyToEmail: string;
     isConnectPSSFF: boolean;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -175,6 +182,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
@@ -238,6 +246,7 @@ export class PaymentService {
     createdAt: string;
     id: number;
     PaymentOnboarding: {
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -290,6 +299,7 @@ export class PaymentService {
     storeId?: string,
   }): CancelablePromise<{
     paymentOnboarding: Array<{
+      emailUsernameId: number;
       paymentId: number;
       dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
       onboardingProducts: PrismaJson_OnboardingProducts;
@@ -323,6 +333,8 @@ export class PaymentService {
         createdAt: string;
         id: string;
       };
+      fromName: string;
+      replyToEmail: string;
       isConnectPSSFF: boolean;
       isShowCompanyAddress: boolean;
       companyAddress: string;
@@ -497,6 +509,8 @@ export class PaymentService {
       createdAt: string;
       id: string;
     };
+    fromName: string;
+    replyToEmail: string;
     isShowCompanyAddress: boolean;
     companyAddress: string;
     companyPhone: string;
@@ -552,6 +566,7 @@ export class PaymentService {
     fulfillmentAgencyId?: number,
     storeId?: string,
   }): CancelablePromise<({
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -575,7 +590,10 @@ export class PaymentService {
     fulfillmentAgencyId: number;
     id: number;
   } | {
+    isVerifySupportEmail: boolean;
     PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
+    fromName: string;
+    replyToEmail: string;
     isConnectPSSFF: boolean;
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
@@ -590,6 +608,7 @@ export class PaymentService {
     companyAddress: string;
     companyPhone: string;
     companyName: string;
+    emailUsernameId: number;
     merchantId: string;
     salt: string;
     secretKey: string;
