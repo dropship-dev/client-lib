@@ -4,6 +4,8 @@ import type { NameDto } from './NameDto';
 export type CreatePaymentV1Dto = {
     type: _36_Enums_PaymentType;
     email: EmailDto;
+    replyToEmail?: string;
+    fromName?: string;
     name: NameDto;
     publishableKey: string;
     secretKey: string;

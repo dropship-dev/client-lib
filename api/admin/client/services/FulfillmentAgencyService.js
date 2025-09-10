@@ -89,7 +89,7 @@ class FulfillmentAgencyService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PaymentAndEmailDomainSetupStatus Ok
      * @throws ApiError
      */
     getFaWarnings({ fulfillmentAgencyId, }) {
