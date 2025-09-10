@@ -27,10 +27,7 @@ export declare class FulfillmentAgencyService {
         requestBody: CreateFulfillmentAgencyDto;
     }): CancelablePromise<({
         Payment: Array<{
-            isVerifySupportEmail: boolean;
             PaymentIntegrationType: _36_Enums_PaymentIntegrationType;
-            fromName: string;
-            replyToEmail: string;
             isConnectPSSFF: boolean;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
@@ -45,7 +42,6 @@ export declare class FulfillmentAgencyService {
             companyAddress: string;
             companyPhone: string;
             companyName: string;
-            emailUsernameId: number;
             merchantId: string;
             salt: string;
             secretKey: string;
@@ -118,7 +114,6 @@ export declare class FulfillmentAgencyService {
                 id: string;
             }>;
             PaymentOnboarding: Array<{
-                emailUsernameId: number;
                 paymentId: number;
                 dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
                 onboardingProducts: PrismaJson_OnboardingProducts;
@@ -169,7 +164,6 @@ export declare class FulfillmentAgencyService {
             id: string;
         }>;
         PaymentOnboarding: Array<{
-            emailUsernameId: number;
             paymentId: number;
             dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
             onboardingProducts: PrismaJson_OnboardingProducts;

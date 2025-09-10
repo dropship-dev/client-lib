@@ -35,5 +35,4 @@ var SellerPermission;
     SellerPermission["SELLER_MANAGE_CURRENCY"] = "SELLER_MANAGE_CURRENCY";
     SellerPermission["SELLER_MANAGE_POLICIES"] = "SELLER_MANAGE_POLICIES";
     SellerPermission["SELLER_MANAGE_ANALYTICS_TOOLS"] = "SELLER_MANAGE_ANALYTICS_TOOLS";
-    SellerPermission["FULFILLMENT_AGENCY_MANAGE_EMAIL_DOMAIN"] = "FULFILLMENT_AGENCY_MANAGE_EMAIL_DOMAIN";
 })(SellerPermission || (exports.SellerPermission = SellerPermission = {}));

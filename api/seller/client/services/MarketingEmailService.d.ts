@@ -60,18 +60,6 @@ export declare class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    emailAssignment({ storeId, }: {
-        storeId: string;
-    }): CancelablePromise<{
-        email: string;
-        replyToEmail: string;
-        fromName: string;
-        emailUsernameId: number;
-    }>;
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     listAbandonmentOrders({ storeId, nextPageIndex, pageSize, emailStatus, recoveryStatus, id, startDate, endDate, }: {
         storeId: string;
         nextPageIndex?: number;
