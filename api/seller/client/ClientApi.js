@@ -11,6 +11,7 @@ const CollectionService_1 = require("./services/CollectionService");
 const CouponService_1 = require("./services/CouponService");
 const CurrencyService_1 = require("./services/CurrencyService");
 const DomainService_1 = require("./services/DomainService");
+const EmailDomainService_1 = require("./services/EmailDomainService");
 const FbPixelService_1 = require("./services/FbPixelService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
@@ -56,6 +57,7 @@ class ClientApi {
     coupon;
     currency;
     domain;
+    emailDomain;
     fbPixel;
     fulfillmentAgency;
     googleAnalytic;
@@ -113,6 +115,7 @@ class ClientApi {
         this.coupon = new CouponService_1.CouponService(this.request);
         this.currency = new CurrencyService_1.CurrencyService(this.request);
         this.domain = new DomainService_1.DomainService(this.request);
+        this.emailDomain = new EmailDomainService_1.EmailDomainService(this.request);
         this.fbPixel = new FbPixelService_1.FbPixelService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);

@@ -49,7 +49,7 @@ class SettingService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns PaymentAndEmailDomainSetupStatus Ok
      * @throws ApiError
      */
     getFaWarnings({ fulfillmentAgencyId, }) {
