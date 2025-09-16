@@ -39,6 +39,52 @@ axios_1.default.interceptors.request.use(async function (config) {
     // Do something with request error
     return Promise.reject(error);
 });
+const TO_REMOVE_REGEX = /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
+function deepReplaceStrings(value, re, seen = new WeakSet()) {
+    if (value === null || value === undefined)
+        return value;
+    if (typeof value === "string") {
+        return value.replace(re, "");
+    }
+    if (typeof value !== "object") {
+        // number, boolean, symbol, function etc. — keep as is
+        return value;
+    }
+    // protect against circular refs
+    if (seen.has(value))
+        return value;
+    seen.add(value);
+    if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) {
+            value[i] = deepReplaceStrings(value[i], re, seen);
+        }
+        return value;
+    }
+    // plain object
+    for (const k of Object.keys(value)) {
+        try {
+            value[k] = deepReplaceStrings(value[k], re, seen);
+        }
+        catch (err) {
+            // ignore single-field errors
+        }
+    }
+    return value;
+}
+axios_1.default.interceptors.response.use((response) => {
+    try {
+        const ct = (response.headers && response.headers['content-type']) || '';
+        if (ct.includes('application/json') || typeof response.data === 'object') {
+            deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+        }
+        else if (typeof response.data === 'string') {
+            // text/html, text/plain, etc.
+            response.data = response.data.replace(TO_REMOVE_REGEX, '');
+        }
+    }
+    catch (err) { }
+    return response;
+}, (error) => Promise.reject(error));
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {

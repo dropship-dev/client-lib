@@ -11,7 +11,6 @@ import type { DisconnectPaymentDto } from '../models/DisconnectPaymentDto';
 import type { GeneratePartnerReferralsDto } from '../models/GeneratePartnerReferralsDto';
 import type { GetStoreReportResultDto } from '../models/GetStoreReportResultDto';
 import type { IntegrationWithFulfillmentPlatformDto } from '../models/IntegrationWithFulfillmentPlatformDto';
-import type { PaymentAndEmailDomainSetupStatus } from '../models/PaymentAndEmailDomainSetupStatus';
 import type { PrismaJson_DataInformationsOnboarding } from '../models/PrismaJson_DataInformationsOnboarding';
 import type { PrismaJson_OnboardingProducts } from '../models/PrismaJson_OnboardingProducts';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
@@ -67,7 +66,6 @@ export declare class FulfillmentAgencyService {
                 id: string;
             }>;
             PaymentOnboarding: Array<{
-                emailUsernameId: number;
                 paymentId: number;
                 dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
                 onboardingProducts: PrismaJson_OnboardingProducts;
@@ -112,7 +110,6 @@ export declare class FulfillmentAgencyService {
     getPaymentOnboarding({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
     }): CancelablePromise<{
-        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
@@ -153,12 +150,14 @@ export declare class FulfillmentAgencyService {
         fulfillmentAgencyId: number;
     }): CancelablePromise<boolean>;
     /**
-     * @returns PaymentAndEmailDomainSetupStatus Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getFaWarnings({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-    }): CancelablePromise<PaymentAndEmailDomainSetupStatus>;
+    }): CancelablePromise<{
+        sellerPolicyWarning: boolean;
+    }>;
     /**
      * @returns any Ok
      * @throws ApiError
@@ -182,7 +181,6 @@ export declare class FulfillmentAgencyService {
             id: string;
         }>;
         PaymentOnboarding: Array<{
-            emailUsernameId: number;
             paymentId: number;
             dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
             onboardingProducts: PrismaJson_OnboardingProducts;
@@ -273,7 +271,6 @@ export declare class FulfillmentAgencyService {
         paymentType: _36_Enums_PaymentType;
         onBoardingPaymentId: number;
     }): CancelablePromise<{
-        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
@@ -305,7 +302,6 @@ export declare class FulfillmentAgencyService {
         paymentType: _36_Enums_PaymentType;
         onBoardingPaymentId: number;
     }): CancelablePromise<{
-        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;
@@ -397,7 +393,6 @@ export declare class FulfillmentAgencyService {
         id: number;
         requestBody: ReconnectPaymentDto;
     }): CancelablePromise<{
-        emailUsernameId: number;
         paymentId: number;
         dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
         onboardingProducts: PrismaJson_OnboardingProducts;

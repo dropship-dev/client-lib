@@ -9,7 +9,6 @@ import { CollectionService } from './services/CollectionService';
 import { CouponService } from './services/CouponService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
-import { EmailDomainService } from './services/EmailDomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
@@ -56,7 +55,6 @@ export declare class ClientApi {
     readonly coupon: CouponService;
     readonly currency: CurrencyService;
     readonly domain: DomainService;
-    readonly emailDomain: EmailDomainService;
     readonly fbPixel: FbPixelService;
     readonly fulfillmentAgency: FulfillmentAgencyService;
     readonly googleAnalytic: GoogleAnalyticService;

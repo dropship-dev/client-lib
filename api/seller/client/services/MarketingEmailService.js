@@ -74,26 +74,6 @@ class MarketingEmailService {
      * @returns any Ok
      * @throws ApiError
      */
-    emailAssignment({ storeId, }) {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/marketing/email/abandonment/store/{storeId}/email-assignment',
-            path: {
-                'storeId': storeId,
-            },
-            errors: {
-                400: `Bad request`,
-                401: `Invalid token`,
-                403: `Forbidden`,
-                404: `Not found`,
-                500: `Internal server error`,
-            },
-        });
-    }
-    /**
-     * @returns any Ok
-     * @throws ApiError
-     */
     listAbandonmentOrders({ storeId, nextPageIndex, pageSize = 20, emailStatus, recoveryStatus, id, startDate, endDate, }) {
         return this.httpRequest.request({
             method: 'GET',

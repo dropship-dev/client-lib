@@ -1,4 +1,3 @@
-import type { PaymentAndEmailDomainSetupStatus } from '../models/PaymentAndEmailDomainSetupStatus';
 import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
@@ -65,10 +64,12 @@ export declare class SettingService {
         id: number;
     }>;
     /**
-     * @returns PaymentAndEmailDomainSetupStatus Ok
+     * @returns any Ok
      * @throws ApiError
      */
     getFaWarnings({ fulfillmentAgencyId, }: {
         fulfillmentAgencyId: number;
-    }): CancelablePromise<PaymentAndEmailDomainSetupStatus>;
+    }): CancelablePromise<{
+        sellerPolicyWarning: boolean;
+    }>;
 }
