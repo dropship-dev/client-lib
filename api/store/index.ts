@@ -38,102 +38,88 @@ function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   return value;
 }
 
-const getOriginalFetch = () => {
-  if (typeof globalThis !== 'undefined' && globalThis.fetch && !globalThis.fetch.__intercepted) {
-    return globalThis.fetch;
-  }
-  if (typeof global !== 'undefined' && global.fetch && !global.fetch.__intercepted) {
-    return global.fetch;
-  }
-  if (typeof window !== 'undefined' && window.fetch && !window.fetch.__intercepted) {
-    return window.fetch;
-  }
-  // Fallback
-  return fetch;
-};
-
-const originalFetch = getOriginalFetch();
+const originalFetch = fetch;
 
 const createInterceptedFetch = () => {
-  const interceptedFetch = async (...args: Parameters<typeof fetch>): Promise<Response> => {
+  const interceptedFetch = async (
+    ...args: Parameters<typeof fetch>
+  ): Promise<Response> => {
     try {
       const response = await originalFetch(...args);
-      
+
       const clonedResponse = response.clone();
-      
+
       try {
-        const contentType = response.headers.get('content-type') || '';
-        
-        if (contentType.includes('application/json')) {
+        const contentType = response.headers.get("content-type") || "";
+
+        if (contentType.includes("application/json")) {
           const data = await clonedResponse.json();
           const processedData = deepReplaceStrings(data, TO_REMOVE_REGEX);
-          
+
           return new Response(JSON.stringify(processedData), {
             status: response.status,
             statusText: response.statusText,
-            headers: response.headers
+            headers: response.headers,
           });
-        } else if (contentType.includes('text/')) {
+        } else if (contentType.includes("text/")) {
           const text = await clonedResponse.text();
-          const processedText = text.replace(TO_REMOVE_REGEX, '');
-          
+          const processedText = text.replace(TO_REMOVE_REGEX, "");
+
           return new Response(processedText, {
             status: response.status,
             statusText: response.statusText,
-            headers: response.headers
+            headers: response.headers,
           });
         }
       } catch (err) {
-        console.warn('Error processing fetch response:', err);
+        console.warn("Error processing fetch response:", err);
       }
-      
+
       return response;
     } catch (error) {
       throw error;
     }
   };
-  
-  (interceptedFetch as any).__intercepted = true;
+
   (interceptedFetch as any).__original = originalFetch;
-  
+
   return interceptedFetch;
 };
 
 const setupFetchInterceptor = () => {
   const interceptedFetch = createInterceptedFetch();
-  
+
   try {
     // 1. globalThis (Universal)
-    if (typeof globalThis !== 'undefined') {
+    if (typeof globalThis !== "undefined") {
       globalThis.fetch = interceptedFetch;
     }
-    
+
     // 2. global (Node.js)
-    if (typeof global !== 'undefined') {
+    if (typeof global !== "undefined") {
       global.fetch = interceptedFetch;
     }
-    
+
     // 3. window (Browser)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       window.fetch = interceptedFetch;
     }
-    
+
     // 4. self (Web Workers, Service Workers)
-    if (typeof self !== 'undefined' && self.fetch) {
+    if (typeof self !== "undefined" && self.fetch) {
       self.fetch = interceptedFetch;
     }
-    
   } catch (error) {
-    console.warn('Failed to setup fetch interceptor:', error);
+    console.warn("Failed to setup fetch interceptor:", error);
   }
 };
 
 (() => {
-  const isAlreadyIntercepted = 
-    (typeof globalThis !== 'undefined' && globalThis.fetch && globalThis.fetch.__intercepted) ||
-    (typeof global !== 'undefined' && global.fetch && global.fetch.__intercepted) ||
-    (typeof window !== 'undefined' && window.fetch && window.fetch.__intercepted);
-  
+  const isAlreadyIntercepted =
+    (typeof globalThis !== "undefined" && globalThis.fetch) ||
+    (typeof global !== "undefined" && global.fetch) ||
+    (typeof window !== "undefined" && window.fetch);
+
   if (!isAlreadyIntercepted) {
     setupFetchInterceptor();
   }
@@ -141,28 +127,57 @@ const setupFetchInterceptor = () => {
 
 export const restoreFetch = () => {
   const original = originalFetch;
-  
-  if (typeof globalThis !== 'undefined') {
+
+  if (typeof globalThis !== "undefined") {
     globalThis.fetch = original;
   }
-  if (typeof global !== 'undefined') {
+  if (typeof global !== "undefined") {
     global.fetch = original;
   }
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     window.fetch = original;
   }
-  if (typeof self !== 'undefined') {
+  if (typeof self !== "undefined") {
     self.fetch = original;
   }
 };
 
-// TypeScript type để maintain intellisense
-declare global {
-  var fetch: {
-    (...args: Parameters<typeof fetch>): Promise<Response>;
-    __intercepted?: boolean;
-    __original?: typeof fetch;
-  };
+class ClientApi extends _ClientApi {
+  public async uploadFile(file: File): Promise<string> {
+    let result = {
+      signedUrl: "",
+      url: "",
+    };
+    try {
+      result = await this.upload.createUpload({
+        requestBody: {
+          contentLength: file.size,
+          fileName: file.name,
+        },
+      });
+    } catch (e) {
+      if (e instanceof ApiError) {
+        if ("details" in e.body && e.body.details === "File too large") {
+          throw new Error("File too large");
+        }
+      }
+
+      throw e;
+    }
+
+    const body = new Blob([file], { type: file.type });
+    await this.request.request({
+      method: "PUT",
+      url: result.signedUrl,
+      body: body,
+      headers: {
+        "Content-Type": file.type,
+        "Content-Length": file.size,
+      }
+    })
+
+    return result.url;
+  }
 }
 
 export const api = new ClientApi({
