@@ -2,9 +2,9 @@ name: Build project
 
 on:
   push:
-    branches: ["main"]
+    branches: ["ads"]
   pull_request:
-    branches: ["main"]
+    branches: ["ads"]
 
 jobs:
   build:
