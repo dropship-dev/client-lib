@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.api = void 0;
+exports.api = exports.restoreFetch = void 0;
 const client_1 = require("./client");
 if (process.env.API_URL) {
     client_1.OpenAPI.BASE = process.env.API_URL;
@@ -28,10 +28,8 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
         return value.replace(re, "");
     }
     if (typeof value !== "object") {
-        // number, boolean, symbol, function etc. — keep as is
         return value;
     }
-    // protect against circular refs
     if (seen.has(value))
         return value;
     seen.add(value);
@@ -41,7 +39,6 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
         }
         return value;
     }
-    // plain object
     for (const k of Object.keys(value)) {
         try {
             value[k] = deepReplaceStrings(value[k], re, seen);
@@ -52,39 +49,93 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
     }
     return value;
 }
-const originalFetch = global.fetch || fetch;
-// Wrapped fetch with response processing
-const interceptedFetch = async (...args) => {
-    const response = await originalFetch(...args);
+const originalFetch = fetch;
+const createInterceptedFetch = () => {
+    const interceptedFetch = async (...args) => {
+        try {
+            const response = await originalFetch(...args);
+            const clonedResponse = response.clone();
+            try {
+                const contentType = response.headers.get("content-type") || "";
+                if (contentType.includes("application/json")) {
+                    const data = await clonedResponse.json();
+                    const processedData = deepReplaceStrings(data, TO_REMOVE_REGEX);
+                    return new Response(JSON.stringify(processedData), {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                    });
+                }
+                else if (contentType.includes("text/")) {
+                    const text = await clonedResponse.text();
+                    const processedText = text.replace(TO_REMOVE_REGEX, "");
+                    return new Response(processedText, {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                    });
+                }
+            }
+            catch (err) {
+                console.warn("Error processing fetch response:", err);
+            }
+            return response;
+        }
+        catch (error) {
+            throw error;
+        }
+    };
+    interceptedFetch.__original = originalFetch;
+    return interceptedFetch;
+};
+const setupFetchInterceptor = () => {
+    const interceptedFetch = createInterceptedFetch();
     try {
-        const contentType = response.headers.get('content-type') || '';
-        if (contentType.includes('application/json')) {
-            let data = await response.json();
-            deepReplaceStrings(data, TO_REMOVE_REGEX);
-            const newBody = JSON.stringify(data);
-            return new Response(newBody, {
-                status: response.status,
-                statusText: response.statusText,
-                headers: response.headers,
-            });
+        // 1. globalThis (Universal)
+        if (typeof globalThis !== "undefined") {
+            globalThis.fetch = interceptedFetch;
         }
-        else if (contentType.includes('text/')) {
-            let text = await response.text();
-            text = text.replace(TO_REMOVE_REGEX, '');
-            return new Response(text, {
-                status: response.status,
-                statusText: response.statusText,
-                headers: response.headers,
-            });
+        // 2. global (Node.js)
+        if (typeof global !== "undefined") {
+            global.fetch = interceptedFetch;
         }
-        return response;
+        // 3. window (Browser)
+        if (typeof window !== "undefined") {
+            window.fetch = interceptedFetch;
+        }
+        // 4. self (Web Workers, Service Workers)
+        if (typeof self !== "undefined" && self.fetch) {
+            self.fetch = interceptedFetch;
+        }
     }
-    catch (err) {
-        // Ignore processing errors and return original response
-        return response;
+    catch (error) {
+        console.warn("Failed to setup fetch interceptor:", error);
     }
 };
-global.fetch = interceptedFetch;
+(() => {
+    const isAlreadyIntercepted = (typeof globalThis !== "undefined" && globalThis.fetch) ||
+        (typeof global !== "undefined" && global.fetch) ||
+        (typeof window !== "undefined" && window.fetch);
+    if (!isAlreadyIntercepted) {
+        setupFetchInterceptor();
+    }
+})();
+const restoreFetch = () => {
+    const original = originalFetch;
+    if (typeof globalThis !== "undefined") {
+        globalThis.fetch = original;
+    }
+    if (typeof global !== "undefined") {
+        global.fetch = original;
+    }
+    if (typeof window !== "undefined") {
+        window.fetch = original;
+    }
+    if (typeof self !== "undefined") {
+        self.fetch = original;
+    }
+};
+exports.restoreFetch = restoreFetch;
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
