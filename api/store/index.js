@@ -52,7 +52,7 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
     }
     return value;
 }
-const originalFetch = window.fetch || fetch;
+const originalFetch = global.fetch || fetch;
 // Wrapped fetch with response processing
 const interceptedFetch = async (...args) => {
     const response = await originalFetch(...args);
@@ -84,7 +84,7 @@ const interceptedFetch = async (...args) => {
         return response;
     }
 };
-window.fetch = interceptedFetch;
+global.fetch = interceptedFetch;
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
