@@ -72,14 +72,17 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
     return value;
 }
 axios_1.default.interceptors.response.use((response) => {
+    console.log("run in response interceptors");
     try {
         const ct = (response.headers && response.headers['content-type']) || '';
         if (ct.includes('application/json') || typeof response.data === 'object') {
             deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+            console.log("response.data", response.data);
         }
         else if (typeof response.data === 'string') {
             // text/html, text/plain, etc.
             response.data = response.data.replace(TO_REMOVE_REGEX, '');
+            console.log("response.data", response.data);
         }
     }
     catch (err) { }
