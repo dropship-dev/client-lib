@@ -1,12 +1,12 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
 import axios from "axios";
 
-if (process.env.NEXT_PUBLIC_API_URL) {
-  OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
+if (process.env.API_URL) {
+  OpenAPI.BASE = process.env.API_URL;
 }
 
-const TO_REMOVE_REGEX =
-  /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
+const regexPattern = process.env.CDN_URL;
+const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
 
 function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   if (value === null || value === undefined) return value;
