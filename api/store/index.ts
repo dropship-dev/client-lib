@@ -8,7 +8,7 @@ if (process.env.API_URL) {
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
 
-function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
+function deepReplaceStrings(value: any, re: any) {
   if (value === null || value === undefined) return value;
 
   if (typeof value === "string") {
@@ -20,13 +20,9 @@ function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
     return value;
   }
 
-  // protect against circular refs
-  if (seen.has(value)) return value;
-  seen.add(value);
-
   if (Array.isArray(value)) {
     for (let i = 0; i < value.length; i++) {
-      value[i] = deepReplaceStrings(value[i], re, seen);
+      value[i] = deepReplaceStrings(value[i], re);
     }
     return value;
   }
@@ -34,7 +30,7 @@ function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   // plain object
   for (const k of Object.keys(value)) {
     try {
-      value[k] = deepReplaceStrings(value[k], re, seen);
+      value[k] = deepReplaceStrings(value[k], re);
     } catch (err) {
       // ignore single-field errors
     }
