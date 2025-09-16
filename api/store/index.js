@@ -13,13 +13,9 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
-const axios_1 = __importDefault(require("axios"));
 if (process.env.API_URL) {
     client_1.OpenAPI.BASE = process.env.API_URL;
 }
@@ -56,20 +52,39 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
     }
     return value;
 }
-axios_1.default.interceptors.response.use((response) => {
+const originalFetch = window.fetch || fetch;
+// Wrapped fetch with response processing
+const interceptedFetch = async (...args) => {
+    const response = await originalFetch(...args);
     try {
-        const ct = (response.headers && response.headers['content-type']) || '';
-        if (ct.includes('application/json') || typeof response.data === 'object') {
-            deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+            let data = await response.json();
+            deepReplaceStrings(data, TO_REMOVE_REGEX);
+            const newBody = JSON.stringify(data);
+            return new Response(newBody, {
+                status: response.status,
+                statusText: response.statusText,
+                headers: response.headers,
+            });
         }
-        else if (typeof response.data === 'string') {
-            // text/html, text/plain, etc.
-            response.data = response.data.replace(TO_REMOVE_REGEX, '');
+        else if (contentType.includes('text/')) {
+            let text = await response.text();
+            text = text.replace(TO_REMOVE_REGEX, '');
+            return new Response(text, {
+                status: response.status,
+                statusText: response.statusText,
+                headers: response.headers,
+            });
         }
+        return response;
     }
-    catch (err) { }
-    return response;
-}, (error) => Promise.reject(error));
+    catch (err) {
+        // Ignore processing errors and return original response
+        return response;
+    }
+};
+window.fetch = interceptedFetch;
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {

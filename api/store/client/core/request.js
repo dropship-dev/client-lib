@@ -1,15 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.request = exports.catchErrorCodes = exports.getResponseBody = exports.getResponseHeader = exports.sendRequest = exports.getRequestBody = exports.getHeaders = exports.resolve = exports.getFormData = exports.getQueryString = exports.base64 = exports.isSuccess = exports.isFormData = exports.isBlob = exports.isStringWithValue = exports.isString = exports.isDefined = void 0;
+exports.request = exports.catchErrorCodes = exports.getResponseBody = exports.getResponseHeader = exports.sendRequest = exports.getRequestBody = exports.getHeaders = exports.resolve = exports.getFormData = exports.getQueryString = exports.base64 = exports.isFormData = exports.isBlob = exports.isStringWithValue = exports.isString = exports.isDefined = void 0;
 /* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-const axios_1 = __importDefault(require("axios"));
-const form_data_1 = __importDefault(require("form-data"));
 const ApiError_1 = require("./ApiError");
 const CancelablePromise_1 = require("./CancelablePromise");
 const isDefined = (value) => {
@@ -36,13 +31,9 @@ const isBlob = (value) => {
 };
 exports.isBlob = isBlob;
 const isFormData = (value) => {
-    return value instanceof form_data_1.default;
+    return value instanceof FormData;
 };
 exports.isFormData = isFormData;
-const isSuccess = (status) => {
-    return status >= 200 && status < 300;
-};
-exports.isSuccess = isSuccess;
 const base64 = (str) => {
     try {
         return btoa(str);
@@ -102,7 +93,7 @@ const getUrl = (config, options) => {
 };
 const getFormData = (options) => {
     if (options.formData) {
-        const formData = new form_data_1.default();
+        const formData = new FormData();
         const process = (key, value) => {
             if ((0, exports.isString)(value) || (0, exports.isBlob)(value)) {
                 formData.append(key, value);
@@ -133,19 +124,17 @@ const resolve = async (options, resolver) => {
     return resolver;
 };
 exports.resolve = resolve;
-const getHeaders = async (config, options, formData) => {
+const getHeaders = async (config, options) => {
     const [token, username, password, additionalHeaders] = await Promise.all([
         (0, exports.resolve)(options, config.TOKEN),
         (0, exports.resolve)(options, config.USERNAME),
         (0, exports.resolve)(options, config.PASSWORD),
         (0, exports.resolve)(options, config.HEADERS),
     ]);
-    const formHeaders = typeof formData?.getHeaders === 'function' && formData?.getHeaders() || {};
     const headers = Object.entries({
         Accept: 'application/json',
         ...additionalHeaders,
         ...options.headers,
-        ...formHeaders,
     })
         .filter(([_, value]) => (0, exports.isDefined)(value))
         .reduce((headers, [key, value]) => ({
@@ -173,43 +162,42 @@ const getHeaders = async (config, options, formData) => {
             headers['Content-Type'] = 'application/json';
         }
     }
-    return headers;
+    return new Headers(headers);
 };
 exports.getHeaders = getHeaders;
 const getRequestBody = (options) => {
-    if (options.body) {
-        return options.body;
+    if (options.body !== undefined) {
+        if (options.mediaType?.includes('/json')) {
+            return JSON.stringify(options.body);
+        }
+        else if ((0, exports.isString)(options.body) || (0, exports.isBlob)(options.body) || (0, exports.isFormData)(options.body)) {
+            return options.body;
+        }
+        else {
+            return JSON.stringify(options.body);
+        }
     }
     return undefined;
 };
 exports.getRequestBody = getRequestBody;
-const sendRequest = async (config, options, url, body, formData, headers, onCancel, axiosClient) => {
-    const source = axios_1.default.CancelToken.source();
-    const requestConfig = {
-        url,
+const sendRequest = async (config, options, url, body, formData, headers, onCancel) => {
+    const controller = new AbortController();
+    const request = {
         headers,
-        data: body ?? formData,
+        body: body ?? formData,
         method: options.method,
-        withCredentials: config.WITH_CREDENTIALS,
-        withXSRFToken: config.CREDENTIALS === 'include' ? config.WITH_CREDENTIALS : false,
-        cancelToken: source.token,
+        signal: controller.signal,
     };
-    onCancel(() => source.cancel('The user aborted a request.'));
-    try {
-        return await axiosClient.request(requestConfig);
+    if (config.WITH_CREDENTIALS) {
+        request.credentials = config.CREDENTIALS;
     }
-    catch (error) {
-        const axiosError = error;
-        if (axiosError.response) {
-            return axiosError.response;
-        }
-        throw error;
-    }
+    onCancel(() => controller.abort());
+    return await fetch(url, request);
 };
 exports.sendRequest = sendRequest;
 const getResponseHeader = (response, responseHeader) => {
     if (responseHeader) {
-        const content = response.headers[responseHeader];
+        const content = response.headers.get(responseHeader);
         if ((0, exports.isString)(content)) {
             return content;
         }
@@ -217,9 +205,24 @@ const getResponseHeader = (response, responseHeader) => {
     return undefined;
 };
 exports.getResponseHeader = getResponseHeader;
-const getResponseBody = (response) => {
+const getResponseBody = async (response) => {
     if (response.status !== 204) {
-        return response.data;
+        try {
+            const contentType = response.headers.get('Content-Type');
+            if (contentType) {
+                const jsonTypes = ['application/json', 'application/problem+json'];
+                const isJSON = jsonTypes.some(type => contentType.toLowerCase().startsWith(type));
+                if (isJSON) {
+                    return await response.json();
+                }
+                else {
+                    return await response.text();
+                }
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
     return undefined;
 };
@@ -258,24 +261,23 @@ exports.catchErrorCodes = catchErrorCodes;
  * Request method
  * @param config The OpenAPI configuration object
  * @param options The request options from the service
- * @param axiosClient The axios client instance to use
  * @returns CancelablePromise<T>
  * @throws ApiError
  */
-const request = (config, options, axiosClient = axios_1.default) => {
+const request = (config, options) => {
     return new CancelablePromise_1.CancelablePromise(async (resolve, reject, onCancel) => {
         try {
             const url = getUrl(config, options);
             const formData = (0, exports.getFormData)(options);
             const body = (0, exports.getRequestBody)(options);
-            const headers = await (0, exports.getHeaders)(config, options, formData);
+            const headers = await (0, exports.getHeaders)(config, options);
             if (!onCancel.isCancelled) {
-                const response = await (0, exports.sendRequest)(config, options, url, body, formData, headers, onCancel, axiosClient);
-                const responseBody = (0, exports.getResponseBody)(response);
+                const response = await (0, exports.sendRequest)(config, options, url, body, formData, headers, onCancel);
+                const responseBody = await (0, exports.getResponseBody)(response);
                 const responseHeader = (0, exports.getResponseHeader)(response, options.responseHeader);
                 const result = {
                     url,
-                    ok: (0, exports.isSuccess)(response.status),
+                    ok: response.ok,
                     status: response.status,
                     statusText: response.statusText,
                     body: responseHeader ?? responseBody,
