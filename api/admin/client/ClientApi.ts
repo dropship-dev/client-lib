@@ -11,7 +11,6 @@ import { BankAccountService } from './services/BankAccountService';
 import { BoostSalesService } from './services/BoostSalesService';
 import { CurrencyService } from './services/CurrencyService';
 import { DefaultService } from './services/DefaultService';
-import { EmailDomainService } from './services/EmailDomainService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { FulfillmentPlatformIntegrationService } from './services/FulfillmentPlatformIntegrationService';
 import { GroupPlatformVariantService } from './services/GroupPlatformVariantService';
@@ -48,7 +47,6 @@ export class ClientApi {
   public readonly boostSales: BoostSalesService;
   public readonly currency: CurrencyService;
   public readonly default: DefaultService;
-  public readonly emailDomain: EmailDomainService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly fulfillmentPlatformIntegration: FulfillmentPlatformIntegrationService;
   public readonly groupPlatformVariant: GroupPlatformVariantService;
@@ -96,7 +94,6 @@ export class ClientApi {
     this.boostSales = new BoostSalesService(this.request);
     this.currency = new CurrencyService(this.request);
     this.default = new DefaultService(this.request);
-    this.emailDomain = new EmailDomainService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.fulfillmentPlatformIntegration = new FulfillmentPlatformIntegrationService(this.request);
     this.groupPlatformVariant = new GroupPlatformVariantService(this.request);

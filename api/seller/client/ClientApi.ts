@@ -14,7 +14,6 @@ import { CollectionService } from './services/CollectionService';
 import { CouponService } from './services/CouponService';
 import { CurrencyService } from './services/CurrencyService';
 import { DomainService } from './services/DomainService';
-import { EmailDomainService } from './services/EmailDomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
@@ -61,7 +60,6 @@ export class ClientApi {
   public readonly coupon: CouponService;
   public readonly currency: CurrencyService;
   public readonly domain: DomainService;
-  public readonly emailDomain: EmailDomainService;
   public readonly fbPixel: FbPixelService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
   public readonly googleAnalytic: GoogleAnalyticService;
@@ -119,7 +117,6 @@ export class ClientApi {
     this.coupon = new CouponService(this.request);
     this.currency = new CurrencyService(this.request);
     this.domain = new DomainService(this.request);
-    this.emailDomain = new EmailDomainService(this.request);
     this.fbPixel = new FbPixelService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
     this.googleAnalytic = new GoogleAnalyticService(this.request);
