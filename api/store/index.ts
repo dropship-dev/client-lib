@@ -41,7 +41,7 @@ function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   return value;
 }
 
-const originalFetch = window.fetch || fetch;
+const originalFetch = global.fetch || fetch;
 
 // Wrapped fetch with response processing
 const interceptedFetch = async (...args: Parameters<typeof fetch>): Promise<Response> => {
@@ -76,7 +76,7 @@ const interceptedFetch = async (...args: Parameters<typeof fetch>): Promise<Resp
   }
 };
 
-window.fetch = interceptedFetch;
+global.fetch = interceptedFetch;
 
 class ClientApi extends _ClientApi {
   public async uploadFile(file: File): Promise<string> {
