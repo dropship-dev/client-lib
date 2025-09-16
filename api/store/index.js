@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.api = exports.restoreFetch = void 0;
+exports.api = void 0;
 const client_1 = require("./client");
 if (process.env.API_URL) {
     client_1.OpenAPI.BASE = process.env.API_URL;
@@ -94,14 +94,17 @@ const setupFetchInterceptor = () => {
         // 1. globalThis (Universal)
         if (typeof globalThis !== "undefined") {
             globalThis.fetch = interceptedFetch;
+            globalThis.isFetchIntercepted = true;
         }
         // 2. global (Node.js)
         if (typeof global !== "undefined") {
             global.fetch = interceptedFetch;
+            global.isFetchIntercepted = true;
         }
         // 3. window (Browser)
         if (typeof window !== "undefined") {
             window.fetch = interceptedFetch;
+            window.isFetchIntercepted = true;
         }
         // 4. self (Web Workers, Service Workers)
         if (typeof self !== "undefined" && self.fetch) {
@@ -113,29 +116,13 @@ const setupFetchInterceptor = () => {
     }
 };
 (() => {
-    const isAlreadyIntercepted = (typeof globalThis !== "undefined" && globalThis.fetch) ||
-        (typeof global !== "undefined" && global.fetch) ||
-        (typeof window !== "undefined" && window.fetch);
+    const isAlreadyIntercepted = (typeof globalThis !== "undefined" && globalThis.isFetchIntercepted) ||
+        (typeof global !== "undefined" && global.isFetchIntercepted) ||
+        (typeof window !== "undefined" && window.isFetchIntercepted);
     if (!isAlreadyIntercepted) {
         setupFetchInterceptor();
     }
 })();
-const restoreFetch = () => {
-    const original = originalFetch;
-    if (typeof globalThis !== "undefined") {
-        globalThis.fetch = original;
-    }
-    if (typeof global !== "undefined") {
-        global.fetch = original;
-    }
-    if (typeof window !== "undefined") {
-        window.fetch = original;
-    }
-    if (typeof self !== "undefined") {
-        self.fetch = original;
-    }
-};
-exports.restoreFetch = restoreFetch;
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
@@ -166,7 +153,7 @@ class ClientApi extends client_1.ClientApi {
             headers: {
                 "Content-Type": file.type,
                 "Content-Length": file.size,
-            }
+            },
         });
         return result.url;
     }
