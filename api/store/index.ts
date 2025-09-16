@@ -111,6 +111,7 @@ const setupFetchInterceptor = () => {
     // 4. self (Web Workers, Service Workers)
     if (typeof self !== "undefined" && self.fetch) {
       self.fetch = interceptedFetch;
+      self.isFetchIntercepted = true;
     }
   } catch (error) {
     console.warn("Failed to setup fetch interceptor:", error);
@@ -121,7 +122,8 @@ const setupFetchInterceptor = () => {
   const isAlreadyIntercepted =
     (typeof globalThis !== "undefined" && globalThis.isFetchIntercepted) ||
     (typeof global !== "undefined" && global.isFetchIntercepted) ||
-    (typeof window !== "undefined" && window.isFetchIntercepted);
+    (typeof window !== "undefined" && window.isFetchIntercepted) ||
+    (typeof self !== "undefined" && self.isFetchIntercepted);
 
   if (!isAlreadyIntercepted) {
     setupFetchInterceptor();
