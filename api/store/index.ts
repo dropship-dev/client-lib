@@ -8,7 +8,7 @@ if (process.env.API_URL) {
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
 
-function deepReplaceStrings(value: any, re: any) {
+{{!-- function deepReplaceStrings(value: any, re: any) {
   if (value === null || value === undefined) return value;
 
   if (typeof value === "string") {
@@ -36,14 +36,17 @@ function deepReplaceStrings(value: any, re: any) {
     }
   }
   return value;
-}
+} --}}
 
 axios.interceptors.response.use(
   (response) => {
     try {
       const ct = (response.headers && response.headers['content-type']) || '';
       if (ct.includes('application/json') || typeof response.data === 'object') {
-        deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+        if (response.data) {
+          const dataString = JSON.stringify(response.data);
+          response.data = JSON.parse(dataString.replace(TO_REMOVE_REGEX, ''));
+        }
       } else if (typeof response.data === 'string') {
         // text/html, text/plain, etc.
         response.data = response.data.replace(TO_REMOVE_REGEX, '');
