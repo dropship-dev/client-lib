@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FetchHttpRequest = void 0;
+exports.AxiosHttpRequest = void 0;
 const BaseHttpRequest_1 = require("./BaseHttpRequest");
 const request_1 = require("./request");
-class FetchHttpRequest extends BaseHttpRequest_1.BaseHttpRequest {
+class AxiosHttpRequest extends BaseHttpRequest_1.BaseHttpRequest {
     constructor(config) {
         super(config);
     }
@@ -17,4 +17,4 @@ class FetchHttpRequest extends BaseHttpRequest_1.BaseHttpRequest {
         return (0, request_1.request)(this.config, options);
     }
 }
-exports.FetchHttpRequest = FetchHttpRequest;
+exports.AxiosHttpRequest = AxiosHttpRequest;
