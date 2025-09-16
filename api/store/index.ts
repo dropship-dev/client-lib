@@ -93,16 +93,19 @@ const setupFetchInterceptor = () => {
     // 1. globalThis (Universal)
     if (typeof globalThis !== "undefined") {
       globalThis.fetch = interceptedFetch;
+      globalThis.isFetchIntercepted = true;
     }
 
     // 2. global (Node.js)
     if (typeof global !== "undefined") {
       global.fetch = interceptedFetch;
+      global.isFetchIntercepted = true;
     }
 
     // 3. window (Browser)
     if (typeof window !== "undefined") {
       window.fetch = interceptedFetch;
+      window.isFetchIntercepted = true;
     }
 
     // 4. self (Web Workers, Service Workers)
@@ -116,31 +119,56 @@ const setupFetchInterceptor = () => {
 
 (() => {
   const isAlreadyIntercepted =
-    (typeof globalThis !== "undefined" && globalThis.fetch) ||
-    (typeof global !== "undefined" && global.fetch) ||
-    (typeof window !== "undefined" && window.fetch);
+    (typeof globalThis !== "undefined" && globalThis.isFetchIntercepted) ||
+    (typeof global !== "undefined" && global.isFetchIntercepted) ||
+    (typeof window !== "undefined" && window.isFetchIntercepted);
 
   if (!isAlreadyIntercepted) {
     setupFetchInterceptor();
   }
 })();
 
-export const restoreFetch = () => {
-  const original = originalFetch;
+class ClientApi extends _ClientApi {
+  public async uploadFile(file: File): Promise<string> {
+    let result = {
+      signedUrl: "",
+      url: "",
+    };
+    try {
+      result = await this.upload.createUpload({
+        requestBody: {
+          contentLength: file.size,
+          fileName: file.name,
+        },
+      });
+    } catch (e) {
+      if (e instanceof ApiError) {
+        if ("details" in e.body && e.body.details === "File too large") {
+          throw new Error("File too large");
+        }
+      }
 
-  if (typeof globalThis !== "undefined") {
-    globalThis.fetch = original;
+      throw e;
+    }
+
+    const body = new Blob([file], { type: file.type });
+    await this.request.request({
+      method: "PUT",
+      url: result.signedUrl,
+      body: body,
+      headers: {
+        "Content-Type": file.type,
+        "Content-Length": file.size,
+      },
+    });
+
+    return result.url;
   }
-  if (typeof global !== "undefined") {
-    global.fetch = original;
-  }
-  if (typeof window !== "undefined") {
-    window.fetch = original;
-  }
-  if (typeof self !== "undefined") {
-    self.fetch = original;
-  }
-};
+}
+
+declare global {
+  var isFetchIntercepted: boolean;
+}
 
 class ClientApi extends _ClientApi {
   public async uploadFile(file: File): Promise<string> {
