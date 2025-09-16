@@ -5,7 +5,7 @@ if (process.env.API_URL) {
   OpenAPI.BASE = process.env.API_URL;
 }
 
-const regexPattern = process.env.CDN_URL;
+const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
 
 function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
