@@ -1,4 +1,5 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
+import axios from "axios";
 
 if (process.env.NEXT_PUBLIC_API_URL) {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
