@@ -4,6 +4,62 @@ if (process.env.NEXT_PUBLIC_API_URL) {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
 
+const TO_REMOVE_REGEX =
+  /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
+
+function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
+  if (value === null || value === undefined) return value;
+
+  if (typeof value === "string") {
+    return value.replace(re, "");
+  }
+
+  if (typeof value !== "object") {
+    // number, boolean, symbol, function etc. — keep as is
+    return value;
+  }
+
+  // protect against circular refs
+  if (seen.has(value)) return value;
+  seen.add(value);
+
+  if (Array.isArray(value)) {
+    for (let i = 0; i < value.length; i++) {
+      value[i] = deepReplaceStrings(value[i], re, seen);
+    }
+    return value;
+  }
+
+  // plain object
+  for (const k of Object.keys(value)) {
+    try {
+      value[k] = deepReplaceStrings(value[k], re, seen);
+    } catch (err) {
+      // ignore single-field errors
+    }
+  }
+  return value;
+}
+
+axios.interceptors.response.use(
+  (response) => {
+    console.log("run in response interceptors")
+    try {
+      const ct = (response.headers && response.headers['content-type']) || '';
+      if (ct.includes('application/json') || typeof response.data === 'object') {
+        deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+        console.log("response.data", response.data)
+      } else if (typeof response.data === 'string') {
+        // text/html, text/plain, etc.
+        response.data = response.data.replace(TO_REMOVE_REGEX, '');
+        console.log("response.data", response.data)
+      }
+    } catch (err) {}
+    return response;
+  },
+  (error) => Promise.reject(error)
+);
+
 class ClientApi extends _ClientApi {
   public async uploadFile(file: File): Promise<string> {
     let result = {
