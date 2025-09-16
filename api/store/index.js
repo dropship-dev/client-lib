@@ -13,12 +13,65 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
+const axios_1 = __importDefault(require("axios"));
 if (process.env.NEXT_PUBLIC_API_URL) {
     client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
 }
+const TO_REMOVE_REGEX = /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
+function deepReplaceStrings(value, re, seen = new WeakSet()) {
+    if (value === null || value === undefined)
+        return value;
+    if (typeof value === "string") {
+        return value.replace(re, "");
+    }
+    if (typeof value !== "object") {
+        // number, boolean, symbol, function etc. — keep as is
+        return value;
+    }
+    // protect against circular refs
+    if (seen.has(value))
+        return value;
+    seen.add(value);
+    if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) {
+            value[i] = deepReplaceStrings(value[i], re, seen);
+        }
+        return value;
+    }
+    // plain object
+    for (const k of Object.keys(value)) {
+        try {
+            value[k] = deepReplaceStrings(value[k], re, seen);
+        }
+        catch (err) {
+            // ignore single-field errors
+        }
+    }
+    return value;
+}
+axios_1.default.interceptors.response.use((response) => {
+    console.log("run in response interceptors");
+    try {
+        const ct = (response.headers && response.headers['content-type']) || '';
+        if (ct.includes('application/json') || typeof response.data === 'object') {
+            deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+            console.log("response.data", response.data);
+        }
+        else if (typeof response.data === 'string') {
+            // text/html, text/plain, etc.
+            response.data = response.data.replace(TO_REMOVE_REGEX, '');
+            console.log("response.data", response.data);
+        }
+    }
+    catch (err) { }
+    return response;
+}, (error) => Promise.reject(error));
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
