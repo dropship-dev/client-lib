@@ -1,5 +1,4 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
-import axios from "axios";
 
 if (process.env.API_URL) {
   OpenAPI.BASE = process.env.API_URL;
@@ -42,21 +41,42 @@ function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   return value;
 }
 
-axios.interceptors.response.use(
-  (response) => {
-    try {
-      const ct = (response.headers && response.headers['content-type']) || '';
-      if (ct.includes('application/json') || typeof response.data === 'object') {
-        deepReplaceStrings(response.data, TO_REMOVE_REGEX);
-      } else if (typeof response.data === 'string') {
-        // text/html, text/plain, etc.
-        response.data = response.data.replace(TO_REMOVE_REGEX, '');
-      }
-    } catch (err) {}
+const originalFetch = window.fetch || fetch;
+
+// Wrapped fetch with response processing
+const interceptedFetch = async (...args: Parameters<typeof fetch>): Promise<Response> => {
+  const response = await originalFetch(...args);
+
+  try {
+    const contentType = response.headers.get('content-type') || '';
+
+    if (contentType.includes('application/json')) {
+      let data = await response.json();
+      deepReplaceStrings(data, TO_REMOVE_REGEX);
+      const newBody = JSON.stringify(data);
+      return new Response(newBody, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      });
+    } else if (contentType.includes('text/')) {
+      let text = await response.text();
+      text = text.replace(TO_REMOVE_REGEX, '');
+      return new Response(text, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      });
+    }
+
     return response;
-  },
-  (error) => Promise.reject(error)
-);
+  } catch (err) {
+    // Ignore processing errors and return original response
+    return response;
+  }
+};
+
+window.fetch = interceptedFetch;
 
 class ClientApi extends _ClientApi {
   public async uploadFile(file: File): Promise<string> {
