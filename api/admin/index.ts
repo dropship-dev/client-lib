@@ -29,7 +29,7 @@ axios.interceptors.request.use(
 const TO_REMOVE_REGEX =
   /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
 
-function deepReplaceStrings(value, re, seen = new WeakSet()) {
+function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   if (value === null || value === undefined) return value;
 
   if (typeof value === "string") {
