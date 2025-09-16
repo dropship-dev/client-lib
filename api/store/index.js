@@ -20,10 +20,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
 const axios_1 = __importDefault(require("axios"));
-if (process.env.NEXT_PUBLIC_API_URL) {
-    client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
+if (process.env.API_URL) {
+    client_1.OpenAPI.BASE = process.env.API_URL;
 }
-const TO_REMOVE_REGEX = /https?:\/\/cdn\.bettamax\.com\/?|cdn\.bettamax\.com\/?/g;
+const regexPattern = process.env.CDN_URL || "";
+const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
 function deepReplaceStrings(value, re, seen = new WeakSet()) {
     if (value === null || value === undefined)
         return value;
@@ -56,17 +57,14 @@ function deepReplaceStrings(value, re, seen = new WeakSet()) {
     return value;
 }
 axios_1.default.interceptors.response.use((response) => {
-    console.log("run in response interceptors");
     try {
         const ct = (response.headers && response.headers['content-type']) || '';
         if (ct.includes('application/json') || typeof response.data === 'object') {
             deepReplaceStrings(response.data, TO_REMOVE_REGEX);
-            console.log("response.data", response.data);
         }
         else if (typeof response.data === 'string') {
             // text/html, text/plain, etc.
             response.data = response.data.replace(TO_REMOVE_REGEX, '');
-            console.log("response.data", response.data);
         }
     }
     catch (err) { }
