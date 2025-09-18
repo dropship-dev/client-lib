@@ -20,6 +20,24 @@ export declare class StoreService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    storeSupportsApplePay({ domain, }: {
+        domain: string;
+    }): CancelablePromise<{
+        supportsApplePay: boolean;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    appleDomainAssociation({ domain, }: {
+        domain: string;
+    }): CancelablePromise<{
+        domainAssociation: string;
+    }>;
+    /**
      * @deprecated
      * @returns any Ok
      * @throws ApiError
