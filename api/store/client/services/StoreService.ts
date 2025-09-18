@@ -23,6 +23,58 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class StoreService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public storeSupportsApplePay({
+    domain,
+  }: {
+    domain: string,
+  }): CancelablePromise<{
+    supportsApplePay: boolean;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/support-apple-pay',
+      query: {
+        'domain': domain,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public appleDomainAssociation({
+    domain,
+  }: {
+    domain: string,
+  }): CancelablePromise<{
+    domainAssociation: string;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/apple-domain-association',
+      query: {
+        'domain': domain,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @deprecated
    * @returns any Ok
    * @throws ApiError
