@@ -1,5 +1,0 @@
-export declare enum _36_Enums_PingPongAuthStatus {
-    UNAUTHENTICATED = "UNAUTHENTICATED",
-    AUTHENTICATING = "AUTHENTICATING",
-    AUTHENTICATED = "AUTHENTICATED"
-}

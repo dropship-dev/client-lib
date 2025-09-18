@@ -1,6 +1,4 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
-import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
-import type { ConnectWithPingPongAccountDto } from '../models/ConnectWithPingPongAccountDto';
 import type { CreatePingPongAccountDto } from '../models/CreatePingPongAccountDto';
 import type { SendOtpAddPingpongAccountDto } from '../models/SendOtpAddPingpongAccountDto';
 import type { UpdatePingPongAccountDto } from '../models/UpdatePingPongAccountDto';
@@ -11,7 +9,6 @@ export declare class PingPongAccountService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
-     * @deprecated
      * @returns any Ok
      * @throws ApiError
      */
@@ -20,12 +17,9 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
-        authStatus: _36_Enums_PingPongAuthStatus;
-        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -41,12 +35,9 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<Array<{
-        authStatus: _36_Enums_PingPongAuthStatus;
-        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -55,20 +46,6 @@ export declare class PingPongAccountService {
         currency: _36_Enums_CurrencyType;
     }>>;
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    connectWithPingPongAccount({ requestBody, fulfillmentAgencyId, storeId, }: {
-        requestBody: ConnectWithPingPongAccountDto;
-        fulfillmentAgencyId?: number;
-        storeId?: string;
-    }): CancelablePromise<{
-        email: string;
-        loginURL: string;
-        id: string;
-    }>;
-    /**
-     * @deprecated
      * @returns string Ok
      * @throws ApiError
      */
@@ -76,19 +53,15 @@ export declare class PingPongAccountService {
         requestBody: SendOtpAddPingpongAccountDto;
     }): CancelablePromise<string>;
     /**
-     * @deprecated
      * @returns any Ok
      * @throws ApiError
      */
     verifyOtpAddPingpongAccount({ requestBody, }: {
         requestBody: VerifyOtpAddPingpongAccountDto;
     }): CancelablePromise<{
-        authStatus: _36_Enums_PingPongAuthStatus;
-        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -105,12 +78,9 @@ export declare class PingPongAccountService {
         fulfillmentAgencyId?: number;
         storeId?: string;
     }): CancelablePromise<{
-        authStatus: _36_Enums_PingPongAuthStatus;
-        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;

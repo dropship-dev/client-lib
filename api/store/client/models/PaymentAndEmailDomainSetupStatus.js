@@ -10,4 +10,5 @@ var PaymentAndEmailDomainSetupStatus;
     PaymentAndEmailDomainSetupStatus["EMAIL_DOMAIN_ADDED_PAYMENT_NOT_VERIFIED"] = "EmailDomainAddedPaymentNotVerified";
     PaymentAndEmailDomainSetupStatus["PAYMENT_GATEWAY_MISSING"] = "PaymentGatewayMissing";
     PaymentAndEmailDomainSetupStatus["EMAIL_DOMAIN_AND_PAYMENT_MISSING"] = "EmailDomainAndPaymentMissing";
+    PaymentAndEmailDomainSetupStatus["SUPPORT_EMAIL_ADDED_PAYMENT_NOT_VERIFY"] = "SupportEmailAddedPaymentNotVerify";
 })(PaymentAndEmailDomainSetupStatus || (exports.PaymentAndEmailDomainSetupStatus = PaymentAndEmailDomainSetupStatus = {}));

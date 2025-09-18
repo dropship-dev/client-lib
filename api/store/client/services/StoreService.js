@@ -7,6 +7,7 @@ class StoreService {
         this.httpRequest = httpRequest;
     }
     /**
+     * @deprecated
      * @returns any Ok
      * @throws ApiError
      */
