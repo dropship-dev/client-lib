@@ -29,15 +29,6 @@ export declare class StoreService {
         supportsApplePay: boolean;
     }>;
     /**
-     * @returns any Ok
-     * @throws ApiError
-     */
-    appleDomainAssociation({ domain, }: {
-        domain: string;
-    }): CancelablePromise<{
-        domainAssociation: string;
-    }>;
-    /**
      * @deprecated
      * @returns any Ok
      * @throws ApiError
@@ -147,6 +138,7 @@ export declare class StoreService {
             isConnectPSSFF: boolean;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
+            domainAssociation: string;
             BNcode: string;
             isPlatform: boolean;
             isShowCompanyAddress: boolean;
@@ -161,6 +153,9 @@ export declare class StoreService {
             updatedAt: string;
             createdAt: string;
             id: number;
+            ApplePayConfig: Array<{
+                domain: string;
+            }>;
         }>;
     }>;
     /**

@@ -35,6 +35,7 @@ export declare class FulfillmentAgencyService {
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
             deleted: boolean;
+            domainAssociation: string;
             BNcode: string;
             partnerId: string;
             gatewayUrl: string;
