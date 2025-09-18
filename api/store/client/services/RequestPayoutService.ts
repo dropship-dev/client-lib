@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
-import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
@@ -14,8 +13,6 @@ import type { PingPongAccount } from '../models/PingPongAccount';
 import type { PrismaJson_bankInfo } from '../models/PrismaJson_bankInfo';
 import type { PrismaJson_HistoryRequestPayout } from '../models/PrismaJson_HistoryRequestPayout';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
-import type { PrismaJson_PingPongTransaction } from '../models/PrismaJson_PingPongTransaction';
-import type { PrismaJson_PingPongTrialCalculation } from '../models/PrismaJson_PingPongTrialCalculation';
 import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
 import type { PrismaJson_Timezone } from '../models/PrismaJson_Timezone';
@@ -37,10 +34,6 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
-    fulfillmentAgencyPingPongAccountId: string;
-    approverId: string;
-    pingPongTransaction: PrismaJson_PingPongTransaction;
-    pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
@@ -101,12 +94,9 @@ export class RequestPayoutService {
     total: number;
     data: Array<({
       PingPongAccount: {
-        authStatus: _36_Enums_PingPongAuthStatus;
-        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
-        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -172,10 +162,6 @@ export class RequestPayoutService {
     } & {
       payoutInToDate: string;
       payoutInFromDate: string;
-      fulfillmentAgencyPingPongAccountId: string;
-      approverId: string;
-      pingPongTransaction: PrismaJson_PingPongTransaction;
-      pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
       decidedAt: string;
       historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
@@ -218,67 +204,6 @@ export class RequestPayoutService {
     });
   }
   /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public clearOtpForPayoutRequest({
-    storeId,
-    fulfillmentAgencyId,
-    payoutRequestId,
-  }: {
-    storeId?: string,
-    fulfillmentAgencyId?: number,
-    payoutRequestId?: string,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'POST',
-      url: '/request-payout/clear-otp',
-      query: {
-        'storeId': storeId,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'payoutRequestId': payoutRequestId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @returns string Ok
-   * @throws ApiError
-   */
-  public getOtpForPayoutRequest({
-    storeId,
-    fulfillmentAgencyId,
-    payoutRequestId,
-  }: {
-    storeId?: string,
-    fulfillmentAgencyId?: number,
-    payoutRequestId?: string,
-  }): CancelablePromise<string> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/request-payout/get-otp',
-      query: {
-        'storeId': storeId,
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-        'payoutRequestId': payoutRequestId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @deprecated
    * @returns any Ok
    * @throws ApiError
    */
@@ -311,12 +236,9 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
-          authStatus: _36_Enums_PingPongAuthStatus;
-          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
-          userId: string;
           email: string;
           updatedAt: string;
           createdAt: string;
@@ -382,10 +304,6 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
-        fulfillmentAgencyPingPongAccountId: string;
-        approverId: string;
-        pingPongTransaction: PrismaJson_PingPongTransaction;
-        pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -461,12 +379,9 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
-          authStatus: _36_Enums_PingPongAuthStatus;
-          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
-          userId: string;
           email: string;
           updatedAt: string;
           createdAt: string;
@@ -532,10 +447,6 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
-        fulfillmentAgencyPingPongAccountId: string;
-        approverId: string;
-        pingPongTransaction: PrismaJson_PingPongTransaction;
-        pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -709,40 +620,6 @@ export class RequestPayoutService {
    * @returns any Ok
    * @throws ApiError
    */
-  public previewRequestPayout({
-    id,
-    fulfillmentAgencyId,
-  }: {
-    id: string,
-    fulfillmentAgencyId: number,
-  }): CancelablePromise<{
-    balanceEnough: boolean;
-    trialExpireTime: number;
-    fee: number;
-    amount: number;
-  }> {
-    return this.httpRequest.request({
-      method: 'GET',
-      url: '/request-payout/{id}/preview-transfer',
-      path: {
-        'id': id,
-      },
-      query: {
-        'fulfillmentAgencyId': fulfillmentAgencyId,
-      },
-      errors: {
-        400: `Bad request`,
-        401: `Invalid token`,
-        403: `Forbidden`,
-        404: `Not found`,
-        500: `Internal server error`,
-      },
-    });
-  }
-  /**
-   * @returns any Ok
-   * @throws ApiError
-   */
   public getRequestPayout({
     storeId,
     id,
@@ -787,10 +664,6 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
-    fulfillmentAgencyPingPongAccountId: string;
-    approverId: string;
-    pingPongTransaction: PrismaJson_PingPongTransaction;
-    pingPongTrailCalculation: PrismaJson_PingPongTrialCalculation;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
