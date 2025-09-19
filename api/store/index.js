@@ -25,38 +25,14 @@ if (process.env.API_URL) {
 }
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
-function deepReplaceStrings(value, re) {
-    if (value === null || value === undefined)
-        return value;
-    if (typeof value === "string") {
-        return value.replace(re, "");
-    }
-    if (typeof value !== "object") {
-        // number, boolean, symbol, function etc. — keep as is
-        return value;
-    }
-    if (Array.isArray(value)) {
-        for (let i = 0; i < value.length; i++) {
-            value[i] = deepReplaceStrings(value[i], re);
-        }
-        return value;
-    }
-    // plain object
-    for (const k of Object.keys(value)) {
-        try {
-            value[k] = deepReplaceStrings(value[k], re);
-        }
-        catch (err) {
-            // ignore single-field errors
-        }
-    }
-    return value;
-}
 axios_1.default.interceptors.response.use((response) => {
     try {
         const ct = (response.headers && response.headers['content-type']) || '';
         if (ct.includes('application/json') || typeof response.data === 'object') {
-            deepReplaceStrings(response.data, TO_REMOVE_REGEX);
+            if (response.data) {
+                const dataString = JSON.stringify(response.data);
+                response.data = JSON.parse(dataString.replace(TO_REMOVE_REGEX, ''));
+            }
         }
         else if (typeof response.data === 'string') {
             // text/html, text/plain, etc.
