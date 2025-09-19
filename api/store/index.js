@@ -13,35 +13,121 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
-const axios_1 = __importDefault(require("axios"));
 if (process.env.API_URL) {
     client_1.OpenAPI.BASE = process.env.API_URL;
 }
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
-axios_1.default.interceptors.response.use((response) => {
-    try {
-        const ct = (response.headers && response.headers['content-type']) || '';
-        if (ct.includes('application/json') || typeof response.data === 'object') {
-            if (response.data) {
-                const dataString = JSON.stringify(response.data);
-                response.data = JSON.parse(dataString.replace(TO_REMOVE_REGEX, ''));
-            }
+function deepReplaceStrings(value, re, seen = new WeakSet()) {
+    if (value === null || value === undefined)
+        return value;
+    if (typeof value === "string") {
+        return value.replace(re, "");
+    }
+    if (typeof value !== "object") {
+        return value;
+    }
+    if (seen.has(value))
+        return value;
+    seen.add(value);
+    if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) {
+            value[i] = deepReplaceStrings(value[i], re, seen);
         }
-        else if (typeof response.data === 'string') {
-            // text/html, text/plain, etc.
-            response.data = response.data.replace(TO_REMOVE_REGEX, '');
+        return value;
+    }
+    for (const k of Object.keys(value)) {
+        try {
+            value[k] = deepReplaceStrings(value[k], re, seen);
+        }
+        catch (err) {
+            // ignore single-field errors
         }
     }
-    catch (err) { }
-    return response;
-}, (error) => Promise.reject(error));
+    return value;
+}
+const originalFetch = fetch;
+const createInterceptedFetch = () => {
+    const interceptedFetch = async (...args) => {
+        try {
+            const response = await originalFetch(...args);
+            if (!(process.env.API_URL && args.length > 0 && args[0].toString().startsWith(process.env.API_URL))) {
+                return response;
+            }
+            const clonedResponse = response.clone();
+            try {
+                const contentType = response.headers.get("content-type") || "";
+                if (contentType.includes("application/json")) {
+                    const data = await clonedResponse.json();
+                    const processedData = deepReplaceStrings(data, TO_REMOVE_REGEX);
+                    return new Response(JSON.stringify(processedData), {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                    });
+                }
+                else if (contentType.includes("text/")) {
+                    const text = await clonedResponse.text();
+                    const processedText = text.replace(TO_REMOVE_REGEX, "");
+                    return new Response(processedText, {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                    });
+                }
+            }
+            catch (err) {
+                console.warn("Error processing fetch response:", err);
+            }
+            return response;
+        }
+        catch (error) {
+            throw error;
+        }
+    };
+    interceptedFetch.__original = originalFetch;
+    return interceptedFetch;
+};
+const setupFetchInterceptor = () => {
+    const interceptedFetch = createInterceptedFetch();
+    try {
+        // 1. globalThis (Universal)
+        if (typeof globalThis !== "undefined") {
+            globalThis.fetch = interceptedFetch;
+            globalThis.isFetchIntercepted = true;
+        }
+        // 2. global (Node.js)
+        if (typeof global !== "undefined") {
+            global.fetch = interceptedFetch;
+            global.isFetchIntercepted = true;
+        }
+        // 3. window (Browser)
+        if (typeof window !== "undefined") {
+            window.fetch = interceptedFetch;
+            window.isFetchIntercepted = true;
+        }
+        // 4. self (Web Workers, Service Workers)
+        if (typeof self !== "undefined" && self.fetch) {
+            self.fetch = interceptedFetch;
+            self.isFetchIntercepted = true;
+        }
+    }
+    catch (error) {
+        console.warn("Failed to setup fetch interceptor:", error);
+    }
+};
+(() => {
+    const isAlreadyIntercepted = (typeof globalThis !== "undefined" && globalThis.isFetchIntercepted) ||
+        (typeof global !== "undefined" && global.isFetchIntercepted) ||
+        (typeof window !== "undefined" && window.isFetchIntercepted) ||
+        (typeof self !== "undefined" && self.isFetchIntercepted);
+    if (!isAlreadyIntercepted) {
+        setupFetchInterceptor();
+    }
+})();
 class ClientApi extends client_1.ClientApi {
     async uploadFile(file) {
         let result = {
@@ -72,7 +158,7 @@ class ClientApi extends client_1.ClientApi {
             headers: {
                 "Content-Type": file.type,
                 "Content-Length": file.size,
-            }
+            },
         });
         return result.url;
     }
