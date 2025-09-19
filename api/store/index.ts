@@ -46,10 +46,6 @@ const createInterceptedFetch = () => {
   ): Promise<Response> => {
     try {
       const response = await originalFetch(...args);
-      if (!(process.env.API_URL && args.length > 0 && args[0].toString().startsWith(process.env.API_URL))) {
-        return response;
-      }
-
       const clonedResponse = response.clone();
 
       try {
