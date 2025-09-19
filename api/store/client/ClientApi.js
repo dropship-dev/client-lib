@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientApi = void 0;
-const AxiosHttpRequest_1 = require("./core/AxiosHttpRequest");
+const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
 const BankAccountService_1 = require("./services/BankAccountService");
 const BoostSalesService_1 = require("./services/BoostSalesService");
 const CollectionService_1 = require("./services/CollectionService");
@@ -42,7 +42,7 @@ class ClientApi {
     variantCombo;
     wallet;
     request;
-    constructor(config, HttpRequest = AxiosHttpRequest_1.AxiosHttpRequest) {
+    constructor(config, HttpRequest = FetchHttpRequest_1.FetchHttpRequest) {
         this.request = new HttpRequest({
             BASE: config?.BASE ?? '',
             VERSION: config?.VERSION ?? '1.0.0',
