@@ -2,7 +2,7 @@ import type { ApiRequestOptions } from './ApiRequestOptions';
 import { BaseHttpRequest } from './BaseHttpRequest';
 import type { CancelablePromise } from './CancelablePromise';
 import type { OpenAPIConfig } from './OpenAPI';
-export declare class FetchHttpRequest extends BaseHttpRequest {
+export declare class AxiosHttpRequest extends BaseHttpRequest {
     constructor(config: OpenAPIConfig);
     /**
      * Request method
