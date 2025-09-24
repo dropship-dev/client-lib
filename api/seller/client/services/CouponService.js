@@ -144,5 +144,26 @@ class CouponService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    duplicateCoupon({ storeId, couponId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/coupons/{couponId}/duplicate',
+            path: {
+                'storeId': storeId,
+                'couponId': couponId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.CouponService = CouponService;

@@ -463,6 +463,7 @@ export declare class StoreService {
         prePageIndex: string;
         total: number;
         data: Array<{
+            discountUsed: number;
             applyingMethod: _36_Enums_CouponApplyingMethod;
             discountCode: string;
             title: string;
@@ -482,10 +483,12 @@ export declare class StoreService {
         storeId: string;
         requestBody: CreateCouponDto;
     }): CancelablePromise<{
-        availableDiscountUse: number;
+        discountUsed: number;
+        isLimitPerCustomer: boolean;
+        isLimitTotalUsage: boolean;
+        maxTotalUsage: number;
         discountValue: PrismaJson_ProductDiscountItems;
         combination: PrismaJson_CouponCombination;
-        maximumDiscountUses: PrismaJson_ProductRequirementItems;
         minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
@@ -519,10 +522,12 @@ export declare class StoreService {
         couponId: string;
         requestBody: UpdateCouponDto;
     }): CancelablePromise<{
-        availableDiscountUse: number;
+        discountUsed: number;
+        isLimitPerCustomer: boolean;
+        isLimitTotalUsage: boolean;
+        maxTotalUsage: number;
         discountValue: PrismaJson_ProductDiscountItems;
         combination: PrismaJson_CouponCombination;
-        maximumDiscountUses: PrismaJson_ProductRequirementItems;
         minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
@@ -554,10 +559,12 @@ export declare class StoreService {
             id: number;
         }>;
     } & {
-        availableDiscountUse: number;
+        discountUsed: number;
+        isLimitPerCustomer: boolean;
+        isLimitTotalUsage: boolean;
+        maxTotalUsage: number;
         discountValue: PrismaJson_ProductDiscountItems;
         combination: PrismaJson_CouponCombination;
-        maximumDiscountUses: PrismaJson_ProductRequirementItems;
         minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
         applyingMethod: _36_Enums_CouponApplyingMethod;
         discountCode: string;
@@ -582,4 +589,34 @@ export declare class StoreService {
         storeId: string;
         requestBody: UpdateCouponStatusDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    duplicateCoupon({ storeId, couponId, }: {
+        storeId: string;
+        couponId: string;
+    }): CancelablePromise<{
+        discountUsed: number;
+        isLimitPerCustomer: boolean;
+        isLimitTotalUsage: boolean;
+        maxTotalUsage: number;
+        discountValue: PrismaJson_ProductDiscountItems;
+        combination: PrismaJson_CouponCombination;
+        minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
+        applyingMethod: _36_Enums_CouponApplyingMethod;
+        discountCode: string;
+        title: string;
+        userUpdated: string;
+        userCreated: string;
+        endDate: string;
+        startDate: string;
+        type: _36_Enums_CouponType;
+        status: _36_Enums_CouponStatus;
+        updatedAt: string;
+        createdAt: string;
+        isDeleted: boolean;
+        storeId: string;
+        id: string;
+    }>;
 }

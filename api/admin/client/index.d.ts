@@ -228,7 +228,6 @@ export type { Discount } from './models/Discount';
 export { DiscountBoostSaleType } from './models/DiscountBoostSaleType';
 export type { DiscountDto } from './models/DiscountDto';
 export { DiscountForQuantityType } from './models/DiscountForQuantityType';
-export { DiscountMaximumUses } from './models/DiscountMaximumUses';
 export { DiscountMinimumPurchaseRequirement } from './models/DiscountMinimumPurchaseRequirement';
 export { DiscountValueType } from './models/DiscountValueType';
 export type { EditFulfillmentStaffDto } from './models/EditFulfillmentStaffDto';
