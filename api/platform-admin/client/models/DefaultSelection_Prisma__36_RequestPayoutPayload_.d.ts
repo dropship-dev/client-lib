@@ -5,6 +5,10 @@ import type { PrismaJson_Photos } from './PrismaJson_Photos';
 export type DefaultSelection_Prisma__36_RequestPayoutPayload_ = {
     payoutInToDate: string;
     payoutInFromDate: string;
+    fulfillmentAgencyPingPongAccountId: string;
+    approverId: string;
+    pingPongTransaction: any;
+    pingPongTrailCalculation: any;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
