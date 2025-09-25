@@ -1,7 +1,7 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
 
 if (process.env.NEXT_PUBLIC_API_URL) {
-  OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
+  OpenAPI.BASE = process.env.API_URL;
 }
 
 const regexPattern = process.env.CDN_URL || "";
