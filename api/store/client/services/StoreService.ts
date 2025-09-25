@@ -330,6 +330,9 @@ export class StoreService {
       updatedAt: string;
       createdAt: string;
       id: number;
+      ApplePayConfig: Array<{
+        domain: string;
+      }>;
     }>;
   }> {
     return this.httpRequest.request({
