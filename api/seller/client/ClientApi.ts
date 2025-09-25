@@ -17,6 +17,7 @@ import { DomainService } from './services/DomainService';
 import { EmailDomainService } from './services/EmailDomainService';
 import { FbPixelService } from './services/FbPixelService';
 import { FulfillmentAgencyService } from './services/FulfillmentAgencyService';
+import { GoogleAdwordsService } from './services/GoogleAdwordsService';
 import { GoogleAnalyticService } from './services/GoogleAnalyticService';
 import { GoogleTagManagerService } from './services/GoogleTagManagerService';
 import { KlaviyoService } from './services/KlaviyoService';
@@ -64,6 +65,7 @@ export class ClientApi {
   public readonly emailDomain: EmailDomainService;
   public readonly fbPixel: FbPixelService;
   public readonly fulfillmentAgency: FulfillmentAgencyService;
+  public readonly googleAdwords: GoogleAdwordsService;
   public readonly googleAnalytic: GoogleAnalyticService;
   public readonly googleTagManager: GoogleTagManagerService;
   public readonly klaviyo: KlaviyoService;
@@ -122,6 +124,7 @@ export class ClientApi {
     this.emailDomain = new EmailDomainService(this.request);
     this.fbPixel = new FbPixelService(this.request);
     this.fulfillmentAgency = new FulfillmentAgencyService(this.request);
+    this.googleAdwords = new GoogleAdwordsService(this.request);
     this.googleAnalytic = new GoogleAnalyticService(this.request);
     this.googleTagManager = new GoogleTagManagerService(this.request);
     this.klaviyo = new KlaviyoService(this.request);
