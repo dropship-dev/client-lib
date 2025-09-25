@@ -316,6 +316,7 @@ export class StoreService {
       isConnectPSSFF: boolean;
       environment: _36_Enums_EnvironmentType;
       UIVersion: number;
+      domainAssociation: string;
       BNcode: string;
       isPlatform: boolean;
       isShowCompanyAddress: boolean;
