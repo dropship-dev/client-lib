@@ -1,6 +1,6 @@
 import { ClientApi as _ClientApi, ApiError, OpenAPI } from "./client";
 
-if (process.env.NEXT_PUBLIC_API_URL) {
+if (process.env.API_URL) {
   OpenAPI.BASE = process.env.API_URL;
 }
 
