@@ -14,6 +14,7 @@ export type CreateCouponDto = {
   status?: _36_Enums_CouponStatus;
   discountCode?: string;
   applyingMethod: _36_Enums_CouponApplyingMethod;
+  isApplyToAllProduct?: boolean;
   productIds?: Array<number>;
   minimumPurchaseRequirement?: {
     value: number;

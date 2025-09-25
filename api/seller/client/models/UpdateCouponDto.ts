@@ -20,6 +20,7 @@ export type UpdateCouponDto = {
   maxTotalUsage?: number;
   isLimitPerCustomer?: boolean;
   isLimitTotalUsage?: boolean;
+  isApplyToAllProduct?: boolean;
   startDate?: string;
   endDate?: string;
 };
