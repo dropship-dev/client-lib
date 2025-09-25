@@ -44,6 +44,7 @@ export class CouponService {
     total: number;
     data: Array<{
       discountUsed: number;
+      combination: PrismaJson_CouponCombination;
       applyingMethod: _36_Enums_CouponApplyingMethod;
       discountCode: string;
       title: string;
@@ -89,6 +90,7 @@ export class CouponService {
     storeId: string,
     requestBody: CreateCouponDto,
   }): CancelablePromise<{
+    isApplyToAllProduct: boolean;
     discountUsed: number;
     isLimitPerCustomer: boolean;
     isLimitTotalUsage: boolean;
@@ -169,6 +171,7 @@ export class CouponService {
     couponId: string,
     requestBody: UpdateCouponDto,
   }): CancelablePromise<{
+    isApplyToAllProduct: boolean;
     discountUsed: number;
     isLimitPerCustomer: boolean;
     isLimitTotalUsage: boolean;
@@ -227,6 +230,7 @@ export class CouponService {
       id: number;
     }>;
   } & {
+    isApplyToAllProduct: boolean;
     discountUsed: number;
     isLimitPerCustomer: boolean;
     isLimitTotalUsage: boolean;
@@ -304,6 +308,7 @@ export class CouponService {
     storeId: string,
     couponId: string,
   }): CancelablePromise<{
+    isApplyToAllProduct: boolean;
     discountUsed: number;
     isLimitPerCustomer: boolean;
     isLimitTotalUsage: boolean;
