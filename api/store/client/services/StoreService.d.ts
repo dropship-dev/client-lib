@@ -282,6 +282,9 @@ export declare class StoreService {
             updatedAt: string;
             createdAt: string;
             id: number;
+            ApplePayConfig: Array<{
+                domain: string;
+            }>;
         }>;
     }>;
     /**
