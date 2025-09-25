@@ -16,8 +16,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.api = void 0;
 const client_1 = require("./client");
-if (process.env.NEXT_PUBLIC_API_URL) {
-    client_1.OpenAPI.BASE = process.env.NEXT_PUBLIC_API_URL;
+if (process.env.API_URL) {
+    client_1.OpenAPI.BASE = process.env.API_URL;
 }
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
