@@ -44,7 +44,9 @@ export class CouponService {
     total: number;
     data: Array<{
       discountUsed: number;
+      discountValue: PrismaJson_ProductDiscountItems;
       combination: PrismaJson_CouponCombination;
+      minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;
       applyingMethod: _36_Enums_CouponApplyingMethod;
       discountCode: string;
       title: string;
