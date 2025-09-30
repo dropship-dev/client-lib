@@ -1,5 +1,6 @@
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { _36_Enums_TransactionStatus } from '../models/_36_Enums_TransactionStatus';
 import type { _36_Enums_TransactionType } from '../models/_36_Enums_TransactionType';
@@ -39,9 +40,12 @@ export declare class TransactionService {
                 convertCurrencyAmount: number;
                 id: string;
                 PingPongAccount: {
+                    authStatus: _36_Enums_PingPongAuthStatus;
+                    pingPongClientId: string;
                     walletId: string;
                     isBlock: boolean;
                     isDefault: boolean;
+                    userId: string;
                     email: string;
                     updatedAt: string;
                     createdAt: string;
@@ -121,6 +125,10 @@ export declare class TransactionService {
         RequestPayout: {
             payoutInToDate: string;
             payoutInFromDate: string;
+            fulfillmentAgencyPingPongAccountId: string;
+            approverId: string;
+            pingPongTransaction: any;
+            pingPongTrailCalculation: any;
             decidedAt: string;
             historyRequestPayout: PrismaJson_HistoryRequestPayout;
             photos: PrismaJson_Photos;
