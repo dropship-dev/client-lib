@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { _36_Enums_CurrencyType } from '../models/_36_Enums_CurrencyType';
 import type { _36_Enums_PaymentMethodType } from '../models/_36_Enums_PaymentMethodType';
+import type { _36_Enums_PingPongAuthStatus } from '../models/_36_Enums_PingPongAuthStatus';
 import type { _36_Enums_RequestPayoutStatus } from '../models/_36_Enums_RequestPayoutStatus';
 import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
@@ -34,6 +35,10 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    fulfillmentAgencyPingPongAccountId: string;
+    approverId: string;
+    pingPongTransaction: any;
+    pingPongTrailCalculation: any;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
@@ -94,9 +99,12 @@ export class RequestPayoutService {
     total: number;
     data: Array<({
       PingPongAccount: {
+        authStatus: _36_Enums_PingPongAuthStatus;
+        pingPongClientId: string;
         walletId: string;
         isBlock: boolean;
         isDefault: boolean;
+        userId: string;
         email: string;
         updatedAt: string;
         createdAt: string;
@@ -162,6 +170,10 @@ export class RequestPayoutService {
     } & {
       payoutInToDate: string;
       payoutInFromDate: string;
+      fulfillmentAgencyPingPongAccountId: string;
+      approverId: string;
+      pingPongTransaction: any;
+      pingPongTrailCalculation: any;
       decidedAt: string;
       historyRequestPayout: PrismaJson_HistoryRequestPayout;
       photos: PrismaJson_Photos;
@@ -236,9 +248,12 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
+          authStatus: _36_Enums_PingPongAuthStatus;
+          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
+          userId: string;
           email: string;
           updatedAt: string;
           createdAt: string;
@@ -304,6 +319,10 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        fulfillmentAgencyPingPongAccountId: string;
+        approverId: string;
+        pingPongTransaction: any;
+        pingPongTrailCalculation: any;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -379,9 +398,12 @@ export class RequestPayoutService {
       total: number;
       data: Array<({
         PingPongAccount: {
+          authStatus: _36_Enums_PingPongAuthStatus;
+          pingPongClientId: string;
           walletId: string;
           isBlock: boolean;
           isDefault: boolean;
+          userId: string;
           email: string;
           updatedAt: string;
           createdAt: string;
@@ -447,6 +469,10 @@ export class RequestPayoutService {
       } & {
         payoutInToDate: string;
         payoutInFromDate: string;
+        fulfillmentAgencyPingPongAccountId: string;
+        approverId: string;
+        pingPongTransaction: any;
+        pingPongTrailCalculation: any;
         decidedAt: string;
         historyRequestPayout: PrismaJson_HistoryRequestPayout;
         photos: PrismaJson_Photos;
@@ -664,6 +690,10 @@ export class RequestPayoutService {
   }): CancelablePromise<{
     payoutInToDate: string;
     payoutInFromDate: string;
+    fulfillmentAgencyPingPongAccountId: string;
+    approverId: string;
+    pingPongTransaction: any;
+    pingPongTrailCalculation: any;
     decidedAt: string;
     historyRequestPayout: PrismaJson_HistoryRequestPayout;
     photos: PrismaJson_Photos;
