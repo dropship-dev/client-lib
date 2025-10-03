@@ -2,6 +2,7 @@ import type { _36_Enums_BoostSaleTriggerType } from '../models/_36_Enums_BoostSa
 import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { CouponApplyToOrder } from '../models/CouponApplyToOrder';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
@@ -51,6 +52,21 @@ export declare class OrderService {
         storeId: string;
         requestBody: CreateOrderDto;
     }): CancelablePromise<{
+        couponInfo: {
+            totalSaving: number;
+            discountBootSell?: {
+                title: string;
+                value: number;
+            };
+            manual?: {
+                list: Array<CouponApplyToOrder>;
+                value: number;
+            };
+            automatic: {
+                list: Array<CouponApplyToOrder>;
+                value: number;
+            };
+        };
         taxPart: number;
         totalAfterTax: number;
         taxable: boolean;
@@ -307,6 +323,14 @@ export declare class OrderService {
         shippingInfo: PrismaJson_BillingInfo;
         status: string;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    revertWhenCaptureFailed({ storeId, orderId, }: {
+        storeId: string;
+        orderId: string;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError

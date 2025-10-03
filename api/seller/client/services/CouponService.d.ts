@@ -33,6 +33,7 @@ export declare class CouponService {
         total: number;
         data: Array<{
             discountUsed: number;
+            maxTotalUsage: number;
             discountValue: PrismaJson_ProductDiscountItems;
             combination: PrismaJson_CouponCombination;
             minimumPurchaseRequirement: PrismaJson_ProductRequirementItems;

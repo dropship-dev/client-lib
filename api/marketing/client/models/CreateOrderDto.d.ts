@@ -28,4 +28,6 @@ export type CreateOrderDto = {
     utmLink?: string;
     customerCurrency?: string;
     customerLocale?: string;
+    email?: string;
+    discountCode?: string;
 };
