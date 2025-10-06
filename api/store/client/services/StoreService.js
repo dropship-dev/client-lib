@@ -186,6 +186,27 @@ class StoreService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    checkDiscountCodeUseOncePerCustomer({ storeId, requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/per-customer',
+            path: {
+                'storeId': storeId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

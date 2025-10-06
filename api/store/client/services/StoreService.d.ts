@@ -7,6 +7,7 @@ import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ContactFormDto } from '../models/ContactFormDto';
+import type { DiscountCodeUseOncePerCustomerDto } from '../models/DiscountCodeUseOncePerCustomerDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
@@ -364,6 +365,14 @@ export declare class StoreService {
     }): CancelablePromise<{
         balanceDebt: number;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    checkDiscountCodeUseOncePerCustomer({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: DiscountCodeUseOncePerCustomerDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
