@@ -6,12 +6,13 @@ if (process.env.API_URL) {
 
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
+const realCdn = "https://cdn.btmstorage.com/";
 
 function deepReplaceStrings(value: any, re: any, seen = new WeakSet()) {
   if (value === null || value === undefined) return value;
 
   if (typeof value === "string") {
-    return value.replace(re, "");
+    return value.replace(re, realCdn);
   }
 
   if (typeof value !== "object") {
@@ -46,6 +47,7 @@ const createInterceptedFetch = () => {
   ): Promise<Response> => {
     try {
       const response = await originalFetch(...args);
+
       const clonedResponse = response.clone();
 
       try {

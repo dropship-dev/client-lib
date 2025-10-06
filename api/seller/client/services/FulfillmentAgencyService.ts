@@ -54,6 +54,7 @@ export class FulfillmentAgencyService {
     paymentType: _36_Enums_PaymentType,
     onBoardingPaymentId: number,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;
@@ -104,6 +105,7 @@ export class FulfillmentAgencyService {
     paymentType: _36_Enums_PaymentType,
     onBoardingPaymentId: number,
   }): CancelablePromise<{
+    emailUsernameId: number;
     paymentId: number;
     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
     onboardingProducts: PrismaJson_OnboardingProducts;

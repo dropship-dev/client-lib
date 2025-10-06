@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { PaymentAndEmailDomainSetupStatus } from '../models/PaymentAndEmailDomainSetupStatus';
 import type { PrismaJson_HoldSetting } from '../models/PrismaJson_HoldSetting';
 import type { PrismaJson_SettingPayoutRequestDay } from '../models/PrismaJson_SettingPayoutRequestDay';
 import type { PrismaJson_SettingPayoutRequestTime } from '../models/PrismaJson_SettingPayoutRequestTime';
@@ -105,16 +106,14 @@ export class SettingService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns PaymentAndEmailDomainSetupStatus Ok
    * @throws ApiError
    */
   public getFaWarnings({
     fulfillmentAgencyId,
   }: {
     fulfillmentAgencyId: number,
-  }): CancelablePromise<{
-    sellerPolicyWarning: boolean;
-  }> {
+  }): CancelablePromise<PaymentAndEmailDomainSetupStatus> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/fulfillment-agency/warnings',
