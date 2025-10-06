@@ -158,6 +158,7 @@ export declare class StoreService {
                 name: string;
                 id: number;
                 PaymentOnboarding: {
+                    emailUsernameId: number;
                     paymentId: number;
                     dataInformationsOnboarding: PrismaJson_DataInformationsOnboarding;
                     onboardingProducts: PrismaJson_OnboardingProducts;
