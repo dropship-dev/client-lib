@@ -21,7 +21,7 @@ if (process.env.API_URL) {
 }
 const regexPattern = process.env.CDN_URL || "";
 const TO_REMOVE_REGEX = new RegExp(regexPattern, "g");
-const realCdn = "https://cdn.btmstorage.com/";
+const realCdn = "cdn.btmstorage.com/";
 function deepReplaceStrings(value, re, seen = new WeakSet()) {
     if (value === null || value === undefined)
         return value;
