@@ -304,6 +304,7 @@ export declare class OrderService {
             id: string;
         };
     } & {
+        isInfoFilled: boolean;
         disputeStatus: _36_Enums_OrderDisputeStatus;
         isHandleEvents: boolean;
         fingerPrint: string;

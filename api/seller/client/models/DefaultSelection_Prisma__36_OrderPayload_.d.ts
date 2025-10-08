@@ -4,6 +4,7 @@ import type { _36_Enums_OrderStatus } from './_36_Enums_OrderStatus';
 import type { PrismaJson_BillingInfo } from './PrismaJson_BillingInfo';
 import type { PrismaJson_SyncBalanceAmount } from './PrismaJson_SyncBalanceAmount';
 export type DefaultSelection_Prisma__36_OrderPayload_ = {
+    isInfoFilled: boolean;
     disputeStatus: _36_Enums_OrderDisputeStatus;
     isHandleEvents: boolean;
     fingerPrint: string;
