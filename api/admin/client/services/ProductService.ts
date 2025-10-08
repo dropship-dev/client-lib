@@ -524,6 +524,10 @@ export class ProductService {
     storeId: string,
     permalink: string,
   }): CancelablePromise<({
+    GoogleAdwords: Array<{
+      conversionLabel: string;
+      conversionId: string;
+    }>;
     Campaign: ({
       listDiscount: Array<{
         requirementDiscount: PrismaJson_ProductRequirementItems;
