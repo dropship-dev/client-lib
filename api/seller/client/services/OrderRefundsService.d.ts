@@ -204,6 +204,7 @@ export declare class OrderRefundsService {
                 id: string;
             };
         } & {
+            isInfoFilled: boolean;
             disputeStatus: _36_Enums_OrderDisputeStatus;
             isHandleEvents: boolean;
             fingerPrint: string;
