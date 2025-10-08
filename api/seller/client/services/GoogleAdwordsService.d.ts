@@ -26,17 +26,17 @@ export declare class GoogleAdwordsService {
      * @returns GetGoogleAdWordsResponse Ok
      * @throws ApiError
      */
-    getGoogleAdWords({ storeId, conversionId, }: {
+    getGoogleAdWords({ storeId, adwordsId, }: {
         storeId: string;
-        conversionId: string;
+        adwordsId: number;
     }): CancelablePromise<GetGoogleAdWordsResponse>;
     /**
      * @returns any Ok
      * @throws ApiError
      */
-    updateGoogleAdWords({ storeId, conversionId, requestBody, }: {
+    updateGoogleAdWords({ storeId, adwordsId, requestBody, }: {
         storeId: string;
-        conversionId: string;
+        adwordsId: number;
         requestBody: UpdateGoogleAdWordsDto;
     }): CancelablePromise<{
         conversionLabel: string;
@@ -50,8 +50,8 @@ export declare class GoogleAdwordsService {
      * @returns string Ok
      * @throws ApiError
      */
-    deleteGoogleAdWords({ storeId, conversionId, }: {
+    deleteGoogleAdWords({ storeId, adwordsId, }: {
         storeId: string;
-        conversionId: string;
+        adwordsId: number;
     }): CancelablePromise<string>;
 }

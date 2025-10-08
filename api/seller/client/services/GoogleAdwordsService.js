@@ -52,13 +52,13 @@ class GoogleAdwordsService {
      * @returns GetGoogleAdWordsResponse Ok
      * @throws ApiError
      */
-    getGoogleAdWords({ storeId, conversionId, }) {
+    getGoogleAdWords({ storeId, adwordsId, }) {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/store/{storeId}/google-adwords/{conversionId}',
+            url: '/store/{storeId}/google-adwords/{adwordsId}',
             path: {
                 'storeId': storeId,
-                'conversionId': conversionId,
+                'adwordsId': adwordsId,
             },
             errors: {
                 400: `Bad request`,
@@ -73,13 +73,13 @@ class GoogleAdwordsService {
      * @returns any Ok
      * @throws ApiError
      */
-    updateGoogleAdWords({ storeId, conversionId, requestBody, }) {
+    updateGoogleAdWords({ storeId, adwordsId, requestBody, }) {
         return this.httpRequest.request({
             method: 'PATCH',
-            url: '/store/{storeId}/google-adwords/{conversionId}',
+            url: '/store/{storeId}/google-adwords/{adwordsId}',
             path: {
                 'storeId': storeId,
-                'conversionId': conversionId,
+                'adwordsId': adwordsId,
             },
             body: requestBody,
             mediaType: 'application/json',
@@ -96,13 +96,13 @@ class GoogleAdwordsService {
      * @returns string Ok
      * @throws ApiError
      */
-    deleteGoogleAdWords({ storeId, conversionId, }) {
+    deleteGoogleAdWords({ storeId, adwordsId, }) {
         return this.httpRequest.request({
             method: 'DELETE',
-            url: '/store/{storeId}/google-adwords/{conversionId}',
+            url: '/store/{storeId}/google-adwords/{adwordsId}',
             path: {
                 'storeId': storeId,
-                'conversionId': conversionId,
+                'adwordsId': adwordsId,
             },
             errors: {
                 400: `Bad request`,
