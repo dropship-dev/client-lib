@@ -84,6 +84,58 @@ class BoostSalesService {
      * @returns any Ok
      * @throws ApiError
      */
+    searchCollectionsForUpsell({ storeId, name, boostSaleId, nextPageIndex, pageSize = 20, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/boost-sales/search-collections-for-upsell',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'name': name,
+                'boostSaleId': boostSaleId,
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchProductsForUpsell({ storeId, name, boostSaleId, nextPageIndex, pageSize = 20, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/store/{storeId}/boost-sales/search-products-for-upsell',
+            path: {
+                'storeId': storeId,
+            },
+            query: {
+                'name': name,
+                'boostSaleId': boostSaleId,
+                'nextPageIndex': nextPageIndex,
+                'pageSize': pageSize,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getBoostSales({ id, storeId, }) {
         return this.httpRequest.request({
             method: 'GET',
@@ -125,7 +177,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteBoostSales({ id, storeId, }) {
@@ -168,7 +220,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns GetBatchResult Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }) {
