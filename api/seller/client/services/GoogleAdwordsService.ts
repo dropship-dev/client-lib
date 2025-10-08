@@ -68,17 +68,17 @@ export class GoogleAdwordsService {
    */
   public getGoogleAdWords({
     storeId,
-    conversionId,
+    adwordsId,
   }: {
     storeId: string,
-    conversionId: string,
+    adwordsId: number,
   }): CancelablePromise<GetGoogleAdWordsResponse> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/google-adwords/{conversionId}',
+      url: '/store/{storeId}/google-adwords/{adwordsId}',
       path: {
         'storeId': storeId,
-        'conversionId': conversionId,
+        'adwordsId': adwordsId,
       },
       errors: {
         400: `Bad request`,
@@ -95,11 +95,11 @@ export class GoogleAdwordsService {
    */
   public updateGoogleAdWords({
     storeId,
-    conversionId,
+    adwordsId,
     requestBody,
   }: {
     storeId: string,
-    conversionId: string,
+    adwordsId: number,
     requestBody: UpdateGoogleAdWordsDto,
   }): CancelablePromise<{
     conversionLabel: string;
@@ -111,10 +111,10 @@ export class GoogleAdwordsService {
   }> {
     return this.httpRequest.request({
       method: 'PATCH',
-      url: '/store/{storeId}/google-adwords/{conversionId}',
+      url: '/store/{storeId}/google-adwords/{adwordsId}',
       path: {
         'storeId': storeId,
-        'conversionId': conversionId,
+        'adwordsId': adwordsId,
       },
       body: requestBody,
       mediaType: 'application/json',
@@ -133,17 +133,17 @@ export class GoogleAdwordsService {
    */
   public deleteGoogleAdWords({
     storeId,
-    conversionId,
+    adwordsId,
   }: {
     storeId: string,
-    conversionId: string,
+    adwordsId: number,
   }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/store/{storeId}/google-adwords/{conversionId}',
+      url: '/store/{storeId}/google-adwords/{adwordsId}',
       path: {
         'storeId': storeId,
-        'conversionId': conversionId,
+        'adwordsId': adwordsId,
       },
       errors: {
         400: `Bad request`,
