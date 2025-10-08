@@ -14,6 +14,7 @@ const DomainService_1 = require("./services/DomainService");
 const EmailDomainService_1 = require("./services/EmailDomainService");
 const FbPixelService_1 = require("./services/FbPixelService");
 const FulfillmentAgencyService_1 = require("./services/FulfillmentAgencyService");
+const GoogleAdwordsService_1 = require("./services/GoogleAdwordsService");
 const GoogleAnalyticService_1 = require("./services/GoogleAnalyticService");
 const GoogleTagManagerService_1 = require("./services/GoogleTagManagerService");
 const KlaviyoService_1 = require("./services/KlaviyoService");
@@ -60,6 +61,7 @@ class ClientApi {
     emailDomain;
     fbPixel;
     fulfillmentAgency;
+    googleAdwords;
     googleAnalytic;
     googleTagManager;
     klaviyo;
@@ -118,6 +120,7 @@ class ClientApi {
         this.emailDomain = new EmailDomainService_1.EmailDomainService(this.request);
         this.fbPixel = new FbPixelService_1.FbPixelService(this.request);
         this.fulfillmentAgency = new FulfillmentAgencyService_1.FulfillmentAgencyService(this.request);
+        this.googleAdwords = new GoogleAdwordsService_1.GoogleAdwordsService(this.request);
         this.googleAnalytic = new GoogleAnalyticService_1.GoogleAnalyticService(this.request);
         this.googleTagManager = new GoogleTagManagerService_1.GoogleTagManagerService(this.request);
         this.klaviyo = new KlaviyoService_1.KlaviyoService(this.request);
