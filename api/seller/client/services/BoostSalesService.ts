@@ -8,7 +8,6 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { BoostSaleDto } from '../models/BoostSaleDto';
-import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
@@ -363,6 +362,107 @@ export class BoostSalesService {
    * @returns any Ok
    * @throws ApiError
    */
+  public searchCollectionsForUpsell({
+    storeId,
+    name,
+    boostSaleId,
+    nextPageIndex,
+    pageSize = 20,
+  }: {
+    storeId: string,
+    name?: string,
+    boostSaleId?: number,
+    nextPageIndex?: number,
+    pageSize?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<{
+      photos: PrismaJson_Photos;
+      name: string;
+      id: number;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/boost-sales/search-collections-for-upsell',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'name': name,
+        'boostSaleId': boostSaleId,
+        'nextPageIndex': nextPageIndex,
+        'pageSize': pageSize,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public searchProductsForUpsell({
+    storeId,
+    name,
+    boostSaleId,
+    nextPageIndex,
+    pageSize = 20,
+  }: {
+    storeId: string,
+    name?: string,
+    boostSaleId?: number,
+    nextPageIndex?: number,
+    pageSize?: number,
+  }): CancelablePromise<{
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<{
+      photos: PrismaJson_Photos;
+      name: string;
+      id: number;
+      ProductVariant: Array<{
+        price: number;
+        name: string;
+        id: number;
+      }>;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/boost-sales/search-products-for-upsell',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'name': name,
+        'boostSaleId': boostSaleId,
+        'nextPageIndex': nextPageIndex,
+        'pageSize': pageSize,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
   public getBoostSales({
     id,
     storeId,
@@ -519,7 +619,7 @@ export class BoostSalesService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public deleteBoostSales({
@@ -528,11 +628,7 @@ export class BoostSalesService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<{
-    Product: Array<{
-      permalink: string;
-    }>;
-  }> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/boost-sales/{id}',
@@ -578,7 +674,7 @@ export class BoostSalesService {
     });
   }
   /**
-   * @returns GetBatchResult Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public deleteManyBoostSales({
@@ -587,7 +683,7 @@ export class BoostSalesService {
   }: {
     id: Array<number>,
     storeId: string,
-  }): CancelablePromise<GetBatchResult> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/boost-sales/delete-many-boost-sales',

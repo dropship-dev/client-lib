@@ -13,6 +13,12 @@ export type DiscountForQuantityType = {
   ids: Array<number>;
   placementList: Array<PlacementBoostSaleEnum>;
   discounts: Array<{
+    isToShowCompareAtPrice?: boolean;
+    highlightBadge?: 'Most Popular' | 'Most Value' | 'Best Choice' | 'Recommended';
+    offerLabel?: string;
+    subtitle?: string;
+    title: string;
+    index: number;
     value: number;
     quantity: number;
     type: DiscountBoostSaleType;
