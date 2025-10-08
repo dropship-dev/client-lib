@@ -255,6 +255,7 @@ export class PaymentService {
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
+    domainAssociation: string;
     BNcode: string;
     partnerId: string;
     gatewayUrl: string;
@@ -318,6 +319,7 @@ export class PaymentService {
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
+    domainAssociation: string;
     BNcode: string;
     partnerId: string;
     gatewayUrl: string;
@@ -744,6 +746,7 @@ export class PaymentService {
     environment: _36_Enums_EnvironmentType;
     UIVersion: number;
     deleted: boolean;
+    domainAssociation: string;
     BNcode: string;
     partnerId: string;
     gatewayUrl: string;
