@@ -20,6 +20,15 @@ export declare class StoreService {
     readonly httpRequest: BaseHttpRequest;
     constructor(httpRequest: BaseHttpRequest);
     /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    storeSupportsApplePay({ domain, }: {
+        domain: string;
+    }): CancelablePromise<{
+        supportsApplePay: boolean;
+    }>;
+    /**
      * @deprecated
      * @returns any Ok
      * @throws ApiError
@@ -129,6 +138,7 @@ export declare class StoreService {
             isConnectPSSFF: boolean;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
+            domainAssociation: string;
             BNcode: string;
             isPlatform: boolean;
             isShowCompanyAddress: boolean;
@@ -143,6 +153,9 @@ export declare class StoreService {
             updatedAt: string;
             createdAt: string;
             id: number;
+            ApplePayConfig: Array<{
+                domain: string;
+            }>;
         }>;
     }>;
     /**
@@ -255,6 +268,7 @@ export declare class StoreService {
             isConnectPSSFF: boolean;
             environment: _36_Enums_EnvironmentType;
             UIVersion: number;
+            domainAssociation: string;
             BNcode: string;
             isPlatform: boolean;
             isShowCompanyAddress: boolean;
@@ -269,6 +283,9 @@ export declare class StoreService {
             updatedAt: string;
             createdAt: string;
             id: number;
+            ApplePayConfig: Array<{
+                domain: string;
+            }>;
         }>;
     }>;
     /**
