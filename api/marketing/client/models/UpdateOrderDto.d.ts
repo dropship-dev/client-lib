@@ -10,4 +10,5 @@ export type UpdateOrderDto = {
     transactionId: string;
     orderItems?: Array<OrderItemDto>;
     comboItems?: Array<ComboItemDto>;
+    discountCode?: string;
 };
