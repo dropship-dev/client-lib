@@ -2,14 +2,19 @@ import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CloneThemePageDto } from '../models/CloneThemePageDto';
+import type { CreateAdvertorialPageDto } from '../models/CreateAdvertorialPageDto';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
+import type { DeleteAdvertorialPagesDto } from '../models/DeleteAdvertorialPagesDto';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
+import type { ResponsePagingWithCursor_ListAdvertorialPagesResponse_ } from '../models/ResponsePagingWithCursor_ListAdvertorialPagesResponse_';
 import type { Theme } from '../models/Theme';
 import type { ThemePageWithDetails } from '../models/ThemePageWithDetails';
 import type { ThemeWithDetails } from '../models/ThemeWithDetails';
+import type { UpdateAdvertorialPageDto } from '../models/UpdateAdvertorialPageDto';
+import type { UpdateAdvertorialPagesStatusDto } from '../models/UpdateAdvertorialPagesStatusDto';
 import type { UpdateAssignedProductsForThemePageDto } from '../models/UpdateAssignedProductsForThemePageDto';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -224,6 +229,90 @@ export declare class ThemeService {
         id: number;
         requestBody: UpdateAssignedProductsForThemePageDto;
     }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createAdvertorialPage({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: CreateAdvertorialPageDto;
+    }): CancelablePromise<{
+        parentThemePageId: number;
+        themeId: number;
+        themeLibraryId: number;
+        content: string;
+        type: _36_Enums_ThemePageType;
+        name: string;
+        updatedAt: string;
+        createdAt: string;
+        id: number;
+    }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    deleteAdvertorialPages({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: DeleteAdvertorialPagesDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateAdvertorialPagesStatus({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: UpdateAdvertorialPagesStatusDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    updateAdvertorialPage({ storeId, id, requestBody, }: {
+        storeId: string;
+        id: number;
+        requestBody: UpdateAdvertorialPageDto;
+    }): CancelablePromise<string>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAdvertorialPage({ storeId, id, }: {
+        storeId: string;
+        id: number;
+    }): CancelablePromise<({
+        themePageId: number;
+        isVisible: boolean;
+        metaDescription: string;
+        seoTitle: string;
+        title: string;
+        permalink: string;
+        content: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    } & {
+        ThemePage: {
+            parentThemePageId: number;
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            type: _36_Enums_ThemePageType;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        };
+    })>;
+    /**
+     * @returns ResponsePagingWithCursor_ListAdvertorialPagesResponse_ Ok
+     * @throws ApiError
+     */
+    listAdvertorialPages({ storeId, pageSize, nextPageIndex, }: {
+        storeId: string;
+        pageSize?: number;
+        nextPageIndex?: number;
+    }): CancelablePromise<ResponsePagingWithCursor_ListAdvertorialPagesResponse_>;
     /**
      * @returns ThemeWithDetails Ok
      * @throws ApiError

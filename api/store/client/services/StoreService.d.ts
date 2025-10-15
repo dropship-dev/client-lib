@@ -163,11 +163,11 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveThemeV2({ storeId, getFont, pageName, productPermalink, }: {
-        storeId: string;
+    getStoreActiveThemeV2({ storeIdOrDomain, getFont, pageName, permalink, }: {
+        storeIdOrDomain: string;
         getFont?: boolean;
         pageName?: PageNameType;
-        productPermalink?: string;
+        permalink?: string;
     }): CancelablePromise<{
         isConversionRate: boolean;
         subDomain: string;
@@ -289,6 +289,38 @@ export declare class StoreService {
             }>;
         }>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStoreAdvertorialPage({ storeIdOrDomain, permalink, }: {
+        storeIdOrDomain: string;
+        permalink: string;
+    }): CancelablePromise<({
+        themePageId: number;
+        isVisible: boolean;
+        metaDescription: string;
+        seoTitle: string;
+        title: string;
+        permalink: string;
+        content: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    } & {
+        ThemePage: {
+            parentThemePageId: number;
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            type: _36_Enums_ThemePageType;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        };
+    })>;
     /**
      * @returns any Ok
      * @throws ApiError
