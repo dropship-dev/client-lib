@@ -6,14 +6,19 @@ import type { _36_Enums_LogoSize } from '../models/_36_Enums_LogoSize';
 import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ChangeActiveTheme } from '../models/ChangeActiveTheme';
 import type { CloneThemePageDto } from '../models/CloneThemePageDto';
+import type { CreateAdvertorialPageDto } from '../models/CreateAdvertorialPageDto';
 import type { CreateThemeDto } from '../models/CreateThemeDto';
+import type { DeleteAdvertorialPagesDto } from '../models/DeleteAdvertorialPagesDto';
 import type { PrismaJson_Photos } from '../models/PrismaJson_Photos';
 import type { PrismaJson_ThemeNodes } from '../models/PrismaJson_ThemeNodes';
 import type { PrismaJson_ThemeSetting } from '../models/PrismaJson_ThemeSetting';
 import type { PrismaJson_ThemeStyle } from '../models/PrismaJson_ThemeStyle';
+import type { ResponsePagingWithCursor_ListAdvertorialPagesResponse_ } from '../models/ResponsePagingWithCursor_ListAdvertorialPagesResponse_';
 import type { Theme } from '../models/Theme';
 import type { ThemePageWithDetails } from '../models/ThemePageWithDetails';
 import type { ThemeWithDetails } from '../models/ThemeWithDetails';
+import type { UpdateAdvertorialPageDto } from '../models/UpdateAdvertorialPageDto';
+import type { UpdateAdvertorialPagesStatusDto } from '../models/UpdateAdvertorialPagesStatusDto';
 import type { UpdateAssignedProductsForThemePageDto } from '../models/UpdateAssignedProductsForThemePageDto';
 import type { UpdateThemeDto } from '../models/UpdateThemeDto';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -447,6 +452,214 @@ export class ThemeService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public createAdvertorialPage({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: CreateAdvertorialPageDto,
+  }): CancelablePromise<{
+    parentThemePageId: number;
+    themeId: number;
+    themeLibraryId: number;
+    content: string;
+    type: _36_Enums_ThemePageType;
+    name: string;
+    updatedAt: string;
+    createdAt: string;
+    id: number;
+  }> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/theme/advertorial-page',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public deleteAdvertorialPages({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: DeleteAdvertorialPagesDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'DELETE',
+      url: '/store/{storeId}/theme/advertorial-page',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateAdvertorialPagesStatus({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: UpdateAdvertorialPagesStatusDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/theme/advertorial-page/status',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public updateAdvertorialPage({
+    storeId,
+    id,
+    requestBody,
+  }: {
+    storeId: string,
+    id: number,
+    requestBody: UpdateAdvertorialPageDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'PATCH',
+      url: '/store/{storeId}/theme/advertorial-page/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAdvertorialPage({
+    storeId,
+    id,
+  }: {
+    storeId: string,
+    id: number,
+  }): CancelablePromise<({
+    themePageId: number;
+    isVisible: boolean;
+    metaDescription: string;
+    seoTitle: string;
+    title: string;
+    permalink: string;
+    content: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  } & {
+    ThemePage: {
+      parentThemePageId: number;
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      type: _36_Enums_ThemePageType;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/theme/advertorial-page/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns ResponsePagingWithCursor_ListAdvertorialPagesResponse_ Ok
+   * @throws ApiError
+   */
+  public listAdvertorialPages({
+    storeId,
+    pageSize = 20,
+    nextPageIndex,
+  }: {
+    storeId: string,
+    pageSize?: number,
+    nextPageIndex?: number,
+  }): CancelablePromise<ResponsePagingWithCursor_ListAdvertorialPagesResponse_> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/theme/advertorial-pages',
+      path: {
+        'storeId': storeId,
+      },
+      query: {
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,

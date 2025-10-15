@@ -207,15 +207,15 @@ export class StoreService {
    * @throws ApiError
    */
   public getStoreActiveThemeV2({
-    storeId,
+    storeIdOrDomain,
     getFont = true,
     pageName,
-    productPermalink,
+    permalink,
   }: {
-    storeId: string,
+    storeIdOrDomain: string,
     getFont?: boolean,
     pageName?: PageNameType,
-    productPermalink?: string,
+    permalink?: string,
   }): CancelablePromise<{
     isConversionRate: boolean;
     subDomain: string;
@@ -339,14 +339,65 @@ export class StoreService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/active-theme-v2',
+      url: '/store/{storeIdOrDomain}/active-theme-v2',
       path: {
-        'storeId': storeId,
+        'storeIdOrDomain': storeIdOrDomain,
       },
       query: {
         'getFont': getFont,
         'pageName': pageName,
-        'productPermalink': productPermalink,
+        'permalink': permalink,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreAdvertorialPage({
+    storeIdOrDomain,
+    permalink,
+  }: {
+    storeIdOrDomain: string,
+    permalink: string,
+  }): CancelablePromise<({
+    themePageId: number;
+    isVisible: boolean;
+    metaDescription: string;
+    seoTitle: string;
+    title: string;
+    permalink: string;
+    content: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  } & {
+    ThemePage: {
+      parentThemePageId: number;
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      type: _36_Enums_ThemePageType;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeIdOrDomain}/advertorial-page/{permalink}',
+      path: {
+        'storeIdOrDomain': storeIdOrDomain,
+        'permalink': permalink,
       },
       errors: {
         400: `Bad request`,

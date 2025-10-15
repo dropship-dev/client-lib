@@ -7,4 +7,5 @@ export enum PageNameType {
   HOME_PAGE = 'Home Page',
   COLLECTION = 'Collection',
   COLLECTION_LIST = 'Collection list',
+  ADVERTORIAL_PAGE = 'Advertorial page',
 }
