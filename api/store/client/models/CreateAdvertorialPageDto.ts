@@ -5,7 +5,7 @@
 export type CreateAdvertorialPageDto = {
   title: string;
   pageBuilderContent: string;
-  pageContent: string;
+  pageContent?: string;
   seoTitle: string;
   permalink: string;
   metaDescription?: string;
