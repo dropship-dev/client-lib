@@ -4,7 +4,6 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { BoostSaleDto } from '../models/BoostSaleDto';
-import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
 import type { PrismaJson_CostInfo } from '../models/PrismaJson_CostInfo';
@@ -286,6 +285,53 @@ export declare class BoostSalesService {
      * @returns any Ok
      * @throws ApiError
      */
+    searchCollectionsForUpsell({ storeId, name, boostSaleId, nextPageIndex, pageSize, }: {
+        storeId: string;
+        name?: string;
+        boostSaleId?: number;
+        nextPageIndex?: number;
+        pageSize?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    searchProductsForUpsell({ storeId, name, boostSaleId, nextPageIndex, pageSize, }: {
+        storeId: string;
+        name?: string;
+        boostSaleId?: number;
+        nextPageIndex?: number;
+        pageSize?: number;
+    }): CancelablePromise<{
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            photos: PrismaJson_Photos;
+            name: string;
+            id: number;
+            ProductVariant: Array<{
+                price: number;
+                name: string;
+                id: number;
+            }>;
+        }>;
+    }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getBoostSales({ id, storeId, }: {
         id: number;
         storeId: string;
@@ -401,17 +447,13 @@ export declare class BoostSalesService {
         requestBody: BoostSaleDto;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteBoostSales({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<{
-        Product: Array<{
-            permalink: string;
-        }>;
-    }>;
+    }): CancelablePromise<string>;
     /**
      * @returns void
      * @throws ApiError
@@ -421,11 +463,11 @@ export declare class BoostSalesService {
         requestBody: UpdateCrossSellStatusDto;
     }): CancelablePromise<void>;
     /**
-     * @returns GetBatchResult Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }: {
         id: Array<number>;
         storeId: string;
-    }): CancelablePromise<GetBatchResult>;
+    }): CancelablePromise<string>;
 }

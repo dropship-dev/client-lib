@@ -146,7 +146,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteBoostSales({ id, storeId, }) {
@@ -189,7 +189,7 @@ class BoostSalesService {
         });
     }
     /**
-     * @returns GetBatchResult Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }) {

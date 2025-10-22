@@ -4,7 +4,6 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { BoostSaleDto } from '../models/BoostSaleDto';
-import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PlacementBoostSaleEnum } from '../models/PlacementBoostSaleEnum';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
@@ -423,17 +422,13 @@ export declare class BoostSalesService {
         requestBody: BoostSaleDto;
     }): CancelablePromise<string>;
     /**
-     * @returns any Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteBoostSales({ id, storeId, }: {
         id: number;
         storeId: string;
-    }): CancelablePromise<{
-        Product: Array<{
-            permalink: string;
-        }>;
-    }>;
+    }): CancelablePromise<string>;
     /**
      * @returns void
      * @throws ApiError
@@ -443,11 +438,11 @@ export declare class BoostSalesService {
         requestBody: UpdateCrossSellStatusDto;
     }): CancelablePromise<void>;
     /**
-     * @returns GetBatchResult Ok
+     * @returns string Ok
      * @throws ApiError
      */
     deleteManyBoostSales({ id, storeId, }: {
         id: Array<number>;
         storeId: string;
-    }): CancelablePromise<GetBatchResult>;
+    }): CancelablePromise<string>;
 }
