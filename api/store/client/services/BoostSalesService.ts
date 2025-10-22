@@ -8,7 +8,6 @@ import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionS
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { BoostSaleDto } from '../models/BoostSaleDto';
-import type { GetBatchResult } from '../models/GetBatchResult';
 import type { PlacementBoostSaleEnum } from '../models/PlacementBoostSaleEnum';
 import type { PrismaJson_AvailableSet } from '../models/PrismaJson_AvailableSet';
 import type { PrismaJson_ConditionCollection } from '../models/PrismaJson_ConditionCollection';
@@ -560,7 +559,7 @@ export class BoostSalesService {
     });
   }
   /**
-   * @returns any Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public deleteBoostSales({
@@ -569,11 +568,7 @@ export class BoostSalesService {
   }: {
     id: number,
     storeId: string,
-  }): CancelablePromise<{
-    Product: Array<{
-      permalink: string;
-    }>;
-  }> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/boost-sales/{id}',
@@ -619,7 +614,7 @@ export class BoostSalesService {
     });
   }
   /**
-   * @returns GetBatchResult Ok
+   * @returns string Ok
    * @throws ApiError
    */
   public deleteManyBoostSales({
@@ -628,7 +623,7 @@ export class BoostSalesService {
   }: {
     id: Array<number>,
     storeId: string,
-  }): CancelablePromise<GetBatchResult> {
+  }): CancelablePromise<string> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/store/{storeId}/boost-sales/delete-many-boost-sales',
