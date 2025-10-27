@@ -35,6 +35,7 @@ export { _36_Enums_FulfillmentAgencyType } from './models/_36_Enums_FulfillmentA
 export { _36_Enums_FulfillmentPlatform } from './models/_36_Enums_FulfillmentPlatform';
 export { _36_Enums_FulfillmentPlatformIntegrationStatus } from './models/_36_Enums_FulfillmentPlatformIntegrationStatus';
 export { _36_Enums_FulfillmentStatus } from './models/_36_Enums_FulfillmentStatus';
+export { _36_Enums_GoogleAdWordsTrackingEventType } from './models/_36_Enums_GoogleAdWordsTrackingEventType';
 export { _36_Enums_HistoryTrackingType } from './models/_36_Enums_HistoryTrackingType';
 export { _36_Enums_LogoSize } from './models/_36_Enums_LogoSize';
 export { _36_Enums_MarketingType } from './models/_36_Enums_MarketingType';
@@ -335,6 +336,7 @@ export type { GetTrackingRetentionRateDto } from './models/GetTrackingRetentionR
 export type { GetTrackingRetentionRateResultDto } from './models/GetTrackingRetentionRateResultDto';
 export type { GetTrafficSourceDto } from './models/GetTrafficSourceDto';
 export type { getVariantsType } from './models/getVariantsType';
+export type { GoogleAdWordsTrackingEventType } from './models/GoogleAdWordsTrackingEventType';
 export type { GoogleAnalytic } from './models/GoogleAnalytic';
 export type { GoogleTagManager } from './models/GoogleTagManager';
 export type { GroupPlatformVariant } from './models/GroupPlatformVariant';
