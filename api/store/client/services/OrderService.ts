@@ -489,6 +489,21 @@ export class OrderService {
     paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    couponInfo: {
+      totalSaving: number;
+      discountBootSell?: {
+        title: string;
+        value: number;
+      };
+      manual?: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+      automatic: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+    };
     taxPart: number;
     totalAfterTax: number;
     taxable: boolean;
