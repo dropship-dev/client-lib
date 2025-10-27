@@ -112,7 +112,7 @@ export class OrderService {
         list: Array<CouponApplyToOrder>;
         value: number;
       };
-      automatic: {
+      automatic?: {
         list: Array<CouponApplyToOrder>;
         value: number;
       };
@@ -499,7 +499,7 @@ export class OrderService {
         list: Array<CouponApplyToOrder>;
         value: number;
       };
-      automatic: {
+      automatic?: {
         list: Array<CouponApplyToOrder>;
         value: number;
       };
