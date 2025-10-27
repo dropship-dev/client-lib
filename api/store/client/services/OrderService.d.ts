@@ -330,6 +330,10 @@ export declare class OrderService {
         totalAfterTax: number;
         taxable: boolean;
         tax: number;
+        freeShipInfo: {
+            value?: number;
+            status: boolean;
+        };
         shippingFee: number;
         discount: number;
         subTotal: number;
