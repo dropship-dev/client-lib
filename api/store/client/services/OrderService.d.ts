@@ -62,7 +62,7 @@ export declare class OrderService {
                 list: Array<CouponApplyToOrder>;
                 value: number;
             };
-            automatic: {
+            automatic?: {
                 list: Array<CouponApplyToOrder>;
                 value: number;
             };
@@ -321,7 +321,7 @@ export declare class OrderService {
                 list: Array<CouponApplyToOrder>;
                 value: number;
             };
-            automatic: {
+            automatic?: {
                 list: Array<CouponApplyToOrder>;
                 value: number;
             };
