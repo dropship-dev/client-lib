@@ -2,6 +2,7 @@ import type { _36_Enums_BoostSaleTriggerType } from '../models/_36_Enums_BoostSa
 import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType';
 import type { _36_Enums_CollectionStatus } from '../models/_36_Enums_CollectionStatus';
 import type { _36_Enums_CollectionType } from '../models/_36_Enums_CollectionType';
+import type { _36_Enums_GoogleAdWordsTrackingEventType } from '../models/_36_Enums_GoogleAdWordsTrackingEventType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { CreateProductDto } from '../models/CreateProductDto';
 import type { GetAllProductType } from '../models/GetAllProductType';
@@ -416,6 +417,7 @@ export declare class ProductService {
         permalink: string;
     }): CancelablePromise<({
         GoogleAdwords: Array<{
+            eventType: _36_Enums_GoogleAdWordsTrackingEventType;
             conversionLabel: string;
             conversionId: string;
         }>;
