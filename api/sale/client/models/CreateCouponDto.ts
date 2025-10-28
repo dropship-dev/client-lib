@@ -19,7 +19,7 @@ export type CreateCouponDto = {
   minimumPurchaseRequirement?: {
     value: number;
     label: DiscountMinimumPurchaseRequirement;
-  };
+  } | null;
   discountValue?: {
     value: number;
     label: DiscountValueType;
