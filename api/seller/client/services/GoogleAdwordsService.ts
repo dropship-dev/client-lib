@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { _36_Enums_GoogleAdWordsTrackingEventType } from '../models/_36_Enums_GoogleAdWordsTrackingEventType';
 import type { CreateGoogleAdWordsDto } from '../models/CreateGoogleAdWordsDto';
 import type { CreateGoogleAdWordsResponse } from '../models/CreateGoogleAdWordsResponse';
 import type { GetGoogleAdWordsResponse } from '../models/GetGoogleAdWordsResponse';
@@ -102,6 +103,7 @@ export class GoogleAdwordsService {
     adwordsId: number,
     requestBody: UpdateGoogleAdWordsDto,
   }): CancelablePromise<{
+    eventType: _36_Enums_GoogleAdWordsTrackingEventType;
     conversionLabel: string;
     conversionId: string;
     updatedAt: string;
