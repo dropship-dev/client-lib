@@ -122,6 +122,57 @@ export class ThemeService {
     });
   }
   /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAdvertorialPage({
+    storeId,
+    id,
+  }: {
+    storeId: string,
+    id: number,
+  }): CancelablePromise<({
+    themePageId: number;
+    isVisible: boolean;
+    metaDescription: string;
+    seoTitle: string;
+    title: string;
+    permalink: string;
+    content: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  } & {
+    ThemePage: {
+      parentThemePageId: number;
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      type: _36_Enums_ThemePageType;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeId}/theme/advertorial-page/{id}',
+      path: {
+        'storeId': storeId,
+        'id': id,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
    * @returns ThemeWithDetails Ok
    * @throws ApiError
    */

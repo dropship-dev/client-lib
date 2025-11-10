@@ -32,5 +32,11 @@ export type ThemeWithDetails = {
     name: string;
     id: number;
   }>;
+  AdvertorialPages: Array<{
+    domain: string;
+    permalink: string;
+    title: string;
+    id: number;
+  }>;
 };
 

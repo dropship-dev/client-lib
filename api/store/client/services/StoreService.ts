@@ -11,6 +11,7 @@ import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ContactFormDto } from '../models/ContactFormDto';
+import type { DiscountCodeUseOncePerCustomerDto } from '../models/DiscountCodeUseOncePerCustomerDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
@@ -206,15 +207,15 @@ export class StoreService {
    * @throws ApiError
    */
   public getStoreActiveThemeV2({
-    storeId,
+    storeIdOrDomain,
     getFont = true,
     pageName,
-    productPermalink,
+    permalink,
   }: {
-    storeId: string,
+    storeIdOrDomain: string,
     getFont?: boolean,
     pageName?: PageNameType,
-    productPermalink?: string,
+    permalink?: string,
   }): CancelablePromise<{
     isConversionRate: boolean;
     subDomain: string;
@@ -338,14 +339,65 @@ export class StoreService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeId}/active-theme-v2',
+      url: '/store/{storeIdOrDomain}/active-theme-v2',
       path: {
-        'storeId': storeId,
+        'storeIdOrDomain': storeIdOrDomain,
       },
       query: {
         'getFont': getFont,
         'pageName': pageName,
-        'productPermalink': productPermalink,
+        'permalink': permalink,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getStoreAdvertorialPage({
+    storeIdOrDomain,
+    permalink,
+  }: {
+    storeIdOrDomain: string,
+    permalink: string,
+  }): CancelablePromise<({
+    themePageId: number;
+    isVisible: boolean;
+    metaDescription: string;
+    seoTitle: string;
+    title: string;
+    permalink: string;
+    content: string;
+    updatedAt: string;
+    createdAt: string;
+    storeId: string;
+    id: number;
+  } & {
+    ThemePage: {
+      parentThemePageId: number;
+      themeId: number;
+      themeLibraryId: number;
+      content: string;
+      type: _36_Enums_ThemePageType;
+      name: string;
+      updatedAt: string;
+      createdAt: string;
+      id: number;
+    };
+  })> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/store/{storeIdOrDomain}/advertorial-page/{permalink}',
+      path: {
+        'storeIdOrDomain': storeIdOrDomain,
+        'permalink': permalink,
       },
       errors: {
         400: `Bad request`,
@@ -524,6 +576,33 @@ export class StoreService {
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public checkDiscountCodeUseOncePerCustomer({
+    storeId,
+    requestBody,
+  }: {
+    storeId: string,
+    requestBody: DiscountCodeUseOncePerCustomerDto,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/per-customer',
+      path: {
+        'storeId': storeId,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
         403: `Forbidden`,
         404: `Not found`,
         500: `Internal server error`,

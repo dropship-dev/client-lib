@@ -6,6 +6,7 @@ import type { _36_Enums_BoostSaleTriggerType } from '../models/_36_Enums_BoostSa
 import type { _36_Enums_BoostSaleType } from '../models/_36_Enums_BoostSaleType';
 import type { _36_Enums_MarketingType } from '../models/_36_Enums_MarketingType';
 import type { _36_Enums_PaymentType } from '../models/_36_Enums_PaymentType';
+import type { CouponApplyToOrder } from '../models/CouponApplyToOrder';
 import type { CreateOrderDto } from '../models/CreateOrderDto';
 import type { GetBoostSalesDto } from '../models/GetBoostSalesDto';
 import type { GetCrossSellByProductDto } from '../models/GetCrossSellByProductDto';
@@ -101,6 +102,21 @@ export class OrderService {
     storeId: string,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    couponInfo: {
+      totalSaving: number;
+      discountBootSell?: {
+        title: string;
+        value: number;
+      };
+      manual?: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+      automatic?: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+    };
     taxPart: number;
     totalAfterTax: number;
     taxable: boolean;
@@ -473,10 +489,29 @@ export class OrderService {
     paymentType: _36_Enums_PaymentType,
     requestBody: CreateOrderDto,
   }): CancelablePromise<{
+    couponInfo: {
+      totalSaving: number;
+      discountBootSell?: {
+        title: string;
+        value: number;
+      };
+      manual?: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+      automatic?: {
+        list: Array<CouponApplyToOrder>;
+        value: number;
+      };
+    };
     taxPart: number;
     totalAfterTax: number;
     taxable: boolean;
     tax: number;
+    freeShipInfo: {
+      value?: number;
+      status: boolean;
+    };
     shippingFee: number;
     discount: number;
     subTotal: number;
@@ -497,6 +532,33 @@ export class OrderService {
       },
       body: requestBody,
       mediaType: 'application/json',
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
+  /**
+   * @returns string Ok
+   * @throws ApiError
+   */
+  public revertWhenCaptureFailed({
+    storeId,
+    orderId,
+  }: {
+    storeId: string,
+    orderId: string,
+  }): CancelablePromise<string> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/store/{storeId}/order/{orderId}/capture-failed',
+      path: {
+        'storeId': storeId,
+        'orderId': orderId,
+      },
       errors: {
         400: `Bad request`,
         401: `Invalid token`,
