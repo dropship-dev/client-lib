@@ -8,6 +8,5 @@ export type UploadTaxDataDto = {
   contentLength: number;
   token: string;
   groupId: string;
-  fulfillmentAgencyId: number;
 };
 
