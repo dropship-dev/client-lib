@@ -11,4 +11,5 @@ var _36_Enums_ThemePageType;
     _36_Enums_ThemePageType["HOME_PAGE"] = "HOME_PAGE";
     _36_Enums_ThemePageType["COLLECTION"] = "COLLECTION";
     _36_Enums_ThemePageType["COLLECTION_LIST"] = "COLLECTION_LIST";
+    _36_Enums_ThemePageType["ADVERTORIAL_PAGE"] = "ADVERTORIAL_PAGE";
 })(_36_Enums_ThemePageType || (exports._36_Enums_ThemePageType = _36_Enums_ThemePageType = {}));

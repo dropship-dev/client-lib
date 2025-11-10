@@ -11,4 +11,5 @@ var PageNameType;
     PageNameType["HOME_PAGE"] = "Home Page";
     PageNameType["COLLECTION"] = "Collection";
     PageNameType["COLLECTION_LIST"] = "Collection list";
+    PageNameType["ADVERTORIAL_PAGE"] = "Advertorial page";
 })(PageNameType || (exports.PageNameType = PageNameType = {}));

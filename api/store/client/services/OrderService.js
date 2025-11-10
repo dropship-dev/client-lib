@@ -216,6 +216,27 @@ class OrderService {
         });
     }
     /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    revertWhenCaptureFailed({ storeId, orderId, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/store/{storeId}/order/{orderId}/capture-failed',
+            path: {
+                'storeId': storeId,
+                'orderId': orderId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
      * @returns any Ok
      * @throws ApiError
      */

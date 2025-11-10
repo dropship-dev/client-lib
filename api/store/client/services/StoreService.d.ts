@@ -7,6 +7,7 @@ import type { _36_Enums_StoreStatus } from '../models/_36_Enums_StoreStatus';
 import type { _36_Enums_StoreType } from '../models/_36_Enums_StoreType';
 import type { _36_Enums_ThemePageType } from '../models/_36_Enums_ThemePageType';
 import type { ContactFormDto } from '../models/ContactFormDto';
+import type { DiscountCodeUseOncePerCustomerDto } from '../models/DiscountCodeUseOncePerCustomerDto';
 import type { PageNameType } from '../models/PageNameType';
 import type { PrismaJson_DomainContactInfo } from '../models/PrismaJson_DomainContactInfo';
 import type { PrismaJson_OrderItemInformation } from '../models/PrismaJson_OrderItemInformation';
@@ -162,11 +163,11 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveThemeV2({ storeId, getFont, pageName, productPermalink, }: {
-        storeId: string;
+    getStoreActiveThemeV2({ storeIdOrDomain, getFont, pageName, permalink, }: {
+        storeIdOrDomain: string;
         getFont?: boolean;
         pageName?: PageNameType;
-        productPermalink?: string;
+        permalink?: string;
     }): CancelablePromise<{
         isConversionRate: boolean;
         subDomain: string;
@@ -292,6 +293,38 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
+    getStoreAdvertorialPage({ storeIdOrDomain, permalink, }: {
+        storeIdOrDomain: string;
+        permalink: string;
+    }): CancelablePromise<({
+        themePageId: number;
+        isVisible: boolean;
+        metaDescription: string;
+        seoTitle: string;
+        title: string;
+        permalink: string;
+        content: string;
+        updatedAt: string;
+        createdAt: string;
+        storeId: string;
+        id: number;
+    } & {
+        ThemePage: {
+            parentThemePageId: number;
+            themeId: number;
+            themeLibraryId: number;
+            content: string;
+            type: _36_Enums_ThemePageType;
+            name: string;
+            updatedAt: string;
+            createdAt: string;
+            id: number;
+        };
+    })>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
     getStorePaymentMethod({ storeId, }: {
         storeId: string;
     }): CancelablePromise<Array<{
@@ -364,6 +397,14 @@ export declare class StoreService {
     }): CancelablePromise<{
         balanceDebt: number;
     }>;
+    /**
+     * @returns string Ok
+     * @throws ApiError
+     */
+    checkDiscountCodeUseOncePerCustomer({ storeId, requestBody, }: {
+        storeId: string;
+        requestBody: DiscountCodeUseOncePerCustomerDto;
+    }): CancelablePromise<string>;
     /**
      * @returns any Ok
      * @throws ApiError
