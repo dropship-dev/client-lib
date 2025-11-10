@@ -180,12 +180,10 @@ class TaxService {
      * @returns any Ok
      * @throws ApiError
      */
-    createTaxDataGroup({ requestBody, }) {
+    createTaxDataGroup() {
         return this.httpRequest.request({
             method: 'POST',
             url: '/tax/custom/data/group',
-            body: requestBody,
-            mediaType: 'application/json',
             errors: {
                 400: `Bad request`,
                 401: `Invalid token`,

@@ -4,7 +4,6 @@ import type { _36_Enums_TaxProviderType } from '../models/_36_Enums_TaxProviderT
 import type { ClearCacheDto } from '../models/ClearCacheDto';
 import type { ConnectCustomTaxDto } from '../models/ConnectCustomTaxDto';
 import type { ConnectQuadernoDto } from '../models/ConnectQuadernoDto';
-import type { CreateTaxDataGroupDto } from '../models/CreateTaxDataGroupDto';
 import type { ImportTaxDataDto } from '../models/ImportTaxDataDto';
 import type { PrismaJson_AsyncTaskResult } from '../models/PrismaJson_AsyncTaskResult';
 import type { PrismaJson_TaxCustomDataJSON } from '../models/PrismaJson_TaxCustomDataJSON';
@@ -108,9 +107,7 @@ export declare class TaxService {
      * @returns any Ok
      * @throws ApiError
      */
-    createTaxDataGroup({ requestBody, }: {
-        requestBody: CreateTaxDataGroupDto;
-    }): CancelablePromise<{
+    createTaxDataGroup(): CancelablePromise<{
         expiredAt: string;
         groupId: string;
         token: string;
@@ -139,7 +136,6 @@ export declare class TaxService {
             data: PrismaJson_TaxCustomDataJSON;
             updatedAt: string;
             createdAt: string;
-            fulfillmentAgencyId: number;
             id: number;
         };
     }>;

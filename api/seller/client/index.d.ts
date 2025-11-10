@@ -176,7 +176,6 @@ export type { CreateSubscriptionFeatureDto } from './models/CreateSubscriptionFe
 export type { CreateSubscriptionPlanDto } from './models/CreateSubscriptionPlanDto';
 export type { CreateSuperAdminDto } from './models/CreateSuperAdminDto';
 export type { CreateTagDto } from './models/CreateTagDto';
-export type { CreateTaxDataGroupDto } from './models/CreateTaxDataGroupDto';
 export type { CreateTemplateDto } from './models/CreateTemplateDto';
 export type { CreateThemeDto } from './models/CreateThemeDto';
 export type { CreateThemeLibraryDto } from './models/CreateThemeLibraryDto';
