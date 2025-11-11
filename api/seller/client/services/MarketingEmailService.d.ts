@@ -87,8 +87,8 @@ export declare class MarketingEmailService {
         data: Array<{
             emailStatus: _36_Enums_OrderTrackingEmailStatus;
             recoveredStatus: _36_Enums_OrderTrackingRecoveredStatus;
-            expiredAt: string;
             total: number;
+            expiredAt: string;
             email: string;
             createdAt: string;
             id: number;
@@ -107,10 +107,10 @@ export declare class MarketingEmailService {
         phoneNumber: string;
         comboItems: PrismaJson_CreateComboItems;
         orderItems: PrismaJson_CreateOrderItems;
-        expiredAt: string;
         discountShippingFee: number;
         subTotal: number;
         total: number;
+        expiredAt: string;
         email: string;
         createdAt: string;
         id: number;

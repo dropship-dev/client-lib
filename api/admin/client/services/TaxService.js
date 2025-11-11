@@ -176,5 +176,99 @@ class TaxService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    createTaxDataGroup() {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/tax/custom/data/group',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    uploadTaxData({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/tax/custom/data/upload',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    importTaxData({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/tax/custom/data/import',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getStatusImportTaxData({ taskId, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/tax/custom/data/import/{taskId}',
+            path: {
+                'taskId': taskId,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    connectCustomTax({ requestBody, }) {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/tax/custom/connect',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.TaxService = TaxService;
