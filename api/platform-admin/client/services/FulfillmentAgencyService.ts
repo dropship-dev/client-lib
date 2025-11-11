@@ -45,12 +45,12 @@ export class FulfillmentAgencyService {
       partnerId: string;
       gatewayUrl: string;
       tokenExpiredAt: string;
-      token: string;
       isPlatform: boolean;
       isShowCompanyAddress: boolean;
       companyAddress: string;
       companyPhone: string;
       companyName: string;
+      token: string;
       emailUsernameId: number;
       merchantId: string;
       salt: string;
