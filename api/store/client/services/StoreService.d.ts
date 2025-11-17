@@ -163,11 +163,12 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveThemeV2({ storeIdOrDomain, getFont, pageName, permalink, }: {
-        storeIdOrDomain: string;
+    getStoreActiveThemeV2({ storeId, getFont, pageName, permalink, productPermalink, }: {
+        storeId: string;
         getFont?: boolean;
         pageName?: PageNameType;
         permalink?: string;
+        productPermalink?: string;
     }): CancelablePromise<{
         isConversionRate: boolean;
         subDomain: string;
