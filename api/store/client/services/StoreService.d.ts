@@ -163,8 +163,8 @@ export declare class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveThemeV2({ storeIdOrDomain, getFont, pageName, permalink, productPermalink, }: {
-        storeIdOrDomain: string;
+    getStoreActiveThemeV2({ storeId, getFont, pageName, permalink, productPermalink, }: {
+        storeId: string;
         getFont?: boolean;
         pageName?: PageNameType;
         permalink?: string;
