@@ -207,15 +207,17 @@ export class StoreService {
    * @throws ApiError
    */
   public getStoreActiveThemeV2({
-    storeIdOrDomain,
+    storeId,
     getFont = true,
     pageName,
     permalink,
+    productPermalink,
   }: {
-    storeIdOrDomain: string,
+    storeId: string,
     getFont?: boolean,
     pageName?: PageNameType,
     permalink?: string,
+    productPermalink?: string,
   }): CancelablePromise<{
     isConversionRate: boolean;
     subDomain: string;
@@ -339,14 +341,15 @@ export class StoreService {
   }> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/store/{storeIdOrDomain}/active-theme-v2',
+      url: '/store/{storeId}/active-theme-v2',
       path: {
-        'storeIdOrDomain': storeIdOrDomain,
+        'storeId': storeId,
       },
       query: {
         'getFont': getFont,
         'pageName': pageName,
         'permalink': permalink,
+        'productPermalink': productPermalink,
       },
       errors: {
         400: `Bad request`,
