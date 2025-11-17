@@ -211,11 +211,13 @@ export class StoreService {
     getFont = true,
     pageName,
     permalink,
+    productPermalink,
   }: {
     storeIdOrDomain: string,
     getFont?: boolean,
     pageName?: PageNameType,
     permalink?: string,
+    productPermalink?: string,
   }): CancelablePromise<{
     isConversionRate: boolean;
     subDomain: string;
@@ -347,6 +349,7 @@ export class StoreService {
         'getFont': getFont,
         'pageName': pageName,
         'permalink': permalink,
+        'productPermalink': productPermalink,
       },
       errors: {
         400: `Bad request`,
