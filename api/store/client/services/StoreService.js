@@ -55,7 +55,7 @@ class StoreService {
      * @returns any Ok
      * @throws ApiError
      */
-    getStoreActiveThemeV2({ storeIdOrDomain, getFont = true, pageName, permalink, }) {
+    getStoreActiveThemeV2({ storeIdOrDomain, getFont = true, pageName, permalink, productPermalink, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/store/{storeIdOrDomain}/active-theme-v2',
@@ -66,6 +66,7 @@ class StoreService {
                 'getFont': getFont,
                 'pageName': pageName,
                 'permalink': permalink,
+                'productPermalink': productPermalink,
             },
             errors: {
                 400: `Bad request`,
