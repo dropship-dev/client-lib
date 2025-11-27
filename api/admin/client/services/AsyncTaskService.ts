@@ -187,12 +187,16 @@ export class AsyncTaskService {
     startDate,
     endDate,
     storeId,
+    includeOnHold,
+    search,
   }: {
     exportedFilename: string,
     fulfillmentAgencyId: number,
-    startDate?: string,
-    endDate?: string,
+    startDate: string,
+    endDate: string,
     storeId?: string,
+    includeOnHold?: boolean,
+    search?: string,
   }): CancelablePromise<{
     input: any;
     type: _36_Enums_AsyncTaskType;
@@ -211,6 +215,8 @@ export class AsyncTaskService {
         'startDate': startDate,
         'endDate': endDate,
         'storeId': storeId,
+        'includeOnHold': includeOnHold,
+        'search': search,
       },
       errors: {
         400: `Bad request`,

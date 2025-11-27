@@ -505,4 +505,62 @@ export class PerformanceService {
       },
     });
   }
+  /**
+   * @returns any Ok
+   * @throws ApiError
+   */
+  public getAccountancy({
+    fulfillmentAgencyId,
+    startDate,
+    pageSize,
+    endDate,
+    search,
+    nextPageIndex,
+    includeOnHold,
+  }: {
+    fulfillmentAgencyId: number,
+    startDate: string,
+    pageSize: number,
+    endDate?: string,
+    search?: string,
+    nextPageIndex?: number,
+    includeOnHold?: boolean,
+  }): CancelablePromise<{
+    profit: number;
+    revenue: number;
+    totalHold: number;
+    orderBy: string;
+    nextPageIndex: number;
+    prePageIndex: number;
+    total: number;
+    data: Array<{
+      onHold: number;
+      profit: number;
+      revenue: number;
+      storeDomain: string;
+      storeName: string;
+      id: string;
+    }>;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/performance/accountancy',
+      query: {
+        'fulfillmentAgencyId': fulfillmentAgencyId,
+        'startDate': startDate,
+        'endDate': endDate,
+        'search': search,
+        'pageSize': pageSize,
+        'nextPageIndex': nextPageIndex,
+        'includeOnHold': includeOnHold,
+      },
+      errors: {
+        400: `Bad request`,
+        401: `Invalid token`,
+        403: `Forbidden`,
+        404: `Not found`,
+        500: `Internal server error`,
+      },
+    });
+  }
 }
