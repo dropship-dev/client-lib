@@ -296,7 +296,7 @@ class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAccountancy({ fulfillmentAgencyId, startDate, pageSize, endDate, search, nextPageIndex, includeOnHold, }) {
+    getAccountancy({ fulfillmentAgencyId, pageSize, startDate, endDate, search, nextPageIndex, includeOnHold, }) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/performance/accountancy',

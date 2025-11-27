@@ -210,10 +210,10 @@ export declare class PerformanceService {
      * @returns any Ok
      * @throws ApiError
      */
-    getAccountancy({ fulfillmentAgencyId, startDate, pageSize, endDate, search, nextPageIndex, includeOnHold, }: {
+    getAccountancy({ fulfillmentAgencyId, pageSize, startDate, endDate, search, nextPageIndex, includeOnHold, }: {
         fulfillmentAgencyId: number;
-        startDate: string;
         pageSize: number;
+        startDate?: string;
         endDate?: string;
         search?: string;
         nextPageIndex?: number;
