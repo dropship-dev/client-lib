@@ -248,6 +248,7 @@ export { ESendMailStatus } from './models/ESendMailStatus';
 export type { EventFraudType } from './models/EventFraudType';
 export { EventOrderFraud } from './models/EventOrderFraud';
 export { Exclude_RequestSourcingStatus_SELLER_REJECTED_or_SELLER_ACCEPTED_ } from './models/Exclude_RequestSourcingStatus_SELLER_REJECTED_or_SELLER_ACCEPTED_';
+export type { ExportAccountancyDto } from './models/ExportAccountancyDto';
 export type { ExportAccountancyResult } from './models/ExportAccountancyResult';
 export type { ExportOrderDto } from './models/ExportOrderDto';
 export type { ExportOrderResponseDto } from './models/ExportOrderResponseDto';
@@ -272,6 +273,7 @@ export type { FulfillmentShippingCostDto } from './models/FulfillmentShippingCos
 export type { FulfillmentStatus } from './models/FulfillmentStatus';
 export type { FulfillmentUser } from './models/FulfillmentUser';
 export type { GeneratePartnerReferralsDto } from './models/GeneratePartnerReferralsDto';
+export type { GetAccountancyDto } from './models/GetAccountancyDto';
 export type { GetAccountRequestDto } from './models/GetAccountRequestDto';
 export type { GetAllOrderDto } from './models/GetAllOrderDto';
 export type { GetAllOrderResult } from './models/GetAllOrderResult';

@@ -92,7 +92,7 @@ class AsyncTaskService {
      * @returns any Ok
      * @throws ApiError
      */
-    createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, }) {
+    createExportAccountancyTask({ exportedFilename, fulfillmentAgencyId, startDate, endDate, storeId, includeOnHold, search, }) {
         return this.httpRequest.request({
             method: 'POST',
             url: '/async-task/export-accountancy',
@@ -102,6 +102,8 @@ class AsyncTaskService {
                 'startDate': startDate,
                 'endDate': endDate,
                 'storeId': storeId,
+                'includeOnHold': includeOnHold,
+                'search': search,
             },
             errors: {
                 400: `Bad request`,

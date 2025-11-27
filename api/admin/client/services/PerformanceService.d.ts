@@ -206,4 +206,33 @@ export declare class PerformanceService {
         total: number;
         data: Array<StoreProductPerformanceResp>;
     }>;
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAccountancy({ fulfillmentAgencyId, startDate, pageSize, endDate, search, nextPageIndex, includeOnHold, }: {
+        fulfillmentAgencyId: number;
+        startDate: string;
+        pageSize: number;
+        endDate?: string;
+        search?: string;
+        nextPageIndex?: number;
+        includeOnHold?: boolean;
+    }): CancelablePromise<{
+        profit: number;
+        revenue: number;
+        totalHold: number;
+        orderBy: string;
+        nextPageIndex: number;
+        prePageIndex: number;
+        total: number;
+        data: Array<{
+            onHold: number;
+            profit: number;
+            revenue: number;
+            storeDomain: string;
+            storeName: string;
+            id: string;
+        }>;
+    }>;
 }
