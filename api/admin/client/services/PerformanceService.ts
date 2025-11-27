@@ -511,16 +511,16 @@ export class PerformanceService {
    */
   public getAccountancy({
     fulfillmentAgencyId,
-    startDate,
     pageSize,
+    startDate,
     endDate,
     search,
     nextPageIndex,
     includeOnHold,
   }: {
     fulfillmentAgencyId: number,
-    startDate: string,
     pageSize: number,
+    startDate?: string,
     endDate?: string,
     search?: string,
     nextPageIndex?: number,
