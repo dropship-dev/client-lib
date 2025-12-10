@@ -292,5 +292,31 @@ class PerformanceService {
             },
         });
     }
+    /**
+     * @returns any Ok
+     * @throws ApiError
+     */
+    getAccountancy({ fulfillmentAgencyId, pageSize, startDate, endDate, search, nextPageIndex, includeOnHold, }) {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/performance/accountancy',
+            query: {
+                'fulfillmentAgencyId': fulfillmentAgencyId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'search': search,
+                'pageSize': pageSize,
+                'nextPageIndex': nextPageIndex,
+                'includeOnHold': includeOnHold,
+            },
+            errors: {
+                400: `Bad request`,
+                401: `Invalid token`,
+                403: `Forbidden`,
+                404: `Not found`,
+                500: `Internal server error`,
+            },
+        });
+    }
 }
 exports.PerformanceService = PerformanceService;
