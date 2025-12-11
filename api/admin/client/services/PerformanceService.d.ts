@@ -219,9 +219,9 @@ export declare class PerformanceService {
         nextPageIndex?: number;
         includeOnHold?: boolean;
     }): CancelablePromise<{
+        totalHold: number;
         profit: number;
         revenue: number;
-        totalHold: number;
         orderBy: string;
         nextPageIndex: number;
         prePageIndex: number;
