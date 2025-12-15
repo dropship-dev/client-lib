@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum _36_Enums_StoreUserInviteStatus {
+  REJECTED = 'REJECTED',
   INVITED = 'INVITED',
   ACCEPTED = 'ACCEPTED',
 }
