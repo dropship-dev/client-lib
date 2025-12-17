@@ -755,22 +755,11 @@ export class ThemeService {
     storeId: string,
     id: number,
   }): CancelablePromise<{
-    themeTemplateId: number;
     isActivated: boolean;
-    components: any;
-    colors: any;
-    font: string;
-    heroBanner: string;
-    logoSize: _36_Enums_LogoSize;
-    logo: string;
-    nodes: PrismaJson_ThemeNodes;
-    style: PrismaJson_ThemeStyle;
-    name: string;
-    updatedAt: string;
-    createdAt: string;
-    storeId: string;
     id: number;
-    setting: PrismaJson_ThemeSetting;
+    ThemePage: Array<{
+      id: number;
+    }>;
   }> {
     return this.httpRequest.request({
       method: 'DELETE',
