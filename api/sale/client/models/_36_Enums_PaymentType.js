@@ -10,4 +10,5 @@ var _36_Enums_PaymentType;
     _36_Enums_PaymentType["PAYPAL"] = "PAYPAL";
     _36_Enums_PaymentType["STRIPE"] = "STRIPE";
     _36_Enums_PaymentType["CLOVER"] = "CLOVER";
+    _36_Enums_PaymentType["PLATFORM"] = "PLATFORM";
 })(_36_Enums_PaymentType || (exports._36_Enums_PaymentType = _36_Enums_PaymentType = {}));
